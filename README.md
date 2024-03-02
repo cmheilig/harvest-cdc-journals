@@ -20,4 +20,27 @@ These mirrors were constructed in stages, so the code is somewhat disjoint. As s
 
 This archive contains the zipped mirrors of raw HTML ("b0") and minimally pretty-fied HTML ("u3") in folder zipped/, metadata in folder dframes-xlsx/, and Python code in folder pycode/.
 
-This version was constructed on 2023-11-11.
+This version was constructed on 2024-03-01.
+
+collection | description | n
+--- | --- | --:
+mmwr_toc_en | _MMWR Weekly Reports_ table of contents | 42
+mmwr_art_en | _MMWR Weekly Reports_ English-language articles | 12,692
+mmrr_toc_en | _MMWR Recommendations and Reports_ table of contents | 34
+mmrr_art_en | _MMWR Recommendations and Reports_ English-language articles | 551
+mmss_toc_en | _MMWR Surveillance Summaries_ table of contents | 36
+mmss_art_en | _MMWR Surveillance Summaries_ English-language articles | 467
+mmsu_toc_en | _MMWR Supplements_ table of contents | 19
+mmsu_art_en | _MMWR Supplements_ English-language articles | 234
+mmnd_art_en | _MMWR_ notifiable diseases | 1,195
+mmwr_art_es | _MMWR_ Spanish-language articles (19 WR, 1 RR, 2 SU)_ | 22
+eid_toc_en  | _EID_ table of contents | 330
+eid_art_en  | _EID_ English-language articles__ | 12,769
+pcd_toc_en  | _PCD_ English-language table of contents | 49
+pcd_toc_es  | _PCD_ Spanish-language table of contents | 36
+pcd_art_en  | _PCD_ English-language articles | 3,011
+pcd_art_es  | _PCD_ Spanish-language articles | 1,011
+pcd_art_fr  | _PCD_ French-language articles | 357
+pcd_art_zhs | _PCD_ Chinese-language (simplified) articles | 356
+pcd_art_zht | _PCD_ Chinese-language (traditional) articles | 356
+Total | | 33,567
