@@ -45,86 +45,7 @@ These mirrors were constructed in stages. The 3 mirrors were constructed in simi
 
 ## Results
 
-Contents are organized in 19 collections, based on series, scope, and language
-- Series
-  - _MMWR Weekly Reports_ (mmwr)
-  - _MMWR Recommendations and Reports_ (mmrr)
-  - _MMWR Surveillance Summaries_ (mmss)
-  - _MMWR Supplements_ (mmsu)
-  - _MMWR_ Notifiable Diseases (mmnd), a subset of _Weekly Reports_, constructed ad hoc
-  - _Emerging Infectious Diseases_ (eid)
-  - _Preventing Chronic Disease_ (pcd)
-- Scope
-  - Table of contents for volumes and issues (toc)
-  - Article, meaning any individual HTML document (art)
-- Language
-  - English (en)
-  - Spanish (es) (_MMWR_ and _PCD_)
-  - French (fr) (_PCD_ only)
-  - Chinese (simplified: zhs), (traditional: zht) (_PCD_ only)
-
-<details>
-<summary>Constructed metadata and 19 collections, with links (expand section)</summary>
-
-The corpus metadata is available as an [uncompressed CSV file](csv-output/cdc_corpus_df.csv) and a [compressed zip archive](csv-output/cdc_corpus_df.zip). The metadata table includes the following fields, each of which was constructed as a string.
-
-field | description
---- | ---
-url | URL of retrieved document
-collection | series, level, and language code
-series | CDC series (mmwr, mmrr, mmss, mmsu, mmnd, eid, pcd)
-level | level in hierarchy (home, series, volume, issue, article)
-lang | language
-dl_year_mo | year and month of volume (YYYY or YYYY-MM)
-dl_vol_iss | volume and issue (VV, VV(II), or VV(IIII))
-dl_date | date of publication (YYYY-MM-DD)
-dl_page | first arabic page number of article (_MMWR_, _EDI_) (DDDD)
-dl_art_num | article number (_PCD_) (ADDD or EDDD)
-dateline | dateline string from document
-base | base URL from which document reference was harvested
-string | text of <a> element referring to document
-link_canon | canonical link from `<link>`
-md_citation_doi | citation DOI from `<meta>`
-title | title from `<title>`
-md_citation_categories | citation categories from `<meta>`
-dl_cat | category from dateline
-md_kwds | keywords from `<meta>`
-md_desc | description from `<meta>`
-md_citation_author | citation author(s) from `<meta>`
-
-In the following table, each zip archive is linked by collection and output format (UTF-8 HTML, UTF-8 markdown, and ASCII plain text).
-
-collection | description | n | html | md | txt
---- | --- | --: | --- | --- | ---
-mmwr_toc_en | _MMWR Weekly Reports_ table of contents | 42 | [html](json-outputs/html/mmwr_toc_en_html.zip) | [md](json-outputs/md/mmwr_toc_en_md.zip) | [txt](json-outputs/txt/mmwr_toc_en_txt.zip)
-mmrr_toc_en | _MMWR Recommendations and Reports_ table of contents | 34 | [html](json-outputs/html/mmrr_toc_en_html.zip) | [md](json-outputs/md/mmrr_toc_en_md.zip) | [txt](json-outputs/txt/mmrr_toc_en_txt.zip)
-mmss_toc_en | _MMWR Surveillance Summaries_ table of contents | 36 | [html](json-outputs/html/mmss_toc_en_html.zip) | [md](json-outputs/md/mmss_toc_en_md.zip) | [txt](json-outputs/txt/mmss_toc_en_txt.zip)
-mmsu_toc_en | _MMWR Supplements_ table of contents | 19 | [html](json-outputs/html/mmsu_toc_en_html.zip) | [md](json-outputs/md/mmsu_toc_en_md.zip) | [txt](json-outputs/txt/mmsu_toc_en_txt.zip)
-mmwr_art_en | _MMWR Weekly Reports_ English-language articles | 12,692 | [html](json-outputs/html/mmwr_art_en_html.zip) | [md](json-outputs/md/mmwr_art_en_md.zip) | [txt](json-outputs/txt/mmwr_art_en_txt.zip)
-mmrr_art_en | _MMWR Recommendations and Reports_ English-language articles | 551 | [html](json-outputs/html/mmrr_art_en_html.zip) | [md](json-outputs/md/mmrr_art_en_md.zip) | [txt](json-outputs/txt/mmrr_art_en_txt.zip)
-mmss_art_en | _MMWR Surveillance Summaries_ English-language articles | 467 | [html](json-outputs/html/mmss_art_en_html.zip) | [md](json-outputs/md/mmss_art_en_md.zip) | [txt](json-outputs/txt/mmss_art_en_txt.zip)
-mmsu_art_en | _MMWR Supplements_ English-language articles | 234 | [html](json-outputs/html/mmsu_art_en_html.zip) | [md](json-outputs/md/mmsu_art_en_md.zip) | [txt](json-outputs/txt/mmsu_art_en_txt.zip)
-mmnd_art_en | _MMWR_ notifiable diseases\* | 1,195 | [html](json-outputs/html/mmnd_art_en_html.zip) | [md](json-outputs/md/mmnd_art_en_md.zip) | [txt](json-outputs/txt/mmnd_art_en_txt.zip)
-mmwr_art_es | _MMWR_ Spanish-language articles (19 WR, 1 RR, 2 SU)\* | 22 | [html](json-outputs/html/mmwr_art_es_html.zip) | [md](json-outputs/md/mmwr_art_es_md.zip) | [txt](json-outputs/txt/mmwr_art_es_txt.zip)
-eid_toc_en | _EID_ table of contents | 330 | [html](json-outputs/html/eid_toc_en_html.zip) | [md](json-outputs/md/eid_toc_en_md.zip) | [txt](json-outputs/txt/eid_toc_en_txt.zip)
-eid_art_en | _EID_ English-language articles\*\* | 12,769 | html<super>†</super> | md<super>†</super> | [txt](json-outputs/txt/eid_art_en_txt.zip)
-pcd_toc_en | _PCD_ English-language table of contents | 49 | [html](json-outputs/html/pcd_toc_en_html.zip) | [md](json-outputs/md/pcd_toc_en_md.zip) | [txt](json-outputs/txt/pcd_toc_en_txt.zip)
-pcd_toc_es | _PCD_ Spanish-language table of contents | 36 | [html](json-outputs/html/pcd_toc_es_html.zip) | [md](json-outputs/md/pcd_toc_es_md.zip) | [txt](json-outputs/txt/pcd_toc_es_txt.zip)
-pcd_art_en | _PCD_ English-language articles | 3,011 | [html](json-outputs/html/pcd_art_en_html.zip) | [md](json-outputs/md/pcd_art_en_md.zip) | [txt](json-outputs/txt/pcd_art_en_txt.zip)
-pcd_art_es | _PCD_ Spanish-language articles | 1,011 | [html](json-outputs/html/pcd_art_es_html.zip) | [md](json-outputs/md/pcd_art_es_md.zip) | [txt](json-outputs/txt/pcd_art_es_txt.zip)
-pcd_art_fr | _PCD_ French-language articles | 357 | [html](json-outputs/html/pcd_art_fr_html.zip) | [md](json-outputs/md/pcd_art_fr_md.zip) | [txt](json-outputs/txt/pcd_art_fr_txt.zip)
-pcd_art_zhs | _PCD_ Chinese-language (simplified) articles | 356 | [html](json-outputs/html/pcd_art_zhs_html.zip) | [md](json-outputs/md/pcd_art_zhs_md.zip) | [txt](json-outputs/txt/pcd_art_zhs_txt.zip)
-pcd_art_zht | _PCD_ Chinese-language (traditional) articles | 356 | [html](json-outputs/html/pcd_art_zht_html.zip) | [md](json-outputs/md/pcd_art_zht_md.zip) | [txt](json-outputs/txt/pcd_art_zht_txt.zip)
-Total | | 33,567 | | |
-
-\* Collections mmnd_art_en and mmwr_art_es are ad hoc "series" constructed to collect similar documents for end-user convenience.
-
-<super>†</super> _EID_ HTML and markdown files are larger than GitHub permits for this repository.
-
-\*\* All _EID_ articles are in English, though some have non-English elements.
-</details>
-
-## Metadata elements
+### Metadata elements
 
 - Web information
   - Document URL, anchor text of document URL `<a>`, referring URL
@@ -136,6 +57,92 @@ Total | | 33,567 | | |
   - First arabic page number (_MMWR_, _EID_), article number (_PCD_)
 - Additional metadata `<meta>`
   - Category, keywords, description, author(s)
+
+<details>
+<summary>Constructed metadata, with links (expand section)</summary>
+
+The corpus metadata is available as an [uncompressed CSV file](csv-output/cdc_corpus_df.csv) and a [compressed zip archive](csv-output/cdc_corpus_df.zip). The metadata table includes the following fields, each of which was constructed as a string.
+
+field | description
+--- | ---
+url | URL of retrieved document (primary key)
+collection | series, level, and language code
+series | CDC series (`mmwr`, `mmrr`, `mmss`, `mmsu`, `mmnd`, `eid`, `pcd`)
+level | level in hierarchy (`home`, `series`, `volume`, `issue`, `article`)
+lang | language (`en`, `es`, `fr`, `zhs`, `zht`)
+dl_year_mo | year and month of volume (`YYYY` or `YYYY-MM`)
+dl_vol_iss | volume and issue (`VV`, `VV(II)`, or `VV(IIII)`)
+dl_date | date of publication (`YYYY-MM-DD`)
+dl_page | first arabic page number of article (_MMWR_, _EID_) (`DDDD`)
+dl_art_num | article number (_PCD_) (`ADDD` or `EDDD`)
+dateline | dateline string from document or auxiliary
+base | base URL from which document reference was harvested
+string | text of `<a>` element referring to document
+link_canon | canonical link from `<link>`
+md_citation_doi | citation [DOI](https://www.doi.org/the-identifier/what-is-a-doi/) from `<meta>`
+title | title from `<title>`
+md_citation_categories | citation categories from `<meta>`
+dl_cat | category from dateline
+md_kwds | keywords from `<meta>`, pipe-delimited if \> 1
+md_desc | description from `<meta>`
+md_citation_author | citation author(s) from `<meta>`, pipe-delimited if \> 1
+
+</details>
+
+### Collections
+
+Contents are organized in 19 collections, based on series, scope, and language
+- Series
+  - _MMWR Weekly Reports_ (`mmwr`)
+  - _MMWR Recommendations and Reports_ (`mmrr`)
+  - _MMWR Surveillance Summaries_ (`mmss`)
+  - _MMWR Supplements_ (`mmsu`)
+  - _MMWR_ Notifiable Diseases (`mmnd`), a subset of _Weekly Reports_, constructed ad hoc
+  - _Emerging Infectious Diseases_ (`eid`)
+  - _Preventing Chronic Disease_ (`pcd`)
+- Scope
+  - Table of contents for volumes and issues (`toc`)
+  - Article, meaning any individual HTML document (`art`)
+- Language
+  - English (`en`)
+  - Spanish (`es`) (_MMWR_ and _PCD_)
+  - French (`fr`) (_PCD_ only)
+  - Chinese (simplified: `zhs`), (traditional: `zht`) (_PCD_ only)
+
+<details>
+<summary>Constructed collections, with links (expand section)</summary>
+
+In the following table, each zip archive is linked by collection and output format (UTF-8 HTML, UTF-8 markdown, and ASCII plain text).
+
+collection | description | n | html | md | txt
+--- | --- | --: | --- | --- | ---
+`mmwr_toc_en` | _MMWR Weekly Reports_ table of contents | 42 | [html](json-outputs/html/mmwr_toc_en_html.zip) | [md](json-outputs/md/mmwr_toc_en_md.zip) | [txt](json-outputs/txt/mmwr_toc_en_txt.zip)
+`mmrr_toc_en` | _MMWR Recommendations and Reports_ table of contents | 34 | [html](json-outputs/html/mmrr_toc_en_html.zip) | [md](json-outputs/md/mmrr_toc_en_md.zip) | [txt](json-outputs/txt/mmrr_toc_en_txt.zip)
+`mmss_toc_en` | _MMWR Surveillance Summaries_ table of contents | 36 | [html](json-outputs/html/mmss_toc_en_html.zip) | [md](json-outputs/md/mmss_toc_en_md.zip) | [txt](json-outputs/txt/mmss_toc_en_txt.zip)
+`mmsu_toc_en` | _MMWR Supplements_ table of contents | 19 | [html](json-outputs/html/mmsu_toc_en_html.zip) | [md](json-outputs/md/mmsu_toc_en_md.zip) | [txt](json-outputs/txt/mmsu_toc_en_txt.zip)
+`mmwr_art_en` | _MMWR Weekly Reports_ English-language articles | 12,692 | [html](json-outputs/html/mmwr_art_en_html.zip) | [md](json-outputs/md/mmwr_art_en_md.zip) | [txt](json-outputs/txt/mmwr_art_en_txt.zip)
+`mmrr_art_en` | _MMWR Recommendations and Reports_ English-language articles | 551 | [html](json-outputs/html/mmrr_art_en_html.zip) | [md](json-outputs/md/mmrr_art_en_md.zip) | [txt](json-outputs/txt/mmrr_art_en_txt.zip)
+`mmss_art_en` | _MMWR Surveillance Summaries_ English-language articles | 467 | [html](json-outputs/html/mmss_art_en_html.zip) | [md](json-outputs/md/mmss_art_en_md.zip) | [txt](json-outputs/txt/mmss_art_en_txt.zip)
+`mmsu_art_en` | _MMWR Supplements_ English-language articles | 234 | [html](json-outputs/html/mmsu_art_en_html.zip) | [md](json-outputs/md/mmsu_art_en_md.zip) | [txt](json-outputs/txt/mmsu_art_en_txt.zip)
+`mmnd_art_en` | _MMWR_ notifiable diseases\* | 1,195 | [html](json-outputs/html/mmnd_art_en_html.zip) | [md](json-outputs/md/mmnd_art_en_md.zip) | [txt](json-outputs/txt/mmnd_art_en_txt.zip)
+`mmwr_art_es` | _MMWR_ Spanish-language articles (19 WR, 1 RR, 2 SU)\* | 22 | [html](json-outputs/html/mmwr_art_es_html.zip) | [md](json-outputs/md/mmwr_art_es_md.zip) | [txt](json-outputs/txt/mmwr_art_es_txt.zip)
+`eid_toc_en` | _EID_ table of contents | 330 | [html](json-outputs/html/eid_toc_en_html.zip) | [md](json-outputs/md/eid_toc_en_md.zip) | [txt](json-outputs/txt/eid_toc_en_txt.zip)
+`eid_art_en` | _EID_ English-language articles\*\* | 12,769 | html<super>†</super> | md<super>†</super> | [txt](json-outputs/txt/eid_art_en_txt.zip)
+`pcd_toc_en` | _PCD_ English-language table of contents | 49 | [html](json-outputs/html/pcd_toc_en_html.zip) | [md](json-outputs/md/pcd_toc_en_md.zip) | [txt](json-outputs/txt/pcd_toc_en_txt.zip)
+`pcd_toc_es` | _PCD_ Spanish-language table of contents | 36 | [html](json-outputs/html/pcd_toc_es_html.zip) | [md](json-outputs/md/pcd_toc_es_md.zip) | [txt](json-outputs/txt/pcd_toc_es_txt.zip)
+`pcd_art_en` | _PCD_ English-language articles | 3,011 | [html](json-outputs/html/pcd_art_en_html.zip) | [md](json-outputs/md/pcd_art_en_md.zip) | [txt](json-outputs/txt/pcd_art_en_txt.zip)
+`pcd_art_es` | _PCD_ Spanish-language articles | 1,011 | [html](json-outputs/html/pcd_art_es_html.zip) | [md](json-outputs/md/pcd_art_es_md.zip) | [txt](json-outputs/txt/pcd_art_es_txt.zip)
+`pcd_art_fr` | _PCD_ French-language articles | 357 | [html](json-outputs/html/pcd_art_fr_html.zip) | [md](json-outputs/md/pcd_art_fr_md.zip) | [txt](json-outputs/txt/pcd_art_fr_txt.zip)
+`pcd_art_zhs` | _PCD_ Chinese-language (simplified) articles | 356 | [html](json-outputs/html/pcd_art_zhs_html.zip) | [md](json-outputs/md/pcd_art_zhs_md.zip) | [txt](json-outputs/txt/pcd_art_zhs_txt.zip)
+`pcd_art_zht` | _PCD_ Chinese-language (traditional) articles | 356 | [html](json-outputs/html/pcd_art_zht_html.zip) | [md](json-outputs/md/pcd_art_zht_md.zip) | [txt](json-outputs/txt/pcd_art_zht_txt.zip)
+Total | | 33,567 | | |
+
+\* Collections `mmnd_art_en` and `mmwr_art_es` were constructed ad hoc for end-user convenience.
+
+\*\* All _EID_ articles are in English, though some have non-English elements.
+
+<super>†</super> _EID_ HTML and markdown files are larger than GitHub permits for this repository.
+</details>
 
 ## Python modules used
  
