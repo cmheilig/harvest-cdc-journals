@@ -155,3 +155,11 @@ Total | | 33,567 | | |
 - Data wrangling
   - Base Python: [collections](https://docs.python.org/3/library/collections.html), [datetime](https://docs.python.org/3/library/datetime.html)
   - Contributed: [dateutil](https://dateutil.readthedocs.io/en/stable/), [pandas](https://pandas.pydata.org/docs/user_guide/index.html)
+
+## History and credit
+
+Credit for earlier precursors to this effort:
+- [Matt Maenner](https://github.com/mjmaenner) wrote R scripts to harvest the _MMWR_ around 2015 as a way to gather public-domain text in public health for exploring `word2vec` and related methods. Matt is the initial architect and inspiration behind the whole idea.
+- [Scott Lee](https://github.com/scotthlee) advanced some of Matt's work, especially regarding use of machine learning models applied to _MMWR_ contents.
+- [Sam Prausnitz-Weinbaum](https://github.com/sampdubs) ported earlier R functonality to Python in 2019 (after I had made an initial attempt in 2017). Sam also reimplemented `word2vec` and `doc2vec` models using the _MMWR_ corpus, and he added latent Dirichlet allocation (LDA) topic models. Sam and I presented his work to _MMWR_ science staff in July 2019 and to CDC's first Data Visualization Day in October 2019 (poster title: "Portals to the computable MMWR: a proof of concept for depicting (un)natural language in public health").
+- Early in the Covid pandemic, I picked this Python project back up and extended it to include _EID_ and _PCD_ (and tried to include _Public Health Reports_, but that government-sponsored journal is not in the public domain). I chipped away at it every once in a while for a few years and developed the organnzing principles listed at the top of this page. It isn't especially Pythonic, but it is meticulous. For now, it's a gift to learners who could use a manageable corpus on public health. I hope that users will contribute code back to this repository for the benefit of other learners. I might not be done with it yet, despite my earnest intentions.
