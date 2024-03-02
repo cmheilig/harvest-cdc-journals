@@ -58,8 +58,8 @@ These mirrors were constructed in stages. The 3 mirrors were constructed in simi
 - Additional metadata `<meta>`
   - Category, keywords, description, author(s)
 
-<details>
-<summary>Constructed metadata, with links (expand section)</summary>
+<details open>
+<summary>Constructed metadata, with links (expand/collapse section)</summary>
 
 The corpus metadata is available as an [uncompressed CSV file](csv-output/cdc_corpus_df.csv) and a [compressed zip archive](csv-output/cdc_corpus_df.zip). The metadata table includes the following fields, each of which was constructed as a string.
 
@@ -109,8 +109,8 @@ Contents are organized in 19 collections, based on series, scope, and language
   - French (`fr`) (_PCD_ only)
   - Chinese (simplified: `zhs`), (traditional: `zht`) (_PCD_ only)
 
-<details>
-<summary>Constructed collections, with links (expand section)</summary>
+<details open>
+<summary>Constructed collections, with links (expand/collapse section)</summary>
 
 In the following table, each zip archive is linked by collection and output format (UTF-8 HTML, UTF-8 markdown, and ASCII plain text).
 
