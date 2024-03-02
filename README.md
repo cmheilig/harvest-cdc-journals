@@ -15,18 +15,18 @@ This version was constructed on 2024-03-01.
 ## CDC's journals: public domain, public health
 
 This collection of files includes mirrored copies of HTML articles from CDC's 3 online journals
-- [_Morbidity and Mortality Weekly Report_ (_MMWR_)](https://www.cdc.gov/mmwr/)
+- [_Morbidity and Mortality Weekly Report_](https://www.cdc.gov/mmwr/) (_MMWR_)
   - 4 series available in HTML 1982-2023 (volumes 31-72)
-- [_Emerging Infectious Diseases_ (_EID_)](https://wwwnc.cdc.gov/eid)
+- [_Emerging Infectious Diseases_](https://wwwnc.cdc.gov/eid) (_EID_)
   - Available in HTML 1995-2023 (volumes 1-29)
-- [_Preventing Chronic Disease_ (_PCD_)](https://www.cdc.gov/pcd/)
+- [_Preventing Chronic Disease_](https://www.cdc.gov/pcd/) (_PCD_)
   - Available in HTML 2004-2023 (volumes 1-20)
 
 Result: 33,567 HTML documents, spanning 42 years (See [the Results section](#results) below for details.)
 
 ## Work sequence
 
-These mirrors were constructed in stages. The 3 mirrors were constructed in similar (but not identical) ways:
+These mirrors were constructed in stages. The 3 mirrors were constructed in similar (but not identical) ways. For dateline information, the code and repository include ad hoc adjustments to fill in missing information, correct inaccurate information, and organize auxiliary information not readily available by processing source HTML files.
 
 0. **Set up** the Python environment. [0_setup.py](pycode/0_setup.py)
 
@@ -34,7 +34,10 @@ These mirrors were constructed in stages. The 3 mirrors were constructed in simi
 
 2. Convert to **Unicode HTML**, cleaning up anomalies. [2_html.py](pycode/2_html.py)
 
-3. Extract and organize **dateline** information, including information on series, volume, issue, article, page, and publication date, cleaning up anomalies. [3_dateline_mmwr.py](pycode/3_dateline_mmwr.py), [3_dateline_eid.py](pycode/3_dateline_eid.py), [3_dateline_pcd.py](pycode/3_dateline_pcd.py)
+3. Extract and organize **dateline information**, including information on series, volume, issue, article, page, and publication date, cleaning up anomalies. [3_dateline_mmwr.py](pycode/3_dateline_mmwr.py), [3_dateline_eid.py](pycode/3_dateline_eid.py), [3_dateline_pcd.py](pycode/3_dateline_pcd.py)
+   - _MMWR_ [mmwr_dateline_corrections](json-files/aux/mmwr_dateline_corrections.json)
+   - _EID_ [eid_missing_pages](json-files/aux/eid_missing_pages.json)
+   - _PCD_ [pcd_article_numbers](json-files/aux/pcd_article_numbers.json), [pcd_corrected_datelines](json-files/aux/pcd_corrected_datelines.json), [pcd_vol_iss_dates](json-files/aux/pcd_vol_iss_dates.json), [pcd_year_mo_to_vol_iss](json-files/aux/pcd_year_mo_to_vol_iss.json)
 
 4. Extract and organize **other metadata** as available, including digital obeject identifier, title, keywords, description, and author(s). [4_metadata.py](pycode/4_metadata.py)
 
@@ -58,7 +61,7 @@ Contents are organized in 19 collections, based on series, scope, and language
   - English (en)
   - Spanish (es) (_MMWR_ and _PCD_)
   - French (fr) (_PCD_ only)
- - Chinese (simplified: zhs), (traditional: zht) (_PCD_ only)
+  - Chinese (simplified: zhs), (traditional: zht) (_PCD_ only)
 
 <details>
 <summary>Table of 19 collections and links to zip archives</summary>
@@ -104,7 +107,7 @@ Total | | 33,567 | | |
 - Dateline
   - Dateline string
   - Volume/issue, year/month of volume/issue, publication date
-  - First arabic page number (MMWR, EID), article number (PCD)
+  - First arabic page number (_MMWR_, _EID_), article number (_PCD_)
 - Additional metadata `<meta>`
   - Category, keywords, description, author(s)
 
