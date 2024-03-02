@@ -5,7 +5,7 @@
 - Retrieve, organize, and share the contents and metadata from CDC's 3 online, public-domain series (_MMWR_, _EID_, _PCD_)
   - Make as few changes to raw sources as possible, to support as many downstream uses as possible
   - Organize metadata to enrich potential uses of text contents
-  - Use methods and formats that ease sharing (CSV for metadata, JSON for HTML, markdown, and plain-text contents)
+  - Use methods and formats that ease sharing (CSV for metadata; JSON for HTML, markdown, and plain-text contents)
 - Benefits to learners
   - Explore text-analytic methods using contents and metadata
   - Use git-reposited Python code to replicate and contribute
@@ -32,12 +32,12 @@ These mirrors were constructed in stages. The 3 mirrors were constructed in simi
 
 1. **Mirror raw HTML**. Perform a minimal set of queries to each journal website, sufficient to construct a complete hierarchy and list of HTML files to retrieve: lists of series components, volumes within series, issues within volumes, and articles within issues. Retrieve the raw HTML as binary streams, with no modification, to a mirrored structure on local disk. [1_mirror_mmwr.py](pycode/1_mirror_mmwr.py), [1_mirror_eid.py](pycode/1_mirror_eid.py), [1_mirror_pcd.py](pycode/1_mirror_pcd.py)
 
-2. Convert to **Unicode HTML**, cleaning up anomalies. [2_html.py](pycode/2_html.py)
+2. Convert to **Unicode (UTF-8) HTML**, cleaning up anomalies. [2_html.py](pycode/2_html.py)
 
 3. Extract and organize **dateline information**, including information on series, volume, issue, article, page, and publication date, cleaning up anomalies. [3_dateline_mmwr.py](pycode/3_dateline_mmwr.py), [3_dateline_eid.py](pycode/3_dateline_eid.py), [3_dateline_pcd.py](pycode/3_dateline_pcd.py)
-   - _MMWR_ [mmwr_dateline_corrections](json-inputs/mmwr_dateline_corrections.json)
-   - _EID_ [eid_missing_pages](json-inputs/eid_missing_pages.json)
-   - _PCD_ [pcd_article_numbers](json-inputs/pcd_article_numbers.json), [pcd_corrected_datelines](json-inputs/pcd_corrected_datelines.json), [pcd_vol_iss_dates](json-inputs/pcd_vol_iss_dates.json), [pcd_year_mo_to_vol_iss](json-inputs/pcd_year_mo_to_vol_iss.json)
+   - _MMWR_: [mmwr_dateline_corrections](json-inputs/mmwr_dateline_corrections.json)
+   - _EID_: [eid_missing_pages](json-inputs/eid_missing_pages.json)
+   - _PCD_: [pcd_year_mo_to_vol_iss](json-inputs/pcd_year_mo_to_vol_iss.json), [pcd_vol_iss_dates](json-inputs/pcd_vol_iss_dates.json), [pcd_corrected_datelines](json-inputs/pcd_corrected_datelines.json), [pcd_article_numbers](json-inputs/pcd_article_numbers.json)
 
 4. Extract and organize **other metadata** as available, including digital obeject identifier, title, keywords, description, and author(s). [4_metadata.py](pycode/4_metadata.py)
 
@@ -45,7 +45,7 @@ These mirrors were constructed in stages. The 3 mirrors were constructed in simi
 
 ## Results
 
-### Metadata elements
+### Metadata fields
 
 - Web information
   - Document URL, anchor text of document URL `<a>`, referring URL
