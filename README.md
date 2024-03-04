@@ -91,7 +91,7 @@ md_citation_author | citation author(s) from `<meta>`, pipe-delimited if \> 1
 
 ### Collections
 
-Contents are organized in 19 collections, based on series, scope, and language
+Contents are organized in 19 mutually exclusive collections, based on series, scope, and language:
 - Series
   - _MMWR Weekly Reports_ (`mmwr`)
   - _MMWR Recommendations and Reports_ (`mmrr`)
@@ -147,10 +147,10 @@ Total | | 33,567 | | |
 ## Python modules used
  
 - File and session management
-  - Base Python: [json](https://docs.python.org/3/library/json.html), [os](https://docs.python.org/3/library/os.html), [pickle](https://docs.python.org/3/library/pickle.html), [time](https://docs.python.org/3/library/time.html), [urllib](https://docs.python.org/3/library/urllib.html)
+  - Base Python: [json](https://docs.python.org/3/library/json.html), [os](https://docs.python.org/3/library/os.html), [pickle](https://docs.python.org/3/library/pickle.html), [time](https://docs.python.org/3/library/time.html)
   - Contributed: [tqdm](https://tqdm.github.io/)
 - Web/text
-  - Base Python: [codecs](https://docs.python.org/3/library/codecs.html), [html](https://docs.python.org/3/library/html.html), [re](https://docs.python.org/3/library/re.html), [unicodedata](https://docs.python.org/3/library/unicodedata.html)
+  - Base Python: [codecs](https://docs.python.org/3/library/codecs.html), [html](https://docs.python.org/3/library/html.html), [re](https://docs.python.org/3/library/re.html), [unicodedata](https://docs.python.org/3/library/unicodedata.html), [urllib](https://docs.python.org/3/library/urllib.html)
   - Contributed: [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/), [markdownify](https://github.com/matthewwithanm/python-markdownify), [requests](https://requests.readthedocs.io/en/latest/)
 - Data wrangling
   - Base Python: [collections](https://docs.python.org/3/library/collections.html), [datetime](https://docs.python.org/3/library/datetime.html)
@@ -162,4 +162,4 @@ Credit for earlier precursors to this effort:
 - [Matt Maenner](https://github.com/mjmaenner) wrote R scripts to harvest the _MMWR_ around 2015 as a way to gather public-domain text in public health for exploring `word2vec` and related methods. Matt is the initial architect and inspiration behind the whole idea.
 - [Scott Lee](https://github.com/scotthlee) advanced some of Matt's work, especially regarding use of machine learning models applied to _MMWR_ contents.
 - [Sam Prausnitz-Weinbaum](https://github.com/sampdubs) ported earlier R functonality to Python in 2019 (after I had made an initial attempt in 2017). Sam also reimplemented `word2vec` and `doc2vec` models using the _MMWR_ corpus, and he added latent Dirichlet allocation (LDA) topic models. Sam and I presented his work to _MMWR_ science staff in July 2019 and to CDC's first Data Visualization Day in October 2019 (poster title: "Portals to the computable MMWR: a proof of concept for depicting (un)natural language in public health").
-- Early in the Covid pandemic, I picked this Python project back up and extended it to include _EID_ and _PCD_ (and tried to include _Public Health Reports_, but that government-sponsored journal is not in the public domain). I chipped away at it every once in a while for a few years and developed the organnzing principles listed at the top of this page. It isn't especially Pythonic, but it is meticulous. For now, it's a gift to learners who could use a manageable corpus on public health. I hope that users will contribute code back to this repository for the benefit of other learners. I might not be done with it yet, despite my earnest intentions.
+- Early in the Covid pandemic, I picked this Python project back up and extended it to include _EID_ and _PCD_ (and tried to include _Public Health Reports_, but that government-sponsored journal is not in the public domain). I chipped away at it every once in a while for a few years and developed the organizing principles listed at the top of this page. It isn't especially Pythonic, but it is meticulous. For now, it's a gift to learners who could use a manageable corpus on public health. I hope that users will contribute code back to this repository for the benefit of other learners. I might not be done with it yet, despite my earnest intentions.
