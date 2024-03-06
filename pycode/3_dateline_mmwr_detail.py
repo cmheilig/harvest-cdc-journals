@@ -329,6 +329,7 @@ mmwr_dateline_parsed_df = (
     mmwr_dateline_df
     .drop(columns='dl') # same column in both DataFrames
     .merge(parse_dateline_df, on='path')) # (15161, 28)
+mmwr_dateline_parsed_df.to_pickle('mmwr_dateline_parsed_df.pkl')
 
 md_by_type = {
     'dateline': ['var_dl', 'div_dl', 'src', 'dl', 'fn_stan', 'fn_stem', 'fn_num'], 
