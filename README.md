@@ -41,7 +41,7 @@ These mirrors were constructed in stages. The 3 mirrors were constructed in simi
    - _EID_ JSON input: [eid_missing_pages.json](json-inputs/eid_missing_pages.json)
    - _PCD_ JSON inputs: [pcd_year_mo_to_vol_iss.json](json-inputs/pcd_year_mo_to_vol_iss.json), [pcd_vol_iss_dates.json](json-inputs/pcd_vol_iss_dates.json), [pcd_corrected_datelines.json](json-inputs/pcd_corrected_datelines.json), [pcd_article_numbers.json](json-inputs/pcd_article_numbers.json)
 
-4. Extract and organize **other metadata** as available, including digital obeject identifier, title, keywords, description, and author(s). [4_metadata.py](pycode/4_metadata.py)
+4. Extract and organize **other metadata** as available, including digital object identifier, title, keywords, description, and author(s). [4_metadata.py](pycode/4_metadata.py)
    - Auxiliary script: Investigate **elements in `<head>`**, especially `<meta>` elements with `name` or `property` attributes. [4_metadata_detail.py](pycode/4_metadata_detail.py)
 
 5. Process **text contents** to bundle 3 versions: UTF-8 HTML, UTF-8 markdown, and ASCII plain-text contents. [5_contents.py](pycode/5_contents.py)
