@@ -10,7 +10,7 @@
   - Explore text-analytic methods using contents and metadata
   - Use git-reposited Python code to replicate and contribute
  
-This version was constructed on 2024-03-01.
+This version was constructed on 2024-03-01 using source content retrieved on 2024-01-09.
 
 ## CDC's journals: public domain, public health
 
@@ -33,20 +33,30 @@ These mirrors were constructed in stages. The 3 mirrors were constructed in simi
 1. **Mirror raw HTML**. Perform a minimal set of queries to each journal website, sufficient to construct a complete hierarchy and list of HTML files to retrieve: lists of series components, volumes within series, issues within volumes, and articles within issues. Retrieve the raw HTML as binary streams, with no modification, to a mirrored structure on local disk. [1_mirror_mmwr.py](pycode/1_mirror_mmwr.py), [1_mirror_eid.py](pycode/1_mirror_eid.py), [1_mirror_pcd.py](pycode/1_mirror_pcd.py)
 
 2. Convert to **Unicode (UTF-8) HTML**, cleaning up anomalies. [2_html.py](pycode/2_html.py)
-   - Auxiliary: Refine character classes to normalize **newlines and other spaces** and remove extras. [2_html_reduce-space.py](pycode/2_html_reduce-space.py)
-   - Auxiliary: Figure out how much space can be saved by **reducing `<svg>` elements**. [2_html_reduce-svg.py](pycode/2_html_reduce-svg.py)
+   - Auxiliary script: Refine character classes to normalize **newlines and other spaces** and remove extras. [2_html_reduce-space.py](pycode/2_html_reduce-space.py)
+   - Auxiliary script: Figure out how much space can be saved by **reducing `<svg>` elements**. [2_html_reduce-svg.py](pycode/2_html_reduce-svg.py)
 
 3. Extract and organize **dateline information**, including information on series, volume, issue, article, page, and publication date, cleaning up anomalies. [3_dateline_mmwr.py](pycode/3_dateline_mmwr.py), [3_dateline_eid.py](pycode/3_dateline_eid.py), [3_dateline_pcd.py](pycode/3_dateline_pcd.py)
    - _MMWR_ JSON input: [mmwr_dateline_corrections.json](json-inputs/mmwr_dateline_corrections.json)
    - _EID_ JSON input: [eid_missing_pages.json](json-inputs/eid_missing_pages.json)
    - _PCD_ JSON inputs: [pcd_year_mo_to_vol_iss.json](json-inputs/pcd_year_mo_to_vol_iss.json), [pcd_vol_iss_dates.json](json-inputs/pcd_vol_iss_dates.json), [pcd_corrected_datelines.json](json-inputs/pcd_corrected_datelines.json), [pcd_article_numbers.json](json-inputs/pcd_article_numbers.json)
 
-4. Extract and organize **other metadata** as available, including digital obeject identifier, title, keywords, description, and author(s). [4_metadata.py](pycode/4_metadata.py)
-   - Auxiliary: Investigate **elements in `<head>`**, especially `<meta>` elements with `name` or `property` attributes. [4_metadata_detail.py](pycode/4_metadata_detail.py)
+4. Extract and organize **other metadata** as available, including digital object identifier, title, keywords, description, and author(s). [4_metadata.py](pycode/4_metadata.py)
+   - Auxiliary script: Investigate **elements in `<head>`**, especially `<meta>` elements with `name` or `property` attributes. [4_metadata_detail.py](pycode/4_metadata_detail.py)
 
 5. Process **text contents** to bundle 3 versions: UTF-8 HTML, UTF-8 markdown, and ASCII plain-text contents. [5_contents.py](pycode/5_contents.py)
 
 ## Results
+
+### Raw HTML
+series | # files | original size | zipped size | file list | zip archive
+--- | --: | --: | --: | --- | ---
+_MMWR_ | 15,297 | 2,103 MiB | 413 MiB | [mmwr_1982-2023_zip.csv](html-mirrors/mmwr_1982-2023_zip.csv) | mmwr_1982-2023.zip\*
+_EID_ | 13,100 | 4,622 MiB | 1,396 MiB | [eid_1995-2023_zip.csv](html-mirrors/eid_1995-2023_zip.csv) | eid_1995-2023.zip\*
+_PCD_ | 5,179 | 559 MiB | 164 MiB | [pcd_2004-2023_zip.csv](html-mirrors/pcd_2004-2023_zip.csv) | pcd_2004-2023.zip\*
+Total | 33,576 | 7,284 MiB | 1,972 MiB | | 
+
+\* Zipped archives are larger than GitHub permits for this repository.
 
 ### Metadata fields
 
