@@ -96,9 +96,9 @@ dateline_html_list = [
 
 ## in <meta> and <div> elements (soup)
 # <meta name="...">
-mmwr_meta_names = ['MMWR_Type', 'Volume', 'Issue_Num', 'Issue', 'Page', 'Date', 
-    'citation_categories', 'citation_author', 'citation_doi', 
-    'keywords', 'Keywords', 'description', 'Description']
+mmwr_meta_names = ['MMWR_Type', 'Volume', 'Issue_Num', 'Issue', 'Page', 'Date'] 
+    # ['citation_categories', 'citation_author', 'citation_doi', 
+    # 'keywords', 'Keywords', 'description', 'Description']
 
 def dateline_soup_fn(soup):
     '''Dateline information from soup 
@@ -159,29 +159,29 @@ mmwr_dateline_df = (
 mmwr_dateline_df.src.value_counts().to_dict()
 # {'var_dl': 11803, 'div_dl': 3252, '_no_dl': 106}
 
+# ['fn_stan', 'fn_stem', 'fn_num', 'fn_ser', 'fn_vol', 'fn_iss', 'fn_aem', 
+#  'fn_seq', 'fn_sfx', 'var_dl', 'md_MMWR_Type', 'md_Volume', 'md_Issue_Num', 
+#  'md_Issue', 'md_Page', 'md_Date', 'md_citation_categories', 
+#  'md_citation_author', 'md_citation_doi', 'md_keywords', 'md_Keywords', 
+#  'md_description', 'md_Description', 'div_dl', 'src', 'dl']
+
 mmwr_dateline_df.to_pickle('mmwr_dateline_df.pkl')
 
 #%% Parse dateline string
 
-# mmwr_dateline_df = pd.read_pickle('mmwr_dateline_df')
+# mmwr_dateline_df = pd.read_pickle('pickle-files/mmwr_dateline_df')
 mmwr_dateline_dict = mmwr_dateline_df.dl.to_dict()
 
+## Build up dictionaries and functions to parse dateline string
 
-# separate alphabetic from numeric in volume and issue
-def num_anno(vo_is):
-    vo_is = vo_is.lower()
-    num = re.sub(r'\D', '', vo_is)
-    if num: num = f'{int(num):02d}'
-    anno = re.sub(r'[\d-]', '', vo_is)[:2]
-    if '&' in anno: anno = ''
-    return num, anno
-
-# use mapping (lookup rather than algorithm) to convert roman numerals up to xv
-roman_to_arabic = dict(i=1, ii=2, iii=3, iv=4, v=5, vi=6, vii=7, viii=8, ix=9,
+# map Roman numerals to their integer values
+roman_map = dict(i=1, ii=2, iii=3, iv=4, v=5, vi=6, vii=7, viii=8, ix=9,
     x=10, xi=11, xii=12, xiii=13, xiv=14, xv=15)
-def range_info(range_):
+
+# glean information from page ranges
+def range_info_fn(range_str):
     """
-    range_ is a single string that contains one of the following:
+    range_str is a single string that contains one of the following:
         a single roman numeral
         a hyphen-delimited range of 2 roman numerals in increasing order
         a single arabic numeral
@@ -191,10 +191,10 @@ def range_info(range_):
     return a dictionary with total number of pages and normalized range;
         arabic integers remove leading zeroes and restore higher-order digits
     """
-    has_hyphen = ('\N{HYPHEN-MINUS}' in range_)
-    is_roman = (re.search(r'\d', range_) is None)
+    has_hyphen = ('\N{HYPHEN-MINUS}' in range_str)
+    is_roman = (re.search(r'\d', range_str) is None)
     if has_hyphen and not is_roman:
-        num_fm, num_to = range_.split('-')
+        num_fm, num_to = range_str.split('-')
         val_fm, val_to = [int(x) for x in (num_fm, num_to)]
         rep_fm, rep_to = [str(x) for x in (val_fm, val_to)]
         if (len(rep_fm) > len(rep_to)):
@@ -203,36 +203,33 @@ def range_info(range_):
         n_pages = val_to - val_fm + 1
         rep = rep_fm + '-' + rep_to
     elif has_hyphen and is_roman:
-        rep_fm, rep_to = range_.split('-')
-        val_fm, val_to = [roman_to_arabic[num] for num in (rep_fm, rep_to)]
+        rep_fm, rep_to = range_str.split('-')
+        val_fm, val_to = [roman_map[num] for num in (rep_fm, rep_to)]
         n_pages = val_to - val_fm + 1
-        rep = rep_fm + '-' + rep_to # == range_
+        rep = rep_fm + '-' + rep_to # == range_str
     else: # not has_hyphen
         n_pages = 1
         if not is_roman:
-            rep = str(int(range_))
+            rep = str(int(range_str))
         else:
-            rep = range_
-    return dict(n_pages=n_pages, rep=rep)
+            rep = range_str
+    return dict(n_pages=n_pages, repr_str=rep)
 
-# {k: range_info(k) for k in ['v', 'i-v', '5', '5-9', '15-9', '105-9', '105-19']}
+# {k: range_info_fn(k) for k in ['v', 'i-v', '5', '5-9', '15-9', '105-9', '105-19']}
 
-def pages(page_str):
+def pages_fn(page_str):
     """
     Given a string containing pages of an article, return a dictionary:
-        first:    first roman numeral, useful for sorting
-        pages:    total number of pages
-        ranges: total number of ranges
-        anno:     annotation for ND, Q, SS, or S
-        normed: normalized string of pages
+        dl_page: first arabic numeral, useful for sorting
+        dl_repr: normalized string of pages
+        dl_npgs: total number of pages
+        dl_anno: annotation for ND, Q, SS, or S
     """
     page_str = page_str.lower()
     if not re.search(r'[ivx\d]', page_str): # check for any numbers, incl roman
         return dict(dl_page=0, dl_pgs='', dl_npgs=0, dl_pgs_anno='')#, ranges=0
     # strip extraneous characters; keep nd, q, s, i, v, x, 0-9
     page_str = re.match(r'\A[^ndqsivx\d]*(.*?)[^ndqsivx\d]*\Z', page_str).group(1)
-    # strip initial SPACE or COLON
-    # page_str = re.sub('^[ :]', '', page_str)
 
     # determine presence of nd, q, ss, s; note and remove
     anno = '' # initialize annotation
@@ -242,7 +239,6 @@ def pages(page_str):
             anno = _anno
             page_str = re.sub(_remo, '', page_str)
             break
-    # print(f'anno: {anno}')
 
     # determine first arabic page number
     if re.search(r'\d', page_str):
@@ -257,15 +253,22 @@ def pages(page_str):
                 .replace('\N{EN DASH}', '\N{HYPHEN-MINUS}').replace(' - ', '-')
                 .replace(';', ',').replace('-,', ',').replace(', ', ','))
     # print(f'page_str.split: {page_str.split(",")!r}')
-    ranges = [range_info(range_) for range_ in page_str.split(',')]
-    n_pages = sum([range_['n_pages'] for range_ in ranges])
-    r_pages = ','.join([range_['rep'] for range_ in ranges])
-    return dict(dl_page=first, dl_pgs=r_pages, dl_npgs=n_pages, dl_pgs_anno=anno)
+    ranges = [range_info_fn(range_str) for range_str in page_str.split(',')]
+    n_pages = sum([range_str['n_pages'] for range_str in ranges])
+    r_pages = ','.join([range_str['repr_str'] for range_str in ranges])
+    return dict(dl_page=first, dl_repr=r_pages, dl_npgs=n_pages, dl_anno=anno)
 
-# pages('856-857;859-869')
+# pages_fn('856-857;859-869')
 
-# regular expression to parse dateline
-mmwr_dateline_re = re.compile(r'(?P<series>.*?)/(?P<date>.*?)/(?P<vo_is_pg>.*)')
+# separate alphabetic from numeric in volume and issue
+def num_anno_fn(vo_is):
+    vo_is = vo_is.lower()
+    num = re.sub(r'\D', '', vo_is)
+    if num: num = f'{int(num):02d}'
+    anno = re.sub(r'[\d-]', '', vo_is)[:2]
+    if '&' in anno: anno = ''
+    return num, anno
+
 # series abbreviations for strings that appear in dateline
 series_map = {
     'weekly': 'mm', 'quickg': 'mm', 'dispat': 'mm', 'semana': 'mm', 
@@ -278,125 +281,67 @@ def parse_dateline_fn(dl):
     """
     # prepare and split dateline into 3 segments at '/'
     n_solidus = dl.count('/') # number of forward slash characters
-    if n_solidus < 2:
-        dl += (2-n_solidus)*'/'
-    dl_ser, dl_date, vo_is_pg = [x.strip() 
-                                 for x in mmwr_dateline_re.match(dl.lower()).groups()]
+    if n_solidus < 2: dl += (2-n_solidus)*'/'
+    # regular expression to parse dateline into a dictionary
+    mmwr_dateline_re = re.compile(
+        '(?P<series>.*?)/(?P<date>.*?)/(?P<vo_is_pg>.*)')
+
+    dl_ser, dl_date, vo_is_pg = [
+        x.strip() for x in mmwr_dateline_re.match(dl.lower()).groups()]
     # check/refine series, date, volume/issue/pages
     ## series
     dl_ser = series_map.get(dl_ser[:6], '')
     ## date
-    try:
-        dl_date = parse_date(dl_date).date().isoformat()
-    except:
-        pass
+    try:    dl_date = parse_date(dl_date).date().isoformat()
+    except: pass
     ## volume/issue/pages
     vo_is_pg_split = re.split(r' ?\(|\);?', vo_is_pg)
     if len(vo_is_pg_split) < 3:
         dl_vol, dl_iss, dl_pgs = ['_']*3
     else:
         dl_vol, dl_iss, dl_pgs = vo_is_pg_split
-    dl_vol_num, dl_vol_anno = num_anno(dl_vol)
-    dl_iss_num, dl_iss_anno = num_anno(dl_iss)
+    dl_vol_num, dl_vol_anno = num_anno_fn(dl_vol)
+    dl_iss_num, dl_iss_anno = num_anno_fn(dl_iss)
     try:
-        dl_pgs = pages(dl_pgs)
+        dl_pages = pages_fn(dl_pgs)
     except:
-        dl_pgs = pages('')
+        dl_pages = pages_fn('')
     return dict(dl_ser=dl_ser, dl_date=dl_date, 
                 dl_vol_num=dl_vol_num, dl_vol_anno=dl_vol_anno, 
                 dl_iss_num=dl_iss_num, dl_iss_anno=dl_iss_anno, 
-                **dl_pgs)
+                **dl_pages)
 
-# Bring it all together
-# by source
+parse_dateline_list = [
+    dict(path=path, dl=dl, **parse_dateline_fn(dl))
+    for path, dl in tqdm(mmwr_dateline_dict.items())]
+parse_dateline_df = (
+    pd.DataFrame(parse_dateline_list)
+    .set_index('path')
+    .drop(columns=['dl_vol_anno', 'dl_pgs', 'dl_pgs_anno'])) # (15161, 10)
+# ['dl', 'dl_ser', 'dl_date', 'dl_vol_num', 'dl_iss_num', 'dl_iss_anno',
+#  'dl_page', 'dl_repr', 'dl_npgs', 'dl_anno']
+parse_dateline_df.to_pickle('parse_dateline_df.pkl')
+# parse_dateline_df.to_excel('parse_dateline_df.xlsx', freeze_panes=(1,0))
 
-# optional argument alt_dateline is dict mapping path to alternate dateline
-def mmwr_metadata_fn(path, alt_dateline=None):
-    # path
-    filestan = (re.match(mmwr_filestan_re, path) is not None)
-    filestem = re.match(mmwr_filestem_re, path).groupdict(default='')
-    filestem['fn_es'] = 'es' if 'ensp' in filestem['fn_stem'] else ''
-    vol_ge_65 = (filestan and (int(filestem['fn_vol']) >= 65))
-    # html
-    var_dateline = var_dateline_fn(mmwr_art_unx[path])
-    # soup
-    soup_meta = mmwr_soup_meta_fn(mmwr_soup[path])
-    # cross-check
-    if alt_dateline is not None and path in alt_dateline:
-        dateline = alt_dateline[path]
-    else:
-        dateline = soup_meta['div_dateline'] if vol_ge_65 else var_dateline
-    del soup_meta['div_dateline']
-    dl_meta = parse_dateline_fn(dateline)
-    filestem['fn_nd'] = 'nd' if (filestem['fn_stem'].endswith('md') or
-                                 soup_meta['title'].startswith('Notifiable Diseases')) \
-                        else ''
+#%% Merge parsed dateline back with other dateline information
 
-    result = dict(path=path, vol_ge_65=vol_ge_65, filestan=filestan, 
-                  **filestem, dateline=dateline, **dl_meta, **soup_meta)
-    # exceptions
-    result['x_doi'] = (
-        (result['md_citation_doi'] !='') and 
-        (result['md_citation_doi'] != ('10.15585/mmwr.' + result['fn_stem'])))
-    result['x_ser'] = (
-        len({result.get(k) for k in ['fn_ser', 'dl_ser', 'md_MMWR_Type']} -
-            {'', '_', None}) != 1) # not uniquely nonblank
-    result['x_vol'] = (
-        len({result.get(k) for k in ['fn_vol', 'dl_vol_num', 'md_vol_num']} - 
-            {'', None}) != 1) # not uniquely nonblank
-    result['x_iss_num'] = (
-        len({result.get(k) for k in ['fn_iss', 'dl_iss_num', 'md_Issue_Num', 'md_iss_num']} -
-            {'', None}) != 1) # not uniquely nonblank
-    result['x_iss_anno'] = (result['dl_iss_anno'] != result['md_iss_anno'])
-    result['x_pgs'] = (result['dl_pgs'] == '')
-    result['x_date'] = (
-        (len(result['dl_date']) != 10) or 
-        (len(result['md_Date']) not in {0, 10}) or
-        ((result['dl_date'] != result['md_Date']) and (result['md_Date'] != '')))
-    result['x_any'] = any(
-        [result[x] for x in ['x_ser', 'x_vol', 'x_iss_num', 'x_iss_anno',
-                             'x_pgs', 'x_date']])
-    return result
+mmwr_dateline_parsed_df = (
+    mmwr_dateline_df
+    .drop(columns='dl') # same column in both DataFrames
+    .merge(parse_dateline_df, on='path')) # (15161, 35)
 
-# mmwr_metadata_fn('/mmwr/preview/mmwrhtml/su5501a1.htm')
-
-mmwr_metadata_list = [mmwr_metadata_fn(path) for path in tqdm(mmwr_art_unx.keys())]
-# 15161/15161 [07:14<00:00, 34.90it/s]
-# mmwr_metadata_df = pd.DataFrame(mmwr_metadata_list) # (15122, 50)
-
-md_by_src = {
- 'main': ['path', 'vol_ge_65', 'filestan', 'dateline'], 
- 'filestem': ['fn_stem', 'fn_num', 'fn_ser', 'fn_vol', 'fn_iss', 'fn_aem', 
-              'fn_seq', 'fn_sfx', 'fn_nd', 'fn_es'], 
- 'dl_meta': ['dl_ser', 'dl_date', 'dl_vol_num', 'dl_vol_anno', 'dl_iss_num', 'dl_iss_anno', 
-             'dl_page', 'dl_pgs', 'dl_npgs', 'dl_pgs_anno'], 
- 'soup_meta': ['title', 'link_canon', 'md_MMWR_Type', 
-               'md_Volume', 'md_vol_num', 'md_vol_anno', 
-               'md_Issue_Num', 'md_Issue', 'md_iss_num', 'md_iss_anno', 
-               'md_Page', 'md_page_num', 'md_page_anno', 
-               'md_Date', 'md_Keywords', 'md_Description', 
-               'md_citation_categories', 'md_citation_author', 'md_citation_doi', 
-               'md_keywords', 'md_description'],
- 'check': ['x_doi', 'x_ser', 'x_vol', 'x_iss_num', 'x_iss_anno', 'x_pgs', 'x_date']}
-md_by_src_cols = [v for val in md_by_src.values() for v in val]
-# by type
 md_by_type = {
- 'filename': ['path', 'link_canon', 'filestan', 'fn_stem', 'fn_num', 'fn_nd', 'fn_es', 
-              'md_citation_doi', 'x_doi'], 
- 'series': ['fn_ser', 'dl_ser', 'md_MMWR_Type', 'x_ser'], 
- 'volume': ['vol_ge_65', 'fn_vol', 'dl_vol_num', 'dl_vol_anno', 
-            'md_Volume', 'md_vol_num', 'md_vol_anno', 'x_vol'], 
- 'issue': ['fn_iss', 'dl_iss_num', 'dl_iss_anno', 
-           'md_Issue_Num', 'md_Issue', 'md_iss_num', 'md_iss_anno', 'x_iss_num', 'x_iss_anno'], 
- 'pages': ['dl_page', 'dl_pgs', 'dl_npgs', 'dl_pgs_anno', 'md_Page', 'md_page_num', 'md_page_anno', 
-           'fn_aem', 'fn_seq', 'fn_sfx', 'x_pgs'], 
- 'date': ['dl_date', 'md_Date', 'dl_vol_num', 'dl_iss_num', 'x_date'],
- 'kwds': ['md_Keywords', 'md_keywords'],
- 'desc': ['md_Description', 'md_description'], 
- 'other': ['dateline', 'title', 'md_citation_categories', 'md_citation_author']}
-# 'dl_vol_num', 'dl_iss_num' appear twice; list(fromkeys()) preserves order
+    'dateline': 'var_dl', 'div_dl', 'src', 'dl', 'fn_stan', 'fn_stem', 'fn_num', 
+    'series': 'fn_ser', 'md_MMWR_Type', 'dl_ser',
+    'volume': 'fn_vol', 'md_Volume', 'dl_vol_num',
+    'issue': 'fn_iss', 'md_Issue_Num', 'md_Issue', 'dl_iss_num', 'dl_iss_anno',
+    'pages': 'md_Page', 'dl_page', 'dl_repr', 'dl_npgs', 'dl_anno',
+    'date':  'md_Date', 'dl_date',
+    'other': 'fn_aem', 'fn_seq', 'fn_sfx'}
 md_by_type_cols = list(dict.fromkeys([v for val in md_by_type.values() for v in val]))
-set(md_by_src_cols) ^ set(md_by_type_cols) # set()
+set(mmwr_dateline_parsed_df.columns) ^ set(md_by_type_cols) # set()
+
+#%% resume here
 
 mmwr_metadata_df = pd.DataFrame(mmwr_metadata_list)[md_by_type_cols] # (15122, 52)
 # mmwr_metadata_df.to_excel('mmwr_metadata_df.xlsx', freeze_panes=(1,0))
@@ -510,11 +455,11 @@ def mmwr_soup_meta_fn(soup):
                  for tag in [soup.find(name='meta', attrs={'name': meta_name})]
                  if (tag is not None) and (tag.get('content') != '')})
     # extract and normalize numeric and alphabetic components
-    _, name_vals['md_MMWR_Type'] = num_anno(name_vals['md_MMWR_Type'])
-    md_vol_num, md_vol_anno = num_anno(name_vals.get('md_Volume'))
-    md_iss_num, md_iss_anno = num_anno(name_vals.get('md_Issue'))
-    name_vals['md_Issue_Num'], _ = num_anno(name_vals.get('md_Issue_Num'))
-    md_page_num, md_page_anno = num_anno(name_vals.get('md_Page'))
+    _, name_vals['md_MMWR_Type'] = num_anno_fn(name_vals['md_MMWR_Type'])
+    md_vol_num, md_vol_anno = num_anno_fn(name_vals.get('md_Volume'))
+    md_iss_num, md_iss_anno = num_anno_fn(name_vals.get('md_Issue'))
+    name_vals['md_Issue_Num'], _ = num_anno_fn(name_vals.get('md_Issue_Num'))
+    md_page_num, md_page_anno = num_anno_fn(name_vals.get('md_Page'))
     
     md_vals = dict(
         title=title, link_canon=link_canon, div_dateline=div_dateline, 
