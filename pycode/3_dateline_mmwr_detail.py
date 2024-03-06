@@ -155,7 +155,7 @@ mmwr_dateline_df = (
     mmwr_dateline_df
     .merge(mmwr_dateline_df[['var_dl', 'div_dl']]
            .apply(lambda row: which_dl_fn(row), result_type='expand', axis=1),
-           on='path')) # (15161, 26)
+           on='path')) # (15161, 19)
 mmwr_dateline_df.src.value_counts().to_dict()
 # {'var_dl': 11803, 'div_dl': 3252, '_no_dl': 106}
 
@@ -328,16 +328,16 @@ parse_dateline_df.to_pickle('parse_dateline_df.pkl')
 mmwr_dateline_parsed_df = (
     mmwr_dateline_df
     .drop(columns='dl') # same column in both DataFrames
-    .merge(parse_dateline_df, on='path')) # (15161, 35)
+    .merge(parse_dateline_df, on='path')) # (15161, 28)
 
 md_by_type = {
-    'dateline': 'var_dl', 'div_dl', 'src', 'dl', 'fn_stan', 'fn_stem', 'fn_num', 
-    'series': 'fn_ser', 'md_MMWR_Type', 'dl_ser',
-    'volume': 'fn_vol', 'md_Volume', 'dl_vol_num',
-    'issue': 'fn_iss', 'md_Issue_Num', 'md_Issue', 'dl_iss_num', 'dl_iss_anno',
-    'pages': 'md_Page', 'dl_page', 'dl_repr', 'dl_npgs', 'dl_anno',
-    'date':  'md_Date', 'dl_date',
-    'other': 'fn_aem', 'fn_seq', 'fn_sfx'}
+    'dateline': ['var_dl', 'div_dl', 'src', 'dl', 'fn_stan', 'fn_stem', 'fn_num'], 
+    'series': ['fn_ser', 'md_MMWR_Type', 'dl_ser'],
+    'volume': ['fn_vol', 'md_Volume', 'dl_vol_num'],
+    'issue': ['fn_iss', 'md_Issue_Num', 'md_Issue', 'dl_iss_num', 'dl_iss_anno'],
+    'pages': ['md_Page', 'dl_page', 'dl_repr', 'dl_npgs', 'dl_anno'],
+    'date':  ['md_Date', 'dl_date'],
+    'other': ['fn_aem', 'fn_seq', 'fn_sfx']}
 md_by_type_cols = list(dict.fromkeys([v for val in md_by_type.values() for v in val]))
 set(mmwr_dateline_parsed_df.columns) ^ set(md_by_type_cols) # set()
 
