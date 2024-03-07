@@ -22,9 +22,15 @@ Dateline information takes 3 forms from 4 components:
 
 The dateline string is especially tricky to parse over the full 1982-2023.
 
+0. Set up environment
+1. Retrieve (unpickle) trimmed, UTF-8 HTML
+2. Extract MMWR dateline information from path, html, soup
+3. Parse dateline string
+4. Merge parsed dateline back with other dateline information
+5. Review corrections
 """
 
-#%% Set up environment
+#%% 0. Set up environment
 import pickle
 import json
 #x from collections import Counter, defaultdict
@@ -33,7 +39,7 @@ from dateutil.parser import parse as parse_date
 
 os.chdir('/Users/cmheilig/cdc-corpora/_test')
 
-#%% Retrieve (unpickle) trimmed, UTF-8 HTML
+#%% 1. Retrieve (unpickle) trimmed, UTF-8 HTML
 mmwr_art_unx = pickle.load(open('pickle-files/mmwr_art_unx.pkl', 'rb'))
 
 mmwr_art_soup = {
@@ -41,7 +47,7 @@ mmwr_art_soup = {
     for path, html in tqdm(mmwr_art_unx.items())}
 # 15161/15161 [13:00<00:00, 19.42it/s]
 
-#%% MMWR dateline information 
+#%% 2. Extract MMWR dateline information
 # path: path, filestem, file_; 
 # html: var_dateline; 
 # soup: div_dateline, title, link_canon, MMWR_Type, Volume, Issue_Num, Issue,
@@ -167,7 +173,7 @@ mmwr_dateline_df.src.value_counts().to_dict()
 
 mmwr_dateline_df.to_pickle('mmwr_dateline_df.pkl')
 
-#%% Parse dateline string
+#%% 3. Parse dateline string
 
 # mmwr_dateline_df = pd.read_pickle('pickle-files/mmwr_dateline_df')
 mmwr_dateline_dict = mmwr_dateline_df.dl.to_dict()
@@ -227,7 +233,7 @@ def pages_fn(page_str):
     """
     page_str = page_str.lower()
     if not re.search(r'[ivx\d]', page_str): # check for any numbers, incl roman
-        return dict(dl_page=0, dl_pgs='', dl_npgs=0, dl_pgs_anno='')#, ranges=0
+        return dict(dl_page=0, dl_repr='', dl_npgs=0, dl_anno='')#, ranges=0
     # strip extraneous characters; keep nd, q, s, i, v, x, 0-9
     page_str = re.match(r'\A[^ndqsivx\d]*(.*?)[^ndqsivx\d]*\Z', page_str).group(1)
 
@@ -317,13 +323,13 @@ parse_dateline_list = [
 parse_dateline_df = (
     pd.DataFrame(parse_dateline_list)
     .set_index('path')
-    .drop(columns=['dl_vol_anno', 'dl_pgs', 'dl_pgs_anno'])) # (15161, 10)
+    .drop(columns=['dl_vol_anno'])) # (15161, 10)
 # ['dl', 'dl_ser', 'dl_date', 'dl_vol_num', 'dl_iss_num', 'dl_iss_anno',
 #  'dl_page', 'dl_repr', 'dl_npgs', 'dl_anno']
 parse_dateline_df.to_pickle('parse_dateline_df.pkl')
 # parse_dateline_df.to_excel('parse_dateline_df.xlsx', freeze_panes=(1,0))
 
-#%% Merge parsed dateline back with other dateline information
+#%% 4. Merge parsed dateline back with other dateline information
 
 mmwr_dateline_parsed_df = (
     mmwr_dateline_df
@@ -342,136 +348,29 @@ md_by_type = {
 md_by_type_cols = list(dict.fromkeys([v for val in md_by_type.values() for v in val]))
 set(mmwr_dateline_parsed_df.columns) ^ set(md_by_type_cols) # set()
 
-#%% resume here
-
-mmwr_metadata_df = pd.DataFrame(mmwr_metadata_list)[md_by_type_cols] # (15122, 52)
-# mmwr_metadata_df.to_excel('mmwr_metadata_df.xlsx', freeze_panes=(1,0))
-
-set(md_by_src_cols) ^ set(mmwr_metadata_df.columns) # set()
-set(md_by_type_cols) ^ set(mmwr_metadata_df.columns) # set()
-
-with pd.ExcelWriter('mmwr_metadata_freqs.xlsx', engine='openpyxl') as xlwriter:
-    mmwr_metadata_df.to_excel(xlwriter, sheet_name='all_data', freeze_panes=(1,0))
+with pd.ExcelWriter('mmwr_dateline_freqs.xlsx', engine='openpyxl') as xlwriter:
+    mmwr_dateline_parsed_df.to_excel(xlwriter, sheet_name='all_data', freeze_panes=(1,0))
     for type_, cols in tqdm(md_by_type.items()):
-        (mmwr_metadata_df
+        (mmwr_dateline_parsed_df
          .value_counts(subset=cols, dropna=False, sort=False)
          .reset_index().rename(columns={0: 'freq'}).fillna('')
          .to_excel(xlwriter, sheet_name=type_, freeze_panes=(1,0)))
+del xlwriter, type_, cols
 
-
-### 2b. resolve and construct definitive dateline info
-#   Parse publication series, date, and volume(issue);pages
-
-# correct inconsistent or missing values
-# check again for consistency and completeness
+#%% 5. Review corrections
 
 # dateline corrections started as a JSON file mapping 260 paths to revised datelines
-dateline_cx = json.load(open("dateline_corrections_20231218_path.json"))
+mmwr_dateline_cx = json.load(open("json-inputs/mmwr_dateline_corrections.json"))
 
-# integrate revised dateline values
-mmwr_metadata_cx_list = [
-    mmwr_metadata_fn(md['path'], dateline_cx) if md['path'] in dateline_cx else md
-    for md in tqdm(mmwr_metadata_list)] # copy
-# 15161/15161 [02:32<00:00, 99.45it/s]
-# [md['dateline'] for md in mmwr_metadata_list    if md['path'] in list(dateline_cx)[:10]]
-# [md['dateline'] for md in mmwr_metadata_cx_list if md['path'] in list(dateline_cx)[:10]]
-# pickle.dump(mmwr_metadata_cx_list, open('mmwr_metadata_cx_list.pkl', 'wb'))
-# mmwr_metadata_cx_list = pickle.load(open('mmwr_metadata_cx_list.pkl', 'rb'))
+parse_dateline_cx_list = [
+    dict(path=path, dl=dl, **parse_dateline_fn(dl))
+    for path, dl in tqdm(mmwr_dateline_cx.items())]
+parse_dateline_cx_df = (
+    pd.DataFrame(parse_dateline_cx_list)
+    .set_index('path')
+    .drop(columns=['dl_vol_anno'])) # (260, 10)
 
-# check again for anomalies as with mmwr_metadata_fn
-mmwr_metadata_cx_df = pd.DataFrame(mmwr_metadata_cx_list)[md_by_type_cols] # (15161, 52)
-# mmwr_metadata_df.to_excel('mmwr_metadata_df.xlsx', freeze_panes=(1,0))
-
-with pd.ExcelWriter('mmwr_metadata_cx_freqs.xlsx', engine='openpyxl') as xlwriter:
-    mmwr_metadata_cx_df.to_excel(xlwriter, sheet_name='all_data', freeze_panes=(1,0))
-    for type_, cols in tqdm(md_by_type.items()):
-        (mmwr_metadata_cx_df
-         .value_counts(subset=cols, dropna=False, sort=False)
-         .reset_index().rename(columns={0: 'freq'}).fillna('')
-         .to_excel(xlwriter, sheet_name=type_, freeze_panes=(1,0)))
-del type_, cols
-
-#%% leftover
-#x only_head = SoupStrainer(name='head')
-#x mmwr_cc_df = pickle.load(open("pickle-files/mmwr_cc_df.pkl", "rb")) # (4786, 8)
-#x mmwr_cc_paths = mmwr_cc_df.mirror_path.to_list() # 5179
-
-#x mmwr_toc_unx = pickle.load(open('pickle-files/mmwr_toc_unx.pkl', 'rb'))
-#x%% MMWR
-#x """
-#x Dateline elements:
-#x """
-#x mmwr_toc_soup = {
-#x     path: BeautifulSoup(html, 'lxml')
-#x     for path, html in tqdm(mmwr_toc_unx.items())}
-#x 135/135 [00:03<00:00, 41.54it/s]
-
-x = [dict(path=path, **mmwr_path_re_fn(path)) 
-     for path in mmwr_art_unx]
-pd.DataFrame(x).to_excel('check_mmwr_paths.xlsx', freeze_panes=(1,0))
-
-#x mmwr_soup = {
-#x     path: BeautifulSoup(html, 'lxml')
-#x     for path, html in tqdm(mmwr_art_unx.items())}
-#x 15161/15161 [13:21<00:00, 18.91it/s]
-
-# 2a. harvest series, volume, issue, pages, sequence, date
-#       3 sources: (1) mirror_path, (2) HTML, (3) soup (parsed HTML)
-
-# 2a(1) information from filename stem (only from mm|rr|ss|su)
-
-
-filestem_list = [
-    dict(path=path, stan=(re.match(mmwr_filestan_re, path) is not None),
-         **re.match(mmwr_filestem_re, path).groupdict(''))
-    for path in tqdm(mmwr_art_unx.keys())] # 15161
-# pd.DataFrame(filestem).to_excel('mmwr_filestem_re_df.xlsx', freeze_panes=(1,0))
-
-
-# 2a(2) dateline from Javascript comment, 1982-02-12/2016-01-08
-def var_dateline_fn(html):
-
-var_dateline_list = [
-    dict(path=path, dateline=var_dateline_fn(html))
-    for path, html in tqdm(mmwr_art_unx.items())] # 15122
-# 15161/15161 [00:00<00:00, 20739.54it/s]
-# pd.DataFrame(var_dateline_list).to_excel('var_dateline_df.xlsx', freeze_panes=(1,0))
-
-# 2a(3) compile all the values from soup and place them in a prescribed order
-
-def mmwr_soup_meta_fn(soup):
-    """ """
-    div_dateline = soup.find('div', class_='dateline')
-    div_dateline = '_ / _ / _' if div_dateline is None else \
-                   div_dateline.get_text(strip=True)
-
-    title = '' if soup.title.string is None else soup.title.string.strip()
-    link_canon = soup.find('link', attrs={'rel': 'canonical'})
-    link_canon = '' if link_canon is None else link_canon.get('href').strip()
-
-    name_vals = {'md_' + meta_name: '' for meta_name in mmwr_meta_names}
-    name_vals.update({'md_' + meta_name: 
-                 '' if tag is None else tag.get('content').strip()
-                 for meta_name in mmwr_meta_names
-                 for tag in [soup.find(name='meta', attrs={'name': meta_name})]
-                 if (tag is not None) and (tag.get('content') != '')})
-    # extract and normalize numeric and alphabetic components
-    _, name_vals['md_MMWR_Type'] = num_anno_fn(name_vals['md_MMWR_Type'])
-    md_vol_num, md_vol_anno = num_anno_fn(name_vals.get('md_Volume'))
-    md_iss_num, md_iss_anno = num_anno_fn(name_vals.get('md_Issue'))
-    name_vals['md_Issue_Num'], _ = num_anno_fn(name_vals.get('md_Issue_Num'))
-    md_page_num, md_page_anno = num_anno_fn(name_vals.get('md_Page'))
-    
-    md_vals = dict(
-        title=title, link_canon=link_canon, div_dateline=div_dateline, 
-        **name_vals, md_vol_num=md_vol_num, md_vol_anno=md_vol_anno, 
-        md_iss_num=md_iss_num, md_iss_anno=md_iss_anno, #md_Issue_Num=md_Issue_Num, 
-        md_page_num=md_page_num, md_page_anno=md_page_anno)
-    return md_vals
-
-soup_meta_list = [
-    dict(path=path, **mmwr_soup_meta_fn(soup))
-    for path, soup in tqdm(mmwr_art_soup.items())]
-# 15161/15161 [07:05<00:00, 35.63it/s]
-# pd.DataFrame(div_dateline_list).to_excel('div_dateline_df.xlsx', freeze_panes=(1,0))
-
+# compare
+# parse_dateline_cf_df
+parse_dateline_df.merge(parse_dateline_cx_df, on='path').to_excel(
+    'parse_dateline_cf.xlsx', freeze_panes=(1,0))
