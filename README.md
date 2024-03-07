@@ -37,6 +37,7 @@ These mirrors were constructed in stages. The 3 mirrors were constructed in simi
    - Auxiliary script: Figure out how much space can be saved by **reducing `<svg>` elements**. [2_html_reduce-svg.py](pycode/2_html_reduce-svg.py)
 
 3. Extract and organize **dateline information**, including information on series, volume, issue, article, page, and publication date, cleaning up anomalies. [3_dateline_mmwr.py](pycode/3_dateline_mmwr.py), [3_dateline_eid.py](pycode/3_dateline_eid.py), [3_dateline_pcd.py](pycode/3_dateline_pcd.py)
+   - Auxiliary script: Scrutinize MMWR dateline information [3_dateline_mmwr_detail.py](pycode/3_dateline_mmwr_detail.py)
    - _MMWR_ JSON input: [mmwr_dateline_corrections.json](json-inputs/mmwr_dateline_corrections.json)
    - _EID_ JSON input: [eid_missing_pages.json](json-inputs/eid_missing_pages.json)
    - _PCD_ JSON inputs: [pcd_year_mo_to_vol_iss.json](json-inputs/pcd_year_mo_to_vol_iss.json), [pcd_vol_iss_dates.json](json-inputs/pcd_vol_iss_dates.json), [pcd_corrected_datelines.json](json-inputs/pcd_corrected_datelines.json), [pcd_article_numbers.json](json-inputs/pcd_article_numbers.json)
