@@ -349,7 +349,8 @@ pcd_art_md_df = pd.DataFrame(pcd_art_md_list) # (5091, 12)
 keep_levels = {'volume', 'issue', 'article'}
 map_levels = dict(home='', series='', volume='toc', issue='toc', article='art')
 series_cat = CategoricalDtype(
-    ['mmwr', 'mmnd', 'mmrr', 'mmss', 'mmsu', 'eid', 'pcd'], ordered=True)
+    ['mmwr', 'mmnd', 'mmrr', 'mmss', 'mmsu', 'eid', 'eid0', 'eid1', 'eid2',
+     'pcd'], ordered=True)
 level_cat = CategoricalDtype(
     ['home', 'series', 'volume', 'issue', 'article'], ordered=True)
 corpus_columns = ['url', 'stratum', 'collection', 'series', 'level', 'lang', 
@@ -376,7 +377,7 @@ mmwr_corpus_df = pd.merge(
     left_on='mirror_path',
     right_on='path')                                       # (15292, 29)
 
-# 19 collections of documents in the corpus
+# collections of documents in the corpus
 mmwr_corpus_df['collection'] = (
     mmwr_corpus_df['series']
     .str.cat(mmwr_corpus_df['level'].map(map_levels), sep='_')
@@ -414,7 +415,23 @@ eid_corpus_df = pd.merge(
     left_on='mirror_path',
     right_on='path')                                     # (13099, 26)
 
-eid_corpus_df['series'] = 'eid'
+# ad hoc division of EID articles into 3 series (because of contents size)
+def eid_ser_fn(row):
+    vol = row['dl_vol_iss'][:2]
+    if row['level'] == 'article':
+        if '01' <= vol <= '13':
+            return 'eid0'
+        elif '14' <= vol <= '21':
+            return 'eid1'
+        elif '22' <= vol <= '29':
+            return 'eid2'
+        else:
+            return ''
+    else:
+        return 'eid'
+    
+eid_corpus_df['series'] = (
+    eid_corpus_df[['level', 'dl_vol_iss']].apply(eid_ser_fn, axis=1))
 
 # collections of documents in the corpus
 eid_corpus_df['collection'] = (
@@ -477,20 +494,23 @@ stratum_cat = CategoricalDtype(
 collection_cat = CategoricalDtype(
     ['mmwr_toc_en', 'mmrr_toc_en', 'mmss_toc_en', 'mmsu_toc_en', 
      'mmwr_art_en', 'mmrr_art_en', 'mmss_art_en', 'mmsu_art_en', 
-     'mmnd_art_en', 'mmwr_art_es', 'eid_toc_en', 'eid_art_en', 
+     'mmnd_art_en', 'mmwr_art_es', 
+     'eid_toc_en', 'eid0_art_en', 'eid1_art_en', 'eid2_art_en', 
      'pcd_toc_en', 'pcd_toc_es', 'pcd_art_en', 'pcd_art_es', 
      'pcd_art_fr', 'pcd_art_zhs', 'pcd_art_zht'], ordered=True)
 
 cdc_corpus_df = pd.concat([mmwr_corpus_df, eid_corpus_df, pcd_corpus_df])
 cdc_corpus_df['stratum'] = cdc_corpus_df['stratum'].astype(stratum_cat)
 cdc_corpus_df['collection'] = cdc_corpus_df['collection'].astype(collection_cat)
-cdc_corpus_df = cdc_corpus_df.sort_values(['collection'] + sort_order)
+cdc_corpus_df = (
+    cdc_corpus_df.sort_values(['collection'] + sort_order).reset_index(drop=True))
 # (33567, 23)
 
 cdc_corpus_df.collection.value_counts(sort=False)
 # {'mmwr_toc_en': 42, 'mmrr_toc_en': 34, 'mmss_toc_en': 36, 'mmsu_toc_en': 19, 
 #  'mmwr_art_en': 12692, 'mmrr_art_en': 551, 'mmss_art_en': 467, 'mmsu_art_en': 234, 
-#  'mmnd_art_en': 1195, 'mmwr_art_es': 22, 'eid_toc_en': 330, 'eid_art_en': 12769, 
+#  'mmnd_art_en': 1195, 'mmwr_art_es': 22, 
+#  'eid_toc_en': 330, 'eid0_art_en': 3919, 'eid1_art_en': 4439, 'eid2_art_en': 4411, 
 #  'pcd_toc_en': 49, 'pcd_toc_es': 36, 'pcd_art_en': 3011, 'pcd_art_es': 1011, 
 #  'pcd_art_fr': 357, 'pcd_art_zhs': 356, 'pcd_art_zht': 356}
 pd.crosstab(cdc_corpus_df.collection, cdc_corpus_df.stratum, margins=True)

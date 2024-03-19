@@ -21,6 +21,7 @@ from bs4 import SoupStrainer
 from dateutil.parser import parse as parse_date
 import markdownify as md
 
+only_head = SoupStrainer(name='head')
 only_body = SoupStrainer(name='body')
 
 os.chdir('/Users/cmheilig/cdc-corpora/_test')
