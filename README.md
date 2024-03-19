@@ -50,12 +50,14 @@ These mirrors were constructed in stages. The 3 mirrors were constructed in simi
 ## Results
 
 ### Raw HTML
-series | # files | original size | zipped size | file list | zip archive
---- | --: | --: | --: | --- | ---
-_MMWR_ | 15,297 | 2,103 MiB | 413 MiB | [mmwr_1982-2023_zip.csv](html-mirrors/mmwr_1982-2023_zip.csv) | mmwr_1982-2023.zip\*
-_EID_ | 13,100 | 4,622 MiB | 1,396 MiB | [eid_1995-2023_zip.csv](html-mirrors/eid_1995-2023_zip.csv) | eid_1995-2023.zip\*
-_PCD_ | 5,179 | 559 MiB | 164 MiB | [pcd_2004-2023_zip.csv](html-mirrors/pcd_2004-2023_zip.csv) | pcd_2004-2023.zip\*
-Total | 33,576 | 7,284 MiB | 1,972 MiB | | 
+The raw, mirrored HTML is available in 3 compressed (zipped) archives, as tabulated below. The list of mirrored files is available as a [CSV file](csv-output/cdc_mirror_list.csv) containing the following fields: series (MMWR, EID, PCD), length (uncompressed file size), method of compression, size (compressed file size), cmpr (compression percentage), datetime, CRC-32 rom zip archive, and filename (including partial path information).
+
+series | # files | original size | zipped size | zip archive
+--- | --: | --: | --: | ---
+_MMWR_ | 15,297 | 2,103 MiB | 413 MiB | mmwr_1982-2023.zip\*
+_EID_ | 13,100 | 4,622 MiB | 1,396 MiB | eid_1995-2023.zip\*
+_PCD_ | 5,179 | 559 MiB | 164 MiB | pcd_2004-2023.zip\*
+Total | 33,576 | 7,284 MiB | 1,972 MiB | 
 
 \* Zipped archives are larger than GitHub permits for this repository.
 
@@ -75,12 +77,13 @@ Total | 33,576 | 7,284 MiB | 1,972 MiB | |
 <details open>
 <summary>Constructed metadata, with links (expand/collapse section)</summary>
 
-The corpus metadata is available as an [uncompressed CSV file](csv-output/cdc_corpus_df.csv) and a [compressed zip archive](csv-output/cdc_corpus_df.zip). The metadata table includes the following fields, each of which was constructed as a string.
+The corpus metadata is available as a [CSV file](csv-output/cdc_corpus_df.csv). The metadata table includes the following fields, each of which was constructed as a string.
 
 field | description
 --- | ---
 url | URL of retrieved document (primary key)
-collection | series, level, and language code
+stratum | journal (`mmwr`, `eid`, or `pcd`) and scope (`toc` or `art`)
+collection | series, scope, and language code
 series | CDC series (`mmwr`, `mmrr`, `mmss`, `mmsu`, `mmnd`, `eid`, `pcd`)
 level | level in hierarchy (`home`, `series`, `volume`, `issue`, `article`)
 lang | language (`en`, `es`, `fr`, `zhs`, `zht`)
@@ -93,6 +96,7 @@ dateline | dateline string from document or auxiliary
 base | base URL from which document reference was harvested
 string | text of `<a>` element referring to document
 link_canon | canonical link from `<link>`
+mirror_path | folder path and filename in mirror
 md_citation_doi | citation [DOI](https://www.doi.org/the-identifier/what-is-a-doi/) from `<meta>`
 title | title from `<title>`
 md_citation_categories | citation categories from `<meta>`
@@ -155,7 +159,7 @@ Total | | 33,567 | | |
 
 \* Collections `mmnd_art_en` and `mmwr_art_es` were constructed ad hoc for end-user convenience.
 
-\*\* All _EID_ articles are in English, though some have non-English elements.
+\*\* Collections 0, 1, and 2 correspond to volume years 1995-2007, 2008-2015, and 2016-2023, respectively; these collections were constructed to accommodate file size restrictions on this repository. All _EID_ articles are in English, though some have non-English elements.
 
 ## Python modules used
  
