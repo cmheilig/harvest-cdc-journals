@@ -516,7 +516,7 @@ cdc_corpus_df.collection.value_counts(sort=False)
 pd.crosstab(cdc_corpus_df.collection, cdc_corpus_df.stratum, margins=True)
 
 # use cdc_corpus_df[['url', 'mirror_path', 'stratum', 'collection']]
-# to construct 19 collection segments from 6 html dicts
+# to construct 21 collection segments from 6 html dicts
 
 cdc_corpus_df.to_pickle('cdc_corpus_df.pkl')
 # cdc_corpus_df = pd.read_pickle('pickle-files/cdc_corpus_df.pkl')

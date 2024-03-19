@@ -137,80 +137,109 @@ print_lapse(start_time)
 
 #%%
 # Begin stratum: mmwr_toc; collection: mmwr_toc_en
-# 42/42 [00:02<00:00, 18.78it/s]
-# 42/42 [00:00<00:00, 84.88it/s] 
+# 42/42 [00:01<00:00, 21.19it/s]
+# 42/42 [00:00<00:00, 75.26it/s] 
+# End stratum: mmwr_toc; collection: mmwr_toc_en
 
 # Begin stratum: mmwr_toc; collection: mmrr_toc_en
-# 34/34 [00:00<00:00, 43.81it/s]
-# 34/34 [00:00<00:00, 247.91it/s]
+# 34/34 [00:00<00:00, 48.62it/s]
+# 34/34 [00:00<00:00, 250.48it/s]
+# End stratum: mmwr_toc; collection: mmrr_toc_en
 
 # Begin stratum: mmwr_toc; collection: mmss_toc_en
-# 36/36 [00:00<00:00, 44.18it/s]
-# 36/36 [00:00<00:00, 248.74it/s]
+# 36/36 [00:00<00:00, 50.40it/s]
+# 36/36 [00:00<00:00, 274.50it/s]
+# End stratum: mmwr_toc; collection: mmss_toc_en
 
 # Begin stratum: mmwr_toc; collection: mmsu_toc_en
-# 19/19 [00:00<00:00, 39.14it/s]
-# 19/19 [00:00<00:00, 287.31it/s]
+# 19/19 [00:00<00:00, 58.23it/s]
+# 19/19 [00:00<00:00, 278.10it/s]
+# End stratum: mmwr_toc; collection: mmsu_toc_en
 
 # Begin stratum: mmwr_art; collection: mmwr_art_en
-# 12692/12692 [04:13<00:00, 50.01it/s]
-# 12692/12692 [01:13<00:00, 173.48it/s]
+# 12692/12692 [03:45<00:00, 56.28it/s]
+# 12692/12692 [01:02<00:00, 204.09it/s]
+# End stratum: mmwr_art; collection: mmwr_art_en
 
 # Begin stratum: mmwr_art; collection: mmrr_art_en
-# 551/551 [00:27<00:00, 20.01it/s]
-# 551/551 [00:09<00:00, 55.32it/s] 
+# 551/551 [00:16<00:00, 32.87it/s]
+# 551/551 [00:08<00:00, 63.74it/s] 
+# End stratum: mmwr_art; collection: mmrr_art_en
 
 # Begin stratum: mmwr_art; collection: mmss_art_en
-# 467/467 [02:06<00:00,  3.68it/s]
-# 467/467 [00:39<00:00, 11.79it/s] 
+# 467/467 [02:01<00:00,  3.84it/s]
+# 467/467 [00:34<00:00, 13.46it/s] 
+# End stratum: mmwr_art; collection: mmss_art_en
 
 # Begin stratum: mmwr_art; collection: mmsu_art_en
-# 234/234 [00:17<00:00, 13.20it/s]
-# 234/234 [00:03<00:00, 70.69it/s]
+# 234/234 [00:08<00:00, 27.95it/s]
+# 234/234 [00:03<00:00, 75.72it/s]
+# End stratum: mmwr_art; collection: mmsu_art_en
 
 # Begin stratum: mmwr_art; collection: mmnd_art_en
-# 1195/1195 [11:44<00:00,  1.70it/s]
-# 1195/1195 [03:35<00:00,  5.55it/s]
+# 1195/1195 [10:39<00:00,  1.87it/s]
+# 1195/1195 [03:11<00:00,  6.25it/s]
+# End stratum: mmwr_art; collection: mmnd_art_en
 
 # Begin stratum: mmwr_art; collection: mmwr_art_es
-# 22/22 [00:00<00:00, 38.58it/s]
-# 22/22 [00:00<00:00, 86.40it/s] 
+# 22/22 [00:00<00:00, 45.17it/s]
+# 22/22 [00:00<00:00, 82.77it/s]
+# End stratum: mmwr_art; collection: mmwr_art_es
 
 # Begin stratum: eid_toc ; collection: eid_toc_en
-# 330/330 [01:19<00:00,  4.17it/s]
-# 330/330 [00:06<00:00, 50.23it/s]
+# 330/330 [00:24<00:00, 13.67it/s]
+# 330/330 [00:06<00:00, 54.63it/s]
+# End stratum: eid_toc ; collection: eid_toc_en
 
-# Begin stratum: eid_art ; collection: eid_art_en
-# 12769/12769 [12:04<00:00, 17.61it/s] 
-# 12769/12769 [01:48<00:00, 118.19it/s]
+# Begin stratum: eid_art ; collection: eid0_art_en
+# 3919/3919 [04:06<00:00, 15.88it/s] 
+# 3919/3919 [00:30<00:00, 127.61it/s]
+# End stratum: eid_art ; collection: eid0_art_en
+
+# Begin stratum: eid_art ; collection: eid1_art_en
+# 4439/4439 [04:12<00:00, 17.60it/s]  
+# 4439/4439 [00:34<00:00, 127.72it/s]
+# End stratum: eid_art ; collection: eid1_art_en
+
+# Begin stratum: eid_art ; collection: eid2_art_en
+# 4411/4411 [04:07<00:00, 17.84it/s]  
+# 4411/4411 [00:36<00:00, 119.62it/s]
+# End stratum: eid_art ; collection: eid2_art_en
 
 # Begin stratum: pcd_toc ; collection: pcd_toc_en
-# 49/49 [00:02<00:00, 21.81it/s]
-# 49/49 [00:00<00:00, 65.97it/s]
+# 49/49 [00:01<00:00, 27.81it/s]
+# 49/49 [00:00<00:00, 69.80it/s]
+# End stratum: pcd_toc ; collection: pcd_toc_en
 
 # Begin stratum: pcd_toc ; collection: pcd_toc_es
-# 36/36 [00:00<00:00, 46.05it/s]
-# 36/36 [00:00<00:00, 104.46it/s]
+# 36/36 [00:00<00:00, 53.46it/s]
+# 36/36 [00:00<00:00, 111.83it/s]
+# End stratum: pcd_toc ; collection: pcd_toc_es
 
 # Begin stratum: pcd_art ; collection: pcd_art_en
-# 3011/3011 [02:30<00:00, 20.00it/s]  
-# 3011/3011 [00:32<00:00, 92.34it/s] 
+# 3011/3011 [02:19<00:00, 21.53it/s]  
+# 3011/3011 [00:29<00:00, 103.06it/s]
+# End stratum: pcd_art ; collection: pcd_art_en
 
 # Begin stratum: pcd_art ; collection: pcd_art_es
-# 1011/1011 [00:11<00:00, 89.20it/s]
-# 1011/1011 [00:03<00:00, 286.57it/s]
+# 1011/1011 [00:09<00:00, 104.39it/s]
+# 1011/1011 [00:03<00:00, 308.30it/s]
+# End stratum: pcd_art ; collection: pcd_art_es
 
 # Begin stratum: pcd_art ; collection: pcd_art_fr
-# 357/357 [00:03<00:00, 97.12it/s] 
-# 357/357 [00:01<00:00, 262.96it/s]
+# 357/357 [00:03<00:00, 115.87it/s]
+# 357/357 [00:01<00:00, 316.38it/s]
+# End stratum: pcd_art ; collection: pcd_art_fr
 
 # Begin stratum: pcd_art ; collection: pcd_art_zhs
-# 356/356 [00:03<00:00, 100.22it/s]
-# 356/356 [00:01<00:00, 302.12it/s]
+# 356/356 [00:02<00:00, 120.36it/s]
+# 356/356 [00:01<00:00, 342.54it/s]
+# End stratum: pcd_art ; collection: pcd_art_zhs
 
 # Begin stratum: pcd_art ; collection: pcd_art_zht
-# 356/356 [00:03<00:00, 102.32it/s]
-# 356/356 [00:01<00:00, 294.19it/s]
+# 356/356 [00:02<00:00, 120.73it/s]
+# 356/356 [00:01<00:00, 342.44it/s]
+# End stratum: pcd_art ; collection: pcd_art_zht
 
-# Time elapsed: 44:54.77
+# Time elapsed: 41:14.78
 

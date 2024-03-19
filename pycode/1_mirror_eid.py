@@ -125,8 +125,6 @@ volumes_soup = [BeautifulSoup(html, 'lxml') for html in volumes_html]
 
 #%% 3. List and contents of issues (tables of contents)
 
-## resume here 2024-01-06 19:24
-
 # Review of anchor elements in volumes page, eid-volumes-anchors.xlsx
 # All 299 issue paths have the form /eid/articles/issue/#0/#0/table-of-contents,
 #    or href containing regex '\d{1,2}/\d{1,2}/table-of-contents'
