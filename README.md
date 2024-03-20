@@ -47,6 +47,8 @@ These mirrors were constructed in stages. The 3 mirrors were constructed in simi
 
 5. Process **text contents** to bundle 3 versions: UTF-8 HTML, UTF-8 markdown, and ASCII plain-text contents. [5_contents.py](pycode/5_contents.py)
 
+6. Sample code to reconstruct metadata from CSV files and contents from zipped JSON. [6_reconstruct.py](pycode/6_reconstruct.py)
+
 ## Results
 
 ### Raw HTML
