@@ -1,5 +1,7 @@
 # CDC text corpora for learners
 
+This repository contains CDC text corpora for learners, organized in 4 different formats and 2 sets of metadata, together with Python code that shows the progression from raw HTML sources to organized contents suitable for a variety of analyses. Please see also companion content at [data.cdc.gov](data.cdc.gov): _CDC Text Corpora for Learners_: [_HTML Mirrors of MMWR, EID, and PCD_](https://data.cdc.gov/National-Center-for-State-Tribal-Local-and-Territo/CDC-Text-Corpora-for-Learners-HTML-Mirrors-of-MMWR/ut5n-bmc3/about_data) and [_Corpus Metadata_](https://data.cdc.gov/National-Center-for-State-Tribal-Local-and-Territo/CDC-Text-Corpora-for-Learners-Corpus-Metadata/7rih-tqi5/about_data).
+
 ## Objectives
 
 - Retrieve, organize, and share the contents and metadata from CDC's 3 online, public-domain series (_MMWR_, _EID_, _PCD_)
@@ -56,12 +58,12 @@ The raw, mirrored HTML is available in 3 compressed (zipped) archives, as tabula
 
 series | # files | original size | zipped size | zip archive
 --- | --: | --: | --: | ---
-_MMWR_ | 15,297 | 2,103 MiB | 413 MiB | mmwr_1982-2023.zip\*
-_EID_ | 13,100 | 4,622 MiB | 1,396 MiB | eid_1995-2023.zip\*
-_PCD_ | 5,179 | 559 MiB | 164 MiB | pcd_2004-2023.zip\*
+_MMWR_ | 15,297 | 2,103 MiB | 413 MiB | [mmwr_1982-2023.zip](https://data.cdc.gov/api/views/ut5n-bmc3/files/3c69a82b-b82e-4152-bcb9-49c3da123d1d?download=true&filename=mmwr_1982-2023.zip)\*
+_EID_ | 13,100 | 4,622 MiB | 1,396 MiB | [eid_1995-2023.zip](https://data.cdc.gov/api/views/ut5n-bmc3/files/3c9ce6ee-8e97-4ce4-9312-9ad3c98be408?download=true&filename=eid_1995-2023.zip)\*
+_PCD_ | 5,179 | 559 MiB | 164 MiB | [pcd_2004-2023.zip](https://data.cdc.gov/api/views/ut5n-bmc3/files/c0594869-ba74-4c26-bf54-b2dab3dff971?download=true&filename=pcd_2004-2023.zip)\*
 Total | 33,576 | 7,284 MiB | 1,972 MiB | 
 
-\* Zipped archives are larger than GitHub permits for this repository.
+\* Zipped archives are larger than GitHub permits for this repository. The list of files and the zipped archives are available at _CDC Text Corpora for Learners_: [_HTML Mirrors of MMWR, EID, and PCD_](https://data.cdc.gov/National-Center-for-State-Tribal-Local-and-Territo/CDC-Text-Corpora-for-Learners-HTML-Mirrors-of-MMWR/ut5n-bmc3/about_data).
 
 ### Metadata fields
 
@@ -106,6 +108,8 @@ dl_cat | category from dateline
 md_kwds | keywords from `<meta>`, pipe-delimited if \> 1
 md_desc | description from `<meta>`
 md_citation_author | citation author(s) from `<meta>`, pipe-delimited if \> 1
+
+This metadata file is also available at _CDC Text Corpora for Learners_: [_Corpus Metadata_](https://data.cdc.gov/National-Center-for-State-Tribal-Local-and-Territo/CDC-Text-Corpora-for-Learners-Corpus-Metadata/7rih-tqi5/about_data); the zipped collections are stored in this repository.
 
 </details>
 
@@ -182,3 +186,5 @@ Credit for earlier precursors to this effort:
 - [Scott Lee](https://github.com/scotthlee) advanced some of Matt's work, especially regarding use of machine learning models applied to _MMWR_ contents.
 - [Sam Prausnitz-Weinbaum](https://github.com/sampdubs) ported earlier R functonality to Python in 2019 (after I had made an initial attempt in 2017). Sam also reimplemented `word2vec` and `doc2vec` models using the _MMWR_ corpus, and he added latent Dirichlet allocation (LDA) topic models. Sam and I presented his work to _MMWR_ science staff in July 2019 and to CDC's first Data Visualization Day in October 2019 (poster title: "Portals to the computable MMWR: a proof of concept for depicting (un)natural language in public health").
 - Early in the Covid pandemic, I picked this Python project back up and extended it to include _EID_ and _PCD_ (and tried to include _Public Health Reports_, but that government-sponsored journal is not in the public domain). I chipped away at it every once in a while for a few years and developed the organizing principles listed at the top of this page. It isn't especially Pythonic, but it is meticulous. For now, it's a gift to learners who could use a manageable corpus on public health. I hope that users will contribute code back to this repository for the benefit of other learners. I might not be done with it yet, despite my earnest intentions.
+
+In addition, thanks are due to Alan Hamm for setting up the companion content at [data.cdc.gov](data.cdc.gov) and to staff of the [Data Science Upskilling Program](https://www.cdc.gov/phifp/what-fellows-do/data-science.html) and [Public Health Informatics Fellowship Program](https://www.cdc.gov/phifp/index.html) for their interest and moral support.
