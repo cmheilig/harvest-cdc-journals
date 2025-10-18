@@ -56,10 +56,10 @@ These mirrors were constructed in stages. The 3 mirrors were constructed in simi
 ## Results
 
 ### Raw HTML
-The raw, mirrored HTML for years 1982-2024 is available in 6 compressed (zipped) archives, as tabulated below. The complete list of mirrored files is available as a [CSV file for 1982-2024](csv-output/cdc_mirror_list_1982-2024.csv) containing the following fields: series (MMWR, EID, PCD), length (uncompressed file size), method of compression, size (compressed file size), cmpr (compression percentage), datetime, CRC-32 (from the zip archive), and filename (with partial path information).
+The raw, mirrored HTML for years 1982-2024 is available in 6 compressed (zipped) archives, as tabulated below. The complete list of mirrored files is available as a [CSV file for 1982-2024](csv-output/cdc_mirror_list_1982-2024.csv) containing the following fields: Series (MMWR, EID, PCD), Length (uncompressed file size), Method (of compression), Size (compressed file size), Cmpr (compression percentage), DateTime, CRC-32 (from the zip archive), and Name (of file, with partial path information).
 
 <details open>
-<summary>Zipped archives with raw HTML (expand/collapse section)</summary>
+<summary>Zipped archives containing original, raw HTML files (expand/collapse section)</summary>
 
 #### 2024
 The following zipped archives for the year 2024 only (plus a few files missing from the previous archives) are hosted on this repository. 
