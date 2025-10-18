@@ -56,7 +56,10 @@ These mirrors were constructed in stages. The 3 mirrors were constructed in simi
 ## Results
 
 ### Raw HTML
-The raw, mirrored HTML for years 1982-2024 is available in 6 compressed (zipped) archives, as tabulated below. The complete list of mirrored files is available as a [CSV file for 1982-2024](csv-output/cdc_mirror_list_1982-2024.csv) containing the following fields: series (MMWR, EID, PCD), length (uncompressed file size), method of compression, size (compressed file size), cmpr (compression percentage), datetime, CRC-32 rom zip archive, and filename (including partial path information).
+The raw, mirrored HTML for years 1982-2024 is available in 6 compressed (zipped) archives, as tabulated below. The complete list of mirrored files is available as a [CSV file for 1982-2024](csv-output/cdc_mirror_list_1982-2024.csv) containing the following fields: series (MMWR, EID, PCD), length (uncompressed file size), method of compression, size (compressed file size), cmpr (compression percentage), datetime, CRC-32 (from the zip archive), and filename (with partial path information).
+
+<details open>
+<summary>Zipped archives with raw HTML (expand/collapse section)</summary>
 
 #### 2024
 The following zipped archives for the year 2024 only (plus a few files missing from the previous archives) are hosted on this repository. 
@@ -80,6 +83,8 @@ _MMWR_ | 15,297 | 2,103 MiB | 413 MiB | [mmwr_1982-2023.zip](https://data.cdc.go
 _EID_ | 13,100 | 4,622 MiB | 1,396 MiB | [eid_1995-2023.zip](https://data.cdc.gov/api/views/ut5n-bmc3/files/3c9ce6ee-8e97-4ce4-9312-9ad3c98be408?download=true&filename=eid_1995-2023.zip)
 _PCD_ | 5,179 | 559 MiB | 164 MiB | [pcd_2004-2023.zip](https://data.cdc.gov/api/views/ut5n-bmc3/files/c0594869-ba74-4c26-bf54-b2dab3dff971?download=true&filename=pcd_2004-2023.zip)
 Total | 33,576 | 7,284 MiB | 1,972 MiB | 
+
+</details>
 
 ### Metadata fields
 
