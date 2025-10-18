@@ -1,6 +1,8 @@
 # CDC text corpora for learners
 
-This repository contains CDC text corpora for learners, organized in 4 different formats and 2 sets of metadata, together with Python code that shows the progression from raw HTML sources to organized contents suitable for a variety of analyses. Please see also companion content at [data.cdc.gov](data.cdc.gov): _CDC Text Corpora for Learners_: [_HTML Mirrors of MMWR, EID, and PCD_](https://data.cdc.gov/National-Center-for-State-Tribal-Local-and-Territo/CDC-Text-Corpora-for-Learners-HTML-Mirrors-of-MMWR/ut5n-bmc3/about_data) and [_Corpus Metadata_](https://data.cdc.gov/National-Center-for-State-Tribal-Local-and-Territo/CDC-Text-Corpora-for-Learners-Corpus-Metadata/7rih-tqi5/about_data).
+This repository contains CDC text corpora for learners, organized in 4 different formats and 2 sets of metadata, together with Python code that shows the progression from raw HTML sources to organized contents suitable for a variety of analyses. Please see also companion content at [data.cdc.gov](https://data.cdc.gov): _CDC Text Corpora for Learners_: [_HTML Mirrors of MMWR, EID, and PCD_](https://data.cdc.gov/d/ut5n-bmc3) and [_Corpus Metadata_](https://data.cdc.gov/d/7rih-tqi5).
+
+\[Note: At the time this repository was last updated (2025-10-18), web links on data.cdc.gov were correctly specified but returned a "403 Forbidden" code. Users might need to copy and paste the "forbidden" URL into a browser's address box rather than clicking or tapping on the URL.\]
 
 ## Objectives
 
@@ -12,19 +14,19 @@ This repository contains CDC text corpora for learners, organized in 4 different
   - Explore text-analytic methods using contents and metadata
   - Use git-reposited Python code to replicate and contribute
  
-This version was constructed on 2024-03-01 using source content retrieved on 2024-01-09.
+This version was constructed using source content retrieved on 2025-01-07.
 
 ## CDC's journals: public domain, public health
 
 This collection of files includes mirrored copies of HTML articles from CDC's 3 online journals
 - [_Morbidity and Mortality Weekly Report_](https://www.cdc.gov/mmwr/) (_MMWR_)
-  - 4 series available in HTML 1982-2023 (volumes 31-72)
+  - 4 series available in HTML 1982-2024 (volumes 31-73)
 - [_Emerging Infectious Diseases_](https://wwwnc.cdc.gov/eid) (_EID_)
-  - Available in HTML 1995-2023 (volumes 1-29)
+  - Available in HTML 1995-2024 (volumes 1-30)
 - [_Preventing Chronic Disease_](https://www.cdc.gov/pcd/) (_PCD_)
-  - Available in HTML 2004-2023 (volumes 1-20)
+  - Available in HTML 2004-2024 (volumes 1-21)
 
-Result: 33,567 HTML documents, spanning 42 years (See [the Results section](#results) below for details.)
+Result: 34,505 HTML documents, spanning 43 years (See [the Results section](#results) below for details.)
 
 ## Work sequence
 
@@ -54,16 +56,30 @@ These mirrors were constructed in stages. The 3 mirrors were constructed in simi
 ## Results
 
 ### Raw HTML
-The raw, mirrored HTML is available in 3 compressed (zipped) archives, as tabulated below. The list of mirrored files is available as a [CSV file](csv-output/cdc_mirror_list.csv) containing the following fields: series (MMWR, EID, PCD), length (uncompressed file size), method of compression, size (compressed file size), cmpr (compression percentage), datetime, CRC-32 rom zip archive, and filename (including partial path information).
+The raw, mirrored HTML for years 1982-2024 is available in 6 compressed (zipped) archives, as tabulated below. The complete list of mirrored files is available as a [CSV file for 1982-2024](csv-output/cdc_mirror_list_1982-2024.csv) containing the following fields: series (MMWR, EID, PCD), length (uncompressed file size), method of compression, size (compressed file size), cmpr (compression percentage), datetime, CRC-32 rom zip archive, and filename (including partial path information).
+
+#### 2024
+The following zipped archives for the year 2024 only (plus a few files missing from the previous archives) are hosted on this repository. 
+A contents list is available as a [CSV file for 2024 only](csv-output/cdc_mirror_list_2024.csv).
 
 series | # files | original size | zipped size | zip archive
 --- | --: | --: | --: | ---
-_MMWR_ | 15,297 | 2,103 MiB | 413 MiB | [mmwr_1982-2023.zip](https://data.cdc.gov/api/views/ut5n-bmc3/files/3c69a82b-b82e-4152-bcb9-49c3da123d1d?download=true&filename=mmwr_1982-2023.zip)\*
-_EID_ | 13,100 | 4,622 MiB | 1,396 MiB | [eid_1995-2023.zip](https://data.cdc.gov/api/views/ut5n-bmc3/files/3c9ce6ee-8e97-4ce4-9312-9ad3c98be408?download=true&filename=eid_1995-2023.zip)\*
-_PCD_ | 5,179 | 559 MiB | 164 MiB | [pcd_2004-2023.zip](https://data.cdc.gov/api/views/ut5n-bmc3/files/c0594869-ba74-4c26-bf54-b2dab3dff971?download=true&filename=pcd_2004-2023.zip)\*
-Total | 33,576 | 7,284 MiB | 1,972 MiB | 
+_MMWR_ | 570 | 199 MiB | 61 MiB | [mmwr_2024.zip](html-mirrors/mmwr_2024.zip)
+_EID_ | 286 | 37 MiB | 9 MiB | [eid_2024.zip](html-mirrors/eid_2024.zip)
+_PCD_ | 104 | 14 MiB | 3 MiB | [pcd_2024.zip](html-mirrors/pcd_2024.zip)
+Total | 960 | 250 MiB | 73 MiB | 
 
-\* Zipped archives are larger than GitHub permits for this repository. The list of files and the zipped archives are available at _CDC Text Corpora for Learners_: [_HTML Mirrors of MMWR, EID, and PCD_](https://data.cdc.gov/National-Center-for-State-Tribal-Local-and-Territo/CDC-Text-Corpora-for-Learners-HTML-Mirrors-of-MMWR/ut5n-bmc3/about_data).
+#### 1982-2003
+The following zipped archives for 1982-2023 are larger than GitHub permits for this repository. 
+A contents list is available as a [CSV file for 1982-2023](csv-output/cdc_mirror_list_1982-2023.csv) in this repository. 
+The zip files themselves have been posted on [data.cdc.gov](https://data.cdc.gov/d/ut5n-bmc3).
+
+series | # files | original size | zipped size | zip archive
+--- | --: | --: | --: | ---
+_MMWR_ | 15,297 | 2,103 MiB | 413 MiB | [mmwr_1982-2023.zip](https://data.cdc.gov/api/views/ut5n-bmc3/files/3c69a82b-b82e-4152-bcb9-49c3da123d1d?download=true&filename=mmwr_1982-2023.zip)
+_EID_ | 13,100 | 4,622 MiB | 1,396 MiB | [eid_1995-2023.zip](https://data.cdc.gov/api/views/ut5n-bmc3/files/3c9ce6ee-8e97-4ce4-9312-9ad3c98be408?download=true&filename=eid_1995-2023.zip)
+_PCD_ | 5,179 | 559 MiB | 164 MiB | [pcd_2004-2023.zip](https://data.cdc.gov/api/views/ut5n-bmc3/files/c0594869-ba74-4c26-bf54-b2dab3dff971?download=true&filename=pcd_2004-2023.zip)
+Total | 33,576 | 7,284 MiB | 1,972 MiB | 
 
 ### Metadata fields
 
@@ -81,7 +97,7 @@ Total | 33,576 | 7,284 MiB | 1,972 MiB |
 <details open>
 <summary>Constructed metadata, with links (expand/collapse section)</summary>
 
-The corpus metadata is available as a [CSV file](csv-output/cdc_corpus_df.csv). The metadata table includes the following fields, each of which was constructed as a string.
+The corpus metadata is available as a [CSV file](csv-output/cdc_corpus_df.csv). The metadata table includes the following fields, each of which is constructed as a string.
 
 field | description
 --- | ---
@@ -109,13 +125,13 @@ md_kwds | keywords from `<meta>`, pipe-delimited if \> 1
 md_desc | description from `<meta>`
 md_citation_author | citation author(s) from `<meta>`, pipe-delimited if \> 1
 
-This metadata file is also available at _CDC Text Corpora for Learners_: [_Corpus Metadata_](https://data.cdc.gov/National-Center-for-State-Tribal-Local-and-Territo/CDC-Text-Corpora-for-Learners-Corpus-Metadata/7rih-tqi5/about_data); the zipped collections are stored in this repository.
+This metadata file is also available under _Corpus Metadata_ at [_CDC Text Corpora for Learners_](https://data.cdc.gov/d/7rih-tqi5); the zipped collections are stored in this repository.
 
 </details>
 
 ### Collections
 
-Contents are organized in 21 mutually exclusive collections, based on series, scope, and language:
+Contents are organized in 22 mutually exclusive collections, based on series, scope, and language:
 - Series
   - _MMWR Weekly Reports_ (`mmwr`)
   - _MMWR Recommendations and Reports_ (`mmrr`)
@@ -140,32 +156,33 @@ In the following table, each zip archive is linked by collection and output form
 
 collection | description | n | html | md | txt
 --- | --- | --: | --- | --- | ---
-`mmwr_toc_en` | _MMWR Weekly Reports_ table of contents | 42 | [html](json-outputs/html/mmwr_toc_en_html_json.zip) | [md](json-outputs/md/mmwr_toc_en_md_json.zip) | [txt](json-outputs/txt/mmwr_toc_en_txt_json.zip)
-`mmrr_toc_en` | _MMWR Recommendations and Reports_ table of contents | 34 | [html](json-outputs/html/mmrr_toc_en_html_json.zip) | [md](json-outputs/md/mmrr_toc_en_md_json.zip) | [txt](json-outputs/txt/mmrr_toc_en_txt_json.zip)
-`mmss_toc_en` | _MMWR Surveillance Summaries_ table of contents | 36 | [html](json-outputs/html/mmss_toc_en_html_json.zip) | [md](json-outputs/md/mmss_toc_en_md_json.zip) | [txt](json-outputs/txt/mmss_toc_en_txt_json.zip)
-`mmsu_toc_en` | _MMWR Supplements_ table of contents | 19 | [html](json-outputs/html/mmsu_toc_en_html_json.zip) | [md](json-outputs/md/mmsu_toc_en_md_json.zip) | [txt](json-outputs/txt/mmsu_toc_en_txt_json.zip)
-`mmwr_art_en` | _MMWR Weekly Reports_ English-language articles | 12,692 | [html](json-outputs/html/mmwr_art_en_html_json.zip) | [md](json-outputs/md/mmwr_art_en_md_json.zip) | [txt](json-outputs/txt/mmwr_art_en_txt_json.zip)
-`mmrr_art_en` | _MMWR Recommendations and Reports_ English-language articles | 551 | [html](json-outputs/html/mmrr_art_en_html_json.zip) | [md](json-outputs/md/mmrr_art_en_md_json.zip) | [txt](json-outputs/txt/mmrr_art_en_txt_json.zip)
-`mmss_art_en` | _MMWR Surveillance Summaries_ English-language articles | 467 | [html](json-outputs/html/mmss_art_en_html_json.zip) | [md](json-outputs/md/mmss_art_en_md_json.zip) | [txt](json-outputs/txt/mmss_art_en_txt_json.zip)
-`mmsu_art_en` | _MMWR Supplements_ English-language articles | 234 | [html](json-outputs/html/mmsu_art_en_html_json.zip) | [md](json-outputs/md/mmsu_art_en_md_json.zip) | [txt](json-outputs/txt/mmsu_art_en_txt_json.zip)
+`mmwr_toc_en` | _MMWR Weekly Reports_ table of contents | 43 | [html](json-outputs/html/mmwr_toc_en_html_json.zip) | [md](json-outputs/md/mmwr_toc_en_md_json.zip) | [txt](json-outputs/txt/mmwr_toc_en_txt_json.zip)
+`mmrr_toc_en` | _MMWR Recommendations and Reports_ table of contents | 35 | [html](json-outputs/html/mmrr_toc_en_html_json.zip) | [md](json-outputs/md/mmrr_toc_en_md_json.zip) | [txt](json-outputs/txt/mmrr_toc_en_txt_json.zip)
+`mmss_toc_en` | _MMWR Surveillance Summaries_ table of contents | 37 | [html](json-outputs/html/mmss_toc_en_html_json.zip) | [md](json-outputs/md/mmss_toc_en_md_json.zip) | [txt](json-outputs/txt/mmss_toc_en_txt_json.zip)
+`mmsu_toc_en` | _MMWR Supplements_ table of contents | 20 | [html](json-outputs/html/mmsu_toc_en_html_json.zip) | [md](json-outputs/md/mmsu_toc_en_md_json.zip) | [txt](json-outputs/txt/mmsu_toc_en_txt_json.zip)
+`mmwr_art_en` | _MMWR Weekly Reports_ English-language articles | 12,928 | [html](json-outputs/html/mmwr_art_en_html_json.zip) | [md](json-outputs/md/mmwr_art_en_md_json.zip) | [txt](json-outputs/txt/mmwr_art_en_txt_json.zip)
+`mmrr_art_en` | _MMWR Recommendations and Reports_ English-language articles | 557 | [html](json-outputs/html/mmrr_art_en_html_json.zip) | [md](json-outputs/md/mmrr_art_en_md_json.zip) | [txt](json-outputs/txt/mmrr_art_en_txt_json.zip)
+`mmss_art_en` | _MMWR Surveillance Summaries_ English-language articles | 476 | [html](json-outputs/html/mmss_art_en_html_json.zip) | [md](json-outputs/md/mmss_art_en_md_json.zip) | [txt](json-outputs/txt/mmss_art_en_txt_json.zip)
+`mmsu_art_en` | _MMWR Supplements_ English-language articles | 256 | [html](json-outputs/html/mmsu_art_en_html_json.zip) | [md](json-outputs/md/mmsu_art_en_md_json.zip) | [txt](json-outputs/txt/mmsu_art_en_txt_json.zip)
 `mmnd_art_en` | _MMWR_ notifiable diseases\* | 1,195 | [html](json-outputs/html/mmnd_art_en_html_json.zip) | [md](json-outputs/md/mmnd_art_en_md_json.zip) | [txt](json-outputs/txt/mmnd_art_en_txt_json.zip)
-`mmwr_art_es` | _MMWR_ Spanish-language articles (19 WR, 1 RR, 2 SU)\* | 22 | [html](json-outputs/html/mmwr_art_es_html_json.zip) | [md](json-outputs/md/mmwr_art_es_md_json.zip) | [txt](json-outputs/txt/mmwr_art_es_txt_json.zip)
-`eid_toc_en` | _EID_ table of contents | 330 | [html](json-outputs/html/eid_toc_en_html_json.zip) | [md](json-outputs/md/eid_toc_en_md_json.zip) | [txt](json-outputs/txt/eid_toc_en_txt_json.zip)
-`eid0_art_en` | _EID_ English-language articles, volumes 1-13\*\* | 3,919 | [html](json-outputs/html/eid0_art_en_html_json.zip) | [md](json-outputs/md/eid0_art_en_md_json.zip) | [txt](json-outputs/txt/eid0_art_en_txt_json.zip)
-`eid1_art_en` | _EID_ English-language articles, volumes 14-21\*\* | 4,439 | [html](json-outputs/html/eid1_art_en_html_json.zip) | [md](json-outputs/md/eid1_art_en_md_json.zip) | [txt](json-outputs/txt/eid1_art_en_txt_json.zip)
-`eid2_art_en` | _EID_ English-language articles, volumes 22-29\*\* | 4,411 | [html](json-outputs/html/eid2_art_en_html_json.zip) | [md](json-outputs/md/eid2_art_en_md_json.zip) | [txt](json-outputs/txt/eid2_art_en_txt_json.zip)
-`pcd_toc_en` | _PCD_ English-language table of contents | 49 | [html](json-outputs/html/pcd_toc_en_html_json.zip) | [md](json-outputs/md/pcd_toc_en_md_json.zip) | [txt](json-outputs/txt/pcd_toc_en_txt_json.zip)
+`mmwr_art_es` | _MMWR_ Spanish-language articles (19 WR, 1 RR, 2 SU)\* | 23 | [html](json-outputs/html/mmwr_art_es_html_json.zip) | [md](json-outputs/md/mmwr_art_es_md_json.zip) | [txt](json-outputs/txt/mmwr_art_es_txt_json.zip)
+`eid_toc_en` | _EID_ table of contents | 345 | [html](json-outputs/html/eid_toc_en_html_json.zip) | [md](json-outputs/md/eid_toc_en_md_json.zip) | [txt](json-outputs/txt/eid_toc_en_txt_json.zip)
+`eid0_art_en` | _EID_ English-language articles, volumes 1-12\*\* | 3,402 | [html](json-outputs/html/eid0_art_en_html_json.zip) | [md](json-outputs/md/eid0_art_en_md_json.zip) | [txt](json-outputs/txt/eid0_art_en_txt_json.zip)
+`eid1_art_en` | _EID_ English-language articles, volumes 13-18\*\* | 3,360 | [html](json-outputs/html/eid1_art_en_html_json.zip) | [md](json-outputs/md/eid1_art_en_md_json.zip) | [txt](json-outputs/txt/eid1_art_en_txt_json.zip)
+`eid2_art_en` | _EID_ English-language articles, volumes 29-24\*\* | 3,243 | [html](json-outputs/html/eid2_art_en_html_json.zip) | [md](json-outputs/md/eid2_art_en_md_json.zip) | [txt](json-outputs/txt/eid2_art_en_txt_json.zip)
+`eid3_art_en` | _EID_ English-language articles, volumes 25-30\*\* | 3,305 | [html](json-outputs/html/eid3_art_en_html_json.zip) | [md](json-outputs/md/eid3_art_en_md_json.zip) | [txt](json-outputs/txt/eid3_art_en_txt_json.zip)
+`pcd_toc_en` | _PCD_ English-language table of contents | 50 | [html](json-outputs/html/pcd_toc_en_html_json.zip) | [md](json-outputs/md/pcd_toc_en_md_json.zip) | [txt](json-outputs/txt/pcd_toc_en_txt_json.zip)
 `pcd_toc_es` | _PCD_ Spanish-language table of contents | 36 | [html](json-outputs/html/pcd_toc_es_html_json.zip) | [md](json-outputs/md/pcd_toc_es_md_json.zip) | [txt](json-outputs/txt/pcd_toc_es_txt_json.zip)
-`pcd_art_en` | _PCD_ English-language articles | 3,011 | [html](json-outputs/html/pcd_art_en_html_json.zip) | [md](json-outputs/md/pcd_art_en_md_json.zip) | [txt](json-outputs/txt/pcd_art_en_txt_json.zip)
+`pcd_art_en` | _PCD_ English-language articles | 3,114 | [html](json-outputs/html/pcd_art_en_html_json.zip) | [md](json-outputs/md/pcd_art_en_md_json.zip) | [txt](json-outputs/txt/pcd_art_en_txt_json.zip)
 `pcd_art_es` | _PCD_ Spanish-language articles | 1,011 | [html](json-outputs/html/pcd_art_es_html_json.zip) | [md](json-outputs/md/pcd_art_es_md_json.zip) | [txt](json-outputs/txt/pcd_art_es_txt_json.zip)
 `pcd_art_fr` | _PCD_ French-language articles | 357 | [html](json-outputs/html/pcd_art_fr_html_json.zip) | [md](json-outputs/md/pcd_art_fr_md_json.zip) | [txt](json-outputs/txt/pcd_art_fr_txt_json.zip)
 `pcd_art_zhs` | _PCD_ Chinese-language (simplified) articles | 356 | [html](json-outputs/html/pcd_art_zhs_html_json.zip) | [md](json-outputs/md/pcd_art_zhs_md_json.zip) | [txt](json-outputs/txt/pcd_art_zhs_txt_json.zip)
 `pcd_art_zht` | _PCD_ Chinese-language (traditional) articles | 356 | [html](json-outputs/html/pcd_art_zht_html_json.zip) | [md](json-outputs/md/pcd_art_zht_md_json.zip) | [txt](json-outputs/txt/pcd_art_zht_txt_json.zip)
-Total | | 33,567 | | |
+Total | | 34,505 | | |
 
 \* Collections `mmnd_art_en` and `mmwr_art_es` were constructed ad hoc for end-user convenience.
 
-\*\* Collections 0, 1, and 2 correspond to volume years 1995-2007, 2008-2015, and 2016-2023, respectively; these collections were constructed to accommodate file size restrictions on this repository. All _EID_ articles are in English, though some have non-English elements.
+\*\* Collections 0, 1, 2, and 3 correspond to volume years 1995-2006, 2007-2012, 2013-2018, and 2019-2024, respectively; these collections were constructed to accommodate file size restrictions on this repository. All _EID_ articles are in English, though some have non-English elements.
 
 ## Python modules used
  
@@ -187,4 +204,4 @@ Credit for earlier precursors to this effort:
 - [Sam Prausnitz-Weinbaum](https://github.com/sampdubs) ported earlier R functonality to Python in 2019 (after I had made an initial attempt in 2017). Sam also reimplemented `word2vec` and `doc2vec` models using the _MMWR_ corpus, and he added latent Dirichlet allocation (LDA) topic models. Sam and I presented his work to _MMWR_ science staff in July 2019 and to CDC's first Data Visualization Day in October 2019 (poster title: "Portals to the computable MMWR: a proof of concept for depicting (un)natural language in public health").
 - Early in the Covid pandemic, I picked this Python project back up and extended it to include _EID_ and _PCD_ (and tried to include _Public Health Reports_, but that government-sponsored journal is not in the public domain). I chipped away at it every once in a while for a few years and developed the organizing principles listed at the top of this page. It isn't especially Pythonic, but it is meticulous. For now, it's a gift to learners who could use a manageable corpus on public health. I hope that users will contribute code back to this repository for the benefit of other learners. I might not be done with it yet, despite my earnest intentions.
 
-In addition, thanks are due to Alan Hamm for setting up the companion content at [data.cdc.gov](data.cdc.gov) and to staff of the [Data Science Upskilling Program](https://www.cdc.gov/phifp/what-fellows-do/data-science.html) and [Public Health Informatics Fellowship Program](https://www.cdc.gov/phifp/index.html) for their interest and moral support.
+In addition, thanks are due to Alan Hamm for setting up the companion content at [data.cdc.gov](https://data.cdc.gov) and to staff of CDC's Data Science Upskilling Program and Public Health Informatics Fellowship Program for their interest and moral support.
