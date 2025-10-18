@@ -31,12 +31,18 @@ only_head = SoupStrainer(name='head')
 os.chdir('/Users/cmheilig/cdc-corpora/_test')
 
 #%% Retrieve (unpickle) trimmed, UTF-8 HTML
-# mmwr_cc_df = pickle.load(open("pickle-files/mmwr_cc_df.pkl", "rb"))
+
+# mmwr_cc_df = pickle.load(open('pickle-files/mmwr_cc_df.pkl', 'rb')) # (15297, 8)
 mmwr_cc_df = pd.read_pickle('pickle-files/mmwr_cc_df.pkl')
-# eid_cc_df = pickle.load(open("pickle-files/eid_cc_df.pkl", "rb"))
+mmwr_cc_df['mirror_path'] = mmwr_cc_df['mirror_path'].str.replace('\\', '/')
+
+# eid_cc_df = pickle.load(open("pickle-files/eid_cc_df.pkl", "rb")) # (13100, 8)
 eid_cc_df = pd.read_pickle('pickle-files/eid_cc_df.pkl')
-# pcd_cc_df = pickle.load(open("pickle-files/pcd_cc_df.pkl", "rb"))
+eid_cc_df['mirror_path'] = eid_cc_df['mirror_path'].str.replace('\\', '/')
+
+# pcd_cc_df = pickle.load(open("pickle-files/pcd_cc_df.pkl", "rb")) # (4786, 8)
 pcd_cc_df = pd.read_pickle('pickle-files/pcd_cc_df.pkl')
+pcd_cc_df['mirror_path'] = pcd_cc_df['mirror_path'].str.replace('\\', '/')
 
 mmwr_toc_unx = pickle.load(open('pickle-files/mmwr_toc_unx.pkl', 'rb'))
 mmwr_art_unx = pickle.load(open('pickle-files/mmwr_art_unx.pkl', 'rb'))
@@ -61,23 +67,23 @@ mmwr_toc_head_soup = {
 mmwr_art_head_soup = {
     path: BeautifulSoup(html, 'lxml', parse_only=only_head, multi_valued_attributes=None)
     for path, html in tqdm(mmwr_art_unx.items())}
-# 15161/15161 [04:18<00:00, 58.57it/s]
+# 15435/15435 [01:41<00:00, 151.66it/s]
 eid_toc_head_soup = {
     path: BeautifulSoup(html, 'lxml', parse_only=only_head, multi_valued_attributes=None)
     for path, html in tqdm(eid_toc_unx.items())}
-# 330/330 [00:08<00:00, 38.77it/s]
+# 345/345 [00:03<00:00, 110.15it/s]
 eid_art_head_soup = {
     path: BeautifulSoup(html, 'lxml', parse_only=only_head, multi_valued_attributes=None)
     for path, html in tqdm(eid_art_unx.items())}
-# 12769/12769 [03:30<00:00, 60.58it/s]
+# 13310/13310 [01:19<00:00, 168.25it/s]
 pcd_toc_head_soup = {
     path: BeautifulSoup(html, 'lxml', parse_only=only_head, multi_valued_attributes=None)
     for path, html in tqdm(pcd_toc_unx.items())}
-# 87/87 [00:00<00:00, 115.94it/s]
+# 88/88 [00:00<00:00, 273.10it/s]
 pcd_art_head_soup = {
     path: BeautifulSoup(html, 'lxml', parse_only=only_head, multi_valued_attributes=None)
     for path, html in tqdm(pcd_art_unx.items())}
-# 5091/5091 [00:39<00:00, 128.04it/s]
+# 5193/5193 [00:15<00:00, 331.04it/s]
 
 #%% MMWR, EID, PCD
 """
@@ -115,11 +121,11 @@ def head_soup_meta_fn(soup):
 mmwr_toc_md_list = [
     dict(path=path, **head_soup_meta_fn(soup))
     for path, soup in tqdm(mmwr_toc_head_soup.items())]
-# 135/135 [00:00<00:00, 1295.11it/s]
+# 139/139 [00:00<00:00, 4072.05it/s]
 mmwr_art_md_list = [
     dict(path=path, **head_soup_meta_fn(soup))
     for path, soup in tqdm(mmwr_art_head_soup.items())]
-# 15161/15161 [00:10<00:00, 1446.80it/s]
+# 15435/15435 [00:02<00:00, 5230.08it/s]
 
 ## Resolve keywords and description
 def mmwr_keywords_fn(kwds):
@@ -186,6 +192,7 @@ for md in tqdm(mmwr_toc_md_list + mmwr_art_md_list):
         md['md_desc'] = ''
     else:
         md['md_desc'] = md['md_description']
+# 15574/15574 [00:00<00:00, 406747.93it/s]
 del md
 
 mmwr_toc_md_df = pd.DataFrame(mmwr_toc_md_list)
@@ -199,11 +206,11 @@ mmwr_art_md_df = pd.DataFrame(mmwr_art_md_list)
 eid_toc_md_list = [
     dict(path=path, **head_soup_meta_fn(soup))
     for path, soup in tqdm(eid_toc_head_soup.items())]
-# 330/330 [00:00<00:00, 974.38it/s]
+# 345/345 [00:00<00:00, 3532.74it/s]
 eid_art_md_list = [
     dict(path=path, **head_soup_meta_fn(soup))
     for path, soup in tqdm(eid_art_head_soup.items())]
-# 12769/12769 [00:18<00:00, 689.97it/s]
+# 13310/13310 [00:04<00:00, 2701.74it/s]
 
 def eid_keywords_fn(kwds):
     kwds = (kwds
@@ -248,6 +255,7 @@ for md in tqdm(eid_toc_md_list + eid_art_md_list):
     md['md_kwds'] = '|'.join(sorted(eid_keywords_fn(md['md_keywords']) - 
                                     eid_ignore_kwds))
     md['md_desc'] = md['md_description']
+# 13655/13655 [00:00<00:00, 173885.60it/s]
 del md
 
 eid_toc_md_df = pd.DataFrame(eid_toc_md_list)
@@ -261,11 +269,11 @@ eid_art_md_df = pd.DataFrame(eid_art_md_list)
 pcd_toc_md_list = [
     dict(path=path, **head_soup_meta_fn(soup))
     for path, soup in tqdm(pcd_toc_head_soup.items())]
-# 87/87 [00:00<00:00, 2942.78it/s]
+# 88/88 [00:00<00:00, 8260.38it/s]
 pcd_art_md_list = [
     dict(path=path, **head_soup_meta_fn(soup))
     for path, soup in tqdm(pcd_art_head_soup.items())]
-# 5091/5091 [00:02<00:00, 2192.65it/s]
+# 5193/5193 [00:00<00:00, 7151.73it/s] 
 
 def pcd_keywords_fn(kwds):
     kwds = (kwds
@@ -314,6 +322,7 @@ for md in tqdm(pcd_toc_md_list + pcd_art_md_list):
         md['md_desc'] = ''
     else:
         md['md_desc'] = md['md_Description']
+# 5281/5281 [00:00<00:00, 233247.54it/s]
 del md
 
 pcd_toc_md_df = pd.DataFrame(pcd_toc_md_list) # (87, 12)
@@ -323,7 +332,6 @@ pcd_art_md_df = pd.DataFrame(pcd_art_md_list) # (5091, 12)
 # pcd_art_md_df.to_excel('pcd_art_md_df.xlsx', freeze_panes=(1,0))
 # pcd_art_md_df.to_pickle('pcd_art_md_df.pkl')
 
-# pd.DataFrame(eid_toc_md_list + eid_art_md_list).to_excel('eid-temp.xlsx', freeze_panes=(1,0))
 
 #%% Combine metadata sources
 #   *_cc_df, *_toc_dl_df, *_art_dl_df, *_toc_md_df, *_art_md_df
@@ -349,7 +357,8 @@ pcd_art_md_df = pd.DataFrame(pcd_art_md_list) # (5091, 12)
 keep_levels = {'volume', 'issue', 'article'}
 map_levels = dict(home='', series='', volume='toc', issue='toc', article='art')
 series_cat = CategoricalDtype(
-    ['mmwr', 'mmnd', 'mmrr', 'mmss', 'mmsu', 'eid', 'eid0', 'eid1', 'eid2',
+    ['mmwr', 'mmnd', 'mmrr', 'mmss', 'mmsu', 
+     'eid', 'eid0', 'eid1', 'eid2', 'eid3',
      'pcd'], ordered=True)
 level_cat = CategoricalDtype(
     ['home', 'series', 'volume', 'issue', 'article'], ordered=True)
@@ -366,16 +375,16 @@ sort_order = ['series', 'level', 'lang', # ~collection
 #%% MMWR: combine sources
 mmwr_corpus_df = pd.merge(
     left=pd.merge(
-        left=(mmwr_cc_df                                   # (15297, 8)
-              .loc[mmwr_cc_df.level.isin(keep_levels)]),   # (15292, 8)
-        right=pd.concat([mmwr_toc_dl_df, mmwr_art_dl_df]), # (15296, 9)
+        left=(mmwr_cc_df                                   # (15575, 8)
+              .loc[mmwr_cc_df.level.isin(keep_levels)]),   # (15575, 8)
+        right=pd.concat([mmwr_toc_dl_df, mmwr_art_dl_df]), # (15574, 9)
         how='inner',
         left_on='mirror_path',
-        right_on='path'),                                  # (15292, 17)
-    right=pd.concat([mmwr_toc_md_df, mmwr_art_md_df]),     # (15296, 12)
+        right_on='path'),                                  # (15570, 17)
+    right=pd.concat([mmwr_toc_md_df, mmwr_art_md_df]),     # (15574, 12)
     how='inner',
     left_on='mirror_path',
-    right_on='path')                                       # (15292, 29)
+    right_on='path')                                       # (15570, 29)
 
 # collections of documents in the corpus
 mmwr_corpus_df['collection'] = (
@@ -397,41 +406,45 @@ mmwr_corpus_df['series'] = mmwr_corpus_df['series'].astype(series_cat)
 mmwr_corpus_df['level'] = mmwr_corpus_df['level'].astype(level_cat)
 
 mmwr_corpus_df = mmwr_corpus_df[corpus_columns].sort_values(sort_order)
-# (15292, 23)
+# (15570, 23)
 
 # mmwr_corpus_df.to_excel('mmwr_corpus_df.xlsx', freeze_panes=(1,0))
 
 #%% EID: combine sources
 eid_corpus_df = pd.merge(
     left=pd.merge(
-        left=(eid_cc_df                                  # (13100, 8)
-              .loc[eid_cc_df.level.isin(keep_levels)]),  # (13099, 8)
-        right=pd.concat([eid_toc_dl_df, eid_art_dl_df]), # (13099, 6)
+        left=(eid_cc_df                                  # (13656, 8)
+              .loc[eid_cc_df.level.isin(keep_levels)]),  # (13655, 8)
+        right=pd.concat([eid_toc_dl_df, eid_art_dl_df]), # (13655, 6)
         how='inner',
         left_on='mirror_path',
-        right_on='path'),                                # (13099, 14)
-    right=pd.concat([eid_toc_md_df, eid_art_md_df]),     # (13099, 12)
+        right_on='path'),                                # (13655, 14)
+    right=pd.concat([eid_toc_md_df, eid_art_md_df]),     # (13655, 12)
     how='inner',
     left_on='mirror_path',
-    right_on='path')                                     # (13099, 26)
+    right_on='path')                                     # (13655, 26)
 
 # ad hoc division of EID articles into 3 series (because of contents size)
 def eid_ser_fn(row):
     vol = row['dl_vol_iss'][:2]
     if row['level'] == 'article':
-        if '01' <= vol <= '13':
+        if '01' <= vol <= '12':
             return 'eid0'
-        elif '14' <= vol <= '21':
+        elif '13' <= vol <= '18':
             return 'eid1'
-        elif '22' <= vol <= '29':
+        elif '19' <= vol <= '24':
             return 'eid2'
+        elif '25' <= vol <= '30':
+            return 'eid3'
         else:
             return ''
     else:
         return 'eid'
-    
+
 eid_corpus_df['series'] = (
     eid_corpus_df[['level', 'dl_vol_iss']].apply(eid_ser_fn, axis=1))
+# eid_corpus_df['series'].value_counts(dropna=False).to_dict()
+# {'eid0': 3402, 'eid1': 3360, 'eid3': 3305, 'eid2': 3243, 'eid': 345}
 
 # collections of documents in the corpus
 eid_corpus_df['collection'] = (
@@ -449,23 +462,23 @@ eid_corpus_df['series'] = eid_corpus_df['series'].astype(series_cat)
 eid_corpus_df['level'] = eid_corpus_df['level'].astype(level_cat)
 
 eid_corpus_df = eid_corpus_df[corpus_columns].sort_values(sort_order)
-# (13099, 23)
+# (13655, 23)
 
 # eid_corpus_df.to_excel('eid_corpus_df.xlsx', freeze_panes=(1,0))
 
 #%% PCD: combine sources
 pcd_corpus_df = pd.merge(
     left=pd.merge(
-        left=(pcd_cc_df                                  # (5179, 8)
-              .loc[pcd_cc_df.level.isin(keep_levels)]),  # (5176, 8)
-        right=pd.concat([pcd_toc_dl_df, pcd_art_dl_df]), # (5178, 8)
+        left=(pcd_cc_df                                  # (5283, 8)
+              .loc[pcd_cc_df.level.isin(keep_levels)]),  # (5280, 8)
+        right=pd.concat([pcd_toc_dl_df, pcd_art_dl_df]), # (5281, 8)
         how='inner',
         left_on='mirror_path',
-        right_on='path'),                                # (5176, 16)
-    right=pd.concat([pcd_toc_md_df, pcd_art_md_df]),     # (5178, 12)
+        right_on='path'),                                # (5280, 16)
+    right=pd.concat([pcd_toc_md_df, pcd_art_md_df]),     # (5281, 12)
     how='inner',
     left_on='mirror_path',
-    right_on='path').fillna('')                          # (5176, 28)
+    right_on='path').fillna('')                          # (5280, 28)
 
 pcd_corpus_df['series'] = 'pcd'
 
@@ -495,24 +508,28 @@ collection_cat = CategoricalDtype(
     ['mmwr_toc_en', 'mmrr_toc_en', 'mmss_toc_en', 'mmsu_toc_en', 
      'mmwr_art_en', 'mmrr_art_en', 'mmss_art_en', 'mmsu_art_en', 
      'mmnd_art_en', 'mmwr_art_es', 
-     'eid_toc_en', 'eid0_art_en', 'eid1_art_en', 'eid2_art_en', 
-     'pcd_toc_en', 'pcd_toc_es', 'pcd_art_en', 'pcd_art_es', 
-     'pcd_art_fr', 'pcd_art_zhs', 'pcd_art_zht'], ordered=True)
+     'eid_toc_en', 
+     'eid0_art_en', 'eid1_art_en', 'eid2_art_en', 'eid3_art_en', 
+     'pcd_toc_en', 'pcd_toc_es', 
+     'pcd_art_en', 'pcd_art_es', 'pcd_art_fr', 'pcd_art_zhs', 'pcd_art_zht'], 
+    ordered=True)
 
 cdc_corpus_df = pd.concat([mmwr_corpus_df, eid_corpus_df, pcd_corpus_df])
 cdc_corpus_df['stratum'] = cdc_corpus_df['stratum'].astype(stratum_cat)
 cdc_corpus_df['collection'] = cdc_corpus_df['collection'].astype(collection_cat)
 cdc_corpus_df = (
     cdc_corpus_df.sort_values(['collection'] + sort_order).reset_index(drop=True))
-# (33567, 23)
+# (34505, 23)
 
 cdc_corpus_df.collection.value_counts(sort=False)
-# {'mmwr_toc_en': 42, 'mmrr_toc_en': 34, 'mmss_toc_en': 36, 'mmsu_toc_en': 19, 
-#  'mmwr_art_en': 12692, 'mmrr_art_en': 551, 'mmss_art_en': 467, 'mmsu_art_en': 234, 
-#  'mmnd_art_en': 1195, 'mmwr_art_es': 22, 
-#  'eid_toc_en': 330, 'eid0_art_en': 3919, 'eid1_art_en': 4439, 'eid2_art_en': 4411, 
-#  'pcd_toc_en': 49, 'pcd_toc_es': 36, 'pcd_art_en': 3011, 'pcd_art_es': 1011, 
-#  'pcd_art_fr': 357, 'pcd_art_zhs': 356, 'pcd_art_zht': 356}
+# {'mmwr_toc_en': 43, 'mmrr_toc_en': 35, 'mmss_toc_en': 37, 'mmsu_toc_en': 20, 
+#  'mmwr_art_en': 12928, 'mmrr_art_en': 557, 'mmss_art_en': 476, 'mmsu_art_en': 256, 
+#  'mmnd_art_en': 1195, 'mmwr_art_es': 23, 
+#  'eid_toc_en': 345, 
+#  'eid0_art_en': 3402, 'eid1_art_en': 3360, 'eid2_art_en': 3243, 'eid3_art_en': 3305, 
+#  'pcd_toc_en': 50, 'pcd_toc_es': 36, 
+#  'pcd_art_en': 3114, 'pcd_art_es': 1011, 'pcd_art_fr': 357, 'pcd_art_zhs': 356, 
+#  'pcd_art_zht': 356}
 pd.crosstab(cdc_corpus_df.collection, cdc_corpus_df.stratum, margins=True)
 
 # use cdc_corpus_df[['url', 'mirror_path', 'stratum', 'collection']]

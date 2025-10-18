@@ -29,7 +29,9 @@ os.chdir('/Users/cmheilig/cdc-corpora/_test')
 #%% Retrieve (unpickle) trimmed, UTF-8 HTML
 # pcd_cc_df = pickle.load(open("pickle-files/pcd_cc_df.pkl", "rb")) # (4786, 8)
 pcd_cc_df = pd.read_pickle('pickle-files/pcd_cc_df.pkl')
+pcd_cc_df['mirror_path'] = pcd_cc_df['mirror_path'].str.replace('\\', '/')
 pcd_cc_paths = pcd_cc_df.mirror_path.to_list() # 5179
+
 pcd_art_en_paths = [
     path for path in pcd_cc_paths
     if re.search(r'(\d{2}_\d{4}[aber\d]{0,2}|cover)\.htm', path)] # 3011
@@ -55,15 +57,15 @@ Dateline elements:
 pcd_toc_soup = {
     path: BeautifulSoup(html, 'lxml')
     for path, html in tqdm(pcd_toc_unx.items())}
-# 87/87 [00:01<00:00, 49.23it/s]
+# 88/88 [00:00<00:00, 115.15it/s]
 pcd_art_soup = {
     path: BeautifulSoup(html, 'lxml')
     for path, html in tqdm(pcd_art_unx.items())}
-# 5091/5091 [01:41<00:00, 50.09it/s]
+# 5193/5193 [01:23<00:00, 62.42it/s]
 
 #%% PCD dateline: tables of contents
 
-year_mo_to_vol_iss = json.load(open('pcd_year_mo_to_vol_iss.json', 'r'))
+year_mo_to_vol_iss = json.load(open('json-inputs/pcd_year_mo_to_vol_iss.json', 'r'))
 mon_to_num = {'jan': '01', 'mar': '03', 'apr': '04', 'may': '05', 
               'jul': '07', 'sep': '09', 'oct': '10', 'nov': '11'}
 corrected_toc_datelines = {
@@ -115,7 +117,7 @@ def pcd_toc_dl_re_fn(path, html):
 pcd_toc_dl_list = [
     dict(path=path, **pcd_toc_dl_re_fn(path, html))
     for path, html in tqdm(pcd_toc_unx.items())]
-pcd_toc_dl_df = pd.DataFrame(pcd_toc_dl_list).sort_values(['dl_year_mo', 'lang']) # (87, 5)
+pcd_toc_dl_df = pd.DataFrame(pcd_toc_dl_list).sort_values(['dl_year_mo', 'lang']) # (88, 5)
 # ['path', 'lang', 'dateline', 'dl_vol_iss', 'dl_year_mo']
 
 pcd_toc_dl_df.to_excel('pcd_toc_dl_df.xlsx', freeze_panes=(1,0))
@@ -136,11 +138,11 @@ month_to_num = {
     'May': '05', 'June': '06', 'July': '07', 'August': '08', 
     'September': '09', 'October': '10', 'November': '11', 'December': '12'}
 # dict to map vol(iss) to publication date
-vol_iss_to_date = json.load(open('pcd_vol_iss_dates.json', 'r')) # 37
+vol_iss_to_date = json.load(open('json-inputs/pcd_vol_iss_dates.json', 'r')) # 37
 # dict to fill in datelines where missing
-corrected_datelines = json.load(open('pcd_corrected_datelines.json', 'r')) # 145
+corrected_datelines = json.load(open('json-inputs/pcd_corrected_datelines.json', 'r')) # 145
 # dict to map path to article number (from TOCs)
-article_numbers = json.load(open('pcd_article_numbers.json', 'r')) # 2980
+article_numbers = json.load(open('json-inputs/pcd_article_numbers.json', 'r')) # 2980
 
 # set(article_numbers) ^ set(pcd_art_en_paths)
 # # {'/pcd/issues/2006/oct/memoriam.htm'}
@@ -221,7 +223,7 @@ pcd_art_en_dl_list = [
     dict(path=path, **pcd_art_en_dl_re_fn(path, soup)) #, sort_key=art_sort(path))
     for path, soup in tqdm(pcd_art_soup.items())
     if path in pcd_art_en_paths] # English
-pcd_art_en_dl_df = pd.DataFrame(pcd_art_en_dl_list) # (3011, 8)
+pcd_art_en_dl_df = pd.DataFrame(pcd_art_en_dl_list) # (3113, 8)
 # ['path', 'dateline', 'dl_vol_iss', 'dl_year_mo', 'dl_date', 'dl_art_num', 'lang', 'dl_cat']
 
 pcd_art_en_dl_df.to_excel('pcd_art_en_dl_df.xlsx', freeze_panes=(1,0))
@@ -255,7 +257,7 @@ pcd_art_nen_dl_df.to_excel('pcd_art_nen_dl_df.xlsx', freeze_panes=(1,0))
 pcd_art_dl_df = (
     pd.concat([pcd_art_en_dl_df, pcd_art_nen_dl_df])
     .fillna('')
-    .sort_values(['dl_date', 'dl_art_num', 'lang'])) # (5091, 8)
+    .sort_values(['dl_date', 'dl_art_num', 'lang'])) # (5193, 8)
 # ['path', 'dateline', 'dl_vol_iss', 'dl_year_mo', 'dl_date', 'dl_art_num', 'lang', 'dl_cat']
 pcd_art_dl_df.to_excel('pcd_art_dl_df.xlsx', freeze_panes=(1,0))
 

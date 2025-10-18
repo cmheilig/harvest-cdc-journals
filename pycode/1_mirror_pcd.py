@@ -18,7 +18,9 @@ Main product: pcd_cc_df
 #%% Import modules and set up environment
 # import from 0_cdc-corpora-header.py
 
-os.chdir('/Users/cmheilig/cdc-corpora/_test')
+# os.chdir('/Users/cmheilig/cdc-corpora/_test')
+os.chdir(r'C:\Temp\pcd_2024')
+
 
 #%% 0. Start with PCD home https://www.cdc.gov/pcd/index.htm
 base_url = 'https://www.cdc.gov/pcd/index.htm'
@@ -38,23 +40,23 @@ home_dframe = pd.DataFrame(process_aTag(home_a, base_url), index = [0])
 # home_dframe.loc[:, ['path', 'string']]
 #              path                      string
 # 0  /pcd/index.htm  Preventing Chronic Disease
-home_html = get_html_from_url(home_dframe.url[0]) # len(home_html) # 196924
+home_html = get_html_from_url(home_dframe.url[0]) # len(home_html) # 86809
 home_soup = BeautifulSoup(home_html, 'lxml')
 
 # review all anchor-hrefs from home URL
-# len(home_soup.find_all('a', href=True)) # 148
-pd.DataFrame([process_aTag(aTag, home_dframe.url[0]) 
-    for aTag in home_soup.find_all('a', href=True)])\
-    .to_excel('pcd-home-anchors.xlsx', engine='openpyxl', freeze_panes=(1,0))
-# [153 rows x 7 columns]
+# len(home_soup.find_all('a', href=True)) # 157
+# pd.DataFrame([process_aTag(aTag, home_dframe.url[0]) 
+#     for aTag in home_soup.find_all('a', href=True)])\
+#     .to_excel('pcd-home-anchors.xlsx', engine='openpyxl', freeze_panes=(1,0))
+# [157 rows x 7 columns]
 
 #%% 1. Contents of series, including Spanish; list of archive volumes
 
 # Review of anchor elements in home page, pcd-home-anchors.xlsx
 # https://www.cdc.gov/pcd/current_issue.htm  # current volume
-#    all issues and articles in 2024 (to date)
+#    all issues and articles in 2025 (to date)
 # https://www.cdc.gov/pcd/issues/archive.htm # past volumes
-#    all volumes and articles in 2004-2011, volumes in 2012-2023
+#    all volumes and articles in 2004-2011, volumes in 2012-2024
 
 series_a = home_soup.find_all('a', href=re.compile('archive'))
 # [<a href="/pcd/issues/archive.htm">Issue Archive</a>]
@@ -82,7 +84,7 @@ series_dframe = pd.DataFrame(
 # 1   /pcd/es/archive_es.htm  Archivo de números en español
 
 series_html = [get_html_from_url(url) for url in series_dframe.url]
-# [len(x) for x in series_html] # [215589, 35870]
+# [len(x) for x in series_html] # [105222, 35870]
 series_soup = [BeautifulSoup(html, 'lxml') for html in series_html]
 
 # review all anchor-hrefs from series URL
@@ -90,15 +92,15 @@ series_soup = [BeautifulSoup(html, 'lxml') for html in series_html]
 #     for soup, url in zip(series_soup, series_dframe.url) 
 #     for aTag in soup.find_all('a', href=True)])\
 #     .to_excel('pcd-series-anchors.xlsx', engine='openpyxl', freeze_panes=(1,0))
-# [355 rows x 7 columns]
+# [353 rows x 7 columns]
 
 #%% 2. List and contents of volumes
 
 # Review of anchor elements in series page, pcd-series-anchors.xlsx
 # https://www.cdc.gov/pcd/current_issue.htm  # current volume
-#     current volume, all issues in 2024 (to date)
+#     current volume, all issues in 2025 (to date)
 # https://www.cdc.gov/pcd/issues/yyyy/yyyy_TOC.htm
-#     all volumes and articles in 2012-2023
+#     all volumes and articles in 2012-2024
 # https://www.cdc.gov/pcd/issues/yyyy/mmm/toc.htm
 #     all volumes and articles in 2004-2011
 # https://www.cdc.gov/pcd/es/yyyy_toc.htm
@@ -111,29 +113,29 @@ series_soup = [BeautifulSoup(html, 'lxml') for html in series_html]
 # pcd_vol_re = re.compile(r'(current_issue|\d{4}.*(TOC|toc)).htm')
 pcd_vol_re = re.compile(r'\d{4}.*(TOC|toc).htm')
 volumes_a = [soup.find_all('a', href=pcd_vol_re) for soup in series_soup]
-volumes_a_n = [len(x) for x in volumes_a] # sum(volumes_a_n) # [49, 36]
+volumes_a_n = [len(x) for x in volumes_a] # sum(volumes_a_n) # [50, 36]
 
 volumes_dframe = pd.DataFrame([process_aTag(aTag, url) 
    for a_list, url in zip(volumes_a, series_dframe.url) 
    for aTag in a_list])
 # volumes_dframe.loc[:, ['path', 'string']]
 #                              path     string
-# 0   /pcd/issues/2023/2023_TOC.htm       2023
-# 1   /pcd/issues/2022/2022_TOC.htm       2022
-# 2   /pcd/issues/2021/2021_TOC.htm       2021
-# 3   /pcd/issues/2020/2020_TOC.htm       2020
-# 4   /pcd/issues/2019/2019_TOC.htm       2019
+# 0   /pcd/issues/2024/2024_TOC.htm       2024
+# 1   /pcd/issues/2023/2023_TOC.htm       2023
+# 2   /pcd/issues/2022/2022_TOC.htm       2022
+# 3   /pcd/issues/2021/2021_TOC.htm       2021
+# 4   /pcd/issues/2020/2020_TOC.htm       2020
 # ..                            ...        ...
-# 80       /pcd/es/2005_nov_toc.htm  Noviembre
-# 81       /pcd/es/2005_oct_toc.htm    Octubre
-# 82       /pcd/es/2005_jul_toc.htm      Julio
-# 83       /pcd/es/2005_apr_toc.htm      Abril
-# 84       /pcd/es/2005_jan_toc.htm      Enero
+# 81       /pcd/es/2005_nov_toc.htm  Noviembre
+# 82       /pcd/es/2005_oct_toc.htm    Octubre
+# 83       /pcd/es/2005_jul_toc.htm      Julio
+# 84       /pcd/es/2005_apr_toc.htm      Abril
+# 85       /pcd/es/2005_jan_toc.htm      Enero
 
 volumes_html = [get_html_from_url(url) for url in tqdm(volumes_dframe.url)]
-# 85/85 [00:22<00:00,  3.76it/s]
+# 86/86 [00:14<00:00,  5.94it/s]
 # repr([len(x) for x in volumes_html])
-# [297672, 272458, 284662, 345217, 332816, 411821, 397426, 428662, 470944, ...]
+# [173689, 186517, 161289, 173692, 234046, 227218, 220971, 205798, 426105, ...] 
 volumes_soup = [BeautifulSoup(html, 'lxml') for html in volumes_html]
 
 # review all anchor-refs from volumes URLs
@@ -141,7 +143,7 @@ volumes_soup = [BeautifulSoup(html, 'lxml') for html in volumes_html]
 #     for soup, url in zip(volumes_soup, volumes_dframe.url) 
 #     for aTag in soup.find_all('a', href=True)])\
 #     .to_excel('pcd-volumes-anchors.xlsx', engine='openpyxl', freeze_panes=(1,0))
-# [11825 rows x 7 columns]
+# [12111 rows x 7 columns]
 
 #%% 3. List of articles
 
@@ -159,28 +161,27 @@ volumes_soup = [BeautifulSoup(html, 'lxml') for html in volumes_html]
 
 pcd_art_re = re.compile(r'((\d{2}_\d{4,5}([aber]|_es|_fr|_zhs|_zht)?)|cover).htm')
 articles_a = [soup.find_all('a', href=pcd_art_re) for soup in volumes_soup]
-articles_a_n = [len(x) for x in articles_a] # sum(articles_a_n) # 5804
-# [117, 89, 104, 169, 166, 166, 142, 181, 231, 230, 216, 179, 67, 40, 38, ...]
+articles_a_n = [len(x) for x in articles_a] # sum(articles_a_n) # 5882
+# [103, 117, 89, 104, 169, 166, 166, 142, 181, 231, 230, 216, 179, 67, 40, ...]
 
 articles_dframe = pd.DataFrame([process_aTag(aTag, url) 
    for a_list, url in zip(articles_a, volumes_dframe.url) 
    for aTag in a_list])
-# (5804, 7)
-# articles_dframe.loc[:, ['path', 'string']]
+# (5882, 7)
 with pd.option_context("display.max_colwidth", 35):
     display(articles_dframe.loc[:, ['path', 'string']])
 #                                     path                              string
-# 0           /pcd/issues/2023/23_0198.htm  Substance Use, Sleep Duration, ...
-# 1           /pcd/issues/2023/23_0173.htm  Prevalence of Testing for Diabe...
-# 2           /pcd/issues/2023/23_0182.htm  Linking Adverse Childhood Exper...
-# 3           /pcd/issues/2023/23_0199.htm  Disaggregation of Breastfeeding...
-# 4           /pcd/issues/2023/23_0155.htm  Geospatial Determinants of Food...
+# 0           /pcd/issues/2024/24_0183.htm  A Community-Engaged, Mixed-Meth...
+# 1           /pcd/issues/2024/24_0332.htm  Mapping Geographic Access to Il...
+# 2           /pcd/issues/2024/24_0074.htm  Arthritis Management: Patient-R...
+# 3           /pcd/issues/2024/24_0313.htm  Comorbidity Among Adults With E...
+# 4           /pcd/issues/2024/24_0504.htm  Positioning Students for Succes...
 #                                  ...                                 ...
-# 5799  /pcd/issues/2005/jan/04_0079_es...  De la investigación a la prácti...
-# 5800  /pcd/issues/2005/jan/04_0075_es...  Pasos Adelante:|La eficacia de ...
-# 5801  /pcd/issues/2005/jan/04_0076_es...  El índice de sanidad escolar (S...
-# 5802  /pcd/issues/2005/jan/04_0083_es...  El desarrollo y la adaptación d...
-# 5803  /pcd/issues/2005/jan/04_0077_es...  La|Border Health Strategic Init...
+# 5877  /pcd/issues/2005/jan/04_0079_es...  De la investigación a la prácti...
+# 5878  /pcd/issues/2005/jan/04_0075_es...  Pasos Adelante:|La eficacia de ...
+# 5879  /pcd/issues/2005/jan/04_0076_es...  El índice de sanidad escolar (S...
+# 5880  /pcd/issues/2005/jan/04_0083_es...  El desarrollo y la adaptación d...
+# 5881  /pcd/issues/2005/jan/04_0077_es...  La|Border Health Strategic Init...
 
 # Before reviewing duplicates, redirect some filenames, as
 # some Spanish-language document filenames do not end with _es.htm
@@ -196,7 +197,7 @@ articles_dframe.loc[set_es, ['url', 'path', 'filename', 'mirror_path']]
 
 # Check for duplicate URLs
 articles_dupe = articles_dframe.path.duplicated(keep = False)
-articles_review = articles_dframe.loc[articles_dupe].index # 1423
+articles_review = articles_dframe.loc[articles_dupe].index # 1373
 # articles_dframe.loc[articles_review, ['base', 'url', 'string']]
 # articles_dframe.loc[articles_review].to_clipboard()
 
@@ -209,7 +210,7 @@ articles_dframe.loc[articles_dframe['string'] == ''] # 4
 # 3. string starts wtih 'Este ' and url ends with '_es.htm'
 articles_dframe.loc[articles_dframe['string'].str.startswith('Este ') &
                     articles_dframe['url'].str.endswith('_es.htm') &
-                    articles_dframe.path.duplicated(keep = False)] # 708
+                    articles_dframe.path.duplicated(keep = False)] # 683
 
 articles_dframe = (
     articles_dframe
@@ -218,8 +219,8 @@ articles_dframe = (
         .drop(articles_dframe.loc[articles_dframe['string'].str.startswith('Este ') &
                             articles_dframe['url'].str.endswith('_es.htm') &
                             articles_dframe.path.duplicated(keep = False)].index)
-        .reset_index(drop=True) ) # (5091, 7)
-# articles_dframe.loc[articles_dframe.path.duplicated(keep = False)].index # []
+        .reset_index(drop=True) ) # (5194, 7)
+# articles_dframe.loc[articles_dframe.path.duplicated(keep = False)].index # [865, 879]
 
 articles_dframe.to_excel('pcd-articles_dframe.xlsx', engine='openpyxl', freeze_panes=(1,0))
 
@@ -230,7 +231,7 @@ pcd_cc_df = pd.concat([
    volumes_dframe.assign(level='volume'),
    articles_dframe.assign(level='article')],
    axis = 0, ignore_index = True)
-# (5179, 8)
+# (5283, 8)
 
 # pickle
 # pickle.dump(pcd_cc_df, open('pcd_cc_df.pkl', 'xb'))
@@ -244,15 +245,20 @@ pcd_cc_df.to_excel('pcd_cc_df.xlsx', engine='openpyxl', freeze_panes=(1,0))
 # pcd_cc_df = pickle.load(open("pcd_cc_df.pkl", "rb")) # (5177, 8)
 pcd_cc_df = pd.read_pickle('pickle-files/pcd_cc_df.pkl')
 
+vol_2023_2024 = pcd_cc_df.url.str.contains('/202[34]') # 222
+pcd_cc_df_ = pcd_cc_df.loc[vol_2023_2024, :] # (222, 9)
+
 PCD_BASE_PATH_b0 = normpath(expanduser('~/cdc-corpora'))
 
-x = create_mirror_tree(PCD_BASE_PATH_b0, calculate_mirror_dirs(pcd_cc_df.path))
+x = create_mirror_tree(PCD_BASE_PATH_b0, calculate_mirror_dirs(pcd_cc_df_.path))
 # { key: (0 if val is None else len(val)) for (key, val) in x.items() }
+# {'base_path': 1, 'paths': 2, 'norm_paths': 2}
 
 pcd_sizes_b0 = [
     mirror_raw_html(url, PCD_BASE_PATH_b0 + path, print_url = False)
-    for url, path in tqdm(zip(pcd_cc_df.url[_temp], pcd_cc_df.mirror_path[_temp]),
-                          total=len(pcd_cc_df.mirror_path[_temp]))]
+    for url, path in tqdm(zip(pcd_cc_df_.url, pcd_cc_df_.mirror_path),
+                          total=len(pcd_cc_df_.mirror_path))]
+# 222/222 [01:01<00:00,  3.61it/s]
 # sum([x==0 for x in pcd_sizes_b0]) # retry those with 0 length
 for j in range(len(pcd_sizes_b0)):
    if pcd_sizes_b0[j] == 0:
@@ -264,6 +270,6 @@ for j in range(len(pcd_sizes_b0)):
 
 #%% 6. Routine for reading all files into a single list
 pcd_html_b0 = [read_raw_html(PCD_BASE_PATH_b0 + path)
-               for path in tqdm(pcd_cc_df.mirror_path)]
-# 5179/5179 [00:01<00:00, 2638.44it/s]
+               for path in tqdm(pcd_cc_df_.mirror_path)]
+# 222/222 [00:10<00:00, 21.26it/s]
 pickle.dump(pcd_html_b0, open('pcd_raw_html.pkl', 'xb'))

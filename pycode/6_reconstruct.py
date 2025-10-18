@@ -48,9 +48,11 @@ collection_cat = CategoricalDtype(
     ['mmwr_toc_en', 'mmrr_toc_en', 'mmss_toc_en', 'mmsu_toc_en', 
      'mmwr_art_en', 'mmrr_art_en', 'mmss_art_en', 'mmsu_art_en', 
      'mmnd_art_en', 'mmwr_art_es', 
-     'eid_toc_en', 'eid0_art_en', 'eid1_art_en', 'eid2_art_en', 
-     'pcd_toc_en', 'pcd_toc_es', 'pcd_art_en', 'pcd_art_es', 
-     'pcd_art_fr', 'pcd_art_zhs', 'pcd_art_zht'], ordered=True)
+     'eid_toc_en', 
+     'eid0_art_en', 'eid1_art_en', 'eid2_art_en', 'eid3_art_en', 
+     'pcd_toc_en', 'pcd_toc_es', 
+     'pcd_art_en', 'pcd_art_es', 'pcd_art_fr', 'pcd_art_zhs', 'pcd_art_zht'], 
+    ordered=True)
 
 # pd.read_csv('cdc_corpus_df.csv').columns
 # ['url', 'stratum', 'collection', 'series', 'level', 'lang', 'dl_year_mo', 'dl_vol_iss', 'dl_date', 'dl_page', 'dl_art_num', 'dateline', 'base', 'string', 'link_canon', 'mirror_path', 'md_citation_doi', 'title', 'md_citation_categories', 'dl_cat', 'md_kwds', 'md_desc', 'md_citation_author']

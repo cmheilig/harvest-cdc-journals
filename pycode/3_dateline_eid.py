@@ -29,6 +29,7 @@ os.chdir('/Users/cmheilig/cdc-corpora/_test')
 #%% Retrieve (unpickle) trimmed, UTF-8 HTML
 # eid_cc_df = pickle.load(open("pickle-files/eid_cc_df.pkl", "rb"))
 eid_cc_df = pd.read_pickle('pickle-files/eid_cc_df.pkl')
+eid_cc_df['mirror_path'] = eid_cc_df['mirror_path'].str.replace('\\', '/')
 eid_cc_paths = eid_cc_df.mirror_path.to_list()
 
 eid_toc_unx = pickle.load(open('pickle-files/eid_toc_unx.pkl', 'rb'))
@@ -47,11 +48,11 @@ Dateline elements:
 eid_toc_soup = {
     path: BeautifulSoup(html, 'lxml')
     for path, html in tqdm(eid_toc_unx.items())}
-# 330/330 [00:22<00:00, 14.56it/s]
+# 345/345 [00:08<00:00, 42.47it/s]
 eid_art_soup = {
     path: BeautifulSoup(html, 'lxml')
     for path, html in tqdm(eid_art_unx.items())}
-# 12769/12769 [08:51<00:00, 24.01it/s]
+# 13310/13310 [06:43<00:00, 33.00it/s]
 
 #%% EID dateline
 
@@ -68,7 +69,7 @@ month_to_num = {
     'January': '01', 'February': '02', 'March': '03', 'April': '04', 
     'May': '05', 'June': '06', 'July': '07', 'August': '08', 'September': '09', 
     'October': '10', 'November': '11', 'December': '12'}
-missing_pages = json.load(open('eid_missing_pages.json', 'r'))
+missing_pages = json.load(open('json-inputs/eid_missing_pages.json', 'r'))
 
 def eid_dl_re_fn(path, soup):
     path = path.removesuffix('.html')
@@ -154,15 +155,15 @@ def eid_dl_re_fn(path, soup):
 # ['path', 'lang', 'dateline', 'dl_vol_iss', 'dl_year_mo', 'dl_page']
 eid_toc_dl_list = [
     dict(path=path, **eid_dl_re_fn(path, soup)) 
-    for path, soup in tqdm(eid_toc_soup.items())] # 330
-eid_toc_dl_df = pd.DataFrame(eid_toc_dl_list) # (330, 6)
+    for path, soup in tqdm(eid_toc_soup.items())] # 345
+eid_toc_dl_df = pd.DataFrame(eid_toc_dl_list) # (345, 6)
 eid_toc_dl_df.to_excel('eid_toc_dl_df.xlsx', freeze_panes=(1,0))
 
 eid_art_dl_list = [
     dict(path=path, **eid_dl_re_fn(path, soup)) 
-    for path, soup in tqdm(eid_art_soup.items())] # 12769
-eid_art_dl_df = pd.DataFrame(eid_art_dl_list) # (12769, 6)
-# 12769/12769 [00:58<00:00, 220.11it/s]
+    for path, soup in tqdm(eid_art_soup.items())] # 13310
+eid_art_dl_df = pd.DataFrame(eid_art_dl_list) # (13310, 6)
+# 13310/13310 [00:15<00:00, 882.13it/s]
 eid_art_dl_df.to_excel('eid_art_dl_df.xlsx', freeze_panes=(1,0))
 
 #%% DataFrames to and from pickle

@@ -25,14 +25,20 @@ import unicodedata
 os.chdir('/Users/cmheilig/cdc-corpora/_test')
 
 #%% 1. Retrieve mirror structure DataFrames
+
+# kludge to correct an issue with construction of mirror_path
+
 # mmwr_cc_df = pickle.load(open('pickle-files/mmwr_cc_df.pkl', 'rb')) # (15297, 8)
 mmwr_cc_df = pd.read_pickle('pickle-files/mmwr_cc_df.pkl')
+mmwr_cc_df['mirror_path'] = mmwr_cc_df['mirror_path'].str.replace('\\', '/')
 
 # eid_cc_df = pickle.load(open("pickle-files/eid_cc_df.pkl", "rb")) # (13100, 8)
 eid_cc_df = pd.read_pickle('pickle-files/eid_cc_df.pkl')
+eid_cc_df['mirror_path'] = eid_cc_df['mirror_path'].str.replace('\\', '/')
 
 # pcd_cc_df = pickle.load(open("pickle-files/pcd_cc_df.pkl", "rb")) # (4786, 8)
 pcd_cc_df = pd.read_pickle('pickle-files/pcd_cc_df.pkl')
+pcd_cc_df['mirror_path'] = pcd_cc_df['mirror_path'].str.replace('\\', '/')
 
 ser_cc_df = pd.concat([
    mmwr_cc_df.assign(ser='mmwr'),
@@ -54,29 +60,29 @@ PCD_BASE_PATH_b0 = normpath(expanduser('~/cdc-corpora/'))
 mmwr_toc_raw = {
     path: read_raw_html(MMWR_BASE_PATH_b0 + path)
     for path in tqdm(mmwr_cc_df.loc[mmwr_cc_df.level.isin(['series', 'volume']), 
-                                     'mirror_path'].sort_values()) } # 135
+                                     'mirror_path'].sort_values()) } # 139
 mmwr_art_raw = {
     path: read_raw_html(MMWR_BASE_PATH_b0 + path)
     for path in tqdm(mmwr_cc_df.loc[mmwr_cc_df.level == 'article', 
-                                     'mirror_path'].sort_values()) } # 15161
+                                     'mirror_path'].sort_values()) } # 15435
 
 eid_toc_raw = {
     path: read_raw_html(EID_BASE_PATH_b0 + path)
     for path in tqdm(eid_cc_df.loc[eid_cc_df.level.isin(['volume', 'issue']), 
-                                    'mirror_path'].sort_values()) } # 330
+                                    'mirror_path'].sort_values()) } # 345
 eid_art_raw = {
     path: read_raw_html(EID_BASE_PATH_b0 + path)
     for path in tqdm(eid_cc_df.loc[eid_cc_df.level == 'article',
-                                    'mirror_path'].sort_values()) } # 12769
+                                    'mirror_path'].sort_values()) } # 13310
 
 pcd_toc_raw = {
     path: read_raw_html(PCD_BASE_PATH_b0 + path)
     for path in tqdm(pcd_cc_df.loc[pcd_cc_df.level.isin(['series', 'volume']), 
-                                    'mirror_path'].sort_values()) } # 87
+                                    'mirror_path'].sort_values()) } # 88
 pcd_art_raw = {
     path: read_raw_html(PCD_BASE_PATH_b0 + path)
     for path in tqdm(pcd_cc_df.loc[pcd_cc_df.level == 'article',
-                                    'mirror_path'].sort_values()) } # 5091
+                                    'mirror_path'].sort_values()) } # 5194
 
 
 #%% 2a. Pickle dictionaries of raw HTML files
@@ -103,36 +109,36 @@ meta_utf8char_reb = re.compile(rb'^<meta.*charset="?utf-8.*$', flags=re.M|re.I)
 
 Counter([str(meta_charset_reb.findall(html_b))
          for html_b in tqdm(mmwr_toc_raw.values())])
-Counter({"[b'utf-8']": 135})
+Counter({"[b'utf-8']": 139})
 
 Counter([str(meta_charset_reb.findall(html_b))
          for html_b in tqdm(mmwr_art_raw.values())])
 Counter({'[]': 5152,
          "[b'windows-1252']": 3557,
          "[b'windows-1252', b'windows-1252']": 2,
-         "[b'utf-8']": 6438,
+         "[b'utf-8']": 6712,
          "[b'UTF-8']": 12})
 
 Counter([str(meta_charset_reb.findall(html_b))
          for html_b in tqdm(eid_toc_raw.values())])
-Counter({"[b'utf-8']": 330})
+Counter({"[b'utf-8']": 345})
 
 Counter([str(meta_charset_reb.findall(html_b))
          for html_b in tqdm(eid_art_raw.values())])
-Counter({"[b'utf-8']": 12769})
+Counter({"[b'utf-8']": 13310})
 
 Counter([str(meta_charset_reb.findall(html_b))
          for html_b in tqdm(pcd_toc_raw.values())])
 Counter({"[b'windows-1252']": 70, 
          "[b'iso-8859-1']": 4, 
-         "[b'utf-8']": 13})
+         "[b'utf-8']": 14})
 
 Counter([str(meta_charset_reb.findall(html_b))
          for html_b in tqdm(pcd_art_raw.values())])
 Counter({"[b'windows-1252']": 2087,
          "[b'GB2312']": 357,                # Simplified Chinese
          "[b'big5']": 355,                  # Traditional Chinese
-         "[b'utf-8']": 1985,
+         "[b'utf-8']": 2087,
          "[b'iso-8859-1']": 303,
          "[b'utf-8', b'windows-1252']": 4})
 
@@ -148,7 +154,7 @@ Counter([str(meta_charset_reb.findall(html_b))
          for html_b in tqdm(pcd_toc_raw.values())] +
         [str(meta_charset_reb.findall(html_b))
          for html_b in tqdm(pcd_art_raw.values())])
-Counter({"[b'utf-8']": 21670,
+Counter({"[b'utf-8']": 22607,
          '[]': 5152,
          "[b'windows-1252']": 5714,
          "[b'windows-1252', b'windows-1252']": 2,
@@ -158,7 +164,7 @@ Counter({"[b'utf-8']": 21670,
          "[b'big5']": 355,
          "[b'utf-8', b'windows-1252']": 4})
 charset_freqs = _
-sorted(set([y for x in list(charset_freqs)for y in eval(x)]))
+sorted(set([y for x in list(charset_freqs) for y in eval(x)]))
 [b'GB2312', b'UTF-8', b'big5', b'iso-8859-1', b'utf-8', b'windows-1252']
 
 
@@ -184,13 +190,13 @@ ser_codecs = [
     for ser in ['mmwr', 'eid', 'pcd']
     for lev in ['toc', 'art']
     for path, html_b in tqdm(eval(f'{ser}_{lev}_raw').items())]
-ser_codecs_df = pd.DataFrame(ser_codecs) # (33573, 10)
+ser_codecs_df = pd.DataFrame(ser_codecs) # (34510, 10)
 ser_codecs_df.to_excel('ser_codecs_df.xlsx', freeze_panes=(1,0))
 
 ser_codes_freqs = {
     codec: pd.crosstab(ser_codecs_df.charset, ser_codecs_df[codec], margins=True)
            for codec in ['ascii', 'windows-1252', 'iso-8859-1', 'big5', 'gb2312', 'utf-8']}
-pd.concat(ser_codes_freqs, axis=1).to_excel('ser_codes_freqs.xlsx')
+pd.concat(ser_codes_freqs, axis=1).to_excel('ser_codes_freqs.xlsx', merge_cells=True)
 
 # anomalies
 codec_anom_paths = [
@@ -255,31 +261,31 @@ pcd_art_uni = {
     for path, html_b in tqdm(pcd_art_raw.items())}
 
 Counter([html_b.count(b'\xef\xbb\xbf') for html_b in mmwr_art_raw.values()])
-# Counter({0: 12115, 1: 3045, 60: 1})
+# Counter({0: 12289, 1: 3145, 60: 1})
 Counter([html_b.count(b'\xef\xbb\xbf') for html_b in eid_art_raw.values()])
-# Counter({0: 12758, 1: 5, 2: 5, 3: 1})
+# Counter({0: 13298, 1: 5, 2: 5, 3: 1, 9: 1})
 Counter([html_b.count(b'\xef\xbb\xbf') for html_b in pcd_art_raw.values()])
-# Counter({0: 4464, 2: 179, 3: 437, 4: 9, 1: 2})
+# Counter({0: 4566, 3: 437, 2: 179, 4: 9, 1: 2})
 
 Counter([html_u.count('xef\xbb\xbf') for html_u in mmwr_art_uni.values()])
-# Counter({0: 15161})
+# Counter({0: 15435})
 Counter([html_u.count('xef\xbb\xbf') for html_u in eid_art_uni.values()])
-# Counter({0: 12769})
+# Counter({0: 13310})
 Counter([html_u.count('xef\xbb\xbf') for html_u in pcd_art_uni.values()])
-# Counter({0: 5091})
+# Counter({0: 5193})
 
 #%% 4. Resolve character and numeric entitity references
 char_ent_re = re.compile(r'&[#]?\w+;') # established elsewhere that all end w ';'
 mmwr_ent_freqs = Counter([
     ent for html in tqdm((mmwr_toc_uni | mmwr_art_uni).values()) 
-    for ent in char_ent_re.findall(html)]) # 255
+    for ent in char_ent_re.findall(html)]) # 257
 eid_ent_freqs = Counter([
     ent for html in tqdm((eid_toc_uni | eid_art_uni).values()) 
-    for ent in char_ent_re.findall(html)]) # 161
+    for ent in char_ent_re.findall(html)]) # 163
 pcd_ent_freqs = Counter([
     ent for html in tqdm((pcd_toc_uni | pcd_art_uni).values()) 
-    for ent in char_ent_re.findall(html)]) # 2628
-len(mmwr_ent_freqs | eid_ent_freqs | pcd_ent_freqs) # 2750
+    for ent in char_ent_re.findall(html)]) # 2635
+len(mmwr_ent_freqs | eid_ent_freqs | pcd_ent_freqs) # 2757
 
 def resolve_ref(ref):
     map_ords = {9: r'\t', 10: r'\n', 11: r'\v', 12: r'\f', 13: r'\v'}
@@ -306,7 +312,7 @@ pd.concat([
         dict(ser='pcd', ent=ent, freq=freq, **resolve_ref(ent))
         for ent, freq in pcd_ent_freqs.items()]),
     ]).to_excel('resolve_refs_all.xlsx', freeze_panes=(1,0))
-# [3044 rows x 7 columns]
+# [3055 rows x 7 columns]
 
 [path for path, html in eid_art_uni.items() if '&E;' in html]
 ['/eid/article/28/4/21-2334_article.html']
@@ -329,7 +335,7 @@ pcd_art_uni['/pcd/issues/2008/oct/08_0063.htm'] = (
 [path for path, html in eid_art_uni.items() if '&rlm;' in html]
 ['/eid/article/17/12/11-0453_article.html']
 [path for path, html in pcd_art_uni.items() if '&#8289;' in html]
-['/pcd/issues/2019/18_0441.htm']
+['/pcd/issues/2019/18_0441.htm', '/pcd/issues/2024/23_0433.htm']
 [path for path, html in mmwr_art_uni.items() if '&#65533;' in html]
 ['/mmwr/volumes/67/wr/mm6713e1.htm']
 
@@ -337,11 +343,11 @@ pcd_art_uni['/pcd/issues/2008/oct/08_0063.htm'] = (
 
 # Reduce space differently if <pre> element present
 Counter([re.search('<pre[ >]', html, flags=re.I) is not None for html in mmwr_art_uni.values()])
-Counter({False: 14126, True: 1035})
+Counter({False: 14400, True: 1035})
 Counter([re.search('<pre[ >]', html, flags=re.I) is not None for html in eid_art_uni.values()])
-Counter({False: 12769})
+Counter({False: 13310})
 Counter([re.search('<pre[ >]', html, flags=re.I) is not None for html in pcd_art_uni.values()])
-Counter({False: 3990})
+Counter({False: 5193})
 
 def ent_repair(html_u):
     # &thinsp; is sometimes large-number delimiter
@@ -358,6 +364,7 @@ def ent_repair(html_u):
         .replace('&lrm;', '')         # LEFT-TO-RIGHT MARK
         .replace('&rlm;', '')         # LEFT-TO-RIGHT MARK
         .replace('&#8288;', '')       # WORD JOINER
+        .replace('&#8289;', '')       # FUNCTION APPLICATION
         .replace('&#11834;', '&mdash;') # TWO-EM DASH -> EM DASH
         .replace('&#61620;', '&times;') # MULTIPLICATION SIGN
         .replace('&#65533;', ''))     # REPLACEMENT CHARACTER
@@ -367,27 +374,27 @@ def ent_repair(html_u):
 mmwr_toc_uni = {
     path: html_reduce_space_u(ent_repair(html_u), minim='<pre[ >]')
     for path, html_u in tqdm(mmwr_toc_uni.items())}
-# 135/135 [00:01<00:00, 94.33it/s]
+# 139/139 [00:00<00:00, 159.60it/s]
 mmwr_art_uni = {
     path: html_reduce_space_u(ent_repair(html_u), minim='<pre[ >]')
     for path, html_u in tqdm(mmwr_art_uni.items())}
-# 15161/15161 [04:08<00:00, 60.90it/s]
+# 15435/15435 [02:34<00:00, 99.65it/s]
 eid_toc_uni = {
     path: html_reduce_space_u(ent_repair(html_u))
     for path, html_u in tqdm(eid_toc_uni.items())}
-# 330/330 [00:15<00:00, 20.83it/s]
+# 345/345 [00:10<00:00, 31.62it/s]
 eid_art_uni = {
     path: html_reduce_space_u(ent_repair(html_u))
     for path, html_u in tqdm(eid_art_uni.items())}
-# 12769/12769 [07:49<00:00, 27.21it/s]
+# 13310/13310 [05:24<00:00, 41.01it/s]
 pcd_toc_uni = {
     path: html_reduce_space_u(ent_repair(html_u))
     for path, html_u in tqdm(pcd_toc_uni.items())}
-# [00:00<00:00, 110.66it/s]
+# 88/88 [00:00<00:00, 170.11it/s]
 pcd_art_uni = {
     path: html_reduce_space_u(ent_repair(html_u))
     for path, html_u in tqdm(pcd_art_uni.items())}
-# 5091/5091 [01:01<00:00, 82.76it/s]
+# 5193/5193 [00:39<00:00, 129.90it/s]
 
 # Ad hoc corrections: 14 MMWRs have extra </body> and </html> tags
 xtra_tags = [
@@ -447,17 +454,17 @@ def trim_svg(html):
     return str(soup)
 
 mmwr_toc_unx = {path: trim_svg(html) for path, html in tqdm(mmwr_toc_uni.items())}
-# 135/135 [00:04<00:00, 29.05it/s]
+# 139/139 [00:01<00:00, 69.70it/s]
 mmwr_art_unx = {path: trim_svg(html) for path, html in tqdm(mmwr_art_uni.items())}
-# 15161/15161 [21:57<00:00, 11.50it/s]
+# 15435/15435 [09:05<00:00, 28.27it/s]
 eid_toc_unx = {path: trim_svg(html) for path, html in tqdm(eid_toc_uni.items())}
-# 330/330 [00:37<00:00,  8.80it/s]
+# 345/345 [00:16<00:00, 20.86it/s]
 eid_art_unx = {path: trim_svg(html) for path, html in tqdm(eid_art_uni.items())}
-# 12769/12769 [14:39<00:00, 14.52it/s]
+# 13310/13310 [06:29<00:00, 34.20it/s]
 pcd_toc_unx = {path: trim_svg(html) for path, html in tqdm(pcd_toc_uni.items())}
-# 87/87 [00:03<00:00, 25.82it/s]
+# 88/88 [00:01<00:00, 59.70it/s]
 pcd_art_unx = {path: trim_svg(html) for path, html in tqdm(pcd_art_uni.items())}
-# 5091/5091 [02:50<00:00, 29.83it/s]
+# 5193/5193 [01:10<00:00, 73.65it/s]
 
 #%% 5a. Pickle dictionaries of reduced UTF-8 HTML files
 pickle.dump(mmwr_toc_unx, open('mmwr_toc_unx.pkl', 'xb'))

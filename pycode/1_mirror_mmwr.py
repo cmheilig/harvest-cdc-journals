@@ -18,7 +18,8 @@ Main product: mmwr_cc_df
 #%% Import modules and set up environment
 # import from 0_cdc-corpora-header.py
 
-os.chdir('/Users/cmheilig/cdc-corpora/_test')
+# os.chdir('/Users/cmheilig/cdc-corpora/_test')
+os.chdir(r'C:\Temp\mmwr_2024')
 
 #%% 0. Start with MMWR home https://www.cdc.gov/mmwr/about.html
 base_url = 'https://www.cdc.gov/mmwr/about.html'
@@ -34,15 +35,15 @@ home_a = BeautifulSoup(get_html_from_url(base_url), 'lxml')\
 #  'string': 'About|MMWR'}
 
 home_dframe = pd.DataFrame(process_aTag(home_a, base_url), index = [0])
-home_html = get_html_from_url_(home_dframe.url[0]) # len(home_html) # 187622
+home_html = get_html_from_url_(home_dframe.url[0]) # len(home_html) # 77215
 home_soup = BeautifulSoup(home_html, 'lxml')
 
 # review all anchor-hrefs from home URL
-# len(home_soup.find_all('a', href=True)) # 130
-pd.DataFrame([process_aTag(aTag, home_dframe.url[0]) 
-    for aTag in home_soup.find_all('a', href=True)])\
-    .to_excel('mmwr-home-anchors.xlsx', engine='openpyxl', freeze_panes=(1,0))
-# [113 rows x 7 columns]
+# len(home_soup.find_all('a', href=True)) # 114
+# pd.DataFrame([process_aTag(aTag, home_dframe.url[0]) 
+#     for aTag in home_soup.find_all('a', href=True)])\
+#     .to_excel('mmwr-home-anchors.xlsx', engine='openpyxl', freeze_panes=(1,0))
+# [114 rows x 7 columns]
 
 #%% 1. List and contents of series (and some volumes)
 #      Series: WR, RR, SS, SU, ND, NNC (top)
@@ -107,10 +108,16 @@ volumes_dframe = pd.DataFrame([process_aTag(aTag, url)
 # 143          /mmwr/indss_2023.html       Surveillance Summaries
 # 144          /mmwr/ind2024_su.html                  Supplements
 
-# Check for duplicate paths and for items after 2023
+# Check for duplicate paths and for items after 2024
+
+# drop duplicate 'Weekly Report', 'Recommendations and Reports', 'Surveillance Summaries', 'Supplements'
+# drop  all 'MMWR Clinical Pearls'
+# on 2025-01-07 (before vol 73 closes out), this is rows
+[46, 81, 82, 83, 84, 85, 122, 123, 124, 125, 126, 146, 147, 148, 149, 150]
+
 volumes_review = (
     volumes_dframe.loc[volumes_dframe.path.duplicated(keep = False) |
-                       volumes_dframe.path.str.contains('202[34]')].index) # 18
+                       volumes_dframe.path.str.contains('202[345]')].index) # 24
 volumes_dframe.loc[volumes_review, ['base', 'url', 'string']]#.to_clipboard()
 
 # keep    [ 0, 122]
@@ -125,29 +132,29 @@ volumes_dframe.loc[[80, 120], 'string'] = 'Volume 72 (2023)'
 # volumes_dframe.loc[[0, 80, 120, 122], 'string']
 # drop    [42, 43, 44, 45, 79, 81, 82, 118, 119, 121, 141, 142, 143, 144]
 volumes_dframe = volumes_dframe.drop(
-    [42, 43, 44, 45, 79, 81, 82, 118, 119, 121, 141, 142, 143, 144])
+    [46, 81, 82, 83, 84, 85, 122, 123, 124, 125, 126, 146, 147, 148, 149, 150])
 
 # check again
 volumes_dframe.loc[volumes_dframe.path.duplicated(keep = False) |
-                   volumes_dframe.path.str.contains('2024')].index # []
+                   volumes_dframe.path.str.contains('2025')].index # []
 
 volumes_dframe.reset_index(inplace=True, drop=True) # (131, 7)
 
-volumes_html = [get_html_from_url(url) for url in tqdm(volumes_dframe.url)] # list of 131
-# 131/131 [00:40<00:00,  3.27it/s]
+volumes_html = [get_html_from_url(url) for url in tqdm(volumes_dframe.url)] # list of 135
+# 135/135 [00:31<00:00,  4.24it/s]
 # [len(x) for x in volumes_html]
-# [273063, 279023, 288435, 295012, 267595, 276375, 296625, 382754, 378712, ...]
+# [162142, 168102, 177514, 184091, 156674, 166531, 186779, 188210, 182435, ...]
 volumes_soup = [BeautifulSoup(html, 'lxml') for html in tqdm(volumes_html)]
-# 131/131 [00:03<00:00, 43.53it/s]
+# 135/135 [00:03<00:00, 39.47it/s]
 
 # review all anchor-hrefs from volumes URLs
 # [len(soup.find_all('a', href=True)) for soup in volumes_soup]
-# [494, 517, 579, 628, 498, 561, 708, 723, 668, 722, ...] # len 131, sum 31840
-pd.DataFrame([process_aTag(aTag, url) 
-    for soup, url in zip(volumes_soup, volumes_dframe.url) 
-    for aTag in soup.find_all('a', href=True)])\
-    .to_excel('mmwr-volumes-anchors.xlsx', engine='openpyxl', freeze_panes=(1,0))
-# [31840 rows x 7 columns]
+# [[495, 518, 580, 629, 499, 564, 711, 726, 671, 722, ...] # len 131, sum 32686
+# pd.DataFrame([process_aTag(aTag, url) 
+#     for soup, url in zip(volumes_soup, volumes_dframe.url) 
+#     for aTag in soup.find_all('a', href=True)])\
+#     .to_excel('mmwr-volumes-anchors.xlsx', engine='openpyxl', freeze_panes=(1,0))
+# [32686 rows x 7 columns]
 
 #%% 3. List of articles
 
@@ -162,38 +169,37 @@ articles_a_n = [len(x) for x in articles_a]
 articles_dframe = pd.DataFrame([process_aTag(aTag, url) 
    for a_list, url in zip(articles_a, volumes_dframe.url)
    for aTag in a_list])
-# articles_dframe.shape # (15171, 7)
-with pd.option_context("display.max_colwidth", 36):
-    display(articles_dframe.loc[:, ['path', 'string']])
+# with pd.option_context("display.max_colwidth", 36):
+#     display(articles_dframe.loc[:, ['path', 'string']])
 #                                       path                               string
 # 0       /mmwr/volumes/72/wr/mm725253a1.htm  Second Nationwide Tuberculosis O...
 # 1       /mmwr/volumes/72/wr/mm725253a2.htm  Notes from the Field|: Supply In...
 # 2       /mmwr/volumes/72/wr/mm725253a5.htm  Notes from the Field|: Seizures,...
 # 3       /mmwr/volumes/72/wr/mm725253a6.htm  QuickStats|: Rate of Triplet and...
 # 4         /mmwr/volumes/72/wr/mm7251a1.htm  SARS-CoV-2 Rebound With and With...
-#                                     ...                                  ...
-# 15166  /mmwr/preview/mmwrhtml/00026330.htm  Guidelines for the Prevention an...
-# 15167  /mmwr/preview/mmwrhtml/00014715.htm  Human Immunodeficiency Virus Inf...
-# 15168  /mmwr/preview/mmwrhtml/00023587.htm  Recommendations for Prevention o...
-# 15169  /mmwr/preview/mmwrhtml/00001773.htm  Premature Mortality in the Unite...
-# 15170  /mmwr/preview/mmwrhtml/00001712.htm  Summaries of Current Intelligenc...
+#                                    ...                                  ...
+# 15440  /mmwr/preview/mmwrhtml/00026330.htm  Guidelines for the Prevention an...
+# 15441  /mmwr/preview/mmwrhtml/00014715.htm  Human Immunodeficiency Virus Inf...
+# 15442  /mmwr/preview/mmwrhtml/00023587.htm  Recommendations for Prevention o...
+# 15443  /mmwr/preview/mmwrhtml/00001773.htm  Premature Mortality in the Unite...
+# 15444  /mmwr/preview/mmwrhtml/00001712.htm  Summaries of Current Intelligenc...
 
 # articles_dframe.to_excel("articles_dframe.xlsx", engine='openpyxl', freeze_panes=(1,0))
 
 articles_review = articles_dframe.loc[articles_dframe.path.duplicated(keep = False)].index # 18
 articles_dframe.loc[articles_review, ['base', 'url', 'string']]#.to_clipboard()
 # articles_dframe.loc[articles_review, :].to_clipboard()
-[ 5123,  5166,  7888,  7889,  8666,  8673,  8682,  8689,  9040,
-  9066,  9396,  9397, 14073, 14075, 14804, 14807, 15049, 15050],
 
-# keep    [5123, 7888, 8689, 9066, 14073, 14807]
-# relabel [9396, 15049]
+
+# keep    [5123, 7888, 8689, 9066, 14353, 15090]
+# relabel [9396, 15323]
 articles_dframe.loc[9396, 'string'] = 'Staphylococcus aureus with Reduced Susceptibility to Vancomycin --- Illinois, 1999'
-articles_dframe.loc[15049, 'string'] = 'Advisory Committee on Immunization Practices (ACIP) Recommended Immunization Schedules for Persons Aged 0 Through 18 Years and Adults Aged 19 Years and Older — United States, 2013'
-# articles_dframe.loc[[9396, 15049], 'string']
-# drop    [5166, 7889, 8666, 8673, 8682, 9040, 9397, 14075, 14804, 15050]
+articles_dframe.loc[15323, 'string'] = 'Advisory Committee on Immunization Practices (ACIP) Recommended Immunization Schedules for Persons Aged 0 Through 18 Years and Adults Aged 19 Years and Older — United States, 2013'
+# articles_dframe.loc[[9396, 15323], 'string']
+# drop    [5166, 7889, 8666, 8673, 8682, 9040, 9397, 14355, 15087, 15324]
 articles_dframe = articles_dframe.drop(
-   [5166, 7889, 8666, 8673, 8682, 9040, 9397, 14075, 14804, 15050])
+   [5166, 7889, 8666, 8673, 8682, 9040, 9397, 14355, 15087, 15324])
+
 # articles_dframe.loc[articles_dframe.path.duplicated(keep = False)].index # []
 articles_dframe.reset_index(inplace=True, drop=True)
 
@@ -205,7 +211,7 @@ mmwr_cc_df = pd.concat([
    volumes_dframe.assign(level='volume'),
    articles_dframe.assign(level='article')],
    axis = 0, ignore_index = True)
-# (15297, 8)
+# (15575, 8)
 
 # pickle
 # pickle.dump(mmwr_cc_df, open('mmwr_cc_df.pkl', 'xb'))
@@ -220,25 +226,34 @@ mmwr_cc_df.to_excel('mmwr_cc_df.xlsx', engine='openpyxl', freeze_panes=(1,0))
 mmwr_cc_df = pd.read_pickle('pickle-files/mmwr_cc_df.pkl')
 # (15297, 8)
 
+vol_72_73 = (
+    mmwr_cc_df.url.str.contains('/7[23]/') | # /mmwr/volumes/72/, /73/
+    mmwr_cc_df.url.str.contains('/mmwr/mmwr_(wk|rr|ss|su)/') | 
+    mmwr_cc_df.url.str.contains('/mmwr/ind.*202[34]')
+    )
+mmwr_cc_df_ = mmwr_cc_df.loc[vol_72_73, :] # (628, 9)
+
 MMWR_BASE_PATH_b0 = normpath(expanduser('~/cdc-corpora'))
 
-x = create_mirror_tree(MMWR_BASE_PATH_b0, calculate_mirror_dirs(mmwr_cc_df.path))
+x = create_mirror_tree(MMWR_BASE_PATH_b0, calculate_mirror_dirs(mmwr_cc_df_.path))
 # { key: (0 if val is None else len(val)) for (key, val) in x.items() }
+# {'base_path': 1, 'paths': 13, 'norm_paths': 13}
 
 mmwr_sizes_b0 = [
     mirror_raw_html(url, MMWR_BASE_PATH_b0 + path, print_url = False)
-    for url, path in tqdm(zip(mmwr_cc_df.url, mmwr_cc_df.mirror_path), 
-                          total=len(mmwr_cc_df.mirror_path))]
+    for url, path in tqdm(zip(mmwr_cc_df_.url, mmwr_cc_df_.mirror_path), 
+                          total=len(mmwr_cc_df_.mirror_path))]
+# 628/628 [02:45<00:00,  3.79it/s]
 
 # sum([x==0 for x in mmwr_sizes_b0]) # retry those with 0 length
 for j in tqdm(range(len(mmwr_sizes_b0))):
-   if mmwr_sizes_b0[j] == 0:
-      mmwr_sizes_b0[j] = mirror_raw_html(mmwr_cc_df.url.loc[j], 
-         MMWR_BASE_PATH_b0 + mmwr_cc_df.mirror_path.loc[j], timeout=5)
+   if mmwr_sizes_b0[j] == '':
+      mmwr_sizes_b0[j] = mirror_raw_html(mmwr_cc_df_.url.loc[j], 
+         MMWR_BASE_PATH_b0 + mmwr_cc_df_.mirror_path.loc[j], timeout=5)
 # pickle.dump(mmwr_sizes_b0, open('mmwr_sizes_b0.pkl', 'wb'))
 
 #%% 6. Routine for reading all files into a single list
 mmwr_html_b0 = [read_raw_html(MMWR_BASE_PATH_b0 + path)
-                for path in tqdm(mmwr_cc_df.mirror_path)]
-# 15297/15297 [00:05<00:00, 2604.24it/s]
+                for path in tqdm(mmwr_cc_df_.mirror_path)]
+# 628/628 [00:42<00:00, 14.62it/s]
 pickle.dump(mmwr_html_b0, open('mmwr_raw_html.pkl', 'xb'))

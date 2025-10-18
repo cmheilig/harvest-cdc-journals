@@ -30,6 +30,7 @@ os.chdir('/Users/cmheilig/cdc-corpora/_test')
 #%% Retrieve (unpickle) trimmed, UTF-8 HTML
 # mmwr_cc_df = pickle.load(open("pickle-files/mmwr_cc_df.pkl", "rb")) # (4786, 8)
 mmwr_cc_df = pd.read_pickle('pickle-files/mmwr_cc_df.pkl')
+mmwr_cc_df['mirror_path'] = mmwr_cc_df['mirror_path'].str.replace('\\', '/')
 mmwr_cc_paths = mmwr_cc_df.mirror_path.to_list() # 5179
 
 mmwr_toc_unx = pickle.load(open('pickle-files/mmwr_toc_unx.pkl', 'rb'))
@@ -48,15 +49,13 @@ Dateline elements:
 mmwr_toc_soup = {
     path: BeautifulSoup(html, 'lxml')
     for path, html in tqdm(mmwr_toc_unx.items())}
-# 135/135 [00:03<00:00, 41.54it/s]
+# 139/139 [00:01<00:00, 93.71it/s]
 mmwr_art_soup = {
     path: BeautifulSoup(html, 'lxml')
     for path, html in tqdm(mmwr_art_unx.items())}
-# 15161/15161 [13:00<00:00, 19.42it/s]
+# 15435/15435 [09:13<00:00, 27.86it/s]
 
 #%% MMWR dateline
-
-
 """
 4 sources: path, html, soup, json (corrections)
 
@@ -72,7 +71,7 @@ vol_iss  path  dateline
 date     path  dateline
 page     NA    dateline
 """
-mmwr_dateline_corrections = json.load(open('mmwr_dateline_corrections_20231218_path.json', 'r')) # 260
+mmwr_dateline_corrections = json.load(open('json-inputs/mmwr_dateline_corrections_20231220.json', 'r')) # 260
 mmwr_series_map = {
     'weekly': 'wr', 'quickg': 'wr', 'dispat': 'wr', 'semana': 'wr', 
     'recomm': 'rr', 'survei': 'ss', 'supple': 'su', '_': '_'}
@@ -191,19 +190,20 @@ def mmwr_dateline_fn(path, html, soup):
 mmwr_toc_dl_list = [
     dict(path=path, **mmwr_dateline_fn(path, html, mmwr_toc_soup[path]))
     for path, html in tqdm(mmwr_toc_unx.items())]
-# 135/135 [00:00<00:00, 185.49it/s]
+# 139/139 [00:00<00:00, 1292.30it/s]
 mmwr_art_dl_list = [
     dict(path=path, **mmwr_dateline_fn(path, html, mmwr_art_soup[path]))
     for path, html in tqdm(mmwr_art_unx.items())]
-# 15161/15161 [00:32<00:00, 466.30it/s]
+# 15435/15435 [00:11<00:00, 1311.19it/s]
 
-mmwr_toc_dl_df = pd.DataFrame(mmwr_toc_dl_list) # (135, 9)
-mmwr_art_dl_df = pd.DataFrame(mmwr_art_dl_list) # (15161, 9)
+mmwr_toc_dl_df = pd.DataFrame(mmwr_toc_dl_list) # (139, 9)
+mmwr_art_dl_df = pd.DataFrame(mmwr_art_dl_list) # (15435, 9)
 # ['path', 'src', 'dateline', 'series', 'lang', 
 #  'dl_year_mo', 'dl_vol_iss', 'dl_date', 'dl_page']
 
-pd.concat([mmwr_toc_dl_df, mmwr_art_dl_df]).to_excel('mmwr_dl_df.xlsx', 
-                                                     freeze_panes=(1,0))
+(pd.concat([mmwr_toc_dl_df, mmwr_art_dl_df])
+ .to_excel('mmwr_dl_df.xlsx', freeze_panes=(1,0)))
+
 #%% DataFrames to and from pickle
 mmwr_toc_dl_df.to_pickle('mmwr_toc_dl_df.pkl')
 mmwr_art_dl_df.to_pickle('mmwr_art_dl_df.pkl')
