@@ -1,6 +1,6 @@
 # CDC text corpora for learners
 
-This repository contains CDC text corpora for learners, organized in 4 different formats and 2 sets of metadata, together with Python code that shows the progression from raw HTML sources to organized contents suitable for a variety of analyses. Please see also companion content at [data.cdc.gov](https://data.cdc.gov): _CDC Text Corpora for Learners_: [_HTML Mirrors of MMWR, EID, and PCD_](https://data.cdc.gov/d/ut5n-bmc3) and [_Corpus Metadata_](https://data.cdc.gov/d/7rih-tqi5).
+This repository contains CDC text corpora for learners, organized in 3 different formats (HTML, markdown, and plain text) with metadata, together with Python code that shows the progression from raw HTML sources to organized contents suitable for a variety of analyses. Please see also companion content at [data.cdc.gov](https://data.cdc.gov): _CDC Text Corpora for Learners_: [_HTML Mirrors of MMWR, EID, and PCD_](https://data.cdc.gov/d/ut5n-bmc3) and [_Corpus Metadata_](https://data.cdc.gov/d/7rih-tqi5).
 
 \[Note: At the time this repository was last updated (2025-10-18), web links on data.cdc.gov were correctly specified but returned a "403 Forbidden" code. Users might need to copy and paste the "forbidden" URL into a browser's address box rather than clicking or tapping on the URL.\]
 
@@ -194,7 +194,7 @@ Total | | 34,505 | | |
 - File and session management
   - Base Python: [json](https://docs.python.org/3/library/json.html), [os](https://docs.python.org/3/library/os.html), [pickle](https://docs.python.org/3/library/pickle.html), [time](https://docs.python.org/3/library/time.html)
   - Contributed: [tqdm](https://tqdm.github.io/)
-- Web/text
+- Retrieve and manage text, markup, and markdown
   - Base Python: [codecs](https://docs.python.org/3/library/codecs.html), [html](https://docs.python.org/3/library/html.html), [re](https://docs.python.org/3/library/re.html), [unicodedata](https://docs.python.org/3/library/unicodedata.html), [urllib](https://docs.python.org/3/library/urllib.html)
   - Contributed: [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/), [markdownify](https://github.com/matthewwithanm/python-markdownify), [requests](https://requests.readthedocs.io/en/latest/)
 - Data wrangling
