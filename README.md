@@ -191,13 +191,13 @@ Total | | 34,505 | | |
 
 ## Python modules used
  
-- File and session management
+- Manage files and Python session
   - Base Python: [json](https://docs.python.org/3/library/json.html), [os](https://docs.python.org/3/library/os.html), [pickle](https://docs.python.org/3/library/pickle.html), [time](https://docs.python.org/3/library/time.html)
   - Contributed: [tqdm](https://tqdm.github.io/)
 - Retrieve and manage text, markup, and markdown
   - Base Python: [codecs](https://docs.python.org/3/library/codecs.html), [html](https://docs.python.org/3/library/html.html), [re](https://docs.python.org/3/library/re.html), [unicodedata](https://docs.python.org/3/library/unicodedata.html), [urllib](https://docs.python.org/3/library/urllib.html)
   - Contributed: [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/), [markdownify](https://github.com/matthewwithanm/python-markdownify), [requests](https://requests.readthedocs.io/en/latest/)
-- Data wrangling
+- Wrangle (meta)data
   - Base Python: [collections](https://docs.python.org/3/library/collections.html), [datetime](https://docs.python.org/3/library/datetime.html)
   - Contributed: [dateutil](https://dateutil.readthedocs.io/en/stable/), [pandas](https://pandas.pydata.org/docs/user_guide/index.html)
 
