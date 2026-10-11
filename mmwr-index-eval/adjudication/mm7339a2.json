@@ -1,0 +1,13 @@
+{"id": "mm7339a2",
+ "fields": [
+  {"field": "outcome_types", "verdict": ["binary/categorical", "count/rate"], "correct": ["A"], "category": "reader error", "why": "Median length of stay appears only as a Table row and no claim in the text rests on it; the brief lists only the types the claims rest on."},
+  {"field": "procedure_classes", "verdict": ["standardization", "transformation", "weighting"], "correct": ["A"], "category": "omission", "why": "The Table note states 'Data are not presented for cells with sample size <10', and the brief names suppression of observed values as a transformation (ancillary here)."},
+  {"field": "study_design", "verdict": ["before/after or trend", "surveillance/descriptive"], "correct": ["B"], "category": "omission", "why": "Methods state the rates were used to 'compare these rates with those from previous surveillance periods', and Figure 1 and the Results compare October–April seasons since 2020–2021. A recorded season in comparison.across but not the design."},
+  {"field": "data_source_type", "verdict": ["sentinel/network", "vaccination registry"], "correct": ["A", "B"], "category": "brief gap", "why": "The chart abstraction is COVID-NET's own data-collection step, so it can be read as part of the network or as a separate record source. A rule such as 'a network's internal chart abstraction is subsumed under sentinel/network' would decide it."},
+  {"field": "vaccine_outcome_type", "verdict": "coverage/uptake", "correct": ["A", "B"], "category": "ambiguity", "why": "The article quantifies vaccine receipt among hospitalized adults (88.1% unvaccinated with the 2023–2024 dose, in the Summary), which reads as uptake. It is equally defensible as a case characteristic outside the primary question (null)."},
+  {"field": "equity_dimensions", "verdict": ["age", "race/ethnicity", "sex"], "correct": [], "category": "omission", "why": "Sex is a Table stratum and the brief says age and sex are 'recorded always', so B missed it. A's 'other' for LTCF residence is a care setting framed as clinical risk, not a social position."},
+  {"field": "has_determinants", "verdict": false, "correct": ["B"], "category": "reader error", "why": "The only explanation offered is the racial and ethnic disparity in vaccination coverage, a health-service factor rather than a social, structural or political determinant. Both readers already agree it does not raise the level to 4."}
+ ],
+ "justification": {"A": "good", "B": "good"},
+ "agreed_errors": [],
+ "brief_issues": "The brief does not say whether a sentinel network's own medical-record abstraction is also 'record abstraction or interview', or whether vaccination status among cases (not a population) counts toward vaccine_outcome_type coverage/uptake."}
