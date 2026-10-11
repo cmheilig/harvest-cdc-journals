@@ -1,0 +1,79 @@
+{
+ "id": "mm7230a1",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "R3", "role": "judgment"},
+ "data_focus": {"v": "yes", "ev": []},
+ "outcome_types": [
+  {"v": "binary/categorical", "ev": [
+    {"loc": "text", "q": "Overall, 635 (42%) respondents had not heard of AGS, and another 530 (35%) reported that they were “not too confident”"},
+    {"loc": "text", "q": "only 42 (5%; 95% CI = 3.1%–5.9%) correctly answered all three questions related to etiology, testing, and patient counseling"}
+  ]},
+  {"v": "continuous", "ev": [
+    {"loc": "table 2", "q": "Overall composite knowledge score › Mean (SD) › 1.07 (0.81)"}
+  ]}
+ ],
+ "analytic_depth": [
+  {"v": "summary", "ev": [
+    {"loc": "summary", "q": "42% were not aware of AGS, and another 35% were not confident in their ability to diagnose or manage AGS patients."}
+  ]},
+  {"v": "comparison", "ev": [
+    {"loc": "text", "q": "Knowledge scores were higher among pediatricians, 12.3% of whom correctly answered all three questions, than among internists (4.2%), family practitioners (3.7%)"},
+    {"loc": "text", "q": "Knowledge scores were similar across U.S. Census Bureau regions (p = 0.44)"}
+  ]}
+ ],
+ "procedures": [
+  {"name": "Pearson chi-square test", "class": "test", "regression_family": null,
+   "inferred_from": "named in methods; Table 2 gives chi-square p-values for each group vs a referent and overall",
+   "role": "primary",
+   "ev": [{"loc": "text", "q": "Pearson chi-square tests were used to compare categorical variables, using SAS software (version 9.4; SAS Institute)."},
+          {"loc": "table 2", "q": "Chi-square, p-value"}]}
+ ],
+ "comparison": {"framework": "group", "scale": null, "referent": "Ref groups in Table 2 (South; >20 yrs in practice; pediatrician; 1–5 cases)",
+  "across": ["provider type", "U.S. Census Bureau region", "years in practice", "number of AGS cases diagnosed or managed"],
+  "ev": [{"loc": "table 2", "q": "Knowledge about alpha-gal syndrome among health care providers, overall and by region and provider characteristics (N = 865)"},
+         {"loc": "table 2", "q": "Ref = referent group."}]},
+ "inference": {"v": "CIs and tests", "method_stated": true, "ev": [
+   {"loc": "text", "q": "Pearson chi-square tests were used to compare categorical variables"},
+   {"loc": "table 1", "q": "No. (%) | 95% CI"}
+ ]},
+ "primary_measures": [
+  {"v": "percentage", "ev": [{"loc": "text", "q": "Overall, 635 (42%) respondents had not heard of AGS"}]},
+  {"v": "composite knowledge score (mean, SD)", "ev": [{"loc": "text", "q": "a composite knowledge score was calculated for all respondents with a maximum score of 3"}]},
+  {"v": "95% CI", "ev": [{"loc": "text", "q": "only 42 (5%; 95% CI = 3.1%–5.9%) correctly answered all three questions"}]}
+ ],
+ "regression_fields": null,
+ "public_health_question": {"v": "What do U.S. primary care providers know about the diagnosis and management of alpha-gal syndrome, and does knowledge vary by provider characteristics?", "ev": [
+   {"loc": "text", "q": "were analyzed to determine HCP knowledge relating to the diagnosis and management of AGS."}
+ ]},
+ "condition_group": [
+  {"v": "other chronic", "ev": [{"loc": "summary", "q": "Alpha-gal syndrome (AGS) is an emerging, tick bite–associated allergic condition"}]}
+ ],
+ "study_design": [
+  {"v": "cross-sectional", "ev": [{"loc": "text", "q": "Data from a nationwide, web-based survey of HCPs in the United States (DocStyles, Spring 2022), administered by Porter Novelli Public Services"}]}
+ ],
+ "data_source_type": [
+  {"v": "other survey", "ev": [{"loc": "text", "q": "Data from a nationwide, web-based survey of HCPs in the United States (DocStyles, Spring 2022)"}]}
+ ],
+ "data_source_named": [
+  {"v": "DocStyles (Spring 2022)", "ev": [{"loc": "text", "q": "Data from a nationwide, web-based survey of HCPs in the United States (DocStyles, Spring 2022)"}]},
+  {"v": "SERMO Global Medical Panel", "ev": [{"loc": "text", "q": "HCPs were identified from the SERMO Global Medical Panel"}]}
+ ],
+ "setting": {"v": "US national", "ev": [{"loc": "summary", "q": "HCP respondents (N = 1,500) to a nationwide survey had limited AGS knowledge"}]},
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Respondents are providers and no social-position dimension is analyzed; equity is raised only in the discussion, as a disadvantage for patients who face challenges seeking care or lack access to specialists.",
+  "level_confidence": "low",
+  "level_alternative": {"level": 0, "reason": "The access remark is a single interpretive sentence, not a limitation or recommendation, and no SPD appears in the data; a strict reading gives level 0."},
+  "dimensions": [
+   {"v": "other", "role": "descriptor", "ev": [{"loc": "text", "q": "creating a disadvantage to those patients who face challenges seeking health care in general or who lack access to specialty practitioners"}]}
+  ],
+  "determinants_of_health": {"v": "challenges seeking health care; lack of access to specialty practitioners, such as allergists", "ev": [
+    {"loc": "text", "q": "who face challenges seeking health care in general or who lack access to specialty practitioners, such as allergists."}
+  ]},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": "Access to care is discussed for patients, but the analyzed population is providers; census region is geography, not an SPD."
+ },
+ "confidence": "medium",
+ "notes": "The composite knowledge score sums three correct answers; it is a measure, not a procedure. Table 2 p-values compare each group with a referent and test overall; the 'inverse relationship' with cases managed is not formally tested for trend. Condition group could also be read as environmental (tick-borne).",
+ "view_issues": "Table 1: 'Not too confident' 35.3% has CI 32.9–33.7; resource rows labelled (865) use 1,500 as denominator (708=47.2%); '>5' (55) overlaps 6–19/20–100/>100 rows. Text gives 974 (65%) but table 65.9."
+}

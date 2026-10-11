@@ -1,0 +1,72 @@
+{
+ "id": "mm7305a5",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "R3", "role": "judgment"},
+ "data_focus": {"v": "yes", "ev": []},
+ "outcome_types": [
+  {"v": "binary/categorical", "ev": [
+    {"loc": "text", "q": "cantaloupe consumption was reported significantly more frequently by ill persons (36 of 47; 77%) than during a 2018–2019 survey of healthy persons"},
+    {"loc": "text", "q": "Thirty-two (37%) patients were hospitalized; none died."}
+  ]}
+ ],
+ "analytic_depth": [
+  {"v": "summary", "ev": [
+    {"loc": "text", "q": "In total, 87 outbreak cases from 11 states were identified in 2022."}
+  ]},
+  {"v": "comparison", "ev": [
+    {"loc": "text", "q": "than during a 2018–2019 survey of healthy persons conducted on FoodNet sites (29%, p<0.001)"},
+    {"loc": "text", "q": "The time from outbreak detection to source identification was 2 weeks shorter in 2022 compared with that during the 2020 outbreak."}
+  ]}
+ ],
+ "procedures": [
+  {"name": "unnamed test", "class": "test", "regression_family": null,
+   "inferred_from": "'significantly more frequently' with p<0.001 comparing case exposure proportion with a background survey proportion treated as fixed; test not named (typically binomial)",
+   "role": "primary",
+   "ev": [{"loc": "text", "q": "cantaloupe consumption was reported significantly more frequently by ill persons (36 of 47; 77%)"},
+          {"loc": "text", "q": "survey of healthy persons conducted on FoodNet sites (29%, p<0.001)"}]}
+ ],
+ "comparison": {"framework": "fixed referent", "scale": null, "referent": "2018–2019 FoodNet survey of healthy persons (29% cantaloupe consumption)",
+  "across": ["cantaloupe consumption: ill persons vs background population"],
+  "ev": [{"loc": "text", "q": "than during a 2018–2019 survey of healthy persons conducted on FoodNet sites (29%, p<0.001)"}]},
+ "inference": {"v": "tests", "method_stated": false, "ev": [{"loc": "text", "q": "survey of healthy persons conducted on FoodNet sites (29%, p<0.001)"}]},
+ "primary_measures": [
+  {"v": "percentage", "ev": [{"loc": "text", "q": "Thirty-two (37%) patients were hospitalized; none died."}]},
+  {"v": "number of cases", "ev": [{"loc": "text", "q": "In total, 87 outbreak cases from 11 states were identified in 2022."}]},
+  {"v": "time from outbreak detection to source identification (days)", "ev": [{"loc": "text", "q": "the time from outbreak detection to determining melons were the likely source was 14 days shorter compared to the 2020 outbreak investigation"}]}
+ ],
+ "regression_fields": null,
+ "public_health_question": {"v": "Can WGS-based surveillance and rapid interviews of ill persons link a recurring Salmonella Typhimurium strain to cantaloupes quickly enough to act during the melon growing season?", "ev": [
+   {"loc": "text", "q": "to identify all cases of Salmonella infection genetically related to the 2020 environmental strain for immediate follow-up"},
+   {"loc": "text", "q": "to identify the source of melon exposure as quickly as possible and before the end of the melon growing season"}
+ ]},
+ "condition_group": [
+  {"v": "other acute", "ev": [{"loc": "title", "q": "Rapidly Linking an Outbreak of Salmonella Typhimurium Infections to Domestically Grown Cantaloupes Through Early Collaboration"}]}
+ ],
+ "study_design": [
+  {"v": "outbreak investigation", "ev": [{"loc": "text", "q": "On August 4, 2022, PulseNet identified 12 S. Typhimurium infections that were genetically related within seven allele differences by WGS"}]}
+ ],
+ "data_source_type": [
+  {"v": "sentinel/network", "ev": [{"loc": "text", "q": "PulseNet, CDC’s molecular subtyping network for foodborne disease surveillance"}]},
+  {"v": "record abstraction or interview", "ev": [{"loc": "text", "q": "Ill persons were interviewed using a standardized questionnaire to identify the source of melon exposure"}]}
+ ],
+ "data_source_named": [
+  {"v": "PulseNet", "ev": [{"loc": "text", "q": "PulseNet, CDC’s molecular subtyping network for foodborne disease surveillance"}]}
+ ],
+ "setting": {"v": "US national", "ev": [{"loc": "title", "q": "United States, 2022"}, {"loc": "text", "q": "In total, 87 outbreak cases from 11 states were identified in 2022."}]},
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Only age and sex appear, as descriptors of the case series (median age, percent female), without social-position framing.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [
+   {"v": "age", "role": "descriptor", "ev": [{"loc": "text", "q": "The median patient age was 65 years (range = 1–93 years)"}]},
+   {"v": "sex", "role": "descriptor", "ev": [{"loc": "text", "q": "67% of patients were female."}]}
+  ],
+  "determinants_of_health": {"v": null, "ev": []},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": null
+ },
+ "confidence": "medium",
+ "notes": "The FoodNet 2018–2019 healthy-person survey is an external referent treated as fixed, so it is not listed as an analyzed source. WGS allele thresholds define case status and are not a procedure. A secondary 2022 vs 2020 contrast (14 days shorter to source identification) is an absolute difference without inference.",
+ "view_issues": null
+}
