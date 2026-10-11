@@ -1,0 +1,78 @@
+{
+ "id": "mm7235e1",
+ "reader": {"model": "claude-haiku-5-5", "reader_id": "R1", "role": "structural"},
+ "data_focus": {"v": "yes", "ev": []},
+ "outcome_types": [
+  {"v": "binary/categorical", "ev": [{"loc": "text", "q": "Approximately one in five (20.4%) respondents reported experiencing at least one type of mistreatment."}]}
+ ],
+ "analytic_depth": [
+  {"v": "summary", "ev": [{"loc": "text", "q": "Approximately one in five (20.4%) respondents reported experiencing at least one type of mistreatment."}]},
+  {"v": "comparison", "ev": [{"loc": "text", "q": "Black, Hispanic, and multiracial respondents reported the highest prevalences of mistreatment (30.0%, 29.3%, and 27.3%, respectively)."}]}
+ ],
+ "procedures": [],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": ["race and ethnicity", "health insurance during delivery"],
+  "ev": [
+   {"loc": "text", "q": "Black, Hispanic, and multiracial respondents reported the highest prevalences of mistreatment (30.0%, 29.3%, and 27.3%, respectively)."},
+   {"loc": "text", "q": "Among insurance categories, 28.1% of respondents with no insurance and 26.1% of those with public insurance at the time of delivery reported mistreatment."}
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "primary_measures": [
+  {"v": "percentage", "ev": [{"loc": "table 1", "q": "Percentages might not sum to 100 because of rounding."}]},
+  {"v": "prevalence", "ev": [{"loc": "text", "q": "reported the highest prevalences of mistreatment (30.0%, 29.3%, and 27.3%, respectively)"}]}
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Did mistreatment, discrimination and holding back from questions during maternity care vary by race, ethnicity and insurance?",
+  "ev": [{"loc": "text", "q": "to examine the following components of respectful care"}]
+ },
+ "condition_group": [
+  {"v": "maternal/reproductive", "ev": [{"loc": "text", "q": "Standards of quality maternity care include respectful maternity care"}]}
+ ],
+ "study_design": [
+  {"v": "cross-sectional", "ev": [{"loc": "text", "q": "The survey was administered in English during April 24–30, 2023."}]}
+ ],
+ "data_source_type": [
+  {"v": "other survey", "ev": [{"loc": "text", "q": "an opt-in consumer audience panel survey of U.S. mothers with children aged <18 years living at home"}]}
+ ],
+ "data_source_named": [
+  {"v": "PN View Moms survey", "ev": [{"loc": "text", "q": "CDC analyzed data from the PN View Moms survey"}]}
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [{"loc": "title", "q": "United States, April 2023"}]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Mistreatment and discrimination are reported side by side for Black, Hispanic, multiracial, and insured-status groups and described as more common, but no difference or ratio is computed, so the level is capped at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {"level": 3, "reason": "The Discussion frames the group gap as 'more common among Black, Hispanic, and multiracial mothers', and a reader could treat the Summary's contrast of about 30% against one in five as a quantified gap."},
+  "dimensions": [
+   {"v": "race/ethnicity", "role": "primary comparison", "ev": [{"loc": "text", "q": "Black, Hispanic, and multiracial respondents reported the highest prevalences of mistreatment (30.0%, 29.3%, and 27.3%, respectively)"}]},
+   {"v": "SES", "role": "stratifier", "ses_components": ["health insurance during delivery"], "ev": [{"loc": "text", "q": "Among insurance categories, 28.1% of respondents with no insurance and 26.1% of those with public insurance at the time of delivery reported mistreatment"}]},
+   {"v": "age", "role": "descriptor", "ev": [{"loc": "table 3", "q": "Reported reason › My age"}]},
+   {"v": "country of birth/language/nativity", "role": "descriptor", "ev": [{"loc": "text", "q": "because the survey was fielded in English only, these data do not include the maternity care experiences of those not fluent in English"}]}
+  ],
+  "determinants_of_health": {
+   "v": "racial discrimination during maternity care; bias and stigma related to obesity and low income",
+   "ev": [
+    {"loc": "text", "q": "Experiences of racial discrimination are associated with pregnancy complications"},
+    {"loc": "text", "q": "bias and stigma related to obesity and low income during obstetric care have been documented"}
+   ]
+  },
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": "Race categories combine American Indian, Alaska Native, Pacific Islander and Native Hawaiian; the opt-in sample is unweighted, some subgroups are small, and insurance is grouped as private, public and none."
+ },
+ "confidence": "high",
+ "notes": "The survey is opt-in and unweighted, and the report performs descriptive statistics only, so procedures are empty and inference is none. The 'stratified' language refers to one-way breakdowns by race and insurance, not stratification within a third variable. The prepass weighting and mixed-effects hits are false ('was not weighted'; 'multilevel interventions').",
+ "view_issues": "The Abstract and Results say approximately 30% of respondents with public or no insurance reported mistreatment, but Table 2 gives 26.1% (public) and 28.1% (none)."
+}
