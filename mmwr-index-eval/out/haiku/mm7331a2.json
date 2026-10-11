@@ -1,0 +1,99 @@
+{
+ "id": "mm7331a2",
+ "reader": {"model": "claude-haiku-5-5", "reader_id": "R1", "role": "structural"},
+ "data_focus": {"v": "yes", "ev": []},
+ "outcome_types": [
+  {"v": "count/rate", "ev": [{"loc": "text", "q": "routine childhood immunization was estimated to prevent 508 million lifetime cases of illness"}]}
+ ],
+ "analytic_depth": [
+  {"v": "summary", "ev": [{"loc": "text", "q": "routine childhood immunization was estimated to prevent 508 million lifetime cases of illness"}]},
+  {"v": "comparison", "ev": [{"loc": "text", "q": "After accounting for $240 billion in direct costs and $268 billion in societal costs of routine childhood immunization"}]}
+ ],
+ "procedures": [
+  {
+   "name": "decision-tree lifetime cohort economic model",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "'established economic models' with one decision tree per vaccine, simulating 30 birth cohorts from birth to death under payer and societal perspectives; a model not otherwise classifiable",
+   "role": "primary",
+   "ev": [
+    {"loc": "text", "q": "one decision tree for each vaccine was used as the basis for the models"},
+    {"loc": "text", "q": "Averted illnesses and deaths and associated costs over the lifetimes of 30 annual cohorts of children"}
+   ]
+  },
+  {
+   "name": "annual discounting of future benefits and costs at 3%",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "exponential discounting of future values; a nonlinear time transformation applied to all benefits and costs",
+   "role": "primary",
+   "ev": [{"loc": "text", "q": "all future benefits and costs were discounted annually at 3%"}]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "both",
+  "referent": "no routine childhood immunization (modelled counterfactual)",
+  "across": ["routine immunization vs none (modelled)", "payer vs societal perspective"],
+  "ev": [{"loc": "text", "q": "After accounting for $240 billion in direct costs and $268 billion in societal costs of routine childhood immunization"}]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "primary_measures": [
+  {"v": "illnesses prevented", "ev": [{"loc": "table 1", "q": "Illnesses prevented (x 1,000)"}]},
+  {"v": "net savings", "ev": [{"loc": "text", "q": "the net savings for routine childhood immunization from the payer and societal perspectives were $540 billion and $2.7 trillion"}]},
+  {"v": "benefit-cost ratio", "ev": [{"loc": "table 2", "q": "Payer benefit-cost ratio*"}]}
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What are the health and economic benefits of routine U.S. childhood immunizations for children born 1994–2023, including those eligible for the Vaccines for Children program?",
+  "ev": [{"loc": "text", "q": "assessed and quantified the health benefits and economic impact of routine U.S. childhood immunizations"}]
+ },
+ "condition_group": [
+  {"v": "vaccine-preventable (other)", "ev": [{"loc": "text", "q": "Immunizations have contributed to substantial declines in morbidity and mortality associated with vaccine-preventable diseases worldwide"}]}
+ ],
+ "study_design": [
+  {"v": "cost/economic", "ev": [{"loc": "text", "q": "were estimated using established economic models"}]}
+ ],
+ "data_source_type": [
+  {"v": "CDC surveillance system", "ev": [{"loc": "text", "q": "surveillance data from the National Notifiable Diseases Surveillance System"}]},
+  {"v": "state or local surveillance", "ev": [{"loc": "text", "q": "West Philadelphia Varicella Active Surveillance Project"}]},
+  {"v": "national survey", "ev": [{"loc": "text", "q": "estimated by the National Immunization Surveys (NIS)"}]},
+  {"v": "other survey", "ev": [{"loc": "text", "q": "and school vaccination surveys, were used"}]}
+ ],
+ "data_source_named": [
+  {"v": "National Notifiable Diseases Surveillance System (NNDSS)", "ev": [{"loc": "text", "q": "surveillance data from the National Notifiable Diseases Surveillance System"}]},
+  {"v": "West Philadelphia Varicella Active Surveillance Project", "ev": [{"loc": "text", "q": "West Philadelphia Varicella Active Surveillance Project"}]},
+  {"v": "Active Bacterial Core Surveillance (ABCS)", "ev": [{"loc": "text", "q": "the Active Bacterial Core Surveillance"}]},
+  {"v": "National Immunization Surveys (NIS)", "ev": [{"loc": "text", "q": "estimated by the National Immunization Surveys (NIS)"}]},
+  {"v": "school vaccination surveys", "ev": [{"loc": "text", "q": "and school vaccination surveys, were used"}]}
+ ],
+ "setting": {"v": "US national", "ev": [{"loc": "title", "q": "United States, 1994–2023"}]},
+ "vaccine_outcome_type": {"v": "other", "ev": [{"loc": "summary", "q": "routine childhood vaccinations will have prevented approximately 508 million cases of illness"}]},
+ "equity": {
+  "level": 1,
+  "level_reason": "VFC eligibility (insurance-based SES) defines the population and is cited as promoting health equity, but no outcome or cost is reported by SES or rurality; the SPD appears only as a descriptor.",
+  "level_confidence": "medium",
+  "level_alternative": {"level": 0, "reason": "VFC eligibility only defines the analysed population and the equity statements are generic, which would give level 0."},
+  "dimensions": [
+   {"v": "SES", "role": "population", "ses_components": ["uninsured", "underinsured", "Medicaid-eligible"], "ev": [{"loc": "text", "q": "children whose families might not otherwise be able to afford vaccines"}]},
+   {"v": "SES", "role": "descriptor", "ses_components": ["uninsured", "underinsured", "Medicaid-eligible"], "ev": [{"loc": "text", "q": "The VFC program reduces financial and logistical barriers for eligible children"}]},
+   {"v": "rurality", "role": "descriptor", "ev": [{"loc": "text", "q": "among populations that have historically had lower vaccination coverage, such as children living in rural areas"}]}
+  ],
+  "determinants_of_health": {
+   "v": "financial and logistical barriers to vaccine access; reduced primary care service availability; vaccine hesitancy",
+   "ev": [
+    {"loc": "text", "q": "reduces financial and logistical barriers for eligible children"},
+    {"loc": "text", "q": "reduced primary care service availability and increases in vaccine hesitancy"}
+   ]
+  },
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": "SES is represented only by VFC eligibility (Medicaid, uninsured, underinsured, AI/AN); outcomes are not stratified by eligibility, and VFC-specific effects are stated to be outside the report's scope."
+ },
+ "confidence": "high",
+ "notes": "This is a decision-tree economic model: the model is recorded as an 'other' procedure and 3% discounting as a transformation, while benefit-cost ratios and net savings are arithmetic on model outputs. Influenza, COVID-19 and RSV vaccines are excluded from the model, so results are modelled rather than observed. No interval or test is reported, so inference is none.",
+ "view_issues": "The Discussion calls $2.9 trillion 'societal savings' and '$11' per $1, but $2.9 trillion is gross benefit; net societal savings are $2.7 trillion (Results, Table 2). Table 1 gives diphtheria illnesses and hospitalizations both as 7,528, which may be a transcription error."
+}
