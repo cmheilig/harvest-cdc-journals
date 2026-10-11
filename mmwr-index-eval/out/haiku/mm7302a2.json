@@ -1,0 +1,117 @@
+{
+ "id": "mm7302a2",
+ "reader": {"model": "claude-haiku-5-5", "reader_id": "R1", "role": "structural"},
+ "data_focus": {"v": "yes", "ev": [
+   {"loc": "text", "q": "Among these 26 persons, 23 (88%) experienced an illness meeting the case definition"}
+ ]},
+ "outcome_types": [
+  {"v": "binary/categorical", "ev": [
+    {"loc": "text", "q": "Among the 23 patients, 16 (70%) had ear pain, 15 (65%) had a rash"}
+  ]},
+  {"v": "continuous", "ev": [
+    {"loc": "text", "q": "illness began a median of 24 hours (range = 8 hours–6 days) after use of the hotel A pool"}
+  ]}
+ ],
+ "analytic_depth": [
+  {"v": "summary", "ev": [
+    {"loc": "text", "q": "Among these 26 persons, 23 (88%) experienced an illness meeting the case definition"}
+  ]},
+  {"v": "comparison", "ev": [
+    {"loc": "text", "q": "The pool logs for March 1–5 showed two compliant free chlorine concentration readings, not the expected 15"}
+  ]}
+ ],
+ "procedures": [
+  {
+   "name": "whole-genome SNP comparison of P. aeruginosa isolates",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "SNP difference between two isolates read as suggesting a common exposure; a genomic comparison, not a named test or model",
+   "role": "ancillary",
+   "ev": [
+    {"loc": "text", "q": "indicated that the two isolates were highly related with a two-SNP difference, suggesting a common exposure"}
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "fixed referent",
+  "scale": null,
+  "referent": "expected 15 free chlorine readings for March 1–5",
+  "across": ["free chlorine readings", "monitoring frequency"],
+  "ev": [
+    {"loc": "text", "q": "The pool logs for March 1–5 showed two compliant free chlorine concentration readings, not the expected 15"},
+    {"loc": "text", "q": "at least three times per day while the pool was open for use"}
+  ]
+ },
+ "inference": {"v": "none", "method_stated": false, "ev": []},
+ "primary_measures": [
+  {"v": "percentage", "ev": [
+    {"loc": "text", "q": "Among these 26 persons, 23 (88%) experienced an illness meeting the case definition"}
+  ]},
+  {"v": "No. of cases (%)", "ev": [
+    {"loc": "table 1", "q": "Characteristic | No. of cases (%)"}
+  ]},
+  {"v": "median", "ev": [
+    {"loc": "text", "q": "age ranged from 5 months to 61 years (median = 8 years)"}
+  ]}
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What caused the March 2023 Pseudomonas aeruginosa illness cluster among hotel pool users in Maine, and what prevention steps should health departments and operators take?",
+  "ev": [
+    {"loc": "summary", "q": "23 persons developed ear pain, rash, or pain or swelling in their feet or hands after swimming in a hotel pool in Maine"}
+  ]
+ },
+ "condition_group": [
+  {"v": "other acute", "ev": [
+    {"loc": "title", "q": "Pseudomonas Infection Outbreak Associated with a Hotel Swimming Pool"}
+  ]},
+  {"v": "environmental", "ev": [
+    {"loc": "summary", "q": "Treated recreational water venues (e.g., pools and hot tubs) located at hotels or resorts represent one third of sources"}
+  ]}
+ ],
+ "study_design": [
+  {"v": "outbreak investigation", "ev": [
+    {"loc": "text", "q": "Maine CDC initiated an epidemiologic, laboratory, and environmental health investigation"}
+  ]}
+ ],
+ "data_source_type": [
+  {"v": "state or local surveillance", "ev": [
+    {"loc": "text", "q": "Maine CDC used illness reports to identify six households with members who had visited hotel A’s pool"}
+  ]},
+  {"v": "record abstraction or interview", "ev": [
+    {"loc": "text", "q": "interviewed a representative from each household using a standard questionnaire"}
+  ]}
+ ],
+ "data_source_named": [
+  {"v": "hotel A pool logs (free chlorine readings)", "ev": [
+    {"loc": "text", "q": "The pool logs for March 1–5 showed two compliant free chlorine concentration readings"}
+  ]},
+  {"v": "standard questionnaire (Maine CDC)", "ev": [
+    {"loc": "text", "q": "interviewed a representative from each household using a standard questionnaire"}
+  ]}
+ ],
+ "setting": {"v": "US subnational", "ev": [
+   {"loc": "title", "q": "Maine, March 2023"}
+ ]},
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Only age and sex are described, as characteristics of cases; the article has no social-position dimension and no disparity framing.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [
+    {"v": "age", "role": "descriptor", "ev": [
+      {"loc": "text", "q": "age ranged from 5 months to 61 years (median = 8 years)"}
+    ]},
+    {"v": "sex", "role": "descriptor", "ev": [
+      {"loc": "text", "q": "Fifteen (65%) patients were female"}
+    ]}
+  ],
+  "determinants_of_health": {"v": null, "ev": []},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": "Age and sex are described only; no social-position measures were collected or compared."
+ },
+ "confidence": "high",
+ "notes": "Outbreak investigation of 23 ill persons (88% of 26 pool users) with descriptive proportions and medians; no tests, CIs or models. National context figures (987 outbreaks, 152 P. aeruginosa outbreaks, 66% in January–April) are cited from reference 5 and treated as external, not analysed here.",
+ "view_issues": "Abstract gives 23 (66%) of 35 guests, but the text's denominator for the illness proportion is the 26 pool users (23 of 26, 88%)."
+}
