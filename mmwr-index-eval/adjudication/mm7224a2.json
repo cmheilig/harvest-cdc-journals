@@ -1,0 +1,11 @@
+{"id": "mm7224a2",
+ "fields": [
+  {"field": "outcome_types", "verdict": ["binary/categorical", "continuous", "count/rate"], "correct": ["B"], "category": "brief gap", "why": "Doubling times (days, with CIs) are a headline result and are a continuous quantity; A filed them under count/rate, which is meant for rates per population or person-time. The brief does not say how a model-derived parameter such as a doubling time or growth rate is typed."},
+  {"field": "regression_families", "verdict": ["logistic"], "correct": ["A", "B"], "category": "brief gap", "why": "'Multinomial regression' of lineage shares is a multinomial logit, the natural generalization of logistic, but the family table lists no multinomial entry; both readers gave the other value as alternative_reading. A rule 'multinomial (logit) regression → logistic' would settle it."},
+  {"field": "procedure_classes", "verdict": ["regression", "weighting"], "correct": ["A"], "category": "reader error", "why": "Converting the model's growth rate to a doubling time (ln2/r) is arithmetic on a model coefficient, like VE = 100 × (1 − OR), which the brief lists as not a procedure; it is not a transformation of the data."},
+  {"field": "study_design", "verdict": ["before/after or trend", "surveillance/descriptive"], "correct": ["A", "B"], "category": "ambiguity", "why": "The report's stated aim is to summarize 'U.S. trends in variant proportions' and its claims are the temporal succession of lineages, which supports trend (A); B's view that this is routine descriptive surveillance is also defensible."},
+  {"field": "rf_unadjusted_results", "verdict": true, "correct": ["A"], "category": "reader error", "why": "The brief says unadjusted is true 'when the model itself has no covariates'; the multinomial nowcast has time as its only predictor, which B itself notes ('No covariates enter the model')."}
+ ],
+ "justification": {"A": "good", "B": "adequate"},
+ "agreed_errors": [],
+ "brief_issues": "Family table lacks multinomial regression; outcome_types does not cover model-derived parameters (doubling time, growth rate); 'before/after or trend' needs a line separating trend designs from routine surveillance time series."}
