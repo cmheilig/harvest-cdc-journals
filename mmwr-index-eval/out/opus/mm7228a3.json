@@ -1,0 +1,67 @@
+{
+ "id": "mm7228a3",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "R3", "role": "judgment"},
+ "data_focus": {"v": "yes", "ev": [{"loc": "text", "q": "the number of ED visits for pedal cyclist injuries in 2020 (356,630 visits [95% CI = 265,330–447,931]) was 8% higher than in 2019"}]},
+ "outcome_types": [
+  {"v": "binary/categorical", "ev": [{"loc": "text", "q": "pedal cyclist injuries in this age group accounted for 6.0% of injury-related ED visits in April 2020"}, {"loc": "text", "q": "the number of ED visits for pedal cyclist injuries in 2020 (356,630 visits [95% CI = 265,330–447,931])"}]}
+ ],
+ "analytic_depth": [
+  {"v": "summary", "ev": [{"loc": "text", "q": "the number of ED visits for pedal cyclist injuries in 2020 (356,630 visits [95% CI = 265,330–447,931]) was 8% higher than in 2019"}]},
+  {"v": "comparison", "ev": [{"loc": "text", "q": "monthly proportions of injury-related ED visits accounted for by pedal cyclist injuries were significantly higher than during the same months in 2019"}]},
+  {"v": "stratified/adjusted", "ev": [{"loc": "text", "q": "comparison of the changes in monthly proportions by age group and sex was assessed using logistic regression."}, {"loc": "text", "q": "increases in the proportions of pedal cyclist ED visits during March–May and July–August 2020 were higher among females than males."}]}
+ ],
+ "procedures": [
+  {"name": "pairwise t-test with Taylor series linearization", "class": "test", "regression_family": null, "inferred_from": "named test comparing each month's 2020 proportion with the same month in 2019", "role": "primary", "ev": [{"loc": "text", "q": "were compared using pairwise t-tests in SAS-callable SUDAAN (version 11.0.3; RTI International)"}, {"loc": "table 1", "q": "Difference in the pairwise comparison of the monthly percentage in 2020 compared with 2019 is statistically significant at p<0.05."}]},
+  {"name": "logistic regression comparing changes by age group and sex", "class": "regression", "regression_family": "logistic", "inferred_from": "'logistic regression' on proportions of ED visits; tests whether 2020 vs 2019 changes differ by age group and sex", "role": "primary", "ev": [{"loc": "text", "q": "comparison of the changes in monthly proportions by age group and sex was assessed using logistic regression."}]},
+  {"name": "NEISS-AIP sample weighting", "class": "weighting", "regression_family": null, "inferred_from": "stratified probability sample of hospitals yielding weighted national estimates for every figure", "role": "primary", "ev": [{"loc": "text", "q": "NEISS-AIP data are collected from a stratified probability sample of hospitals and provide weighted national estimates of ED visits for nonfatal injuries."}]},
+  {"name": "suppression of estimates with coefficient of variation >30%", "class": "transformation", "regression_family": null, "inferred_from": "suppression of observed values in the Table", "role": "ancillary", "ev": [{"loc": "table 1", "q": "Dashes indicate estimate suppressed because coefficient of variation >30%."}]}
+ ],
+ "comparison": {"framework": "pair", "scale": "relative", "referent": "same month in 2019", "across": ["year (2020 vs 2019)", "month", "age group", "sex"], "ev": [{"loc": "text", "q": "The monthly proportions of injury-related ED visits accounted for by pedal cyclist injuries in 2020 and 2019 were compared"}, {"loc": "text", "q": "accounted for 1.7% of injury-related ED visits among females, which was 2.4 times as high as those in April 2019"}]},
+ "inference": {"v": "CIs and tests", "method_stated": true, "ev": [{"loc": "text", "q": "were compared using pairwise t-tests in SAS-callable SUDAAN"}, {"loc": "text", "q": "Variance was estimated using Taylor series linearization."}]},
+ "primary_measures": [
+  {"v": "percentage of injury-related ED visits", "ev": [{"loc": "table 1", "q": "monthly percentage of visits due to pedal cyclist injuries, by age group and sex"}]},
+  {"v": "estimated number of ED visits", "ev": [{"loc": "table 1", "q": "Estimated monthly number of emergency department visits for total and pedal cyclist–related nonfatal injuries"}]},
+  {"v": "ratio of 2020 to 2019 proportions (times higher)", "ev": [{"loc": "text", "q": "which was 2.9 times higher than in April 2019 (2.1%)."}]},
+  {"v": "percent change", "ev": [{"loc": "text", "q": "the total number of nonfatal injury–related ED visits in 2020 declined by 15% compared with 2019."}]}
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {"v": "complex survey design", "ev": [{"loc": "text", "q": "collected from a stratified probability sample of hospitals"}, {"loc": "text", "q": "Variance was estimated using Taylor series linearization."}]},
+  "unadjusted_results": {"v": true, "ev": [{"loc": "text", "q": "The proportion of pedal cyclist ED visits among males in April 2020 (2.5%) was 1.6 times higher than in April 2019 (1.6%)."}]},
+  "adjusted_results": {"v": false, "ev": []},
+  "confounders": {"v": null, "ev": []},
+  "interaction_modeled": {"v": true, "ev": [{"loc": "text", "q": "comparison of the changes in monthly proportions by age group and sex was assessed using logistic regression."}]},
+  "sensitivity_analysis": {"v": false, "ev": []}
+ },
+ "public_health_question": {"v": "Did ED visits for nonfatal pedal cyclist injuries, as a share of injury-related ED visits, change from 2019 to 2020 during the COVID-19 pandemic, and did changes differ by age group and sex?", "ev": [{"loc": "text", "q": "emergency department (ED) visits for nonfatal pedal cyclist injuries in 2019 and 2020 were compared."}]},
+ "condition_group": [
+  {"v": "injury/poisoning", "ev": [{"loc": "title", "q": "Emergency Department Visits for Nonfatal Pedal Cyclist Injuries Before and During the COVID-19 Pandemic"}]}
+ ],
+ "study_design": [
+  {"v": "before/after or trend", "ev": [{"loc": "title", "q": "Before and During the COVID-19 Pandemic, United States, 2019–2020"}]},
+  {"v": "surveillance/descriptive", "ev": [{"loc": "text", "q": "ED visits for nonfatal pedal cyclist injuries † were identified from the 2019–2020 National Electronic Injury Surveillance System–All Injury Program (NEISS-AIP)."}]}
+ ],
+ "data_source_type": [
+  {"v": "CDC surveillance system", "ev": [{"loc": "text", "q": "were identified from the 2019–2020 National Electronic Injury Surveillance System–All Injury Program (NEISS-AIP)."}]}
+ ],
+ "data_source_named": [
+  {"v": "National Electronic Injury Surveillance System–All Injury Program (NEISS-AIP)", "ev": [{"loc": "text", "q": "National Electronic Injury Surveillance System–All Injury Program (NEISS-AIP)"}]}
+ ],
+ "setting": {"v": "US national", "ev": [{"loc": "text", "q": "provide weighted national estimates of ED visits for nonfatal injuries."}]},
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Only age and sex are used as stratifiers, without social-position framing; no other SPD appears.",
+  "level_confidence": "high",
+  "level_alternative": {"level": 2, "reason": "Sex- and age-specific increases (females, children, adults ≥50 years) are reported and described; this would count only if sex or age were framed as social position, which they are not."},
+  "dimensions": [
+   {"v": "age", "role": "stratifier", "ev": [{"loc": "text", "q": "increases were largest among children and adolescents aged <18 years, adults aged ≥50 years, and females."}]},
+   {"v": "sex", "role": "stratifier", "ev": [{"loc": "text", "q": "increases in the proportions of pedal cyclist ED visits during March–May and July–August 2020 were higher among females than males."}]}
+  ],
+  "determinants_of_health": {"v": null, "ev": []},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": null
+ },
+ "confidence": "medium",
+ "notes": "Results of the logistic regression on changes by age and sex are not shown; group claims are stated through ratios of proportions. Stay-at-home orders and VMT are background context; bicycle lanes and helmet laws are recommendations. NEISS-AIP is classed as a CDC surveillance system; the article does not name the operating agency.",
+ "view_issues": null
+}
