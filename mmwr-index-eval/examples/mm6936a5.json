@@ -1,0 +1,315 @@
+{
+ "id": "mm6936a5",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "example",
+  "role": "example"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "community activity responses were dichotomized as never versus one or more times during the 14 days before illness onset."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "and most (51%) close contacts were family members."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Close contact with one or more persons with known COVID-19 was reported by 42% of case-patients compared with 14% of control-participants (p<0.01)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusting for age, sex, race/ethnicity, and presence of one or more underlying chronic medical conditions."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "unconditional logistic regression with GEE (exchangeable correlation, site-level clustering)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'unconditional logistic regression' yielding aORs → logistic; GEE corrects SEs for site clustering",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Unconditional logistic regression models with generalized estimating equations with exchangeable correlation structure correcting standard error estimates for site-level clustering"
+    }
+   ]
+  },
+  {
+   "name": "bivariate tests of case-control differences (test not named)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "P-value column in the Table and p-values in the text; the test is not named",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Compared with case-patients, control-participants were more likely to be non-Hispanic White (p<0.01)"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "control-participants",
+  "across": [
+   "case-control status (SARS-CoV-2 test result)",
+   "close contact with a person with COVID-19 (restricted model)"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "exposures reported by case-patients (154) were compared with exposures reported by control-participants (160)."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "figure 1",
+    "q": "Odds ratios were estimated using unconditional logistic regression with generalized estimating equations, which accounted for Influenza Vaccine Effectiveness in the Critically Ill Network site-level clustering."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "aOR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(adjusted odds ratio [aOR] = 2.4; 95% confidence interval [CI] = 1.5–3.8)."
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "71% of case-patients and 74% of control-participants reported always using cloth face coverings or other mask types when in public."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "GEE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "generalized estimating equations with exchangeable correlation structure correcting standard error estimates for site-level clustering"
+    },
+    {
+     "loc": "text",
+     "q": "not all potential participants were eligible or completed an interview, and therefore an unmatched analysis was performed."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "No significant differences were observed in the bivariate analysis between case-patients and control-participants in shopping"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Adjusted for race/ethnicity, sex, age, and reporting at least one underlying chronic medical condition."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "race/ethnicity, sex, age, and reporting at least one underlying chronic medical condition",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Adjusted for race/ethnicity, sex, age, and reporting at least one underlying chronic medical condition."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A second model was restricted to participants who did not report close contact to a person with COVID-19 (89 case-patients and 136 control-participants)."
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "Which community and close-contact exposures are associated with SARS-CoV-2 positivity among symptomatic adult outpatients?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess community and close contact exposures associated with COVID-19, exposures reported by case-patients (154) were compared with exposures reported by control-participants (160)."
+   }
+  ]
+ },
+ "condition_group": [
+  {
+   "v": "COVID",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Community and Close Contact Exposures Associated with COVID-19 Among Symptomatic Adults ≥18 Years in 11 Outpatient Health Care Facilities"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "case-control",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Findings from a case-control investigation of symptomatic outpatients from 11 U.S. health care facilities"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "11 Influenza Vaccine Effectiveness in the Critically Ill (IVY) Network sites"
+    }
+   ]
+  },
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC personnel administered structured interviews in English or five other languages"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Influenza Vaccine Effectiveness in the Critically Ill (IVY) Network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "11 Influenza Vaccine Effectiveness in the Critically Ill (IVY) Network sites"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Participating states include California, Colorado, Maryland, Massachusetts, Minnesota, North Carolina, Ohio, Tennessee, Utah, and Washington."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Race/ethnicity, sex and age are adjustment variables and education is a Table descriptor; no SPD-specific results are reported and nothing is framed as a disparity.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "figure 1",
+      "q": "Adjusted for race/ethnicity, sex, age, and reporting at least one underlying chronic medical condition."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "figure 1",
+      "q": "Adjusted for race/ethnicity, sex, age, and reporting at least one underlying chronic medical condition."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "figure 1",
+      "q": "Adjusted for race/ethnicity, sex, age, and reporting at least one underlying chronic medical condition."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "Education"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "have a college degree or higher (p<0.01)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Native American/Alaska Native, Asian, Native Hawaiian/Other Pacific Islander and other races are combined because of small sample sizes."
+ },
+ "confidence": "high",
+ "notes": "Matching on age, sex and site was planned but abandoned, so the analysis is unmatched GEE logistic, not conditional logistic. Unadjusted results are bivariate percentages with p-values, not crude odds ratios.",
+ "view_issues": "Figure description reads '95%26#37; confidence intervals' (a garbled percent-sign entity)."
+}
