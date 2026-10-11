@@ -1,0 +1,46 @@
+{
+ "id": "mm4948a1",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "R3", "role": "judgment"},
+ "changes": [
+  {"field": "data_source_type",
+   "value": [
+    {"v": "sentinel/network", "ev": [
+     {"loc": "text", "q": "1% of patient visits to U.S. sentinel physicians were for influenza-like illness (ILI)"},
+     {"loc": "text", "q": "World Health Organization (WHO) collaborating laboratories and National Respiratory and Enteric Virus Surveillance System laboratories in the United States tested 8511 specimens"}
+    ]},
+    {"v": "CDC surveillance system", "ev": [
+     {"loc": "text", "q": "The 122 Cities Mortality Reporting System attributed 6.5% of total deaths to pneumonia and influenza (P&I)."},
+     {"loc": "text", "q": "24 state and territorial health departments reported no influenza activity, 24 reported sporadic activity"}
+    ]}
+   ],
+   "why": "The WHO collaborating laboratories here are U.S. laboratories reporting into CDC's system, so the data are not international surveillance; they belong with the laboratory network."},
+  {"field": "comparison",
+   "value": {
+    "framework": "fixed referent",
+    "scale": null,
+    "referent": "P&I epidemic threshold of 7.9% for week 47; ILI baseline (0--3%)",
+    "across": ["observed vs expected (epidemic threshold, baseline)", "season (2000 vs same period 1999)", "week"],
+    "ev": [
+     {"loc": "text", "q": "This percentage was below the epidemic threshold of 7.9% for week 47."},
+     {"loc": "text", "q": "among each of the nine surveillance regions, patient visits for ILI were at baseline levels (0--3%)"}
+    ]
+   },
+   "why": "Across should name the variables compared rather than a sentence; the ILI baseline is a second fixed referent and the weekly rise in percent positive is a comparison over weeks."}
+ ],
+ "equity": {
+  "level": 0,
+  "level_reason": "No result is given by a social-position dimension. Age appears only in vaccination and antiviral recommendations (persons aged 50--64 years; approval ages), and high-risk groups are defined clinically or by occupational exposure.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [
+   {"v": "age", "role": "population", "ev": [
+    {"loc": "text", "q": "Efforts also should be made to vaccinate persons aged 50--64 years."}
+   ]}
+  ],
+  "determinants_of_health": {"v": null, "ev": []},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": null
+ },
+ "confidence": "high",
+ "notes": "The epidemic threshold is baseline plus 1.645 SD from the periodic regression, so comparing observed P&I to it is close to a one-sided test; inference is left as none because no test or CI is reported."
+}

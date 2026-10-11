@@ -1,0 +1,53 @@
+{
+ "id": "mm5034a3",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "R3", "role": "judgment"},
+ "changes": [
+  {"field": "comparison",
+   "value": {
+    "framework": "pair",
+    "scale": null,
+    "referent": "previous year (1999 for 2000; 2000 for 2001); AFP surveillance targets (nonpolio AFP rate >1 per 100,000 children aged <15 years; adequate specimens from >80%)",
+    "across": ["year", "country", "coverage method (administrative vs survey)"],
+    "ev": [
+     {"loc": "text", "q": "During 1999--2000, the incidence of wild virus-confirmed polio cases decreased in SEAR from 1161 to 272"},
+     {"loc": "text", "q": "sensitivity of reporting (target: nonpolio AFP rate of > 1 case per 100,000 children aged <15 years)"}
+    ]
+   },
+   "why": "The surveillance indicators are judged against stated targets, so the referent should name them alongside the prior year; country is the main axis of Table 1 and the text."},
+  {"field": "data_source_type",
+   "value": [
+    {"v": "international surveillance", "ev": [
+     {"loc": "text", "q": "The reported number of AFP cases during 1999--2000 increased in Bangladesh (from 767 to 1133) and Myanmar (from 183 to 294)"},
+     {"loc": "ocr", "q": "Number of reported cases of acute flaccid paralysis (AFP), nonpolio AFP"}
+    ]},
+    {"v": "other survey", "ev": [
+     {"loc": "text", "q": "Multiple Indicator Cluster Survey data suggested that coverage was approximately 59% in India"}
+    ]},
+    {"v": "other", "ev": [
+     {"loc": "text", "q": "Routine administrative OPV3 coverage rates were reported from Bangladesh (90%), Bhutan (90%)"}
+    ]}
+   ],
+   "why": "The international surveillance records analyzed are the country AFP and polio case reports; the laboratory network description is not itself the data analyzed."}
+ ],
+ "equity": {
+  "level": 0,
+  "level_reason": "Age (children aged <5 or <15 years, or 1 year) only defines target and surveillance populations. Crowded urban conditions and poor sanitation are named as transmission context, with no group comparison by a social-position dimension.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [
+   {"v": "age", "role": "population", "ev": [
+    {"loc": "text", "q": "two OPV doses were administered in high-risk areas to children aged <5 years"}
+   ]}
+  ],
+  "determinants_of_health": {
+   "v": "high birth rates; crowded urban conditions; poor sanitation and infrastructure; insufficient health personnel",
+   "ev": [
+    {"loc": "text", "q": "to compensate for high birth rates, crowded urban conditions, poor sanitation and infrastructure, low routine vaccination coverage, and insufficient health personnel"}
+   ]
+  },
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": null
+ },
+ "confidence": "medium",
+ "notes": "Table 1 and Figure 1 are image-only with unverified OCR; values were taken from the text where possible. Geography (countries, Indian states) is not a social-position dimension."
+}
