@@ -1,0 +1,298 @@
+{
+ "id": "mm7203a2",
+ "reader": {
+  "model": "claude-haiku-5-5",
+  "reader_id": "R1",
+  "role": "structural"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, 80.1% of pregnant persons and 86.0% of reproductive-aged women reported being screened for alcohol use at their last visit to a health care provider"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among 950 pregnant persons in jurisdictions included in the 2017 and 2019 BRFSS ASBI module, 13.3% reported current drinking"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "reported a lower prevalence of alcohol screening (53.5%) compared with those who graduated from high school (83.4%)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence estimates and 95% CIs were standardized to the age distribution of persons who gave birth to a live singleton infant in 2017"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Wald chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named test: 'Wald chi-square tests were used to test for differences' with P-values in Tables 1 and 2",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Wald chi-square tests were used to test for differences with p<0.05 considered statistically significant."
+    }
+   ]
+  },
+  {
+   "name": "direct age standardization to 2017 births",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "estimates 'standardized to the age distribution of persons who gave birth' in 2017; direct form implied by a fixed standard population",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence estimates and 95% CIs were standardized to the age distribution of persons who gave birth to a live singleton infant in 2017"
+    }
+   ]
+  },
+  {
+   "name": "BRFSS survey weights with Taylor series variance",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "'Survey procedures with Taylor series variance and weights' to account for design and nonresponse; produces every estimate",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Survey procedures with Taylor series variance and weights were used to account for the sample design and nonresponse."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "absolute",
+  "referent": null,
+  "across": [
+   "education",
+   "race/ethnicity",
+   "HIV-risk behaviors",
+   "health insurance",
+   "pregnancy status"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "reported a lower prevalence of alcohol screening (53.5%) compared with those who graduated from high school (83.4%)"
+   },
+   {
+    "loc": "text",
+    "q": "Screening prevalence was significantly lower among reproductive-aged women who did not have health insurance than among those with any health insurance"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Wald chi-square tests were used to test for differences with p<0.05 considered statistically significant."
+   },
+   {
+    "loc": "text",
+    "q": "Prevalence estimates and 95% CIs were standardized"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-standardized prevalence",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Age-standardized* prevalence of alcohol screening"
+    }
+   ]
+  },
+  {
+   "v": "weighted %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Weighted % (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How common were alcohol screening and brief intervention among pregnant persons, and did they differ by education and other characteristics?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC examined prevalence of ASBI and characteristics of pregnant persons and nonpregnant women aged 18–49 years"
+   }
+  ]
+ },
+ "condition_group": [
+  {
+   "v": "substance use",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Alcohol use among pregnant persons remains a public health concern."
+    }
+   ]
+  },
+  {
+   "v": "maternal/reproductive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Alcohol use during pregnancy is a major preventable cause of adverse alcohol-related outcomes"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "BRFSS is a cross-sectional, random-digit–dialed, annual telephone survey of noninstitutionalized U.S. adults aged ≥18 years"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Using 2017 and 2019 Behavioral Risk Factor Surveillance System (BRFSS) data"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Using 2017 and 2019 Behavioral Risk Factor Surveillance System (BRFSS) data"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC analyzed data from 23 states and the District of Columbia"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Education, race/ethnicity and insurance differences in screening are framed as disparities, but the values are set side by side with P-values and no difference or ratio is computed, which caps the level at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The 30-point gap in screening between pregnant persons without and with a high school diploma (53.5% vs 83.4%) could be read as a quantified contrast, which would meet level 3."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "primary comparison",
+    "ses_components": [
+     "education",
+     "health insurance status"
+    ],
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Disparities in alcohol screening were observed among pregnant persons with lower educational attainment."
+     },
+     {
+      "loc": "text",
+      "q": "Screening prevalence was significantly lower among reproductive-aged women who did not have health insurance"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "racial and ethnic disparities in ASBI were observed among reproductive-aged women"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Prevalence estimates and 95% CIs were standardized to the age distribution of persons who gave birth"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "CDC examined prevalence of ASBI and characteristics of pregnant persons and nonpregnant women aged 18–49 years"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "health insurance coverage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "indicating that lack of health insurance might interfere with engaging in routine alcohol screening and subsequent interventions"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity 'Other' collapses several groups; education and insurance are self-reported; the referent for education and race is not stated; subgroups such as veterans and sexual and gender minority persons were not evaluated."
+ },
+ "confidence": "high",
+ "notes": "Age-standardized, survey-weighted prevalences with Wald chi-square tests are the main methods. The odds ratio of 2.26 is cited from earlier trials and not computed here. Disparities are set side by side with P-values and no difference is computed, which caps equity at level 2.",
+ "view_issues": "The Introduction and Summary give 16% of all pregnant current drinkers as advised, but the Results figure of 16.1% is among those screened and drinking; the Discussion calls 28.8% 'approximately one third'."
+}
