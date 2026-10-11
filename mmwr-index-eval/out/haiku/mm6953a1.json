@@ -1,0 +1,258 @@
+{
+ "id": "mm6953a1",
+ "reader": {
+  "model": "claude-haiku-5-5",
+  "reader_id": "R1",
+  "role": "structural"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence of early introduction was 15.6% nationally and varied geographically"
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the mean age at introduction of complementary foods was 5.7 months"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence of early introduction was 15.6% nationally and varied geographically"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence of early introduction was significantly higher among non-Hispanic Black (Black) children (25.2%), compared with all other racial/ethnic groups"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "two-sample t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named test for subgroup differences in early-introduction prevalence; 'significantly' rests on it",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Two-sample t-tests were used to identify statistically significant (p<0.05) differences across subgroups."
+    },
+    {
+     "loc": "table 1",
+     "q": "is significantly different from that of non-Hispanic White children"
+    }
+   ]
+  },
+  {
+   "name": "survey weighting for complex survey design",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "'weighted to account for complex survey design' in the table note; weights produce every estimate (SUDAAN)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percentages are weighted to account for complex survey design."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "absolute",
+  "referent": "all other racial/ethnic groups (text); non-Hispanic White in the table note",
+  "across": [
+   "race/ethnicity",
+   "household income (FPL)",
+   "maternal education",
+   "maternal age",
+   "infant milk feeding status",
+   "region"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Prevalence of early introduction was significantly higher among non-Hispanic Black (Black) children (25.2%), compared with all other racial/ethnic groups"
+   },
+   {
+    "loc": "text",
+    "q": "compared with all other household FPL and maternal education groups"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Two-sample t-tests were used to identify statistically significant (p<0.05) differences across subgroups."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "prevalence of early introduction, %",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence of early introduction was 15.6% nationally"
+    }
+   ]
+  },
+  {
+   "v": "mean age at introduction (months)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the mean age at introduction of complementary foods was 5.7 months"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Among U.S. children aged 1–5 years, how common is introduction of complementary foods before age 4 months, and how does it vary by sociodemographic, infant feeding and geographic characteristics?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Nationally representative data on complementary feeding are limited; state-level estimates have been previously unavailable."
+   }
+  ]
+ },
+ "condition_group": [
+  {
+   "v": "obesity/nutrition",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Timing of Introduction of Complementary Foods"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "It is an annual web- and paper-based survey that collects information from parents and caregivers"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed 2016–2018 data from the National Survey of Children’s Health (NSCH)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Survey of Children’s Health (NSCH)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed 2016–2018 data from the National Survey of Children’s Health (NSCH)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "At the state level, prevalence of early introduction ranged from 7.6% in New Mexico to 34.4% in Mississippi"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Race/ethnicity and income/education gradients are reported as rates with significance marks, and the Discussion calls Black infants and lower-SES households at higher risk; no difference or ratio is computed, so the level is capped at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Black compared with all other groups is stated as significantly higher and interpreted as increased risk; a reader could count this as a quantified contrast."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Prevalence of early introduction was significantly higher among non-Hispanic Black (Black) children (25.2%)"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "primary comparison",
+    "ses_components": [
+     "household income relative to the federal poverty level (FPL)",
+     "maternal highest education level"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Prevalence of early introduction was significantly lower among children living in households at ≥400% of the FPL (12.1%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "children of mothers aged 30–39 years is significantly different"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity (1.3% missing) and household income (16.3% missing) were imputed; the Black comparison is against all other groups in the text but against White in the table note; maternal variables are missing for households with no mother reported."
+ },
+ "confidence": "high",
+ "notes": "Imputation (hot-deck and sequential regression) for missing race and income, the exclusion of reports of 12 months or more, and the sensitivity re-analysis are data handling, not procedures; the sensitivity result is therefore not recorded. The 23-state comparison with the national 15.6% is a secondary fixed-referent comparison, and the NHANES 2009–2014 estimate is external, so neither sets the framework.",
+ "view_issues": "The header says 'Corrected after publication (see retraction, 2023-07-28)' but the packet contains no correction or retraction text, and the date line gives no correction date. The text also writes 'FLP' for FPL once."
+}
