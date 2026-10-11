@@ -1,0 +1,230 @@
+{
+ "id": "mm7226a9",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "R3",
+  "role": "judgment",
+  "based_on": "claude-haiku-5-5"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Figure is a bar graph indicating the 2021 age-adjusted rates of U.S. firearm-related homicide by race, Hispanic origin, and sex"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "In 2021, the age-adjusted rate of firearm-related homicide was 11.1 deaths per 100,000 standard population for males and 2.1 for females."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Males had higher rates than females across all race and Hispanic origin groups."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among males, Black or African American (Black) males had the highest age-adjusted rate of firearm-related homicide"
+    },
+    {
+     "loc": "note",
+     "q": "Deaths per 100,000 population are age-adjusted to the 2000 U.S. standard population, with 95% CIs indicated by error bars."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "age adjustment to the 2000 U.S. standard population",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "rates 'age-adjusted to the 2000 U.S. standard population' (direct standardization implied; the article does not name the method)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Deaths per 100,000 population are age-adjusted to the 2000 U.S. standard population, with 95% CIs indicated by error bars."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "race/ethnicity",
+   "sex"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Black or African American (Black) males had the highest age-adjusted rate of firearm-related homicide"
+   },
+   {
+    "loc": "text",
+    "q": "Males had higher rates than females across all race and Hispanic origin groups."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "note",
+    "q": "with 95% CIs indicated by error bars"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted rate per 100,000 standard population",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "the age-adjusted rate of firearm-related homicide was 11.1 deaths per 100,000 standard population"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did 2021 age-adjusted firearm-related homicide rates differ by race, Hispanic origin and sex in the United States?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Among females, Black females had the highest rate (7.5), and Asian females had the lowest rate (0.5)."
+   }
+  ]
+ },
+ "condition_group": [
+  {
+   "v": "injury/poisoning",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Age-Adjusted Rates* of Firearm-Related Homicide"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Source: National Center for Health Statistics, National Vital Statistics System, Mortality Data, 2021."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "National Center for Health Statistics, National Vital Statistics System, Mortality Data, 2021."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System, Mortality Data",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Source: National Center for Health Statistics, National Vital Statistics System, Mortality Data, 2021."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "National Vital Statistics System, United States, 2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Age-adjusted firearm homicide rates are reported for each race and Hispanic-origin group within sex, and the highest and lowest groups are described, but no difference or ratio is computed and nothing is framed as a disparity, so the level is capped at 2.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Age-Adjusted Rates* of Firearm-Related Homicide, † by Race, § Hispanic Origin, and Sex"
+     },
+     {
+      "loc": "figure 1",
+      "q": "Black or African American (Black) males had the highest age-adjusted rate of firearm-related homicide (52.9 deaths per 100,000 standard population)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "cross-classifier",
+    "ev": [
+     {
+      "loc": "figure 1",
+      "q": "Males had higher rates than females across all race and Hispanic origin groups."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "figure 1",
+      "q": "Deaths per 100,000 population are age-adjusted to the 2000 U.S. standard population"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race groups are non-Hispanic with Hispanic origin as a separate group; NH/OPI not shown because of small numbers; death-certificate misclassification may bias Asian, AI/AN and Hispanic rates."
+ },
+ "confidence": "high",
+ "notes": "Figure-only QuickStats with no table CSV; values are read from the summary and footnote text. Sex is recorded as a cross-classifier with no social-position framing, so it does not raise the level. [review] The structural record is sound; age standardization plus race-within-sex rates support stratified/adjusted depth, and values are only set side by side (scale null).",
+ "view_issues": null
+}
