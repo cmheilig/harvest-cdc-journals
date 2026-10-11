@@ -1,0 +1,71 @@
+{
+ "id": "mm7240a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "R3",
+  "role": "judgment"
+ },
+ "changes": [],
+ "equity": {
+  "level": 1,
+  "level_reason": "Race/ethnicity appears only as a descriptive distribution of hospitalized patients in the Table; no outcome is reported by race and nothing is framed as a disparity. Age defines the population and age-group comparisons lack social-position framing.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 0,
+   "reason": "Race/ethnicity is only a Table row count; if a bare descriptor is not counted, only age (population, strata) remains, which is level 0."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "COVID-19–Associated Hospitalizations Among U.S. Adults Aged ≥65 Years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "This analysis describes overall and age-stratified weekly COVID-19–associated hospitalization rates during January–August 2023"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race and ethnicity › Black or African American"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity is a Table descriptor only; NH ethnicity assumed when unknown, AI/AN and multiracial collapsed into 'All other races', cells <10 suppressed. LTCF residence is described but not framed as social position."
+ },
+ "confidence": "high",
+ "notes": null
+}
