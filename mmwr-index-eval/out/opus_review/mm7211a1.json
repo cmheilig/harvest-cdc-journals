@@ -1,0 +1,38 @@
+{
+ "id": "mm7211a1",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "R3", "role": "judgment"},
+ "changes": [
+  {
+   "field": "analytic_depth",
+   "value": [
+    {"v": "summary", "ev": [{"loc": "text", "q": "Incidences ranged from 0.32 per 100,000 population in Vermont in 2011 to 18.0 in Rhode Island in 2015"}]},
+    {"v": "comparison", "ev": [{"loc": "text", "q": "Vermont reported two cases in 2011 (incidence = 0.3 per 100,000 population) and 34 cases in 2019 (5.4), representing a 1,602% increase in incidence."}]}
+   ],
+   "why": "The claims rest on year trends fitted separately within each state, a series over time by group, which the brief counts as comparison. The overall model controlling for state is described but its results are never reported."
+  },
+  {
+   "field": "regression_fields",
+   "value": {
+    "nonindependence_approach": {"v": "none", "ev": []},
+    "unadjusted_results": {"v": true, "ev": [{"loc": "text", "q": "State-level models were also fit, controlling for event year (symptom onset or laboratory diagnosis date) as a continuous variable."}]},
+    "adjusted_results": {"v": false, "ev": [{"loc": "text", "q": "An overall model was fit, controlling for state, with year of diagnosis as a continuous variable."}]},
+    "confounders": {"v": "state (overall model only; its results are not reported)", "ev": [{"loc": "text", "q": "An overall model was fit, controlling for state, with year of diagnosis as a continuous variable."}]},
+    "interaction_modeled": {"v": false, "ev": []},
+    "sensitivity_analysis": {"v": false, "ev": []}
+   },
+   "why": "The reported state-level models have year (the exposure) as their only term, so they are unadjusted; the state-adjusted overall model yields no reported result. Year is the trend variable, not a confounder."
+  }
+ ],
+ "equity": {
+  "level": 0,
+  "level_reason": "No social-position dimension appears; results are by state and year only, and geography by itself is not an SPD.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [],
+  "determinants_of_health": {"v": null, "ev": []},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": null
+ },
+ "confidence": "medium",
+ "notes": "The Table note says state p-values come from Poisson models 'controlling for year and state', which conflicts with the methods text (state-level models with year only)."
+}
