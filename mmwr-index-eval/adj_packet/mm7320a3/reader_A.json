@@ -1,0 +1,315 @@
+{
+ "id": "mm7320a3",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "271 (0.8%) occurred among persons who were fully vaccinated"
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "resulting in a 0.1% infection rate"
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the median interval from receipt of the second dose to illness onset among persons who had received 2 intradermal doses was 363 days"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "187 infections were reported among 188,907 fully vaccinated persons"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Compared with unvaccinated cases, a higher proportion of fully vaccinated cases occurred among non-Hispanic White persons (59%)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named chi-square test for case characteristics and for missing vs complete vaccination-status comparisons",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using chi-square and Fisher’s exact tests and odds ratios (ORs)"
+    },
+    {
+     "loc": "text",
+     "q": "(p<0.001, Fisher’s exact and chi-square tests, respectively)"
+    }
+   ]
+  },
+  {
+   "name": "Fisher’s exact test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named test, used for race/ethnicity and gender identity comparisons (Table 1 notes)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "§ Fisher’s exact test p-value"
+    },
+    {
+     "loc": "text",
+     "q": "(p<0.001, Fisher’s exact and chi-square tests, respectively)"
+    }
+   ]
+  },
+  {
+   "name": "Wilcoxon rank-sum test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named test for the interval from second dose to onset (subcutaneous vs intradermal) and for number of sexual partners",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "compared for homologous subcutaneous and intradermal doses using the Wilcoxon rank-sum test"
+    },
+    {
+     "loc": "text",
+     "q": "(p<0.001, Wilcoxon rank-sum test)"
+    }
+   ]
+  },
+  {
+   "name": "Kruskal-Wallis test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named test across the three vaccination-route groups; its result is non-significant",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were compared using a Kruskal-Wallis test"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "both",
+  "referent": "unvaccinated persons",
+  "across": [
+   "vaccination status",
+   "race/ethnicity",
+   "age group",
+   "route of vaccination"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Compared with unvaccinated cases, a higher proportion of fully vaccinated cases occurred among non-Hispanic White persons (59%)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "using chi-square and Fisher’s exact tests and odds ratios (ORs)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "OR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "than among unvaccinated persons (1,662 [8.4%] of 19,716) (OR = 0.2)"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "271 (0.8%) occurred among persons who were fully vaccinated"
+    }
+   ]
+  },
+  {
+   "v": "median (IQR)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the median interval from receipt of the second dose to illness onset among persons who had received 2 intradermal doses was 363 days"
+    }
+   ]
+  },
+  {
+   "v": "infection rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "resulting in a 0.1% infection rate"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Do mpox infections among fully vaccinated persons differ from those among unvaccinated persons in frequency, characteristics and severity, and is there evidence of waning immunity?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To answer these questions, including whether there are discernable indications for waning vaccine immunity"
+   }
+  ]
+ },
+ "condition_group": [
+  {
+   "v": "mpox",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Monkeypox Virus Infections After 2 Preexposure Doses of JYNNEOS Vaccine"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "to CDC’s National Notifiable Diseases Surveillance System"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "to CDC’s National Notifiable Diseases Surveillance System"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Notifiable Diseases Surveillance System (NNDSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "to CDC’s National Notifiable Diseases Surveillance System"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, May 2022–May 2024"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "effectiveness",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Monkeypox virus infection after receipt of 2 JYNNEOS doses is estimated to have occurred in <1% of fully vaccinated persons"
+   }
+  ]
+ },
+ "equity": {
+  "level": 2,
+  "level_reason": "Race/ethnicity and age differences in case distribution by vaccination status are reported and described (e.g. 59% of fully vaccinated cases were non-Hispanic White) without being framed as a disparity or explained.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Race/ethnicity appears mainly as a case characteristic in Table 1; a stricter reading treats it as a descriptor, which caps the level at 1."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "a higher proportion of fully vaccinated cases occurred among non-Hispanic White persons (59%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "and persons aged 30–39 years (47%)"
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "which has disproportionately affected gay, bisexual, and other men who have sex with men (MSM) and transgender and nonbinary persons"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity is compared as case-level descriptors; 12 of 271 fully vaccinated cases lack race/ethnicity, and missing-status cases differ by race/ethnicity. No referent population is used."
+ },
+ "confidence": "high",
+ "notes": "Odds ratios and the 0.1% infection rate are arithmetic on counts, and no model is described, so regression_fields is null. The fully vaccinated denominator (188,907) comes from coverage data and is not listed as an analysed source. The chi-square and Fisher tests are rated primary because the Abstract's demographic and severity claims rest on them.",
+ "view_issues": "The Abstract attaches a single p<0.001 to the 'less severe disease' comparisons, but several Table 2 symptoms are non-significant (e.g. rash p=0.09, proctitis p=0.08, tenesmus p=1.0)."
+}

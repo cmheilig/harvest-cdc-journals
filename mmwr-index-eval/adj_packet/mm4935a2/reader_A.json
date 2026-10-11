@@ -1,0 +1,276 @@
+{
+ "id": "mm4935a2",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "approximately 13% of enrollees in Medicare managed care reported they were current smokers"
+    },
+    {
+     "loc": "text",
+     "q": "70.7% reported they had been advised to quit smoking"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 1998, 10.4% of Medicare managed-care enrollees reported smoking every day and 2.9% reported smoking some days"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Blacks and Hispanics reported receiving less advice than did whites."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "women who made one to four visits reported receiving advice to quit at slightly higher rates than did men"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting to stratum population totals and poststratification to age, race and sex",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "'Data were weighted to the total population of each stratum and adjusted to the overall population age, race, and sex distribution': weights yield all population estimates, not a model",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted to the total population of each stratum and adjusted to the overall population age, race, and sex distribution."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'higher than the national average (62.5%)' judged against a fixed external value; the CI is not stated in the text but Table 1 and Table 2 report 95% CIs",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Self-reported receipt of advice is higher in this survey than the national average (62.5%)"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "number of health-care visits",
+   "race/ethnicity",
+   "age group",
+   "sex",
+   "education",
+   "household income",
+   "managed-care plan model"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Advice to quit increased with increasing numbers of visits"
+   },
+   {
+    "loc": "ocr",
+    "q": "by number of visits and selected characteristics"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "ocr",
+    "q": "Confidence interval."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "prevalence",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 1998, 10.4% of Medicare managed-care enrollees reported smoking every day"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "70.7% reported they had been advised to quit smoking"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Among Medicare managed-care enrollees who smoke, how often do health-care providers advise them to quit, and how does this vary by visits, race and ethnicity, and plan model?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "To characterize smoking and advice to quit among Medicare managed-care recipients"
+   }
+  ]
+ },
+ "condition_group": [
+  {
+   "v": "substance use",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "approximately 13% of enrollees in Medicare managed care reported they were current smokers"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Baseline data were collected during May--July 1998."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "analyzed data from the 1998 Health Outcomes Survey (HOS)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Health Outcomes Survey (HOS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "analyzed data from the 1998 Health Outcomes Survey (HOS)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "administered to Medicare beneficiaries enrolled in managed-care plans nationwide"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Race and SES (education, income) are reported as group results and described, e.g. 'Blacks and Hispanics reported receiving less advice than did whites', with causes discussed. The contrasts are side-by-side percentages with no computed difference, so the level is capped at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The editorial frames the racial difference and offers causes; a reader who counts the text's 'less advice' statements as quantified would give 3, but no difference is computed."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Blacks and Hispanics reported receiving less advice than did whites."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education",
+     "household income"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Overall, those with more education reported receiving less advice."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "smokers aged > 75 years reported receiving less advice to quit than did younger smokers"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "women who made one to four visits reported receiving advice to quit at slightly higher rates than did men"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "social or cultural factors; language barriers",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "may be influenced by social or cultural factors"
+    },
+    {
+     "loc": "text",
+     "q": "language barriers may affect the lower rates of receiving advice to quit"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race and SES results are side-by-side percentages with no computed contrast; several race and plan-type rows lack estimates for sample size under 100 (table notes, OCR). Race and income exclude different respondent counts (5,249 and 15,691, per table notes, OCR)."
+ },
+ "confidence": "medium",
+ "notes": "Survey weights produce every estimate, so they are the primary procedure; no regression, standardization or interaction is reported. Tables 1 and 2 are OCR-only, so their numbers are unverified; the CI test against the 62.5% national average is ancillary.",
+ "view_issues": "Text says women's advice rates are higher 'across all visit categories', but per Table 2 OCR men exceed women at 5 visits (76.8 vs 75.7). Tables 1-2 are OCR-only with garbled alignment; numbers unverified."
+}

@@ -1,0 +1,339 @@
+{
+ "id": "mm7308a5",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Case-patients were those who received a positive SARS-CoV-2 molecular test result, and control patients were those who received a negative SARS-CoV-2 test result."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A total of 1,297 (8%) case-patients and 13,378 (12%) control patients had received an updated COVID-19 vaccine dose."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "comparing persons who received an updated COVID-19 vaccine dose with those who did not"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VE models were adjusted for age, sex, race and ethnicity, calendar time, and geographic region."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multivariable logistic regression (test-negative VE models)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'multivariable logistic regression' giving odds ratios; VE = (1 − OR) × 100 is arithmetic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Odds ratios (ORs) and 95% CIs were estimated using multivariable logistic regression"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'significant protection' asserted where the VE 95% CI excludes 0 (OR 1); the CI is judged against a fixed value",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "updated 2023–2024 COVID-19 vaccination provided significant protection against COVID-19–associated ED/UC encounters and hospitalization among immunocompetent adults"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "no updated dose",
+  "across": [
+   "vaccination status",
+   "age group",
+   "interval since updated dose"
+  ],
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "The “no updated dose” group included all eligible persons who did not receive an updated 2023–2024 COVID-19 vaccine dose"
+   },
+   {
+    "loc": "text",
+    "q": "VE against COVID-19–associated ED/UC encounters was 51% (95% CI = 47%–54%) in the first 7–59 days after an updated dose"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Odds ratios (ORs) and 95% CIs were estimated using multivariable logistic regression"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "vaccine effectiveness, %",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "VE %* (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "adjusted odds ratio",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VE was calculated as (1 − adjusted OR) × 100%."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "none",
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VE models were adjusted for age, sex, race and ethnicity, calendar time, and geographic region."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age, sex, race and ethnicity, calendar time, geographic region",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VE models were adjusted for age, sex, race and ethnicity, calendar time, and geographic region."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A sensitivity analysis including these control patients was also conducted."
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "How effective were updated 2023–2024 (monovalent XBB.1.5) COVID-19 vaccines against COVID-19–associated ED/UC encounters and hospitalization among immunocompetent adults?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This analysis estimated updated COVID-19 vaccine effectiveness (VE) during September 2023–January 2024"
+   }
+  ]
+ },
+ "condition_group": [
+  {
+   "v": "COVID",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Interim Effectiveness of Updated 2023–2024 (Monovalent XBB.1.5) COVID-19 Vaccines Against COVID-19–Associated Emergency Department"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "test-negative",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "uses a test-negative, case-control design to estimate COVID-19 VE"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "with data from two CDC VE networks"
+    }
+   ]
+  },
+  {
+   "v": "electronic health records",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a multisite, electronic health records (EHR)–based network"
+    }
+   ]
+  },
+  {
+   "v": "vaccination registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-19 vaccination history is ascertained from state or jurisdictional registries"
+    }
+   ]
+  },
+  {
+   "v": "record abstraction or interview",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Demographic and clinical data are collected through EHR review and patient or proxy interview."
+    }
+   ]
+  },
+  {
+   "v": "administrative/claims",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "in a subset of sites, medical claims data"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Virtual SARS-CoV-2, Influenza, and Other respiratory viruses Network (VISION)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Virtual SARS-CoV-2, Influenza, and Other respiratory viruses Network (VISION)"
+    }
+   ]
+  },
+  {
+   "v": "Investigating Respiratory Viruses in the Acutely Ill (IVY)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Investigating Respiratory Viruses in the Acutely Ill (IVY)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "including 369 EDs and UCs and 229 hospitals in eight states"
+   },
+   {
+    "loc": "text",
+    "q": "IVY is a multisite, inpatient network including 26 hospitals in 20 U.S. states"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "effectiveness",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This analysis estimated updated COVID-19 vaccine effectiveness (VE)"
+   }
+  ]
+ },
+ "equity": {
+  "level": 1,
+  "level_reason": "Race and ethnicity appears only as a VE model covariate and as a Table 1 descriptor, with no equity framing. Age is used only for age-group strata and sex only as a covariate, so neither raises the level.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "VE models were adjusted for age, sex, race and ethnicity, calendar time, and geographic region."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race and ethnicity › Black or African American, NH"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "In the VISION network, VE was estimated for adults aged ≥18 years and by age group (18–64 and ≥65 years)."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "confidence": "high",
+ "notes": "VE is (1 − OR) × 100, which is arithmetic, and the natural cubic splines are model terms rather than separate transformations. The waning claims compare CIs across dose intervals, which is a CI-overlap judgment and not a test. The influenza-control exclusion is a design rule, and only its sensitivity analysis is recorded.",
+ "view_issues": null
+}

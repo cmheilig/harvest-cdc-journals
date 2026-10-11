@@ -1,0 +1,324 @@
+{
+ "id": "mm7228a3",
+ "reader": {
+  "label": "B"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "monthly percentage of visits due to pedal cyclist injuries"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "ED visits for nonfatal pedal cyclist injuries in 2019 and 2020 were compared"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were significantly higher than during the same months in 2019"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "comparison of the changes in monthly proportions by age group and sex was assessed using logistic regression"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting (NEISS-AIP stratified probability sample)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "NEISS-AIP 'provide weighted national estimates' from a stratified probability sample; all counts and percentages depend on the weights",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NEISS-AIP data are collected from a stratified probability sample of hospitals and provide weighted national estimates of ED visits for nonfatal injuries"
+    }
+   ]
+  },
+  {
+   "name": "pairwise t-test (SAS-callable SUDAAN)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named pairwise t-tests of 2020 vs 2019 monthly percentages; significance marked with daggers",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were compared using pairwise t-tests in SAS-callable SUDAAN"
+    },
+    {
+     "loc": "table 1",
+     "q": "Difference in the pairwise comparison of the monthly percentage in 2020 compared with 2019 is statistically significant at p<0.05."
+    }
+   ]
+  },
+  {
+   "name": "logistic regression for differences in change by age group and sex",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'assessed using logistic regression' for comparison of changes by age and sex; the family is logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "comparison of the changes in monthly proportions by age group and sex was assessed using logistic regression"
+    }
+   ]
+  },
+  {
+   "name": "suppression of estimates with coefficient of variation >30%",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "table dashes mark suppressed estimates; censoring of observed values",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Dashes indicate estimate suppressed because coefficient of variation >30%."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "both",
+  "referent": "same month in 2019",
+  "across": [
+   "year (2020 vs 2019)",
+   "age group",
+   "sex"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "were significantly higher than during the same months in 2019"
+   },
+   {
+    "loc": "text",
+    "q": "which was 2.9 times higher than in April 2019 (2.1%)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "were compared using pairwise t-tests in SAS-callable SUDAAN"
+   },
+   {
+    "loc": "text",
+    "q": "Variance was estimated using Taylor series linearization."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage of injury-related ED visits (monthly)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "monthly percentage of visits due to pedal cyclist injuries"
+    }
+   ]
+  },
+  {
+   "v": "times higher (ratio of 2020 to 2019 percentage)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "which was 2.9 times higher than in April 2019 (2.1%)"
+    }
+   ]
+  },
+  {
+   "v": "estimated number of ED visits",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimated monthly number of emergency department visits"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Variance was estimated using Taylor series linearization."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "which was 2.9 times higher than in April 2019 (2.1%)"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "comparison of the changes in monthly proportions by age group and sex was assessed using logistic regression"
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Did the share of injury-related ED visits due to pedal cyclist injuries change during the first pandemic year, and did the change differ by age and sex?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "emergency department (ED) visits for nonfatal pedal cyclist injuries in 2019 and 2020 were compared"
+   }
+  ]
+ },
+ "condition_group": [
+  {
+   "v": "injury/poisoning",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "ED visits for nonfatal pedal cyclist injuries"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "provide weighted national estimates of ED visits for nonfatal injuries"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Before and During the COVID-19 Pandemic"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "https://www.cdc.gov/injury/wisqars/nonfatal_help/index.html#nonfatal"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Electronic Injury Surveillance System–All Injury Program (NEISS-AIP)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "from the 2019–2020 National Electronic Injury Surveillance System–All Injury Program (NEISS-AIP)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, 2019–2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Only age group and sex are analyzed, which is level 0 without social-position framing, and no other social-position dimension appears.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The age group with the largest increase during most months was children and adolescents aged <18 years"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "increases in the proportions of pedal cyclist ED visits during March–May and July–August 2020 were higher among females than males"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "confidence": "high",
+ "notes": "Three procedures carry the claims: NEISS-AIP survey weighting, pairwise t-tests for 2020 versus 2019 monthly percentages, and logistic regression for differences in change by age and sex. Suppression of estimates with CV above 30% is recorded as a transformation, and the 'times higher' figures are hand arithmetic. CDC ownership of NEISS-AIP is inferred from the WISQARS link and CDC review, not stated directly.",
+ "view_issues": null
+}

@@ -1,0 +1,232 @@
+{
+ "id": "mm7346a3",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The nationally reported percentage of COVID-19–related ED visits was 2.3%"
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "As of May 10, 99 COVID-19–related ED visits had been reported for the preceding 7 days"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the percentage of reported COVID-19–related ED visits in the United States at this time was low (0.3%)"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "compared with 489 such visits during the previous week"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "statistical nowcasting correction of ED visit counts",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "a model estimating final counts from partially reported data using historic reporting-delay patterns; not a named test or regression",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a statistical nowcasting correction was applied to daily ED visit counts from the previous 30 days"
+    }
+   ]
+  },
+  {
+   "name": "R t estimation with EpiNow2",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "a model-based estimate of R t and its probabilities, from the EpiNow2 package; the trend category is set from the probability that R t >1",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "EpiNow2 estimates R t and the probability that R t >1, R t = 1, or R t <1."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "time point",
+   "jurisdiction"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Weekly epidemic trend categories were compared with reported weekly percentages of COVID-19–related ED visits in the United States"
+   },
+   {
+    "loc": "text",
+    "q": "compared with 489 such visits during the previous week"
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "primary_measures": [
+  {
+   "v": "percentage of ED visits",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percentage of COVID-19–related emergency department visits"
+    }
+   ]
+  },
+  {
+   "v": "epidemic trend category",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The epidemic trend category was classified as growing (probability >90%)"
+    }
+   ]
+  },
+  {
+   "v": "time-varying effective reproductive number (R t)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "R t indicates whether disease transmission is increasing or decreasing"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Can epidemic trend categories based on nowcasted ED visit data detect real-time changes in the direction of COVID-19 transmission?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC analyzed the performance of epidemic trend categories for COVID-19 during summer 2024 in the United States and at the state level in New Mexico."
+   }
+  ]
+ },
+ "condition_group": [
+  {
+   "v": "COVID",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Detection of Real-Time Changes in Direction of COVID-19 Transmission"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Epidemic trend categories were published online each Friday based on daily COVID-19 ED visit counts through the preceding Tuesday"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Weekly epidemic trend categories were compared with reported weekly percentages of COVID-19–related ED visits in the United States"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "calculated from nowcasted ED visit data from NSSP"
+    }
+   ]
+  },
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "New Mexico has granted permission to publish its state-level ED visit count data for this assessment."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Syndromic Surveillance Program (NSSP)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "calculated from nowcasted ED visit data from NSSP"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States Overall and New Mexico"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "No social-position dimension appears; the only groups are national and state jurisdictions, and geography, clinical status and period are not social-position dimensions.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "confidence": "high",
+ "notes": "The nowcasting correction and EpiNow2 R t estimation are the primary model procedures, classed as other; the trend-category cutpoints are classification, not procedures. No CIs or tests are reported, and the time-point and jurisdiction comparisons are descriptive. The R t 'not estimated' rule for fewer than 10 visits is an exclusion rule, not listed.",
+ "view_issues": "The Results say the 11 states growing on May 10 are on the West Coast and in the Northeast, but the table lists Arizona, Colorado, Nevada, New Mexico and Wisconsin among them. The table note defines categories as 'R t >90%' etc., while the Methods define them as probabilities that R t >1."
+}
