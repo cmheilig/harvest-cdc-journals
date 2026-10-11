@@ -1,0 +1,97 @@
+{
+ "id": "mm7240a1",
+ "reader": {"model": "claude-haiku-5-5", "reader_id": "R1", "role": "structural"},
+ "data_focus": {"v": "yes", "ev": [{"loc": "summary", "q": "Among 1,634 patients aged ≥60 years hospitalized with RSV, 54% were aged ≥75 years"}]},
+ "outcome_types": [
+  {"v": "binary/categorical", "ev": [{"loc": "text", "q": "Severe outcomes occurred in 18.5% (95% CI = 15.9%–21.2%) of hospitalized patients aged ≥60 years."}]},
+  {"v": "continuous", "ev": [{"loc": "text", "q": "The median patient age was 75 years (IQR = 68–84 years)"}]}
+ ],
+ "analytic_depth": [
+  {"v": "summary", "ev": [{"loc": "summary", "q": "Among 1,634 patients aged ≥60 years hospitalized with RSV, 54% were aged ≥75 years"}]},
+  {"v": "comparison", "ev": [
+    {"loc": "text", "q": "The median age of White patients (77 years; IQR = 69–85 years) was significantly higher than that of patients who were Black"},
+    {"loc": "text", "q": "were compared with the overall age distribution of persons ≥60 years in the RSV-NET catchment area"}
+  ]}
+ ],
+ "procedures": [
+  {"name": "probability-of-selection weights adjusted to the catchment hospitalized population",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "'weighted percentages' that were 'weighted for the probability of selection and adjusted'; the weights produce every reported percentage",
+   "role": "primary",
+   "ev": [{"loc": "text", "q": "weighted for the probability of selection and adjusted to better represent the hospitalized population of the catchment area"}]},
+  {"name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "Methods name chi-square tests for group differences; the p-values in the text (age, comorbidities, severe outcomes) are reported against that test",
+   "role": "primary",
+   "ev": [{"loc": "text", "q": "Differences were assessed using chi-square tests; p-values <0.05 were considered statistically significant."}]},
+  {"name": "CI vs fixed value",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "the claim that adults aged ≥75 years were overrepresented rests on 95% CIs for hospitalization shares against catchment population shares treated as fixed; the decision rule is not stated",
+   "role": "primary",
+   "ev": [{"loc": "text", "q": "they accounted for 16.0% (95% CI = 13.5%–18.8%) and 38.1% (95% CI = 34.7%–41.7%) of hospitalizations"}]}
+ ],
+ "comparison": {
+  "framework": "fixed referent",
+  "scale": null,
+  "referent": "catchment-area population age distribution",
+  "across": ["age group", "race/ethnicity", "severe outcome"],
+  "ev": [
+   {"loc": "text", "q": "were compared with the overall age distribution of persons ≥60 years in the RSV-NET catchment area"},
+   {"loc": "text", "q": "Whereas adults aged 75–79 years and ≥80 years accounted for 12.4% and 16.2% of the catchment area populations"}
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {"loc": "text", "q": "Differences were assessed using chi-square tests; p-values <0.05 were considered statistically significant."},
+   {"loc": "figure 2", "q": "With 95% CIs indicated by error bars."}
+  ]
+ },
+ "primary_measures": [
+  {"v": "weighted percentage", "ev": [{"loc": "table 1", "q": "Weighted % (95% CI)"}]},
+  {"v": "median (IQR)", "ev": [{"loc": "text", "q": "The median patient age was 75 years (IQR = 68–84 years)"}]}
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What are the characteristics and outcomes of adults aged ≥60 years hospitalized with laboratory-confirmed RSV, and which age, residence and conditions go with severe outcomes?",
+  "ev": [{"loc": "text", "q": "to identify characteristics of adults aged ≥60 years hospitalized with laboratory-confirmed RSV infection during the 2022–23 respiratory virus season."}]
+ },
+ "condition_group": [
+  {"v": "RSV", "ev": [{"loc": "title", "q": "Hospitalized with Laboratory-Confirmed Respiratory Syncytial Virus"}]},
+  {"v": "cardiovascular", "ev": [{"loc": "text", "q": "and CHF (41.2% versus 31.4%; p = 0.01)"}]},
+  {"v": "other chronic", "ev": [{"loc": "text", "q": "COPD (40.0% versus 32.0%; p = 0.047)"}]}
+ ],
+ "study_design": [
+  {"v": "surveillance/descriptive", "ev": [{"loc": "text", "q": "Using data from the Respiratory Syncytial Virus–Associated Hospitalization Surveillance Network, a population-based hospitalization surveillance system"}]}
+ ],
+ "data_source_type": [
+  {"v": "sentinel/network", "ev": [{"loc": "text", "q": "Using data from the Respiratory Syncytial Virus–Associated Hospitalization Surveillance Network, a population-based hospitalization surveillance system"}]},
+  {"v": "record abstraction or interview", "ev": [{"loc": "text", "q": "clinical data were collected by trained surveillance officers from a random sample of medical charts"}]}
+ ],
+ "data_source_named": [
+  {"v": "Respiratory Syncytial Virus–Associated Hospitalization Surveillance Network (RSV-NET)", "ev": [{"loc": "text", "q": "Respiratory Syncytial Virus–Associated Hospitalization Surveillance Network (RSV-NET)"}]}
+ ],
+ "setting": {"v": "US subnational", "ev": [{"loc": "title", "q": "RSV-NET, 12 States, July 2022–June 2023"}]},
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Race and ethnicity groups differ in median age, framed as a racial and ethnic disparity, but the contrast is shown only with significance marks, which caps the level at 2. Socioeconomic status and access to care are named only as hedged explanations.",
+  "level_confidence": "medium",
+  "level_alternative": {"level": 3, "reason": "A reader could compute the 7-year median-age gap and the Black share by age group (28.2% vs 8.2%), which would meet the quantified-contrast rule for level 3."},
+  "dimensions": [
+   {"v": "race/ethnicity", "role": "primary comparison", "ev": [{"loc": "text", "q": "The median age of White patients (77 years; IQR = 69–85 years) was significantly higher than that of patients who were Black"}]},
+   {"v": "SES", "role": "descriptor", "ses_components": ["socioeconomic status"], "ev": [{"loc": "text", "q": "resulting from racial and ethnic disparities in underlying medical conditions, access to medical care, and socioeconomic status"}]},
+   {"v": "age", "role": "population", "ev": [{"loc": "title", "q": "Among Adults Aged ≥60 Years Hospitalized with Laboratory-Confirmed Respiratory Syncytial Virus"}]}
+  ],
+  "determinants_of_health": {"v": "socioeconomic status; access to medical care; racial and ethnic disparities in underlying medical conditions", "ev": [{"loc": "text", "q": "resulting from racial and ethnic disparities in underlying medical conditions, access to medical care, and socioeconomic status"}]},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": "Small AI/AN group (7 sampled patients), other races collapsed with unknown race, and non-Hispanic ethnicity assumed when ethnicity was unknown."
+ },
+ "confidence": "medium",
+ "notes": "Chi-square tests are the only named test, and the article does not tie them to the median-age p-values. The overrepresentation of adults aged ≥75 years is judged from CIs against catchment population shares, which is my inference, not a stated rule. Survey software use is noted in Methods but is not recorded as a separate procedure.",
+ "view_issues": "CSV row 'Unknown' (race) has an unclosed parenthesis in its CI cell: 2.3 (1.6–3.3."
+}
