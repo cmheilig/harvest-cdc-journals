@@ -1,0 +1,213 @@
+{
+ "id": "mm4910a3",
+ "reader": {
+  "model": "claude-haiku-5-5",
+  "reader_id": "R1",
+  "role": "structural"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Of 343 company employees who completed a questionnaire and ate luncheon food, 191 (56%) had an illness meeting the case definition."
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Illness onsets occurred a median of 33 hours after eating the lunch"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Nineteen (53%) of the residents had illnesses meeting the case definition."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "eating potato salad was associated strongly with illness (odds ratio=42.7; 95% confidence interval=18.6--101.7)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "CI vs fixed value",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'associated strongly' is drawn from an OR of 42.7 with 95% CI 18.6-101.7, which excludes 1; no named test or p-value",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "eating potato salad was associated strongly with illness"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": null,
+  "across": [
+   "potato salad consumption"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "eating potato salad was associated strongly with illness (odds ratio=42.7; 95% confidence interval=18.6--101.7)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "odds ratio=42.7; 95% confidence interval=18.6--101.7"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Nineteen (53%) of the residents had illnesses meeting the case definition."
+    }
+   ]
+  },
+  {
+   "v": "median",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Illness onsets occurred a median of 33 hours after eating the lunch"
+    }
+   ]
+  },
+  {
+   "v": "mean",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The mean illness duration was approximately 24 hours (range: 3.5--33 hours)."
+    }
+   ]
+  },
+  {
+   "v": "odds ratio",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "odds ratio=42.7; 95% confidence interval=18.6--101.7"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What were the food and person-to-person sources and transmission routes of two Norwalk-like virus outbreaks, in Alaska and Wisconsin?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This report presents investigations of a foodborne NLV outbreak in Alaska and person-to-person transmission in Wisconsin."
+   }
+  ]
+ },
+ "condition_group": [
+  {
+   "v": "other acute",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Norwalk-like viruses (NLVs) are the most common cause of epidemic gastroenteritis in the United States"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "outbreak investigation",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This report presents investigations of a foodborne NLV outbreak in Alaska and person-to-person transmission in Wisconsin."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "record abstraction or interview",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Sanitarians investigated the restaurant facilities and interviewed foodhandlers."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Outbreaks of Norwalk-like Viral Gastroenteritis --- Alaska and Wisconsin, 1999"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Only age is mentioned, as a general statement that all ages are affected; residence-hall living and food-handling jobs are exposure settings, not social-position framing.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Persons of all ages are affected because previous infection confers only short-term immunity"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "confidence": "medium",
+ "notes": "The OR of 42.7 is computed from a 2x2 table and is not labelled as a model. 'Associated strongly' is treated as a CI judged against 1, which makes the inference 'CIs and tests' and the procedure a CI vs fixed value test. The inference method for the CI is not stated.",
+ "view_issues": null
+}

@@ -1,0 +1,51 @@
+{"id": "mm7303a3",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "R3", "role": "judgment"},
+ "changes": [
+  {"field": "outcome_types",
+   "value": [
+    {"v": "count/rate", "ev": [
+      {"loc": "summary", "q": "increased from a mean of 4.1 per year during 2009–2018 to a mean of 13.0 during 2019–2022"}
+    ]},
+    {"v": "binary/categorical", "ev": [
+      {"loc": "text", "q": "in 22 (92%) cases, comorbid conditions associated with increased risk for venous thromboembolism were reported"},
+      {"loc": "text", "q": "Fat embolism was the cause of death in 11 (55%) of 20 cases and pulmonary venous thromboembolism in seven (35%)."}
+    ]},
+    {"v": "continuous", "ev": [
+      {"loc": "text", "q": "the mean body mass index (BMI) was 32 kg/m 2"},
+      {"loc": "text", "q": "the mean interval from procedure to death was 2.8 days"}
+    ]}
+   ],
+   "why": "The headline trend is a count of deaths per year (a mean annual count), which is count/rate, not continuous; continuous applies to the measured quantities (age, BMI, interval to death)."},
+  {"field": "condition_group",
+   "value": [
+    {"v": "other acute", "ev": [
+      {"loc": "text", "q": "all autopsy-confirmed deaths were attributed to intraoperative and postoperative complications"}
+    ]},
+    {"v": "cardiovascular", "ev": [
+      {"loc": "summary", "q": "the deaths were associated with fat or venous thromboembolism"}
+    ]}
+   ],
+   "why": "The outcome is perioperative death from surgical complications; embolism is the cause, so cardiovascular stays as a second value. Obesity is only a risk factor and stays out."}
+ ],
+ "equity": {
+  "level": 0,
+  "level_reason": "U.S. citizenship only defines the population; sex and age are described (all but one decedent were women) without social-position framing. Lower cost as a motive for medical tourism is context, not an analysed or framed disparity.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [
+   {"v": "country of birth/language/nativity", "role": "population", "ev": [
+     {"loc": "title", "q": "Deaths of U.S. Citizens Undergoing Cosmetic Surgery"}
+   ]},
+   {"v": "sex", "role": "descriptor", "ev": [
+     {"loc": "text", "q": "all but one occurred in women"}
+   ]},
+   {"v": "age", "role": "descriptor", "ev": [
+     {"loc": "text", "q": "The mean decedent age was 40 years (range = 19–69 years)."}
+   ]}
+  ],
+  "determinants_of_health": {"v": null, "ev": []},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": null
+ },
+ "confidence": "high",
+ "notes": null}
