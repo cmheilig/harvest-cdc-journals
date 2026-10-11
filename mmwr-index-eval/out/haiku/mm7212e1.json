@@ -1,0 +1,287 @@
+{
+ "id": "mm7212e1",
+ "reader": {
+  "model": "claude-haiku-5-5",
+  "reader_id": "R1",
+  "role": "structural"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the viral load suppression rate among those receiving testing increased from 80%"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "approximately 20 million persons with HIV infection in 54 countries received PEPFAR-supported ART"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "viral load coverage more than tripled, from 24% to 80%"
+    },
+    {
+     "loc": "table 1",
+     "q": "Change §§ in VL proxy coverage, baseline–2022, %"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "population viral load suppression rates by sex and age group (15–24, 25–34, 35–49, and ≥50 years) were analyzed for six countries"
+    }
+   ]
+  }
+ ],
+ "procedures": [],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "baseline",
+  "across": [
+   "time period",
+   "age group",
+   "sex",
+   "key population"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "viral load coverage more than tripled, from 24% to 80%"
+   },
+   {
+    "loc": "table 1",
+    "q": "Change §§ in VL proxy coverage, baseline–2022, %"
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "primary_measures": [
+  {
+   "v": "VL proxy coverage rate, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "VL proxy coverage rate, %"
+    }
+   ]
+  },
+  {
+   "v": "VL suppression rate, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "VL suppression rate, %"
+    }
+   ]
+  },
+  {
+   "v": "percent change",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Change §§ in VL proxy coverage, baseline–2022, %"
+    }
+   ]
+  },
+  {
+   "v": "population viral load suppression prevalence",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Population viral load suppression prevalence"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Did PEPFAR-supported ART scale-up and health system strengthening raise viral load testing and suppression, and do these gains reach all subpopulations?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "achievements must be sustained and expanded to reach all subpopulations"
+   }
+  ]
+ },
+ "condition_group": [
+  {
+   "v": "HIV",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Progress Toward Eliminating HIV as a Global Public Health Threat"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "data were analyzed from all PEPFAR programs and from six countries that have conducted nationally representative"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2015–2022, viral load coverage more than tripled, from 24% to 80%"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "six countries that have conducted nationally representative Population-based HIV Impact Assessment (PHIA) surveys"
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "programmatic data were analyzed by age, sex, and subpopulation"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Population-based HIV Impact Assessment (PHIA) surveys",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "nationally representative Population-based HIV Impact Assessment (PHIA) surveys"
+    }
+   ]
+  },
+  {
+   "v": "PEPFAR Monitoring, Evaluation, and Reporting programmatic data",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "PEPFAR Monitoring, Evaluation, and Reporting"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "international",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "approximately 20 million persons with HIV infection in 54 countries were receiving PEPFAR-supported ART"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Subgroups (persons in prisons, transgender persons, males, children) are reported with changes and framed as a health-equity concern, but contrasts are set side by side and no between-group difference is computed, which caps the level at 2. The within-group percent changes do not count as a quantified disparity.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Persons in prisons (coverage down 24%) and transgender persons (down 6%) are quantified and framed as inequity, which a stricter reader could take as a quantified disparity."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "incarceration"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "among persons in prisons, coverage decreased 24%, from 75% to 57%"
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Among transgender persons, viral load coverage decreased 6%, from 71% to 67%"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "rates were lower among children aged <10 years"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "population viral load suppression rates were higher in older than in younger persons, and higher in women than in men"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "structural determinants of health; stigma and discrimination",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Understanding the root causes including structural determinants of health for the observed differences"
+    },
+    {
+     "loc": "text",
+     "q": "Stigma and discrimination remain important barriers to health equity"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Subgroups are compared with overall program rates and the 95% UNAIDS target, with no computed gap; key populations are program categories, and age unknown is a separate group."
+ },
+ "confidence": "medium",
+ "notes": "Subgroup values are reported from Table 1 with within-group percent changes; no between-group contrast, CI or test is given, so procedures is empty. Table 2 sex comparisons within age groups are descriptive, with no adjustment.",
+ "view_issues": "Text says pregnant women's suppression increased in 2017–2022, but Table 1 shows 95% to 92% (change −3). The Table 2 footnote defines suppression among those tested, while the article's § § § note says among all persons identified with HIV."
+}
