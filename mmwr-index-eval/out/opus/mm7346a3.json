@@ -1,0 +1,70 @@
+{
+ "id": "mm7346a3",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "R3", "role": "judgment"},
+ "data_focus": {"v": "yes", "ev": []},
+ "outcome_types": [
+  {"v": "count/rate", "ev": [{"loc": "text", "q": "R t was estimated from the nowcast of COVID-19 ED visits †† using the statistical package EpiNow2"}, {"loc": "text", "q": "ED visit data reported 304 COVID-19–related ED visits during the week of September 6 (7 days), compared with 489 such visits during the previous week."}]},
+  {"v": "binary/categorical", "ev": [{"loc": "table 1", "q": "Percentage of COVID-19–related emergency department visits* and epidemic trend categories"}]}
+ ],
+ "analytic_depth": [
+  {"v": "summary", "ev": [{"loc": "text", "q": "For the week of July 5, 2024, epidemic trend categories were growing for the United States overall and growing or likely growing in 39 states."}]},
+  {"v": "comparison", "ev": [{"loc": "text", "q": "Weekly epidemic trend categories were compared with reported weekly percentages of COVID-19–related ED visits in the United States"}, {"loc": "text", "q": "As of May 10, 99 COVID-19–related ED visits had been reported for the preceding 7 days, substantially fewer than the 130 such visits"}]}
+ ],
+ "procedures": [
+  {"name": "nowcasting correction for reporting delays", "class": "other", "regression_family": null, "inferred_from": "statistical correction of recent daily ED counts using a jurisdiction-specific reporting-delay distribution; a model not otherwise classifiable", "role": "primary", "ev": [{"loc": "text", "q": "To adjust for reporting delays, a statistical nowcasting correction was applied to daily ED visit counts from the previous 30 days."}, {"loc": "note", "q": "The statistical nowcasting correction is based on a jurisdiction-specific distribution, estimated from the average of observed reporting delays in the recent past"}]},
+  {"name": "R t estimation (EpiNow2)", "class": "other", "regression_family": null, "inferred_from": "time-varying reproductive number estimated by the EpiNow2 package from nowcasted counts; not a named regression family", "role": "primary", "ev": [{"loc": "text", "q": "R t was estimated from the nowcast of COVID-19 ED visits †† using the statistical package EpiNow2 (version 1.4.0; EpiForecasts)"}]},
+  {"name": "CI vs fixed value (probability that R t >1)", "class": "test", "regression_family": null, "inferred_from": "trend categories are thresholds on the estimated probability that R t exceeds the fixed value 1, a judgment of the estimate's uncertainty against 1", "role": "primary", "ev": [{"loc": "text", "q": "EpiNow2 estimates R t and the probability that R t >1, R t = 1, or R t <1."}, {"loc": "text", "q": "The epidemic trend category was classified as growing (probability >90%), likely growing (>75% to ≤90%), not changing (>25% to ≤75%)"}]},
+  {"name": "suppression of R t estimates (not estimated)", "class": "transformation", "regression_family": null, "inferred_from": "estimates withheld when counts are small, anomalous or the model fails checks", "role": "ancillary", "ev": [{"loc": "note", "q": "R t was categorized as “not estimated” if fewer than 10 COVID-19–related ED visits were reported in each of the previous 2 weeks"}]}
+ ],
+ "comparison": {
+  "framework": "fixed referent",
+  "scale": null,
+  "referent": "R t = 1",
+  "across": ["week (four time points, April–October 2024)", "jurisdiction (United States, New Mexico, states)", "real-time trend category vs subsequently reported ED visits"],
+  "ev": [
+   {"loc": "text", "q": "If R t >1, the number of new infections is increasing; if R t = 1, the number is not changing"},
+   {"loc": "text", "q": "then retrospectively compared with final emergency department (ED) visit data to determine their ability to detect or confirm real-time changes in subsequent ED visits."}
+  ]
+ },
+ "inference": {"v": "tests", "method_stated": true, "ev": [{"loc": "text", "q": "The epidemic trend category was determined based on the probability that R t >1"}]},
+ "primary_measures": [
+  {"v": "epidemic trend category", "ev": [{"loc": "table 1", "q": "Epidemic trend"}]},
+  {"v": "R t", "ev": [{"loc": "text", "q": "R t (i.e., the average number of new infections caused by each infectious person at a particular time)"}]},
+  {"v": "probability that R t >1", "ev": [{"loc": "text", "q": "The epidemic trend category was determined based on the probability that R t >1"}]},
+  {"v": "COVID-19 ED visits, %", "ev": [{"loc": "table 1", "q": "COVID-19 ED visits, %"}]},
+  {"v": "number of COVID-19–related ED visits", "ev": [{"loc": "figure 2", "q": "Number of COVID-19–related emergency department visits and epidemic trend categories — New Mexico, April–October 2024"}]}
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Did R t-based epidemic trend categories using nowcasted ED visit data detect or confirm real-time changes in COVID-19 transmission before complete reporting, nationally and in New Mexico?",
+  "ev": [{"loc": "text", "q": "CDC analyzed the performance of epidemic trend categories for COVID-19 during summer 2024 in the United States and at the state level in New Mexico."}]
+ },
+ "condition_group": [
+  {"v": "COVID", "ev": [{"loc": "title", "q": "Detection of Real-Time Changes in Direction of COVID-19 Transmission Using National- and State-Level Epidemic Trends Based on R t Estimates"}]}
+ ],
+ "study_design": [
+  {"v": "surveillance/descriptive", "ev": [{"loc": "text", "q": "Epidemic trend categories were published online each Friday based on daily COVID-19 ED visit counts through the preceding Tuesday"}]},
+  {"v": "mixed/other", "ev": [{"loc": "text", "q": "COVID-19 epidemic trend categories were estimated and released in real time based on preliminary data, then retrospectively compared with final emergency department (ED) visit data"}]}
+ ],
+ "data_source_type": [
+  {"v": "CDC surveillance system", "ev": [{"loc": "text", "q": "calculated from nowcasted ED visit data from NSSP"}]}
+ ],
+ "data_source_named": [
+  {"v": "National Syndromic Surveillance Program (NSSP)", "ev": [{"loc": "table 1", "q": "National Syndromic Surveillance Program, United States, May 10, July 5, September 6, and October 18, 2024"}]}
+ ],
+ "setting": {"v": "mixed", "ev": [{"loc": "title", "q": "United States Overall and New Mexico, April–October 2024"}]},
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "No social-position dimension appears; results vary only by jurisdiction and week, which are not SPDs.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [],
+  "determinants_of_health": {"v": null, "ev": []},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": null
+ },
+ "confidence": "medium",
+ "notes": "A methods-performance evaluation: real-time trend categories are compared qualitatively with later ED data at four dates; no accuracy measures are computed. The probability thresholds on R t >1 are read as a Bayesian analogue of a CI judged against 1; a stricter reading would give inference 'none' with trend categories as quantization.",
+ "view_issues": "Table note gives category thresholds as 'growing ( R t >90%)', conflating R t with the probability that R t >1 stated in Methods."
+}
