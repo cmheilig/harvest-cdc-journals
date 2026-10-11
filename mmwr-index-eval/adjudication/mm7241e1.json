@@ -1,0 +1,20 @@
+{"id": "mm7241e1",
+ "fields": [
+  {"field": "outcome_types", "verdict": ["binary/categorical"], "correct": ["A"], "category": "ambiguity",
+   "why": "The claims rest on the proportions of infants with RSV LRTI within 180 days, preterm birth and SAEs (VE and RR from risks in each arm). Count/rate is defensible because VE is an incidence ratio, but B's evidence (the at-risk ratio h in a VE formula) is weak."},
+  {"field": "analytic_depth", "verdict": ["comparison"], "correct": ["A"], "category": "reader error",
+   "why": "B's 'summary' evidence is a VE (51.3%), which is itself a vaccine-vs-placebo contrast. Every reported quantity is by arm or a ratio between arms."},
+  {"field": "procedure_classes", "verdict": ["other"], "correct": ["A"], "category": "reader error",
+   "why": "The article's only stated decision rule is CI overlap ('not statistically significant, as determined by nonoverlapping CIs'), which the brief says is not a test. B's 'CI vs fixed value' (RR CI vs 1) is the reader's inference and is not stated."},
+  {"field": "has_test", "verdict": false, "correct": ["A"], "category": "reader error",
+   "why": "As for procedure_classes: the 'not statistically significant' statements either cite FDA trial results or rest on CI overlap, and the article states no test of its own."},
+  {"field": "inference", "verdict": "CIs", "correct": ["A"], "category": "reader error",
+   "why": "Under the brief, CI overlap gives 'CIs' with the overlap rule noted; A's notes record it."},
+  {"field": "equity_dimensions", "verdict": ["age", "sex"], "correct": ["A"], "category": "omission",
+   "why": "The trial population is pregnant persons; the brief records sex like age, always, as population. Level 0 is unchanged."}
+ ],
+ "justification": {"A": "good", "B": "adequate"},
+ "agreed_errors": [
+  {"field": "analytic_depth", "verdict": ["comparison", "stratified/adjusted"], "why": "Tables 1 and 2 give vaccine-vs-placebo contrasts within the approved 32-36-week dosing subgroup as well as the full trial: a comparison within a level of a third variable (a subgroup analysis). This is arguable, because the subgroup is nested in the full trial rather than a partition."}
+ ],
+ "brief_issues": "State how to code 'not statistically significant' when it is cited from an external source or decided by CI overlap (no test vs unnamed test), and whether a nested subgroup re-analysis (e.g. an approved dosing interval) counts as stratified."}
