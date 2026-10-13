@@ -1,0 +1,90 @@
+{
+ "id": "mm7225a6",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "R3", "role": "judgment"},
+ "data_focus": {"v": "limited", "ev": [
+  {"loc": "text", "q": "During March 18–June 12, 2023, 40 laboratory-confirmed mpox cases were identified in Chicago"}
+ ]},
+ "outcome_types": [
+  {"v": "binary/categorical", "ev": [
+   {"loc": "text", "q": "experienced a higher prevalence of lesions affecting the genital (43% versus 6%) and ocular (29% versus none) mucosa."}
+  ]},
+  {"v": "continuous", "ev": [
+   {"loc": "text", "q": "the median interval from receipt of the second JYNNEOS vaccine dose to mpox diagnosis was 8.4 months (IQR = 7.9–8.8 months)."}
+  ]}
+ ],
+ "analytic_depth": [
+  {"v": "summary", "ev": [
+   {"loc": "text", "q": "Median age was 33 years (IQR = 23–49 years), and non-Hispanic White men accounted for the largest percentage of patients (19; 48%)"}
+  ]},
+  {"v": "comparison", "ev": [
+   {"loc": "text", "q": "Compared with patients who received 2 doses of JYNNEOS or 1 dose of ACAM2000 vaccine, patients who received 1 dose of JYNNEOS or no vaccines"}
+  ]}
+ ],
+ "procedures": [],
+ "comparison": {
+  "framework": "pair", "scale": null,
+  "referent": "patients who received 2 doses of JYNNEOS or 1 dose of ACAM2000",
+  "across": ["mpox vaccination status"],
+  "ev": [
+   {"loc": "table 1", "q": "Characteristics of patients with mpox, by vaccination status (N = 40)"},
+   {"loc": "text", "q": "had a median of three sex partners (range = one to 20) during the 3 weeks before symptom onset, compared with 1.5 (range = 0–6)"}
+  ]},
+ "inference": {"v": "none", "method_stated": false, "ev": []},
+ "primary_measures": [
+  {"v": "number and percentage", "ev": [{"loc": "table 1", "q": "No. (%)"}]},
+  {"v": "median (IQR, range)", "ev": [{"loc": "table 1", "q": "Median no. of sex partners** (range)"}]}
+ ],
+ "regression_fields": null,
+ "public_health_question": {"v": "What were the scope, characteristics and possible causes of an mpox cluster in Chicago in which most patients had been fully vaccinated?", "ev": [
+  {"loc": "text", "q": "CDPH and CDC launched an investigation to 1) determine the cluster’s scope and etiology by evaluating patients’ commonalities, JYNNEOS ¶ vaccine cold-chain management"}
+ ]},
+ "condition_group": [
+  {"v": "mpox", "ev": [{"loc": "title", "q": "Emergence of an Mpox Cluster Primarily Affecting Persons Previously Vaccinated Against Mpox"}]}
+ ],
+ "study_design": [
+  {"v": "outbreak investigation", "ev": [
+   {"loc": "text", "q": "CDPH and CDC launched an investigation to 1) determine the cluster’s scope and etiology"}
+  ]},
+  {"v": "case report/series", "ev": [
+   {"loc": "table 1", "q": "Characteristics of patients with mpox, by vaccination status (N = 40)"}
+  ]}
+ ],
+ "data_source_type": [
+  {"v": "state or local surveillance", "ev": [
+   {"loc": "text", "q": "13 monkeypox (mpox) cases were reported to the Chicago Department of Public Health (CDPH)"}
+  ]},
+  {"v": "record abstraction or interview", "ev": [
+   {"loc": "text", "q": "Preliminary medical record review indicates that vaccinated patients experienced self-limited illness, managed in outpatient settings."},
+   {"loc": "table 1", "q": "Patients were asked if they attended any large public or private events in the 3 weeks preceding symptom onset"}
+  ]}
+ ],
+ "data_source_named": [],
+ "setting": {"v": "US subnational", "ev": [{"loc": "title", "q": "Chicago, Illinois, March 18–June 12, 2023"}]},
+ "vaccine_outcome_type": {"v": "effectiveness", "ev": [
+  {"loc": "text", "q": "the observed proportion of cases among persons who had received 2 doses of JYNNEOS or 1 dose of ACAM2000 in this cluster was unusual."}
+ ]},
+ "equity": {
+  "level": 1,
+  "level_reason": "Race/ethnicity, sexual orientation and gender identity appear only as descriptors of the 40 patients (overall and by vaccination group in the Table); no SPD-specific outcome is reported or discussed.",
+  "level_confidence": "high",
+  "level_alternative": {"level": 2, "reason": "The Table sets race/ethnicity side by side across vaccination groups (Black, non-Hispanic 4.5% vs 33%), which a lenient reading could treat as group-specific results; capped at 2 and not discussed."},
+  "dimensions": [
+   {"v": "race/ethnicity", "role": "descriptor", "ev": [
+    {"loc": "text", "q": "non-Hispanic White men accounted for the largest percentage of patients (19; 48%), followed by Hispanic or Latino (eight; 20%)"},
+    {"loc": "table 1", "q": "Race and ethnicity › Black or African American, non-Hispanic"}
+   ]},
+   {"v": "sexual orientation and gender identity", "role": "descriptor", "ev": [
+    {"loc": "text", "q": "37 (93%) identified as male and 28 (70%) as gay."},
+    {"loc": "table 1", "q": "Sexual orientation › Bisexual"}
+   ]},
+   {"v": "sex", "role": "population", "ev": [{"loc": "text", "q": "All cases occurred among persons who were assigned male sex at birth"}]},
+   {"v": "age", "role": "descriptor", "ev": [{"loc": "table 1", "q": "Median age, yrs (IQR)"}]}
+  ],
+  "determinants_of_health": {"v": null, "ev": []},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": "Small cluster (N = 40); race/ethnicity and sexual orientation are counts only, with unknowns, and no NHPI or AI/AN persons reported."
+ },
+ "confidence": "medium",
+ "notes": "data_focus is limited (a 40-case cluster) but the vaccination-group contrasts are set side by side, so comparison is pair with null scale. vaccine_outcome_type is effectiveness because the report characterizes breakthrough infections and investigates reduced VE (waning, cold chain), though no VE is estimated; 'other' is defensible.",
+ "view_issues": "Text says 11 patients had HIV, 10 of them fully vaccinated, but the Table shows 5 (fully vaccinated) and 6 (1 dose/unvaccinated). Text gives a median of 1.5 sex partners for the comparison group; the Table gives 1 (0–6)."
+}
