@@ -40,7 +40,7 @@ Does the article produce **quantities about public health outcomes, or compariso
 - **limited:** a single case or a small case series with context; or figures only cited from earlier reports, even when tabulated with CIs (e.g. an ACIP evidence summary that computes nothing of its own).
 - **none:** no quantities at all. Examples: an announcement, a cover box that only points to other reports, a schedule or guidance statement with no data. **A notice that cites rates or a change from earlier reports is `limited`, not `none`.**
 
-If `none`, fill only `data_focus`, `public_health_question`, `condition_group`, `setting`, `study_design` (e.g. `guidance or recommendations` for a schedule), `equity` (level 0 unless the article frames equity; still record age and sex that define the population) and the metadata. Leave the method fields empty or null: `outcome_types` [], `analytic_depth` [], `procedures` [], `comparison` with framework "none", `inference` "none", `regression_fields` null, `groupwise` [].
+If `none`, fill only `data_focus`, `public_health_question`, `conditions`, `setting`, `study_design` (e.g. `guidance or recommendations` for a schedule), `equity` (level 0 unless the article frames equity; still record age and sex that define the population) and the metadata. Leave the method fields empty or null: `outcome_types` [], `analytic_depth` [], `procedures` [], `comparison` with framework "none", `inference` "none", `regression_fields` null, `groupwise` [].
 
 ### A. `outcome_types` (list)
 - **continuous:** means, medians, quantiles of a measured quantity.
@@ -152,12 +152,11 @@ The article's own labels, e.g. "percentage", "rate per 100,000", "aOR", "VE", "A
 
 ### Context
 - **public_health_question:** one sentence, with `ev`.
-- **condition_group** (list):
-  - **Values:** COVID · influenza · mpox · RSV · HIV · TB/respiratory · STI · vaccine-preventable (other) · diabetes · cardiovascular · cancer · obesity/nutrition · maternal/reproductive · mental health · substance use · tobacco · injury/poisoning · environmental · health behaviors · other acute · other chronic.
-  - **What goes in:** exposure and outcome conditions only. For a report about a vaccine, include the vaccine's target disease.
-  - **Substances and behaviors:** tobacco use (smoking, smokeless) → `tobacco`. Alcohol, vaping and other drug use → `substance use`. Physical activity, diet and sleep → `health behaviors`.
-  - **What stays out:** a condition that only defines a control group, or appears only as a model risk factor. The pandemic period does not make a report COVID, whether it is background or a period being compared (pre-pandemic vs pandemic). List COVID only when COVID infection or disease is an exposure or outcome.
-  - **Empty** if nothing fits.
+- **conditions** (list of `{"v", "role", "ev"}`): the health conditions the article studies: diseases, infections, injuries, substance use, health states (e.g. pregnancy) and health behaviors measured as outcomes (e.g. breastfeeding). **Do not classify them into categories**; a separate pass groups them (`CONDITION_RUBRIC.md`).
+  - **v:** the condition named as the article names it, at the level of its title and Summary (e.g. "congenital syphilis", "COVID-19", "systemic lupus erythematosus"). You may infer it from the text (a positive SARS-CoV-2 test → "COVID-19"). Use the common name, not a code.
+  - **role:** exposure · outcome · population (it defines who was studied, e.g. "persons with HIV") · vaccine target (the disease a studied vaccine prevents). One entry per condition and role.
+  - **What stays out:** a condition that only defines a control group, or appears only as a model covariate or risk factor. The pandemic period does not make a report about COVID-19, whether it is background or a period being compared.
+  - Best effort: this field characterizes a report but never sends it to a second reader. Empty if nothing fits.
 - **study_design** (list): cross-sectional · retrospective cohort · prospective cohort · case-control · test-negative · screening method · before/after or trend · ecologic · outbreak investigation · surveillance/descriptive · diagnostic accuracy · guidance or recommendations · case report/series · cost/economic · non-randomized trial · evaluation or monitoring · mixed/other.
   - **Prefer the design the report names** ("evaluation", "case-control", "field trial", "cross-sectional survey"), mapped to the nearest value. Infer a design only when none is named, and say so in `notes`.
   - **evaluation or monitoring:** program, policy or intervention evaluation; evaluation of a surveillance system, indicator or nowcast; monitoring progress against targets. Routine surveillance reports stay `surveillance/descriptive`.
@@ -250,7 +249,7 @@ An international setting is a characteristic, not an equity reading.
 ### Metadata
 - **`reader`:** `{"model": "<your model id>", "reader_id": "<given>", "role": "structural" | "judgment"}`.
 - **`confidence`:** for the record as a whole.
-- **`uncertain_fields`** (list, may be empty): the fields where a rule boundary or the article leaves your value genuinely uncertain. Values: procedures · regression_fields · inference · comparison · analytic_depth · outcome_types · study_design · groupwise · equity.level · equity.dimensions. Best-effort fields (data sources, setting, condition, vaccine outcome) are not listed. An entry here, an equity `level_confidence` below high, or an `alternative_reading` on a procedure can send the article to a second reader.
+- **`uncertain_fields`** (list, may be empty): the fields where a rule boundary or the article leaves your value genuinely uncertain. Values: procedures · regression_fields · inference · comparison · analytic_depth · outcome_types · study_design · groupwise · equity.level · equity.dimensions. Best-effort fields (conditions, data sources, setting, vaccine outcome) are not listed. An entry here, an equity `level_confidence` below high, or an `alternative_reading` on a procedure can send the article to a second reader.
 - **`notes`** (at most 800 characters), **`view_issues`** (at most 400), **`level_reason`** (at most 400): short, or null.
 
 ## 5. Output (full record)

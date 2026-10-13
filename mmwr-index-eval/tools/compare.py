@@ -30,7 +30,8 @@ def norm(r):
         'comparison_scale': r['comparison']['scale'],
         'inference': r['inference']['v'],
         'study_design': frozenset(x['v'] for x in r['study_design']),
-        'condition_group': frozenset(x['v'] for x in r['condition_group']),
+        # v3 condition_group is compared; v4 free-text conditions are best effort and grouped later, so not compared
+        'condition_group': frozenset(x['v'] for x in r['condition_group']) if 'condition_group' in r else None,
         'data_source_type': frozenset(x['v'] for x in r['data_source_type']),
         'setting': (r['setting'] or {}).get('v'),
         'vaccine_outcome_type': (r['vaccine_outcome_type'] or {}).get('v') if r['vaccine_outcome_type'] else None,

@@ -37,6 +37,7 @@ CONDITION = ["COVID", "influenza", "mpox", "RSV", "HIV", "TB/respiratory", "STI"
 DIMENSION = ["race/ethnicity", "SES", "rurality", "age", "sex", "sexual orientation and gender identity", "disability",
              "country of birth/language/nativity", "other"]
 ROLE = ["population", "covariate", "descriptor", "stratifier", "primary comparison", "cross-classifier"]
+CONDITION_ROLE = ["exposure", "outcome", "population", "vaccine target"]  # brief v4; grouping is CONDITION_RUBRIC.md
 ASSESSMENT = ["side by side", "omnibus test", "trend test", "model joint test", "interaction", "per-group vs referent only"]
 UNCERTAIN = ["procedures", "regression_fields", "inference", "comparison", "analytic_depth", "outcome_types", "study_design",
              "groupwise", "equity.level", "equity.dimensions"]
@@ -46,7 +47,7 @@ SCHEMA = {
     "title": "MMWR index record (schema v2.2, brief v4), one reader, one article",
     "type": "object", "additionalProperties": False,
     "required": ["id", "reader", "data_focus", "outcome_types", "analytic_depth", "procedures", "comparison", "inference",
-                 "primary_measures", "regression_fields", "public_health_question", "condition_group", "study_design",
+                 "primary_measures", "regression_fields", "public_health_question", "conditions", "study_design",
                  "data_source_type", "data_source_named", "setting", "vaccine_outcome_type", "equity", "confidence", "notes",
                  "groupwise", "uncertain_fields"],
     "properties": {
@@ -87,7 +88,8 @@ SCHEMA = {
                 "confounders": val(nullable=True), "interaction_modeled": val(kind="boolean", nullable=True),
                 "sensitivity_analysis": val(kind="boolean", nullable=True)}}]},
         "public_health_question": val(),
-        "condition_group": lst(CONDITION),
+        "conditions": {"type": "array", "items": {"type": "object", "additionalProperties": False, "required": ["v", "role", "ev"],
+            "properties": {"v": {"type": "string", "minLength": 2}, "role": {"enum": CONDITION_ROLE}, "ev": EV}}},
         "study_design": lst(DESIGN),
         "data_source_type": lst(SOURCE),
         "data_source_named": lst(),

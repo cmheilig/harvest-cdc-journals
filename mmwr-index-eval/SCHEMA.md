@@ -189,6 +189,7 @@ International setting is a characteristic of interest, not an automatic equity r
 - new required list `groupwise` (comparisons across 3 or more social-position groups: `across`, `n_groups`, `ordered`, `assessment`, `resolves_to_finer`, `ev`);
 - new required list `uncertain_fields` (method and equity fields only), used to route an article to a second reader;
 - `inference.ci_overlap` (optional flag); tests by CI inversion recorded as "CI vs fixed value (inversion)";
-- `study_design` adds `non-randomized trial` and `evaluation or monitoring`; `condition_group` adds `tobacco`;
+- `study_design` adds `non-randomized trial` and `evaluation or monitoring`;
+- `condition_group` is replaced by free-text `conditions` (`v`, `role`: exposure · outcome · population · vaccine target, `ev`), grouped later with `CONDITION_RUBRIC.md`;
 - evidence `loc` is restricted to title · summary · text · table N · figure N · note · ocr;
 - review mode (arm B) is retired.
