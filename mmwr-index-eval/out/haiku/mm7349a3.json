@@ -1,0 +1,100 @@
+{
+ "id": "mm7349a3",
+ "reader": {"model": "claude-haiku-5-5", "reader_id": "R1", "role": "structural"},
+ "data_focus": {"v": "yes", "ev": [
+   {"loc": "text", "q": "49.6% of MenB-4C recipients and 35.5% of MenB-FHbp recipients completed their series by age 17 years"}
+ ]},
+ "outcome_types": [
+   {"v": "binary/categorical", "ev": [
+     {"loc": "text", "q": "The proportion of persons achieving seroresponse to four antigen indicator strains ranged from 54%–97%"}
+   ]}
+ ],
+ "analytic_depth": [
+   {"v": "summary", "ev": [
+     {"loc": "text", "q": "Immunogenicity data were based on 1,803 persons aged 10–25 years who received at least 1 dose of MenB-4C"}
+   ]},
+   {"v": "comparison", "ev": [
+     {"loc": "text", "q": "49.6% of MenB-4C recipients and 35.5% of MenB-FHbp recipients completed their series by age 17 years"}
+   ]},
+   {"v": "stratified/adjusted", "ev": [
+     {"loc": "text", "q": "Among those initiating MenB vaccination who were eligible for the VFC program, 51.4% and 16.2% completed their MenB-4C and MenB-FHbp series"}
+   ]}
+ ],
+ "procedures": [],
+ "comparison": {
+   "framework": "pair",
+   "scale": null,
+   "referent": null,
+   "across": ["vaccine product", "dosing schedule", "antigen indicator strain", "VFC program eligibility"],
+   "ev": [
+     {"loc": "text", "q": "49.6% of MenB-4C recipients and 35.5% of MenB-FHbp recipients completed their series by age 17 years"}
+   ]
+ },
+ "inference": {"v": "CIs", "method_stated": false, "ev": [
+   {"loc": "table 1", "q": "0- and 6-mo schedule › Dose 2 › % (95% CI)"}
+ ]},
+ "primary_measures": [
+   {"v": "percentage seroresponse", "ev": [
+     {"loc": "table 1", "q": "Number and percentage of persons aged 10–25 years achieving seroresponse to antigen indicator strains"}
+   ]},
+   {"v": "series completion (%)", "ev": [
+     {"loc": "text", "q": "completed their series by age 17 years"}
+   ]}
+ ],
+ "regression_fields": null,
+ "public_health_question": {"v": "What MenB-4C dosing interval and schedule should ACIP recommend after the FDA label change, for adolescents, young adults and persons at increased risk?", "ev": [
+   {"loc": "text", "q": "This report summarizes evidence considered for the MenB-4C dosing interval and schedule changes"}
+ ]},
+ "condition_group": [
+   {"v": "vaccine-preventable (other)", "ev": [
+     {"loc": "summary", "q": "Meningococcal disease is a life-threatening invasive infection caused by Neisseria meningitidis"}
+   ]}
+ ],
+ "study_design": [
+   {"v": "guidance or recommendations", "ev": [
+     {"loc": "text", "q": "On October 24, 2024, the Advisory Committee on Immunization Practices (ACIP) updated its recommendations for MenB-4C"}
+   ]}
+ ],
+ "data_source_type": [
+   {"v": "administrative/claims", "ev": [
+     {"loc": "text", "q": "Among commercially insured adolescents in the Merative MarketScan Commercial Claims and Encounters database"}
+   ]},
+   {"v": "other", "ev": [
+     {"loc": "text", "q": "Data from five clinical trials (four published and one unpublished) are included in the updated package insert"}
+   ]}
+ ],
+ "data_source_named": [
+   {"v": "Merative MarketScan Commercial Claims and Encounters database", "ev": [
+     {"loc": "text", "q": "Among commercially insured adolescents in the Merative MarketScan Commercial Claims and Encounters database"}
+   ]}
+ ],
+ "setting": {"v": "US national", "ev": [
+   {"loc": "title", "q": "United States, October 2024"}
+ ]},
+ "vaccine_outcome_type": {"v": "other", "ev": [
+   {"loc": "text", "q": "The percentage of participants achieving seroresponse was compared across four antigen indicator strains"}
+ ]},
+ "equity": {
+   "level": 2,
+   "level_reason": "VFC eligibility (uninsured, underinsured, Medicaid-eligible) is shown with completion values set side by side and framed only as possibly disproportionate. No contrast is computed, so the level is capped at 2.",
+   "level_confidence": "medium",
+   "level_alternative": {"level": 3, "reason": "The text says an extended interval 'might disproportionately affect some populations', which a reader could take as a framed disparity, though the gap is not quantified."},
+   "dimensions": [
+     {"v": "SES", "role": "stratifier", "ses_components": ["uninsured", "underinsured", "Medicaid-eligible"], "ev": [
+       {"loc": "text", "q": "Among those initiating MenB vaccination who were eligible for the VFC program, 51.4% and 16.2% completed their MenB-4C and MenB-FHbp series"}
+     ]},
+     {"v": "SES", "role": "population", "ses_components": ["commercially insured"], "ev": [
+       {"loc": "text", "q": "Among commercially insured adolescents in the Merative MarketScan Commercial Claims and Encounters database"}
+     ]},
+     {"v": "age", "role": "population", "ev": [
+       {"loc": "text", "q": "for healthy adolescents and young adults aged 16–23 years"}
+     ]}
+   ],
+   "determinants_of_health": {"v": null, "ev": []},
+   "equity_action": {"v": false, "ev": []},
+   "equity_measurement": "VFC groups are from program data by age 17 years; MarketScan completion is by age 19 years and cannot include VFC-eligible adolescents, so the strata are not directly comparable."
+ },
+ "confidence": "high",
+ "notes": "Immunogenicity comes from multinational trials (about 30% US recipients), and completion figures come from US claims and VFC data. The hSBA assay and fourfold-rise seroresponse cutoff are measurement steps, not procedures, and no test or model is reported. For MenB-FHbp, VFC-eligible completion is lower (16.2% vs 35.5%), but for MenB-4C it is similar (51.4% vs 49.6%); the text does not comment on this.",
+ "view_issues": "The source of the 2022 VFC-stratified completion figures is not named."
+}

@@ -1,0 +1,314 @@
+{
+ "id": "mm7207a5",
+ "reader": {
+  "model": "claude-haiku-5-5",
+  "reader_id": "R1",
+  "role": "structural"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "27.1% of adults who had completed a COVID-19 primary series had received a bivalent booster"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "only 27.1% of adults and 18.5% of adolescents who had completed a COVID-19 primary series received a bivalent booster"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Bivalent booster dose coverage was lower among Black (21.2%), Hispanic (15.0%), and Asian (25.1%) adults compared with White adults (32.1%)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "T-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "Methods and table notes: T-tests for differences between groups, marked ¶ against the reference level in each variable",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "T-tests were used to determine differences between groups with p<0.05 considered statistically significant."
+    },
+    {
+     "loc": "table 1",
+     "q": "p<0.05 by T-test for comparisons of vaccination coverage within each variable with the indicated reference level"
+    }
+   ]
+  },
+  {
+   "name": "survey weights calibrated by age and sex",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "percentages weighted to the noninstitutionalized population; weights calibrated to state-level administration data (not a model)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All percentages were weighted to represent the noninstitutionalized U.S. adolescent or adult population."
+    },
+    {
+     "loc": "note",
+     "q": "Survey weights were also calibrated by age and sex to state-level vaccine administration data reported to CDC by jurisdictions"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "absolute",
+  "referent": "White, non-Hispanic (marked as reference level in the tables)",
+  "across": [
+   "race/ethnicity",
+   "urbanicity",
+   "social vulnerability index (SVI)",
+   "household income",
+   "health insurance"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "bivalent booster coverage was lower among Black (10.2%), Hispanic (14.6%)"
+   },
+   {
+    "loc": "table 1",
+    "q": "§ Reference level."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "T-tests were used to determine differences between groups with p<0.05 considered statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted percentage",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "† Weighted percentage"
+    }
+   ]
+  },
+  {
+   "v": "bivalent booster coverage",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "only 27.1% of adults and 18.5% of adolescents who had completed a COVID-19 primary series received a bivalent booster"
+    }
+   ]
+  },
+  {
+   "v": "% open to booster vaccination",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "39.4% had not yet received the bivalent booster but reported being open to booster vaccination"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Among adolescents and adults who completed a primary COVID-19 vaccination series, what are bivalent booster coverage and booster intent, and how do they vary by race and ethnicity, rurality and social factors?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Bivalent booster dose receipt and intention to receive (or have child receive) a booster dose were assessed"
+   }
+  ]
+ },
+ "condition_group": [
+  {
+   "v": "COVID",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "COVID-19 Bivalent Booster Vaccination Coverage and Intent to Receive Booster Vaccination"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NIS-CCM and NIS-ACM data were collected by telephone interview"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NIS-CCM and NIS-ACM data were collected by telephone interview"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Immunization Survey–Child COVID Module (NIS-CCM)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "from the National Immunization Survey–Child COVID Module (NIS-CCM)"
+    }
+   ]
+  },
+  {
+   "v": "National Immunization Survey–Adult COVID Module (NIS-ACM)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "from the National Immunization Survey–Adult COVID Module (NIS-ACM)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "All percentages were weighted to represent the noninstitutionalized U.S. adolescent or adult population."
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "27.1% of adults who had completed a COVID-19 primary series had received a bivalent booster"
+   }
+  ]
+ },
+ "equity": {
+  "level": 2,
+  "level_reason": "Race/ethnicity, rurality, income, insurance and SVI differences in booster coverage are stated as percentages and labelled lower, with T-test marks only; no difference or ratio is computed, so the level is capped at 2 despite the Discussion's inequity wording.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Coverage values are quoted side by side with explicit 'lower than' contrasts and interpreted in the Discussion; a reader could count this as a quantified contrast."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Bivalent booster dose coverage was lower among Black (21.2%), Hispanic (15.0%), and Asian (25.1%) adults compared with White adults (32.1%)."
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Those in rural areas had much lower primary series completion rate and up-to-date vaccination coverage"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "income",
+     "health insurance status",
+     "social vulnerability index (SVI)"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Bivalent booster dose coverage among adults who lived below the poverty level, were uninsured"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Age group, yrs › 18–49 §"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Sex › Female"
+     }
+    ]
+   },
+   {
+    "v": "country of birth/language/nativity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "U.S.-born status › Non–U.S.-born"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "unmeasured structural or access barriers to vaccination",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "suggests the presence of unmeasured structural or access barriers to vaccination"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Unadjusted bivariate comparisons against reference levels marked in the tables (e.g. White, non-Hispanic; below poverty level; not insured; low SVI); SVI is assigned from respondent ZIP code; 'other and multiple races' groups are collapsed; several cells are flagged as unreliable (**)."
+ },
+ "confidence": "high",
+ "notes": "Booster receipt was not asked directly; any booster after September 1, 2022 was coded as bivalent, which is a measurement rule and not a procedure. Calibration of weights by age and sex is weighting; the group comparisons are unadjusted T-tests marked in the tables, and no adjusted model is reported.",
+ "view_issues": "The Summary and Results say interviews were conducted in November–December 2022, but the Methods and table captions give October 30–December 31, 2022."
+}

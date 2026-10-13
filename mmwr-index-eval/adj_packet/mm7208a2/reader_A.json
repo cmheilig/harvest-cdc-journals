@@ -1,0 +1,363 @@
+{
+ "id": "mm7208a2",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "the predeparture testing requirement was associated with 52% lower postarrival SARS-CoV-2 positivity"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The percentage of positive pools increased 56% from 17.9% (291 of 1,622)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "691 (22.7%) of 3,049 sample pools tested positive for SARS-CoV-2 by RT-PCR"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The percentage of positive pools increased 56% from 17.9% (291 of 1,622)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "after adjusting for COVID-19 incidence in the flight’s country of origin, pool size, and collection airport"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multivariable mixed effects logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'multivariable mixed effects logistic regression model' with airport as a random effect; logistic family",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a multivariable mixed effects logistic regression model that included collection airport as a random effect"
+    }
+   ]
+  },
+  {
+   "name": "univariable logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'univariable logistic regression' used to screen factors and to give the unadjusted ORs in the table",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "bivariate comparisons and univariable logistic regression were performed"
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'bivariate comparisons' with p-values for the period difference; the test is not named",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "bivariate comparisons and univariable logistic regression were performed"
+    }
+   ]
+  },
+  {
+   "name": "7-day moving average (smoothing)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "'7-day average' and '7-day rolling average' of incidence and of positivity percentages",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "matched with daily 7-day average country-level COVID-19 incidence"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "June 12–September 3 (predeparture testing not required)",
+  "across": [
+   "time window (predeparture testing required vs not required)"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "and June 12–September 3, when predeparture testing was not required."
+   },
+   {
+    "loc": "table 1",
+    "q": "Time window (Jun 12–Sep 3) › Mar 20–Jun 11"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "adjusted odds ratio [aOR] = 0.48, 95% CI = 0.39–0.58"
+   },
+   {
+    "loc": "text",
+    "q": "a multivariable mixed effects logistic regression model"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "adjusted odds ratio (aOR)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusted odds ratio [aOR] = 0.48, 95% CI = 0.39–0.58"
+    }
+   ]
+  },
+  {
+   "v": "unadjusted odds ratio (OR)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Unadjusted › OR (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The percentage of positive pools increased 56% from 17.9% (291 of 1,622)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "mixed effects",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a multivariable mixed effects logistic regression model that included collection airport as a random effect"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "bivariate comparisons and univariable logistic regression were performed"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "after adjusting for COVID-19 incidence in the flight’s country of origin, pool size, and collection airport"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "COVID-19 incidence in the flight's country of origin (normalized); pool size; collection airport (random effect)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "after adjusting for COVID-19 incidence in the flight’s country of origin, pool size, and collection airport"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Sensitivity analyses were conducted by repeating the regression models using 4- and 8-week periods around June 12"
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "Was the predeparture testing requirement associated with lower postarrival SARS-CoV-2 positivity among international travelers?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "were used to compare SARS-CoV-2 test results among volunteer travelers arriving at four U.S. airports during two 12-week periods"
+   }
+  ]
+ },
+ "condition_group": [
+  {
+   "v": "COVID",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Postarrival SARS-CoV-2–Positive Test Results"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "during two 12-week periods: March 20–June 11, 2022, when predeparture testing was required, and June 12–September 3, 2022"
+    }
+   ]
+  },
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The Traveler-based Genomic Surveillance Program conducts surveillance of travelers at international airports"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Postarrival SARS-CoV-2 pooled testing data from CDC’s Traveler-based Genomic Surveillance program"
+    }
+   ]
+  },
+  {
+   "v": "international surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "from the World Health Organization"
+    }
+   ]
+  },
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "participants completed a standardized survey that included questions regarding demographic characteristics, flight country of origin, and whether predeparture testing had occurred"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Traveler-based Genomic Surveillance Program",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Postarrival SARS-CoV-2 pooled testing data from CDC’s Traveler-based Genomic Surveillance program"
+    }
+   ]
+  },
+  {
+   "v": "World Health Organization COVID-19 incidence data",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "daily 7-day average country-level COVID-19 incidence (cases per 100,000 population) from the World Health Organization"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Four U.S. Airports, March–September 2022"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Age and sex are described only as similar across periods, and U.S. residency is a traveler descriptor not framed as a social position. No disparity is reported.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "U.S. residency differs between periods and could be read as a nativity or migration-status descriptor, which would make the level 1."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Participants during each period were similar in age and gender"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Participants during each period were similar in age and gender"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Demographics are reported only as similar across periods (supplement); U.S. residency is the one difference noted and is not analysed further."
+ },
+ "confidence": "high",
+ "notes": "The design is a before/after comparison of pooled surveillance results with adjusted mixed-effects logistic regression, using the voluntary period as the referent. Incidence normalization (division by the period maximum, times 100) is arithmetic, so it is not a procedure. Pooling and volunteer participation are acknowledged as limitations.",
+ "view_issues": "Text gives the 4-week sensitivity aOR 0.65 (95% CI 0.44–0.96) with 'p<0.001', but that CI implies p of about 0.03. Pool size ≥15 shifts from unadjusted OR 1.4 to adjusted OR 2.6 without comment."
+}

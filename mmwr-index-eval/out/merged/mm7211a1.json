@@ -1,0 +1,257 @@
+{
+ "id": "mm7211a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "R3",
+  "role": "judgment",
+  "based_on": "claude-haiku-5-5"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "State babesiosis rates were modeled with Poisson regression."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Incidences ranged from 0.32 per 100,000 population in Vermont in 2011 to 18.0 in Rhode Island in 2015"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Vermont reported two cases in 2011 (incidence = 0.3 per 100,000 population) and 34 cases in 2019 (5.4), representing a 1,602% increase in incidence."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Poisson regression (state-level trend models)",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'modeled with Poisson regression' and p-values 'calculated using Poisson regression' for count rates: loglinear family",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "State babesiosis rates were modeled with Poisson regression."
+    },
+    {
+     "loc": "note",
+     "q": "P-values calculated using Poisson regression for each state, controlling for year and state."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "2011",
+  "across": [
+   "year",
+   "state"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Vermont, Maine, and New Hampshire experienced the largest percent change in incidence between 2011 and 2019."
+   },
+   {
+    "loc": "text",
+    "q": "Yearly incidence and overall percent rate change from 2011 to 2019 were calculated for each state."
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "note",
+    "q": "P-values calculated using Poisson regression for each state, controlling for year and state."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "incidence (per 100,000 population)",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "§ Cases per 100,000 population."
+    }
+   ]
+  },
+  {
+   "v": "percent change in incidence",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "representing a 1,602% increase in incidence"
+    }
+   ]
+  },
+  {
+   "v": "p-value",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "p-value ¶"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "none",
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "State-level models were also fit, controlling for event year (symptom onset or laboratory diagnosis date) as a continuous variable."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "An overall model was fit, controlling for state, with year of diagnosis as a continuous variable."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "state (overall model only; its results are not reported)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "An overall model was fit, controlling for state, with year of diagnosis as a continuous variable."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Did reported babesiosis incidence change during 2011–2019 in the states with adequate data, and does this indicate endemic transmission in new states?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The current study identifies trends in babesiosis in the United States during 2011–2019 and highlights establishment of endemic transmission in new geographic areas."
+   }
+  ]
+ },
+ "condition_group": [
+  {
+   "v": "other acute",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Babesiosis is a tickborne disease caused by intraerythrocytic Babesia parasites."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Yearly incidence and overall percent rate change from 2011 to 2019 were calculated for each state."
+    }
+   ]
+  },
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This analysis used data from the previously described national babesiosis surveillance system"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This analysis used data from the previously described national babesiosis surveillance system"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "national babesiosis surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This analysis used data from the previously described national babesiosis surveillance system"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "a total of 16,456 cases of babesiosis were reported to CDC by 37 states"
+   },
+   {
+    "loc": "text",
+    "q": "Babesiosis trends were assessed in 10 states"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "No social-position dimension appears; results are by state and year only, and geography by itself is not an SPD.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "confidence": "medium",
+ "notes": "Trend claims rest on state-level Poisson models; results of the overall model are not reported. Percent changes and average incidences are arithmetic, and the log population offset is part of the Poisson model, not a separate procedure. [review] The Table note says state p-values come from Poisson models 'controlling for year and state', which conflicts with the methods text (state-level models with year only).",
+ "view_issues": "Massachusetts 2019 incidence is 9.1 in the Results text but 9.2 in Table 1 (636 cases) and in the Discussion."
+}

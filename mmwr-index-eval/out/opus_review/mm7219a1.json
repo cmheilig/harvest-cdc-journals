@@ -1,0 +1,76 @@
+{
+ "id": "mm7219a1",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "R3", "role": "judgment"},
+ "changes": [
+  {
+   "field": "analytic_depth",
+   "value": [
+    {"v": "summary", "ev": [{"loc": "table 1", "q": "Mean weekly ED visit counts, surveillance period"}]},
+    {"v": "comparison", "ev": [{"loc": "text", "q": "By fall 2022, mean weekly adolescent ED visits were decreasing for MHCs overall (−11%), suicide-related behaviors (−12%), and drug overdoses (−10%) compared with fall 2021"}]}
+   ],
+   "why": "Period-to-period changes reported separately by sex are a series over time by group, which the brief counts as comparison, not stratification; there is no adjustment, standardization or model."
+  },
+  {
+   "field": "procedures",
+   "value": [
+    {
+     "name": "CI vs fixed value",
+     "class": "test",
+     "regression_family": null,
+     "inferred_from": "VR 95% CIs read against 1 ('lower' VR 0.94 vs 'similar' VR 0.97 among males); CI method not named",
+     "role": "ancillary",
+     "ev": [
+      {"loc": "text", "q": "Visit ratios (VRs)** with 95% CIs were calculated to describe the proportion of ED visits of interest among all adolescent ED visits"},
+      {"loc": "text", "q": "among males, the proportion of suicide-related behaviors was lower (VR = 0.94) and for drug overdose (VR = 0.97) was similar"}
+     ]
+    }
+   ],
+   "why": "The headline claims (decreased/stable/increased) rest on percent-change thresholds, which are arithmetic plus quantization; VR CIs support only the secondary proportion statements."
+  },
+  {
+   "field": "comparison",
+   "value": {
+    "framework": "pair",
+    "scale": "both",
+    "referent": "corresponding school-semester period in 2021 (recent change) and 2019 (prepandemic baseline)",
+    "across": ["calendar period (2022 vs 2021; 2022 vs 2019)", "sex"],
+    "ev": [
+     {"loc": "text", "q": "were compared with corresponding periods in 2021 and 2019 to monitor recent changes in ED visits and differences from the prepandemic baseline, respectively"},
+     {"loc": "table 1", "q": "Absolute change in mean weekly ED visit counts ¶¶ (%)"}
+    ]
+   },
+   "why": "The referent is two comparison periods, not fall 2021 alone; framework and scale are unchanged."
+  },
+  {
+   "field": "condition_group",
+   "value": [
+    {"v": "mental health", "ev": [{"loc": "text", "q": "CDC examined changes in U.S. emergency department (ED) visits for mental health conditions (MHCs) overall"}]},
+    {"v": "substance use", "ev": [{"loc": "text", "q": "drug-involved overdoses (including opioids) among children and adolescents aged 12–17 years (adolescents)"}]},
+    {"v": "injury/poisoning", "ev": [{"loc": "table 1", "q": "The drug overdose classification identifies acute drug poisonings from any type of drug"}, {"loc": "table 1", "q": "identifies ED visits related to suicidal ideation, self-harm, and suspected suicide attempts"}]}
+   ],
+   "why": "Drug overdoses are defined as acute poisonings and suicide-related behaviors include self-harm, both outcomes in their own right."
+  }
+ ],
+ "equity": {
+  "level": 0,
+  "level_reason": "Age defines the population and sex is a stratifier; sex differences (\"particularly among adolescent females\") are described without social-position or disparity framing, so age/sex alone gives level 0.",
+  "level_confidence": "high",
+  "level_alternative": {"level": 2, "reason": "Sex-specific results are reported and the text emphasizes the burden among females, which a looser reading of social-position framing could treat as group-specific results by an SPD."},
+  "dimensions": [
+   {"v": "age", "role": "population", "ev": [{"loc": "text", "q": "among children and adolescents aged 12–17 years (adolescents)"}]},
+   {"v": "sex", "role": "stratifier", "ev": [{"loc": "text", "q": "Differences by sex were observed; levels among females were at or higher than prepandemic baselines for these conditions."}]}
+  ],
+  "determinants_of_health": {
+   "v": "return to prepandemic-like school and community environments; social engagement and isolation; adverse childhood experiences; accessible behavioral health care (988 crisis line, telehealth)",
+   "ev": [
+    {"loc": "text", "q": "Many adolescents have returned to prepandemic-like school and community environments, which might have improved social engagement, reduced isolation"},
+    {"loc": "text", "q": "Familial or other stressors might also have declined, resulting in fewer adverse childhood experiences"},
+    {"loc": "text", "q": "federal investments, such as the 988 suicide crisis line***** and improvements to accessible behavioral health care (e.g., telehealth)"}
+   ]
+  },
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": null
+ },
+ "confidence": "high",
+ "notes": "Determinants are offered as possible explanations of the overall trend, not of a disparity. Percent-change thresholds (±10%) classify changes and are not tests."
+}

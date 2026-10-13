@@ -1,0 +1,45 @@
+{"id": "mm7251a4",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "R3", "role": "judgment"},
+ "changes": [
+  {"field": "comparison", "value": {"framework": "group", "scale": null, "referent": "non-Hispanic White adults", "across": ["race/ethnicity", "age group", "insurance status", "urbanicity", "jurisdiction", "week of data collection"], "ev": [
+    {"loc": "text", "q": "Influenza vaccination coverage was higher among non-Hispanic White (White) and non-Hispanic Asian (Asian) adults than among most other racial and ethnic groups."},
+    {"loc": "text", "q": "a higher percentage of White adults reported that they probably or definitely will not receive a COVID-19 vaccine (43.2%) than did Black (31.3%)"}
+   ]},
+   "why": "Group values are set side by side and judged by t-tests, but no difference or ratio is reported, so scale is null; this also matches the level-2 cap in equity."}
+ ],
+ "equity": {
+  "level": 2,
+  "level_reason": "Coverage and intent are reported by race/ethnicity, insurance and urbanicity, and the discussion speaks of racial and ethnic disparities, but contrasts are only side-by-side values or significance-based wording with no computed difference, ratio or shortfall.",
+  "level_confidence": "medium",
+  "level_alternative": {"level": 3, "reason": "The disparity is explicitly framed and interpreted (potential coverage for Hispanic, Black and Asian adults similar to White), and a reader could treat tested group differences as quantified."},
+  "dimensions": [
+   {"v": "race/ethnicity", "role": "primary comparison", "ev": [
+     {"loc": "text", "q": "Despite disparities in vaccination coverage by race and ethnicity"},
+     {"loc": "text", "q": "Updated COVID-19 and RSV vaccination coverage was higher among White adults than among most other racial and ethnic groups."}
+   ]},
+   {"v": "race/ethnicity", "role": "covariate", "ev": [
+     {"loc": "note", "q": "using population control totals for age group, sex, metropolitan statistical area status, education, Hispanic origin, and race"}
+   ]},
+   {"v": "SES", "role": "stratifier", "ses_components": ["uninsured"], "ev": [
+     {"loc": "text", "q": "Coverage with all vaccines was lowest among uninsured persons."}
+   ]},
+   {"v": "SES", "role": "descriptor", "ses_components": ["education", "incarcerated"], "ev": [
+     {"loc": "note", "q": "using population control totals for age group, sex, metropolitan statistical area status, education, Hispanic origin, and race"},
+     {"loc": "text", "q": "adults who were incarcerated or who live in long-term care facilities"}
+   ]},
+   {"v": "rurality", "role": "stratifier", "ev": [
+     {"loc": "text", "q": "higher among adults living in urban and suburban areas compared with those living in rural areas"}
+   ]},
+   {"v": "age", "role": "stratifier", "ev": [
+     {"loc": "text", "q": "Coverage and intent to be vaccinated increased with age"}
+   ]},
+   {"v": "sex", "role": "covariate", "ev": [
+     {"loc": "note", "q": "using population control totals for age group, sex, metropolitan statistical area status, education, Hispanic origin, and race"}
+   ]}
+  ],
+  "determinants_of_health": {"v": null, "ev": []},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": "Race contrasts use White adults as the implicit referent, with group differences judged by t-tests but not reported as differences; insurance and urbanicity appear only in Figure 2 and one sentence each. Incarcerated and institutionalized adults are outside the sample frame."
+ },
+ "confidence": "high",
+ "notes": "Programmatic measures (free vaccines, trusted messengers, Bridge Access Program) appear only as recommendations, so determinants_of_health stays null."}

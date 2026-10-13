@@ -1,0 +1,40 @@
+{"id": "mm7225a6",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "R3", "role": "judgment"},
+ "changes": [
+  {"field": "outcome_types", "value": [
+    {"v": "binary/categorical", "ev": [
+      {"loc": "text", "q": "patients who received 1 dose of JYNNEOS or no vaccines experienced a higher prevalence of lesions affecting the genital (43% versus 6%)"}
+    ]},
+    {"v": "continuous", "ev": [
+      {"loc": "text", "q": "patients who received 2 doses of JYNNEOS or 1 dose of ACAM2000 had a median of three sex partners (range = one to 20)"},
+      {"loc": "text", "q": "the median interval from receipt of the second JYNNEOS vaccine dose to mpox diagnosis was 8.4 months (IQR = 7.9–8.8 months)"}
+    ]}
+  ],
+   "why": "The risk-factor claim compares median numbers of sex partners by vaccination status, and the waning hypothesis rests on the median interval since vaccination; both are continuous."}
+ ],
+ "equity": {
+  "level": 1,
+  "level_reason": "Race/ethnicity and sexual orientation appear only as case characteristics in the text and Table; the Table's race split by vaccination status is not discussed or framed as a disparity.",
+  "level_confidence": "medium",
+  "level_alternative": {"level": 2, "reason": "The Table reports race/ethnicity by vaccination group (Black 4.5% vs 33%), which could be read as group-specific results, though it is undiscussed."},
+  "dimensions": [
+   {"v": "race/ethnicity", "role": "descriptor", "ev": [
+     {"loc": "text", "q": "non-Hispanic White men accounted for the largest percentage of patients (19; 48%)"},
+     {"loc": "table 1", "q": "Race and ethnicity › Black or African American, non-Hispanic"}
+   ]},
+   {"v": "sexual orientation and gender identity", "role": "descriptor", "ev": [
+     {"loc": "text", "q": "37 (93%) identified as male and 28 (70%) as gay."}
+   ]},
+   {"v": "sex", "role": "population", "ev": [
+     {"loc": "text", "q": "All cases occurred among persons who were assigned male sex at birth"}
+   ]},
+   {"v": "age", "role": "descriptor", "ev": [
+     {"loc": "text", "q": "Median age was 33 years (IQR = 23–49 years)"}
+   ]}
+  ],
+  "determinants_of_health": {"v": null, "ev": []},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": "Race/ethnicity and sexual orientation are case counts only, with no population denominator; NH/OPI and AI/AN had no cases."
+ },
+ "confidence": "medium",
+ "notes": "data_focus limited is borderline: 40 cases with side-by-side percentages and medians by vaccination status could also be read as yes. The structural reader's view_issues (HIV 10 vs 5; median partners 1.5 vs 1) are confirmed against the Table CSV."}

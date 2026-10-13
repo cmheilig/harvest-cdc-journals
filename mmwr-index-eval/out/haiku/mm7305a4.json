@@ -1,0 +1,264 @@
+{
+ "id": "mm7305a4",
+ "reader": {
+  "model": "claude-haiku-5-5",
+  "reader_id": "R1",
+  "role": "structural"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Opioid withdrawal signs and symptoms including vomiting were significantly more prevalent among 8-mg naloxone recipients (37.6%)"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Opioid withdrawal signs and symptoms including vomiting were significantly more prevalent among 8-mg naloxone recipients (37.6%)"
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Recipients of 8-mg intranasal naloxone received an average of 1.58 doses (95% CI = 1.45–1.72)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "354 (81.2%) forms met inclusion criteria, including 101 (29%) 8-mg and 253 (71%) 4-mg intranasal naloxone forms"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Persons who received the 4-mg intranasal naloxone product served as the referent group for all comparisons."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named t-test comparing mean doses per patient by formulation",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Average number of naloxone doses administered per patient by formulation were compared using a t-test."
+    }
+   ]
+  },
+  {
+   "name": "bivariate log-binomial regression",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'bivariate log-binomial regression for relative risk' with no covariates; log-binomial is a loglinear family, and the reported p-values come from the model",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were compared using bivariate log-binomial regression for relative risk with associated p-values"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "4-mg intranasal naloxone",
+  "across": [
+   "naloxone formulation (8 mg vs 4 mg)"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Persons who received the 4-mg intranasal naloxone product served as the referent group for all comparisons."
+   },
+   {
+    "loc": "text",
+    "q": "relative risk [RR] = 0.81; p = 0.86"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "were compared using bivariate log-binomial regression for relative risk with associated p-values"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "relative risk (RR)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "relative risk [RR] = 0.81; p = 0.86"
+    }
+   ]
+  },
+  {
+   "v": "mean doses per patient",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Recipients of 8-mg intranasal naloxone received an average of 1.58 doses (95% CI = 1.45–1.72)"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Opioid withdrawal signs and symptoms including vomiting were significantly more prevalent among 8-mg naloxone recipients (37.6%)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "none",
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were compared using bivariate log-binomial regression for relative risk with associated p-values"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Does 8-mg intranasal naloxone, compared with the usual 4-mg product, change survival, dosing, postnaloxone signs and symptoms, or transport refusal among persons aided by law enforcement?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to conduct real-world comparisons of survival, the average number of doses administered, presence of postnaloxone signs and symptoms"
+   }
+  ]
+ },
+ "condition_group": [
+  {
+   "v": "substance use",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "During Response to Suspected Opioid Overdose"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "retrospective cohort",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NYSP submitted detailed reports to NYSDOH when naloxone was administered."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "For each person to whom naloxone is administered, law enforcement agencies submit a naloxone administration report to NYSDOH"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "NYSDOH naloxone administration reports (law enforcement)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "law enforcement agencies submit a naloxone administration report to NYSDOH"
+    }
+   ]
+  },
+  {
+   "v": "NYSDOH unpublished data",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "transported to the hospital (75.6%; NYSDOH, unpublished data, 2022–2023)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "New York, March 2022–August 2023"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "No social-position dimension is analysed or framed. Age and perceived gender are on the reporting form but not reported, and demographics appear only as a limitation.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Age and perceived gender are recorded but not analysed; no demographic comparison was possible."
+ },
+ "confidence": "high",
+ "notes": "The field test is a non-randomized comparison of troops assigned to each product, using routine administration reports, so it is coded as a retrospective cohort. All analyses are bivariate with no covariates, so the results are unadjusted only.",
+ "view_issues": "Reported RRs do not match the table counts: withdrawal 38/101 vs 49/253 gives 1.94, not 2.51 (CI 1.51–4.18), and survival 248/253 is 98.0%, not 99.2%. The article is marked 'Corrected after publication' but the correction is not described."
+}

@@ -1,0 +1,218 @@
+{
+ "id": "mm7301a1",
+ "reader": {
+  "label": "B"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2021, approximately 6.5 million topical antifungal prescriptions were filled (134 prescriptions per 1,000 beneficiaries)"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Higher-volume prescribers wrote 44.2% (2.9 million) of all prescriptions."
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The highest average per prescription costs were for efinaconazole ($1,035.38), tavaborole ($784.63), and oxiconazole ($729.84)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among 1,017,417 unique prescribers, 130,637 (12.8%) prescribed topical antifungals."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Total prescription volumes were compared between higher-volume prescribers (top 10% of topical antifungal prescribers by volume) and lower-volume prescribers."
+    }
+   ]
+  }
+ ],
+ "procedures": [],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "prescriber volume (higher vs lower)",
+   "provider type",
+   "U.S. Census Bureau region",
+   "drug"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Higher-volume prescribers wrote 44.2% (2.9 million) of all prescriptions."
+   },
+   {
+    "loc": "text",
+    "q": "By U.S. Census Bureau region, the highest prescription rate was in the Northeast (188.0 prescriptions per 1,000 beneficiaries)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Primary care physicians wrote the highest percentage of prescriptions (40.0%)"
+    }
+   ]
+  },
+  {
+   "v": "rate per 1,000 beneficiaries",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prescription rates per 1,000 beneficiaries were calculated by drug and region"
+    }
+   ]
+  },
+  {
+   "v": "prescriptions per provider",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "No. of prescriptions per provider"
+    }
+   ]
+  },
+  {
+   "v": "average cost per prescription, USD",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Avg. cost per prescription, USD*"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Among Medicare Part D beneficiaries in 2021, what were the volume, rates, costs and prescriber distribution of topical antifungal prescriptions?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Using 2021 Medicare Part D data, CDC examined prescription volumes, rates, and costs for topical antifungals"
+   }
+  ]
+ },
+ "condition_group": [
+  {
+   "v": "other acute",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Superficial fungal skin infections have an estimated lifetime prevalence of more than 20% worldwide"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This analysis of publicly available CMS data found that 6.5 million topical antifungal prescriptions"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "administrative/claims",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "contains information on the total number of prescriptions (including refills) and total drug costs"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "CMS Medicare Part D Prescribers–by Provider and Drug data set",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CMS Medicare Part D Prescribers–by Provider and Drug data set"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "characterize prescribing volume of topical antifungal medications among Medicare Part D beneficiaries in the United States during 2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Only age (Medicare eligibility) defines the population. Census region and prescriber type are geography and provider categories, not social position, and equity is not raised.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "Medicare, the federal health insurance program, is available to most persons aged ≥65 years"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "confidence": "high",
+ "notes": "Descriptive only: no tests, models or adjustment. Rates, shares and average costs are arithmetic, so procedures is empty; scale is null because higher- and lower-volume shares are set side by side without a computed contrast.",
+ "view_issues": "Methods sentence on per-1,000 rates by drug and region is garbled and repeated."
+}

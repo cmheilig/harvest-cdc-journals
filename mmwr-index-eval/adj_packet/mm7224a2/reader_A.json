@@ -1,0 +1,344 @@
+{
+ "id": "mm7224a2",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the commonly circulating Omicron lineages were XBB.1.5 (61.5%; 95% CI = 56.4%–66.4%), XBB.1.9.1 (10.0%; 95% CI = 6.8%–14.1%)"
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The number of cases attributed to each lineage was highest for BA.1.1 (14 million), B.1.1.529 (9.8 million) and BA.5 (8.0 million)"
+    },
+    {
+     "loc": "text",
+     "q": "the fastest doubling times were observed for XBB.1.16 (15.7 days; 95% CI = 13.9–17.9)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The prevalence of these lineages peaked at 75.7% (95% CI = 73.8%–77.5%) for BA.1.1 by the week ending February 19, 2022"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The fastest doubling times among lineages assessed at 1% prevalence during January 2, 2022–May 13, 2023, occurred for BA.2.12.1 (5.4 days; 95% CI = 4.8–6.1)"
+    },
+    {
+     "loc": "text",
+     "q": "first reached predominance in HHS Region 2 (New York, New Jersey, Puerto Rico, and the U.S. Virgin Islands) on December 31, 2022"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multinomial regression nowcast (with doubling times from growth-rate coefficients)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'multinomial regression' on lineage proportions over time = multinomial logit, a generalization of logistic; doubling times derive from its coefficients",
+   "role": "primary",
+   "alternative_reading": "other: multinomial is not named in the family table",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "nowcasts were generated using multinomial regression fit on the previous 21 weeks of data."
+    },
+    {
+     "loc": "text",
+     "q": "Doubling times for proportions of specific lineages were estimated from the coefficients of the multinomial nowcasting model."
+    }
+   ]
+  },
+  {
+   "name": "complex survey weighting (weights trimmed at 99th percentile)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weights based on estimated infections represented by each sequence, with PSUs and strata; all estimates weighted",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All methods included weighting to account for the complex survey design and adjust for potential sampling biases."
+    },
+    {
+     "loc": "note",
+     "q": "weights based on the weekly estimated number of infections represented by each SARS-CoV-2 sequence; weights are trimmed to the 99th percentile."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "SARS-CoV-2 lineage",
+   "week",
+   "HHS region",
+   "previous vs updated estimation method"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The fastest doubling times among lineages assessed at 1% prevalence during January 2, 2022–May 13, 2023, occurred for BA.2.12.1"
+   },
+   {
+    "loc": "text",
+    "q": "Biweekly estimates using the updated model were compared with weekly estimates from the previous model to assess consistency."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "86.2% (95% CI = 85.2%–87.2%) for BA.5 by August 20."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weekly variant proportion (%)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Weekly variant proportions were estimated at the national and U.S. Department of Health and Human Services (HHS) regional levels"
+    }
+   ]
+  },
+  {
+   "v": "doubling time (days)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the fastest doubling times were observed for XBB.1.16 (15.7 days; 95% CI = 13.9–17.9)"
+    }
+   ]
+  },
+  {
+   "v": "variant-attributed cases",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Weekly numbers of COVID-19 cases attributable to variants were estimated by multiplying counts of positive nucleic acid amplification tests"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Each submitting laboratory source was considered a primary sampling unit, and the state and week of sequence sample collection were considered strata."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "nowcasts were generated using multinomial regression fit on the previous 21 weeks of data."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Biweekly estimates using the updated model were compared with weekly estimates from the previous model to assess consistency."
+    },
+    {
+     "loc": "text",
+     "q": "The previous and updated analytic methods using CELR- and NREVSS-derived survey weights, respectively, produced similar variant proportion estimates for all lineages."
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "Which SARS-CoV-2 Omicron lineages emerged and predominated in the United States during January 2022–May 2023, how fast did they grow, and do updated estimation methods give consistent results?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This report summarizes U.S. trends in variant proportions from national genomic surveillance during January 2022–May 2023."
+   }
+  ]
+ },
+ "condition_group": [
+  {
+   "v": "COVID",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Genomic Surveillance for SARS-CoV-2 Variants: Circulation of Omicron Lineages"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC’s national genomic surveillance system integrates SARS-CoV-2 sequences from three sources"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This report summarizes U.S. trends in variant proportions from national genomic surveillance during January 2022–May 2023."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "1) the National SARS-CoV-2 Strain Surveillance (NS3) program, † 2) CDC-contracted commercial laboratories"
+    },
+    {
+     "loc": "text",
+     "q": "multiplying counts of positive nucleic acid amplification tests from COVID-19 electronic laboratory reporting (CELR) with variant proportions"
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "public sequence data repositories, including the Global Initiative on Sharing All Influenza Data (GISAID) repository and National Center for Biotechnology Information (NCBI) GenBank"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National SARS-CoV-2 Strain Surveillance (NS3)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the National SARS-CoV-2 Strain Surveillance (NS3) program"
+    }
+   ]
+  },
+  {
+   "v": "GISAID",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the Global Initiative on Sharing All Influenza Data (GISAID) repository"
+    }
+   ]
+  },
+  {
+   "v": "NCBI GenBank",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "National Center for Biotechnology Information (NCBI) GenBank"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19 electronic laboratory reporting (CELR)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "positive nucleic acid amplification tests from COVID-19 electronic laboratory reporting (CELR)"
+    }
+   ]
+  },
+  {
+   "v": "National Respiratory and Enteric Virus Surveillance System (NREVSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "changed to regional-level data from the National Respiratory and Enteric Virus Surveillance System (NREVSS)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Weekly variant proportions were estimated at the national and U.S. Department of Health and Human Services (HHS) regional levels"
+   },
+   {
+    "loc": "figure 2",
+    "q": "Omicron XBB.1.5 predominance,* by U.S. Department of Health and Human Services Region and week that the variant became predominant"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Results are by lineage, week and HHS region; geography alone is not a social-position dimension, and no SPD is reported.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "confidence": "medium",
+ "notes": "The multinomial model has time as its only predictor, so unadjusted is true and confounders null. Lineages under 1% are aggregated to parents (quantization) and variant-attributed cases are arithmetic, so neither is a procedure. NREVSS feeds only survey weights after May 2023, so it is named but not typed; setting could also be read as US national.",
+ "view_issues": null
+}

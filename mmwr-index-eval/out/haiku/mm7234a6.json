@@ -1,0 +1,80 @@
+{
+ "id": "mm7234a6",
+ "reader": {"model": "claude-haiku-5-5", "reader_id": "R1", "role": "structural"},
+ "data_focus": {"v": "yes", "ev": []},
+ "outcome_types": [
+  {"v": "count/rate", "ev": [{"loc": "text", "q": "a total of 1,310 asthma-associated ED visits were identified through ESSS"}]}
+ ],
+ "analytic_depth": [
+  {"v": "summary", "ev": [{"loc": "text", "q": "During June 1–14, a total of 1,310 asthma-associated ED visits were identified through ESSS"}]},
+  {"v": "comparison", "ev": [
+    {"loc": "text", "q": "Compared with the mean number of ED visits during June 1–5, asthma-associated ED visits on June 7 increased 81.9%"},
+    {"loc": "text", "q": "representing 590% and 1,229% increases, respectively, above 10-year baseline concentrations"}]},
+  {"v": "stratified/adjusted", "ev": [{"loc": "text", "q": "Daily asthma-associated ED visits were compared between the mean of June 1–5 and June 7, 2023, stratified by region and age group."}]}
+ ],
+ "procedures": [
+  {
+   "name": "Pearson correlation between daily PM2.5 and daily ED visits, by region",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "'Pearson’s correlation coefficients (rho[ρ])' estimated for each region; a bivariate statistic with no test or model",
+   "role": "primary",
+   "ev": [{"loc": "text", "q": "June 1–14 Pearson’s correlation coefficients (rho[ρ]) between paired daily mean PM 2.5 and daily asthma-associated ED visits for each region were estimated."}]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "mean of June 1–5 ED visits",
+  "across": ["period (June 1–5 vs June 7)", "region", "age group"],
+  "ev": [
+   {"loc": "text", "q": "Compared with the mean number of ED visits during June 1–5, asthma-associated ED visits on June 7 increased 81.9%"},
+   {"loc": "text", "q": "Among persons aged 10–29, 30–49, 50–69, and ≥70 years, statewide asthma-associated ED visits increased 197.6%"}
+  ]
+ },
+ "inference": {"v": "none", "method_stated": false, "ev": []},
+ "primary_measures": [
+  {"v": "percentage increase", "ev": [{"loc": "text", "q": "asthma-associated ED visits on June 7 increased 81.9% (from 80.8 to 147 visits) statewide"}]},
+  {"v": "Pearson correlation coefficient (ρ)", "ev": [{"loc": "text", "q": "Pearson’s correlation coefficients (rho[ρ]) between paired daily mean PM 2.5 and daily asthma-associated ED visits"}]},
+  {"v": "daily mean PM2.5 (µg/m3)", "ev": [{"loc": "text", "q": "daily mean PM 2.5 was highest on June 7 for all regions, except the Adirondacks"}]}
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Were increases in PM2.5 during a 2023 wildfire smoke event associated with increased asthma-associated ED visits in New York?",
+  "ev": [{"loc": "summary", "q": "Characterizing such health outcomes during this wildfire smoke event can guide current and future response efforts."}]
+ },
+ "condition_group": [
+  {"v": "TB/respiratory", "ev": [{"loc": "title", "q": "Asthma-Associated Emergency Department Visits During a Wildfire Smoke Event"}]},
+  {"v": "environmental", "ev": [{"loc": "summary", "q": "smoke from Eastern Canadian wildfires caused poor air quality across New York"}]}
+ ],
+ "study_design": [
+  {"v": "before/after or trend", "ev": [{"loc": "note", "q": "Comparisons were made with June 1–5, the period before the wildfire smoke event began and air quality reached unhealthy levels."}]},
+  {"v": "ecologic", "ev": [{"loc": "text", "q": "June 1–14 Pearson’s correlation coefficients (rho[ρ]) between paired daily mean PM 2.5 and daily asthma-associated ED visits for each region were estimated."}]}
+ ],
+ "data_source_type": [
+  {"v": "state or local surveillance", "ev": [{"loc": "text", "q": "Asthma-associated emergency department (ED) visits were identified from chief complaints in the New York State Department of Health’s Electronic Syndromic Surveillance System (ESSS)"}]},
+  {"v": "other", "ev": [{"loc": "text", "q": "Daily mean PM 2.5 values were calculated using hourly measured concentrations (in µ g/m 3 ) from one New York State Department of Environmental Conservation"}]}
+ ],
+ "data_source_named": [
+  {"v": "New York State Department of Health's Electronic Syndromic Surveillance System (ESSS)", "ev": [{"loc": "text", "q": "New York State Department of Health’s Electronic Syndromic Surveillance System (ESSS)"}]},
+  {"v": "New York State Department of Environmental Conservation air monitors", "ev": [{"loc": "text", "q": "from one New York State Department of Environmental Conservation § air monitor in each of eight regions"}]}
+ ],
+ "setting": {"v": "US subnational", "ev": [{"loc": "title", "q": "Wildfire Smoke Event — New York, June 2023"}]},
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Race/ethnicity is raised only in the conclusions as background and a recommendation (non-Hispanic Black persons' disproportionate asthma burden, citing a reference); the analysis does not stratify by race and gives no quantified contrast.",
+  "level_confidence": "medium",
+  "level_alternative": {"level": 0, "reason": "The only analysed social-position grouping is age, and the conclusions' equity statement is background; a stricter reading would not count it at all."},
+  "dimensions": [
+   {"v": "race/ethnicity", "role": "descriptor", "ev": [{"loc": "text", "q": "Children and non-Hispanic Black or African American persons disproportionately experience asthma exacerbations necessitating emergency care"}]},
+   {"v": "age", "role": "stratifier", "ev": [{"loc": "text", "q": "Among persons aged 10–29, 30–49, 50–69, and ≥70 years, statewide asthma-associated ED visits increased 197.6%"}]}
+  ],
+  "determinants_of_health": {"v": null, "ev": []},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": "Race/ethnicity is not analysed; age groups are stratified only for the June 1–5 vs June 7 comparison; no race or social-position data were analysed."
+ },
+ "confidence": "medium",
+ "notes": "Stratified pre/post comparisons by region and age are explicitly labelled stratified, so the depth is stratified/adjusted; the Pearson correlation is the only computed estimate and carries no test or CI. Percent changes and baseline ratios are arithmetic, not procedures.",
+ "view_issues": "The Preliminary Conclusions call the Eastern Lake Ontario (179.1%) and Central (132.8%) increases 'twofold', which understates the reported increases (about 2.8-fold and 2.3-fold)."
+}

@@ -1,0 +1,400 @@
+{
+ "id": "mm6818a4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "example",
+  "role": "example"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "event-time",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Cumulative mortality used Kaplan-Meier survival analysis for both incident and prevalent cases to determine the percentage of SLE patients dying since their diagnosis"
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Standardized mortality ratios using 2002–2016 data were 2.3–3.3 times higher for persons with prevalent SLE relative to expected deaths in the general population"
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "with deaths occurring sooner after diagnosis and at a mean age approximately 13 years younger."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among patients with prevalent and incident SLE, 401 and 97 deaths, respectively, occurred through 2016."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Cumulative mortality was significantly higher among blacks than among whites for both incident ( Figure 1 ) and prevalent ( Figure 2 ) SLE"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Standardized mortality ratios adjusted for age group, sex, and race were two to three times higher among persons with SLE"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Kaplan-Meier cumulative mortality",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "\"Kaplan-Meier survival analysis\": a nonparametric event-time estimator, not a model",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Cumulative mortality for incident SLE cases was calculated using Kaplan-Meier survival analysis"
+    }
+   ]
+  },
+  {
+   "name": "logrank test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "\"by log rank test\" in each figure note",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Difference p = 0.008, by log rank test."
+    },
+    {
+     "loc": "figure 2",
+     "q": "Difference p = 0.025, by log rank test."
+    }
+   ]
+  },
+  {
+   "name": "standardized mortality ratio (indirect standardization)",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "observed deaths divided by deaths expected from age-, sex- and race-specific county rates",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Standardized mortality ratios were calculated as the ratio of observed deaths among persons with prevalent SLE to expected deaths in the general county populations"
+    }
+   ]
+  },
+  {
+   "name": "GEE Poisson model for SMR confidence intervals",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "\"generalized estimating equation model with Poisson distribution\": Poisson implies loglinear",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "CIs are based on a generalized estimating equation model with Poisson distribution."
+    }
+   ]
+  },
+  {
+   "name": "test of mean age at death, Black vs White (test not named)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "p-value attached to the comparison of mean ages",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "death occurred at a younger age among blacks with incident SLE cases (mean age = 51.8 ± 17.5 years)"
+    },
+    {
+     "loc": "text",
+     "q": "65.0 ± 16.3 years, respectively) (p<0.001)."
+    }
+   ]
+  },
+  {
+   "name": "age adjustment to the 2000 standard population",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "\"Age-adjusted estimates ... standard 2000 projected age distribution\"",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-adjusted estimates and 95% confidence intervals were calculated based on the standard 2000 projected age distribution"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "both",
+  "referent": "whites with SLE; for SMRs, expected deaths in the general county population",
+  "across": [
+   "race",
+   "sex"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Compared with whites with SLE, cumulative SLE mortality was significantly higher among blacks"
+   },
+   {
+    "loc": "text",
+    "q": "whites with SLE had the same cumulative mortality proportion (9%) in 10 years as that observed in blacks in 2 years"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "CIs are based on a generalized estimating equation model with Poisson distribution."
+   },
+   {
+    "loc": "figure 1",
+    "q": "Difference p = 0.008, by log rank test."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "standardized mortality ratio",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "The standardized mortality ratio is a ratio between the observed number of deaths in those with SLE and the number of deaths expected"
+    }
+   ]
+  },
+  {
+   "v": "cumulative mortality",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "whites with SLE had the same cumulative mortality proportion (9%) in 10 years as that observed in blacks in 2 years"
+    }
+   ]
+  },
+  {
+   "v": "mean age at death",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "blacks with both incident and prevalent cases were significantly younger at death (mean age 51.8 and 52.3 years, respectively)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "GEE",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "CIs are based on a generalized estimating equation model with Poisson distribution."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": null,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "adjusted by age, sex, and black/white race"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age, sex, and black/white race (through expected deaths)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "adjusted by age, sex, and black/white race"
+    },
+    {
+     "loc": "table 1",
+     "q": "Age on July 1 was used for adjustment."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How much higher is mortality among persons with SLE than in the general population, and does it differ between Black and White patients?",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Racial Disparities in Mortality Associated with Systemic Lupus Erythematosus — Fulton and DeKalb Counties, Georgia, 2002–2016"
+   }
+  ]
+ },
+ "condition_group": [
+  {
+   "v": "other chronic",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Systemic lupus erythematosus (SLE) is a chronic, systemic autoimmune disease"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "retrospective cohort",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All incident and prevalent SLE cases were matched to the National Death Index through 2016."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "SLE mortality was analyzed using 2002–2004 data from the population-based Georgia Lupus Registry"
+    },
+    {
+     "loc": "text",
+     "q": "All incident and prevalent SLE cases were matched to the National Death Index through 2016."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Georgia Lupus Registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "data from the population-based Georgia Lupus Registry"
+    }
+   ]
+  },
+  {
+   "v": "National Death Index",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "matched to the National Death Index through 2016"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "residents of two Georgia counties (Fulton and DeKalb) in the Atlanta metropolitan area"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 3,
+  "level_reason": "Black–White differences are framed as racial disparities, quantified (SMR 3.34 vs 2.43; mean age at death about 13 years younger; 9% cumulative mortality at 2 vs 10 years) and interpreted. Causes are left generic: access to care is mentioned only as a topic of other registries.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Racial Disparities in Mortality Associated with Systemic Lupus Erythematosus"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "cross-classifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race/Sex (total = 1,200)"
+     },
+     {
+      "loc": "text",
+      "q": "There were no significant differences by sex."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age on July 1 was used for adjustment."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "access to care",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "examining natural history, treatment, access to care, and disparities as potential factors in SLE mortality and progression"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race was assigned mainly from the physician's assessment in the medical record; only Black and White patients are analyzed (18 others excluded). The referent is whites, or the general county population for SMRs."
+ },
+ "confidence": "high",
+ "notes": "The GEE Poisson model serves only to give CIs for the SMRs, so it is an ancillary regression. Age-adjusted prevalence and incidence are described in the methods but not shown in this report. SMRs are given for prevalent cases only, because incident cases had too few deaths.",
+ "view_issues": null
+}

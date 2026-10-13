@@ -1,0 +1,337 @@
+{
+ "id": "mm7224a2",
+ "reader": {
+  "model": "claude-haiku-5-5",
+  "reader_id": "R1",
+  "role": "structural"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The prevalence of these lineages peaked at 75.7%"
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The number of cases attributed to each lineage was highest for BA.1.1 (14 million)"
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "BA.2.12.1 (5.4 days; 95% CI = 4.8–6.1)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Weekly estimates of variant proportions during January 2, 2022–May 13, 2023"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the fastest doubling times were observed for XBB.1.16 (15.7 days; 95% CI = 13.9–17.9)"
+    },
+    {
+     "loc": "text",
+     "q": "XBB.1.5 further spread south and west to attain national predominance by January 28, 2023"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weights for complex survey design (variant proportion estimation)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "'weighting to account for the complex survey design'; weights based on estimated infections per sequence, trimmed to the 99th percentile; laboratory source as PSU, state and week as strata",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All methods included weighting to account for the complex survey design and adjust for potential sampling biases."
+    },
+    {
+     "loc": "note",
+     "q": "Variant proportion estimation methods account for the complex survey design, with weights based on the weekly estimated number of infections represented by each SARS-CoV-2 sequence"
+    }
+   ]
+  },
+  {
+   "name": "multinomial regression nowcasting",
+   "class": "regression",
+   "regression_family": "other",
+   "inferred_from": "'nowcasts were generated using multinomial regression'; the family table has no multinomial entry, so other: a multinomial model of lineage shares over time (alternative reading is logistic, as multinomial logit generalizes logistic)",
+   "role": "primary",
+   "alternative_reading": "logistic",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "nowcasts were generated using multinomial regression fit on the previous 21 weeks of data"
+    }
+   ]
+  },
+  {
+   "name": "doubling time from instantaneous growth rate",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "doubling time is a log-based conversion of the model's instantaneous growth rate (coefficients of the multinomial nowcasting model)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Doubling times for proportions of specific lineages are based on instantaneous growth rates from the multinomial nowcasting model."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "lineage",
+   "HHS region",
+   "week"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "the fastest doubling times were observed for XBB.1.16 (15.7 days; 95% CI = 13.9–17.9)"
+   },
+   {
+    "loc": "text",
+    "q": "The fastest doubling times among lineages assessed at 1% prevalence"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The prevalence of these lineages peaked at 75.7% (95% CI = 73.8%–77.5%) for BA.1.1"
+   },
+   {
+    "loc": "note",
+    "q": "Each submitting laboratory source was considered a primary sampling unit, and the state and week of sequence sample collection were considered strata."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "prevalence (variant proportion)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The prevalence of these lineages peaked at 75.7%"
+    }
+   ]
+  },
+  {
+   "v": "doubling time (days)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "BA.2.12.1 (5.4 days; 95% CI = 4.8–6.1)"
+    }
+   ]
+  },
+  {
+   "v": "cases attributed to variant",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The number of cases attributed to each lineage was highest for BA.1.1 (14 million)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Each submitting laboratory source was considered a primary sampling unit, and the state and week of sequence sample collection were considered strata."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Biweekly estimates using the updated model were compared with weekly estimates from the previous model to assess consistency"
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "What were the U.S. trends in Omicron lineage proportions, substitutions and growth rates during January 2022–May 2023?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This report summarizes U.S. trends in variant proportions from national genomic surveillance during January 2022–May 2023"
+   }
+  ]
+ },
+ "condition_group": [
+  {
+   "v": "COVID",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Genomic Surveillance for SARS-CoV-2 Variants: Circulation of Omicron Lineages"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This report summarizes U.S. trends in variant proportions from national genomic surveillance during January 2022–May 2023"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "counts of positive nucleic acid amplification tests from COVID-19 electronic laboratory reporting (CELR)"
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "from NS3 (1%), commercial laboratories (60%), and repositories (38%)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National SARS-CoV-2 Strain Surveillance (NS3) program",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the National SARS-CoV-2 Strain Surveillance (NS3) program"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19 electronic laboratory reporting (CELR)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-19 electronic laboratory reporting (CELR)"
+    }
+   ]
+  },
+  {
+   "v": "National Respiratory and Enteric Virus Surveillance System (NREVSS)",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "the percentage of positive nucleic acid amplification test results by HHS Region from NREVSS"
+    }
+   ]
+  },
+  {
+   "v": "GISAID",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the Global Initiative on Sharing All Influenza Data (GISAID) repository"
+    }
+   ]
+  },
+  {
+   "v": "NCBI GenBank",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "National Center for Biotechnology Information (NCBI) GenBank"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Weekly variant proportions were estimated at the national and U.S. Department of Health and Human Services (HHS) regional levels"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "No social-position dimension appears; the analysis is of virus lineages by national and HHS-region geography, which is not an SPD, and the report does not frame equity.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "confidence": "high",
+ "notes": "National genomic surveillance report of Omicron lineage proportions, case attributions and doubling times, using survey-weighted variant proportions and a multinomial nowcast model. The multinomial model is recorded as other with logistic as the alternative reading, and doubling times are a log-based transformation of its growth rates. No covariates enter the model; the May 2023 method change is covered by a sensitivity comparison.",
+ "view_issues": "Summary gives 'XBB.1.16 and XBB.1.16.1 (2.4%)', but Results give XBB.1.16 as 9.4% and XBB.1.16.1 as 2.4%. The text says the method change began 'May 13, 2023', while footnotes § and ¶¶¶¶ say May 11, 2023."
+}

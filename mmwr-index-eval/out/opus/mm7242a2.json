@@ -1,0 +1,118 @@
+{
+ "id": "mm7242a2",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "R3", "role": "judgment"},
+ "data_focus": {"v": "yes", "ev": []},
+ "outcome_types": [
+  {"v": "binary/categorical", "ev": [
+   {"loc": "text", "q": "MCV1 coverage decreased approximately 3%, from 87% in 2013 to 84% in 2022; MCV2 coverage decreased approximately 12%, from 76% to 67%"}
+  ]},
+  {"v": "count/rate", "ev": [
+   {"loc": "text", "q": "measles incidence decreased from 33.2 cases per million population to a low of 1.4 in 2021 but sharply increased to 28.8 in 2022"}
+  ]}
+ ],
+ "analytic_depth": [
+  {"v": "summary", "ev": [
+   {"loc": "text", "q": "In 2022, 86% of suspected cases with adequate specimens were tested in a WHO-accredited laboratory."}
+  ]},
+  {"v": "comparison", "ev": [
+   {"loc": "summary", "q": "During 2013–2021, measles and rubella incidence declined by 95% and 89%, respectively."},
+   {"loc": "table 1", "q": "Surveillance performance indicators › % of samples tested ≤4 days of specimen receipt in laboratory (target: ≥80)"}
+  ]}
+ ],
+ "procedures": [
+  {"name": "unnamed test", "class": "test", "regression_family": null,
+   "inferred_from": "'significantly increased' in the Summary implies a test of 2022 vs 2021 incidence; no test or p-value is reported",
+   "role": "ancillary",
+   "ev": [
+    {"loc": "summary", "q": "in 2022, measles and rubella incidence significantly increased compared with 2021"}
+   ]}
+ ],
+ "comparison": {"framework": "pair", "scale": "relative", "referent": "2013 (baseline year); 2021 for the 2022 resurgence",
+  "across": ["year", "vaccine dose", "surveillance indicator vs target"],
+  "ev": [
+   {"loc": "summary", "q": "annual reported measles incidence decreased by 95%, from 33.2 to 1.4 cases per million population"},
+   {"loc": "text", "q": "the discarded nonmeasles and nonrubella rate (NMNR),*** a measure of surveillance sensitivity, approximately tripled, from 1.2 to 3.3 per 100,000 population"}
+  ]},
+ "inference": {"v": "tests", "method_stated": false, "ev": [
+  {"loc": "summary", "q": "in 2022, measles and rubella incidence significantly increased compared with 2021"}
+ ]},
+ "primary_measures": [
+  {"v": "vaccination coverage, %", "ev": [
+   {"loc": "text", "q": "RCV1 coverage increased from 15% in 2017 (the year RCV was introduced) to 84% in 2022"}
+  ]},
+  {"v": "incidence per million population", "ev": [
+   {"loc": "table 1", "q": "Cases per 1 million population."}
+  ]},
+  {"v": "discarded NMNR cases per 100,000 population", "ev": [
+   {"loc": "table 1", "q": "No. of discarded NMNR cases per 100,000 population, national level (target: ≥2)"}
+  ]}
+ ],
+ "regression_fields": null,
+ "public_health_question": {"v": "What progress did Indonesia make toward measles and rubella elimination in vaccination coverage, surveillance performance and incidence during 2013–2022?", "ev": [
+  {"loc": "text", "q": "This report describes Indonesia’s progress toward measles and rubella elimination during 2013–2022."}
+ ]},
+ "condition_group": [
+  {"v": "vaccine-preventable (other)", "ev": [
+   {"loc": "title", "q": "Progress Toward Measles and Rubella Elimination — Indonesia, 2013–2022"}
+  ]}
+ ],
+ "study_design": [
+  {"v": "surveillance/descriptive", "ev": [
+   {"loc": "text", "q": "Measles and rubella cases are also reported to WHO and UNICEF through Indonesia’s eJRF."}
+  ]},
+  {"v": "before/after or trend", "ev": [
+   {"loc": "text", "q": "During 2013–2022, MCV1 coverage decreased approximately 3%, from 87% in 2013 to 84% in 2022"}
+  ]}
+ ],
+ "data_source_type": [
+  {"v": "international surveillance", "ev": [
+   {"loc": "text", "q": "WHO and UNICEF use reported administrative coverage, official estimates, and vaccination coverage survey data to generate annual estimates of national immunization coverage"},
+   {"loc": "text", "q": "Measles and rubella cases are also reported to WHO and UNICEF through Indonesia’s eJRF."}
+  ]},
+  {"v": "sentinel/network", "ev": [
+   {"loc": "text", "q": "Sentinel CRS surveillance was initiated in 13 hospitals in Indonesia in 2015 and was expanded to 22 hospitals in 2022."}
+  ]}
+ ],
+ "data_source_named": [
+  {"v": "electronic Joint Reporting Form (eJRF)", "ev": [
+   {"loc": "text", "q": "aggregated and reported to WHO and UNICEF through the electronic Joint Reporting Form (eJRF)"}
+  ]},
+  {"v": "WHO and UNICEF estimates of national immunization coverage", "ev": [
+   {"loc": "figure 1", "q": "Vaccination coverage data were from World Health Organization and UNICEF estimates of national immunization coverage"}
+  ]},
+  {"v": "WHO MeaNS and RubeNS genetic databases", "ev": [
+   {"loc": "text", "q": "Genotype data are reported to the WHO measles nucleotide surveillance (MeaNS) and rubella nucleotide surveillance (RubeNS) genetic databases."}
+  ]}
+ ],
+ "setting": {"v": "international", "ev": [
+  {"loc": "title", "q": "Progress Toward Measles and Rubella Elimination — Indonesia, 2013–2022"}
+ ]},
+ "vaccine_outcome_type": {"v": "coverage/uptake", "ev": [
+  {"loc": "summary", "q": "coverage with a first dose of measles-containing vaccine (MCV) decreased from 87% to 84%"}
+ ]},
+ "equity": {
+  "level": 1,
+  "level_reason": "Remote areas and migratory populations are named only as targets of catch-up efforts; age groups of cases are tabulated without social-position framing. No results by an SPD other than age.",
+  "level_confidence": "medium",
+  "level_alternative": {"level": 0, "reason": "The remote-area and migratory-population mention describes program targeting, not the data; a strict reading leaves only age strata, which is level 0."},
+  "dimensions": [
+   {"v": "rurality", "role": "descriptor", "ev": [
+    {"loc": "text", "q": "search for unimmunized or partially immunized children in remote and high-risk areas"}
+   ]},
+   {"v": "other", "role": "descriptor", "ev": [
+    {"loc": "text", "q": "the presence of vulnerable groups, such as migratory populations."}
+   ]},
+   {"v": "age", "role": "stratifier", "ev": [
+    {"loc": "table 1", "q": "Age group of patients with laboratory-confirmed and epidemiologically linked measles › 5–9 yrs"}
+   ]}
+  ],
+  "determinants_of_health": {"v": "temporary closing of immunization posts; movement restrictions; repurposing of immunization and surveillance staff to COVID-19 activities", "ev": [
+   {"loc": "text", "q": "because of temporary closing of immunization posts, movement restrictions, and repurposing of immunization and surveillance staff to COVID-19 activities."}
+  ]},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": null
+ },
+ "confidence": "medium",
+ "notes": "'Significantly' appears only in the Summary with no test described, so the unnamed test is likely colloquial and is kept ancillary. Surveillance indicators are also compared with fixed WHO targets (≥80%, NMNR ≥2 per 100,000); 'surveillance sensitivity' is an indicator, not diagnostic accuracy. Progress is measured against elimination targets, but not in relation to a disparity, so equity_action is false.",
+ "view_issues": "Text reports 2013 measles incidence 33.2 per million and the Abstract says 2022 incidence was 29, while the Table gives 28.8; minor rounding only. 'MCRV1' in Results appears to be a typo for MRCV1."
+}

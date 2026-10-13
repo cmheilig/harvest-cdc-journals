@@ -1,0 +1,281 @@
+{
+ "id": "mm6834a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "example",
+  "role": "example"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2015, 69.4% of black infants initiated breastfeeding, compared with 85.9% of white infants, a difference of 16.5 percentage points (p<0.05)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The absolute percentage point difference in each breastfeeding rate between black and white infants was also estimated (hereafter, black-white difference)."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among only infants who had initiated breastfeeding, the magnitude of black-white differences in any and exclusive breastfeeding rates were smaller (Table 2)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "two-sample test of proportions",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in the Table 2 footnote as the test of each black-white difference",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "are statistically significant (p<0.05, two-sample test of proportions)."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting for the NIS complex sampling design",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "every national percentage and CI is weighted, so the weighting carries the main estimates rather than only describing the sample",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates were weighted and accounted for the NIS complex sampling design."
+    }
+   ]
+  },
+  {
+   "name": "restriction to infants who initiated breastfeeding (second denominator)",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "the same black-white differences are recomputed with a denominator limited to initiators",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The second denominator included only infants of the respective racial/ethnic group who had initiated breastfeeding."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "absolute",
+  "referent": "non-Hispanic white infants",
+  "across": [
+   "race/ethnicity",
+   "denominator (all infants vs infants who initiated breastfeeding)"
+  ],
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "Differences in breastfeeding rates between non-Hispanic black and non-Hispanic white infants."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "are statistically significant (p<0.05, two-sample test of proportions)."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "black infants had a significantly lower rate of any breastfeeding at age 3 months (58.0%) than did white infants (72.7%)"
+    }
+   ]
+  },
+  {
+   "v": "percentage point difference",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "breastfeeding differences between black and white infants were 14.7 percentage points (95% confidence interval [CI] = 10.7–18.8)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How large are black-white differences in breastfeeding duration and exclusivity among all infants, and how much smaller are they when calculated only among infants who initiated breastfeeding?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Less is known about disparities in breastfeeding duration when calculated only among infants who had initiated breastfeeding"
+   }
+  ]
+ },
+ "condition_group": [
+  {
+   "v": "maternal/reproductive",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Racial Disparities in Breastfeeding Initiation and Duration Among U.S. Infants Born in 2015"
+    }
+   ]
+  },
+  {
+   "v": "obesity/nutrition",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Breastfeeding provides optimal nutrition to infants"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Each cross-sectional survey includes children born in 3 different calendar years"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NIS-Child is an ongoing, nationally representative random-digit–dialed telephone survey of U.S. households of children aged 19–35 months."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Immunization Survey-Child (NIS-Child)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed National Immunization Survey-Child (NIS-Child) data for infants born in 2015"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "nationally representative random-digit–dialed telephone survey of U.S. households"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Black-white differences are framed as disparities, quantified as percentage-point differences with CIs, and interpreted; specific determinants (social support, maternity care practices, return to work and paid leave) are named as explanations.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Racial Disparities in Breastfeeding Initiation and Duration Among U.S. Infants Born in 2015"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "% of poverty level",
+     "Recipient of WIC",
+     "Mother’s education"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Black women were more likely than were white women to have incomes <100% of the poverty level (49.3% versus 17.8%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "they also had less education and were younger"
+     }
+    ]
+   },
+   {
+    "v": "other",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "and to be unmarried (65.5% versus 23.9%)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "peer and family support; access to evidence-based maternity care; employment support; maternity care practices lower in neighborhoods with larger black populations; paid leave",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Strategies might include improving peer and family support, access to evidence-based maternity care, and employment support."
+    },
+    {
+     "loc": "text",
+     "q": "is lower among maternity care facilities in neighborhoods with larger black populations"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Interventions both to improve breastfeeding initiation and to support continuation among black mothers might help reduce disparities."
+    }
+   ]
+  },
+  "equity_measurement": "Black infants are compared only with white infants (the referent); race/ethnicity is parent-reported; Hispanic and other groups are not analyzed."
+ },
+ "confidence": "high",
+ "notes": "The stratified/adjusted depth reflects the within-stratum comparison among initiators, not adjustment. Marital status is recorded as an 'other' descriptor.",
+ "view_issues": null
+}

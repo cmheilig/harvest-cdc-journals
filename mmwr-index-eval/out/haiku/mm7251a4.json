@@ -1,0 +1,327 @@
+{
+ "id": "mm7251a4",
+ "reader": {
+  "model": "claude-haiku-5-5",
+  "reader_id": "R1",
+  "role": "structural"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "an estimated 42.2% and 18.3% of adults aged ≥18 years had received influenza and updated 2023–2024 COVID-19 vaccine, respectively"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "an estimated 42.2% and 18.3% of adults aged ≥18 years had received influenza and updated 2023–2024 COVID-19 vaccine"
+    },
+    {
+     "loc": "text",
+     "q": "the percentage of adults who reported being unvaccinated, but who definitely will get vaccinated, decreased over time"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "As of December 9, 2023, estimated influenza and updated COVID-19 vaccination coverage among adults aged ≥18 years was 42.2% and 18.3%"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Coverage varied by demographic characteristics."
+    },
+    {
+     "loc": "text",
+     "q": "Differences among estimates were determined using t-tests with p<0.05 considered statistically significant."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "nondecreasing composite estimation",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "a cumulative composite estimator that combines each week's interviews with all earlier weeks; it is an estimation procedure, not a model or test",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using a nondecreasing composite estimation procedure that uses data from completed interviews from the current week combined with data from all previous weeks"
+    }
+   ]
+  },
+  {
+   "name": "survey weighting to population control totals",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weights to the noninstitutionalized population using control totals for age, sex, MSA status, education, Hispanic origin and race; these weights produce every reported estimate",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Data were weighted to represent the noninstitutionalized U.S. population aged ≥18 years using population control totals for age group, sex"
+    },
+    {
+     "loc": "text",
+     "q": "Data are weighted to represent the noninstitutionalized U.S. population."
+    }
+   ]
+  },
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named t-tests for differences among estimates at p<0.05; the group contrasts described in the results rest on these tests",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Differences among estimates were determined using t-tests with p<0.05 considered statistically significant."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "absolute",
+  "referent": "non-Hispanic White adults",
+  "across": [
+   "race/ethnicity",
+   "age group",
+   "insurance status",
+   "urbanicity",
+   "jurisdiction",
+   "time period"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Coverage varied by demographic characteristics."
+   },
+   {
+    "loc": "text",
+    "q": "Influenza vaccination coverage was higher among non-Hispanic White (White) and non-Hispanic Asian (Asian) adults than among most other racial and ethnic groups."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Differences among estimates were determined using t-tests with p<0.05 considered statistically significant."
+   },
+   {
+    "loc": "table 1",
+    "q": "Influenza › % Vaccinated (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted percentage vaccinated",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "† Weighted percentage."
+    }
+   ]
+  },
+  {
+   "v": "percentage intending vaccination",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the percentage of adults who reported being unvaccinated, but who definitely will get vaccinated, decreased over time"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What were U.S. adults' coverage with influenza, updated COVID-19 and RSV vaccines, and their vaccination intent, in fall 2023?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "are used to monitor influenza, COVID-19, and RSV vaccination coverage"
+   }
+  ]
+ },
+ "condition_group": [
+  {
+   "v": "influenza",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Influenza, Updated COVID-19, and Respiratory Syncytial Virus Vaccination Coverage"
+    }
+   ]
+  },
+  {
+   "v": "COVID",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Updated COVID-19, and Respiratory Syncytial Virus Vaccination Coverage"
+    }
+   ]
+  },
+  {
+   "v": "RSV",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Respiratory Syncytial Virus Vaccination Coverage Among Adults"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a random-digit–dialed cellular telephone survey of U.S. adults aged ≥18 years"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "From September 24 through December 9, the percentage of adults who reported being unvaccinated"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The National Immunization Survey-Adult COVID Module (NIS-ACM) is a random-digit–dialed cellular telephone survey"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Immunization Survey-Adult COVID Module",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The National Immunization Survey-Adult COVID Module (NIS-ACM)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, Fall 2023"
+   },
+   {
+    "loc": "table 1",
+    "q": "Coverage with influenza, updated COVID-19, and respiratory syncytial virus vaccines among adults,* by jurisdiction"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "an estimated 42.2% and 18.3% of adults aged ≥18 years had received influenza and updated 2023–2024 COVID-19 vaccine, respectively"
+   }
+  ]
+ },
+ "equity": {
+  "level": 2,
+  "level_reason": "Race/ethnicity, insurance, urbanicity and age groups are described and called disparities, but no difference or shortfall is computed; values are set side by side with framing words, which caps the level at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "If the reported group values and the t-test contrasts were read as a quantified disparity, the 'disparities' framing would meet level 3."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Despite disparities in vaccination coverage by race and ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "uninsured"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Coverage with all vaccines was lowest among uninsured persons."
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "higher among adults living in urban and suburban areas compared with those living in rural areas"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Coverage and intent to be vaccinated increased with age"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Groups are compared on self-reported, weighted estimates; race contrasts are White versus other groups with no computed difference. Insurance and urbanicity are shown as stratifiers only."
+ },
+ "confidence": "high",
+ "notes": "Intent estimates are rescaled to each week's cumulative coverage estimate, a calibration step not counted as a procedure. Response rate was under 25%. CIs are in the table but their method is not stated; t-tests are named only for differences among estimates. The mid-November influenza comparison with 2022-23 is cited from an earlier report and not analysed here.",
+ "view_issues": null
+}

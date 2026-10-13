@@ -1,0 +1,25 @@
+{
+ "id": "mm7205e1",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "R3", "role": "judgment"},
+ "changes": [],
+ "equity": {
+  "level": 1,
+  "level_reason": "SVI of the testing location and race and ethnicity enter only as VE-model covariates and Table 1 descriptors; no VE is reported by SVI or race. The program's focus on high-vulnerability areas only defines the population.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [
+   {"v": "SES", "role": "population", "ses_components": ["social vulnerability"], "ev": [{"loc": "text", "q": "ICATT is designed to increase access to SARS-CoV-2 testing in areas with high social vulnerability"}]},
+   {"v": "SES", "role": "covariate", "ses_components": ["Social Vulnerability Index"], "ev": [{"loc": "table 2", "q": "Social Vulnerability Index of the testing location (<0.5 versus ≥0.5)"}]},
+   {"v": "SES", "role": "descriptor", "ses_components": ["Social Vulnerability Index"], "ev": [{"loc": "table 1", "q": "SVI, mean (SD) †"}]},
+   {"v": "race/ethnicity", "role": "covariate", "ev": [{"loc": "note", "q": "Multivariable logistic regression models were controlled for age (adjusting for single year of age), gender, race, ethnicity"}]},
+   {"v": "race/ethnicity", "role": "descriptor", "ev": [{"loc": "table 1", "q": "Race and ethnicity › Black or African American, NH"}]},
+   {"v": "age", "role": "stratifier", "ev": [{"loc": "text", "q": "VE against symptomatic BA.5-related infection was 52% among persons aged 18–49 years, 43% among persons aged 50–64, and 37% among those aged ≥65 years"}]},
+   {"v": "sex", "role": "covariate", "ev": [{"loc": "note", "q": "Multivariable logistic regression models were controlled for age (adjusting for single year of age), gender, race, ethnicity"}]}
+  ],
+  "determinants_of_health": {"v": null, "ev": []},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": "SVI is an area index of the testing location, dichotomized at 0.5 for adjustment; tests missing SVI (<1%) excluded. No group-specific VE by SVI or race."
+ },
+ "confidence": "high",
+ "notes": null
+}

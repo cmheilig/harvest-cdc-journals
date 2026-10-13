@@ -1,0 +1,45 @@
+{
+ "id": "mm7330a2",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "R3", "role": "judgment"},
+ "changes": [
+  {"field": "comparison",
+   "value": {
+    "framework": "fixed referent",
+    "scale": null,
+    "referent": "CDC blood lead reference value of 3.5 μg/dL (and DOHMH intervention levels)",
+    "across": ["family member", "time (serial BLLs)"],
+    "ev": [
+     {"loc": "text", "q": "This report describes BLLs above the CDC blood lead reference value (BLRV) of 3.5 μ g/dL among five NYC residents"},
+     {"loc": "text", "q": "both the mother and newborn had BLLs of 14 μ g/dL, which were below DOHMH’s intervention level of 15 μ g/dL at that time"}
+    ]
+   },
+   "why": "The across field should name the variables compared (family members, successive tests), not the referent itself. DOHMH's intervention level is a second fixed referent the text applies."}
+ ],
+ "equity": {
+  "level": 1,
+  "level_reason": "Immigrant origin (nativity) appears only as a descriptor of surma users and of the family; no results are reported by a social-position dimension and no disparity is framed.",
+  "level_confidence": "medium",
+  "level_alternative": {"level": 0, "reason": "Immigrant origin could be read as only defining the population of a single-family case series, which is level 0."},
+  "dimensions": [
+   {"v": "country of birth/language/nativity", "role": "descriptor", "ev": [
+     {"loc": "text", "q": "surma is often purchased abroad by South Asian, Middle Eastern, and North- and West-African immigrants and hand-carried into the United States"},
+     {"loc": "text", "q": "health warnings, which are available and are disseminated in multiple languages by trusted members of the community"}
+   ]},
+   {"v": "country of birth/language/nativity", "role": "population", "ev": [
+     {"loc": "text", "q": "an asymptomatic child, aged 4 years (child A), who had arrived from Pakistan 16 months earlier"}
+   ]},
+   {"v": "age", "role": "population", "ev": [
+     {"loc": "title", "q": "Lead Poisoning in a Mother and Her Four Children Using a Traditional Eye Cosmetic"}
+   ]}
+  ],
+  "determinants_of_health": {"v": "deeply ingrained cultural practices; blood lead testing mandates; availability of products despite sales prohibitions", "ev": [
+    {"loc": "text", "q": "the challenges of risk communication when deeply ingrained cultural practices, such as the use of surma, persist despite health warnings"},
+    {"loc": "text", "q": "effectiveness of blood lead surveillance depends on testing mandates, and might miss populations at risk of lead exposure who do not routinely receive testing"},
+    {"loc": "text", "q": "These products continue to be available globally, even in places where sales are prohibited"}
+  ]},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": "No comparison group or rates by nativity; the family's immigrant origin and cultural practice are described, not measured as social position."
+ },
+ "confidence": "high",
+ "notes": null
+}
