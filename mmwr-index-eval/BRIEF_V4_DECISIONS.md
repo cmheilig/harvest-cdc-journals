@@ -36,20 +36,20 @@ These tests are rare. About 14 of 235 reports in 2024 mention chi-square, and ma
 - (b) Do informal side-by-side displays count (rule 5), or only assessed differences? Proposed: count them, with `assessment: "side by side"`.
 
 Decision (principle): **accepted by owner.**
-Decision (rules 1–6 and schema): 
-Decision (a): 
-Decision (b): 
+Decision (rules 1–6 and schema): **accept**, with the clarification that "trend" in this setting doesn't typically include calendar time
+Decision (a): **accept proposal**
+Decision (b): **accept proposal**
 
 ## D2. Equity level-2 cap vs level 3 (brief contradicts example `mm6925a1`)
 **Issue.** The brief caps "values only set side by side (even with framing words)" at level 2 and requires a *computed* contrast for 3. Example `mm6925a1` gives level 3 for case shares set beside population or birth shares. This split readers in mm7343a3, mm7346a2, mm7235e1, mm4935a2 and mm5020a5.
 **Options.** (i) Keep the cap and correct the example to level 2. (ii) Treat a share set against its population share as a quantified shortfall that meets level 3.
 **Proposed:** (i). It keeps one test: a contrast is quantified only when the article states a difference, ratio or shortfall. It also matches `comparison.scale` = null for side-by-side values.
-Decision: 
+Decision: **accept**
 
 ## D3. When age and sex are recorded
 **Issue.** "Recorded always" was applied unevenly. Open cases: population-defining ages ("adults", ≥60, "per 100,000 aged <15"), sex as the population (pregnant persons), and articles with `data_focus` none (mm7236a2, mm7313a1, mm7218a7, mm4821a7).
 **Proposed:** Record age and sex whenever they define the population (role `population`), including age bounds that only define a denominator, and also when `data_focus` is none. Use role `stratifier` or `descriptor` when results are given by age or sex. They still raise the level only under the existing rule.
-Decision: 
+Decision: **accept**
 
 ## D4. Other dimension edge cases
 **Proposed:**
@@ -59,7 +59,7 @@ Decision:
 - Employment-status categories (unemployed, retired, disabled) → SES (mm7235a2).
 - Sampling-design strata (urbanization, minority density) → the dimension with role `covariate` (mm4903a1).
 
-Decision: 
+Decision: **accept**
 
 ## D5. Scope of `determinants_of_health`
 **Issue.** Readers disagreed over:
@@ -70,12 +70,12 @@ Decision:
 - a screening policy (mm5011a3).
 
 **Proposed:** Record a determinant when it is social, structural or political **and** the article offers it as an explanation of an outcome or a disparity, or analyzes it as the exposure or outcome. Do not record clinical or individual risk factors, or health-system disruptions with no equity framing. Regulation or policy counts only when offered as an explanation of a disparity.
-Decision: 
+Decision: **accept**; consider forking as "this reader interprets thus" + "this is evidence of how authors framed it", with index weight toward explicit author framing
 
 ## D6. `equity_action` "progress against a target"
 **Issue.** Does any target count (UNAIDS 95%, WHO 85% treatment success, elimination goals), or only a disparity target? Raised in mm7212e1, mm7314a2, mm5011a3 and by readers in AR07 and AO03.
 **Proposed:** Only a target defined as closing a gap, or a target for an SPD-defined population (e.g. a Healthy People target for a low-income population). General program targets do not count.
-Decision: 
+Decision: **accept**; comparison to a fixed referent is of interest for teaching, but it is separate from the equity attributes
 
 ## D7. `analytic_depth`: stratified vs "series over time by group"; false comparisons
 **Proposed:**
@@ -84,15 +84,15 @@ Decision:
 - Authors calling a two-way cross-tab "stratified" does not make it stratified (mm7246e1).
 - Not comparisons: case-confirmation steps (a paired-sera rise, mm7322a2), classification cutpoints (a 10-SNP relatedness rule, mm7246a5), reference standards in diagnostic accuracy (mm7316a2), duplicate checks (mm4922a3), and compliance or inspection counts in outbreak reports (mm7302a2).
 
-Decision: 
+Decision: **accept**
 
 ## D8. `comparison.scale` when a test is reported but no difference or ratio is computed
 **Proposed:** `null`. Scale follows the reported contrast, not the test. This matches the equity level-2 cap (mm7203a2, mm7207a5, mm7251a4, mm7228a3, mm7335a4).
-Decision: 
+Decision: **accept**; this one is of particular interest, as are all comparisons without contrasts, notwithstanding the possible difficulties of attaching a meausre of uncertainty or variability to a measured comparison
 
 ## D9. `data_focus` for ACIP recommendation and evidence-summary reports
 **Proposed:** `yes` when the report computes estimates of its own (e.g. work-group pooled estimates, new tables computed from trial data). `limited` when it only tabulates estimates cited from elsewhere, even with CIs (mm7241e1, mm7249a3, mm7332e1, mm7349a3, mm7229a4).
-Decision: 
+Decision: **accept**; reports that produce quantitative claims (including, e.g., weighted summaries) are of greater interest than reports that synthesize or ledger evidence only qualitatively
 
 ## D10. `data_source_type` categories
 **Proposed:**
@@ -103,11 +103,11 @@ Decision:
 - Questionnaires collected inside a surveillance program → the surveillance system (mm7208a2).
 - Pharmacy testing programs used for VE (ICATT) → `sentinel/network` (mm7207a3).
 
-Decision: 
+Decision: **accept**; this is best effort, not crucial, more likely to characterize a report than to select for or against it
 
 ## D11. `setting`
 **Proposed:** `mixed` = any combination of setting types, including US plus international cases (mm4923a3) and national results with state strata (mm7346a2). A single site such as a facility or ship → `US subnational` (mm7230a5). Data mainly from multinational trials → `international`, unless the report's own analysis is of US data (mm7241e1, mm7229a4, mm7349a3). A multistate outbreak found by national surveillance → `US national` (mm7305a5).
-Decision: 
+Decision: **accept**; this is best effort, not crucial, more likely to characterize a report than to select for or against it
 
 ## D12. Missing vocabulary
 **Proposed:**
@@ -115,19 +115,19 @@ Decision:
 - Regression families: multinomial or generalized logit → `logistic`, with a note (mm7224a2).
 - `outcome_types`: dollar outcomes and model-derived parameters (doubling time, growth rate) → `continuous` (mm7331a2, mm7224a2).
 
-Decision: 
+Decision: **accept**; study designs that are edge cases are most likely to be selected for their analytic methods
 
 ## D13. `outcome_types` edge cases
 **Proposed:** Descriptive medians of population characteristics (e.g. age of cases) do not make an outcome `continuous`. Medians of the illness's own course (incubation, duration) do (mm5020a5, mm5042a3, mm7327a3). Event counts per period with no denominator → `count/rate` (mm7218a5, mm7303a3). A cumulative risk reported as % → `binary/categorical` (mm7320a3).
-Decision: 
+Decision: **accept**, with general expectation that "risk" is unitless because numerator and denominator dimensions are the same (e.g., persons with disease per person in population), and "rate" has a unit because numerator and denominator dimensions vary (e.g., counter per unit time)
 
 ## D14. `vaccine_outcome_type`
 **Proposed:** Provider or public knowledge, attitudes and acceptability → `other` (mm7236a2). Supply, stockpile and distribution metrics → `other` (mm7316a1). A breakthrough-infection cluster with no VE computed → `other`, not `effectiveness` (mm7225a6). Animal-vaccine reports → `null` (mm7327a1).
-Decision: 
+Decision: **accept**; the operating notion behind "vaccine epidemiology" is characteristics that relate to population-level mitigation of conditions with measured vaccine effect
 
 ## D15. `condition_group`
 **Proposed:** Include the vaccine's target disease when the report is about that vaccine (mm7348a3). Tobacco and alcohol use → `substance use`. Reserve `health behaviors` for physical activity, diet, sleep and screening (mm7334a2).
-Decision: 
+Decision: include alcohol and vaping use with other substances; treat tobacco use as its own category; treat physical activity, diet, sleep as `health behaviors`
 
 ---
 
@@ -137,6 +137,7 @@ Decision:
 - **T3.** `merge_review.py`: reject unknown arguments, and drop or flag structural notes that a review contradicts.
 - **T4.** `validate.py`: enforce the evidence `loc` vocabulary, and decide whether `level_alternative: null` is allowed for the judgment reader.
 - **T5.** If D1's schema change is accepted: add `groupwise` to `validate.py` and `compare.py`, and give `examples/` one worked groupwise case.
+Decision: **concur**
 
 ## Where the work happens
 These decisions are recorded on the pilot branch (`mmwr-index-eval`), next to the evidence they answer. Brief v4, the tool changes and the second pilot go on a **new branch** after this branch is squash-merged, so that pilot 1's results stay paired with brief v3.
