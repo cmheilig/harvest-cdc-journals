@@ -1,0 +1,83 @@
+{
+ "id": "mm7234a6",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "R3", "role": "judgment"},
+ "data_focus": {"v": "yes", "ev": []},
+ "outcome_types": [
+  {"v": "count/rate", "ev": [{"loc": "text", "q": "asthma-associated ED visits on June 7 increased 81.9% (from 80.8 to 147 visits) statewide"}]},
+  {"v": "continuous", "ev": [{"loc": "text", "q": "ranging from 55.2 µ g/m 3 (Western) to 122.3 µ g/m 3 (NYC metro), representing 590% and 1,229% increases"}]}
+ ],
+ "analytic_depth": [
+  {"v": "summary", "ev": [{"loc": "text", "q": "During June 1–14, a total of 1,310 asthma-associated ED visits were identified through ESSS"}]},
+  {"v": "comparison", "ev": [{"loc": "text", "q": "Daily mean PM 2.5 concentration was compared with a PM 2.5 10-year baseline (2013–2022) for June."}]},
+  {"v": "stratified/adjusted", "ev": [{"loc": "text", "q": "Daily asthma-associated ED visits were compared between the mean of June 1–5 and June 7, 2023, stratified by region and age group."}]}
+ ],
+ "procedures": [
+  {
+   "name": "Pearson correlation coefficient",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "Pearson's ρ between paired daily mean PM2.5 and daily ED visits per region; a correlation measure, no model or test stated",
+   "role": "primary",
+   "ev": [{"loc": "text", "q": "June 1–14 Pearson’s correlation coefficients (rho[ρ]) between paired daily mean PM 2.5 and daily asthma-associated ED visits for each region were estimated."}]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "mean daily visits during June 1–5 (before the smoke event)",
+  "across": ["period", "region", "age group"],
+  "ev": [
+   {"loc": "text", "q": "Daily asthma-associated ED visits were compared between the mean of June 1–5 and June 7, 2023, stratified by region and age group."},
+   {"loc": "note", "q": "Comparisons were made with June 1–5, the period before the wildfire smoke event began and air quality reached unhealthy levels."}
+  ]
+ },
+ "inference": {"v": "none", "method_stated": false, "ev": []},
+ "primary_measures": [
+  {"v": "percent increase in ED visits", "ev": [{"loc": "text", "q": "Compared with the mean number of ED visits during June 1–5, asthma-associated ED visits on June 7 increased 81.9%"}]},
+  {"v": "daily mean PM2.5 (µg/m3)", "ev": [{"loc": "text", "q": "Daily mean PM 2.5 values were calculated using hourly measured concentrations (in µ g/m 3 )"}]},
+  {"v": "Pearson's ρ", "ev": [{"loc": "text", "q": "In those regions, the June 1–14 PM 2.5 and asthma-associated ED visit ρ ranged from 0.31 (Western) to 0.80 (Central)."}]}
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Did asthma-associated emergency department visits in New York (excluding NYC) increase during the June 2023 wildfire smoke event, and did they track daily PM2.5 concentrations by region and age group?",
+  "ev": [{"loc": "text", "q": "Characterizing such health outcomes during this wildfire smoke event can guide current and future response efforts."}]
+ },
+ "condition_group": [
+  {"v": "environmental", "ev": [{"loc": "title", "q": "Asthma-Associated Emergency Department Visits During a Wildfire Smoke Event"}]},
+  {"v": "other chronic", "ev": [{"loc": "text", "q": "PM 2.5 from wildfire smoke is associated with an increased risk for medical emergencies, including asthma exacerbations"}]}
+ ],
+ "study_design": [
+  {"v": "before/after or trend", "ev": [{"loc": "text", "q": "Daily asthma-associated ED visits were compared between the mean of June 1–5 and June 7, 2023"}]},
+  {"v": "surveillance/descriptive", "ev": [{"loc": "text", "q": "Asthma-associated emergency department (ED) visits were identified from chief complaints in the New York State Department of Health’s Electronic Syndromic Surveillance System (ESSS)"}]},
+  {"v": "ecologic", "ev": [{"loc": "text", "q": "between paired daily mean PM 2.5 and daily asthma-associated ED visits for each region were estimated."}]}
+ ],
+ "data_source_type": [
+  {"v": "state or local surveillance", "ev": [{"loc": "text", "q": "New York State Department of Health’s Electronic Syndromic Surveillance System (ESSS), capturing all 134 EDs in New York, excluding New York City (NYC)."}]},
+  {"v": "other", "ev": [{"loc": "text", "q": "from one New York State Department of Environmental Conservation § air monitor in each of eight regions"}]}
+ ],
+ "data_source_named": [
+  {"v": "New York State Department of Health Electronic Syndromic Surveillance System (ESSS)", "ev": [{"loc": "text", "q": "New York State Department of Health’s Electronic Syndromic Surveillance System (ESSS)"}]},
+  {"v": "New York State Department of Environmental Conservation air monitors", "ev": [{"loc": "text", "q": "from one New York State Department of Environmental Conservation § air monitor in each of eight regions"}]}
+ ],
+ "setting": {"v": "US subnational", "ev": [{"loc": "title", "q": "New York, June 2023"}]},
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Age-group results are reported but not framed as social position; racial disparities and health inequities are raised only in the discussion as a recommendation, without analysis by race.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 0,
+   "reason": "The only analyzed SPD is age without social-position framing; the race and equity sentences cite external data as context, which a strict reading may not count."
+  },
+  "dimensions": [
+   {"v": "age", "role": "stratifier", "ev": [{"loc": "text", "q": "Among persons aged 10–29, 30–49, 50–69, and ≥70 years, statewide asthma-associated ED visits increased 197.6% (from 16.8 to 50.0 visits)"}]},
+   {"v": "race/ethnicity", "role": "descriptor", "ev": [{"loc": "text", "q": "Children and non-Hispanic Black or African American persons disproportionately experience asthma exacerbations necessitating emergency care****; extreme weather events might worsen these health inequities"}]}
+  ],
+  "determinants_of_health": {"v": null, "ev": []},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": "Race/ethnicity was not analyzed (limited covariate data); the disparity statement cites external CDC asthma data."
+ },
+ "confidence": "medium",
+ "notes": "Prepass chi-square and Yates cues are false hits (Pearson's correlation; Yates County). Percent increases versus the June 1–5 mean and versus the 10-year PM2.5 baseline are arithmetic, not procedures. Ecologic is listed because the correlation uses region-day aggregates.",
+ "view_issues": null
+}

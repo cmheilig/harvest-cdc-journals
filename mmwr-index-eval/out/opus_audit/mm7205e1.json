@@ -1,0 +1,108 @@
+{
+ "id": "mm7205e1",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "R3", "role": "judgment"},
+ "data_focus": {"v": "yes", "ev": []},
+ "outcome_types": [
+  {"v": "binary/categorical", "ev": [
+   {"loc": "text", "q": "Among 29,175 NAAT results among persons with COVID-19–like illness symptoms eligible for this analysis, 13,648 (47%) were positive for SARS-CoV-2"},
+   {"loc": "text", "q": "Relative VE of a bivalent booster dose was calculated by comparing odds of receipt of a bivalent booster dose"}
+  ]}
+ ],
+ "analytic_depth": [
+  {"v": "summary", "ev": [
+   {"loc": "text", "q": "including 10,596 (78%) with SGTF (BA.5-related) and 3,052 (22%) with SGTP (XBB/XBB.1.5-related)"}
+  ]},
+  {"v": "comparison", "ev": [
+   {"loc": "text", "q": "More control-patients who received negative SARS-CoV-2 test results reported having received a bivalent COVID-19 mRNA booster (34%) than did case-patients"}
+  ]},
+  {"v": "stratified/adjusted", "ev": [
+   {"loc": "note", "q": "Multivariable logistic regression models were controlled for age (adjusting for single year of age), gender, race, ethnicity, SVI of the testing location"},
+   {"loc": "text", "q": "VE against symptomatic BA.5-related infection was 52% among persons aged 18–49 years, 43% among persons aged 50–64, and 37% among those aged ≥65 years"}
+  ]}
+ ],
+ "procedures": [
+  {"name": "multivariable logistic regression (test-negative design)", "class": "regression", "regression_family": "logistic",
+   "inferred_from": "'Odds ratios (ORs) were estimated using multivariable logistic regression' → logistic; VE = (1 − aOR) × 100 is arithmetic on the model output",
+   "role": "primary",
+   "ev": [
+    {"loc": "text", "q": "Odds ratios (ORs) were estimated using multivariable logistic regression***; VE was calculated separately based on SGTF/SGTP status as (1 − OR) x 100."}
+   ]}
+ ],
+ "comparison": {
+  "framework": "pair", "scale": "relative",
+  "referent": "received 2–4 monovalent doses only (no bivalent booster)",
+  "across": ["bivalent booster receipt", "S-gene target status (BA.5- vs XBB/XBB.1.5-related)", "age group", "time since bivalent booster"],
+  "ev": [
+   {"loc": "table 2", "q": "Received 2–4 monovalent doses only (Ref)"},
+   {"loc": "text", "q": "the relative VE of a bivalent booster dose given 2–3 months earlier compared with no bivalent booster in persons aged 18–49 years was 52%"}
+  ]},
+ "inference": {"v": "CIs", "method_stated": true, "ev": [
+  {"loc": "table 2", "q": "VE (95% CI)"},
+  {"loc": "table 2", "q": "VE = (1 – adjusted odds ratio) x 100. Odds ratios were calculated using multivariable logistic regression"}
+ ]},
+ "primary_measures": [
+  {"v": "relative VE", "ev": [{"loc": "table 2", "q": "Relative vaccine effectiveness* of a single bivalent mRNA COVID-19 booster received after 2–4 monovalent vaccine doses against symptomatic SARS-CoV-2 infection"}]},
+  {"v": "adjusted odds ratio", "ev": [{"loc": "table 2", "q": "VE = (1 – adjusted odds ratio) x 100."}]},
+  {"v": "percentage", "ev": [{"loc": "table 1", "q": "No. (Col. %)"}]}
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {"v": "none", "ev": []},
+  "unadjusted_results": {"v": false, "ev": []},
+  "adjusted_results": {"v": true, "ev": [{"loc": "table 2", "q": "VE = (1 – adjusted odds ratio) x 100."}]},
+  "confounders": {"v": "single year of age, gender, race, ethnicity, SVI of testing location (<0.5 vs ≥0.5), underlying conditions, HHS region, local incidence, testing calendar date", "ev": [
+   {"loc": "table 2", "q": "adjusting for single year of age, gender, race, ethnicity, Social Vulnerability Index of the testing location (<0.5 versus ≥0.5), underlying conditions (presence versus absence)"},
+   {"loc": "table 2", "q": "local incidence (cases per 100,000 by individual county and state in the 7 days before test date), and testing calendar date."}
+  ]},
+  "interaction_modeled": {"v": false, "ev": []},
+  "sensitivity_analysis": {"v": true, "ev": [
+   {"loc": "text", "q": "Sensitivity analyses were conducted using two intervals, December 11, 2022–January 13, 2023, and December 18, 2022–January 13, 2023"}
+  ]}
+ },
+ "public_health_question": {"v": "How effective is a bivalent mRNA booster, relative to 2–4 monovalent doses only, against symptomatic infection with BA.5-related and XBB/XBB.1.5-related Omicron sublineages among immunocompetent adults?", "ev": [
+  {"loc": "text", "q": "were analyzed to estimate VE of updated (bivalent) mRNA COVID-19 vaccines against symptomatic infection caused by BA.5-related and XBB/XBB.1.5-related sublineages among immunocompetent adults"}
+ ]},
+ "condition_group": [
+  {"v": "COVID", "ev": [{"loc": "title", "q": "Early Estimates of Bivalent mRNA Booster Dose Vaccine Effectiveness in Preventing Symptomatic SARS-CoV-2 Infection"}]}
+ ],
+ "study_design": [
+  {"v": "test-negative", "ev": [
+   {"loc": "text", "q": "Case-patients were persons who received a positive laboratory-based NAAT result"},
+   {"loc": "text", "q": "control-patients were those who received a negative NAAT result."}
+  ]}
+ ],
+ "data_source_type": [
+  {"v": "sentinel/network", "ev": [
+   {"loc": "text", "q": "Data from the Increasing Community Access to Testing (ICATT) national pharmacy program for SARS-CoV-2 testing were analyzed"},
+   {"loc": "text", "q": "at test registration, adults report information on vaccination history"}
+  ]}
+ ],
+ "data_source_named": [
+  {"v": "Increasing Community Access to Testing (ICATT) program", "ev": [{"loc": "text", "q": "Data from the Increasing Community Access to Testing (ICATT) national pharmacy program for SARS-CoV-2 testing were analyzed"}]},
+  {"v": "Social Vulnerability Index (SVI)", "ev": [{"loc": "note", "q": "The Social Vulnerability Index (SVI) is a tool that uses U.S. Census Bureau data on 16 social factors"}]}
+ ],
+ "setting": {"v": "US national", "ev": [{"loc": "text", "q": "through testing at selected pharmacy- and community-based testing sites nationwide."}]},
+ "vaccine_outcome_type": {"v": "effectiveness", "ev": [{"loc": "summary", "q": "a bivalent mRNA booster dose provided additional protection against symptomatic XBB/XBB.1.5 infection for at least the first 3 months after vaccination"}]},
+ "equity": {
+  "level": 1,
+  "level_reason": "Race, ethnicity and tract-level SVI enter only as covariates in the VE model, and race/ethnicity appears as a Table 1 descriptor; no group-specific VE by an SPD is reported. Age strata alone do not raise the level.",
+  "level_confidence": "high",
+  "level_alternative": {"level": 2, "reason": "Table 1 sets case and control distributions by race/ethnicity side by side, which a lenient reading could treat as group-specific results."},
+  "dimensions": [
+   {"v": "race/ethnicity", "role": "covariate", "ev": [{"loc": "note", "q": "Multivariable logistic regression models were controlled for age (adjusting for single year of age), gender, race, ethnicity"}]},
+   {"v": "race/ethnicity", "role": "descriptor", "ev": [{"loc": "table 1", "q": "Race and ethnicity › Black or African American, NH"}]},
+   {"v": "SES", "role": "covariate", "ses_components": ["SVI of the testing location"], "ev": [{"loc": "note", "q": "SVI of the testing location (<0.5 versus ≥0.5)"}]},
+   {"v": "SES", "role": "population", "ses_components": ["areas with high social vulnerability"], "ev": [{"loc": "text", "q": "ICATT is designed to increase access to SARS-CoV-2 testing in areas with high social vulnerability"}]},
+   {"v": "age", "role": "stratifier", "ev": [{"loc": "table 2", "q": "by age group and S -gene target status"}]},
+   {"v": "age", "role": "covariate", "ev": [{"loc": "table 2", "q": "adjusting for single year of age"}]},
+   {"v": "sex", "role": "covariate", "ev": [{"loc": "table 2", "q": "adjusting for single year of age, gender, race, ethnicity"}]}
+  ],
+  "determinants_of_health": {"v": "social vulnerability (SVI) of the testing location", "ev": [
+   {"loc": "note", "q": "SVI of the testing location (<0.5 versus ≥0.5)"}
+  ]},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": "SVI is an area-level (census tract of testing site) proxy dichotomized at 0.5 and used only for adjustment; race groups other than Black, Hispanic and White are collapsed into Other, NH."
+ },
+ "confidence": "high",
+ "notes": "SGTF/SGTP (from Ct-value differences) is a variant proxy that defines case groups, treated as case definition rather than a procedure. Sequencing and Nowcast variant proportions with CIs/PIs are context, not the main analysis. Waning is judged from point estimates by time since booster, with no formal test.",
+ "view_issues": null
+}

@@ -1,0 +1,107 @@
+{
+ "id": "mm7240a3",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "R3", "role": "judgment"},
+ "data_focus": {"v": "yes", "ev": []},
+ "outcome_types": [
+  {"v": "count/rate", "ev": [{"loc": "summary", "q": "hospitalization rates more than doubled, from 6.8 per 100,000 during the week ending July 15 to 16.4 per 100,000"}]},
+  {"v": "binary/categorical", "ev": [{"loc": "text", "q": "Among the sampled patients, 176 (14.4%) were admitted to an ICU, 68 (5.9%) received invasive mechanical ventilation, and 63 (4.8%) patients died"}]}
+ ],
+ "analytic_depth": [
+  {"v": "summary", "ev": [{"loc": "text", "q": "Nearly all sampled patients (1,112 [98.5%; 95% CI = 97.4%–99.2%]) had at least one underlying condition"}]},
+  {"v": "comparison", "ev": [
+   {"loc": "text", "q": "the rate among adults aged ≥65 years was nine times as high as that among adults aged 18–64 years (1.8)"},
+   {"loc": "text", "q": "a one third increase from 45.9% during March 2020–December 2022 (p<0.01)"}
+  ]}
+ ],
+ "procedures": [
+  {
+   "name": "sampling weights for chart-abstraction sample",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weighted percentages from an age- and site-stratified random sample; every clinical percentage is weighted",
+   "role": "primary",
+   "ev": [
+    {"loc": "text", "q": "Unweighted case counts and weighted percentages that better represent the hospitalized population of the catchment area ( 2 ) are presented for sampled data."},
+    {"loc": "figure 2", "q": "Proportions are from a weighted sample of hospitalized adults with completed medical chart abstraction and a discharge disposition."}
+   ]
+  },
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named test behind the reported p-values (period shift in age share; subgroup outcomes)",
+   "role": "primary",
+   "ev": [{"loc": "text", "q": "Statistical differences between groups were assessed using chi-square tests; p<0.05 were considered statistically significant."}]
+  },
+  {
+   "name": "suppression of unstable or small-sample estimates",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "cells with n<10 suppressed; RSE>30 flagged",
+   "role": "ancillary",
+   "ev": [{"loc": "table 1", "q": "Data are not presented for cells with sample size <10."}]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "adults aged 18–64 years and persons aged <18 years",
+  "across": ["age group", "period"],
+  "ev": [
+   {"loc": "text", "q": "the rate among adults aged ≥65 years was nine times as high as that among adults aged 18–64 years (1.8) and 16 times as high as that among persons aged <18 years"}
+  ]
+ },
+ "inference": {"v": "CIs and tests", "method_stated": true, "ev": [
+  {"loc": "text", "q": "variances were estimated using Taylor series linearization method. Statistical differences between groups were assessed using chi-square tests"}
+ ]},
+ "primary_measures": [
+  {"v": "hospitalization rate per 100,000", "ev": [{"loc": "text", "q": "rates (hospitalizations per 100,000 population) include all COVID-19–associated hospitalizations."}]},
+  {"v": "weighted percentage", "ev": [{"loc": "text", "q": "Unweighted case counts and weighted percentages that better represent the hospitalized population of the catchment area"}]},
+  {"v": "median length of stay (IQR)", "ev": [{"loc": "table 1", "q": "Hospitalization intervention or outcome › Length of stay, days, median (IQR)"}]}
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What were COVID-19–associated hospitalization rates among adults aged ≥65 years in January–August 2023, and what were the demographic, clinical and vaccination characteristics of those hospitalized?",
+  "ev": [{"loc": "summary", "q": "estimate COVID-19–associated hospitalization rates during January–August 2023 and identify demographic and clinical characteristics of hospitalized patients aged ≥65 years during January–June 2023"}]
+ },
+ "condition_group": [
+  {"v": "COVID", "ev": [{"loc": "title", "q": "COVID-19–Associated Hospitalizations Among U.S. Adults Aged ≥65 Years"}]}
+ ],
+ "study_design": [
+  {"v": "surveillance/descriptive", "ev": [{"loc": "text", "q": "COVID-NET † conducts population-based surveillance for laboratory-confirmed COVID-19–associated hospitalizations among catchment area residents in 98 counties and across 13 U.S. states."}]},
+  {"v": "before/after or trend", "ev": [{"loc": "text", "q": "weekly rates of COVID-19–associated hospitalization among adults aged ≥65 years decreased 86%, from a high of 42.2 to 5.9 per 100,000"}]}
+ ],
+ "data_source_type": [
+  {"v": "sentinel/network", "ev": [{"loc": "summary", "q": "Data from the COVID-19–Associated Hospitalization Surveillance Network (COVID-NET) were analyzed"}]},
+  {"v": "record abstraction or interview", "ev": [{"loc": "text", "q": "trained surveillance officers abstracted demographic and clinical data from the medical charts of an age- and site-stratified random sample of hospitalized adults"}]},
+  {"v": "vaccination registry", "ev": [{"loc": "text", "q": "was obtained from state immunization information systems."}]}
+ ],
+ "data_source_named": [
+  {"v": "COVID-19–Associated Hospitalization Surveillance Network (COVID-NET)", "ev": [{"loc": "title", "q": "COVID-NET, 13 States, January–August 2023"}]},
+  {"v": "state immunization information systems", "ev": [{"loc": "text", "q": "was obtained from state immunization information systems."}]}
+ ],
+ "setting": {"v": "US subnational", "ev": [{"loc": "text", "q": "among catchment area residents in 98 counties and across 13 U.S. states."}]},
+ "vaccine_outcome_type": {"v": "coverage/uptake", "ev": [{"loc": "summary", "q": "Only 23.5% had received the recommended COVID-19 bivalent vaccine."}]},
+ "equity": {
+  "level": 1,
+  "level_reason": "Age defines the population and strata without social-position framing; race/ethnicity and long-term care residence appear only as descriptive Table counts, not discussed as group-specific results or disparities.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 2,
+   "reason": "Long-term care residence among older adults (a congregate setting) is reported by age group and described in the text, which a looser reading treats as group-specific results by an SPD."
+  },
+  "dimensions": [
+   {"v": "age", "role": "population", "ev": [{"loc": "title", "q": "COVID-19–Associated Hospitalizations Among U.S. Adults Aged ≥65 Years"}]},
+   {"v": "age", "role": "stratifier", "ev": [{"loc": "text", "q": "COVID-19–associated hospitalization rates were highest among those aged ≥85 years (42.2) and lowest among adults aged 65–74 years (8.6)."}]},
+   {"v": "race/ethnicity", "role": "descriptor", "ev": [{"loc": "table 1", "q": "Race and ethnicity › Black or African American"}]},
+   {"v": "sex", "role": "descriptor", "ev": [{"loc": "table 1", "q": "Sex › Female"}]},
+   {"v": "other", "role": "descriptor", "ev": [{"loc": "text", "q": "overall, 202 (17.7%) patients were residents of a long-term care facility (LTCF)."}]}
+  ],
+  "determinants_of_health": {"v": null, "ev": []},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": "Unknown ethnicity assumed non-Hispanic; AI/AN and multiracial persons collapsed into 'all other races'; cells <10 suppressed."
+ },
+ "confidence": "medium",
+ "notes": "Taylor series linearization gives variances for weighted percentages (complex sample design). Vaccination status is reported among hospitalized patients, not population coverage; recorded as coverage/uptake because it is a headline finding. Underlying conditions are descriptive characteristics, not exposures.",
+ "view_issues": "Table Male row gives (79.1)/(68.9)/(87.9)/(78.4) with no counts, inconsistent with Female 48.8%. Abstract says 62.9% (95% CI 60.1–65.7), Results 62.8% with the same CI; Discussion says 'approximately one half' of hospitalizations and ICU admissions, contradicting 62.9% and 61.3%."
+}

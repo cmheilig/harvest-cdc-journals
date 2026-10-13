@@ -1,0 +1,60 @@
+{
+ "id": "mm7226a9",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "R3", "role": "judgment"},
+ "data_focus": {"v": "yes", "ev": [{"loc": "figure 1", "q": "Black or African American (Black) males had the highest age-adjusted rate of firearm-related homicide (52.9 deaths per 100,000 standard population)"}]},
+ "outcome_types": [
+  {"v": "count/rate", "ev": [{"loc": "figure 1", "q": "Among females, Black females had the highest rate (7.5), and Asian females had the lowest rate (0.5)."}]}
+ ],
+ "analytic_depth": [
+  {"v": "comparison", "ev": [{"loc": "figure 1", "q": "Males had higher rates than females across all race and Hispanic origin groups."}]},
+  {"v": "stratified/adjusted", "ev": [{"loc": "note", "q": "Deaths per 100,000 population are age-adjusted to the 2000 U.S. standard population"}, {"loc": "figure 1", "q": "In 2021, among males, Black or African American (Black) males had the highest age-adjusted rate of firearm-related homicide"}]}
+ ],
+ "procedures": [
+  {"name": "direct age standardization (2000 U.S. standard population)", "class": "standardization", "regression_family": null, "inferred_from": "rates 'age-adjusted to the 2000 U.S. standard population' = direct standardization", "role": "primary", "ev": [{"loc": "note", "q": "Deaths per 100,000 population are age-adjusted to the 2000 U.S. standard population, with 95% CIs indicated by error bars."}]}
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": ["race and Hispanic origin", "sex"],
+  "ev": [{"loc": "title", "q": "Age-Adjusted Rates* of Firearm-Related Homicide, † by Race, § Hispanic Origin, and Sex"}, {"loc": "figure 1", "q": "Males had higher rates than females across all race and Hispanic origin groups."}]
+ },
+ "inference": {"v": "CIs", "method_stated": false, "ev": [{"loc": "note", "q": "with 95% CIs indicated by error bars."}]},
+ "primary_measures": [
+  {"v": "age-adjusted rate per 100,000 standard population", "ev": [{"loc": "figure 1", "q": "(52.9 deaths per 100,000 standard population)"}]}
+ ],
+ "regression_fields": null,
+ "public_health_question": {"v": "How did age-adjusted firearm-related homicide rates in the United States in 2021 differ by race, Hispanic origin and sex?", "ev": [{"loc": "title", "q": "Age-Adjusted Rates* of Firearm-Related Homicide, † by Race, § Hispanic Origin, and Sex — National Vital Statistics System, United States, 2021"}]},
+ "condition_group": [
+  {"v": "injury/poisoning", "ev": [{"loc": "note", "q": "Firearm-related homicides were identified using International Classification of Diseases, Tenth Revision underlying cause-of-death codes U01.4 and X93–X95."}]}
+ ],
+ "study_design": [
+  {"v": "surveillance/descriptive", "ev": [{"loc": "note", "q": "Source: National Center for Health Statistics, National Vital Statistics System, Mortality Data, 2021."}]}
+ ],
+ "data_source_type": [
+  {"v": "CDC surveillance system", "ev": [{"loc": "note", "q": "Source: National Center for Health Statistics, National Vital Statistics System, Mortality Data, 2021."}]}
+ ],
+ "data_source_named": [
+  {"v": "National Vital Statistics System, Mortality Data", "ev": [{"loc": "note", "q": "Source: National Center for Health Statistics, National Vital Statistics System, Mortality Data, 2021."}]}
+ ],
+ "setting": {"v": "US national", "ev": [{"loc": "title", "q": "National Vital Statistics System, United States, 2021"}]},
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Firearm homicide rates are reported by race and Hispanic origin within sex, with highest and lowest groups described, but no difference or ratio is computed and the contrast is not framed or interpreted as a disparity.",
+  "level_confidence": "high",
+  "level_alternative": {"level": 3, "reason": "Naming the highest (Black males, 52.9) and lowest (Asian males, 1.5) groups could be read as an implicitly quantified disparity, though no contrast is computed."},
+  "dimensions": [
+   {"v": "race/ethnicity", "role": "primary comparison", "ev": [{"loc": "figure 1", "q": "Black or African American (Black) males had the highest age-adjusted rate of firearm-related homicide"}]},
+   {"v": "race/ethnicity", "role": "descriptor", "ev": [{"loc": "note", "q": "might be affected by misclassification of race and Hispanic origin on death certificates."}]},
+   {"v": "sex", "role": "cross-classifier", "ev": [{"loc": "figure 1", "q": "Males had higher rates than females across all race and Hispanic origin groups."}]},
+   {"v": "age", "role": "covariate", "ev": [{"loc": "note", "q": "Deaths per 100,000 population are age-adjusted to the 2000 U.S. standard population"}]}
+  ],
+  "determinants_of_health": {"v": null, "ev": []},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": "Race groups are non-Hispanic with Hispanic of any race; NHOPI not shown separately because of small numbers; rates for Asian, AI/AN and Hispanic persons may be affected by death-certificate misclassification."
+ },
+ "confidence": "high",
+ "notes": "QuickStats figure with age-adjusted rates and 95% CI error bars; no tests or computed contrasts. Total male (11.1) and female (2.1) rates are given only in a footnote.",
+ "view_issues": null
+}
