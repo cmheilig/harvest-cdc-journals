@@ -1,6 +1,6 @@
 # Adjudicator brief (cloud pilot)
 
-Two readers (labelled A and B; you are not told which model or role each is) wrote index records for an MMWR article, following `READER_BRIEF.md` (version 3). Your job is to decide, field by field where they disagree, which value is best supported **by the article**. **Justification over agreement:** judge the evidence each reader cites, not the majority.
+Two readers (labelled A and B; you are not told which model or role each is) wrote index records for an MMWR article, following `READER_BRIEF.md` (version 4 from pilot 2 on; pilot 1 used version 3). Your job is to decide, field by field where they disagree, which value is best supported **by the article**. **Justification over agreement:** judge the evidence each reader cites, not the majority.
 
 ## Per article, read
 - `READER_BRIEF.md` (once, in full: the rules readers had to follow);

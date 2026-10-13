@@ -268,12 +268,12 @@
  },
  "vaccine_outcome_type": null,
  "equity": {
-  "level": 3,
-  "level_reason": "The Summary frames Hispanic and Black pregnant women as disproportionately affected, quantified by their shares of pregnant cases versus shares of 2019 births (46% vs 24%; 22% vs 15%) and interpreted; no specific determinants are named.",
+  "level": 2,
+  "level_reason": "Hispanic and Black pregnant women are described as disproportionately affected, but the contrast is shares of cases set beside shares of 2019 births (46% vs 24%; 22% vs 15%) with no stated difference or ratio, so brief v4 caps it at 2.",
   "level_confidence": "medium",
   "level_alternative": {
-   "level": 2,
-   "reason": "The disproportion is shown as shares of cases against shares of births; a stricter reading treats this as stratified, not a framed disparity."
+   "level": 3,
+   "reason": "Brief v3, and this example's earlier version, read the share-of-cases vs share-of-births contrast as a quantified disparity."
   },
   "dimensions": [
    {
@@ -341,6 +341,41 @@
   },
   "equity_measurement": "Racial/ethnic shares of pregnant cases are compared with an external referent (women who gave birth in 2019); race/ethnicity is missing for 20% of pregnant women; American Indian/Alaska Native and Native Hawaiian/Other Pacific Islander are collapsed into other."
  },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "46% were Hispanic, 22% were black, and 23% were white; these proportions differ from those among women with reported race/ethnicity who gave birth in 2019"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": null,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "When stratified by age, all outcomes (hospitalization, ICU admission, receipt of mechanical ventilation, and death) were more frequently reported among women aged 35–44 years"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level"
+ ],
  "confidence": "high",
  "notes": "Risk ratios are given only for all women; the age and race/ethnicity rows of Table 2 give stratum percentages without stratum-specific ratios. Interaction and sensitivity analysis are not mentioned, so both are null.",
  "view_issues": "Table 2 CSV repeats each outcome's overall crude and adjusted risk ratio in every age and race/ethnicity row (merged cells expanded), and the ICU block lists 'Hispanic or Latino' twice."

@@ -39,6 +39,11 @@ def norm(r):
         'equity_dimensions': frozenset(d['v'] for d in eq['dimensions']),
         'equity_action': eq['equity_action']['v'],
         'has_determinants': bool((eq['determinants_of_health'] or {}).get('v')),
+        # brief v4 fields; .get() keeps v3 records (pilot 1) comparable
+        'groupwise_any': bool(r.get('groupwise')),
+        'groupwise_dims': frozenset(d for g in r.get('groupwise', []) for d in g['across']),
+        'groupwise_assessments': frozenset(g['assessment'] for g in r.get('groupwise', [])),
+        'ci_overlap': bool(r['inference'].get('ci_overlap')),
     }
     for k in ('nonindependence_approach', 'unadjusted_results', 'adjusted_results', 'interaction_modeled', 'sensitivity_analysis'):
         f['rf_' + k] = (rf.get(k) or {}).get('v') if rf else 'n/a'
