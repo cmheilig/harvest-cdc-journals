@@ -129,6 +129,40 @@ Decision: **accept**; the operating notion behind "vaccine epidemiology" is char
 **Proposed:** Include the vaccine's target disease when the report is about that vaccine (mm7348a3). Tobacco and alcohol use → `substance use`. Reserve `health behaviors` for physical activity, diet, sleep and screening (mm7334a2).
 Decision: include alcohol and vaping use with other substances; treat tobacco use as its own category; treat physical activity, diet, sleep as `health behaviors`
 
+## D16. Tests by CI inversion (owner's decision, after reviewing audit adjudications)
+**Issue.** Readers and adjudicators split over whether VE, RR or OR results whose CIs exclude the null imply a test when the article states no judgment (mm7229a4, mm7205e1, mm4910a3). This decided `has_test` and `inference`, and it accounts for most of the audit's calibration differences.
+**Owner's principle.** A CI that excludes (or includes) the null value is a valid test of that hypothesis **by inversion**, even when the article does not say so. The inferred test method depends on whether the **CI construction method** is named or described.
+**Proposed rules for the brief** (section C, `test`):
+1. Record a test `"name": "CI vs fixed value (inversion)"`, with `inferred_from` saying so, when a CI for a contrast with a defined null value (1 for ratios, 0 for differences and VE, a stated target) is reported **and** the article draws a conclusion from it (an effect, a difference, protection, "no difference" or "similar").
+2. **Method:** when the CI construction is named or described (Wald, exact or Clopper-Pearson, Wilson, profile likelihood, Taylor series, bootstrap, model-based from a named regression), record it in `inferred_from` and set `inference.method_stated` true. Otherwise write "CI method not stated", and `method_stated` is false.
+3. **Overlap is not a test.** Judgments from overlapping or non-overlapping CIs of two separate estimates are never recorded as a test. Record them under `inference` with a flag (`ci_overlap: true`) so they can be found. Exception: when the article says no other operational method was available, add a note saying so; it is still not a test.
+
+**Open choice:** does rule 1 need the article to draw a conclusion from the CI, or does any reported CI for a contrast count as a test by inversion? Proposed: a conclusion is required. A bare CI with no claim is estimation (`inference` "CIs").
+Decision (principle): **accepted by owner.**
+Decision (rules 1–3): 
+Decision (open choice): 
+
+## D17. A design category for evaluation, program evaluation and monitoring (owner's decision)
+**Issue.** No `study_design` value fits program or policy evaluations, evaluations of a surveillance system or indicator, or performance monitoring against targets (mm7346a3, mm7314a2). A non-randomized field test of an intervention (mm7305a4) keeps D12's `non-randomized trial`, unless the report calls itself an evaluation.
+**Owner's position.** Admit a category for these, and prefer **the design the report assigns itself** over a design inferred from described characteristics.
+**Proposed:**
+- Add the value `evaluation or monitoring` (program, policy or intervention evaluation; surveillance-system or indicator evaluation; monitoring progress against targets). Routine surveillance reports stay `surveillance/descriptive`.
+- General rule for `study_design`: when the report names its design ("evaluation", "case-control", "field trial", "cross-sectional survey"), use that, mapped to the nearest value. Infer only when no design is named, and note it.
+- This preference applies to `study_design`. For method fields, owner note D5 (record "this reader interprets thus" separately from "how the authors framed it") is the model. D7's rule that an authors' "stratified" label does not decide `analytic_depth` still stands.
+
+Decision: 
+
+## D18. Production design: one Opus reader, a selective second reader (owner's decision, held loosely)
+**Basis.** The audit (`reports/AUDIT_REPORT.md`): review mode anchors on the first reader and saves little.
+**Owner's position.** Dispatch **one Opus reader per article**. Apply a **second reader selectively**, concentrating on uncertainty about **statistical methods** and **health equity**, and on **full reports published 2016–2024 inclusive**. Fields the owner called best effort (data source D10, setting D11, and similar characterizing fields) do not trigger a second read.
+**Needed to make it work:**
+- The reader must flag uncertainty by field, not only for the whole record. Proposed: a list `uncertain_fields`, restricted to the method fields (`procedures`, `regression_fields`, `inference`, `comparison`, `analytic_depth`, `groupwise`, `outcome_types`, `study_design`) and the equity fields (`level`, `dimensions`, `groupwise`). A trigger is any entry there, equity `level_confidence` below high, or an `alternative_reading` on a procedure.
+- `article_type` and publication year already exist in the sample metadata.
+
+**Open choice:** is "full reports 2016–2024" (a) a stratum where *every* report gets a second reader, or (b) a stratum where uncertainty triggers a second reader at a lower threshold (any flagged method or equity field), while older and other article types need low confidence? Scale: the 2024 mirror list has about 4,350 MMWR weekly articles for 2016–2024; by the pilot's mix, roughly 2,500 are full reports. So (a) means about 2,500 second reads, while (b) scales with flagged uncertainty. Proposed: (b).
+Decision (design): **accepted by owner, held loosely.**
+Decision (open choice): 
+
 ---
 
 ## Tooling fixes (no decision needed unless you object)
