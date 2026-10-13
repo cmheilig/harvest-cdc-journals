@@ -140,7 +140,7 @@ Decision: include alcohol and vaping use with other substances; treat tobacco us
 **Open choice:** does rule 1 need the article to draw a conclusion from the CI, or does any reported CI for a contrast count as a test by inversion? Proposed: a conclusion is required. A bare CI with no claim is estimation (`inference` "CIs").
 Decision (principle): **accepted by owner.**
 Decision (rules 1–3): 
-Decision (open choice): 
+Decision (open choice): **owner: only when the article draws a conclusion from the CI.** Owner's note: MMWR authors are fairly consistent in naming hypothesis-test results inferred from CIs, and much less consistent in saying how the intervals were constructed. So expect `CI method not stated` to be common, and do not treat it as a reader error.
 
 ## D17. A design category for evaluation, program evaluation and monitoring (owner's decision)
 **Issue.** No `study_design` value fits program or policy evaluations, evaluations of a surveillance system or indicator, or performance monitoring against targets (mm7346a3, mm7314a2). A non-randomized field test of an intervention (mm7305a4) keeps D12's `non-randomized trial`, unless the report calls itself an evaluation.
@@ -161,7 +161,7 @@ Decision:
 
 **Open choice:** is "full reports 2016–2024" (a) a stratum where *every* report gets a second reader, or (b) a stratum where uncertainty triggers a second reader at a lower threshold (any flagged method or equity field), while older and other article types need low confidence? Scale: the 2024 mirror list has about 4,350 MMWR weekly articles for 2016–2024; by the pilot's mix, roughly 2,500 are full reports. So (a) means about 2,500 second reads, while (b) scales with flagged uncertainty. Proposed: (b).
 Decision (design): **accepted by owner, held loosely.**
-Decision (open choice): 
+Decision (open choice): **owner: (b).** Uncertainty triggers a second reader more easily in full reports published 2016–2024. Owner's metadata counts **1,885 full reports** in that period. This segment is the primary value of the corpus; the rest is of interest but less likely to supply primary examples.
 
 ---
 
