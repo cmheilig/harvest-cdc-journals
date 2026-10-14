@@ -1,0 +1,20 @@
+{"id": "mm7332e1",
+ "fields": [
+  {"field": "has_regression", "verdict": true, "correct": ["A"], "category": "omission", "why": "Table 1 note says VE was 'Manufacturer-calculated efficacy based on hazard ratios', which implies a proportional-hazards model; B recorded the event-time outcome from the same note but not the model, while both readers record methods behind other cited estimates (the IRR's CI inversion)."},
+  {"field": "regression_families", "verdict": ["event-time"], "correct": ["A"], "category": "omission", "why": "Hazard ratios map to the event-time family; the model is unnamed, which A states in inferred_from."},
+  {"field": "procedure_classes", "verdict": ["other", "regression", "test", "transformation"], "correct": ["A"], "category": "omission", "why": "Follows from the hazard-ratio model behind Table 1's VE; the other classes are agreed."},
+  {"field": "comparison_framework", "verdict": "group", "correct": ["A"], "category": "reader error", "why": "Besides the pairwise vaccine-vs-placebo and risk-vs-control-interval contrasts, Table 1 sets VE across four follow-up periods and Table 2 sets benefit-risk across three age/risk groups for each product; the brief says to use group when pair and group coexist."},
+  {"field": "equity_level", "verdict": 1, "correct": ["A"], "category": "reader error", "why": "Rurality appears as a descriptor framed as access ('remote or rural community where transportation ... is challenging'), which is level 1 by rule; B recorded the same rurality descriptor yet scored 0."},
+  {"field": "has_determinants", "verdict": true, "correct": ["A"], "category": "ambiguity", "why": "Transportation barriers to escalation of care in rural or remote areas are offered as the reason that residence raises risk of severe RSV disease (a structural explanation of an outcome); reading it as a clinical risk factor in a box, as B did, is also defensible."},
+  {"field": "groupwise_any", "verdict": false, "correct": ["B"], "category": "brief gap", "why": "Table 2's three groups cross a two-level SPD (≥75 vs 60–74 years) with clinical status, which is not an SPD, so no three-group SPD set exists; A noted this itself but still made an entry. Rule needed: groups formed by crossing an SPD with a non-SPD variable count only by their SPD levels."},
+  {"field": "groupwise_dims", "verdict": [], "correct": ["B"], "category": "brief gap", "why": "Follows groupwise_any."},
+  {"field": "groupwise_assessments", "verdict": [], "correct": ["B"], "category": "brief gap", "why": "Follows groupwise_any."},
+  {"field": "rf_nonindependence_approach", "verdict": "none", "correct": ["A"], "category": "omission", "why": "Once the hazard model is recorded, regression_fields must be filled; nothing is stated about nonindependence, so 'none' with ev [] is acceptable."},
+  {"field": "rf_unadjusted_results", "verdict": null, "correct": ["A"], "category": "omission", "why": "The manufacturer model's covariates are not given, so the methods are too sketchy to tell; null is acceptable under the brief."},
+  {"field": "rf_adjusted_results", "verdict": null, "correct": ["A"], "category": "omission", "why": "Same as unadjusted: the covariates of the cited model are not reported."},
+  {"field": "rf_interaction_modeled", "verdict": false, "correct": ["A"], "category": "omission", "why": "No interaction term or test is reported; the default is false."},
+  {"field": "rf_sensitivity_analysis", "verdict": false, "correct": ["A"], "category": "omission", "why": "The follow-up windows in Table 1 are the waning comparison rather than a re-analysis, so the default false holds."}
+ ],
+ "justification": {"A": "good", "B": "adequate"},
+ "agreed_errors": [],
+ "brief_issues": "Two gaps: whether methods behind estimates only cited in an ACIP summary (manufacturer HRs, FDA SCCS IRR) are recorded as procedures; and how to count groupwise groups formed by crossing an SPD with a clinical variable."}

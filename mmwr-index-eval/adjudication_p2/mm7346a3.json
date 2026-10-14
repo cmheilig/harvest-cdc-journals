@@ -1,0 +1,16 @@
+{"id": "mm7346a3",
+ "fields": [
+  {"field": "analytic_depth", "verdict": ["comparison", "summary"], "correct": ["A", "B"], "category": "ambiguity",
+   "why": "The headline claims compare real-time trend categories with later ED data (comparison), but single-quantity results are also reported (e.g. national ED percentage 0.3%, peak 2.6%), so adding summary is defensible; B's list is slightly fuller."},
+  {"field": "procedure_classes", "verdict": ["other"], "correct": ["A"], "category": "brief gap",
+   "why": "The posterior probability that Rt>1 is binned by fixed cutoffs into the trend categories, which are the indicator being evaluated: this is quantization of an EpiNow2 output, not a test of a hypothesis. No CI is reported and the brief says nothing about Bayesian exceedance probabilities; B itself offered quantization as the alternative reading."},
+  {"field": "has_test", "verdict": false, "correct": ["A"], "category": "brief gap",
+   "why": "Follows from procedure_classes: no named test, p-value or CI-vs-null judgment appears in the article."},
+  {"field": "comparison_framework", "verdict": "group", "correct": ["B"], "category": "reader error",
+   "why": "The trend categories and ED visits are compared across four time points (and jurisdictions in the table), which is a group of 3 or more periods. A's referents do not hold: Rt=1 is a classification cutpoint, and the final ED data are a later measurement used like a reference standard, not a fixed target or population value."},
+  {"field": "inference", "verdict": "none", "correct": ["A"], "category": "brief gap",
+   "why": "No CIs or tests are reported. The probability-based categories are model outputs used as the indicator, so they are not a test; see procedure_classes."}
+ ],
+ "justification": {"A": "adequate", "B": "adequate"},
+ "agreed_errors": [],
+ "brief_issues": "Brief needs a rule for Bayesian posterior probabilities against a fixed value (e.g. P(Rt>1) categories): say whether they count as a test, like CI vs fixed value, or as quantization of a model output. It also needs to say whether, in a nowcast/indicator evaluation, comparing the indicator with later complete data is a comparison or a reference standard."}
