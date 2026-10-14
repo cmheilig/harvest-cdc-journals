@@ -1,0 +1,64 @@
+{
+ "id": "mm7322a3",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "medium", "role": "judgment"},
+ "data_focus": {"v": "yes", "ev": [{"loc": "figure 1", "q": "In 2022, 22.5% of adults met federal guidelines for both muscle-strengthening and aerobic physical activity."}]},
+ "outcome_types": [
+  {"v": "binary/categorical", "ev": [{"loc": "title", "q": "Percentage* of Adults Aged ≥25 Years † Who Met the 2018 Federal Physical Activity Guidelines"}]}
+ ],
+ "analytic_depth": [
+  {"v": "summary", "ev": [{"loc": "figure 1", "q": "In 2022, 22.5% of adults met federal guidelines for both muscle-strengthening and aerobic physical activity."}]},
+  {"v": "comparison", "ev": [{"loc": "figure 1", "q": "The percentage of adults who met these guidelines increased with increasing educational attainment, from 12.2% among adults who completed high school or less"}]}
+ ],
+ "procedures": [],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": ["educational attainment"],
+  "ev": [{"loc": "figure 1", "q": "from 12.2% among adults who completed high school or less to 33.6% among those with a bachelor’s degree or higher."}]
+ },
+ "inference": {"v": "CIs", "method_stated": false, "ev": [{"loc": "note", "q": "with 95% CIs indicated by error bars."}]},
+ "primary_measures": [
+  {"v": "percentage", "ev": [{"loc": "title", "q": "QuickStats: Percentage* of Adults Aged ≥25 Years"}]}
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How does the percentage of U.S. adults aged ≥25 years meeting both federal physical activity guidelines vary by educational attainment?",
+  "ev": [{"loc": "title", "q": "Who Met the 2018 Federal Physical Activity Guidelines for Both Muscle-Strengthening and Aerobic Physical Activity, § by Educational Attainment"}]
+ },
+ "conditions": [
+  {"v": "meeting physical activity guidelines", "role": "outcome", "ev": [{"loc": "title", "q": "Who Met the 2018 Federal Physical Activity Guidelines for Both Muscle-Strengthening and Aerobic Physical Activity"}]}
+ ],
+ "study_design": [
+  {"v": "cross-sectional", "ev": [{"loc": "note", "q": "Estimates are based on household interviews of a sample of the civilian, noninstitutionalized U.S. population"}]}
+ ],
+ "data_source_type": [
+  {"v": "national survey", "ev": [{"loc": "note", "q": "Source: National Center for Health Statistics, National Health Interview Survey, 2022."}]}
+ ],
+ "data_source_named": [
+  {"v": "National Health Interview Survey", "ev": [{"loc": "note", "q": "Source: National Center for Health Statistics, National Health Interview Survey, 2022."}]}
+ ],
+ "setting": {"v": "US national", "ev": [{"loc": "title", "q": "by Educational Attainment — United States, 2022"}]},
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Estimates by educational attainment are reported and the gradient is described, but values are only set side by side with no computed difference or ratio and no disparity framing.",
+  "level_confidence": "medium",
+  "level_alternative": {"level": 3, "reason": "Education is a social determinant and is the sole stratifier; a reader could treat the 12.2% vs 33.6% gradient as a quantified contrast across a social determinant."},
+  "dimensions": [
+   {"v": "SES", "role": "primary comparison", "ses_components": ["educational attainment"], "ev": [{"loc": "title", "q": "by Educational Attainment — United States, 2022"}]},
+   {"v": "age", "role": "population", "ev": [{"loc": "title", "q": "Percentage* of Adults Aged ≥25 Years"}]}
+  ],
+  "determinants_of_health": {"v": null, "ev": []},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": "Education in (likely) three categories from high school or less to bachelor's degree or higher; no referent or contrast computed."
+ },
+ "groupwise": [
+  {"across": ["SES"], "n_groups": null, "ordered": true, "assessment": "side by side", "resolves_to_finer": false,
+   "ev": [{"loc": "figure 1", "q": "The percentage of adults who met these guidelines increased with increasing educational attainment"}]}
+ ],
+ "uncertain_fields": ["equity.level", "groupwise"],
+ "confidence": "medium",
+ "notes": "QuickStats: the figure and supplementary table are not in the packet, so the number of education groups (probably three) and any test behind 'increased with increasing educational attainment' cannot be confirmed; no test is stated. NHIS survey weighting is implied but not stated, so no weighting procedure is recorded.",
+ "view_issues": "Figure values and the middle education category are not available in the text."
+}
