@@ -1,0 +1,55 @@
+{
+ "id": "mm7349a3",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "medium", "role": "judgment"},
+ "data_focus": {"v": "limited", "ev": [{"loc": "text", "q": "This report summarizes evidence considered for the MenB-4C dosing interval and schedule changes and provides clinical guidance for the use of MenB vaccines."}, {"loc": "text", "q": "respectively ( 3 , 4 ) ( Table )."}]},
+ "outcome_types": [
+  {"v": "binary/categorical", "ev": [{"loc": "table 1", "q": "Number and percentage of persons aged 10–25 years achieving seroresponse to antigen indicator strains*"}, {"loc": "text", "q": "49.6% of MenB-4C recipients and 35.5% of MenB-FHbp recipients completed their series by age 17 years."}]}
+ ],
+ "analytic_depth": [
+  {"v": "summary", "ev": [{"loc": "text", "q": "The most common solicited adverse reactions after receipt of MenB-4C were pain at the injection site (≥87% of recipients), fatigue (≥45%), and headache (≥37%)."}]},
+  {"v": "comparison", "ev": [{"loc": "text", "q": "The percentage of participants achieving seroresponse was compared across four antigen indicator strains"}, {"loc": "text", "q": "Among those initiating MenB vaccination who were eligible for the VFC program, 51.4% and 16.2% completed their MenB-4C and MenB-FHbp series"}]}
+ ],
+ "procedures": [],
+ "comparison": {"framework": "group", "scale": null, "referent": null, "across": ["dosing schedule and dose", "vaccine product", "VFC eligibility"], "ev": [{"loc": "table 1", "q": "1 month after receipt of dose 2 (0- and 6-month schedule), and doses 2 and 3 (0-, 2-, and 6-month schedule)"}, {"loc": "text", "q": "Among those initiating MenB vaccination who were eligible for the VFC program, 51.4% and 16.2% completed their MenB-4C and MenB-FHbp series"}]},
+ "inference": {"v": "CIs", "method_stated": false, "ev": [{"loc": "table 1", "q": "0- and 6-mo schedule › Dose 2 › % (95% CI)"}]},
+ "primary_measures": [
+  {"v": "% achieving seroresponse (95% CI)", "ev": [{"loc": "table 1", "q": "0-, 2-, and 6-mo schedule › Dose 3 › % (95% CI)"}]},
+  {"v": "series completion, %", "ev": [{"loc": "text", "q": "67% and 60% of those initiating vaccination completed their MenB-4C and MenB-FHbp series, respectively, by age 19 years"}]}
+ ],
+ "regression_fields": null,
+ "public_health_question": {"v": "What dosing interval and schedule should ACIP recommend for MenB-4C vaccine in light of the new FDA label and immunogenicity data?", "ev": [{"loc": "text", "q": "On October 24, 2024, the Advisory Committee on Immunization Practices (ACIP) voted to update its recommendations for the MenB-4C dosing interval and schedule"}]},
+ "conditions": [
+  {"v": "serogroup B meningococcal disease", "role": "vaccine target", "ev": [{"loc": "text", "q": "as a 2-dose series at 0 and 6 months for the prevention of serogroup B meningococcal disease"}]}
+ ],
+ "study_design": [
+  {"v": "guidance or recommendations", "ev": [{"loc": "title", "q": "Updated Recommendations of the Advisory Committee on Immunization Practices — United States, October 2024"}]}
+ ],
+ "data_source_type": [
+  {"v": "other", "ev": [{"loc": "text", "q": "data from three trials (two published and one unpublished) were considered in the assessment of immunogenicity."}]},
+  {"v": "administrative/claims", "ev": [{"loc": "text", "q": "Among commercially insured adolescents in the Merative MarketScan Commercial Claims and Encounters database"}]}
+ ],
+ "data_source_named": [
+  {"v": "Merative MarketScan Commercial Claims and Encounters database", "ev": [{"loc": "text", "q": "Among commercially insured adolescents in the Merative MarketScan Commercial Claims and Encounters database"}]}
+ ],
+ "setting": {"v": "mixed", "ev": [{"loc": "table 1", "q": "United States, Australia, Canada, Czechia, Estonia, Finland, and Turkey, 2020–2022"}, {"loc": "text", "q": "approximately 30% of vaccine recipients were from the United States."}]},
+ "vaccine_outcome_type": {"v": "other", "ev": [{"loc": "text", "q": "The Work Group and ACIP reviewed comparative data on the immunogenicity and safety of MenB-4C when administered using different dosing intervals and schedules."}]},
+ "equity": {
+  "level": 2,
+  "level_reason": "Series completion is reported separately for VFC-eligible and non-eligible adolescents and equity concerns about extended intervals are raised, but the values are only set side by side with no computed contrast, so the level is capped at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {"level": 1, "reason": "The VFC figures are cited evidence in an ACIP deliberation and equity is raised mainly as a consideration, which could be read as a descriptor-level mention."},
+  "dimensions": [
+   {"v": "SES", "role": "stratifier", "ses_components": ["uninsured, underinsured, Medicaid-eligible (VFC eligibility)", "commercially insured"], "ev": [{"loc": "text", "q": "Among those initiating MenB vaccination who were eligible for the VFC program, 51.4% and 16.2% completed their MenB-4C and MenB-FHbp series"}, {"loc": "note", "q": "VFC provides vaccines at no cost to children and adolescents aged ≤18 years who are uninsured, underinsured, Medicaid-eligible, or American Indian or Alaska Native."}]},
+   {"v": "race/ethnicity", "role": "stratifier", "ev": [{"loc": "note", "q": "VFC provides vaccines at no cost to children and adolescents aged ≤18 years who are uninsured, underinsured, Medicaid-eligible, or American Indian or Alaska Native."}]},
+   {"v": "age", "role": "population", "ev": [{"loc": "table 1", "q": "Number and percentage of persons aged 10–25 years achieving seroresponse to antigen indicator strains*"}]}
+  ],
+  "determinants_of_health": {"v": null, "ev": []},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": "VFC eligibility is a composite proxy (insurance status plus AI/AN status); VFC-eligible completion by age 19 could not be assessed in MarketScan. No source is named for the 2022 VFC completion figures."
+ },
+ "groupwise": [],
+ "uncertain_fields": ["equity.level"],
+ "confidence": "medium",
+ "notes": "ACIP recommendation; immunogenicity and safety figures are taken from the FDA package insert and trial reports (refs 3, 4), so data_focus is limited. Table CIs are reported without a conclusion drawn from them. Immunogenicity is recorded as vaccine outcome 'other' rather than effectiveness.",
+ "view_issues": null
+}

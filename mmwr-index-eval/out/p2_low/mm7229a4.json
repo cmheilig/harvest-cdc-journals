@@ -1,0 +1,63 @@
+{
+ "id": "mm7229a4",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "low", "role": "judgment"},
+ "data_focus": {"v": "yes", "ev": [{"loc": "table 2", "q": "Pooled relative risk for events in all included trials for each outcome."}]},
+ "outcome_types": [
+  {"v": "binary/categorical", "ev": [{"loc": "text", "q": "compared with 0.9% of the control group participants (pooled relative risk [RR] = 4.10; 95% CI = 1.99–8.45)"}]},
+  {"v": "count/rate", "ev": [{"loc": "table 1", "q": "Includes events >14 days after injection and person-time available from the manufacturer’s pivotal phase 3 trial."}]}
+ ],
+ "analytic_depth": [
+  {"v": "comparison", "ev": [{"loc": "text", "q": "was similar in the intervention (4.4%) and control (4.3%) groups (pooled RR = 1.02; 95% CI = 0.91–1.15)."}]},
+  {"v": "stratified/adjusted", "ev": [{"loc": "table 1", "q": "Estimates adjusted for participant age and region."}]}
+ ],
+ "procedures": [
+  {"name": "pooled relative risk across trials", "class": "other", "regression_family": null, "inferred_from": "Work Group pooled RR across phase 3 and phase 1/2 trials; pooling method not stated", "role": "primary", "ev": [{"loc": "table 2", "q": "Pooled relative risk for events in all included trials for each outcome."}]},
+  {"name": "CI vs fixed value (inversion)", "class": "test", "regression_family": null, "inferred_from": "CI method not stated; RR CIs including 1 read as 'similar'", "role": "primary", "ev": [{"loc": "text", "q": "was similar in the intervention (4.4%) and control (4.3%) groups (pooled RR = 1.02; 95% CI = 0.91–1.15)."}]},
+  {"name": "GRADE certainty-of-evidence assessment", "class": "other", "regression_family": null, "inferred_from": "systematic review graded with GRADE", "role": "ancillary", "ev": [{"loc": "text", "q": "The Work Group used the Grading of Recommendations, Assessment, Development and Evaluation (GRADE) approach"}]}
+ ],
+ "comparison": {"framework": "pair", "scale": "relative", "referent": "placebo recipients", "across": ["vaccination (vaccine vs placebo)", "season"], "ev": [{"loc": "table 2", "q": "Risk for event › Relative risk (95% CI)"}]},
+ "inference": {"v": "CIs and tests", "method_stated": false, "ev": [{"loc": "table 1", "q": "96.95% CI; the CI for primary trial endpoint was adjusted for multiplicity."}]},
+ "primary_measures": [
+  {"v": "vaccine efficacy", "ev": [{"loc": "text", "q": "was 82.6% (96.95% CI = 57.9%–94.1%) during the first RSV season"}]},
+  {"v": "pooled RR", "ev": [{"loc": "text", "q": "(pooled RR = 1.43; 95% CI = 0.85–2.39)"}]},
+  {"v": "percentage", "ev": [{"loc": "text", "q": "occurred in 1.0% of the intervention group participants, compared with 0.7% of the control group participants"}]}
+ ],
+ "regression_fields": null,
+ "public_health_question": {"v": "What is the evidence on efficacy and safety of RSV vaccines in adults aged ≥60 years, and how should they be used?", "ev": [{"loc": "text", "q": "This report summarizes the body of evidence considered for this recommendation and provides clinical guidance for the use of RSV vaccines"}]},
+ "conditions": [
+  {"v": "RSV-associated lower respiratory tract disease", "role": "vaccine target", "ev": [{"loc": "summary", "q": "approved the first two vaccines for prevention of RSV lower respiratory tract disease (LRTD) for use in adults aged ≥60 years."}]},
+  {"v": "inflammatory neurologic events (Guillain-Barré syndrome, ADEM)", "role": "outcome", "ev": [{"loc": "text", "q": "six cases of inflammatory neurologic events (including GBS, ADEM, and others) were reported after RSV vaccination in clinical trials."}]},
+  {"v": "atrial fibrillation", "role": "outcome", "ev": [{"loc": "text", "q": "reported atrial fibrillation as an unsolicited event within the 30 days after injection"}]}
+ ],
+ "study_design": [
+  {"v": "guidance or recommendations", "ev": [{"loc": "title", "q": "Recommendations of the Advisory Committee on Immunization Practices — United States, 2023"}]},
+  {"v": "mixed/other", "ev": [{"loc": "text", "q": "A systematic review of published and unpublished evidence of the efficacy and safety of these vaccines among persons aged ≥60 years was conducted."}]}
+ ],
+ "data_source_type": [
+  {"v": "other", "ev": [{"loc": "text", "q": "The body of evidence consisted of one phase 3 randomized controlled trial and one combined phase 1 and 2 (phase 1/2) randomized controlled trial"}]}
+ ],
+ "data_source_named": [
+  {"v": "GSK RSVPreF3 phase 3 and phase 1/2 trials", "ev": [{"loc": "table 2", "q": "observed in GSK’s pivotal phase 3 trial"}]},
+  {"v": "Pfizer RSVpreF phase 3 and phase 1/2 trials", "ev": [{"loc": "table 4", "q": "Safety events observed in Pfizer’s pivotal phase 3 trial"}]}
+ ],
+ "setting": {"v": "international", "ev": [{"loc": "table 1", "q": "among adults aged ≥60 years — multiple countries, 2021–2023"}]},
+ "vaccine_outcome_type": {"v": "effectiveness", "ev": [{"loc": "summary", "q": "vaccination with a single RSV vaccine dose demonstrated moderate to high efficacy in preventing symptomatic RSV-associated LRTD"}]},
+ "equity": {
+  "level": 0,
+  "level_reason": "Age (≥60 years) only defines the population; equity is mentioned only as an Evidence to Recommendation domain.",
+  "level_confidence": "high",
+  "level_alternative": {"level": 1, "reason": "Equity is named as a framework domain reviewed, which could be read as raising equity as a consideration."},
+  "dimensions": [
+   {"v": "age", "role": "population", "ev": [{"loc": "title", "q": "Use of Respiratory Syncytial Virus Vaccines in Older Adults"}]},
+   {"v": "age", "role": "covariate", "ev": [{"loc": "table 1", "q": "Estimates adjusted for participant age and region."}]}
+  ],
+  "determinants_of_health": {"v": null, "ev": []},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": null
+ },
+ "groupwise": [],
+ "uncertain_fields": ["procedures", "analytic_depth"],
+ "confidence": "medium",
+ "notes": "Efficacy estimates are manufacturer-calculated (cited); the Work Group's own computation is the pooled RRs for safety, so data_focus is yes. Efficacy adjustment method (age, region) is not described, so no regression is recorded.",
+ "view_issues": null
+}

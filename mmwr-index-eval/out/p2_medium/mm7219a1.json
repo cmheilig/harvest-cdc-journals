@@ -1,0 +1,60 @@
+{
+ "id": "mm7219a1",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "medium", "role": "judgment"},
+ "data_focus": {"v": "yes", "ev": [{"loc": "text", "q": "CDC calculated percent change in mean weekly ED visits overall and by sex."}]},
+ "outcome_types": [
+  {"v": "count/rate", "ev": [{"loc": "text", "q": "By fall 2022, mean weekly adolescent ED visits were decreasing for MHCs overall (−11%), suicide-related behaviors (−12%), and drug overdoses (−10%) compared with fall 2021"}]},
+  {"v": "binary/categorical", "ev": [{"loc": "text", "q": "Visit ratios (VRs)** with 95% CIs were calculated to describe the proportion of ED visits of interest among all adolescent ED visits"}]}
+ ],
+ "analytic_depth": [
+  {"v": "comparison", "ev": [{"loc": "text", "q": "were compared with corresponding periods in 2021 and 2019 to monitor recent changes in ED visits and differences from the prepandemic baseline"}, {"loc": "text", "q": "trends for females mirrored overall patterns, whereas visits among males were stable for each of these outcomes (−7% to 3%)."}]}
+ ],
+ "procedures": [
+  {"name": "CI vs fixed value (inversion)", "class": "test", "regression_family": null, "inferred_from": "VR 95% CIs vs null of 1, with conclusions of 'smaller', 'larger' or 'similar' proportion; CI method not stated", "role": "primary", "ev": [{"loc": "text", "q": "Among all adolescent ED visits, those for specific MHCs and suspected suicide attempts accounted for a smaller proportion (VRs = 0.59–0.85 and 0.75, respectively)"}, {"loc": "note", "q": "ED visits for mental health conditions overall, suicide-related behaviors, and drug overdoses were a similar proportion of all ED visits in summer 2022"}]}
+ ],
+ "comparison": {"framework": "pair", "scale": "both", "referent": "same school semester in 2021 (recent change) or 2019 (prepandemic baseline)", "across": ["period (school semester 2022 vs 2021 or 2019)", "sex"], "ev": [{"loc": "text", "q": "were compared with corresponding periods in 2021 and 2019 to monitor recent changes in ED visits and differences from the prepandemic baseline"}, {"loc": "table 1", "q": "Absolute change in mean weekly ED visit counts ¶¶ (%)"}]},
+ "inference": {"v": "CIs and tests", "method_stated": false, "ev": [{"loc": "text", "q": "Visit ratios (VRs)** with 95% CIs were calculated"}]},
+ "primary_measures": [
+  {"v": "mean weekly ED visit counts", "ev": [{"loc": "table 1", "q": "Mean weekly ED visit counts, surveillance period"}]},
+  {"v": "percent change in mean weekly ED visits", "ev": [{"loc": "text", "q": "CDC calculated percent change in mean weekly ED visits overall and by sex."}]},
+  {"v": "visit ratio (VR)", "ev": [{"loc": "table 1", "q": "VR (95% CI)***"}]}
+ ],
+ "regression_fields": null,
+ "public_health_question": {"v": "How did adolescent ED visits for mental health conditions, suicide-related behaviors and drug overdoses in 2022 compare with 2021 and the 2019 prepandemic baseline, overall and by sex?", "ev": [{"loc": "text", "q": "CDC examined changes in U.S. emergency department (ED) visits for mental health conditions (MHCs) overall and for nine specific MHCs"}]},
+ "conditions": [
+  {"v": "mental health conditions", "role": "outcome", "ev": [{"loc": "title", "q": "Emergency Department Visits Involving Mental Health Conditions, Suicide-Related Behaviors, and Drug Overdoses Among Adolescents"}]},
+  {"v": "suicide-related behaviors", "role": "outcome", "ev": [{"loc": "title", "q": "Emergency Department Visits Involving Mental Health Conditions, Suicide-Related Behaviors, and Drug Overdoses Among Adolescents"}]},
+  {"v": "drug overdoses", "role": "outcome", "ev": [{"loc": "title", "q": "Emergency Department Visits Involving Mental Health Conditions, Suicide-Related Behaviors, and Drug Overdoses Among Adolescents"}]},
+  {"v": "opioid-involved overdoses", "role": "outcome", "ev": [{"loc": "text", "q": "mean weekly ED visits for opioid-involved overdoses increased among both females (10%) and males (41%)."}]}
+ ],
+ "study_design": [
+  {"v": "surveillance/descriptive", "ev": [{"loc": "text", "q": "CDC examined ED visit data for adolescents from facilities consistently reporting data to the National Syndromic Surveillance Program (NSSP)"}]},
+  {"v": "before/after or trend", "ev": [{"loc": "text", "q": "In addition to displaying continuous trends, school semester surveillance periods in 2022"}]}
+ ],
+ "data_source_type": [
+  {"v": "CDC surveillance system", "ev": [{"loc": "text", "q": "NSSP receives anonymized medical record data from approximately 75% of EDs nationwide"}]}
+ ],
+ "data_source_named": [
+  {"v": "National Syndromic Surveillance Program (NSSP)", "ev": [{"loc": "text", "q": "reporting data to the National Syndromic Surveillance Program (NSSP)"}]}
+ ],
+ "setting": {"v": "US national", "ev": [{"loc": "title", "q": "Among Adolescents — United States, January 2019–February 2023"}]},
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Age defines the population and sex is a stratifier; sex differences are described (females above baseline) without social-position framing, so the age-or-sex-only rule gives level 0.",
+  "level_confidence": "high",
+  "level_alternative": {"level": 2, "reason": "Sex-specific results are reported and emphasized ('particularly among adolescent females'), which a reader could treat as group-specific results by an SPD."},
+  "dimensions": [
+   {"v": "age", "role": "population", "ev": [{"loc": "text", "q": "among children and adolescents aged 12–17 years (adolescents)"}]},
+   {"v": "sex", "role": "stratifier", "ev": [{"loc": "text", "q": "CDC calculated percent change in mean weekly ED visits overall and by sex."}]}
+  ],
+  "determinants_of_health": {"v": "return to prepandemic-like school and community environments; adverse childhood experiences; access to behavioral health care (988 line, telehealth)", "ev": [{"loc": "text", "q": "Many adolescents have returned to prepandemic-like school and community environments, which might have improved social engagement, reduced isolation"}, {"loc": "text", "q": "Familial or other stressors might also have declined, resulting in fewer adverse childhood experiences"}]},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": null
+ },
+ "groupwise": [],
+ "uncertain_fields": ["procedures", "inference"],
+ "confidence": "high",
+ "notes": "Changes are classified with fixed ±10% thresholds (decreased, stable, increased); this is a quantization of percent change, not a procedure. Period changes computed within sex are a series by group, so depth is comparison. Inversion recorded because the article concludes 'similar' or 'smaller' proportions from VRs with CIs.",
+ "view_issues": null
+}

@@ -1,0 +1,57 @@
+{
+ "id": "mm7203a2",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "low", "role": "judgment"},
+ "data_focus": {"v": "yes", "ev": [{"loc": "text", "q": "approximately 80% of pregnant persons reported being asked about their alcohol use"}]},
+ "outcome_types": [{"v": "binary/categorical", "ev": [{"loc": "text", "q": "Overall, 80.1% of pregnant persons and 86.0% of reproductive-aged women reported being screened for alcohol use"}]}],
+ "analytic_depth": [
+  {"v": "summary", "ev": [{"loc": "text", "q": "12.3% (95% CI = 7.6–17.0) were advised to reduce their intake or quit drinking"}]},
+  {"v": "comparison", "ev": [{"loc": "text", "q": "Pregnant persons who did not graduate from high school reported a lower prevalence of alcohol screening (53.5%)"}]},
+  {"v": "stratified/adjusted", "ev": [{"loc": "text", "q": "Prevalence estimates and 95% CIs were standardized to the age distribution of persons who gave birth to a live singleton infant in 2017"}]}
+ ],
+ "procedures": [
+  {"name": "Wald chi-square test", "class": "test", "regression_family": null, "inferred_from": "named: survey-design Wald chi-square tests across characteristic levels within pregnancy group (Table 2) and between groups (Table 1)", "role": "primary", "ev": [{"loc": "text", "q": "Wald chi-square tests were used to test for differences with p<0.05 considered statistically significant."}]},
+  {"name": "direct age standardization", "class": "standardization", "regression_family": null, "inferred_from": "standardized to the age distribution of 2017 singleton live births", "role": "primary", "ev": [{"loc": "text", "q": "Prevalence estimates and 95% CIs were standardized to the age distribution of persons who gave birth to a live singleton infant in 2017"}]},
+  {"name": "survey weighting (BRFSS) with Taylor series variance", "class": "weighting", "regression_family": null, "inferred_from": "survey weights for sample design and nonresponse produce every estimate", "role": "primary", "ev": [{"loc": "text", "q": "Survey procedures with Taylor series variance and weights were used to account for the sample design and nonresponse."}]}
+ ],
+ "comparison": {"framework": "group", "scale": null, "referent": null, "across": ["pregnancy status", "education", "race/ethnicity", "age group", "health insurance status", "HIV risk behaviors", "employment", "disability"], "ev": [{"loc": "table 2", "q": "Age-standardized* prevalence of alcohol screening † by a health care provider in the past 2 years, by pregnancy status among women of reproductive age"}]},
+ "inference": {"v": "CIs and tests", "method_stated": true, "ev": [{"loc": "text", "q": "Survey procedures with Taylor series variance and weights were used to account for the sample design and nonresponse."}, {"loc": "text", "q": "Wald chi-square tests were used to test for differences"}]},
+ "primary_measures": [{"v": "weighted % (95% CI), age-standardized prevalence", "ev": [{"loc": "table 2", "q": "Weighted % (95% CI)"}]}],
+ "regression_fields": null,
+ "public_health_question": {"v": "How prevalent are alcohol use, alcohol screening and brief intervention among pregnant persons compared with nonpregnant reproductive-aged women, and does screening differ by characteristics?", "ev": [{"loc": "text", "q": "CDC examined prevalence of ASBI and characteristics of pregnant persons and nonpregnant women aged 18–49 years"}]},
+ "conditions": [
+  {"v": "alcohol use", "role": "outcome", "ev": [{"loc": "title", "q": "Alcohol Use, Screening, and Brief Intervention Among Pregnant Persons"}]},
+  {"v": "pregnancy", "role": "population", "ev": [{"loc": "title", "q": "Alcohol Use, Screening, and Brief Intervention Among Pregnant Persons"}]}
+ ],
+ "study_design": [{"v": "cross-sectional", "ev": [{"loc": "text", "q": "BRFSS is a cross-sectional, random-digit–dialed, annual telephone survey"}]}],
+ "data_source_type": [{"v": "national survey", "ev": [{"loc": "text", "q": "Using 2017 and 2019 Behavioral Risk Factor Surveillance System (BRFSS) data"}]}],
+ "data_source_named": [{"v": "BRFSS Alcohol Screening and Brief Intervention module", "ev": [{"loc": "text", "q": "participated in an optional BRFSS ASBI module in 2017 and 2019"}]}],
+ "setting": {"v": "US subnational", "ev": [{"loc": "title", "q": "24 U.S. Jurisdictions, 2017 and 2019"}]},
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Screening is reported by education, race/ethnicity and insurance and called disparities, but contrasts are only group values side by side with p-values; no difference or ratio is computed, so the cap at 2 applies.",
+  "level_confidence": "medium",
+  "level_alternative": {"level": 3, "reason": "Education and race/ethnicity gaps are explicitly framed as disparities and missed opportunities, and lack of insurance is offered as an explanation; a reader could treat 53.5% vs 84.5% as quantified."},
+  "dimensions": [
+   {"v": "SES", "role": "stratifier", "ses_components": ["education level", "health insurance status", "employment status"], "ev": [{"loc": "summary", "q": "Disparities in alcohol screening were observed among pregnant persons with lower educational attainment."}]},
+   {"v": "race/ethnicity", "role": "stratifier", "ev": [{"loc": "text", "q": "racial and ethnic disparities in ASBI were observed among reproductive-aged women."}]},
+   {"v": "disability", "role": "stratifier", "ev": [{"loc": "table 2", "q": "Disability status*** › Reported disability"}]},
+   {"v": "age", "role": "stratifier", "ev": [{"loc": "table 2", "q": "Age group, yrs › 18–24"}]},
+   {"v": "age", "role": "population", "ev": [{"loc": "text", "q": "nonpregnant women aged 18–49 years (reproductive-aged women)"}]},
+   {"v": "sex", "role": "population", "ev": [{"loc": "text", "q": "nonpregnant women aged 18–49 years (reproductive-aged women)"}]},
+   {"v": "sexual orientation and gender identity", "role": "descriptor", "ev": [{"loc": "text", "q": "sexual and gender minority groups) were not evaluated because of small sample sizes"}]}
+  ],
+  "determinants_of_health": {"v": "lack of health insurance", "ev": [{"loc": "text", "q": "indicating that lack of health insurance might interfere with engaging in routine alcohol screening and subsequent interventions"}]},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": "Race/ethnicity collapsed to four groups (AI/AN, Asian, NH/PI, multiracial as Other); education collapsed to three levels; contrasts assessed by Wald chi-square only."
+ },
+ "groupwise": [
+  {"across": ["SES"], "n_groups": 3, "ordered": true, "assessment": "omnibus test", "resolves_to_finer": false, "ev": [{"loc": "table 2", "q": "Did not graduate from high school,53.5 (35.5–71.5),<0.001"}]},
+  {"across": ["race/ethnicity"], "n_groups": 4, "ordered": false, "assessment": "omnibus test", "resolves_to_finer": false, "ev": [{"loc": "text", "q": "screening prevalence was lower among those who were non-Hispanic and of another race or ethnicity"}]},
+  {"across": ["age"], "n_groups": 3, "ordered": true, "assessment": "omnibus test", "resolves_to_finer": false, "ev": [{"loc": "table 2", "q": "Age group, yrs › 18–24"}]}
+ ],
+ "uncertain_fields": ["equity.level", "analytic_depth", "groupwise"],
+ "confidence": "medium",
+ "notes": "Each Table 2 row block carries one p-value per characteristic, read as a Wald chi-square across levels within each pregnancy group. Age standardization of all estimates is the basis for stratified/adjusted. The OR 2.26 is cited from earlier literature.",
+ "view_issues": "Text says HIV-risk and education contrasts are pairwise, but Table 2 gives only one p-value per characteristic, so pairwise claims rest on the omnibus test."
+}
