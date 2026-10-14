@@ -1,0 +1,53 @@
+{
+ "id": "mm7305a5",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "low", "role": "judgment"},
+ "data_focus": {"v": "yes", "ev": [{"loc": "text", "q": "In total, 87 outbreak cases from 11 states were identified in 2022."}]},
+ "outcome_types": [
+  {"v": "binary/categorical", "ev": [{"loc": "text", "q": "cantaloupe consumption was reported significantly more frequently by ill persons (36 of 47; 77%) than during a 2018–2019 survey of healthy persons"}]},
+  {"v": "count/rate", "ev": [{"loc": "figure 1", "q": "Number of persons infected with Salmonella Typhimurium, by case status and date of illness onset"}]}
+ ],
+ "analytic_depth": [
+  {"v": "summary", "ev": [{"loc": "text", "q": "Thirty-two (37%) patients were hospitalized; none died."}]},
+  {"v": "comparison", "ev": [{"loc": "text", "q": "ill persons (36 of 47; 77%) than during a 2018–2019 survey of healthy persons conducted on FoodNet sites (29%, p<0.001)"}]}
+ ],
+ "procedures": [
+  {"name": "unnamed test", "class": "test", "regression_family": null, "inferred_from": "p<0.001 for case exposure proportion vs FoodNet population survey value; test not named (likely binomial)", "role": "primary", "ev": [{"loc": "text", "q": "than during a 2018–2019 survey of healthy persons conducted on FoodNet sites (29%, p<0.001)"}]}
+ ],
+ "comparison": {"framework": "fixed referent", "scale": null, "referent": "2018–2019 FoodNet survey of healthy persons (29%)", "across": ["cases vs background population exposure"], "ev": [{"loc": "text", "q": "ill persons (36 of 47; 77%) than during a 2018–2019 survey of healthy persons conducted on FoodNet sites (29%, p<0.001)"}]},
+ "inference": {"v": "tests", "method_stated": false, "ev": [{"loc": "text", "q": "(29%, p<0.001)"}]},
+ "primary_measures": [
+  {"v": "percentage", "ev": [{"loc": "text", "q": "Thirty-two (37%) patients were hospitalized; none died."}]},
+  {"v": "number of cases", "ev": [{"loc": "figure 1", "q": "Number of persons infected with Salmonella Typhimurium, by case status and date of illness onset"}]}
+ ],
+ "regression_fields": null,
+ "public_health_question": {"v": "Can WGS-based surveillance with rapid patient interviews quickly link a Salmonella Typhimurium outbreak to its melon source during the growing season?", "ev": [{"loc": "summary", "q": "patient interviews were used to rapidly link a Salmonella Typhimurium outbreak to contaminated cantaloupes."}]},
+ "conditions": [{"v": "Salmonella Typhimurium infection", "role": "outcome", "ev": [{"loc": "title", "q": "Rapidly Linking an Outbreak of Salmonella Typhimurium Infections to Domestically Grown Cantaloupes"}]}],
+ "study_design": [{"v": "outbreak investigation", "ev": [{"loc": "text", "q": "On August 4, 2022, PulseNet identified 12 S. Typhimurium infections that were genetically related within seven allele differences by WGS to the 2020 environmental strain."}]}],
+ "data_source_type": [
+  {"v": "sentinel/network", "ev": [{"loc": "text", "q": "PulseNet, CDC’s molecular subtyping network for foodborne disease surveillance"}]},
+  {"v": "record abstraction or interview", "ev": [{"loc": "text", "q": "Ill persons were interviewed using a standardized questionnaire to identify the source of melon exposure"}]}
+ ],
+ "data_source_named": [
+  {"v": "PulseNet", "ev": [{"loc": "text", "q": "PulseNet, CDC’s molecular subtyping network for foodborne disease surveillance"}]}
+ ],
+ "setting": {"v": "US national", "ev": [{"loc": "title", "q": "United States, 2022"}]},
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Age and sex appear only as single descriptive summaries of cases; no other SPD.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [
+   {"v": "age", "role": "descriptor", "ev": [{"loc": "text", "q": "The median patient age was 65 years (range = 1–93 years)"}]},
+   {"v": "sex", "role": "descriptor", "ev": [{"loc": "text", "q": "67% of patients were female."}]}
+  ],
+  "determinants_of_health": {"v": null, "ev": []},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": null
+ },
+ "groupwise": [],
+ "uncertain_fields": [],
+ "confidence": "high",
+ "notes": "Time-to-source comparison with 2020 (14 days shorter) is a simple arithmetic contrast. WGS allele-distance case definition is a classification cutpoint, not a comparison. FoodNet population survey is an external referent, not a data source analyzed.",
+ "view_issues": null
+}
