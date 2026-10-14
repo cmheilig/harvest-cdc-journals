@@ -1,0 +1,236 @@
+{
+ "id": "mm7225a3",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Reinfections represented 2.7% of all reported SARS-CoV-2 infections during the Delta variant period in late 2021"
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the median interval between infections by week increased from 269 days in September 2021 to a peak of 411 days"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a total of 2,784,548 laboratory-confirmed SARS-CoV-2 reinfections were reported among adults aged ≥18 years from 18 U.S. jurisdictions, accounting for 12.7%"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Percentages of reinfections among all COVID-19 cases, hospitalizations, and deaths were calculated by age group and variant period."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "weighted average of jurisdiction weekly medians",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "jurisdiction medians weighted by weekly reinfection counts to pool an overall median; not survey weighting",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "estimated by weighting reported weekly medians using the number of weekly reinfections per jurisdiction"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "absolute",
+  "referent": null,
+  "across": [
+   "variant period",
+   "age group"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The absolute increase in the percentage of reinfections among all reported SARS-CoV-2 infections was highest among adults aged 18–49 years"
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "primary_measures": [
+  {
+   "v": "percentage of infections that were reinfections",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Reinfections (% of all infections)"
+    }
+   ]
+  },
+  {
+   "v": "median time to reinfection",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall weekly trends in median time to reinfection"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did the share of SARS-CoV-2 infections, hospitalizations and deaths that were reinfections change across Delta and Omicron periods and by age among U.S. adults?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Although SARS-CoV-2 reinfections have increased, U.S. epidemiologic trends and associated severe outcomes have not been characterized."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19 reinfection",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Trends in Laboratory-Confirmed SARS-CoV-2 Reinfections and Associated Hospitalizations and Deaths"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This descriptive analysis of surveillance data reported by 18 jurisdictions"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Trends in Laboratory-Confirmed SARS-CoV-2 Reinfections"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were reported by 18 U.S. jurisdictions"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "note",
+    "q": "Data on SARS-CoV-2 infections and reinfections (confirmed or probable COVID-19 cases) were included for 18 jurisdictions, representing 45% of the U.S. population"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Only age is an SPD; age-group percentages are compared without social-position framing.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 2,
+   "reason": "Age-specific results are described in detail, but age without social-position framing stays at 0."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Among Adults Aged ≥18 Years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Increases were more pronounced among adults aged 18–49 years compared with those among older persons."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Cases, 18 jurisdictions › 18–49"
+    },
+    {
+     "loc": "text",
+     "q": "Percentages of all COVID-19 cases, hospitalizations, and deaths that were reinfections were consistently higher across variant periods among adults aged 18–49 years"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "comparison"
+ ],
+ "confidence": "high",
+ "notes": "The authors also call it an ecologic analysis by variant period. Comparison scale is absolute only because the text speaks of the 'absolute increase'; contrasts are otherwise endpoints set side by side.",
+ "view_issues": null
+}

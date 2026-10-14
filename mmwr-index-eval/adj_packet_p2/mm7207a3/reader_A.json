@@ -1,0 +1,327 @@
+{
+ "id": "mm7207a3",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "VE of 2 monovalent Moderna doses (complete primary series) against symptomatic infection was 60% (95% CI = 49% to 68%)"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "comparing odds of COVID-19 vaccination versus being unvaccinated in case-patients"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "comparing odds of COVID-19 vaccination versus being unvaccinated in case-patients (those who received a positive SARS-CoV-2 test result) and control-patients"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Odds ratios were calculated using multivariable logistic regression, adjusting for single year of age, gender, race, ethnicity"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multivariable logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'multivariable logistic regression' giving adjusted ORs; VE = (1 - aOR) x 100",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Odds ratios were calculated using multivariable logistic regression"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "CI method not stated; conclusions of protection and 'significant protection was not observed' drawn from VE CIs vs 0",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Significant protection was not observed in the 2 weeks–1 month period after a single monovalent Pfizer-BioNTech vaccine dose."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "unvaccinated children",
+  "across": [
+   "vaccination status (product, doses, time since dose)"
+  ],
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "Unvaccinated (Ref)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "ci_overlap": true,
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "might occur among children aged 3–5 years by 3–4 months after the second dose based on point estimates (although CIs overlapped)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "VE",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "VE ¶ (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "adjusted odds ratio",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VE was calculated as (1 − adjusted odds ratio) x 100."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "none",
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "note",
+     "q": "adjusting for single year of age, gender, race, ethnicity, Social Vulnerability Index of the testing location"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "single year of age, gender, race, ethnicity, SVI of testing location, underlying conditions, HHS region, pharmacy chain, local incidence, testing calendar date",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "underlying conditions (presence versus absence), U.S. Department of Health and Human Services region, pharmacy chain conducting the test, local incidence"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How effective are monovalent mRNA COVID-19 primary series vaccines against symptomatic SARS-CoV-2 infection in children aged 3-5 years?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Monovalent mRNA vaccine effectiveness (VE) against symptomatic SARS-CoV-2 infection was evaluated using the Increasing Community Access to Testing (ICATT) program"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Effectiveness of Monovalent mRNA Vaccines in Preventing Symptomatic SARS-CoV-2 Infection Among Children Aged 3–5 Years"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Preventing Symptomatic SARS-CoV-2 Infection"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "test-negative",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were eligible for inclusion in the test-negative design case-control study"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "ICATT is a CDC program** that contracts with pharmacy- and community-based testing vendors to provide no-cost SARS-CoV-2 testing nationwide"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Increasing Community Access to Testing (ICATT) program",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was evaluated using the Increasing Community Access to Testing (ICATT) program"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Increasing Community Access to Testing Program, United States"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "effectiveness",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Preliminary Estimates of Effectiveness of Monovalent mRNA Vaccines"
+   }
+  ]
+ },
+ "equity": {
+  "level": 1,
+  "level_reason": "Race, ethnicity and SVI enter only as covariates in the VE model and as Table 1 descriptors; age defines the population.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 0,
+   "reason": "SPDs other than age/sex appear only as adjustment variables, which some might treat as no equity content."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Among Children Aged 3–5 Years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "adjusting for single year of age"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "adjusting for single year of age, gender"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "adjusting for single year of age, gender, race, ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race and ethnicity § › Black or African American, NH"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "Social Vulnerability Index"
+    ],
+    "ev": [
+     {
+      "loc": "note",
+      "q": "Social Vulnerability Index of the testing location"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "SVI of testing location used as area-level SES proxy covariate; race other than Black/White collapsed to Other, NH."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "comparison"
+ ],
+ "confidence": "high",
+ "notes": "Waning claim rests on point estimates with overlapping CIs (ci_overlap). Comparison framework 'group' reflects multiple vaccination-status categories vs unvaccinated; each VE is a pairwise contrast.",
+ "view_issues": null
+}

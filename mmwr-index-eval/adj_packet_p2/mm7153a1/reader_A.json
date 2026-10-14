@@ -1,0 +1,402 @@
+{
+ "id": "mm7153a1",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "comparing the odds of having received versus having not received a bivalent booster dose among case-patients"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VE of a bivalent booster dose (after 2, 3, or 4 monovalent doses) against COVID-19–associated ED/UC encounters was 56% compared with no vaccination"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Odds ratios and 95% CIs were calculated using multivariable logistic regression, adjusting for age, race and ethnicity, sex, calendar day"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multivariable logistic regression (test-negative design)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'multivariable logistic regression' giving adjusted ORs; VE = (1 − OR) × 100",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Odds ratios and 95% CIs were calculated using multivariable logistic regression"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based CIs from logistic regression; VE CIs excluding 0 read as 'significant protection'",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "significant protection from a booster dose of bivalent mRNA COVID-19 vaccine"
+    }
+   ]
+  },
+  {
+   "name": "natural cubic splines for age, calendar day and local circulation",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "spline terms for continuous covariates in the model",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age, calendar day, and local circulation were modeled as natural cubic splines."
+    }
+   ]
+  },
+  {
+   "name": "standardized mean or proportion difference",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "SMD >0.20 flags imbalance in Table 1 and 3 characteristics; no test",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "An absolute SMD >0.20 indicates a nonnegligible difference in variable distributions"
+    }
+   ]
+  },
+  {
+   "name": "suppression of estimates with CI width ≥50%",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "suppression of imprecise estimates",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Estimates with CI widths ≥50% are not shown here because of imprecision."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "bivalent booster recipients in the model; unvaccinated or monovalent-only (by interval since last dose) as VE referents",
+  "across": [
+   "vaccination status",
+   "interval since last monovalent dose"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Varying time intervals between the last dose and the index date (2–4, 5–7, 8–10, or ≥11 months) §§ were used to calculate relative VE."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Odds ratios and 95% CIs were calculated using multivariable logistic regression"
+   },
+   {
+    "loc": "text",
+    "q": "significant relative benefits of a bivalent booster dose when compared with previous receipt of monovalent doses only"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "VE",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "VE % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "relative VE",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Relative VE"
+    }
+   ]
+  },
+  {
+   "v": "odds ratio",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "VE was calculated as ([1 − odds ratio] x 100%)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "none",
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "adjusted for age, sex, race and ethnicity, geographic region, calendar time (days since January 1, 2021), and local virus circulation"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age, race and ethnicity, sex, calendar day, geographic region, local SARS-CoV-2 circulation",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusting for age, race and ethnicity, sex, calendar day (days since January 1, 2021), geographic region, and local SARS-CoV-2 circulation"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How effective were bivalent mRNA booster doses against COVID-19–associated ED/UC encounters and hospitalizations among immunocompetent adults, compared with no vaccination and with monovalent-only vaccination?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "the VISION Network evaluated vaccine effectiveness (VE) of a bivalent mRNA booster dose"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Early Estimates of Bivalent mRNA Vaccine Effectiveness in Preventing COVID-19–Associated Emergency Department or Urgent Care Encounters and Hospitalizations"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "case-patients (those who received a positive SARS-CoV-2 test result)"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "test-negative",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VE was estimated using a test-negative case-control design"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Seven health systems in nine states contributed data for this analysis."
+    }
+   ]
+  },
+  {
+   "v": "electronic health records",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "documented in the electronic health record ≥15 days before the hospital admission date"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "VISION Network",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "VISION Network, Nine States, September–November 2022"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "VISION Network, Nine States, September–November 2022"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "effectiveness",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Early Estimates of Bivalent mRNA Vaccine Effectiveness"
+   }
+  ]
+ },
+ "equity": {
+  "level": 1,
+  "level_reason": "Race and ethnicity appear only as a model covariate and as Table 1/3 descriptors with no discussed contrast; age and sex define the population or are covariates.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 0,
+   "reason": "If Table 1 race rows are read as mere descriptive counts alongside covariate use, nothing beyond age/sex framing matters; but covariate use already meets level 1."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "adjusting for age, race and ethnicity, sex, calendar day"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race and ethnicity › Black or African American, NH"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Among Immunocompetent Adults"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Age, calendar day, and local circulation were modeled as natural cubic splines."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "adjusting for age, race and ethnicity, sex, calendar day"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Asian, NH/PI, AI/AN, other and multiple races collapsed into Other because of small numbers."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "An absolute SMD >0.20 indicates a nonnegligible difference in variable distributions"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group, yrs › 18–49"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise",
+  "inference"
+ ],
+ "confidence": "medium",
+ "notes": "Table 1/3 SMDs summarize case-vs-control and vaccination-status imbalance across multi-level characteristics (race 5 levels, age 5 levels); recorded as side by side since SMD is not a test. Two outcomes (ED/UC, hospitalization) fit as separate combined models. Unadjusted ORs not reported.",
+ "view_issues": "Table 2 caption reads 'adults aged 18 years' (≥ missing). Table 1 note defines previous infection relative to 'hospital admission date' for ED/UC encounters."
+}
