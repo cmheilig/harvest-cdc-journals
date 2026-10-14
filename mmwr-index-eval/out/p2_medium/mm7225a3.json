@@ -1,0 +1,80 @@
+{
+ "id": "mm7225a3",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "medium", "role": "judgment"},
+ "data_focus": {"v": "yes", "ev": []},
+ "outcome_types": [
+  {"v": "binary/categorical", "ev": [
+   {"loc": "text", "q": "Reinfections represented 2.7% of all reported SARS-CoV-2 infections during the Delta variant period in late 2021"}]},
+  {"v": "continuous", "ev": [
+   {"loc": "text", "q": "the median interval between infections by week increased from 269 days in September 2021 to a peak of 411 days in mid-February 2022"}]}
+ ],
+ "analytic_depth": [
+  {"v": "summary", "ev": [
+   {"loc": "text", "q": "a total of 2,784,548 laboratory-confirmed SARS-CoV-2 reinfections were reported among adults aged ≥18 years from 18 U.S. jurisdictions, accounting for 12.7%"}]},
+  {"v": "comparison", "ev": [
+   {"loc": "text", "q": "Percentages of reinfections among all COVID-19 cases, hospitalizations, and deaths were calculated by age group and variant period."},
+   {"loc": "summary", "q": "Increases were more pronounced among adults aged 18–49 years compared with those among older persons."}]}
+ ],
+ "procedures": [
+  {"name": "weighted pooling of jurisdiction weekly medians", "class": "weighting", "regression_family": null,
+   "inferred_from": "weekly medians from each jurisdiction weighted by its number of weekly reinfections to give an overall median; not survey weighting",
+   "role": "ancillary",
+   "ev": [{"loc": "text", "q": "were estimated by weighting reported weekly medians using the number of weekly reinfections per jurisdiction."}]}
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": ["variant period", "age group", "outcome (cases, hospitalizations, deaths)"],
+  "ev": [
+   {"loc": "text", "q": "this percentage increased to 10.3% during the Omicron BA.1 period, 12.5% during the BA.2 period, 20.6% during the BA.4/BA.5 period"},
+   {"loc": "text", "q": "consistently higher across variant periods among adults aged 18–49 years compared with those among adults aged ≥50 years"}]
+ },
+ "inference": {"v": "none", "method_stated": false, "ev": []},
+ "primary_measures": [
+  {"v": "percentage of reinfections among all infections", "ev": [{"loc": "table 1", "q": "Reinfections (% of all infections)"}]},
+  {"v": "median time to reinfection (days)", "ev": [{"loc": "figure 2", "q": "median time § to reinfection"}]},
+  {"v": "percentage distribution by variant period of previous infection", "ev": [{"loc": "text", "q": "51.3% of reinfected persons had been previously infected earlier in the Omicron period"}]}
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did SARS-CoV-2 reinfections and associated hospitalizations and deaths, as a share of all infections, change across Delta and Omicron variant periods and by age group among U.S. adults?",
+  "ev": [{"loc": "text", "q": "To describe trends over time, laboratory-confirmed SARS-CoV-2 reinfections and associated severe outcomes were characterized during a 16-month period"}]
+ },
+ "conditions": [
+  {"v": "SARS-CoV-2 reinfection", "role": "outcome", "ev": [{"loc": "title", "q": "Trends in Laboratory-Confirmed SARS-CoV-2 Reinfections and Associated Hospitalizations and Deaths"}]},
+  {"v": "COVID-19", "role": "population", "ev": [{"loc": "text", "q": "Weekly, age-stratified counts of COVID-19 cases, § COVID-19–associated hospitalizations, ¶ and COVID-19–associated deaths**"}]}
+ ],
+ "study_design": [
+  {"v": "surveillance/descriptive", "ev": [{"loc": "text", "q": "This descriptive analysis of surveillance data reported by 18 jurisdictions shows"}]},
+  {"v": "ecologic", "ev": [{"loc": "text", "q": "this ecologic analysis of epidemiologic changes in reinfection by period of SARS-CoV-2 variant predominance could not adjust for important confounders"}]}
+ ],
+ "data_source_type": [
+  {"v": "state or local surveillance", "ev": [{"loc": "text", "q": "were reported by 18 U.S. jurisdictions."}]}
+ ],
+ "data_source_named": [],
+ "setting": {"v": "US subnational", "ev": [{"loc": "note", "q": "were included for 18 jurisdictions, representing 45% of the U.S. population"}]},
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Age is the only SPD: results are stratified by three age groups and the age difference is explained by infection, vaccination and exposure factors, not social position.",
+  "level_confidence": "high",
+  "level_alternative": {"level": 2, "reason": "Age-specific percentages are reported and discussed across periods, if age were read as more than a population or stratum variable."},
+  "dimensions": [
+   {"v": "age", "role": "population", "ev": [{"loc": "title", "q": "Among Adults Aged ≥18 Years"}]},
+   {"v": "age", "role": "stratifier", "ev": [{"loc": "text", "q": "Percentages of reinfections among all COVID-19 cases, hospitalizations, and deaths were calculated by age group and variant period."}]}
+  ],
+  "determinants_of_health": {"v": null, "ev": []},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": null
+ },
+ "groupwise": [
+  {"across": ["age"], "n_groups": 3, "ordered": true, "assessment": "side by side", "resolves_to_finer": false,
+   "ev": [{"loc": "text", "q": "Among adults aged 50–64 years, the percentage of reinfections among all infections increased from 2.1% (Delta) to 29.0% (Omicron BQ.1/BQ1.1)"},
+          {"loc": "text", "q": "The absolute increase in the percentage of reinfections among all reported SARS-CoV-2 infections was highest among adults aged 18–49 years"}]}
+ ],
+ "uncertain_fields": ["procedures", "comparison", "study_design"],
+ "confidence": "medium",
+ "notes": "Purely descriptive: no tests or CIs. The weighted pooling of jurisdiction medians is recorded as weighting but could be read as arithmetic. The 'absolute increase' by age is claimed but no difference is reported, so scale is null. A footnote restricts the case/hospitalization/death comparison to jurisdictions reporting all three outcomes (a sensitivity check).",
+ "view_issues": "Text gives Omicron BQ.1/BQ.1.1 as 'BQ1.1' once; Figure 1 title lists cases and hospitalizations (A, B) but its description also mentions deaths."
+}

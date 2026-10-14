@@ -1,0 +1,64 @@
+{
+ "id": "mm7207a2",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "low", "role": "judgment"},
+ "data_focus": {"v": "yes", "ev": [{"loc": "text", "q": "During 2018–2021, 59–62 countries reported laboratory-confirmed typhoid fever through eJRF."}]},
+ "outcome_types": [
+  {"v": "count/rate", "ev": [{"loc": "text", "q": "Reported cases increased from approximately 8,800 in 2018, when typhoid fever surveillance was first added to eJRF, to 1 million in 2021."}, {"loc": "table 1", "q": "Cases per 100,000 population."}]},
+  {"v": "binary/categorical", "ev": [{"loc": "text", "q": "three (7%) of the 44 countries and freely associated states with estimated high typhoid fever incidence"}]}
+ ],
+ "analytic_depth": [
+  {"v": "summary", "ev": [{"loc": "text", "q": "seven confirmed typhoid fever outbreaks were identified from ongoing outbreak monitoring activities"}]},
+  {"v": "comparison", "ev": [{"loc": "text", "q": "The highest estimated 2019 incidence, by region, occurred in the WHO South-East Asian (306 cases per 100,000 persons), Eastern Mediterranean (187), and African (111) regions"}]}
+ ],
+ "procedures": [],
+ "comparison": {"framework": "group", "scale": null, "referent": null, "across": ["WHO region", "study site", "year", "age group"], "ev": [{"loc": "text", "q": "The highest estimated 2019 incidence, by region, occurred in the WHO South-East Asian (306 cases per 100,000 persons), Eastern Mediterranean (187), and African (111) regions"}]},
+ "inference": {"v": "CIs", "method_stated": false, "ev": [{"loc": "table 1", "q": "Incidence* (95% CI)"}]},
+ "primary_measures": [
+  {"v": "incidence per 100,000", "ev": [{"loc": "table 1", "q": "Cases per 100,000 population."}]},
+  {"v": "reported case counts", "ev": [{"loc": "text", "q": "Reported cases increased from approximately 8,800 in 2018"}]},
+  {"v": "post campaign coverage, %", "ev": [{"loc": "table 2", "q": "Post campaign coverage, % §"}]}
+ ],
+ "regression_fields": null,
+ "public_health_question": {"v": "What is the global status of typhoid fever surveillance, incidence estimates, and typhoid conjugate vaccine introduction during 2018–2022?", "ev": [{"loc": "text", "q": "This report describes typhoid fever surveillance, incidence estimates, and the status of typhoid conjugate vaccine introduction during 2018–2022."}]},
+ "conditions": [
+  {"v": "typhoid fever", "role": "outcome", "ev": [{"loc": "title", "q": "Typhoid Fever Surveillance, Incidence Estimates, and Progress Toward Typhoid Conjugate Vaccine Introduction"}]},
+  {"v": "typhoid fever", "role": "vaccine target", "ev": [{"loc": "title", "q": "Progress Toward Typhoid Conjugate Vaccine Introduction"}]}
+ ],
+ "study_design": [
+  {"v": "surveillance/descriptive", "ev": [{"loc": "text", "q": "This report describes typhoid fever surveillance, incidence estimates, and the status of typhoid conjugate vaccine introduction during 2018–2022."}]},
+  {"v": "evaluation or monitoring", "ev": [{"loc": "title", "q": "Progress Toward Typhoid Conjugate Vaccine Introduction"}]}
+ ],
+ "data_source_type": [
+  {"v": "international surveillance", "ev": [{"loc": "text", "q": "Countries report data on selected vaccine-preventable diseases to WHO and UNICEF annually using the electronic Joint Reporting Form (eJRF)."}]},
+  {"v": "other", "ev": [{"loc": "text", "q": "identified from ongoing outbreak monitoring activities by CDC’s Global Disease Detection Operation Center"}]}
+ ],
+ "data_source_named": [
+  {"v": "electronic Joint Reporting Form (eJRF)", "ev": [{"loc": "text", "q": "using the electronic Joint Reporting Form (eJRF)"}]},
+  {"v": "CDC Global Disease Detection Operation Center", "ev": [{"loc": "text", "q": "CDC’s Global Disease Detection Operation Center"}]},
+  {"v": "Global Burden of Disease study 2019", "ev": [{"loc": "text", "q": "Modeling data from the Global Burden of Disease study estimated"}]},
+  {"v": "SEAP, STRATAA, SETA", "ev": [{"loc": "text", "q": "through three surveillance projects"}]}
+ ],
+ "setting": {"v": "international", "ev": [{"loc": "title", "q": "Worldwide, 2018–2022"}]},
+ "vaccine_outcome_type": {"v": "other", "ev": [{"loc": "summary", "q": "Since 2018, five countries have introduced TCV into their national routine immunization schedule."}]},
+ "equity": {
+  "level": 1,
+  "level_reason": "Country income level and Gavi eligibility appear only as descriptors and as a financial barrier to introduction; incidence by age group is age only and cited.",
+  "level_confidence": "medium",
+  "level_alternative": {"level": 0, "reason": "Income classification is a country-level geographic attribute, not an SPD of persons; age alone keeps level 0."},
+  "dimensions": [
+   {"v": "SES", "role": "descriptor", "ses_components": ["low- and middle-income countries", "Gavi eligibility"], "ev": [{"loc": "text", "q": "11 middle-income countries are ineligible for Gavi support and might face financial barriers to typhoid conjugate vaccine introduction."}]},
+   {"v": "age", "role": "descriptor", "ev": [{"loc": "text", "q": "by age group, occurred in children aged 5–9 years, followed by children and adolescents aged 10–14 years"}]},
+   {"v": "age", "role": "population", "ev": [{"loc": "table 2", "q": "Persons aged 9 months–14 years."}]}
+  ],
+  "determinants_of_health": {"v": "safe water, sanitation, and hygiene (WASH); financial barriers / Gavi ineligibility; competing health priorities", "ev": [{"loc": "text", "q": "11 middle-income countries are ineligible for Gavi support and might face financial barriers to typhoid conjugate vaccine introduction."}, {"loc": "note", "q": "where much of the population lacks access to clean water, adequate sanitation, and standard hygiene."}]},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": "Income level is a country-level World Bank classification; no person-level SPD data."
+ },
+ "groupwise": [
+  {"across": ["age"], "n_groups": 3, "ordered": true, "assessment": "side by side", "resolves_to_finer": false, "ev": [{"loc": "text", "q": "by age group, occurred in children aged 5–9 years, followed by children and adolescents aged 10–14 years and children aged 1–4 years, respectively."}]}
+ ],
+ "uncertain_fields": ["analytic_depth", "comparison"],
+ "confidence": "medium",
+ "notes": "Incidence estimates and CIs are cited from population-based studies and GBD 2019, not computed here; the report's own data are eJRF case counts, outbreak counts and TCV introduction status, so data_focus could be read as limited.",
+ "view_issues": "Table 1 SETA crude incidence has no CI and the crude column values look misaligned with case counts."
+}

@@ -1,0 +1,62 @@
+{
+ "id": "mm7211a1",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "low", "role": "judgment"},
+ "data_focus": {"v": "yes", "ev": [{"loc": "text", "q": "Yearly incidence and overall percent rate change from 2011 to 2019 were calculated for each state."}]},
+ "outcome_types": [
+  {"v": "count/rate", "ev": [{"loc": "table 1", "q": "Cases per 100,000 population."}, {"loc": "text", "q": "State babesiosis rates were modeled with Poisson regression."}]}
+ ],
+ "analytic_depth": [
+  {"v": "summary", "ev": [{"loc": "text", "q": "During 2011–2019, a total of 16,456 cases of babesiosis were reported to CDC by 37 states"}]},
+  {"v": "comparison", "ev": [{"loc": "text", "q": "Vermont, Maine, and New Hampshire experienced the largest percent change in incidence between 2011 and 2019."}]},
+  {"v": "stratified/adjusted", "ev": [{"loc": "text", "q": "An overall model was fit, controlling for state, with year of diagnosis as a continuous variable."}]}
+ ],
+ "procedures": [
+  {"name": "Poisson regression with population offset", "class": "regression", "regression_family": "loglinear", "inferred_from": "'Poisson regression' with log census population offset → loglinear; p-values for year trend per state", "role": "primary", "ev": [{"loc": "text", "q": "State babesiosis rates were modeled with Poisson regression."}, {"loc": "table 1", "q": "P-values calculated using Poisson regression for each state, controlling for year and state."}]}
+ ],
+ "comparison": {"framework": "group", "scale": "relative", "referent": "2011", "across": ["year", "state"], "ev": [{"loc": "table 1", "q": "Total 9-yr incidence change, %"}, {"loc": "text", "q": "Annual incidence did not change significantly in Minnesota and Wisconsin."}]},
+ "inference": {"v": "tests", "method_stated": true, "ev": [{"loc": "table 1", "q": "P-values calculated using Poisson regression for each state, controlling for year and state."}]},
+ "primary_measures": [
+  {"v": "incidence per 100,000", "ev": [{"loc": "table 1", "q": "Cases per 100,000 population."}]},
+  {"v": "percent change in incidence", "ev": [{"loc": "table 1", "q": "Total 9-yr incidence change, %"}]},
+  {"v": "case count", "ev": [{"loc": "table 1", "q": "Total no. of cases reported"}]}
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {"v": "none", "ev": []},
+  "unadjusted_results": {"v": true, "ev": [{"loc": "text", "q": "State-level models were also fit, controlling for event year (symptom onset or laboratory diagnosis date) as a continuous variable."}]},
+  "adjusted_results": {"v": true, "ev": [{"loc": "text", "q": "An overall model was fit, controlling for state, with year of diagnosis as a continuous variable."}]},
+  "confounders": {"v": "state (overall model)", "ev": [{"loc": "text", "q": "An overall model was fit, controlling for state"}]},
+  "interaction_modeled": {"v": false, "ev": []},
+  "sensitivity_analysis": {"v": false, "ev": []}
+ },
+ "public_health_question": {"v": "How did reported babesiosis incidence change during 2011–2019 in U.S. states with sustained reporting?", "ev": [{"loc": "text", "q": "The current study identifies trends in babesiosis in the United States during 2011–2019"}]},
+ "conditions": [
+  {"v": "babesiosis", "role": "outcome", "ev": [{"loc": "title", "q": "Trends in Reported Babesiosis Cases — United States, 2011–2019"}]}
+ ],
+ "study_design": [
+  {"v": "surveillance/descriptive", "ev": [{"loc": "text", "q": "This analysis used data from the previously described national babesiosis surveillance system"}]},
+  {"v": "before/after or trend", "ev": [{"loc": "title", "q": "Trends in Reported Babesiosis Cases"}]}
+ ],
+ "data_source_type": [
+  {"v": "CDC surveillance system", "ev": [{"loc": "text", "q": "This analysis used data from the previously described national babesiosis surveillance system"}]}
+ ],
+ "data_source_named": [
+  {"v": "national babesiosis surveillance system", "ev": [{"loc": "text", "q": "national babesiosis surveillance system"}]}
+ ],
+ "setting": {"v": "US subnational", "ev": [{"loc": "table 1", "q": "Reported babesiosis cases and incidence, by year — 10 states,* 2011–2019"}]},
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "No social-position dimension; comparisons are by state and year only.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [],
+  "determinants_of_health": {"v": null, "ev": []},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": null
+ },
+ "groupwise": [],
+ "uncertain_fields": [],
+ "confidence": "high",
+ "notes": "Per-state p-values test a linear year term in state-specific Poisson models; the overall model adjusts for state. Percent change is hand-computed. 'Unadjusted' reflects the state-level models with year as the only term.",
+ "view_issues": "Text says New Hampshire increased to 78 cases (Summary-adjacent paragraph) but later 63 in 2019; table shows 63 in 2019 and 78 in 2017."
+}
