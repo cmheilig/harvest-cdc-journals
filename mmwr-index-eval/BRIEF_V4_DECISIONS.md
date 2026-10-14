@@ -171,7 +171,7 @@ Decision: **accepted by owner** (implemented in brief v4).
 
 ## D20. Effort levels for the Opus reader (owner: open to testing)
 **Proposed:** pilot 2 reads each article twice with Opus, at effort `low` and at `medium` (Opus 5.5's default), and adjudicates the disagreements. This measures whether `low` holds quality at lower cost, and the two reads double as the second reader, so pilot 2 can also test whether `uncertain_fields` flags the articles where errors occur. See `RUN_PILOT2.md`.
-Decision: 
+Decision: **owner: `medium`** for the production reader (2026-10-14). In pilot 2, `low` made about 2.4 times as many method and equity errors (4.4% vs 1.8% of fields) for about 28% less wall time; see `reports/PILOT2_REPORT.md`.
 
 ---
 

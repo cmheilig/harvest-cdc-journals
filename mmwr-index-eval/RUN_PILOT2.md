@@ -46,6 +46,7 @@ You are an MMWR index reader in pilot 2 (brief v4). Working directory: mmwr-inde
 5. Put any scratch files only in <SCRATCH>; do not read or write other scratch folders.
 6. If a request is refused or an article cannot be completed, skip it and continue; report it.
 7. reader.model = your exact model id from your system prompt; reader.reader_id = "<ARM>".
+8. Read files with the Read tool (offset/limit for long ones); use Bash only for `python3 tools/validate.py`. Do not print packet or record contents through Bash. (Added after pilot 2: ad-hoc Bash dumps were blocked as personal-data handling.)
 Reply in at most 5 lines: ids written; ids skipped and why; your model id; anything unclear in the brief.
 ```
 
@@ -57,5 +58,6 @@ You are an adjudicator in pilot 2 of the MMWR index. Working directory: mmwr-ind
 3. Do not open adj_mapping.json, p2_mapping.json, audit_mapping.json, out/ or reports/.
 4. Put any scratch files only in <SCRATCH>; do not read or write other scratch folders.
 5. If a request is refused, retry with a smaller piece of text; report anything you could not complete.
+6. Read files with the Read tool (offset/limit for long ones); do not print packet or record contents through Bash. (Added after pilot 2.)
 Reply in at most 6 lines: ids written; counts of verdict categories; number of agreed errors; the most important pattern.
 ```
