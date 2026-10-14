@@ -1,0 +1,98 @@
+{
+ "id": "mm7332e1",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "medium", "role": "judgment"},
+ "data_focus": {"v": "yes", "ev": [{"loc": "table 2", "q": "Ranges in estimated preventable disease incorporated uncertainty in incidence of RSV-associated outcomes and in vaccine effectiveness, using Monte Carlo simulation."}]},
+ "outcome_types": [
+  {"v": "event-time", "ev": [{"loc": "table 1", "q": "Manufacturer-calculated efficacy based on hazard ratios."}]},
+  {"v": "binary/categorical", "ev": [{"loc": "text", "q": "Severe reactogenicity events were more common among mResvia recipients than among placebo recipients §§ (pooled relative risk = 1.54 [95% CI = 1.40–1.68])"}]},
+  {"v": "count/rate", "ev": [{"loc": "text", "q": "the GBS adjusted incidence rate ratio in the risk interval versus the control interval was 2.30 (95% CI = 0.39–13.72) for GSK’s Arexvy"}, {"loc": "table 2", "q": "No. of estimated RSV-associated outcomes preventable per 1 million protein subunit RSV vaccine doses administered (range)"}]}
+ ],
+ "analytic_depth": [
+  {"v": "comparison", "ev": [{"loc": "text", "q": "The pooled relative risk for serious adverse events comparing the intervention and control groups was 1.00 (95% CI = 0.95–1.05)."}]},
+  {"v": "stratified/adjusted", "ev": [{"loc": "text", "q": "exceeded estimated numbers of potential vaccine-attributable GBS cases but varied by age and risk group ( Table 2 )."}, {"loc": "text", "q": "the GBS adjusted incidence rate ratio in the risk interval versus the control interval"}]}
+ ],
+ "procedures": [
+  {"name": "Cox proportional hazards (manufacturer VE from hazard ratios)", "class": "regression", "regression_family": "event-time", "inferred_from": "'efficacy based on hazard ratios' implies a proportional hazards model → event-time; model not named", "role": "primary", "ev": [{"loc": "table 1", "q": "Manufacturer-calculated efficacy based on hazard ratios."}]},
+  {"name": "pooled relative risk across trials", "class": "other", "regression_family": null, "inferred_from": "RRs pooled across phase 2/3 and phase 1 trials; pooling method not stated", "role": "primary", "ev": [{"loc": "note", "q": "Relative risk is pooled risk of events across phase 2/3 and phase 1 trials."}]},
+  {"name": "self-controlled case series (adjusted IRR, risk vs control interval)", "class": "other", "regression_family": null, "inferred_from": "FDA SCCS among Medicare beneficiaries; adjusted IRR, model not named", "role": "primary", "ev": [{"loc": "text", "q": "The analysis compared GBS incidence during a risk interval (days 1–42 postvaccination) with that during a control interval (days 43–90 postvaccination)."}]},
+  {"name": "CI vs fixed value (inversion)", "class": "test", "regression_family": null, "inferred_from": "CI method not stated; GBS IRR CIs include 1 and the article concludes no clear evidence of elevated risk; alpha-adjusted CIs for primary VE", "role": "primary", "ev": [{"loc": "text", "q": "did not provide clear, conclusive evidence of an elevated risk for GBS associated with RSV vaccination in older adults"}]},
+  {"name": "benefit-risk model with Monte Carlo simulation", "class": "other", "regression_family": null, "inferred_from": "modeled preventable outcomes vs vaccine-attributable GBS per 1 million doses; ranges by Monte Carlo simulation", "role": "primary", "ev": [{"loc": "text", "q": "In a modeling study, estimated public health benefits of protein subunit RSV vaccination were compared with potential GBS risk."}, {"loc": "table 2", "q": "using Monte Carlo simulation."}]},
+  {"name": "rapid cycle analysis (VSD signal detection)", "class": "test", "regression_family": null, "inferred_from": "'statistical signal' from rapid cycle analysis; test not named", "role": "ancillary", "ev": [{"loc": "text", "q": "Results of rapid cycle analysis performed by the Vaccine Safety Datalink §§§ demonstrated a statistical signal for immune thrombocytopenia (ITP)"}]},
+  {"name": "truncation of GBS risk range at zero", "class": "transformation", "regression_family": null, "inferred_from": "censoring of the lower bound of an estimate", "role": "ancillary", "ev": [{"loc": "table 2", "q": "However, the range was truncated at zero for benefit-risk analyses."}]}
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "placebo; control interval (days 43–90)",
+  "across": ["vaccine vs placebo", "postvaccination period", "vaccine product", "age and risk group"],
+  "ev": [{"loc": "text", "q": "Efficacy point estimates were higher during the first 12 months after vaccination compared with the subsequent 12 months."}, {"loc": "text", "q": "VE was similar across vaccine products (GSK Arexvy and Pfizer Abrysvo) and patient age groups (60–74 years and ≥75 years)."}]
+ },
+ "inference": {"v": "CIs and tests", "method_stated": true, "ev": [{"loc": "table 2", "q": "Ranges in estimated preventable disease incorporated uncertainty in incidence of RSV-associated outcomes and in vaccine effectiveness, using Monte Carlo simulation."}, {"loc": "table 1", "q": "95.04% alpha-adjusted CI was provided"}]},
+ "primary_measures": [
+  {"v": "vaccine efficacy, %", "ev": [{"loc": "table 1", "q": "Vaccine efficacy against outcome, % (95% CI)"}]},
+  {"v": "VE, %", "ev": [{"loc": "text", "q": "ranged from 75% (95% CI = 50%–87%) to 82% (95% CI = 69%–89%)"}]},
+  {"v": "pooled relative risk", "ev": [{"loc": "text", "q": "pooled relative risk = 1.54 [95% CI = 1.40–1.68]"}]},
+  {"v": "adjusted incidence rate ratio", "ev": [{"loc": "text", "q": "the GBS adjusted incidence rate ratio in the risk interval versus the control interval was 2.30"}]},
+  {"v": "outcomes preventable per 1 million doses", "ev": [{"loc": "table 2", "q": "No. of estimated RSV-associated outcomes preventable per 1 million protein subunit RSV vaccine doses administered (range)"}]}
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {"v": "none", "ev": []},
+  "unadjusted_results": {"v": null, "ev": []},
+  "adjusted_results": {"v": null, "ev": []},
+  "confounders": {"v": null, "ev": []},
+  "interaction_modeled": {"v": false, "ev": []},
+  "sensitivity_analysis": {"v": false, "ev": []}
+ },
+ "public_health_question": {"v": "What evidence on efficacy, effectiveness, safety and benefit-risk supports ACIP's updated recommendation of RSV vaccination for all adults aged ≥75 years and at-risk adults aged 60–74 years?", "ev": [{"loc": "summary", "q": "This report summarizes the evidence considered for these updated recommendations, including postlicensure data on vaccine effectiveness and safety"}]},
+ "conditions": [
+  {"v": "RSV-associated lower respiratory tract disease", "role": "vaccine target", "ev": [{"loc": "text", "q": "approved a third RSV vaccine (mResvia [Moderna]) for prevention of RSV-associated lower respiratory tract disease (RSV-LRTD) in adults aged ≥60 years"}]},
+  {"v": "RSV-associated lower respiratory tract disease and hospitalization", "role": "outcome", "ev": [{"loc": "text", "q": "efficacy of 1 dose was 78.7% (95% CI = 62.8%–87.9%) in preventing symptomatic, laboratory-confirmed RSV-LRTD"}]},
+  {"v": "Guillain-Barré syndrome", "role": "outcome", "ev": [{"loc": "text", "q": "an FDA self-controlled case series analysis estimating risk for GBS attributable to protein subunit RSV vaccination"}]},
+  {"v": "immune thrombocytopenia", "role": "outcome", "ev": [{"loc": "text", "q": "demonstrated a statistical signal for immune thrombocytopenia (ITP)"}]},
+  {"v": "severe reactogenicity and serious adverse events", "role": "outcome", "ev": [{"loc": "text", "q": "Severe reactogenicity events were more common among mResvia recipients than among placebo recipients"}]}
+ ],
+ "study_design": [
+  {"v": "guidance or recommendations", "ev": [{"loc": "title", "q": "Updated Recommendations of the Advisory Committee on Immunization Practices — United States, 2024"}]},
+  {"v": "mixed/other", "ev": [{"loc": "text", "q": "ACIP considered data from previous meetings; new data from randomized, observer-blind, placebo-controlled clinical trials (RCTs) of mResvia; and postlicensure data"}]}
+ ],
+ "data_source_type": [
+  {"v": "other", "ev": [{"loc": "text", "q": "ACIP reviewed data from two RCTs."}]},
+  {"v": "sentinel/network", "ev": [{"loc": "table 2", "q": "Age- and risk-stratified annual incidence of RSV-associated outcomes was from analyses using the RSV Hospitalization Surveillance Network (RSV-NET)"}, {"loc": "table 2", "q": "Vaccine effectiveness in preventing outcomes was from CDC’s VISION Network"}]},
+  {"v": "national survey", "ev": [{"loc": "table 2", "q": "and the Behavioral Risk Factor Surveillance System"}]},
+  {"v": "administrative/claims", "ev": [{"loc": "text", "q": "GBS cases were identified using medical claims data"}]},
+  {"v": "electronic health records", "ev": [{"loc": "text", "q": "rapid cycle analysis performed by the Vaccine Safety Datalink"}]}
+ ],
+ "data_source_named": [
+  {"v": "Moderna mRNA-1345 phase 2/3 and phase 1 trials", "ev": [{"loc": "text", "q": "Moderna, mRNA-1345 phase 2/3 clinical trial, unpublished data, 2024"}]},
+  {"v": "RSV-NET", "ev": [{"loc": "table 2", "q": "RSV Hospitalization Surveillance Network (RSV-NET)"}]},
+  {"v": "BRFSS", "ev": [{"loc": "table 2", "q": "Behavioral Risk Factor Surveillance System"}]},
+  {"v": "VISION Network", "ev": [{"loc": "table 2", "q": "CDC’s VISION Network"}]},
+  {"v": "IVY Network", "ev": [{"loc": "note", "q": "CDC’s IVY Network"}]},
+  {"v": "Veterans Health Administration", "ev": [{"loc": "note", "q": "the Veteran’s Health Administration"}]},
+  {"v": "Medicare", "ev": [{"loc": "text", "q": "among Medicare beneficiaries aged ≥65 years"}]},
+  {"v": "Vaccine Safety Datalink", "ev": [{"loc": "text", "q": "Vaccine Safety Datalink"}]}
+ ],
+ "setting": {"v": "mixed", "ev": [{"loc": "table 1", "q": "during phase 2/3 pivotal efficacy trial — multiple countries, 2021–2024"}, {"loc": "table 2", "q": "among adults aged ≥60 years* — United States, 2024"}]},
+ "vaccine_outcome_type": {"v": "effectiveness", "ev": [{"loc": "text", "q": "Postlicensure data were reviewed from four observational studies of vaccine effectiveness (VE) of protein subunit RSV vaccination against RSV-associated hospitalization"}]},
+ "equity": {
+  "level": 1,
+  "level_reason": "Age defines the recommendation groups without social-position framing; rural or remote residence appears only as a listed risk factor (descriptor), and equity only as an EtR domain.",
+  "level_confidence": "medium",
+  "level_alternative": {"level": 0, "reason": "Rural residence is a clinical-judgment risk factor in a box, not an analyzed SPD; otherwise only age is used."},
+  "dimensions": [
+   {"v": "age", "role": "stratifier", "ev": [{"loc": "table 2", "q": "Vaccine product/Recipient age and risk groups"}]},
+   {"v": "age", "role": "population", "ev": [{"loc": "title", "q": "Use of Respiratory Syncytial Virus Vaccines in Adults Aged ≥60 Years"}]},
+   {"v": "rurality", "role": "descriptor", "ev": [{"loc": "text", "q": "residence in a remote or rural community where transportation of patients with severe RSV disease for escalation of medical care is challenging"}]}
+  ],
+  "determinants_of_health": {"v": "transportation challenges for escalation of care in remote or rural communities", "ev": [{"loc": "text", "q": "residence in a remote or rural community where transportation of patients with severe RSV disease for escalation of medical care is challenging"}]},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": null
+ },
+ "groupwise": [
+  {"across": ["age"], "n_groups": 3, "ordered": false, "assessment": "side by side", "resolves_to_finer": false, "ev": [{"loc": "text", "q": "exceeded estimated numbers of potential vaccine-attributable GBS cases but varied by age and risk group ( Table 2 )."}]}
+ ],
+ "uncertain_fields": ["procedures", "regression_fields", "groupwise", "equity.level", "analytic_depth"],
+ "confidence": "medium",
+ "notes": "Most estimates (trial VE, observational VE, FDA SCCS, VSD) are cited from others; the report's own computations are pooled RRs and the benefit-risk model. The Cox model is inferred from 'based on hazard ratios'; its details are not given, so regression fields are null. Table 2 groups cross age (≥75 vs 60–74) with chronic-condition status, so only two age levels are SPD.",
+ "view_issues": null
+}
