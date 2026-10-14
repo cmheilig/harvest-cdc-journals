@@ -1,0 +1,250 @@
+{
+ "id": "mm5011a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "low",
+  "role": "judgment"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Treatment success (i.e., patients with bacteriologically documented cure and those who completed treatment) was attained for 88% of new"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Treatment success (i.e., patients with bacteriologically documented cure and those who completed treatment) was attained for 88% of new and 60% of retreatment TB patients."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, case-fatality rates were high in Orel (5%), particularly among smear-positive patients (12%)."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Culture confirmation of TB diagnosis was significantly higher in symptomatic patients than in those diagnosed through a screening procedure (77% versus 56%; p<0.001)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "p-value reported with no test named",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(77% versus 56%; p<0.001)"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": "WHO global target of 85%",
+  "across": [
+   "symptomatic vs screening-detected",
+   "new vs retreatment",
+   "prisoners vs civilians",
+   "smear status",
+   "WHO target"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Treatment success (i.e., patients with bacteriologically documented cure and those who completed treatment) was attained for 88% of new and 60% of retreatment TB patients."
+   },
+   {
+    "loc": "text",
+    "q": "slightly lower than the WHO global target of 85%"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "(77% versus 56%; p<0.001)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was attained for 88% of new and 60% of retreatment TB patients"
+    }
+   ]
+  },
+  {
+   "v": "case-fatality rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, case-fatality rates were high in Orel (5%)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What were sputum conversion and treatment outcomes for TB patients enrolled in the first 6 months of a DOTS demonstration project in Orel oblast, Russia?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This report summarizes evaluations of treatment outcomes for patients enrolled during the first 6 months of the project in Orel oblast"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "tuberculosis",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Evaluation of a Directly Observed Therapy Short-Course Strategy for Treating Tuberculosis"
+    }
+   ]
+  },
+  {
+   "v": "multidrug-resistant tuberculosis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Six (3%) patients had MDR TB, and all were civilians."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Evaluation of a Directly Observed Therapy Short-Course Strategy for Treating Tuberculosis"
+    }
+   ]
+  },
+  {
+   "v": "prospective cohort",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prospective data collection began in October 1999 on all Orel TB patients without a history of TB treatment."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prospective data collection began in October 1999 on all Orel TB patients"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [],
+ "setting": {
+  "v": "international",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Orel Oblast, Russian Federation, 1999--2000"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Outcomes are reported for prisoners vs civilians (incarceration, an SES component) and explained by screening and no defaulting, but not framed or quantified as a disparity.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Prisoner status may be read as a program population descriptor rather than a social-position comparison."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "prisoners"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Cure and completion rates among prisoners were high (97%), with no prison patients defaulting."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "265 (76%) were men"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Mean age at diagnosis was 40 years (range: 15--89 years)."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Prisoners vs civilians; civilian comparison values not given explicitly for success."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "equity.level",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Comparison with WHO 85% target is a fixed referent alongside several pairwise subgroup contrasts; each subgroup contrast is pairwise, so framework is pair. Design is named an evaluation; prospective cohort data collection.",
+ "view_issues": null
+}
