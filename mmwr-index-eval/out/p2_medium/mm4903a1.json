@@ -1,0 +1,61 @@
+{
+ "id": "mm4903a1",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "medium", "role": "judgment"},
+ "data_focus": {"v": "yes", "ev": [{"loc": "text", "q": "Among middle school (grades 6-8) students, the overall prevalence of any current tobacco use was 12.8%"}]},
+ "outcome_types": [
+  {"v": "binary/categorical", "ev": [{"loc": "table 1", "q": "Percentage of students in middle school (grades 6-8) and high school (grades 9-12) currently* using tobacco products"}]}
+ ],
+ "analytic_depth": [
+  {"v": "summary", "ev": [{"loc": "text", "q": "Among high school (grades 9-12) students, the overall prevalence of any current tobacco use was 34.8%."}]},
+  {"v": "comparison", "ev": [{"loc": "text", "q": "Boys were significantly more likely than girls to use smokeless tobacco (4.2% and 1.3%, respectively)"}, {"loc": "text", "q": "White and Hispanic students were significantly more likely than black students to smoke cigarettes (32.8%, 25.8%, and 15.8%, respectively)."}]}
+ ],
+ "procedures": [
+  {"name": "survey weighting (nonresponse and selection probability)", "class": "weighting", "regression_family": null, "inferred_from": "weighting factor applied to each student record; produces every national prevalence estimate", "role": "primary", "ev": [{"loc": "text", "q": "A weighting factor was applied to each student record to adjust for nonresponse and for the varying probabilities of selection"}]}
+ ],
+ "comparison": {"framework": "group", "scale": null, "referent": null, "across": ["sex", "race/ethnicity", "school level (middle vs high school)"], "ev": [{"loc": "table 1", "q": "by type of tobacco product, sex, and race/ethnicity"}, {"loc": "text", "q": "Cigarette smoking rates were similar among boys and girls and among racial/ethnic groups."}]},
+ "inference": {"v": "CIs", "ci_overlap": true, "method_stated": true, "ev": [{"loc": "text", "q": "SUDAAN was used to compute 95% confidence intervals"}, {"loc": "text", "q": "Differences between prevalence estimates were considered statistically significant if the 95% confidence intervals did not overlap."}]},
+ "primary_measures": [
+  {"v": "percentage", "ev": [{"loc": "table 1", "q": "Percentage of students in middle school (grades 6-8) and high school (grades 9-12) currently* using tobacco products"}]},
+  {"v": "prevalence", "ev": [{"loc": "text", "q": "the overall prevalence of any current tobacco use was 12.8%"}]}
+ ],
+ "regression_fields": null,
+ "public_health_question": {"v": "What is the prevalence of current use of cigarettes, smokeless tobacco, cigars, pipes, bidis and kreteks among U.S. middle and high school students, by sex and race/ethnicity?", "ev": [{"loc": "text", "q": "cigar, pipe, bidi, and kretek use among middle school and high school students nationwide"}]},
+ "conditions": [
+  {"v": "tobacco use", "role": "outcome", "ev": [{"loc": "title", "q": "Tobacco Use Among Middle and High School Students -- United States, 1999"}]}
+ ],
+ "study_design": [
+  {"v": "cross-sectional", "ev": [{"loc": "text", "q": "The school-based 1999 NYTS employed a three-stage cluster sample designed to produce a nationally representative sample of students in grades 6-12."}]}
+ ],
+ "data_source_type": [
+  {"v": "national survey", "ev": [{"loc": "text", "q": "conducted the National Youth Tobacco Survey (NYTS) during the fall of 1999"}]}
+ ],
+ "data_source_named": [
+  {"v": "National Youth Tobacco Survey (NYTS)", "ev": [{"loc": "text", "q": "conducted the National Youth Tobacco Survey (NYTS) during the fall of 1999"}]}
+ ],
+ "setting": {"v": "US national", "ev": [{"loc": "title", "q": "Tobacco Use Among Middle and High School Students -- United States, 1999"}]},
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Prevalence by race/ethnicity and sex is reported and described (e.g., black middle schoolers' cigarette smoking similar to white and Hispanic), but contrasts rest only on significance via CI overlap with no computed difference or ratio, so the level is capped at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {"level": 3, "reason": "The editorial frames the narrowing black-white smoking gap and differing patterns across racial/ethnic groups as an issue, with generic social and cultural factors."},
+  "dimensions": [
+   {"v": "race/ethnicity", "role": "stratifier", "ev": [{"loc": "text", "q": "White students were significantly more likely than black and Hispanic students to use smokeless tobacco (8.7%, 2.4%, and 3.6%, respectively)."}]},
+   {"v": "race/ethnicity", "role": "covariate", "ev": [{"loc": "text", "q": "16 strata formed on the basis of the degree of urbanization and the relative percentage of black and Hispanic students in the PSU"}]},
+   {"v": "rurality", "role": "covariate", "ev": [{"loc": "text", "q": "16 strata formed on the basis of the degree of urbanization and the relative percentage of black and Hispanic students in the PSU"}]},
+   {"v": "sex", "role": "stratifier", "ev": [{"loc": "text", "q": "Boys were significantly more likely than girls to use smokeless tobacco (11.6% and 1.5%, respectively)"}]},
+   {"v": "age", "role": "population", "ev": [{"loc": "text", "q": "a nationally representative sample of students in grades 6-12"}]},
+   {"v": "age", "role": "stratifier", "ev": [{"loc": "table 1", "q": "Any use § › Middle school"}, {"loc": "table 1", "q": "Any use § › High school"}]}
+  ],
+  "determinants_of_health": {"v": "social and cultural factors", "ev": [{"loc": "text", "q": "The social and cultural factors related to differing patterns of tobacco product use across sex and racial/ethnic groups require additional study."}]},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": "Only white, black and Hispanic students are reported; other groups were too small. Black and Hispanic students were oversampled and weighted."
+ },
+ "groupwise": [
+  {"across": ["race/ethnicity"], "n_groups": 3, "ordered": false, "assessment": "side by side", "resolves_to_finer": true, "ev": [{"loc": "text", "q": "Cigarette smoking rates were similar among boys and girls and among racial/ethnic groups."}, {"loc": "text", "q": "White and Hispanic students were significantly more likely than black students to smoke cigarettes (32.8%, 25.8%, and 15.8%, respectively)."}]}
+ ],
+ "uncertain_fields": ["equity.level", "groupwise", "analytic_depth"],
+ "confidence": "medium",
+ "notes": "All significance judgments rest on non-overlapping 95% CIs, which is not a test. Sex and race contrasts are made separately within middle and high school; read as comparison, not stratified/adjusted. Social and cultural factors are named only as needing study.",
+ "view_issues": "The text says CIs were used to determine differences 'at the pless than 0.05 level' (garbled 'p<0.05')."
+}

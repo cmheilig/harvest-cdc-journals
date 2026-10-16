@@ -1,0 +1,98 @@
+{
+ "id": "mm7211a1",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "medium", "role": "judgment"},
+ "data_focus": {"v": "yes", "ev": [
+  {"loc": "text", "q": "Yearly incidence and overall percent rate change from 2011 to 2019 were calculated for each state."}
+ ]},
+ "outcome_types": [
+  {"v": "count/rate", "ev": [
+   {"loc": "text", "q": "Incidences ranged from 0.32 per 100,000 population in Vermont in 2011 to 18.0 in Rhode Island in 2015"},
+   {"loc": "text", "q": "State babesiosis rates were modeled with Poisson regression."}
+  ]}
+ ],
+ "analytic_depth": [
+  {"v": "summary", "ev": [
+   {"loc": "text", "q": "During 2011–2019, a total of 16,456 cases of babesiosis were reported to CDC by 37 states"}
+  ]},
+  {"v": "comparison", "ev": [
+   {"loc": "text", "q": "Vermont, Maine, and New Hampshire experienced the largest percent change in incidence between 2011 and 2019."},
+   {"loc": "text", "q": "Incidence trended upward in Connecticut, Maine, Massachusetts, New Hampshire, New Jersey, New York, Rhode Island, and Vermont, whereas incidence in Minnesota and Wisconsin remained stable."}
+  ]}
+ ],
+ "procedures": [
+  {"name": "Poisson regression of state rates on year (population offset)", "class": "regression", "regression_family": "loglinear",
+   "inferred_from": "'Poisson regression' with log population offset → loglinear; p-values for the year trend in each state",
+   "role": "primary",
+   "ev": [
+    {"loc": "text", "q": "State babesiosis rates were modeled with Poisson regression. An overall model was fit, controlling for state, with year of diagnosis as a continuous variable."},
+    {"loc": "table 1", "q": "P-values calculated using Poisson regression for each state, controlling for year and state."}
+   ]}
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "2011",
+  "across": ["year", "state"],
+  "ev": [
+   {"loc": "table 1", "q": "Total 9-yr incidence change, %"},
+   {"loc": "text", "q": "Maine reported nine cases in 2011 (0.7) and 138 cases in 2019 (10.3), a 1,422% rate increase."}
+  ]
+ },
+ "inference": {"v": "tests", "method_stated": true, "ev": [
+  {"loc": "table 1", "q": "P-values calculated using Poisson regression for each state, controlling for year and state."},
+  {"loc": "text", "q": "Incidence increased significantly in Connecticut, Maine, Massachusetts, New Hampshire, New Jersey, New York, Rhode Island, and Vermont (p<0.001)"}
+ ]},
+ "primary_measures": [
+  {"v": "incidence per 100,000 population", "ev": [{"loc": "table 1", "q": "§ Cases per 100,000 population."}]},
+  {"v": "total 9-yr incidence change, %", "ev": [{"loc": "table 1", "q": "Total 9-yr incidence change, %"}]},
+  {"v": "case counts", "ev": [{"loc": "table 1", "q": "Total no. of cases reported"}]},
+  {"v": "p-value", "ev": [{"loc": "table 1", "q": "p-value ¶"}]}
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {"v": "none", "ev": []},
+  "unadjusted_results": {"v": true, "ev": [
+   {"loc": "text", "q": "State-level models were also fit, controlling for event year (symptom onset or laboratory diagnosis date) as a continuous variable."}
+  ]},
+  "adjusted_results": {"v": true, "ev": [
+   {"loc": "text", "q": "An overall model was fit, controlling for state, with year of diagnosis as a continuous variable."}
+  ]},
+  "confounders": {"v": "state (overall model); population offset", "ev": [
+   {"loc": "text", "q": "An overall model was fit, controlling for state, with year of diagnosis as a continuous variable."}
+  ]},
+  "interaction_modeled": {"v": false, "ev": []},
+  "sensitivity_analysis": {"v": false, "ev": []}
+ },
+ "public_health_question": {"v": "How did reported babesiosis incidence change during 2011–2019 in U.S. states where it is reportable, and has endemic transmission spread to new states?", "ev": [
+  {"loc": "text", "q": "The current study identifies trends in babesiosis in the United States during 2011–2019 and highlights establishment of endemic transmission in new geographic areas."}
+ ]},
+ "conditions": [
+  {"v": "babesiosis", "role": "outcome", "ev": [{"loc": "title", "q": "Trends in Reported Babesiosis Cases — United States, 2011–2019"}]}
+ ],
+ "study_design": [
+  {"v": "surveillance/descriptive", "ev": [{"loc": "text", "q": "This analysis used data from the previously described national babesiosis surveillance system"}]},
+  {"v": "before/after or trend", "ev": [{"loc": "title", "q": "Trends in Reported Babesiosis Cases — United States, 2011–2019"}]}
+ ],
+ "data_source_type": [
+  {"v": "CDC surveillance system", "ev": [{"loc": "text", "q": "Where babesiosis is reportable, cases are reported to CDC by state health departments."}]}
+ ],
+ "data_source_named": [
+  {"v": "national babesiosis surveillance system", "ev": [{"loc": "text", "q": "This analysis used data from the previously described national babesiosis surveillance system"}]}
+ ],
+ "setting": {"v": "US subnational", "ev": [{"loc": "table 1", "q": "Reported babesiosis cases and incidence, by year — 10 states,* 2011–2019"}]},
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "No social-position dimension appears; comparisons are across states and years only.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [],
+  "determinants_of_health": {"v": null, "ev": []},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": null
+ },
+ "groupwise": [],
+ "uncertain_fields": ["analytic_depth"],
+ "confidence": "high",
+ "notes": "The overall model adjusts for state but its estimate is not reported; reported results are state-specific year trends (comparison over time by state), so stratified/adjusted is not listed. Inclusion rule (≥10 cases for ≥2 consecutive years) is an exclusion rule, not a procedure.",
+ "view_issues": "New Hampshire 2019 cases are 78 in the Summary but 63 in the text and table (78 is the 2017 count); Massachusetts peak incidence is 9.1 in results and 9.2 in Discussion and table. An erratum is noted."
+}

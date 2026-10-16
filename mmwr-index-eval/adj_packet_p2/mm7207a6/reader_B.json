@@ -1,0 +1,232 @@
+{
+ "id": "mm7207a6",
+ "reader": {
+  "label": "B"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "In 2021, 76.0% of women aged 50–74 years reported that they had a mammogram within the preceding 2 years."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "In 2021, 76.0% of women aged 50–74 years reported that they had a mammogram within the preceding 2 years."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "increased with family income, from 67.7% of women with family income <200% of FPL"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "imputation of missing family income",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "the note states missing income was imputed; method not described",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Family income was imputed when missing."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "family income (% of federal poverty level)"
+  ],
+  "ev": [
+   {
+    "loc": "figure 1",
+    "q": "to 74.3% of women with income 200% to <400% of FPL, and 81.5% of those with income ≥400% of FPL."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "note",
+    "q": "With 95% CIs indicated by error bars."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "QuickStats: Percentage* of Women Aged 50–74 Years Who Had a Mammogram Within the Preceding 2 Years"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What percentage of U.S. women aged 50–74 years had a mammogram within the preceding 2 years in 2021, and how did it vary by family income?",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Percentage* of Women Aged 50–74 Years Who Had a Mammogram Within the Preceding 2 Years, † by Family Income §"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "mammography screening",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Women Aged 50–74 Years Who Had a Mammogram Within the Preceding 2 Years"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Estimates are based on household interviews of a sample of the civilian, noninstitutionalized U.S. population."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Source: National Center for Health Statistics, National Health Interview Survey, 2021."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Health Interview Survey (NHIS)",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "National Health Interview Survey, United States, 2021"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "note",
+    "q": "household interviews of a sample of the civilian, noninstitutionalized U.S. population."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Mammography percentages by family income (% FPL) are reported and described as increasing with income, but only set side by side, with no computed difference or ratio and no disparity framing.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Family income relative to poverty is itself a social determinant used as the exposure, and the gradient (67.7% to 81.5%) could be read as a quantified contrast."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "primary comparison",
+    "ses_components": [
+     "family income as a percentage of federal poverty level"
+    ],
+    "ev": [
+     {
+      "loc": "note",
+      "q": "As a percentage of FPL, which is based on family income and family size, using the U.S. Census Bureau’s poverty thresholds."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Percentage* of Women Aged 50–74 Years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Percentage* of Women Aged 50–74 Years"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Family income as % of FPL in three ordered groups; missing income imputed; no referent group."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "The percentage of women who had a mammogram within the preceding 2 years increased with family income"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level"
+ ],
+ "confidence": "high",
+ "notes": "QuickStats with 95% CI error bars; no test or survey-weighting statement is given, though NHIS estimates are normally weighted. The 'increased with family income' claim has no stated basis (no trend test).",
+ "view_issues": null
+}

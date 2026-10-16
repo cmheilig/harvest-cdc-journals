@@ -1,0 +1,50 @@
+{
+ "id": "mm7202a2",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "low", "role": "judgment"},
+ "data_focus": {"v": "yes", "ev": [{"loc": "text", "q": "Nationwide, vaccination coverage with 2 doses of measles, mumps and rubella vaccine (MMR) was 93.0 %"}]},
+ "outcome_types": [{"v": "binary/categorical", "ev": [{"loc": "summary", "q": "The exemption rate remained low (2.6%)."}]}],
+ "analytic_depth": [
+  {"v": "summary", "ev": [{"loc": "text", "q": "Nationwide, vaccination coverage with 2 doses of measles, mumps and rubella vaccine (MMR) was 93.0 %"}]},
+  {"v": "comparison", "ev": [{"loc": "text", "q": "Compared with the 2020–21 school year, vaccination coverage decreased 0.8–0.9 percentage points for all vaccines."}, {"loc": "text", "q": "National MMR coverage among kindergarten students remained below the Healthy People 2030 target of 95%"}]}
+ ],
+ "procedures": [
+  {"name": "nonresponse adjustment and survey weighting", "class": "weighting", "regression_family": null, "inferred_from": "estimates adjusted for nonresponse by inverse response rate within school type; weights for complex sample surveys", "role": "primary", "ev": [{"loc": "note", "q": "Estimates based on these data were adjusted for nonresponse using the inverse of the response rate, stratified by school type"}, {"loc": "note", "q": "Weights were calculated to account for sample design and adjusted for nonresponse."}]}
+ ],
+ "comparison": {"framework": "group", "scale": "absolute", "referent": "2020–21 school year; Healthy People 2030 target of 95%", "across": ["school year", "state"], "ev": [{"loc": "table 1", "q": "Percentage point change in any exemption, 2020–2021"}, {"loc": "text", "q": "with coverage of ≥95% reported by 14 states and <90% by nine states and the District of Columbia"}]},
+ "inference": {"v": "none", "method_stated": false, "ev": []},
+ "primary_measures": [
+  {"v": "coverage, %", "ev": [{"loc": "table 1", "q": "2 Doses MMR,*** %"}]},
+  {"v": "any exemption, %", "ev": [{"loc": "table 1", "q": "Any exemption, %"}]},
+  {"v": "percentage point change", "ev": [{"loc": "table 1", "q": "Percentage point change in any exemption, 2020–2021"}]},
+  {"v": "median", "ev": [{"loc": "text", "q": "medians indicate the midpoint of state-level coverage, irrespective of population size"}]},
+  {"v": "potentially achievable coverage", "ev": [{"loc": "text", "q": "Potentially achievable coverage with MMR"}]}
+ ],
+ "regression_fields": null,
+ "public_health_question": {"v": "What were vaccination coverage, exemption and grace-period/provisional enrollment levels among U.S. kindergartners in 2021–22, and how did they change from 2020–21?", "ev": [{"loc": "text", "q": "This report summarizes data collected by state and local immunization programs* on vaccination coverage and exemptions to vaccination among children in kindergarten"}]},
+ "conditions": [
+  {"v": "measles, mumps, rubella", "role": "vaccine target", "ev": [{"loc": "text", "q": "vaccination coverage with 2 doses of measles, mumps and rubella vaccine (MMR) was 93.0 %"}]},
+  {"v": "diphtheria, tetanus, pertussis", "role": "vaccine target", "ev": [{"loc": "text", "q": "diphtheria, tetanus, and acellular pertussis vaccine (DTaP) doses was 92.7 %**"}]},
+  {"v": "poliomyelitis", "role": "vaccine target", "ev": [{"loc": "text", "q": "with poliovirus vaccine (polio) was 93.1 %"}]},
+  {"v": "varicella", "role": "vaccine target", "ev": [{"loc": "text", "q": "with the state-required number of varicella vaccine doses was 92.8%."}]}
+ ],
+ "study_design": [{"v": "surveillance/descriptive", "ev": [{"loc": "text", "q": "CDC uses these counts to produce state- and national-level estimates of vaccination coverage among children in kindergarten."}]}],
+ "data_source_type": [{"v": "state or local surveillance", "ev": [{"loc": "text", "q": "This report summarizes data collected by state and local immunization programs*"}]}, {"v": "other survey", "ev": [{"loc": "text", "q": "to report unweighted counts, aggregated by school type, to CDC via a web-based questionnaire"}]}],
+ "data_source_named": [{"v": "school vaccination assessments (SchoolVaxView)", "ev": [{"loc": "text", "q": "Hepatitis B vaccination coverage is not included in this report but is available at SchoolVaxView"}]}],
+ "setting": {"v": "mixed", "ev": [{"loc": "text", "q": "CDC uses these counts to produce state- and national-level estimates of vaccination coverage among children in kindergarten."}]},
+ "vaccine_outcome_type": {"v": "coverage/uptake", "ev": [{"loc": "summary", "q": "During the 2021–22 school year, coverage decreased again to approximately 93% for all state-required vaccines."}]},
+ "equity": {
+  "level": 0,
+  "level_reason": "Kindergarten age only defines the population; comparisons are across states and school years, which are not SPDs.",
+  "level_confidence": "high",
+  "level_alternative": {"level": 1, "reason": "Homeschooled children are mentioned only in a limitation on representativeness."},
+  "dimensions": [{"v": "age", "role": "population", "ev": [{"loc": "title", "q": "Vaccination Coverage with Selected Vaccines and Exemption Rates Among Children in Kindergarten"}]}],
+  "determinants_of_health": {"v": null, "ev": []},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": null
+ },
+ "groupwise": [],
+ "uncertain_fields": ["comparison"],
+ "confidence": "medium",
+ "notes": "Comparisons are across states, school years (2020–21 vs 2021–22, trend since 2013–14) and against the 95% Healthy People 2030 target; framework set to group. Potentially achievable coverage is arithmetic, not a procedure.",
+ "view_issues": null
+}

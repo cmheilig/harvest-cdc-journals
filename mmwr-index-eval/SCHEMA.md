@@ -183,3 +183,13 @@ International setting is a characteristic of interest, not an automatic equity r
 
   The full text is in `READER_BRIEF.md` §4.
 - Every record keeps both readers' values in the index, so between-reader disagreement can inform candidate selection.
+
+## 9. Version 2.2 additions (2026-10-13, after cloud pilot 1 and the arm-B audit; reader brief v4)
+`READER_BRIEF.md` v4 governs; `tools/validate.py` encodes it. In summary (decisions in `BRIEF_V4_DECISIONS.md`):
+- new required list `groupwise` (comparisons across 3 or more social-position groups: `across`, `n_groups`, `ordered`, `assessment`, `resolves_to_finer`, `ev`);
+- new required list `uncertain_fields` (method and equity fields only), used to route an article to a second reader;
+- `inference.ci_overlap` (optional flag); tests by CI inversion recorded as "CI vs fixed value (inversion)";
+- `study_design` adds `non-randomized trial` and `evaluation or monitoring`;
+- `condition_group` is replaced by free-text `conditions` (`v`, `role`: exposure · outcome · population · vaccine target, `ev`), grouped later with `CONDITION_RUBRIC.md`;
+- evidence `loc` is restricted to title · summary · text · table N · figure N · note · ocr;
+- review mode (arm B) is retired.

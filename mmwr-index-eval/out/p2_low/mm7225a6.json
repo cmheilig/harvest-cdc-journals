@@ -1,0 +1,57 @@
+{
+ "id": "mm7225a6",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "low", "role": "judgment"},
+ "data_focus": {"v": "yes", "ev": [{"loc": "text", "q": "40 laboratory-confirmed mpox cases were identified in Chicago"}]},
+ "outcome_types": [
+  {"v": "binary/categorical", "ev": [{"loc": "text", "q": "experienced a higher prevalence of lesions affecting the genital (43% versus 6%) and ocular (29% versus none) mucosa"}]},
+  {"v": "continuous", "ev": [{"loc": "text", "q": "the median interval from receipt of the second JYNNEOS vaccine dose to mpox diagnosis was 8.4 months (IQR = 7.9–8.8 months)"}]}
+ ],
+ "analytic_depth": [
+  {"v": "summary", "ev": [{"loc": "text", "q": "Eleven (28%) patients were living with HIV"}]},
+  {"v": "comparison", "ev": [{"loc": "text", "q": "Compared with patients who received 2 doses of JYNNEOS or 1 dose of ACAM2000 vaccine, patients who received 1 dose of JYNNEOS or no vaccines"}]}
+ ],
+ "procedures": [],
+ "comparison": {"framework": "pair", "scale": null, "referent": null, "across": ["vaccination status"], "ev": [{"loc": "table 1", "q": "Characteristics of patients with mpox, by vaccination status (N = 40)"}]},
+ "inference": {"v": "none", "method_stated": false, "ev": []},
+ "primary_measures": [
+  {"v": "No. (%)", "ev": [{"loc": "table 1", "q": "No. (%)"}]},
+  {"v": "median (IQR)", "ev": [{"loc": "table 1", "q": "Median age, yrs (IQR)"}]}
+ ],
+ "regression_fields": null,
+ "public_health_question": {"v": "What explains a cluster of mpox cases in Chicago occurring mostly among persons fully vaccinated against mpox?", "ev": [{"loc": "text", "q": "determine the cluster’s scope and etiology by evaluating patients’ commonalities, JYNNEOS ¶ vaccine cold-chain management, whole genome sequencing of clinical samples"}]},
+ "conditions": [
+  {"v": "mpox", "role": "outcome", "ev": [{"loc": "title", "q": "Emergence of an Mpox Cluster Primarily Affecting Persons Previously Vaccinated Against Mpox"}]},
+  {"v": "mpox", "role": "vaccine target", "ev": [{"loc": "title", "q": "Primarily Affecting Persons Previously Vaccinated Against Mpox"}]}
+ ],
+ "study_design": [
+  {"v": "outbreak investigation", "ev": [{"loc": "text", "q": "CDPH and CDC launched an investigation"}]},
+  {"v": "case report/series", "ev": [{"loc": "table 1", "q": "Characteristics of patients with mpox, by vaccination status (N = 40)"}]}
+ ],
+ "data_source_type": [
+  {"v": "state or local surveillance", "ev": [{"loc": "text", "q": "13 monkeypox (mpox) cases were reported to the Chicago Department of Public Health (CDPH)"}]},
+  {"v": "record abstraction or interview", "ev": [{"loc": "text", "q": "Preliminary medical record review indicates that vaccinated patients experienced self-limited illness"}]}
+ ],
+ "data_source_named": [{"v": "Chicago Department of Public Health case reports", "ev": [{"loc": "text", "q": "reported to the Chicago Department of Public Health (CDPH)"}]}],
+ "setting": {"v": "US subnational", "ev": [{"loc": "title", "q": "Chicago, Illinois, March 18–June 12, 2023"}]},
+ "vaccine_outcome_type": {"v": "other", "ev": [{"loc": "title", "q": "Emergence of an Mpox Cluster Primarily Affecting Persons Previously Vaccinated Against Mpox"}]},
+ "equity": {
+  "level": 1,
+  "level_reason": "Race/ethnicity and sexual orientation appear only as descriptors of cases by vaccination status; no SPD comparison is made.",
+  "level_confidence": "high",
+  "level_alternative": {"level": 0, "reason": "The descriptors are single Table counts of a case series, which might be read as only describing the population."},
+  "dimensions": [
+   {"v": "race/ethnicity", "role": "descriptor", "ev": [{"loc": "text", "q": "non-Hispanic White men accounted for the largest percentage of patients (19; 48%)"}]},
+   {"v": "sexual orientation and gender identity", "role": "descriptor", "ev": [{"loc": "text", "q": "37 (93%) identified as male and 28 (70%) as gay"}]},
+   {"v": "sex", "role": "population", "ev": [{"loc": "text", "q": "All cases occurred among persons who were assigned male sex at birth"}]},
+   {"v": "age", "role": "descriptor", "ev": [{"loc": "text", "q": "Median age was 33 years (IQR = 23–49 years)"}]}
+  ],
+  "determinants_of_health": {"v": null, "ev": []},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": null
+ },
+ "groupwise": [],
+ "uncertain_fields": [],
+ "confidence": "medium",
+ "notes": "A 40-case cluster investigation; data_focus could be read as limited (small case series). Breakthrough cluster with no VE computed, so vaccine outcome is other. Cold-chain review and sequencing are investigation steps, not procedures.",
+ "view_issues": "Text gives overall median age 33 (IQR 23–49) while table group IQRs are 31–40 and 28–38, which looks inconsistent."
+}

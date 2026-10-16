@@ -37,6 +37,7 @@ These tests are rare. About 14 of 235 reports in 2024 mention chi-square, and ma
 
 Decision (principle): **accepted by owner.**
 Decision (rules 1–6 and schema): **accept**, with the clarification that "trend" in this setting doesn't typically include calendar time
+Refinement (owner, after reviewing examples; implemented): cross-classified cells are groupwise only when the result compares them as one set (homogeneity: any difference), which differs from an interaction (independence). mm6818a4 and mm6844a1 compare margins pairwise, so they carry no cross-classified entry.
 Decision (a): **accept proposal**
 Decision (b): **accept proposal**
 
@@ -139,7 +140,7 @@ Decision: include alcohol and vaping use with other substances; treat tobacco us
 
 **Open choice:** does rule 1 need the article to draw a conclusion from the CI, or does any reported CI for a contrast count as a test by inversion? Proposed: a conclusion is required. A bare CI with no claim is estimation (`inference` "CIs").
 Decision (principle): **accepted by owner.**
-Decision (rules 1–3): 
+Decision (rules 1–3): accept (1) and (2); for (3), consider recording as a test (since it is reported that way) and giving the type as something like "assertion about interval overlap"
 Decision (open choice): **owner: only when the article draws a conclusion from the CI.** Owner's note: MMWR authors are fairly consistent in naming hypothesis-test results inferred from CIs, and much less consistent in saying how the intervals were constructed. So expect `CI method not stated` to be common, and do not treat it as a reader error.
 
 ## D17. A design category for evaluation, program evaluation and monitoring (owner's decision)
@@ -150,7 +151,7 @@ Decision (open choice): **owner: only when the article draws a conclusion from t
 - General rule for `study_design`: when the report names its design ("evaluation", "case-control", "field trial", "cross-sectional survey"), use that, mapped to the nearest value. Infer only when no design is named, and note it.
 - This preference applies to `study_design`. For method fields, owner note D5 (record "this reader interprets thus" separately from "how the authors framed it") is the model. D7's rule that an authors' "stratified" label does not decide `analytic_depth` still stands.
 
-Decision: 
+Decision: accept
 
 ## D18. Production design: one Opus reader, a selective second reader (owner's decision, held loosely)
 **Basis.** The audit (`reports/AUDIT_REPORT.md`): review mode anchors on the first reader and saves little.
@@ -162,6 +163,15 @@ Decision:
 **Open choice:** is "full reports 2016–2024" (a) a stratum where *every* report gets a second reader, or (b) a stratum where uncertainty triggers a second reader at a lower threshold (any flagged method or equity field), while older and other article types need low confidence? Scale: the 2024 mirror list has about 4,350 MMWR weekly articles for 2016–2024; by the pilot's mix, roughly 2,500 are full reports. So (a) means about 2,500 second reads, while (b) scales with flagged uncertainty. Proposed: (b).
 Decision (design): **accepted by owner, held loosely.**
 Decision (open choice): **owner: (b).** Uncertainty triggers a second reader more easily in full reports published 2016–2024. Owner's metadata counts **1,885 full reports** in that period. This segment is the primary value of the corpus; the rest is of interest but less likely to supply primary examples.
+
+## D19. Conditions as free text, grouped in a later pass (owner's decision)
+**Issue.** A fixed condition list is either crude (many ambiguous cases) or so fine that readers deliberate over it. The owner's interest is in data methods and equity; the condition matters mainly as surface information.
+**Decision.** Replace `condition_group` with `conditions`, a list of `{v, role, ev}`: the condition named as the article names it (inference from the text allowed), with role exposure · outcome · population · vaccine target. A separate, cheap pass maps terms to groups using `CONDITION_RUBRIC.md`, which now holds the group list and D15's rules. Conditions are best effort: never a second-reader trigger, and not compared between readers.
+Decision: **accepted by owner** (implemented in brief v4).
+
+## D20. Effort levels for the Opus reader (owner: open to testing)
+**Proposed:** pilot 2 reads each article twice with Opus, at effort `low` and at `medium` (Opus 5.5's default), and adjudicates the disagreements. This measures whether `low` holds quality at lower cost, and the two reads double as the second reader, so pilot 2 can also test whether `uncertain_fields` flags the articles where errors occur. See `RUN_PILOT2.md`.
+Decision: **owner: `medium`** for the production reader (2026-10-14). In pilot 2, `low` made about 2.4 times as many method and equity errors (4.4% vs 1.8% of fields) for about 28% less wall time; see `reports/PILOT2_REPORT.md`.
 
 ---
 

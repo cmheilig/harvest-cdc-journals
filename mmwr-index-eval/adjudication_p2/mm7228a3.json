@@ -1,0 +1,51 @@
+{
+ "id": "mm7228a3",
+ "fields": [
+  {
+   "field": "outcome_types",
+   "verdict": [
+    "binary/categorical",
+    "count/rate"
+   ],
+   "correct": [
+    "A"
+   ],
+   "category": "omission",
+   "why": "Main claims rest on monthly proportions, but the text also claims weighted annual visit counts were 8% higher in 2020 (counts per period with no denominator = count/rate)."
+  },
+  {
+   "field": "analytic_depth",
+   "verdict": [
+    "comparison"
+   ],
+   "correct": [],
+   "category": "brief gap",
+   "why": "A's 'summary' quote is itself a 2020 vs 2019 comparison; B's stratified/adjusted rests on a logistic model of whether the year change differs by age and sex, which the brief's rule that period changes within group levels are a 'comparison' series does not clearly cover. Rule needed: say whether a modeled interaction test of a period change across groups lifts depth to stratified/adjusted."
+  },
+  {
+   "field": "comparison_framework",
+   "verdict": "group",
+   "correct": [
+    "A"
+   ],
+   "category": "reader error",
+   "why": "Year changes are compared across three age groups (<18, 18-49/>=18, >=50), so a 3+ group comparison coexists with the 2020 vs 2019 pair; the brief says use group. Both readers record a groupwise age entry, which contradicts B's 'pair'."
+  },
+  {
+   "field": "rf_adjusted_results",
+   "verdict": false,
+   "correct": [
+    "A",
+    "B"
+   ],
+   "category": "ambiguity",
+   "why": "No covariate adjustment is described (age and sex are effect modifiers, not confounders), so false fits; null is defensible because the model's specification and results are not reported."
+  }
+ ],
+ "justification": {
+  "A": "good",
+  "B": "adequate"
+ },
+ "agreed_errors": [],
+ "brief_issues": "Period-change-within-groups rule vs a modeled interaction across those groups: analytic_depth undecided."
+}

@@ -30,7 +30,8 @@ def norm(r):
         'comparison_scale': r['comparison']['scale'],
         'inference': r['inference']['v'],
         'study_design': frozenset(x['v'] for x in r['study_design']),
-        'condition_group': frozenset(x['v'] for x in r['condition_group']),
+        # v3 condition_group is compared; v4 free-text conditions are best effort and grouped later, so not compared
+        'condition_group': frozenset(x['v'] for x in r['condition_group']) if 'condition_group' in r else None,
         'data_source_type': frozenset(x['v'] for x in r['data_source_type']),
         'setting': (r['setting'] or {}).get('v'),
         'vaccine_outcome_type': (r['vaccine_outcome_type'] or {}).get('v') if r['vaccine_outcome_type'] else None,
@@ -39,6 +40,11 @@ def norm(r):
         'equity_dimensions': frozenset(d['v'] for d in eq['dimensions']),
         'equity_action': eq['equity_action']['v'],
         'has_determinants': bool((eq['determinants_of_health'] or {}).get('v')),
+        # brief v4 fields; .get() keeps v3 records (pilot 1) comparable
+        'groupwise_any': bool(r.get('groupwise')),
+        'groupwise_dims': frozenset(d for g in r.get('groupwise', []) for d in g['across']),
+        'groupwise_assessments': frozenset(g['assessment'] for g in r.get('groupwise', [])),
+        'ci_overlap': bool(r['inference'].get('ci_overlap')),
     }
     for k in ('nonindependence_approach', 'unadjusted_results', 'adjusted_results', 'interaction_modeled', 'sensitivity_analysis'):
         f['rf_' + k] = (rf.get(k) or {}).get('v') if rf else 'n/a'

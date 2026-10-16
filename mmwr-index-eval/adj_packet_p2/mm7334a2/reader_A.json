@@ -1,0 +1,445 @@
+{
+ "id": "mm7334a2",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During 2021–2022, measures for 13 of 19 indicators were worse for caregivers than for noncaregivers."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "% (95% CI) § › 2015–2016"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the prevalence of current smoking decreased among both caregivers and noncaregivers"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Logistic regression, with age-adjustment using a continuous age variable, was used to measure percentage point differences in health indicators (dependent variable)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "logistic regression (age-adjusted, with caregiving × time interaction)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Logistic regression' named, with continuous age adjustment and interaction terms → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Logistic regression, with age-adjustment using a continuous age variable, was used to measure percentage point differences in health indicators (dependent variable)"
+    },
+    {
+     "loc": "text",
+     "q": "Logistic regression was used to determine whether age-adjusted changes among caregivers and noncaregivers were different (i.e., time interaction)."
+    }
+   ]
+  },
+  {
+   "name": "t-test with Taylor series linearization",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in table notes and methods for unadjusted period changes",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Statistically significant difference from 2015–2016 to 2021–2022 using t -test with Taylor series linearization."
+    }
+   ]
+  },
+  {
+   "name": "BRFSS survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weighted percentages from BRFSS analyzed in SUDAAN",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Percentages are weighted and unadjusted; CIs account for complex sample design."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "absolute",
+  "referent": "noncaregivers; 2015–2016",
+  "across": [
+   "caregiving status",
+   "period"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "increased from 2015–2016 to 2021–2022 for both noncaregivers (3.8 percentage points) and caregivers (2.3 percentage points; age-adjusted time interaction p = 0.007)."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "Percentages are weighted and unadjusted; CIs account for complex sample design."
+   },
+   {
+    "loc": "table 2",
+    "q": "Statistically significant difference from 2015–2016 to 2021–2022 using t -test with Taylor series linearization."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted prevalence, %",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Percentages are weighted and unadjusted; CIs account for complex sample design."
+    }
+   ]
+  },
+  {
+   "v": "percentage point change",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Percentage point change, unadjusted"
+    }
+   ]
+  },
+  {
+   "v": "difference in change (percentage points)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Difference in change (caregivers minus noncaregivers) › Percentage point"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "SAS-callable SUDAAN software (version 11.0.1; RTI International) to account for complex sample design and weighting."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Percentage point change, unadjusted"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Logistic regression, with age-adjustment using a continuous age variable, was used to measure percentage point differences in health indicators (dependent variable)"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "continuous age",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Logistic regression, with age-adjustment using a continuous age variable"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Logistic regression was used to determine whether age-adjusted changes among caregivers and noncaregivers were different (i.e., time interaction)."
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did the prevalence of 19 health indicators change among caregivers compared with noncaregivers from 2015–2016 to 2021–2022?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "this report compares changes in the prevalence of 19 health indicators among caregivers and noncaregivers from 2015–2016 to 2021–2022."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "caregiving",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Changes in Health Indicators Among Caregivers — United States, 2015–2016 to 2021–2022"
+    }
+   ]
+  },
+  {
+   "v": "cigarette smoking",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Current cigarette smoking"
+    }
+   ]
+  },
+  {
+   "v": "depression",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "increased from 2015–2016 to 2021–2022 for both noncaregivers (3.8 percentage points) and caregivers (2.3 percentage points; age-adjusted time interaction p = 0.007)."
+    }
+   ]
+  },
+  {
+   "v": "frequent mental distress",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Frequent mental distress §§§"
+    }
+   ]
+  },
+  {
+   "v": "obesity",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Obesity"
+    }
+   ]
+  },
+  {
+   "v": "asthma",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Current asthma"
+    }
+   ]
+  },
+  {
+   "v": "chronic physical conditions",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Any chronic physical condition"
+    }
+   ]
+  },
+  {
+   "v": "physical inactivity",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Physical inactivity †††"
+    }
+   ]
+  },
+  {
+   "v": "binge and heavy drinking",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Binge drinking ¶¶"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the study design was cross-sectional at two time points rather than longitudinal"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "compare changes in the prevalence of 19 health indicators among cross-sectional samples of caregivers and noncaregivers at different time points"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the 2015–2016 and 2021–2022 Behavioral Risk Factor Surveillance System were analyzed"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS), core and optional caregiver module",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the core BRFSS questionnaire and the optional caregiver module during 2015–2016 and 2021–2022"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "were assessed for 35 states and Puerto Rico, where the optional caregiver module was included at least once in both periods."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Race/ethnicity, education, employment and income appear only as Table 1 descriptors of caregiver composition; the compared groups (caregivers vs noncaregivers) are not an SPD. Health coverage and cost barriers are outcomes, but not contrasted across SPD groups.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 2,
+   "reason": "Table 1 reports and tests changes in SES and race composition by caregiving status, and access outcomes (no coverage, cost barrier) with Medicaid expansion as explanation could be read as group-specific SDOH results."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race and ethnicity †† › Black or African American"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "education level",
+     "employment status",
+     "annual household income"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "education level, employment status, marital status, home ownership, and annual household income"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Logistic regression, with age-adjustment using a continuous age variable"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group, yrs › 60–69"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "health care coverage; inability to see a doctor because of cost; Medicaid expansion",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "having no health coverage, §§§ and 19) inability to see a doctor because of cost."
+    },
+    {
+     "loc": "text",
+     "q": "Expanded eligibility for Medicaid occurred during the study period,**** and national data indicate that public health plan coverage (including Medicaid) increased"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "SPDs appear only in caregiver composition (Table 1); insurance and cost barriers are analyzed as outcomes by caregiving status."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "State-level changes in caregiving prevalence (Figure) tested by t-test. Table 1 composition changes tested per category with a logistic interaction model (caregiving status as dependent), one level at a time, so no groupwise entry was recorded.",
+ "view_issues": "Methods say t-tests compared demographic changes, but Table 1 footnote ¶ attributes difference-in-change p-values to logistic regression."
+}

@@ -1,0 +1,69 @@
+{
+ "id": "mm7212e1",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "medium", "role": "judgment"},
+ "data_focus": {"v": "yes", "ev": [{"loc": "text", "q": "the number of persons with HIV infection receiving PEPFAR-supported ART increased 300-fold, from 66,550 to 20,166,110, in 54 countries"}]},
+ "outcome_types": [
+  {"v": "binary/categorical", "ev": [{"loc": "text", "q": "the viral load suppression rate among those receiving testing increased from 80% (1,691,232 persons with viral load suppression of 2,109,749"}]},
+  {"v": "count/rate", "ev": [{"loc": "text", "q": "the number of PEPFAR-supported facilities with a molecular laboratory increased by 115%, from 926 to 1,995"}, {"loc": "figure 1", "q": "Cumulative number of persons with HIV infection receiving antiretroviral therapy supported by the U.S. President’s Emergency Plan for AIDS Relief"}]}
+ ],
+ "analytic_depth": [
+  {"v": "summary", "ev": [{"loc": "text", "q": "In 2022, the PEPFAR-supported workforce included 371,760 health care workers in approximately 70,000 community, clinic, or other settings."}]},
+  {"v": "comparison", "ev": [{"loc": "text", "q": "Among transgender persons, viral load coverage decreased 6%, from 71% to 67%, and among persons in prisons, coverage decreased 24%, from 75% to 57%."}, {"loc": "text", "q": "population viral load suppression rates were higher in older than in younger persons, and higher in women than in men."}]}
+ ],
+ "procedures": [],
+ "comparison": {"framework": "group", "scale": "both", "referent": "baseline fiscal year (2015, 2017 or 2020) or PHIA survey 1", "across": ["fiscal year", "PHIA survey round", "age group", "sex", "key population/subpopulation", "country"],
+  "ev": [{"loc": "table 1", "q": "Calculated as ([VL coverage 2022 − VL coverage baseline]/VL coverage baseline) * 100."}, {"loc": "table 2", "q": "% Change from survey 1 to survey 2"}]},
+ "inference": {"v": "none", "method_stated": false, "ev": []},
+ "primary_measures": [
+  {"v": "number of persons receiving ART", "ev": [{"loc": "figure 1", "q": "Cumulative number of persons with HIV infection receiving antiretroviral therapy"}]},
+  {"v": "VL proxy coverage rate, %", "ev": [{"loc": "table 1", "q": "VL proxy coverage rate, %"}]},
+  {"v": "VL suppression rate, %", "ev": [{"loc": "table 1", "q": "VL suppression rate, %"}]},
+  {"v": "population viral load suppression rate, %", "ev": [{"loc": "table 2", "q": "Population viral load suppression rate,%"}]},
+  {"v": "percent change", "ev": [{"loc": "table 1", "q": "Change §§ in VL proxy coverage, baseline–2022, %"}]}
+ ],
+ "regression_fields": null,
+ "public_health_question": {"v": "How have PEPFAR-supported ART scale-up, viral load coverage and suppression, and health system capacity changed during 2004–2022, overall and among subpopulations?",
+  "ev": [{"loc": "text", "q": "To assess PEPFAR-supported program impact and health system–strengthening investments, programmatic data from all PEPFAR programs and survey data for six countries"}]},
+ "conditions": [
+  {"v": "HIV infection", "role": "population", "ev": [{"loc": "title", "q": "Progress Toward Eliminating HIV as a Global Public Health Threat Through Scale-Up of Antiretroviral Therapy"}]}
+ ],
+ "study_design": [
+  {"v": "evaluation or monitoring", "ev": [{"loc": "text", "q": "To describe program impact, PEPFAR Monitoring, Evaluation, and Reporting*** programmatic data were analyzed by age, sex, and subpopulation"}]},
+  {"v": "before/after or trend", "ev": [{"loc": "text", "q": "population viral load suppression rates in six countries that had two PHIA surveys conducted during 2015–2021."}]}
+ ],
+ "data_source_type": [
+  {"v": "other", "ev": [{"loc": "text", "q": "PEPFAR Monitoring, Evaluation, and Reporting*** programmatic data were analyzed"}]},
+  {"v": "national survey", "ev": [{"loc": "text", "q": "six countries that have conducted nationally representative Population-based HIV Impact Assessment (PHIA) surveys"}]}
+ ],
+ "data_source_named": [
+  {"v": "PEPFAR Monitoring, Evaluation, and Reporting (MER)", "ev": [{"loc": "text", "q": "PEPFAR Monitoring, Evaluation, and Reporting data were analyzed to describe health system strengthening investments."}]},
+  {"v": "Population-based HIV Impact Assessment (PHIA) surveys", "ev": [{"loc": "text", "q": "Using data from the PEPFAR-supported, CDC-led PHIA surveys"}]}
+ ],
+ "setting": {"v": "international", "ev": [{"loc": "title", "q": "Worldwide, 2004–2022"}]},
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Coverage and suppression are reported by age, sex and key populations (MSM, transgender persons, persons in prisons) and gaps are framed under health equity, but group values are only set side by side; computed changes are within groups over time, not contrasts between groups.",
+  "level_confidence": "medium",
+  "level_alternative": {"level": 3, "reason": "The Discussion frames subpopulation gaps as health disparities against the UNAIDS 95% target and names stigma, discrimination and structural determinants, which a reader could take as an interpreted disparity (and then 4)."},
+  "dimensions": [
+   {"v": "age", "role": "stratifier", "ev": [{"loc": "table 1", "q": "Age group, yrs (2017–2022) › <10"}, {"loc": "table 2", "q": "Country, age group, yrs"}]},
+   {"v": "sex", "role": "stratifier", "ev": [{"loc": "table 1", "q": "Sex ††† (2017–2022) › Male"}, {"loc": "text", "q": "higher in women than in men."}]},
+   {"v": "sexual orientation and gender identity", "role": "stratifier", "ev": [{"loc": "table 1", "q": "Key populations (2020–2022) › Transgender persons"}, {"loc": "text", "q": "HIV prevalence among MSM and transgender women is significantly higher than it is in the general population"}]},
+   {"v": "SES", "role": "stratifier", "ses_components": ["persons in prisons and other enclosed settings"], "ev": [{"loc": "table 1", "q": "Key populations (2020–2022) › Persons in prisons and other enclosed settings"}]},
+   {"v": "other", "role": "stratifier", "ev": [{"loc": "table 1", "q": "Key populations (2020–2022) › Female sex workers"}]}
+  ],
+  "determinants_of_health": {"v": "stigma and discrimination; structural determinants of health", "ev": [{"loc": "text", "q": "Stigma and discrimination remain important barriers to health equity."}, {"loc": "text", "q": "Understanding the root causes including structural determinants of health for the observed differences"}]},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": "Subpopulation comparisons are within-group changes from differing baseline years (2017 or 2020); key populations mix SOGI, incarceration and occupation; age unknown for many in aggregate reporting; sex is biologic sex only."
+ },
+ "groupwise": [
+  {"across": ["age"], "n_groups": 3, "ordered": true, "assessment": "side by side", "resolves_to_finer": false, "ev": [{"loc": "text", "q": "rates were lower among pregnant and breastfeeding women and persons in prisons, and much lower for persons aged <20 years"}, {"loc": "table 1", "q": "Age group, yrs (2017–2022) › 10–19"}]},
+  {"across": ["age"], "n_groups": 4, "ordered": true, "assessment": "side by side", "resolves_to_finer": false, "ev": [{"loc": "text", "q": "Across all surveys, with few exceptions, population viral load suppression rates were higher in older than in younger persons"}]},
+  {"across": ["sexual orientation and gender identity", "SES", "other"], "n_groups": 5, "ordered": false, "assessment": "side by side", "resolves_to_finer": false, "ev": [{"loc": "text", "q": "By 2022, the viral load suppression rate among female sex workers, MSM, transgender persons, and persons who inject drugs reached ≥95%"}]}
+ ],
+ "uncertain_fields": ["equity.level", "equity.dimensions", "comparison"],
+ "confidence": "medium",
+ "notes": "No statistical procedures; all contrasts are hand-computed percent changes (Table 1), apparent point differences (Table 2) or side-by-side percentages; scale set to both. Design not named; inferred as program monitoring with trends. Pregnant/breastfeeding women are a subgroup by health state, not an SPD.",
+ "view_issues": "Table 2 '% Change from survey 1 to survey 2' values equal percentage-point differences (e.g., 73.1 to 88.6 = 15.5), not relative change. Table 2 footnote defines suppression among those tested, while Methods define population suppression among all persons with HIV."
+}

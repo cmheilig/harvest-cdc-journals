@@ -1,0 +1,381 @@
+{
+ "id": "mm4935a2",
+ "reader": {
+  "label": "B"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "In 1998, 10.4% of Medicare managed-care enrollees reported smoking every day and 2.9% reported smoking some days"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "70.7% reported they had been advised to quit smoking"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "70.7% reported they had been advised to quit smoking"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Blacks and Hispanics reported receiving less advice than did whites."
+    },
+    {
+     "loc": "text",
+     "q": "61.5% of smokers with one visit during the year reported receiving advice to quit compared with 76.2% of those with five or more visits."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Across all visit categories, women who made one to four visits reported receiving advice to quit at slightly higher rates than did men"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting to stratum populations, adjusted to age, race, sex distribution",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "data weighted to each stratum and adjusted (poststratified) to the population age, race and sex distribution; all estimates weighted",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted to the total population of each stratum and adjusted to the overall population age, race, and sex distribution."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "number of visits",
+   "age group",
+   "sex",
+   "race/ethnicity",
+   "education",
+   "income",
+   "region",
+   "managed-care plan model"
+  ],
+  "ev": [
+   {
+    "loc": "ocr",
+    "q": "during the preceding 12 months, by number of visits and selected characteristics"
+   },
+   {
+    "loc": "text",
+    "q": "providers in independent practice associations giving less advice than those in staff or group model practices"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "ocr",
+    "q": "% (=95% CI*)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "ocr",
+     "q": "Estimated percentages of Medicare managed-care enrolled smokers*"
+    }
+   ]
+  },
+  {
+   "v": "prevalence",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Daily smoking prevalence was highest among enrollees aged <65 years"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How prevalent is smoking among Medicare managed-care enrollees, and how often do smokers report receiving advice to quit from providers, by characteristics and number of visits?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To characterize smoking and advice to quit among Medicare managed-care recipients"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "tobacco use",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "approximately 13% of enrollees in Medicare managed care reported they were current smokers"
+    }
+   ]
+  },
+  {
+   "v": "tobacco use",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Receipt of Advice to Quit Smoking in Medicare Managed Care"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Baseline data were collected during May--July 1998."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "analyzed data from the 1998 Health Outcomes Survey (HOS)."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Health Outcomes Survey (HOS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "analyzed data from the 1998 Health Outcomes Survey (HOS)."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "administered to Medicare beneficiaries enrolled in managed-care plans nationwide."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Smoking and advice to quit are reported by race/ethnicity, education and income and differences are described, but no difference or ratio is computed (values side by side), so the level is capped at 2 despite a social/cultural explanation.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "The editorial calls the racial/ethnic difference a difference, explains it by social or cultural factors and language barriers; a reader counting the stated percentages as quantification would reach 4."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Blacks and Hispanics reported receiving less advice than did whites."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "adjusted to the overall population age, race, and sex distribution."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education",
+     "household income"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "smoking prevalence was greater among those with less education and less income."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "smokers aged > 75 years reported receiving less advice to quit than did younger smokers."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The sample included both Medicare beneficiaries aged > 65 years (91.5%) and persons aged <65 years"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Daily smoking prevalence was higher for men than for women"
+     }
+    ]
+   },
+   {
+    "v": "country of birth/language/nativity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "among elderly Hispanics and Asian Americans, language barriers may affect the lower rates of receiving advice to quit"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "social or cultural factors; language barriers",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The difference in receipt of advice to quit among racial/ethnic groups may be influenced by social or cultural factors."
+    },
+    {
+     "loc": "text",
+     "q": "language barriers may affect the lower rates of receiving advice to quit"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Six race/ethnicity categories; Asian/Pacific Islander and AI/AN reported only for any visit due to small samples; income in 3 bands, education in 4."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "ocr",
+     "q": "Race/Ethnicity**"
+    },
+    {
+     "loc": "text",
+     "q": "Blacks and Hispanics reported receiving less advice than did whites."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, those with more education reported receiving less advice."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "smoking prevalence was greater among those with less education and less income."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Daily smoking prevalence was highest among enrollees aged <65 years and lowest among enrollees aged > 85 years."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "analytic_depth",
+  "study_design"
+ ],
+ "confidence": "medium",
+ "notes": "Tables are OCR images; 95% CIs shown but no tests or overlap rule stated. Stratified/adjusted reflects advice-by-characteristic within visit-count strata (Table 2); arguable. HOS is a longitudinal cohort but only baseline data used, so cross-sectional is inferred.",
+ "view_issues": "Table 2 OCR numbers and region footnote are garbled; OCR column alignment unreliable."
+}

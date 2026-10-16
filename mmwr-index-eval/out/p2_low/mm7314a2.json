@@ -1,0 +1,56 @@
+{
+ "id": "mm7314a2",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "low", "role": "judgment"},
+ "data_focus": {"v": "yes", "ev": [{"loc": "summary", "q": "From 2018 to 2022, the number of states with comprehensive Medicaid coverage of tobacco cessation treatment increased from 15 to 20"}]},
+ "outcome_types": [
+  {"v": "binary/categorical", "ev": [{"loc": "text", "q": "duration limits (39 states; 76%), annual limits on the number of covered quit attempts (35; 69%), and requirement for prior authorization (30; 59%)"}]}
+ ],
+ "analytic_depth": [
+  {"v": "summary", "ev": [{"loc": "text", "q": "all 50 states and the District of Columbia (DC) covered at least one cessation treatment for all standard Medicaid enrollees"}]},
+  {"v": "comparison", "ev": [{"loc": "text", "q": "Summary statistics were generated and compared with data previously reported through December 31, 2018"}, {"loc": "text", "q": "this increase falls short of the Healthy People 2030 target of all 50 states and DC."}]}
+ ],
+ "procedures": [],
+ "comparison": {"framework": "pair", "scale": "absolute", "referent": "December 31, 2018", "across": ["year (2018 vs 2022)"], "ev": [{"loc": "text", "q": "the number of states not requiring copayments increased from 28 to 39."}]},
+ "inference": {"v": "none", "method_stated": false, "ev": []},
+ "primary_measures": [
+  {"v": "number of states", "ev": [{"loc": "summary", "q": "states with no treatment access barriers increased from two to three."}]},
+  {"v": "percentage of states", "ev": [{"loc": "text", "q": "duration limits (39 states; 76%)"}]}
+ ],
+ "regression_fields": null,
+ "public_health_question": {"v": "How did state Medicaid coverage of tobacco cessation treatments and treatment access barriers for standard enrollees change from 2018 to 2022?", "ev": [{"loc": "text", "q": "To assess cessation coverage policies among Medicaid programs, the American Lung Association collects state-level** information regarding coverage for nine tobacco cessation treatments"}]},
+ "conditions": [
+  {"v": "cigarette smoking", "role": "population", "ev": [{"loc": "summary", "q": "State Medicaid programs can improve the health of enrollees who smoke"}]},
+  {"v": "smoking cessation", "role": "outcome", "ev": [{"loc": "summary", "q": "Comprehensive, barrier-free insurance coverage of tobacco cessation treatments can increase smoking cessation."}]}
+ ],
+ "study_design": [
+  {"v": "evaluation or monitoring", "ev": [{"loc": "text", "q": "this increase falls short of the Healthy People 2030 target of all 50 states and DC."}]},
+  {"v": "before/after or trend", "ev": [{"loc": "text", "q": "Summary statistics were generated and compared with data previously reported through December 31, 2018"}]},
+  {"v": "ecologic", "ev": [{"loc": "table 1", "q": "Coverage of tobacco cessation counseling for standard Medicaid enrollees,* by state"}]}
+ ],
+ "data_source_type": [
+  {"v": "other", "ev": [{"loc": "text", "q": "the American Lung Association compiled data regarding state Medicaid tobacco cessation coverage from state Medicaid websites"}]}
+ ],
+ "data_source_named": [
+  {"v": "American Lung Association state Medicaid cessation coverage data", "ev": [{"loc": "text", "q": "the American Lung Association compiled data regarding state Medicaid tobacco cessation coverage"}]}
+ ],
+ "setting": {"v": "US national", "ev": [{"loc": "title", "q": "State Medicaid Coverage for Tobacco Cessation Treatments and Barriers to Accessing Treatments — United States, 2018–2022"}]},
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Medicaid (low-income) status defines the population; the Medicaid vs private-insurance smoking disparity is cited from an earlier report, and reducing disparities appears only as an implication. No SPD contrast is computed.",
+  "level_confidence": "low",
+  "level_alternative": {"level": 3, "reason": "The analyzed exposures are insurance coverage policies for a low-income population (social determinants), with progress quantified against a Healthy People target and state laws named as explanations."},
+  "dimensions": [
+   {"v": "SES", "role": "population", "ses_components": ["Medicaid enrollment", "low-income"], "ev": [{"loc": "text", "q": "persons enrolled in Medicaid under traditional Medicaid eligibility criteria (e.g., low-income pregnant women, children, and persons with a disability)"}]},
+   {"v": "SES", "role": "descriptor", "ses_components": ["Medicaid vs private insurance"], "ev": [{"loc": "text", "q": "In 2021, smoking prevalence among adults enrolled in Medicaid (21.5%) was higher than it was among adults with private insurance (8.6%)"}]}
+  ],
+  "determinants_of_health": {"v": "state legislation; Medicaid expansion; Families First Coronavirus Response Act cost-sharing limits; insurance coverage and access barriers", "ev": [{"loc": "text", "q": "The increase in the number of states with comprehensive treatment coverage and without barriers is likely related to state legislative actions."}, {"loc": "text", "q": "One potential contributor to this change was enactment of the Families First Coronavirus Response Act (FFCRA)"}]},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": "Unit is the state Medicaid program; the only person-level SES contrast (Medicaid vs private insurance smoking prevalence) is cited, not computed."
+ },
+ "groupwise": [],
+ "uncertain_fields": ["equity.level", "study_design"],
+ "confidence": "medium",
+ "notes": "The analysis counts states by coverage policy; no person-level outcome is measured. The Healthy People 2030 target (all states) is a general program target, so equity_action is false.",
+ "view_issues": "Methods say data were compiled from January 1, 2019, while comparisons are to December 31, 2018 data previously reported."
+}

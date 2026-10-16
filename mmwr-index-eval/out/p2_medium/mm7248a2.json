@@ -1,0 +1,88 @@
+{
+ "id": "mm7248a2",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "medium", "role": "judgment"},
+ "data_focus": {"v": "yes", "ev": [{"loc": "text", "q": "the estimated VE of ≥2 COVID-19 mRNA vaccine doses was 40% (95% CI = 8%–60%) for preventing COVID-19–associated ED visits and hospitalization"}]},
+ "outcome_types": [
+  {"v": "binary/categorical", "ev": [{"loc": "text", "q": "387 (5.0%) received a positive SARS-CoV-2 test result, and 7,047 (95.0%) received a negative test result"}, {"loc": "text", "q": "2-dose vaccination coverage was 19.0% among White children and 2.5% among non-Hispanic Black or African American (Black) children."}]}
+ ],
+ "analytic_depth": [
+  {"v": "summary", "ev": [{"loc": "text", "q": "86.0% of infants and children aged 6 months–4 years with ARI had not received any COVID-19 vaccine doses"}]},
+  {"v": "comparison", "ev": [{"loc": "text", "q": "Compared with White children, Black children were approximately seven times less likely and Hispanic or Latino children were approximately three times less likely"}]},
+  {"v": "stratified/adjusted", "ev": [{"loc": "table 2", "q": "Regression models adjusted for race, age, calendar time (week of enrollment), and enrollment site."}]}
+ ],
+ "procedures": [
+  {"name": "logistic regression (test-negative VE)", "class": "regression", "regression_family": "logistic", "inferred_from": "'VE was estimated using logistic regression models'; VE = 100 × (1 − aOR) → logistic", "role": "primary",
+   "ev": [{"loc": "text", "q": "VE was estimated using logistic regression models, comparing the odds of receipt of 1 or ≥2 vaccine doses with those with no COVID-19 vaccination"}]},
+  {"name": "CI vs fixed value (inversion)", "class": "test", "regression_family": null, "inferred_from": "model-based CI from the named logistic regression; VE CI judged against the null (0) to conclude protection or not", "role": "primary",
+   "ev": [{"loc": "text", "q": "was 31% (95% CI = –27% to 62%), although the 95% CI included the null value."}]},
+  {"name": "Pearson chi-square test", "class": "test", "regression_family": null, "inferred_from": "named in Methods and Table 1 footnote", "role": "ancillary",
+   "ev": [{"loc": "text", "q": "Pearson’s chi-square tests were used to compare demographic and clinical characteristics among case- and control-patients and by vaccination status."}]}
+ ],
+ "comparison": {"framework": "group", "scale": "relative", "referent": "unvaccinated children (VE); White children (coverage)", "across": ["vaccination status (0, 1, ≥2 doses)", "SARS-CoV-2 test result (case vs control)", "race/ethnicity", "insurance status", "age group", "study site"],
+  "ev": [{"loc": "table 2", "q": "Vaccination status › 1 dose only; ≥2 doses"}, {"loc": "text", "q": "When compared with no receipt of COVID-19 vaccination among children, the estimated VE of ≥2 COVID-19 mRNA vaccine doses was 40%"}]},
+ "inference": {"v": "CIs and tests", "method_stated": true,
+  "ev": [{"loc": "table 1", "q": "p-value refers to results of Pearson’s chi-square comparison."}, {"loc": "text", "q": "estimates with nonoverlapping 95% CIs were considered statistically significant."}]},
+ "primary_measures": [
+  {"v": "adjusted VE", "ev": [{"loc": "table 2", "q": "Adjusted VE, † % (95% CI)"}]},
+  {"v": "percentage", "ev": [{"loc": "table 1", "q": "Vaccination status (row %)"}]},
+  {"v": "median", "ev": [{"loc": "text", "q": "Case-patients were significantly younger than were control-patients (median age 15 months versus 22 months, respectively)."}]}
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {"v": "none", "ev": []},
+  "unadjusted_results": {"v": false, "ev": []},
+  "adjusted_results": {"v": true, "ev": [{"loc": "table 2", "q": "Regression models adjusted for race, age, calendar time (week of enrollment), and enrollment site."}]},
+  "confounders": {"v": "race, age, calendar time (week of enrollment), enrollment site", "ev": [{"loc": "text", "q": "Regression models controlled for race, age, calendar time (week of enrollment), and enrollment site."}]},
+  "interaction_modeled": {"v": false, "ev": []},
+  "sensitivity_analysis": {"v": false, "ev": []}
+ },
+ "public_health_question": {"v": "How effective were COVID-19 mRNA vaccines against COVID-19–associated ED visits and hospitalization among children aged 6 months–4 years, and what was the epidemiology of SARS-CoV-2 and vaccination in this group?",
+  "ev": [{"loc": "text", "q": "This analysis assessed the effectiveness of COVID-19 mRNA vaccines in protecting against COVID-19–associated emergency department (ED) visits and hospitalization"}]},
+ "conditions": [
+  {"v": "COVID-19", "role": "outcome", "ev": [{"loc": "title", "q": "SARS-CoV-2 Epidemiology and COVID-19 mRNA Vaccine Effectiveness Among Infants and Children Aged 6 Months–4 Years"}]},
+  {"v": "COVID-19", "role": "vaccine target", "ev": [{"loc": "summary", "q": "Receipt of ≥2 COVID-19 mRNA vaccine doses was 40% effective (95% CI = 8%–60%)"}]},
+  {"v": "acute respiratory illness", "role": "population", "ev": [{"loc": "text", "q": "infants and children aged 6 months–4 years hospitalized or seeking care in EDs for ARI were eligible for enrollment."}]}
+ ],
+ "study_design": [
+  {"v": "test-negative", "ev": [{"loc": "text", "q": "COVID-19 VE to prevent COVID-19–associated ED visits and hospitalization among children with ARI was estimated using a test-negative, case-control design."}]},
+  {"v": "surveillance/descriptive", "ev": [{"loc": "text", "q": "The New Vaccine Surveillance Network (NVSN) conducts population-based, prospective surveillance for acute respiratory illness (ARI) in children"}]}
+ ],
+ "data_source_type": [
+  {"v": "sentinel/network", "ev": [{"loc": "text", "q": "conducts population-based, prospective surveillance for acute respiratory illness (ARI) in children at seven pediatric medical centers."}]},
+  {"v": "vaccination registry", "ev": [{"loc": "text", "q": "COVID-19 vaccination status was ascertained through state immunization information systems"}]}
+ ],
+ "data_source_named": [
+  {"v": "New Vaccine Surveillance Network (NVSN)", "ev": [{"loc": "title", "q": "New Vaccine Surveillance Network, United States, July 2022–September 2023"}]},
+  {"v": "state immunization information systems", "ev": [{"loc": "text", "q": "COVID-19 vaccination status was ascertained through state immunization information systems"}]}
+ ],
+ "setting": {"v": "US subnational", "ev": [{"loc": "text", "q": "in children at seven pediatric medical centers."}]},
+ "vaccine_outcome_type": {"v": "effectiveness", "ev": [{"loc": "summary", "q": "Receipt of ≥2 COVID-19 mRNA vaccine doses was 40% effective (95% CI = 8%–60%) in preventing emergency department visits and hospitalization."}]},
+ "equity": {
+  "level": 3,
+  "level_reason": "Racial differences in ≥2-dose coverage are quantified as ratios (Black children about seven times, Hispanic children three times less likely than White) and interpreted as a need to promote access; no specific determinant is analyzed.",
+  "level_confidence": "medium",
+  "level_alternative": {"level": 2, "reason": "The race contrast is a secondary coverage description, called 'differences' rather than a disparity, and its interpretation is only a generic recommendation."},
+  "dimensions": [
+   {"v": "race/ethnicity", "role": "stratifier", "ev": [{"loc": "text", "q": "Compared with White children, Black children were approximately seven times less likely and Hispanic or Latino children were approximately three times less likely"}]},
+   {"v": "race/ethnicity", "role": "covariate", "ev": [{"loc": "text", "q": "Regression models controlled for race, age, calendar time (week of enrollment), and enrollment site."}]},
+   {"v": "SES", "role": "stratifier", "ses_components": ["insurance status"], "ev": [{"loc": "text", "q": "have private insurance (25.3%)"}, {"loc": "table 1", "q": "Insurance status › Self-pay (none)"}]},
+   {"v": "age", "role": "population", "ev": [{"loc": "title", "q": "Among Infants and Children Aged 6 Months–4 Years"}]},
+   {"v": "age", "role": "covariate", "ev": [{"loc": "table 2", "q": "Regression models adjusted for race, age, calendar time (week of enrollment), and enrollment site."}]},
+   {"v": "age", "role": "stratifier", "ev": [{"loc": "table 1", "q": "Age, mos › 6–11"}]},
+   {"v": "sex", "role": "descriptor", "ev": [{"loc": "table 1", "q": "Sex › Female"}]},
+   {"v": "country of birth/language/nativity", "role": "descriptor", "ev": [{"loc": "text", "q": "availability of interpreters for non-English speakers."}]}
+  ],
+  "determinants_of_health": {"v": null, "ev": []},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": "Referent is White children; AI/AN, Asian and other groups collapsed into Other, NH; 1.9% unknown race. Insurance status used as SES proxy, compared only by chi-square."
+ },
+ "groupwise": [
+  {"across": ["race/ethnicity"], "n_groups": 5, "ordered": false, "assessment": "omnibus test", "resolves_to_finer": true, "ev": [{"loc": "table 1", "q": "Race and ethnicity › Hispanic or Latino"}, {"loc": "text", "q": "Compared with White children, Black children were approximately seven times less likely and Hispanic or Latino children were approximately three times less likely"}]},
+  {"across": ["race/ethnicity"], "n_groups": 5, "ordered": false, "assessment": "omnibus test", "resolves_to_finer": false, "ev": [{"loc": "text", "q": "There was no difference in median length of stay (2 days), sex, race and ethnicity, insurance status"}]},
+  {"across": ["SES"], "n_groups": 5, "ordered": false, "assessment": "omnibus test", "resolves_to_finer": false, "ev": [{"loc": "table 1", "q": "Insurance status › Public and private"}, {"loc": "text", "q": "There was no difference in median length of stay (2 days), sex, race and ethnicity, insurance status"}]},
+  {"across": ["age"], "n_groups": 3, "ordered": true, "assessment": "omnibus test", "resolves_to_finer": false, "ev": [{"loc": "table 1", "q": "Age, mos › 24–59"}, {"loc": "table 1", "q": "p-value refers to results of Pearson’s chi-square comparison."}]}
+ ],
+ "uncertain_fields": ["equity.level", "groupwise", "inference"],
+ "confidence": "medium",
+ "notes": "Groupwise entries come from Table 1 chi-squares, by case status (first race entry is by vaccination status; footnote says that p-value compares unvaccinated vs ≥2 doses, so its group count is ambiguous). Insurance by vaccination status is also tested (p<0.001). The stated nonoverlapping-CI rule is not applied to any pair of estimates; VE claims rest on CIs vs the null.",
+ "view_issues": "Text says ≥2-dose children were more likely 'non-Hispanic White or non-Hispanic other race (37.6%)'; 37.6% is the sum of 19.0% and 18.6%. The Figure description describes a photo, not the chart."
+}

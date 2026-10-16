@@ -6,8 +6,12 @@ An evaluation of LLM readers for indexing *MMWR* reports by **how they make clai
 
 | Path | What it is |
 |---|---|
-| `READER_BRIEF.md` | the readers' contract (version 3) |
-| `SCHEMA.md` | the index schema (v2.1); the brief governs |
+| `READER_BRIEF.md` | the readers' contract (version 4) |
+| `SCHEMA.md` | the index schema (v2.1, with v2.2 additions in §9); the brief governs |
+| `BRIEF_V4_DECISIONS.md` | the instructor's decisions behind brief v4 (D1–D18) |
+| `RUN_ARMB_AUDIT.md`, `reports/AUDIT_REPORT.md` | the arm-B audit and its result |
+| `RUN_PILOT2.md`, `tools/pilot2.py`, `p2_sample.tsv` | pilot 2 on brief v4: effort low vs medium, routing, condition grouping |
+| `CONDITION_RUBRIC.md` | groups for the later condition-grouping pass (readers do not classify conditions) |
 | `ADJUDICATOR_BRIEF.md` | how disagreements between the two readers are judged |
 | `RUN_CLOUD_PILOT.md` | step-by-step instructions for the orchestrating session |
 | `sample.tsv`, `batches.json` | 100 articles: 78 from 2023–2024 and 22 from 1999–2001, split into arms A and B; batches of 4 within each arm and stratum |

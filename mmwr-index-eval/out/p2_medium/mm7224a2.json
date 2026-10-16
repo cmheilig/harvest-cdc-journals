@@ -1,0 +1,79 @@
+{
+ "id": "mm7224a2",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "medium", "role": "judgment"},
+ "data_focus": {"v": "yes", "ev": [{"loc": "text", "q": "As of May 13, 2023, the commonly circulating Omicron lineages were XBB.1.5 (61.5%; 95% CI = 56.4%–66.4%)"}]},
+ "outcome_types": [
+  {"v": "binary/categorical", "ev": [{"loc": "text", "q": "The prevalence of these lineages peaked at 75.7% (95% CI = 73.8%–77.5%) for BA.1.1 by the week ending February 19, 2022"}]},
+  {"v": "continuous", "ev": [{"loc": "text", "q": "the fastest doubling times were observed for XBB.1.16 (15.7 days; 95% CI = 13.9–17.9)"}]},
+  {"v": "count/rate", "ev": [{"loc": "text", "q": "The number of cases attributed to each lineage was highest for BA.1.1 (14 million), B.1.1.529 (9.8 million) and BA.5 (8.0 million)"}]}
+ ],
+ "analytic_depth": [
+  {"v": "summary", "ev": [{"loc": "text", "q": "reaching a peak prevalence of 84.1% (95% CI = 81.4%–86.5%) by April 1"}]},
+  {"v": "comparison", "ev": [{"loc": "text", "q": "The fastest doubling times among lineages assessed at 1% prevalence during January 2, 2022–May 13, 2023, occurred for BA.2.12.1 (5.4 days; 95% CI = 4.8–6.1)"}, {"loc": "text", "q": "Biweekly estimates using the updated model were compared with weekly estimates from the previous model to assess consistency."}]}
+ ],
+ "procedures": [
+  {"name": "survey weighting for complex survey design (weights trimmed at 99th percentile)", "class": "weighting", "regression_family": null, "inferred_from": "weights based on estimated infections represented by each sequence, PSUs and strata defined; every variant proportion is weighted", "role": "primary",
+   "ev": [{"loc": "text", "q": "All methods included weighting to account for the complex survey design and adjust for potential sampling biases."}, {"loc": "note", "q": "Each submitting laboratory source was considered a primary sampling unit, and the state and week of sequence sample collection were considered strata."}]},
+  {"name": "multinomial regression nowcast", "class": "regression", "regression_family": "logistic", "inferred_from": "'multinomial regression' → logistic family (multinomial); used for nowcast proportions of most recent weeks and for growth rates/doubling times", "role": "primary",
+   "ev": [{"loc": "text", "q": "nowcasts were generated using multinomial regression fit on the previous 21 weeks of data."}, {"loc": "note", "q": "Doubling times for proportions of specific lineages are based on instantaneous growth rates from the multinomial nowcasting model."}]}
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": ["lineage", "week/period", "HHS region", "estimation method (previous vs updated)"],
+  "ev": [{"loc": "text", "q": "BA.5, XBB.1.5, and BA.1.1 remained predominant for the longest durations (19, 16, and 10 weeks, respectively)."}, {"loc": "text", "q": "The previous and updated analytic methods using CELR- and NREVSS-derived survey weights, respectively, produced similar variant proportion estimates for all lineages."}]
+ },
+ "inference": {"v": "CIs", "method_stated": false, "ev": [{"loc": "text", "q": "XBB.1.9.1 (10.0%; 95% CI = 6.8%–14.1%), and XBB.1.16 (9.4%; 95% CI = 6.9%–12.5%)"}]},
+ "primary_measures": [
+  {"v": "weighted variant proportion (%)", "ev": [{"loc": "text", "q": "Weekly variant proportions were estimated at the national and U.S. Department of Health and Human Services (HHS) regional levels"}]},
+  {"v": "doubling time (days)", "ev": [{"loc": "text", "q": "Doubling times for proportions of specific lineages were estimated from the coefficients of the multinomial nowcasting model."}]},
+  {"v": "estimated variant-attributed cases", "ev": [{"loc": "text", "q": "Weekly numbers of COVID-19 cases attributable to variants were estimated by multiplying counts of positive nucleic acid amplification tests"}]},
+  {"v": "predominance (>50% prevalence)", "ev": [{"loc": "text", "q": "with various descendant lineages reaching national predominance (>50% prevalence)."}]}
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {"v": "complex survey design", "ev": [{"loc": "note", "q": "Variant proportion estimation methods account for the complex survey design, with weights based on the weekly estimated number of infections represented by each SARS-CoV-2 sequence"}]},
+  "unadjusted_results": {"v": true, "ev": [{"loc": "text", "q": "nowcasts were generated using multinomial regression fit on the previous 21 weeks of data."}]},
+  "adjusted_results": {"v": false, "ev": []},
+  "confounders": {"v": null, "ev": []},
+  "interaction_modeled": {"v": false, "ev": []},
+  "sensitivity_analysis": {"v": true, "ev": [{"loc": "text", "q": "Biweekly estimates using the updated model were compared with weekly estimates from the previous model to assess consistency."}]}
+ },
+ "public_health_question": {"v": "How did the proportions, growth and case burden of Omicron SARS-CoV-2 lineages change in the United States during January 2022–May 2023, and do updated estimation methods give consistent results?", "ev": [{"loc": "text", "q": "This report summarizes U.S. trends in variant proportions from national genomic surveillance during January 2022–May 2023."}]},
+ "conditions": [
+  {"v": "COVID-19", "role": "outcome", "ev": [{"loc": "title", "q": "Genomic Surveillance for SARS-CoV-2 Variants: Circulation of Omicron Lineages"}]}
+ ],
+ "study_design": [
+  {"v": "surveillance/descriptive", "ev": [{"loc": "text", "q": "This report summarizes U.S. trends in variant proportions from national genomic surveillance during January 2022–May 2023."}]},
+  {"v": "evaluation or monitoring", "ev": [{"loc": "text", "q": "Biweekly estimates using the updated model were compared with weekly estimates from the previous model to assess consistency."}]}
+ ],
+ "data_source_type": [
+  {"v": "CDC surveillance system", "ev": [{"loc": "text", "q": "CDC’s national genomic surveillance system integrates SARS-CoV-2 sequences from three sources"}, {"loc": "text", "q": "multiplying counts of positive nucleic acid amplification tests from COVID-19 electronic laboratory reporting (CELR) with variant proportions"}]},
+  {"v": "sentinel/network", "ev": [{"loc": "text", "q": "changed to regional-level data from the National Respiratory and Enteric Virus Surveillance System (NREVSS)"}]},
+  {"v": "other", "ev": [{"loc": "text", "q": "2) CDC-contracted commercial laboratories, and 3) public sequence data repositories"}]}
+ ],
+ "data_source_named": [
+  {"v": "National SARS-CoV-2 Strain Surveillance (NS3) program", "ev": [{"loc": "text", "q": "the National SARS-CoV-2 Strain Surveillance (NS3) program"}]},
+  {"v": "GISAID", "ev": [{"loc": "text", "q": "the Global Initiative on Sharing All Influenza Data (GISAID) repository"}]},
+  {"v": "NCBI GenBank", "ev": [{"loc": "text", "q": "National Center for Biotechnology Information (NCBI) GenBank."}]},
+  {"v": "COVID-19 electronic laboratory reporting (CELR)", "ev": [{"loc": "text", "q": "COVID-19 electronic laboratory reporting (CELR)"}]},
+  {"v": "National Respiratory and Enteric Virus Surveillance System (NREVSS)", "ev": [{"loc": "text", "q": "National Respiratory and Enteric Virus Surveillance System (NREVSS)"}]}
+ ],
+ "setting": {"v": "mixed", "ev": [{"loc": "text", "q": "Weekly variant proportions were estimated at the national and U.S. Department of Health and Human Services (HHS) regional levels"}]},
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "No social-position dimension appears; comparisons are across lineages, periods and HHS regions.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [],
+  "determinants_of_health": {"v": null, "ev": []},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": null
+ },
+ "groupwise": [],
+ "uncertain_fields": ["regression_fields"],
+ "confidence": "medium",
+ "notes": "Multinomial model is a time-trend nowcast with no stated covariates, so unadjusted true and confounders null; the old-vs-new method comparison is read as a sensitivity/consistency check. CI construction is not stated. Predominance is a >50% threshold; weight trimming is part of the weighting procedure.",
+ "view_issues": null
+}

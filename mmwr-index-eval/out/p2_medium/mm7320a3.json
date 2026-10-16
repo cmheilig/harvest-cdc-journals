@@ -1,0 +1,435 @@
+{
+ "id": "mm7320a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "medium",
+  "role": "judgment"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "187 infections were reported among 188,907 fully vaccinated persons (with 2 JYNNEOS doses), resulting in a 0.1% infection rate."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Hospitalization was less prevalent among vaccinated persons with mpox (three [1.4%] of 212) than among unvaccinated persons (1,662 [8.4%] of 19,716) (OR = 0.2)"
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Mpox cases among fully vaccinated persons occurred a median of 266 days after receipt of the second JYNNEOS dose"
+    },
+    {
+     "loc": "table 2",
+     "q": "No. of anatomic locations with rash, median (IQR)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "187 infections were reported among 188,907 fully vaccinated persons (with 2 JYNNEOS doses), resulting in a 0.1% infection rate."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Cases among unvaccinated and fully vaccinated persons were compared by demographic characteristics, behaviors (i.e., number of recent sexual partners), and clinical presentations"
+    },
+    {
+     "loc": "text",
+     "q": "were compared using a Kruskal-Wallis test."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods and table notes for vaccinated vs unvaccinated (and complete vs missing status) comparisons",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Chi-square test p-value except where noted; p<0.05 was considered statistically significant."
+    }
+   ]
+  },
+  {
+   "name": "Fisher's exact test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods and table notes (race/ethnicity, gender identity, hospitalization)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "§ Fisher’s exact test p-value."
+    }
+   ]
+  },
+  {
+   "name": "Wilcoxon rank-sum test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named for interval (intradermal vs subcutaneous), number of partners and rash locations",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was also compared for homologous subcutaneous and intradermal doses using the Wilcoxon rank-sum test."
+    }
+   ]
+  },
+  {
+   "name": "Kruskal-Wallis test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named for interval across three vaccination routes; no significant difference",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "2 intradermal doses [homologous intradermal]) were compared using a Kruskal-Wallis test."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "CI method not stated; OR 95% CIs for clinical outcomes accompany conclusions of lower odds among vaccinated",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Odds ratio (95% CI)"
+    },
+    {
+     "loc": "text",
+     "q": "the odds of reported genital rash were higher among fully vaccinated patients than among those who were unvaccinated (OR = 2.3)."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "both",
+  "referent": "unvaccinated persons with mpox",
+  "across": [
+   "vaccination status",
+   "vaccination route",
+   "age group",
+   "race/ethnicity",
+   "gender identity",
+   "HIV status"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Compared with unvaccinated cases, a higher proportion of fully vaccinated cases occurred among non-Hispanic White persons (59%) and persons aged 30–39 years (47%)"
+   },
+   {
+    "loc": "text",
+    "q": "infections among persons who received homologous intradermal doses occurred a median of 100 days later than infections among persons who received homologous subcutaneous doses."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "using chi-square and Fisher’s exact tests and odds ratios (ORs)."
+   },
+   {
+    "loc": "table 2",
+    "q": "Odds ratio (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. (%)"
+    }
+   ]
+  },
+  {
+   "v": "OR",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Odds ratio (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "median (IQR)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. of recent sexual partners, ¶ median (IQR)"
+    }
+   ]
+  },
+  {
+   "v": "infection rate (%)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "resulting in a 0.1% infection rate."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How often do mpox infections occur after 2 JYNNEOS doses, and how do they differ from infections in unvaccinated persons in characteristics, severity and time since vaccination by route?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "clinical and vaccination characteristics of nationally reported infections among fully vaccinated persons were evaluated."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "mpox",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Monkeypox Virus Infections After 2 Preexposure Doses of JYNNEOS Vaccine"
+    }
+   ]
+  },
+  {
+   "v": "mpox",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Two JYNNEOS vaccine doses prevent mpox; however, infection in fully vaccinated persons can occur."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "report probable and confirmed mpox cases** to CDC’s National Notifiable Diseases Surveillance System."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "report probable and confirmed mpox cases** to CDC’s National Notifiable Diseases Surveillance System."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Notifiable Diseases Surveillance System (NNDSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC’s National Notifiable Diseases Surveillance System."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, May 2022–May 2024"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "other",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "clinical and vaccination characteristics of nationally reported infections among fully vaccinated persons were evaluated."
+   }
+  ]
+ },
+ "equity": {
+  "level": 2,
+  "level_reason": "Race/ethnicity, age and gender identity distributions are compared between vaccinated and unvaccinated cases with tests and described (more White, aged 30–39), but not framed as a disparity; marginalized communities appear only in a recommendation.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "The SPDs are Table-1 case characteristics compared across vaccination status rather than results by group; it could be read as descriptor use."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "cross-classifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "a higher proportion of fully vaccinated cases occurred among non-Hispanic White persons (59%)"
+     },
+     {
+      "loc": "table 1",
+      "q": "Race and ethnicity › Black or African American, non-Hispanic"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "including among marginalized communities that are at risk for life-threatening mpox infections"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "cross-classifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "and persons aged 30–39 years (47%) (p<0.001, Fisher’s exact and chi-square tests, respectively)."
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "cross-classifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Gender identity › Transgender female"
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "disproportionately affected gay, bisexual, and other men who have sex with men (MSM) and transgender and nonbinary persons"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity (8 groups), age (5) and gender identity (5) are compared between vaccinated and unvaccinated cases and between complete and missing vaccination status; unknowns are shown without percentages."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 8,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race and ethnicity › White, non-Hispanic"
+    },
+    {
+     "loc": "table 1",
+     "q": "§ Fisher’s exact test p-value."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group, yrs › ≥60"
+    },
+    {
+     "loc": "table 1",
+     "q": "Chi-square test p-value except where noted"
+    }
+   ]
+  },
+  {
+   "across": [
+    "sexual orientation and gender identity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Gender identity › Another gender or multiple genders"
+    },
+    {
+     "loc": "table 1",
+     "q": "§ Fisher’s exact test p-value."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "procedures",
+  "equity.level",
+  "outcome_types"
+ ],
+ "confidence": "medium",
+ "notes": "Time from second dose to onset is summarized as medians and compared with rank tests, so recorded as continuous rather than event-time. OR CIs are reported but conclusions rest mainly on p-values, so CI inversion is ancillary. Breakthrough infections without a VE estimate: vaccine outcome 'other'.",
+ "view_issues": "The Kruskal-Wallis result across three routes is reported only as 'no significant difference' without a p-value."
+}

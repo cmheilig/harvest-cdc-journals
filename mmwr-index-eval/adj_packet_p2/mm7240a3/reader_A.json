@@ -1,0 +1,340 @@
+{
+ "id": "mm7240a3",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "hospitalization rates more than doubled, from 6.8 per 100,000 during the week ending July 15 to 16.4 per 100,000"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "176 (14.4%) were admitted to an ICU, 68 (5.9%) received invasive mechanical ventilation, and 63 (4.8%) patients died during the hospitalization"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Nearly all sampled patients (1,112 [98.5%; 95% CI = 97.4%–99.2%]) had at least one underlying condition"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the rate among adults aged ≥65 years was nine times as high as that among adults aged 18–64 years (1.8)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "sample weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weights for the age- and site-stratified random sample of charts produce every clinical percentage",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Unweighted case counts and weighted percentages that better represent the hospitalized population of the catchment area ( 2 ) are presented for sampled data."
+    }
+   ]
+  },
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "\"Statistical differences between groups were assessed using chi-square tests\"",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Statistical differences between groups were assessed using chi-square tests; p<0.05 were considered statistically significant."
+    },
+    {
+     "loc": "text",
+     "q": "a one third increase from 45.9% during March 2020–December 2022 (p<0.01)"
+    }
+   ]
+  },
+  {
+   "name": "suppression of small cells",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "cells with n<10 not presented",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Data are not presented for cells with sample size <10."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "adults aged 18–64 years; persons aged <18 years",
+  "across": [
+   "age group",
+   "period"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "nine times as high as that among adults aged 18–64 years (1.8) and 16 times as high as that among persons aged <18 years (1.0)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "variances were estimated using Taylor series linearization method. Statistical differences between groups were assessed using chi-square tests"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "rate per 100,000",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "rates (hospitalizations per 100,000 population) include all COVID-19–associated hospitalizations"
+    }
+   ]
+  },
+  {
+   "v": "weighted percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "weighted percentages that better represent the hospitalized population of the catchment area"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What were COVID-19–associated hospitalization rates and the characteristics of hospitalized adults aged ≥65 years in 2023?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to estimate COVID-19–associated hospitalization rates during January–August 2023 and identify demographic and clinical characteristics of hospitalized patients aged ≥65 years"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "COVID-19–Associated Hospitalizations Among U.S. Adults Aged ≥65 Years"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Only 23.5% had received the recommended COVID-19 bivalent vaccine."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-NET † conducts population-based surveillance for laboratory-confirmed COVID-19–associated hospitalizations"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the COVID-19–Associated Hospitalization Surveillance Network (COVID-NET) were analyzed"
+    }
+   ]
+  },
+  {
+   "v": "vaccination registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was obtained from state immunization information systems"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "COVID-19–Associated Hospitalization Surveillance Network (COVID-NET)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the COVID-19–Associated Hospitalization Surveillance Network (COVID-NET) were analyzed"
+    }
+   ]
+  },
+  {
+   "v": "state immunization information systems",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was obtained from state immunization information systems"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "among catchment area residents in 98 counties and across 13 U.S. states"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "240 (23.5%; 95% CI = 19.5%–27.7%) had received ≥1 bivalent COVID-19 dose"
+   }
+  ]
+ },
+ "equity": {
+  "level": 1,
+  "level_reason": "Age defines the population and strata without social-position framing; race and ethnicity appear only as Table descriptors by age group, not discussed.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 0,
+   "reason": "Race/ethnicity is only a Table-1-style characteristic; one could read the report as age-only."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Among U.S. Adults Aged ≥65 Years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "COVID-19–associated hospitalization rates were highest among those aged ≥85 years (42.2) and lowest among adults aged 65–74 years (8.6)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race and ethnicity › Black or African American"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "these proportions did not differ substantially among subgroups of hospitalized patients aged ≥65 years (p>0.05 for all)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "nine times as high as that among adults aged 18–64 years (1.8) and 16 times as high as that among persons aged <18 years"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "Subgroups in the chi-square statement are read as the three age groups of Table 1; the test may also cover LTCF status. The 9x and 16x rate contrasts are against fixed referent age groups and could be per-group vs referent rather than side by side.",
+ "view_issues": "Table CSV Male row shows only percentages that do not complement Female (e.g., 79.1 vs 48.8), apparently misplaced values. Text gives 62.9% and 62.8% for the share aged ≥65."
+}
