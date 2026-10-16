@@ -13,7 +13,7 @@ This file turns pilot 2's findings (`reports/PILOT2_REPORT.md`, `reports/p2_brie
 ### V1. Let readers flag `data_focus` as uncertain
 **Issue.** `data_focus` is the doubt readers raised most often and could not flag: `uncertain_fields` does not accept it (mm7229a4, mm7332e1, mm7241e1, mm7225a6, mm7303a3, mm7323a2, mm7327a1).
 **Proposed.** Add `data_focus` to the `uncertain_fields` values. It routes like the other method fields.
-Decision:
+Decision: accept
 
 ### V2. Where `data_focus` "limited" ends
 **Issue.** Readers split on small case series and clusters (7, 23, 36 and 40 cases: mm7327a1, mm7302a2, mm7343a3, mm7225a6), on progress reports that mostly cite published estimates (mm7207a2), and on quantities that are not health outcomes (counts of countries adopting a surveillance system, mm7323a2; stockpile deliveries, mm7316a1).
@@ -21,7 +21,7 @@ Decision:
 - (a) **Size does not decide it; analysis does.** A case series or cluster of any size is `yes` when it reports its own counts or proportions **and** compares them (groups, periods, attack rates, exposed vs unexposed). It is `limited` when it only describes the cases.
 - (b) **Cited vs own.** A report whose headline quantities are cited from other reports is `limited`, even when it adds a few counts of its own. It is `yes` when its headline quantities are computed from its own data or its own analysis of others' data (unchanged from v4).
 - (c) **Program and system measures** (coverage, doses delivered, adoption, timeliness, completeness) count as quantities about public health when the report computes them from its own data: `yes`, or `limited` under (a) and (b).
-Decision:
+Decision: accept
 
 ### V3. What a "limited" record fills in
 **Issue.** The brief says what a `none` record leaves empty, but not what a `limited` one does. Readers filled method fields from cited evidence, from the article's own case counts, or not at all (mm4847a4, mm4923a3, mm5015a3, mm7219a4, mm7228a2, mm7249a3, mm7332e1).
@@ -29,19 +29,19 @@ Decision:
 - (a) Method fields describe **only what the article itself computes or reports as its own result**. Methods behind cited estimates (a manufacturer's hazard ratios, an FDA SCCS rate ratio) are not procedures; mention them in `notes` if they matter.
 - (b) A single case or a descriptive case series: `outcome_types` from the case counts or measures reported (often binary/categorical); `analytic_depth` `summary`; `procedures` []; `comparison` framework "none" unless the article compares something itself.
 - (c) A report of cited figures only: `outcome_types` [] and `analytic_depth` [], as for `none`.
-Decision:
+Decision: accept
 
 ### V4. Case totals and `outcome_types`
 **Issue.** "Event counts per period with no denominator: count/rate" was read as covering the total number of cases that frames a report's percentages. That caused 4 of the 5 disagreements in one adjudicator's set (mm4917a4, mm4922a3, mm4923a3, mm4943a3).
 **Proposed.**
 - (a) A case total that only serves as the denominator of percentages does **not** add count/rate. Count/rate needs counts reported as an outcome: by period, place or group (cases by year, deaths by state).
 - (b) A single descriptive mean or median does not make an outcome continuous unless a claim rests on it, i.e. it is compared or interpreted (mm6953a1, mm7316a5). A score analyzed as a mean (e.g. a 0–3 composite) is continuous (mm7230a1).
-Decision:
+Decision: accept
 
 ### V5. When `analytic_depth` earns "summary"
 **Issue.** Readers gave `summary` for sample sizes, enrollment counts, the baseline end of a period contrast, and quotes that are themselves comparisons (mm7153a1, mm7303a5, mm7335a4, mm7226a9).
 **Proposed.** `summary` needs a single-group quantity **presented as a result**, e.g. an overall prevalence, a national percentage, a seroresponse range. Sample or enrollment sizes and the reference value of a contrast do not earn it.
-Decision:
+Decision: accept
 
 ### V6. Groupwise assessment values and counting
 **Issue.** The assessment list has no value for all-pairs tests without a referent (common in NCHS QuickStats) or for each-level-vs-rest tests. Readers split on `resolves_to_finer` when the only assessment is per-group vs referent, and on results that both rank all groups and give some ratios (mm7218a7, mm6953a1, mm7303a5, mm7334a2, mm7339a2, mm7251a4, mm7207a5, mm7225a6, mm7235a2, mm7332e1).
@@ -52,7 +52,7 @@ Decision:
 - (d) **Composition is not groupwise.** A case series' distribution across SPD groups (shares of cases by race, with no outcome measured per group) is a descriptor, not a groupwise entry. Groupwise needs an outcome measured in each group: a rate, proportion or mean per group.
 - (e) **SPD crossed with a clinical variable** (e.g. age × medical risk): count the SPD groups compared within one level of the other variable. List only the SPD in `across`.
 - (f) A blanket "differences were determined using t-tests" under "higher than most other groups" claims counts as `per-group vs referent only`, referent as named or "unnamed".
-Decision:
+Decision: accept
 
 ### V7. Which comparison framework leads
 **Issue.** The brief settles pair vs group but not a fixed referent (a WHO or Healthy People target) coexisting with pair or group contrasts (mm5011a3, mm5034a3, mm7313a1, mm7202a2). Within-person serial values judged against thresholds (mm7330a2) and an indicator compared with later complete data (mm7346a3) were also unsettled.
@@ -60,7 +60,7 @@ Decision:
 - (a) Lead with the framework of the **Summary's headline claim**. If that does not decide it: group > pair > fixed referent. Always record a target in `referent`, whichever framework leads.
 - (b) Repeated measurements over time (one person or one series) are a period comparison: pair for 2 time points, group for 3 or more. Thresholds they are judged against go in `referent`.
 - (c) In an indicator or nowcast evaluation, comparing the indicator with later complete data is a comparison (pair or group by period), not a reference standard.
-Decision:
+Decision: accept, with refinement for (b) and (c); the question of pairwise or groupwise for characterizing equity pertains primarily to groups compared on the basis of social standing; for individual persons or other cross-group comparisons, the question of pairwise or groupwise is about a statistical procedure apart from equity considerations
 
 ### V8. Inference edge cases
 **Issue.** Readers split on stray significance language, method lines about CI overlap, Bayesian probabilities and the combined value (mm7242a2, mm7248a2, mm7241e1, mm7346a3, mm4910a3, mm7320a3).
@@ -70,7 +70,7 @@ Decision:
 - (c) **Bayesian probabilities against a fixed value** (e.g. P(Rt > 1) binned into trend categories) are quantization of a model output, not a test.
 - (d) **A CI used as an inversion test** gives `inference` "CIs and tests": the reported CI contributes "CIs" and the inversion adds "tests".
 - (e) **CIs alongside p-values.** Record the named test. Add a CI-inversion test only when a conclusion rests on the CI itself.
-Decision:
+Decision: accept
 
 ### V9. Procedure edge cases
 **Issue.** Several recurring calls are not in the procedure lists (mm7205e1, mm7316a3, mm7207a3, mm7339a2, mm7207a6, mm7308a5, mm7305a4, mm7225a3, mm7234a6, mm4948a1, mm7332e1).
@@ -84,17 +84,17 @@ Decision:
 - (g) **Correlation coefficients** (Pearson, Spearman) are class `other`. A test of a correlation is a `test`.
 - (h) **A regression that only sets a threshold** (e.g. a Serfling baseline for excess deaths) is `ancillary`.
 - (i) **Methods named only in table or figure notes.** Before writing `procedures`, read every table and figure note. One missed hazard-ratio model in a Table 1 note (mm7332e1) produced the run's largest single error, 8 fields.
-Decision:
+Decision: accept, especially (i)
 
 ### V10. Survey weighting that is never stated
 **Issue.** Readers split on recording weighting for NHIS or BRFSS estimates that never say "weighted" (mm7215a8, mm7218a7, mm7207a6). Adjudicators sided with not recording it.
 **Proposed.** Record `weighting` only when the article states it (weights, weighted estimates, survey design, survey software). "Silent is not false" applies: do not infer weighting from the data source alone. `nonindependence_approach` "complex survey design" keeps its v4 shortcut for national surveys, but only when a regression is present.
-Decision:
+Decision: accept
 
 ### V11. `nonindependence_approach` when the article is silent
 **Issue.** The other `regression_fields` have defaults for silence; this one does not (mm7346a2: null vs "none").
 **Proposed.** `null` when the article says nothing. Use "none" only when the article indicates independent units, or the model plainly has none to account for.
-Decision:
+Decision: accept
 
 ### V12. `study_design` vocabulary and boundaries
 **Issue.** There is no value for evidence reviews inside guidance (systematic review, GRADE, evidence to recommendations) or for announcements. "Progress Toward" reports and program-operations reports were unsettled (mm4847a4, mm7228a2, mm7241e1, mm7207a2, mm7316a1, mm7303a3).
@@ -103,7 +103,7 @@ Decision:
 - (b) Announcements and awareness notices: `mixed/other`, with `data_focus` none or limited. Do not infer a design from figures cited from other reports.
 - (c) Reports on program operations or progress, measured against stated goals or targets: `evaluation or monitoring`. Without goals or targets: `surveillance/descriptive`.
 - (d) A case series nested inside an outbreak investigation: `outbreak investigation` only.
-Decision:
+Decision: accept, with refinement for (a): consider including scholarly synthesis to accommodate reviews that might not be interpreted as pertaining to evidence
 
 ## Equity fields
 
@@ -113,12 +113,12 @@ Decision:
 - (a) **The cap holds.** Values only set side by side stay at level 2, whatever the framing ("disproportionately affected") and whatever determinants are named. Record the determinants anyway; `level_alternative` carries the higher reading.
 - (b) **SDOH as the outcome.** Extend the level-3 clause for SDOH exposures to SDOH outcomes (e.g. problems paying medical bills): quantified contrasts across SPD groups meet level 3 without the word "disparity". Side-by-side values stay capped at 2, so most QuickStats remain level 2.
 - (c) **"More than twice" is a computed ratio.** A stated multiple or difference ("more than twice", "3 percentage points higher") counts as quantified.
-Decision:
+Decision: accept, with note about (a): in practice, i expect to use the binary equity category less often than the reported level and mode of comparison, so the distinction here is worth keeping precise but doesn't lose much operationally
 
 ### V14. A target for an SPD-defined population with no groups compared
 **Issue.** mm7314a2: a coverage policy for an SES-defined population (Medicaid) is measured against a Healthy People target, with laws named as explanations, but no SPD groups are compared. Both readers gave level 1 with low confidence, offering 3 or 4 as the alternative.
 **Proposed.** A shortfall from a target set for an SPD-defined population is a quantified contrast. Put that SPD in `comparison.across` with the target as `referent`. It can reach level 3 (framed) or 4 (determinants named), and `equity_action` is true. This matches v4's `equity_action` rule.
-Decision:
+Decision: accept
 
 ### V15. Dimension coding cases
 **Issue.** Several groups recur without a rule (mm7324a4, mm5042a3, mm7207a2, mm7327a1, mm5015a3, mm7301a1, mm7212a1, mm7236a2, mm4943a3).
@@ -132,7 +132,7 @@ Decision:
 - (g) **National-origin subgroups of a race** (e.g. Asian Indian, Chinese) are race/ethnicity, not nativity.
 - (h) **Age bounds of the patients a provider survey asks about** define the population: age, role `population`.
 - (i) **Citizenship of cases abroad** (mm4943a3): keep v4's rule (nativity, descriptor, level 1).
-Decision:
+Decision: accept, with refinement to (a) and (b): somehow capture distinction between how one identifies vs how others perceive, as with sex-at-birth or sexual behavior apart from identity
 
 ### V16. Scope of `determinants_of_health`
 **Issue.** `has_determinants` caused 11 disagreements, tied with `equity_dimensions` for the most of any equity field (mm4834a2, mm4836a2, mm5016a4, mm7219a1, mm7234a6, mm7212a1, mm7330a2, mm7248a2, mm7251a4, mm7301a1).
@@ -143,7 +143,7 @@ Decision:
 - (d) A cultural or household practice in a case report is an individual risk factor, not a determinant.
 - (e) Access offered as the explanation of a group difference ("more ready access to medical care") counts; a recommendation to improve access does not (v4 rule).
 - (f) The analyzed exposure is recorded only if it is itself a social or structural determinant. A bias the authors say they controlled for is not a determinant.
-Decision:
+Decision: accept
 
 ## Routing, conditions and tooling
 
@@ -161,7 +161,7 @@ Decision: **owner: accept as a placeholder** (2026-10-14).
   - *The alternative* is a `health care use` group. It is worth it only if you expect to search the index for utilization reports by condition group; the full text and `public_health_question` already make them findable.
 Decision (a): **owner: group vaccine safety** (rule as proposed unless edited)
 Decision (b): **owner: normalize** (method as proposed unless edited)
-Decision (c):
+Decision (c): accept: care-setting are not conditions
 
 ---
 
