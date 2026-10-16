@@ -20,6 +20,7 @@ METHOD = {'data_focus', 'outcome_types', 'analytic_depth', 'has_regression', 're
           'has_test', 'has_standardization', 'has_weighting', 'comparison_framework', 'comparison_scale', 'inference',
           'study_design', 'groupwise_any', 'groupwise_assessments', 'ci_overlap'}
 EQUITY = {'equity_level', 'equity_flag', 'equity_dimensions', 'equity_action', 'has_determinants', 'groupwise_dims'}
+V5_ONLY = {'comparison_spd', 'equity_dimension_roles', 'equity_basis'}  # fields compare.norm() gained for brief v5; pilot 2 ignores them
 # best effort (D10, D11, D14, D19): everything else, e.g. data_source_type, setting, vaccine_outcome_type
 
 
@@ -64,7 +65,7 @@ def compare():
         if not all(os.path.exists(p) for p in paths.values()):
             missing.append(i); continue
         rec = {a: json.load(open(p)) for a, p in paths.items()}
-        n = {a: norm(r) for a, r in rec.items()}
+        n = {a: {k: v for k, v in norm(r).items() if k not in V5_ONLY} for a, r in rec.items()}
         dis = [f for f in n['low'] if n['low'][f] != n['medium'][f]]
         n_any += bool(dis)
         for f in n['low']:
@@ -98,12 +99,15 @@ def triggers(rec):
     return t
 
 
-def routed(rec, is_priority):
-    """Owner's choice (D18 b): any signal routes a priority-segment report; others need a strong signal."""
+def routed(rec, is_priority, rule='v5'):
+    """Second-reader trigger. 'v5' (BRIEF_V5_DECISIONS V17, owner's placeholder): two or more uncertain_fields, or equity
+    level_confidence low, in every segment. 'v4' (D18 b, used for pilot 2's reports/p2_routing.tsv): any signal routes a
+    priority-segment report; others need a strong signal."""
     t = triggers(rec)
-    if is_priority:
+    strong = rec['equity'].get('level_confidence') == 'low' or len(rec.get('uncertain_fields', [])) >= 2
+    if rule == 'v4' and is_priority:
         return bool(t)
-    return rec['equity'].get('level_confidence') == 'low' or len(rec.get('uncertain_fields', [])) >= 2
+    return strong
 
 
 def score():
@@ -114,7 +118,7 @@ def score():
     for f in sorted(glob.glob('adjudication_p2/*.json')):
         a = json.load(open(f)); i = a['id']; lab = mapping[i]; done.add(i); m = meta[i]
         seg = 'priority' if m['priority'] == '1' else 'other'
-        rec = {arm: norm(json.load(open(f'out/p2_{arm}/{i}.json'))) for arm in ARMS}
+        rec = {arm: {k: v for k, v in norm(json.load(open(f'out/p2_{arm}/{i}.json'))).items() if k not in V5_ONLY} for arm in ARMS}
         ruled = {d['field']: d for d in a.get('fields', [])}; agreed = {e['field'] for e in a.get('agreed_errors') or []}
         for fld in rec['low']:
             g = group_of(fld)
@@ -144,7 +148,7 @@ def score():
             for seg in ('priority', 'other', 'all'):
                 ids = [i for i in meta if seg == 'all' or (meta[i]['priority'] == '1') == (seg == 'priority')]
                 ids = [i for i in ids if os.path.exists(f'out/p2_{arm}/{i}.json')]
-                r = {i: routed(json.load(open(f'out/p2_{arm}/{i}.json')), meta[i]['priority'] == '1') for i in ids}
+                r = {i: routed(json.load(open(f'out/p2_{arm}/{i}.json')), meta[i]['priority'] == '1', rule='v4') for i in ids}
                 e = {i: sum(errors_by[(arm, i)].values()) for i in ids}
                 o.write(f"{arm}\t{seg}\t{len(ids)}\t{sum(r.values())}\t{sum(e.values())}\t{sum(e[i] for i in ids if r[i])}\n")
     open('reports/p2_brief_issues.md', 'w').write('\n'.join(issues) + '\n')

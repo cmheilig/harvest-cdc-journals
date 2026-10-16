@@ -193,3 +193,13 @@ International setting is a characteristic of interest, not an automatic equity r
 - `condition_group` is replaced by free-text `conditions` (`v`, `role`: exposure · outcome · population · vaccine target, `ev`), grouped later with `CONDITION_RUBRIC.md`;
 - evidence `loc` is restricted to title · summary · text · table N · figure N · note · ocr;
 - review mode (arm B) is retired.
+
+## 10. Version 2.3 additions (2026-10-16, after pilot 2; reader brief v5)
+`READER_BRIEF.md` v5 governs; `tools/validate.py` encodes it. In summary (decisions in `BRIEF_V5_DECISIONS.md`, V1–V18, and `BRIEF_V4_DECISIONS.md` D16 rule 3):
+- `uncertain_fields` accepts `data_focus`;
+- `groupwise.assessment` adds `pairwise (all pairs)`, with a precedence order among the values;
+- `study_design` adds `review or synthesis`;
+- equity `dimensions` entries take an optional `basis` (self-identified · assigned or observed · behavior · not stated) for sex, SOGI and race/ethnicity;
+- a claim resting on CI overlap is a `test` named "CI overlap assertion", with `inference.ci_overlap` true;
+- the validator enforces the brief's equity checks: level ≥ 2 needs an SPD in `comparison.across`; level ≥ 3 needs `comparison.scale` not null;
+- condition groups (`CONDITION_RUBRIC.md`) split TB from respiratory, add `respiratory - infectious`, `respiratory - noninfectious`, `viral hepatitis` and `vaccine safety`, and normalize terms through a `canonical` column.

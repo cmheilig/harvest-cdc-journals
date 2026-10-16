@@ -6,11 +6,14 @@ An evaluation of LLM readers for indexing *MMWR* reports by **how they make clai
 
 | Path | What it is |
 |---|---|
-| `READER_BRIEF.md` | the readers' contract (version 4) |
+| `READER_BRIEF.md` | the readers' contract (version 5) |
 | `SCHEMA.md` | the index schema (v2.1, with v2.2 additions in §9); the brief governs |
-| `BRIEF_V4_DECISIONS.md` | the instructor's decisions behind brief v4 (D1–D18) |
+| `BRIEF_V4_DECISIONS.md` | the instructor's decisions behind brief v4 (D1–D20) |
+| `BRIEF_V5_DECISIONS.md` | the instructor's decisions behind brief v5 (V1–V18), from pilot 2 |
 | `RUN_ARMB_AUDIT.md`, `reports/AUDIT_REPORT.md` | the arm-B audit and its result |
-| `RUN_PILOT2.md`, `tools/pilot2.py`, `p2_sample.tsv` | pilot 2 on brief v4: effort low vs medium, routing, condition grouping |
+| `RUN_PILOT2.md`, `tools/pilot2.py`, `p2_sample.tsv`, `reports/PILOT2_REPORT.md` | pilot 2 on brief v4: effort low vs medium, routing, condition grouping |
+| `RUN_CONFIRM_V5.md`, `tools/confirm_v5.py`, `cv5_sample.tsv` | the brief v5 confirmation run (drafted, awaiting go-ahead) |
+| `CONDITION_RUBRIC.md`, `conditions_map.tsv`, `tools/group_conditions.py` | grouping readers' free-text conditions |
 | `CONDITION_RUBRIC.md` | groups for the later condition-grouping pass (readers do not classify conditions) |
 | `ADJUDICATOR_BRIEF.md` | how disagreements between the two readers are judged |
 | `RUN_CLOUD_PILOT.md` | step-by-step instructions for the orchestrating session |

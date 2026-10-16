@@ -10,6 +10,8 @@ Arm A pairs out/haiku with out/opus; arm B pairs out/haiku with out/merged (see 
 """
 import collections, csv, json, os, random
 
+from validate import SPD_WORDS
+
 SEED = 20261012
 
 
@@ -45,6 +47,10 @@ def norm(r):
         'groupwise_dims': frozenset(d for g in r.get('groupwise', []) for d in g['across']),
         'groupwise_assessments': frozenset(g['assessment'] for g in r.get('groupwise', [])),
         'ci_overlap': bool(r['inference'].get('ci_overlap')),
+        # brief v5 (T4): within-record consistency reaches adjudication. Free-text `across` is reduced to "names an SPD".
+        'comparison_spd': any(SPD_WORDS.search(a) for a in r['comparison']['across']),
+        'equity_dimension_roles': frozenset(f"{d['v']}: {d['role']}" for d in eq['dimensions']),
+        'equity_basis': frozenset(f"{d['v']}: {d['basis']}" for d in eq['dimensions'] if d.get('basis')),
     }
     for k in ('nonindependence_approach', 'unadjusted_results', 'adjusted_results', 'interaction_modeled', 'sensitivity_analysis'):
         f['rf_' + k] = (rf.get(k) or {}).get('v') if rf else 'n/a'
