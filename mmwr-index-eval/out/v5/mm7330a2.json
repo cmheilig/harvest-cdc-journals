@@ -1,0 +1,98 @@
+{
+ "id": "mm7330a2",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "v5", "role": "judgment"},
+ "data_focus": {"v": "limited", "ev": [
+  {"loc": "text", "q": "This report describes a family of five whose BLLs above CDC’s BLRV were associated with use of surma."}
+ ]},
+ "outcome_types": [
+  {"v": "continuous", "ev": [
+   {"loc": "text", "q": "child B’s BLL had declined from 18 to 14 μ g/dL, child C’s from 30 to 22 μ g/dL"}
+  ]}
+ ],
+ "analytic_depth": [
+  {"v": "summary", "ev": [
+   {"loc": "text", "q": "In September 2012, routine testing detected a BLL of 15 μ g/dL in an asymptomatic child, aged 4 years (child A)"}
+  ]},
+  {"v": "comparison", "ev": [
+   {"loc": "text", "q": "It had taken approximately 5 years for the BLLs of child B and child C to decline to levels <5 μ g/dL."}
+  ]}
+ ],
+ "procedures": [],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": "CDC blood lead reference value of 3.5 μg/dL",
+  "across": ["time (repeated BLL measurements per family member)"],
+  "ev": [
+   {"loc": "text", "q": "child C’s BLL had increased from 14 μ g/dL at birth to 30 μ g/dL."},
+   {"loc": "summary", "q": "blood lead levels above the CDC blood lead reference value of 3.5 μ g/dL in the child as well as four other family members"}
+  ]
+ },
+ "inference": {"v": "none", "method_stated": false, "ev": []},
+ "primary_measures": [
+  {"v": "blood lead level (μg/dL)", "ev": [
+   {"loc": "figure 1", "q": "Blood lead levels of a mother and her four children with a history of surma use"}
+  ]},
+  {"v": "lead content (ppm)", "ev": [
+   {"loc": "text", "q": "A surma sample was obtained, tested, and found to contain 390,000 ppm of lead."}
+  ]}
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did repeated use of surma, a lead-containing traditional eye cosmetic, lead to elevated blood lead levels in a mother and her four children in New York City over 11 years?",
+  "ev": [
+   {"loc": "text", "q": "This report describes BLLs above the CDC blood lead reference value (BLRV) of 3.5 μ g/dL among five NYC residents"}
+  ]
+ },
+ "conditions": [
+  {"v": "lead poisoning", "role": "outcome", "ev": [{"loc": "title", "q": "Lead Poisoning in a Mother and Her Four Children Using a Traditional Eye Cosmetic"}]}
+ ],
+ "study_design": [
+  {"v": "case report/series", "ev": [
+   {"loc": "text", "q": "The case series described in this report, highlighting a family’s prolonged exposure to lead through use of surma"}
+  ]}
+ ],
+ "data_source_type": [
+  {"v": "state or local surveillance", "ev": [
+   {"loc": "text", "q": "The NYC Department of Health and Mental Hygiene (DOHMH) receives blood lead test results for NYC children and adults"}
+  ]},
+  {"v": "record abstraction or interview", "ev": [
+   {"loc": "text", "q": "Information on BLLs, laboratory results, risk assessments and case coordination notes were retrieved using SQL Server Studio Management"}
+  ]}
+ ],
+ "data_source_named": [
+  {"v": "NYC DOHMH blood lead surveillance and lead poisoning investigation database", "ev": [
+   {"loc": "text", "q": "are stored electronically in a proprietary structured query language (SQL) server database."}
+  ]}
+ ],
+ "setting": {"v": "US subnational", "ev": [
+  {"loc": "title", "q": "New York City, 2012–2023"}
+ ]},
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "The family's immigration from Pakistan and the use of surma among immigrant communities are described for one family in a case report, a descriptor (level 1 at most); no group-specific results.",
+  "level_confidence": "high",
+  "level_alternative": {"level": 0, "reason": "Nativity could be read as background to the exposure source rather than a social-position descriptor, leaving only age and sex."},
+  "dimensions": [
+   {"v": "country of birth/language/nativity", "role": "descriptor", "ev": [
+    {"loc": "text", "q": "an asymptomatic child, aged 4 years (child A), who had arrived from Pakistan 16 months earlier"},
+    {"loc": "text", "q": "surma is often purchased abroad by South Asian, Middle Eastern, and North- and West-African immigrants and hand-carried into the United States."}
+   ]},
+   {"v": "age", "role": "population", "ev": [
+    {"loc": "title", "q": "Lead Poisoning in a Mother and Her Four Children"}
+   ]},
+   {"v": "sex", "role": "population", "ev": [
+    {"loc": "title", "q": "Lead Poisoning in a Mother and Her Four Children"}
+   ]}
+  ],
+  "determinants_of_health": {"v": null, "ev": []},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": "Cultural practice (surma use) is an individual exposure in a case report, not recorded as a determinant."
+ },
+ "groupwise": [],
+ "uncertain_fields": ["comparison", "analytic_depth"],
+ "confidence": "medium",
+ "notes": "Descriptive case series of one family (limited). Repeated BLLs per person over time against the BLRV are read as a period comparison (group, referent BLRV); the brief's default for a descriptive case series would leave depth at summary and framework none. Lead measurement in surma (EPA Method SW6020) only identifies the source.",
+ "view_issues": "Text says the mother's BLL declined 'from 14 to 8' in 2016, but her earlier reported BLLs were 15 and 14; Figure 1 is only described as a forest plot."
+}

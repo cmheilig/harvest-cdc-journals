@@ -1,0 +1,159 @@
+{
+ "id": "mm7251a4",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "v5", "role": "judgment"},
+ "data_focus": {"v": "yes", "ev": [
+  {"loc": "summary", "q": "By December 9, 2023, an estimated 42.2% and 18.3% of adults aged ≥18 years had received influenza and updated 2023–2024 COVID-19 vaccine"}
+ ]},
+ "outcome_types": [
+  {"v": "binary/categorical", "ev": [
+   {"loc": "text", "q": "Estimates of coverage (percentage of the population vaccinated) with influenza, COVID-19, and RSV vaccines were calculated for weekly data collection periods"}
+  ]}
+ ],
+ "analytic_depth": [
+  {"v": "summary", "ev": [
+   {"loc": "summary", "q": "17.0% of adults aged ≥60 years had received RSV vaccine."}
+  ]},
+  {"v": "comparison", "ev": [
+   {"loc": "text", "q": "were higher among adults living in urban and suburban areas compared with those living in rural areas"}
+  ]}
+ ],
+ "procedures": [
+  {"name": "t-test", "class": "test", "regression_family": null, "inferred_from": "named: t-tests for differences among estimates", "role": "primary", "ev": [
+   {"loc": "text", "q": "Differences among estimates were determined using t-tests with p<0.05 considered statistically significant."}
+  ]},
+  {"name": "survey weighting", "class": "weighting", "regression_family": null, "inferred_from": "stated weighting to population control totals; every estimate is a weighted percentage", "role": "primary", "ev": [
+   {"loc": "note", "q": "Data were weighted to represent the noninstitutionalized U.S. population aged ≥18 years using population control totals for age group, sex, metropolitan statistical area status, education"},
+   {"loc": "table 1", "q": "† Weighted percentage."}
+  ]},
+  {"name": "nondecreasing composite estimation procedure", "class": "other", "regression_family": null, "inferred_from": "named estimation procedure combining current-week interviews with all previous weeks to give cumulative coverage", "role": "primary", "ev": [
+   {"loc": "text", "q": "using a nondecreasing composite estimation procedure that uses data from completed interviews from the current week combined with data from all previous weeks"}
+  ]},
+  {"name": "small-sample suppression of intent estimates (n<30)", "class": "transformation", "regression_family": null, "inferred_from": "estimates withheld for small groups", "role": "ancillary", "ev": [
+   {"loc": "figure 2", "q": "Estimates for vaccination intent are not shown for groups with sample size <30."}
+  ]}
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": ["age group", "race/ethnicity", "urbanicity", "health insurance status", "jurisdiction", "week"],
+  "ev": [
+   {"loc": "summary", "q": "Coverage varied by demographic characteristics."},
+   {"loc": "text", "q": "Influenza vaccination coverage was higher among non-Hispanic White (White) and non-Hispanic Asian (Asian) adults than among most other racial and ethnic groups."}
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {"loc": "text", "q": "Differences among estimates were determined using t-tests with p<0.05 considered statistically significant."},
+   {"loc": "table 1", "q": "% Vaccinated (95% CI) †"}
+  ]
+ },
+ "primary_measures": [
+  {"v": "% vaccinated (weighted)", "ev": [
+   {"loc": "table 1", "q": "Influenza › % Vaccinated (95% CI) †"}
+  ]},
+  {"v": "percentage by vaccination intent", "ev": [
+   {"loc": "text", "q": "the percentage of persons reporting that they probably or definitely will not get an influenza vaccination was similar among White adults (32.2%)"}
+  ]}
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What were within-season influenza, updated COVID-19 and RSV vaccination coverage and vaccination intent among U.S. adults in fall 2023, overall and by demographic group and jurisdiction?",
+  "ev": [
+   {"loc": "summary", "q": "are used to monitor influenza, COVID-19, and RSV vaccination coverage."}
+  ]
+ },
+ "conditions": [
+  {"v": "influenza", "role": "vaccine target", "ev": [{"loc": "title", "q": "Influenza, Updated COVID-19, and Respiratory Syncytial Virus Vaccination Coverage Among Adults"}]},
+  {"v": "COVID-19", "role": "vaccine target", "ev": [{"loc": "title", "q": "Influenza, Updated COVID-19, and Respiratory Syncytial Virus Vaccination Coverage Among Adults"}]},
+  {"v": "respiratory syncytial virus infection", "role": "vaccine target", "ev": [{"loc": "title", "q": "Influenza, Updated COVID-19, and Respiratory Syncytial Virus Vaccination Coverage Among Adults"}]}
+ ],
+ "study_design": [
+  {"v": "cross-sectional", "ev": [
+   {"loc": "text", "q": "The National Immunization Survey-Adult COVID Module (NIS-ACM) is a random-digit–dialed cellular telephone survey of adults aged ≥18 years"}
+  ]},
+  {"v": "surveillance/descriptive", "ev": [
+   {"loc": "summary", "q": "are used to monitor influenza, COVID-19, and RSV vaccination coverage."}
+  ]}
+ ],
+ "data_source_type": [
+  {"v": "national survey", "ev": [
+   {"loc": "text", "q": "The National Immunization Survey-Adult COVID Module (NIS-ACM) is a random-digit–dialed cellular telephone survey"}
+  ]}
+ ],
+ "data_source_named": [
+  {"v": "National Immunization Survey-Adult COVID Module (NIS-ACM)", "ev": [
+   {"loc": "text", "q": "The National Immunization Survey-Adult COVID Module (NIS-ACM) is a random-digit–dialed cellular telephone survey"}
+  ]}
+ ],
+ "setting": {"v": "mixed", "ev": [
+  {"loc": "text", "q": "adults aged ≥18 years in all 50 states, the District of Columbia, and selected local areas and U.S. territories."},
+  {"loc": "table 1", "q": "by jurisdiction — National Immunization Survey-Adult COVID Module, United States"}
+ ]},
+ "vaccine_outcome_type": {"v": "coverage/uptake", "ev": [
+  {"loc": "summary", "q": "17.0% of adults aged ≥60 years had received RSV vaccine."}
+ ]},
+ "equity": {
+  "level": 2,
+  "level_reason": "Coverage and intent are reported by race/ethnicity, rurality and insurance, and the Discussion mentions disparities by race and ethnicity, but group values are only set side by side with t-test significance; no difference or ratio is computed, so the v5 cap holds at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {"level": 3, "reason": "The Discussion frames racial and ethnic coverage differences as disparities and interprets them against intent; a reader could treat the tested 'higher than' contrasts as quantified."},
+  "dimensions": [
+   {"v": "race/ethnicity", "role": "stratifier", "ev": [
+    {"loc": "text", "q": "Updated COVID-19 and RSV vaccination coverage was higher among White adults than among most other racial and ethnic groups."},
+    {"loc": "text", "q": "Despite disparities in vaccination coverage by race and ethnicity"}
+   ]},
+   {"v": "race/ethnicity", "role": "covariate", "ev": [
+    {"loc": "note", "q": "using population control totals for age group, sex, metropolitan statistical area status, education, Hispanic origin, and race."}
+   ]},
+   {"v": "age", "role": "population", "ev": [
+    {"loc": "text", "q": "RSV vaccination coverage estimates are restricted to respondents aged ≥60 years."}
+   ]},
+   {"v": "age", "role": "stratifier", "ev": [
+    {"loc": "text", "q": "Coverage and intent to be vaccinated increased with age"}
+   ]},
+   {"v": "age", "role": "covariate", "ev": [
+    {"loc": "note", "q": "using population control totals for age group, sex, metropolitan statistical area status, education, Hispanic origin, and race."}
+   ]},
+   {"v": "sex", "role": "covariate", "ev": [
+    {"loc": "note", "q": "using population control totals for age group, sex, metropolitan statistical area status, education, Hispanic origin, and race."}
+   ]},
+   {"v": "rurality", "role": "stratifier", "ev": [
+    {"loc": "text", "q": "were higher among adults living in urban and suburban areas compared with those living in rural areas"}
+   ]},
+   {"v": "rurality", "role": "covariate", "ev": [
+    {"loc": "note", "q": "using population control totals for age group, sex, metropolitan statistical area status, education, Hispanic origin, and race."}
+   ]},
+   {"v": "SES", "role": "stratifier", "ses_components": ["uninsured"], "ev": [
+    {"loc": "text", "q": "Coverage with all vaccines was lowest among uninsured persons."}
+   ]},
+   {"v": "SES", "role": "covariate", "ses_components": ["education"], "ev": [
+    {"loc": "note", "q": "using population control totals for age group, sex, metropolitan statistical area status, education, Hispanic origin, and race."}
+   ]}
+  ],
+  "determinants_of_health": {"v": null, "ev": []},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": "Group categories in Figure 2 are not enumerated in the text; race/ethnicity includes AI/AN and NH/OPI; intent estimates for groups with n<30 are suppressed. Programmatic access measures (free vaccine, trusted messengers) appear only as recommendations."
+ },
+ "groupwise": [
+  {"across": ["race/ethnicity"], "n_groups": null, "ordered": false, "assessment": "per-group vs referent only", "resolves_to_finer": true, "ev": [
+   {"loc": "text", "q": "Influenza vaccination coverage was higher among non-Hispanic White (White) and non-Hispanic Asian (Asian) adults than among most other racial and ethnic groups."},
+   {"loc": "text", "q": "Differences among estimates were determined using t-tests with p<0.05 considered statistically significant."}
+  ]},
+  {"across": ["age"], "n_groups": null, "ordered": true, "assessment": "per-group vs referent only", "resolves_to_finer": true, "ev": [
+   {"loc": "text", "q": "Coverage and intent to be vaccinated increased with age"}
+  ]},
+  {"across": ["rurality"], "n_groups": 3, "ordered": true, "assessment": "per-group vs referent only", "resolves_to_finer": true, "ev": [
+   {"loc": "text", "q": "were higher among adults living in urban and suburban areas compared with those living in rural areas"}
+  ]},
+  {"across": ["SES"], "n_groups": null, "ordered": false, "assessment": "per-group vs referent only", "resolves_to_finer": true, "ev": [
+   {"loc": "text", "q": "Coverage with all vaccines was lowest among uninsured persons."}
+  ]}
+ ],
+ "uncertain_fields": ["groupwise"],
+ "confidence": "medium",
+ "notes": "Design inferred from 'telephone survey' (cross-sectional) used for monitoring with no targets. Figure 2 group categories and counts are not given in the text, so n_groups is null for race, age and insurance. The 2.5-point drop from 2022–23 is cited from an earlier report.",
+ "view_issues": "Figure 2 data are available only as a bar chart description, so group-level values and category lists cannot be checked."
+}
