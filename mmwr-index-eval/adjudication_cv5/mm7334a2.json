@@ -1,0 +1,10 @@
+{"id": "mm7334a2",
+ "fields": [
+  {"field": "has_determinants", "verdict": true, "correct": ["B"], "category": "reader error", "why": "No health coverage and inability to see a doctor because of cost are analyzed as outcomes; the brief counts determinants analyzed as the outcome (its example: problems paying medical bills). Medicaid expansion alone would not count (overall trend)."},
+  {"field": "groupwise_any", "verdict": true, "correct": ["B"], "category": "reader error", "why": "Table 1 gives a per-level p-value (each level vs the rest, logistic model with caregiving status as outcome) for 7 age, 8 race/ethnicity and several SES groups; rule 2's symmetric Table-1 case applies, so this is not mere composition."},
+  {"field": "groupwise_dims", "verdict": ["SES", "age", "race/ethnicity"], "correct": ["B"], "category": "reader error", "why": "Age (7 levels), race/ethnicity (8), and SES via education (4), employment (7), income (7) and home ownership (3); sex has only 2 levels."},
+  {"field": "groupwise_assessments", "verdict": ["per-group vs referent only"], "correct": ["B"], "category": "reader error", "why": "Each demographic indicator is tested against the rest (V6a: each level vs the rest is per-group vs referent only); no omnibus or joint test is reported."}
+ ],
+ "justification": {"A": "adequate", "B": "n/a (record not in packet)"},
+ "agreed_errors": [],
+ "brief_issues": "Rule 6 (composition is not groupwise) and rule 2 (symmetric Table-1 tests count the SPD margin) pull apart when a Table 1 gives per-level tests of composition between two non-SPD groups; the brief could state that rule 2 governs whenever a test is reported per SPD level."}

@@ -170,6 +170,32 @@ Decision (b): **owner: normalize** (method as proposed unless edited)
 Decision (c): accept: care-setting are not conditions
 *Implementation:* the reader brief says health care use and care settings are not conditions; record the condition that drives them, or none.
 
+### V19. Routing after the confirmation run (replaces V17)
+**Issue.** In the confirmation run, v5 readers flagged far less uncertainty: V17 routed 6 of 66 articles, holding none of the 14 errors (`reports/CONFIRM_V5_REPORT.md`).
+**Decision (owner, 2026-10-16): no systematic second reader.** Each article gets one v5 read at `medium`. Quality is checked by auditing a random sample of production reads, plus a targeted check of groupwise entries (where the v5 errors were). `uncertain_fields` and `level_confidence` stay in the record for analysis and audit sampling.
+**Owner's note on production order:** gate by MMWR volume, starting with volumes 73 down to 65 (2024 back to 2016), then relax the gating for earlier volumes. This also manages cost and lets indexing of earlier years be deferred if warranted.
+Decision: **owner: accept** (2026-10-16).
+
+### V20. Brief v5.1 (wording fixes from the confirmation run)
+**Issue.** The confirmation run's readers and adjudicators found a few rules that conflict or are silent (`reports/CONFIRM_V5_REPORT.md`, "Recurring brief issues", items 1–6).
+**Change.** `READER_BRIEF.md` v5.1:
+- the headline rule for reports without a Summary;
+- the headline rule before "group > pair";
+- targets recorded only when a claim compares against them;
+- rule 2 reworded, with cited methods never procedures at any `data_focus` level (supersedes the V9(i) example);
+- groupwise: rule 2 governs whenever a test is reported per SPD level; `pairwise (all pairs)` only when every pair is shown;
+- SDOH outcomes stay capped at 2 when only side by side;
+- repeated cross-sections with a change headline add `before/after or trend`;
+- case-series totals and case reports without counts;
+- preventive-service uptake as a determinant;
+- implicit CI-overlap claims;
+- unframed functional-limitation rows;
+- monitored conditions as `outcome`;
+- imputation without a stated method.
+
+No schema change.
+Decision: ~~**owner: requested** (2026-10-16).~~ Accept.
+
 ---
 
 ## Tooling fixes (no decision needed unless you object)

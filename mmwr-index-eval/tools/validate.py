@@ -1,4 +1,4 @@
-"""MMWR index record (schema v2.2, reader brief v4) as a JSON Schema, and a validator.
+"""MMWR index record (schema v2.3, reader brief v5) as a JSON Schema, and a validator.
 
     python tools/validate.py FILE.json [...]     # validate records (one JSON object per file, or JSONL)
     python tools/validate.py --schema            # print the JSON Schema
@@ -6,7 +6,7 @@
 Short keys keep output lean (output tokens cost 5x input): every value is {"v": ..., "ev": [{"loc": ..., "q": ...}]},
 where loc is title | summary | text | table N | figure N | note | ocr, and q is a verbatim quote of at most 25 words.
 """
-import json, sys
+import json, re, sys
 
 EV = {"type": "array", "maxItems": 3, "items": {"type": "object", "additionalProperties": False, "required": ["loc", "q"],
       "properties": {"loc": {"type": "string", "pattern": "^(title|summary|text|table [0-9]+|figure [0-9]+|note|ocr)$"},
@@ -28,23 +28,24 @@ DEPTH = ["summary", "comparison", "stratified/adjusted"]
 DESIGN = ["cross-sectional", "retrospective cohort", "prospective cohort", "case-control", "test-negative", "screening method",
           "before/after or trend", "ecologic", "outbreak investigation", "surveillance/descriptive", "diagnostic accuracy",
           "guidance or recommendations", "case report/series", "cost/economic", "non-randomized trial",
-          "evaluation or monitoring", "mixed/other"]
+          "evaluation or monitoring", "review or synthesis", "mixed/other"]
 SOURCE = ["CDC surveillance system", "state or local surveillance", "national survey", "other survey", "registry", "electronic health records",
           "administrative/claims", "vaccination registry", "sentinel/network", "international surveillance", "record abstraction or interview", "other"]
-CONDITION = ["COVID", "influenza", "mpox", "RSV", "HIV", "TB/respiratory", "STI", "vaccine-preventable (other)", "diabetes",
-             "cardiovascular", "cancer", "obesity/nutrition", "maternal/reproductive", "mental health", "substance use", "tobacco",
-             "injury/poisoning", "environmental", "health behaviors", "other acute", "other chronic"]
+# Condition groups are not part of the record (readers write free text); CONDITION_RUBRIC.md holds the current group list.
 DIMENSION = ["race/ethnicity", "SES", "rurality", "age", "sex", "sexual orientation and gender identity", "disability",
              "country of birth/language/nativity", "other"]
 ROLE = ["population", "covariate", "descriptor", "stratifier", "primary comparison", "cross-classifier"]
 CONDITION_ROLE = ["exposure", "outcome", "population", "vaccine target"]  # brief v4; grouping is CONDITION_RUBRIC.md
-ASSESSMENT = ["side by side", "omnibus test", "trend test", "model joint test", "interaction", "per-group vs referent only"]
-UNCERTAIN = ["procedures", "regression_fields", "inference", "comparison", "analytic_depth", "outcome_types", "study_design",
+ASSESSMENT = ["side by side", "omnibus test", "trend test", "model joint test", "interaction", "pairwise (all pairs)",
+              "per-group vs referent only"]
+BASIS = ["self-identified", "assigned or observed", "behavior", "not stated"]  # brief v5, for sex, SOGI and race/ethnicity
+BASIS_DIMS = {"sex", "sexual orientation and gender identity", "race/ethnicity"}
+UNCERTAIN = ["data_focus", "procedures", "regression_fields", "inference", "comparison", "analytic_depth", "outcome_types", "study_design",
              "groupwise", "equity.level", "equity.dimensions"]
 
 SCHEMA = {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "title": "MMWR index record (schema v2.2, brief v4), one reader, one article",
+    "title": "MMWR index record (schema v2.3, brief v5), one reader, one article",
     "type": "object", "additionalProperties": False,
     "required": ["id", "reader", "data_focus", "outcome_types", "analytic_depth", "procedures", "comparison", "inference",
                  "primary_measures", "regression_fields", "public_health_question", "conditions", "study_design",
@@ -103,7 +104,8 @@ SCHEMA = {
                 "level_alternative": {"anyOf": [{"type": "null"}, {"type": "object", "additionalProperties": False, "required": ["level", "reason"],
                                       "properties": {"level": {"enum": [0, 1, 2, 3, 4]}, "reason": {"type": "string", "maxLength": 300}}}]},
                 "dimensions": lst(DIMENSION, {"role": {"enum": ROLE},
-                                              "ses_components": {"type": "array", "maxItems": 3, "items": {"type": "string"}}}),
+                                              "ses_components": {"type": "array", "maxItems": 3, "items": {"type": "string"}},
+                                              "basis": {"enum": BASIS}}),
                 "determinants_of_health": val(nullable=True),
                 "equity_action": val(kind="boolean"),
                 "equity_measurement": {"type": ["string", "null"], "maxLength": 400}}},
@@ -112,6 +114,12 @@ SCHEMA = {
         "view_issues": {"type": ["string", "null"], "maxLength": 400},
     },
 }
+
+
+# Words that mark a social-position dimension in comparison.across (free text), for the level >= 2 check.
+SPD_WORDS = re.compile(r"race|ethnic|hispanic|black|white|asian|native|tribal|ai/an|income|poverty|education|insur|medicaid|vfc|"
+                       r"socio|ses\b|svi|vulnerab|depriv|rural|urban|metro|age|sex|gender|women|men\b|sexual|transgender|msm|"
+                       r"disab|nativ|born|language|citizen|immigra|homeless|incarcer|prison|employ|social|equity", re.I)
 
 
 def check(rec):
@@ -133,6 +141,23 @@ def check(rec):
     for d in rec['equity']['dimensions']:
         if d.get('ses_components') and d['v'] != 'SES':
             errs.append('ses_components on a non-SES dimension')
+        if 'basis' in d and d['v'] not in BASIS_DIMS:
+            errs.append(f"basis on {d['v']} (only sex, SOGI and race/ethnicity take it)")
+    overlap_test = any(p['class'] == 'test' and p['name'] == 'CI overlap assertion' for p in rec['procedures'])
+    if rec['inference'].get('ci_overlap') and not overlap_test:
+        errs.append('ci_overlap true but no test named "CI overlap assertion"')
+    if overlap_test and not rec['inference'].get('ci_overlap'):
+        errs.append('"CI overlap assertion" test but inference.ci_overlap is not true')
+    if any(p['class'] == 'test' for p in rec['procedures']) and rec['inference']['v'] in ('none', 'CIs'):
+        errs.append('a test in procedures but inference has no "tests"')
+    level = rec['equity']['level']
+    spd_across = any(SPD_WORDS.search(a) for a in rec['comparison']['across'])
+    spd_role = any(d['role'] in ('stratifier', 'primary comparison', 'cross-classifier') for d in rec['equity']['dimensions'])
+    if level >= 2 and not (spd_across or spd_role):
+        errs.append('equity level >= 2 needs an SPD in comparison.across (or a dimension compared as stratifier, '
+                    'primary comparison or cross-classifier)')
+    if level >= 3 and rec['comparison']['scale'] is None:
+        errs.append('equity level >= 3 needs a quantified contrast, but comparison.scale is null')
     if rec['data_focus']['v'] == 'none' and (rec['procedures'] or rec['groupwise']):
         errs.append('data_focus none but procedures or groupwise given')
     for g in rec['groupwise']:

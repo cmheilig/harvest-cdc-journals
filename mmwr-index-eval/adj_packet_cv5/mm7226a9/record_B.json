@@ -1,0 +1,255 @@
+{
+ "id": "mm7226a9",
+ "reader": {
+  "label": "B"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "figure 1",
+    "q": "Black or African American (Black) males had the highest age-adjusted rate of firearm-related homicide (52.9 deaths per 100,000 standard population)"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "In 2021, the age-adjusted rate of firearm-related homicide was 11.1 deaths per 100,000 standard population for males and 2.1 for females."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Among females, Black females had the highest rate (7.5), and Asian females had the lowest rate (0.5)."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Males had higher rates than females across all race and Hispanic origin groups."
+    },
+    {
+     "loc": "figure 1",
+     "q": "Deaths per 100,000 population are age-adjusted to the 2000 U.S. standard population"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "rates 'age-adjusted to the 2000 U.S. standard population' → direct standardization",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Deaths per 100,000 population are age-adjusted to the 2000 U.S. standard population, with 95% CIs indicated by error bars."
+    }
+   ]
+  },
+  {
+   "name": "small-number suppression",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "a race group withheld because of small numbers: suppression of small-cell estimates",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Native Hawaiian or other Pacific Islander persons are not shown separately because of small numbers."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "race/ethnicity",
+   "sex"
+  ],
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Age-Adjusted Rates* of Firearm-Related Homicide, † by Race, § Hispanic Origin, and Sex"
+   },
+   {
+    "loc": "figure 1",
+    "q": "Black or African American (Black) males had the highest age-adjusted rate of firearm-related homicide"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "figure 1",
+    "q": "with 95% CIs indicated by error bars."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted rate per 100,000 standard population",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "52.9 deaths per 100,000 standard population"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did age-adjusted firearm-related homicide rates in the United States in 2021 vary by race, Hispanic origin and sex?",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Age-Adjusted Rates* of Firearm-Related Homicide, † by Race, § Hispanic Origin, and Sex — National Vital Statistics System, United States, 2021"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "firearm-related homicide",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Firearm-related homicides were identified using International Classification of Diseases, Tenth Revision underlying cause-of-death codes U01.4 and X93–X95."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Source: National Center for Health Statistics, National Vital Statistics System, Mortality Data, 2021."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Source: National Center for Health Statistics, National Vital Statistics System, Mortality Data, 2021."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System (NVSS) mortality data",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Source: National Center for Health Statistics, National Vital Statistics System, Mortality Data, 2021."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "National Vital Statistics System, United States, 2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Race/ethnicity-specific rates within each sex are reported and ranked (highest Black, lowest Asian), but only side by side, with no computed contrast and no disparity framing.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The ranking of Black vs Asian rates (52.9 vs 1.5) could be read as an implied quantified disparity, though no difference or ratio is stated."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "basis": "assigned or observed",
+    "ev": [
+     {
+      "loc": "figure 1",
+      "q": "might be affected by misclassification of race and Hispanic origin on death certificates."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "figure 1",
+      "q": "Males had higher rates than females across all race and Hispanic origin groups."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "figure 1",
+      "q": "Deaths per 100,000 population are age-adjusted to the 2000 U.S. standard population"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race groups are non-Hispanic; NH/PI is suppressed for small numbers; death-certificate misclassification may affect Asian, AI/AN and Hispanic rates."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": null,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Among females, Black females had the highest rate (7.5), and Asian females had the lowest rate (0.5)."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [],
+ "confidence": "high",
+ "notes": "Race groups are ranked within each sex; the number of race groups in the bar chart is not stated in the text (Black, Asian, AI/AN, Hispanic named; White presumably), so n_groups is null. CIs are shown as error bars but no conclusion rests on them.",
+ "view_issues": null
+}

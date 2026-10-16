@@ -1,0 +1,372 @@
+{
+ "id": "mm7308a5",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "VE against COVID-19–associated ED/UC encounters was 51% (95% CI = 47%–54%) during the first 7–59 days after an updated dose"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A total of 1,297 (8%) case-patients and 13,378 (12%) control patients had received an updated COVID-19 vaccine dose."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "multivariable logistic regression comparing persons who received an updated COVID-19 vaccine dose with those who did not"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VE models were adjusted for age, sex, race and ethnicity, calendar time, and geographic region."
+    },
+    {
+     "loc": "text",
+     "q": "In the VISION network, VE was estimated for adults aged ≥18 years and by age group (18–64 and ≥65 years)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multivariable logistic regression (test-negative VE)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'multivariable logistic regression' giving adjusted ORs; VE = (1 − aOR) × 100% → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Odds ratios (ORs) and 95% CIs were estimated using multivariable logistic regression comparing persons who received an updated COVID-19 vaccine dose"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based CIs from the logistic regression; 'significant protection' concluded from VE CIs excluding 0",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "updated 2023–2024 COVID-19 vaccination provided significant protection against COVID-19–associated ED/UC encounters and hospitalization among immunocompetent adults"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "no updated dose",
+  "across": [
+   "updated COVID-19 vaccination status",
+   "interval since updated dose",
+   "age group",
+   "VE network"
+  ],
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "No updated dose † (Ref)"
+   },
+   {
+    "loc": "summary",
+    "q": "compared with no receipt of an updated vaccine dose among immunocompetent U.S. adults"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Odds ratios (ORs) and 95% CIs were estimated using multivariable logistic regression"
+   },
+   {
+    "loc": "text",
+    "q": "updated 2023–2024 COVID-19 vaccination provided significant protection"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "VE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VE was calculated as (1 − adjusted OR) × 100%."
+    }
+   ]
+  },
+  {
+   "v": "adjusted OR",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "VE was calculated as (1 − odds ratio) × 100% with odds ratios calculated using multivariable logistic regression."
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "VE network, no. (column %)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VE models were adjusted for age, sex, race and ethnicity, calendar time, and geographic region."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age, sex, race and ethnicity, calendar time, geographic region (VISION: age and calendar day as natural cubic splines; IVY: biweekly calendar time, HHS region)",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "VISION regression models were adjusted for age, sex, race and ethnicity, calendar day, and geographic region"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A sensitivity analysis including these control patients was also conducted."
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "How effective were updated 2023–2024 (XBB.1.5) COVID-19 vaccines against COVID-19–associated ED/UC encounters and hospitalization among immunocompetent adults?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "This analysis evaluated VE of an updated COVID-19 vaccine dose against COVID-19–associated emergency department (ED) or urgent care (UC) encounters and hospitalization"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "COVID-19 Vaccines Against COVID-19–Associated Emergency Department and Urgent Care Encounters and Hospitalization"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Interim Effectiveness of Updated 2023–2024 (Monovalent XBB.1.5) COVID-19 Vaccines"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "test-negative",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "using a test-negative, case-control design with data from two CDC VE networks."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VISION is a multisite, electronic health records (EHR)–based network including 369 EDs and UCs and 229 hospitals in eight states"
+    },
+    {
+     "loc": "text",
+     "q": "IVY is a multisite, inpatient network including 26 hospitals in 20 U.S. states"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "VISION (Virtual SARS-CoV-2, Influenza, and Other respiratory viruses Network)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Virtual SARS-CoV-2, Influenza, and Other respiratory viruses Network (VISION)"
+    }
+   ]
+  },
+  {
+   "v": "IVY (Investigating Respiratory Viruses in the Acutely Ill)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Investigating Respiratory Viruses in the Acutely Ill (IVY)"
+    }
+   ]
+  },
+  {
+   "v": "CDC national SARS-CoV-2 genomic surveillance",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "CDC national SARS-CoV-2 genomic surveillance includes samples sequenced by CDC and national testing laboratories contracted by CDC."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "IVY is a multisite, inpatient network including 26 hospitals in 20 U.S. states"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "effectiveness",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Interim Effectiveness of Updated 2023–2024 (Monovalent XBB.1.5) COVID-19 Vaccines"
+   }
+  ]
+ },
+ "equity": {
+  "level": 1,
+  "level_reason": "Race and ethnicity appears only as a confounder in the VE models and as a Table 1 descriptor; age is a population bound and a VE stratifier without social-position framing.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 0,
+   "reason": "If a race/ethnicity covariate in a VE model were not counted, only age and sex would remain."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Among Immunocompetent Adults Aged ≥18 Years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "VE was estimated for adults aged ≥18 years and by age group (18–64 and ≥65 years)."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "VE models were adjusted for age, sex, race and ethnicity, calendar time, and geographic region."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "VE models were adjusted for age, sex, race and ethnicity, calendar time, and geographic region."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "VE models were adjusted for age, sex, race and ethnicity, calendar time, and geographic region."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race and ethnicity › Black or African American, NH"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race and ethnicity collapsed to Black, White, Hispanic and Other NH because of small numbers; IVY 'Unknown' includes self-reported 'Other'."
+ },
+ "groupwise": [],
+ "uncertain_fields": [],
+ "confidence": "high",
+ "notes": "Two networks analyzed separately; IVY VE by interval since dose not estimated because of sample size. Natural cubic splines for age and calendar day are covariate terms inside the model, not a transformation. Spike-lineage distributions from IVY sequencing and national genomic surveillance are descriptive context.",
+ "view_issues": null
+}

@@ -6,4 +6,4 @@ The articles here are from CDC's journals (MMWR and others) and are published US
 ## Working in mmwr-index-eval/
 - Read packets, examples, briefs and records with the Read tool (use offset/limit for long files). Do not dump them through Bash (`cat`, `head`, Python one-liners, paging overflow files): such commands get flagged as personal-data handling and blocked.
 - Use Bash only for the repository's own scripts, e.g. `python3 tools/validate.py <file>`. If a helper is needed more than once, add it to `tools/` rather than writing it ad hoc.
-- Runbooks (`RUN_*.md`) and briefs (`READER_BRIEF.md`, `ADJUDICATOR_BRIEF.md`) govern subagent work; decisions are recorded in `BRIEF_V4_DECISIONS.md`.
+- Runbooks (`RUN_*.md`) and briefs (`READER_BRIEF.md`, `ADJUDICATOR_BRIEF.md`) govern subagent work; decisions are recorded in `BRIEF_V4_DECISIONS.md` and `BRIEF_V5_DECISIONS.md` (a blank `Decision:` line means pending, not accepted).
