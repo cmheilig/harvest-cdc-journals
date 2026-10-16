@@ -3,7 +3,8 @@
     python3 tools/api_read.py prefix                        # sizes and SHA-256 of the fixed prefix (no API call)
     python3 tools/api_read.py calibrate [N] [--vol VOL]     # count_tokens on the prefix and N packets (default 5)
     python3 tools/api_read.py slice ID [ID ...]             # synchronous reads of out/v5 articles, compared with compare.norm
-    python3 tools/api_read.py submit VOL [--dry-run]        # one batch for prod_packets/<VOL>/ (cache warmed, budget checked)
+    python3 tools/api_read.py submit VOL [--dry-run]        # one batch for prod_packets/<VOL>/ (cache warmed, budget checked);
+                                                            # VOL-audit: the second reads drawn by tools/audit_sample.py
     python3 tools/api_read.py poll                          # status of open batches
     python3 tools/api_read.py collect VOL                   # results of ended batches -> out/prod/<VOL>/<id>.json, ledger
     python3 tools/api_read.py fixup VOL [--sync] [--dry-run]   # one validator fix-up turn for invalid or unparsed reads
@@ -68,15 +69,23 @@ def append_tsv(path, cols, row):
         o.write('\t'.join(str(row.get(c, '')) for c in cols) + '\n')
 
 
+# Volume keys: '73' (production), '73-audit' (the second reads of tools/audit_sample.py), 'slice' (out/v5 articles).
 def outdir(vol):
-    return 'out/prod_slice' if vol == 'slice' else f'out/prod/{vol}'
+    if vol == 'slice':
+        return 'out/prod_slice'
+    return f"out/prod_audit/{vol[:-6]}" if vol.endswith('-audit') else f'out/prod/{vol}'
 
 
 def packet_dir(vol, i):
-    return f'packets/{i}' if vol == 'slice' else f'{PACKETS}/{vol}/{i}'
+    return f'packets/{i}' if vol == 'slice' else f"{PACKETS}/{vol.removesuffix('-audit')}/{i}"
 
 
 def frame_packets(vol):
+    if vol.endswith('-audit'):
+        path = f'audit/{vol[:-6]}/sample.tsv'
+        if not os.path.exists(path):
+            sys.exit(f'no {path}: run python3 tools/audit_sample.py draw {vol[:-6]}')
+        return [r['id'] for r in read_tsv(path) if r['second_read'] == '1']
     path = f'{PACKETS}/{vol}/frame.tsv'
     if not os.path.exists(path):
         sys.exit(f'no {path}: run python3 tools/build_packets.py vol {vol}')
@@ -345,6 +354,9 @@ def cmd_submit(vol, dry, budget):
                                      'est_usd': f'{uncached:.2f}', 'prefix_sha': sha, 'submitted': now(),
                                      'status': batch.processing_status})
     os.makedirs(outdir(vol), exist_ok=True)
+    if vol.endswith('-audit'):                     # second reads: the articles are already logged
+        print(f'cache warmed ({us["write_1h"]:,} tokens written); batch {batch.id} submitted: {len(ids)} requests')
+        return
     with open(f'{outdir(vol)}/exposure_rows.tsv', 'a') as o:   # for the owner to append to the extraction's exposure_log.tsv
         o.writelines(f'{i}\t{now()[:10]}\tClaude API batch (production)\tmmwr-index-eval production read, vol {vol}; '
                      f'records public on GitHub\n' for i in ids)

@@ -133,4 +133,16 @@ The owner's original plan was to index only the 1,885 full reports in vols 65–
 
 For comparison, full reports only in vols 65–70 come to 1,212 articles with the holdout omitted (125 more are holdout ids): ~$127.
 
+**Table trimming (L6, measured 2026-10-16).** Of the 761 vol 73–71 packets, 507 have table CSVs. By characters:
+- `article.txt` is 72.7% of packet input. It already renders each table's labels and text cells; the numbers of mostly numeric tables are left out.
+- `prepass.json` is 8.3%.
+- The table CSVs are 19.1%. Their numeric data cells (not header, stub or spanned, by the extraction's cell flags) are 5.8%.
+- The largest 10% of CSVs hold 36% of all CSV characters.
+
+At batch prices the whole packet input for vols 73–71 is about $16 of the ~$60 estimate; output, thinking included, is about $34. Blanking numeric data cells would save about $1–1.5; dropping the CSVs entirely, about $3.
+
+| Item | Proposal | Decision |
+|---|---|---|
+| L6 | No table trimming for vols 73–71. Revisit before vols 70–65 only if the vol 73 actuals show input above about a third of cost. Any trimmed format would be built from the extraction's grid flags (header, stub, value kind), not the CSV, and tested on a 20-article slice | owner: accept (no trimming for vols 73–71) |
+
 **Exposure log (L4).** The append to the extraction's `exposure_log.tsv` (100 pilot ids, in the file's `id, date, reader, purpose` format) was blocked by this session's permission classifier, since the extraction is a separate repository. *Done 2026-10-16: the owner ran the append; all 100 ids are logged. The change is not committed in the extraction.* Production reads will need the same logging; `api_read.py submit` can write the ids to a local file for the owner to append.

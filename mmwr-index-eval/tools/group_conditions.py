@@ -1,10 +1,11 @@
 """Join reader records' free-text conditions to conditions_map.tsv (CONDITION_RUBRIC.md).
 
-    python3 tools/group_conditions.py OUT.tsv RECORD.json [...]
+    python3 tools/group_conditions.py OUT.tsv RECORD.json [...] [--missing MISSING.tsv]
 
 Writes one row per condition: id, term, canonical, role, groups. Applies the join-time rule of V18(a): a condition with
 role `outcome` in a record whose vaccine_outcome_type is safety also maps to `vaccine safety`. Terms missing from the
-map are listed on stderr so the grouping pass can add them.
+map are listed on stderr, or with --missing written to a TSV in the map's columns (canonical and groups left blank, plus
+record counts, roles and example ids) for the grouping pass to fill and append.
 """
 import csv, json, sys
 
@@ -15,8 +16,8 @@ for _r in list(MAP.values()):
         MAP.setdefault(_r['canonical'], _r)
 
 
-def main(out, paths):
-    rows, missing = [], set()
+def main(out, paths, missing_out=None):
+    rows, missing = [], {}
     for p in paths:
         rec = json.load(open(p))
         safety = (rec.get('vaccine_outcome_type') or {}).get('v') == 'safety'
@@ -24,7 +25,7 @@ def main(out, paths):
             term = ' '.join(c['v'].lower().split())
             m = MAP.get(term)
             if m is None:
-                missing.add(term)
+                missing.setdefault(term, []).append((rec['id'], c['role']))
                 groups, canonical = [], term
             else:
                 groups, canonical = [g for g in m['groups'].split('|') if g], m['canonical']
@@ -35,9 +36,22 @@ def main(out, paths):
         w = csv.DictWriter(o, ['id', 'term', 'canonical', 'role', 'groups'], delimiter='\t', lineterminator='\n')
         w.writeheader(); w.writerows(rows)
     print(len(rows), 'conditions written to', out, file=sys.stderr)
-    if missing:
+    if missing and missing_out:
+        # the grouping pass fills canonical and groups, then appends the rows (term, canonical, groups, note) to the map
+        with open(missing_out, 'w', newline='') as o:
+            w = csv.writer(o, delimiter='\t', lineterminator='\n')
+            w.writerow(['term', 'canonical', 'groups', 'note', 'n_records', 'roles', 'example_ids'])
+            for term, uses in sorted(missing.items(), key=lambda x: (-len({i for i, _ in x[1]}), x[0])):
+                ids = sorted({i for i, _ in uses})
+                w.writerow([term, '', '', '', len(ids), '|'.join(sorted({r for _, r in uses})), ' '.join(ids[:5])])
+        print(len(missing), 'terms not in conditions_map.tsv ->', missing_out, file=sys.stderr)
+    elif missing:
         print(len(missing), 'terms not in conditions_map.tsv:', '; '.join(sorted(missing)), file=sys.stderr)
 
 
 if __name__ == '__main__':
-    main(sys.argv[1], sys.argv[2:])
+    args = sys.argv[1:]
+    miss = None
+    if '--missing' in args:
+        k = args.index('--missing'); miss = args[k + 1]; del args[k:k + 2]
+    main(args[0], args[1:], miss)
