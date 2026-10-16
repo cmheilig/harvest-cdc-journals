@@ -16,7 +16,8 @@ An evaluation of LLM readers for indexing *MMWR* reports by **how they make clai
 | `PRODUCTION_PLAN.md`, `tools/estimate_cost.py` | the accepted plan for production (API batches, volume gating, audit) and its cost estimate |
 | `HANDOFF_LOCAL.md` | where a disk-local session starts: what to assess, then build and run |
 | `reports/LOCAL_ASSESSMENT.md` | the disk-local assessment: packet builder, coverage, frame, API access; the owner's frame decisions (L1–L5) |
-| `tools/build_packets.py` | builds packets from the extraction's frozen outputs; `check` reproduces `packets/`, `vol VOL` writes `prod_packets/<vol>/` |
+| `tools/build_packets.py` | builds packets from the extraction's frozen outputs; `check` reproduces `packets/`, `vol VOL` writes `prod_packets/<vol>/` (git-ignored; rebuild it) |
+| `tools/api_read.py`, `API_PREAMBLE.md` | the API driver (calibrate, slice, submit, poll, collect, fixup, retry, status) and the preamble that replaces the brief's tool instructions; writes `out/prod/<vol>/`, `prod_ledger.tsv`, `prod_batches.tsv` |
 | `CONDITION_RUBRIC.md`, `conditions_map.tsv`, `tools/group_conditions.py` | grouping readers' free-text conditions |
 | `CONDITION_RUBRIC.md` | groups for the later condition-grouping pass (readers do not classify conditions) |
 | `ADJUDICATOR_BRIEF.md` | how disagreements between the two readers are judged |
