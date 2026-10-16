@@ -15,6 +15,8 @@ An evaluation of LLM readers for indexing *MMWR* reports by **how they make clai
 | `RUN_CONFIRM_V5.md`, `tools/confirm_v5.py`, `cv5_sample.tsv` | the brief v5 confirmation run; result in `reports/CONFIRM_V5_REPORT.md` |
 | `PRODUCTION_PLAN.md`, `tools/estimate_cost.py` | the accepted plan for production (API batches, volume gating, audit) and its cost estimate |
 | `HANDOFF_LOCAL.md` | where a disk-local session starts: what to assess, then build and run |
+| `reports/LOCAL_ASSESSMENT.md` | the disk-local assessment: packet builder, coverage, frame, API access; the owner's frame decisions (L1–L5) |
+| `tools/build_packets.py` | builds packets from the extraction's frozen outputs; `check` reproduces `packets/`, `vol VOL` writes `prod_packets/<vol>/` |
 | `CONDITION_RUBRIC.md`, `conditions_map.tsv`, `tools/group_conditions.py` | grouping readers' free-text conditions |
 | `CONDITION_RUBRIC.md` | groups for the later condition-grouping pass (readers do not classify conditions) |
 | `ADJUDICATOR_BRIEF.md` | how disagreements between the two readers are judged |
