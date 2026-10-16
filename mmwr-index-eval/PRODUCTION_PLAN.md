@@ -133,4 +133,4 @@ Add about 10% for the audit (section 5). For comparison, the cloud confirmation 
 | P4 | Audit 5% per volume (min 10) plus the groupwise check | accept |
 | P5 | Budget line for vols 73–65: $500 including audit | accept |
 
-Notes: I've revised and committed V20. I plan to use batch API for batches projected to total about $100, with a reassessment at that time. Then I will consider whether to switch to in-session work (regular usage tokens) o to space API batches further apart in time.
+Notes: I've revised and committed V20. I plan to use batch API for batches, which tend to take a day or 2. I plan to continue until  projected platform spending totals about $100, and I will reassess at that time. I will consider whether to switch to in-session work (regular usage tokens) or to space API batches further apart in time.
