@@ -127,8 +127,10 @@ Add about 10% for the audit (section 5). For comparison, the cloud confirmation 
 ## Decisions
 | Item | Proposal | Decision |
 |---|---|---|
-| P1 | Close-out steps 1–6 above | |
-| P2 | API Message Batches as primary environment; equivalence slice on any switch | |
-| P3 | Gate per volume for 73–65 as in section 4; relax afterward | |
-| P4 | Audit 5% per volume (min 10) plus the groupwise check | |
-| P5 | Budget line for vols 73–65: $500 including audit | |
+| P1 | Close-out steps 1–6 above | accept |
+| P2 | API Message Batches as primary environment; equivalence slice on any switch | accept |
+| P3 | Gate per volume for 73–65 as in section 4; relax afterward | accept |
+| P4 | Audit 5% per volume (min 10) plus the groupwise check | accept |
+| P5 | Budget line for vols 73–65: $500 including audit | accept |
+
+Notes: I've revised and committed V20. I plan to use batch API for batches projected to total about $100, with a reassessment at that time. Then I will consider whether to switch to in-session work (regular usage tokens) o to space API batches further apart in time.
