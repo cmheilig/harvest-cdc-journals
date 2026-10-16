@@ -1,6 +1,6 @@
 # Brief v5 confirmation run (instructions for the orchestrating Claude Code session)
 
-**Status: approved by the owner 2026-10-16; run started the same day.** Cost note: the owner had about $64 of cloud credit left, so the orchestrator also stops if the whole run passes 4M tokens (about $38 at pilot 2's rate).
+**Status: approved by the owner and run 2026-10-16; results in `reports/CONFIRM_V5_REPORT.md`.** Cost note: the owner had about $64 of cloud credit left, so the orchestrator also stops if the whole run passes 4M tokens (about $38 at pilot 2's rate).
 
 You orchestrate; readers and adjudicators are subagents. Work only inside `mmwr-index-eval/`, on branch `mmwr-index-v5`. Read files with the Read tool; use Bash only for the repository's scripts (see `CLAUDE.md`). Do not modify `READER_BRIEF.md`, `ADJUDICATOR_BRIEF.md`, `examples/`, `packets/`, `tools/` or any earlier run's outputs (`out/haiku/`, `out/opus*/`, `out/merged/`, `out/p2_*/`, `adj_packet*/` other than `adj_packet_cv5/`, `adjudication/`, `adjudication_audit/`, `adjudication_p2/`, existing `reports/` files). If something is broken, stop and report.
 

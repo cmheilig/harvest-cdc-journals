@@ -9,6 +9,10 @@ map are listed on stderr so the grouping pass can add them.
 import csv, json, sys
 
 MAP = {r['term']: r for r in csv.DictReader(open('conditions_map.tsv'), delimiter='\t')}
+# a term already written in canonical form also matches (first row per canonical term)
+for _r in list(MAP.values()):
+    if _r['canonical']:
+        MAP.setdefault(_r['canonical'], _r)
 
 
 def main(out, paths):
