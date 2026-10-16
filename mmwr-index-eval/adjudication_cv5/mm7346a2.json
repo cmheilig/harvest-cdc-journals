@@ -1,0 +1,12 @@
+{"id": "mm7346a2",
+ "fields": [
+  {"field": "procedure_classes", "verdict": ["regression", "test"], "correct": ["A", "B"], "category": "ambiguity",
+   "why": "Methods state 'Nonoverlapping 95% CIs were considered to represent statistically significant differences', and the headline claim ('coverage varied by ... region, social vulnerability index level, and facility size') plus the highest/lowest contrasts can rest only on that rule; every contrast claimed has non-overlapping CIs in the table, so a CI overlap assertion (test) is preferred. A's regression-only reading is defensible under v5 rule (b) because no result sentence invokes the intervals or significance."},
+  {"field": "has_test", "verdict": true, "correct": ["A", "B"], "category": "ambiguity",
+   "why": "Follows procedure_classes: a CI overlap assertion is class test under v5. False is defensible if the stated rule is treated as unused."},
+  {"field": "inference", "verdict": "CIs and tests", "correct": ["A", "B"], "category": "ambiguity",
+   "why": "Poisson-model CIs are reported for all estimates; with the overlap assertion counted as a test (ci_overlap true) inference is 'CIs and tests'. 'CIs' is defensible under the strict reading that no claim explicitly rests on interval comparison."}
+ ],
+ "justification": {"A": "n/a (no record in packet)", "B": "adequate"},
+ "agreed_errors": [],
+ "brief_issues": "CI overlap: v5 says a stated overlap rule counts only when a claim 'actually rests' on it, but does not say whether unqualified difference claims (varied, highest, lowest) in a report whose only stated significance criterion is CI overlap rest on it. Proposed rule: yes, when the article draws difference claims between estimates the rule covers and gives no other test."}
