@@ -1,6 +1,6 @@
 # Reader brief: index fields for MMWR articles
 
-*Version 5 (2026-10-16). It follows pilot 2 (100 articles, two Opus reads each) and the instructor's decisions on it (`BRIEF_V5_DECISIONS.md`, V1–V18), on top of v4 (`BRIEF_V4_DECISIONS.md`, D1–D20). Everything you need is in this brief; you do not need to read `SCHEMA.md`.*
+*Version 5.1 (2026-10-16). It follows pilot 2 (100 articles, two Opus reads each), the instructor's decisions on it (`BRIEF_V5_DECISIONS.md`, V1–V20) and the v5 confirmation run (`reports/CONFIRM_V5_REPORT.md`), on top of v4 (`BRIEF_V4_DECISIONS.md`, D1–D20). Everything you need is in this brief; you do not need to read `SCHEMA.md`.*
 
 You read one MMWR article at a time and write one JSON record for it. The index helps a public health instructor find candidate reports by **how they make claims about data**: summaries and comparisons as well as regression. It also covers condition, design, data source and health equity. An error is bothersome, never fatal. **Justification matters most:** every value you give carries evidence from the article.
 
@@ -22,7 +22,7 @@ You read one MMWR article at a time and write one JSON record for it. The index 
 
 ## 3. Rules
 1. **Read methods everywhere.** Methods are often stated only in table notes, figure notes or footnotes.
-2. **Before writing `procedures`, read every table and figure note.** A model named only in a Table 1 note was pilot 2's largest single miss.
+2. **Before writing `procedures`, read every table and figure note.** Methods named only in a note are easy to miss. Methods behind estimates the article only cites (e.g. a manufacturer's hazard ratios in an ACIP summary) are not the article's own: they are not procedures at any `data_focus` level; mention them in `notes` if they matter.
 3. **Name procedures from the estimate and the test, not from the word "regression".**
 4. **Record every method present.** Reports often combine methods. That is normal, not a conflict.
 5. **Silent is not false.** If the article does not say, give `null` or an empty list. The exceptions are listed under `regression_fields`.
@@ -48,8 +48,8 @@ Does the article produce **quantities about public health outcomes, or compariso
 
 If `none`, fill only `data_focus`, `public_health_question`, `conditions`, `setting`, `study_design` (e.g. `guidance or recommendations` for a schedule), `equity` (level 0 unless the article frames equity; still record age and sex that define the population) and the metadata. Leave the method fields empty or null: `outcome_types` [], `analytic_depth` [], `procedures` [], `comparison` with framework "none", `inference` "none", `regression_fields` null, `groupwise` [].
 
-If `limited`, method fields describe **only what the article itself computes or reports as its own result**. Methods behind cited estimates (e.g. a manufacturer's hazard ratios) are not procedures; mention them in `notes` if they matter.
-- A single case or a descriptive case series: `outcome_types` from the counts or measures reported; `analytic_depth` `summary`; `procedures` []; `comparison` framework "none" unless the article compares something itself.
+If `limited`, method fields describe **only what the article itself computes or reports as its own result** (rule 2 applies to cited methods).
+- A single case or a descriptive case series: `outcome_types` from the counts or measures reported ([] when it reports none); `analytic_depth` `summary`; `procedures` []; `comparison` framework "none" unless the article compares something itself.
 - A report of cited figures only: `outcome_types` [] and `analytic_depth` [], as for `none`.
 
 ### A. `outcome_types` (list)
@@ -61,7 +61,7 @@ If `limited`, method fields describe **only what the article itself computes or 
 List the types the article's **claims** rest on. A count outcome fitted with a linear model is still count/rate: the procedure records the linear model.
 - **Risk vs rate.** A risk or proportion is unitless (numerator and denominator have the same dimension, e.g. persons with disease per person): binary/categorical. A rate has a unit (e.g. cases per person-time, per year): count/rate.
 - Event counts per period, place or group with no denominator (cases by year, deaths by state): count/rate. A cumulative risk reported as %: binary/categorical.
-- **A case total that only serves as the denominator of percentages does not add count/rate.**
+- **A case total that only serves as the denominator of percentages, or only gives a series' size, does not add count/rate.** Counts broken down by period, place or group do.
 - Descriptive medians of population characteristics (e.g. the age of cases) do **not** make an outcome continuous. Medians of the illness's own course (incubation period, duration) do, when a claim rests on them.
 - A single descriptive mean or median makes an outcome continuous only if it is compared or interpreted. A score analyzed as a mean (e.g. a 0–3 composite) is continuous.
 - Dollar outcomes and model-derived parameters (doubling time, growth rate): continuous.
@@ -83,13 +83,13 @@ List the types the article's **claims** rest on. A count outcome fitted with a l
     - **CIs alongside p-values.** Record the named test. Add a CI-inversion test only when a conclusion rests on the CI itself.
     - **Tests by CI inversion.** A CI that excludes (or includes) the null value tests that hypothesis by inversion, even when the article does not say so. Record `"name": "CI vs fixed value (inversion)"` when a CI for a contrast with a defined null (1 for ratios, 0 for differences and VE, or a stated target) is reported **and the article draws a conclusion from it** (an effect, a difference, protection, "no difference", "similar"). A CI reported with no conclusion is estimation only.
     - **The inferred method follows the CI construction.** When the article names or describes how the CI was built (Wald, exact or Clopper-Pearson, Wilson, profile likelihood, Taylor series, bootstrap, or model-based from a named regression), put it in `inferred_from` and set `inference.method_stated` true. Otherwise write "CI method not stated" in `inferred_from`. This is common in MMWR and is not an error.
-    - **CI overlap assertions.** A claim that rests on overlapping or non-overlapping CIs of two separate estimates is recorded as a test **named "CI overlap assertion"**, because the article reports it as one. Also set `inference.ci_overlap` true, so these can be told apart from formal tests. A methods line stating such a rule, with no claim resting on it, is neither.
+    - **CI overlap assertions.** A claim that rests on overlapping or non-overlapping CIs of two separate estimates is recorded as a test **named "CI overlap assertion"**, because the article reports it as one. Also set `inference.ci_overlap` true, so these can be told apart from formal tests. When the methods state an overlap rule as the only significance criterion, difference claims between the covered estimates ("higher", "highest", "varied") rest on it. A methods line stating such a rule, with no claim resting on it, is neither.
     - **Bayesian probabilities against a fixed value** (e.g. P(Rt > 1) binned into trend categories) are quantization of a model output, not a test.
   - **regression:** use the family table below.
   - **standardization:** direct, indirect, SMR.
   - **weighting:** survey weights, IPTW, raking, poststratification. Record it only when the article states it (weights, weighted estimates, survey design, survey software); do not infer it from the data source. Weighted means or medians of summary values (e.g. a median weighted by jurisdiction counts) are arithmetic, not weighting.
   - **transformation:** nonlinear transformations other than quantization, e.g. log, BMI-for-age percentiles or z-scores, smoothing (LOESS, splines drawn as trends, moving averages, seasonal decomposition such as STL); and **censoring or suppression** of observed values, including withholding imprecise or small-cell estimates (CI-width or relative-SE rules, small-cell suppression). Spline terms for covariates inside a model are part of the model, not a transformation.
-  - **other:** Kaplan-Meier, life tables, the screening method, resampling or bootstrap inference ("bootstrap" rather than a test name), diagnostic-accuracy measures (sensitivity, specificity, predictive values), correlation coefficients (Pearson, Spearman; a test of a correlation is a `test`), multiple or model-based imputation whose values enter the estimates, or a model not otherwise classifiable.
+  - **other:** Kaplan-Meier, life tables, the screening method, resampling or bootstrap inference ("bootstrap" rather than a test name), diagnostic-accuracy measures (sensitivity, specificity, predictive values), correlation coefficients (Pearson, Spearman; a test of a correlation is a `test`), multiple or model-based imputation whose values enter the estimates (role `ancillary` when its method is not stated), or a model not otherwise classifiable.
 - **Not procedures** (mention in `notes` only if they matter):
   - design or measurement steps: matching, power calculations, case definitions (including lab proxies and linkage that decide case status, e.g. SGTF for a variant, phylogenetic linkage), case finding, record linkage, data cleaning (including a single fixed fill-in of missing values), exclusion rules, covariate-selection rules;
   - arithmetic: rates or ratios computed by hand, VE = 100 × (1 − OR), percent change;
@@ -122,7 +122,8 @@ List the types the article's **claims** rest on. A count outcome fitted with a l
   - pair: two groups or periods;
   - group: three or more.
 
-  - **Which framework leads.** Lead with the framework of the Summary's headline claim. If that does not decide it: group > pair > fixed referent. Always record a target in `referent`, whichever framework leads. (When pair and group comparisons coexist, group leads; the pairwise contrasts are recorded through `procedures` and, for SPD groups, `groupwise.resolves_to_finer`.)
+  - **Which framework leads.** Lead with the framework of the **headline claim**: the Summary's, or, in reports without a Summary (QuickStats, Notes from the Field, older reports), the first sentence that states a finding. Only when the headline does not decide it: group > pair > fixed referent. The pairwise contrasts behind a group comparison are recorded through `procedures` and, for SPD groups, `groupwise.resolves_to_finer`.
+  - Record a target in `referent` when some claim compares against it, whichever framework leads. A target only cited in the Discussion is not a referent.
   - **Repeated measurements** over time (one person or one series) are a period comparison: pair for 2 time points, group for 3 or more. Thresholds they are judged against go in `referent`.
   - In an **indicator or nowcast evaluation**, comparing the indicator with later complete data is a comparison (pair or group by period), not a reference standard.
   - `framework` describes the **statistical** comparison, whatever is compared. Whether a comparison is groupwise in the equity sense is a separate question, asked only for groups defined by social position (`groupwise`).
@@ -142,6 +143,7 @@ A result that assesses a difference **across 3 or more groups**, as distinct fro
 
 Each entry: `{"across": [<SPD dimension(s)>], "n_groups": <integer ≥ 3, or null if the count is unclear>, "ordered": <bool>, "assessment": <value>, "resolves_to_finer": <bool>, "ev": [...]}`.
 - **assessment:** side by side (three or more group values shown or ranked, no inferential assessment across them) · omnibus test (homogeneity: any difference among the groups) · trend test · model joint test · interaction (departure from independence or additivity across two dimensions, not inequality) · pairwise (all pairs) (every pair of groups tested, with no single referent) · per-group vs referent only (the groups are assessed only by tests or ratios against a reference level; this includes each level vs the rest, and a blanket "differences were determined using t-tests" under "higher than most other groups" claims).
+- `pairwise (all pairs)` only when the article states or shows every pair (a QuickStats line such as "all other differences were not significant" under ranked groups counts). When only some pairs are reported, against named referents, use `per-group vs referent only`.
 - **Precedence** when one result fits several values: model joint test > omnibus test > trend test > pairwise (all pairs) > per-group vs referent only > side by side. Record the first that applies; `resolves_to_finer` captures the finer assessments.
 - **Rules:**
   1. Count the groups **actually compared in that result**, after any collapsing, not the levels of the variable. A five-level race variable reported only as Black vs White is pairwise: no entry.
@@ -149,7 +151,7 @@ Each entry: `{"across": [<SPD dimension(s)>], "n_groups": <integer ≥ 3, or nul
   3. Cross-classified groups count by cells (race × sex with 2 × 2 levels is 4 groups) **only when the result treats the cells as one set of groups to compare**, e.g. ranks them or tests across them. A table that cross-classifies race and sex while the article compares each margin separately (Black vs White; female vs male) is pairwise in each dimension: no entry. Calling the cells groupwise would claim an assessment of homogeneity across all the cells (any difference), which is more than either margin's comparison and different from an interaction.
   4. `ordered` is true for ordered SPD levels (age groups, income or education gradients). `trend test` means a test across those ordered groups (e.g. Cochran-Armitage, chi-square for trend). A trend over calendar time is not groupwise; it becomes groupwise only when time trends are compared across 3 or more SPD groups (e.g. an interaction, or joinpoint APCs compared by group).
   5. `resolves_to_finer` is true when the article also reports pairwise contrasts or per-group estimates against a referent for the same groups (e.g. an omnibus chi-square followed by pairwise t-tests, or ORs for each category). It is also true whenever the assessment is itself `pairwise (all pairs)` or `per-group vs referent only`.
-  6. **Composition is not groupwise.** A case series' distribution across SPD groups (shares of cases by race, with no outcome measured per group) is a descriptor, not a groupwise entry. Groupwise needs an outcome measured in each group: a rate, proportion or mean per group.
+  6. **Composition is not groupwise.** A case series' distribution across SPD groups (shares of cases by race, with no outcome measured per group and no test) is a descriptor, not a groupwise entry. Groupwise needs an outcome measured in each group, or a test across the SPD levels. **Rule 2 governs whenever a test is reported per SPD level or across them**, including Table-1 composition tests between two non-SPD groups.
   7. **An SPD crossed with a clinical variable** (e.g. age × medical risk): count the SPD groups compared within one level of the other variable, and list only the SPD in `across`.
 - **Recognition cues** (not a definition): Pearson chi-square on an r × c table; survey-adjusted chi-square (Wald F, Wald chi-square, Rao-Scott, "corrected for survey design"); a joint Wald test of a multi-level covariate; Kruskal-Wallis or ANOVA; Cochran-Armitage or chi-square for trend; an interaction of a multi-level SPD with time or period; multinomial or ordinal outcomes across SPD groups.
 
@@ -181,12 +183,14 @@ The article's own labels, e.g. "percentage", "rate per 100,000", "aOR", "VE", "A
   - **What stays out:** a condition that only defines a control group, or appears only as a model covariate or risk factor. The pandemic period does not make a report about COVID-19, whether it is background or a period being compared.
   - **Health care use is not a condition.** Visits, hospitalizations or a care setting (e.g. urgent care) are recorded as the condition that drives them, or not at all when the article names none.
   - **Vaccine adverse events** (reactogenicity, serious adverse events, a named event studied as an adverse event such as myocarditis) are conditions with role `outcome`.
+  - Conditions a surveillance system or program monitors are role `outcome`.
   - Best effort: this field characterizes a report but never sends it to a second reader. Empty if nothing fits.
 - **study_design** (list): cross-sectional · retrospective cohort · prospective cohort · case-control · test-negative · screening method · before/after or trend · ecologic · outbreak investigation · surveillance/descriptive · diagnostic accuracy · guidance or recommendations · case report/series · cost/economic · non-randomized trial · evaluation or monitoring · review or synthesis · mixed/other.
   - **Prefer the design the report names** ("evaluation", "case-control", "field trial", "cross-sectional survey"), mapped to the nearest value. Infer a design only when none is named, and say so in `notes`.
   - **evaluation or monitoring:** program, policy or intervention evaluation; evaluation of a surveillance system, indicator or nowcast; monitoring progress or program operations against stated goals or targets. Without goals or targets, reports stay `surveillance/descriptive`.
   - **review or synthesis:** systematic reviews, GRADE and evidence-to-recommendation summaries, and scholarly or narrative reviews or syntheses, including those inside a guidance report.
   - Announcements and awareness notices: `mixed/other`. Do not infer a design from figures cited from other reports.
+  - Repeated cross-sections whose headline is a change over time (e.g. a QuickStats trend): add `before/after or trend` to the cross-sectional or surveillance design. A title word such as "Trends" alone does not name a design.
   - A case series nested inside an outbreak investigation: `outbreak investigation` only.
   - **non-randomized trial:** an intervention assigned by investigators without randomization (e.g. a field test assigned by group), unless the report calls itself an evaluation.
   - Investigations of medication-error or adverse-event clusters: `outbreak investigation`.
@@ -231,7 +235,7 @@ The article's own labels, e.g. "percentage", "rate per 100,000", "aOR", "VE", "A
 | age | Recorded always, including age bounds that only define the population or a rate's denominator (role `population`), and also when `data_focus` is none. It raises the level only when framed as social position or crossed with another SPD (e.g. children in poverty, older adults in congregate settings). |
 | sex | Same rule as age. |
 | sexual orientation and gender identity | Includes sexual behavior (MSM, sex of partners) with `basis` "behavior"; the equity level still depends on framing. A composite sex-at-birth / gender-identity variable is SOGI (basis self-identified), with its sex-at-birth component recorded as sex (basis assigned or observed). |
-| disability | Only when framed as a social position or as access; not as a clinical condition. |
+| disability | Only when framed as a social position or as access; not as a clinical condition, and not an unframed functional-limitation row in a demographic table. |
 | country of birth/language/nativity | Includes the nativity or citizenship of cases in an international report. National-origin subgroups of a race (e.g. Asian Indian, Chinese) are race/ethnicity, not nativity. |
 | other | |
 
@@ -261,7 +265,7 @@ An international setting is a characteristic, not an equity reading.
 | 0 | No SPD; or SPDs only define the population; or **age or sex only** (including age standardization, age-group strata and single Table-1 counts) without social-position framing. |
 | 1 | An SPD other than age or sex appears only as a covariate, matching or weighting variable, or descriptor; or equity is raised only as a limitation or recommendation. Race/ethnicity as a confounder in a VE model is level 1. |
 | 2 | Group-specific results by an SPD are reported and described, but not framed as a disparity. **Capped at 2:** contrasts shown only with significance marks, values only set side by side, or an SPD contrast that appears only in an interpretive table (group estimates with CIs or tests) and is not discussed. **The cap holds whatever the framing** ("disproportionately affected") **and whatever determinants are named**; record the determinants anyway and give the higher reading as `level_alternative`. A group's share of cases set beside its population share is side by side unless the article states the difference, ratio or excess. |
-| 3 | A disparity framed, **quantified** (a computed difference, ratio, stated multiple such as "more than twice", or shortfall from a target) and interpreted; causes absent or generic. **In reports whose exposures or outcomes are themselves social determinants** (SDOH or HRSN measures such as problems paying medical bills; area indexes as stratifiers), quantified contrasts across SPD groups meet level 3 without the word "disparity". **A shortfall from a target set for an SPD-defined population** (e.g. a Healthy People target for Medicaid enrollees) is a quantified contrast: put that SPD in `comparison.across`, with the target as `referent`. |
+| 3 | A disparity framed, **quantified** (a computed difference, ratio, stated multiple such as "more than twice", or shortfall from a target) and interpreted; causes absent or generic. **In reports whose exposures or outcomes are themselves social determinants** (SDOH or HRSN measures such as problems paying medical bills; area indexes as stratifiers), quantified contrasts across SPD groups meet level 3 without the word "disparity"; side-by-side values on them stay capped at 2. **A shortfall from a target set for an SPD-defined population** (e.g. a Healthy People target for Medicaid enrollees) is a quantified contrast: put that SPD in `comparison.across`, with the target as `referent`. |
 | 4 | Level 3, plus specific social, structural or **political** determinants (policies, laws, governance) named as explanations, or measured and analyzed. Determinants that are the analyzed exposure meet level 4. Level 4 requires level 3. |
 
 **The other equity fields:**
@@ -277,6 +281,7 @@ An international setting is a characteristic, not an equity reading.
   - explanations of an overall trend with no tie to social position (an economic downturn; pandemic disruptions and their reversal);
   - environmental exposures (wildfire smoke, extreme weather), unless framed as unequal exposure by social position;
   - a cultural or household practice in a case report (an individual risk factor);
+  - unequal uptake of a preventive service (e.g. vaccination coverage) offered as the explanation of an outcome disparity, unless framed as access or tied to a social or structural cause;
   - an analyzed exposure that is not itself a social or structural determinant, and a bias the authors say they controlled for;
   - a factor named only as an unmeasured confounder;
   - a recommendation, e.g. "expand insurance coverage", unless the article also names that factor as a cause of the disparity;
@@ -290,11 +295,11 @@ An international setting is a characteristic, not an equity reading.
 ### Metadata
 - **`reader`:** `{"model": "<your model id>", "reader_id": "<given>", "role": "structural" | "judgment"}`.
 - **`confidence`:** for the record as a whole.
-- **`uncertain_fields`** (list, may be empty): the fields where a rule boundary or the article leaves your value genuinely uncertain. Values: data_focus · procedures · regression_fields · inference · comparison · analytic_depth · outcome_types · study_design · groupwise · equity.level · equity.dimensions. Best-effort fields (conditions, data sources, setting, vaccine outcome) are not listed. List only real doubt: two or more entries, or an equity `level_confidence` of low, can send the article to a second reader.
+- **`uncertain_fields`** (list, may be empty): the fields where a rule boundary or the article leaves your value genuinely uncertain. Values: data_focus · procedures · regression_fields · inference · comparison · analytic_depth · outcome_types · study_design · groupwise · equity.level · equity.dimensions. Best-effort fields (conditions, data sources, setting, vaccine outcome) are not listed. List only real doubt. These flags are kept for analysis and audit sampling; they no longer send an article to a second reader (`BRIEF_V5_DECISIONS.md` V19).
 - **`notes`** (at most 800 characters), **`view_issues`** (at most 400), **`level_reason`** (at most 400): short, or null.
 
 ## 5. Output (full record)
 Write one JSON object per article to the path in your task. Then run `python3 tools/validate.py <that file>` (that file only) and fix any FAIL. Read **at least two** examples in `examples/` before your first article.
 
 ## 6. Review mode (retired)
-Review mode (arm B of pilot 1) is retired in v4: an audit found that review anchored on the first reader and saved little (`reports/AUDIT_REPORT.md`; `BRIEF_V4_DECISIONS.md` D18). Each article now gets one full read, with a second full read where uncertainty is flagged.
+Review mode (arm B of pilot 1) is retired in v4: an audit found that review anchored on the first reader and saved little (`reports/AUDIT_REPORT.md`; `BRIEF_V4_DECISIONS.md` D18). Each article now gets one full read; quality is checked by auditing a random sample (V19).

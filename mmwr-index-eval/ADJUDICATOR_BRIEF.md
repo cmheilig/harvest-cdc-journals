@@ -18,7 +18,7 @@ For each disagreement: the verdict value (in the reader-schema's terms), which l
 - `view issue` — the view or CSV is wrong or incomplete.
 
 Also:
-- `justification`: for each label, `good` · `adequate` · `weak` (quotes verbatim and on point? values supported?);
+- `justification`: for each label, `good` · `adequate` · `weak` (quotes verbatim and on point? values supported?); use `n/a` for a label whose full record is not in the packet;
 - `agreed_errors`: if both readers agree on a value you can see is wrong (check the high-value fields: procedures and regression families, study design, equity level), list it.
 
 ## Output

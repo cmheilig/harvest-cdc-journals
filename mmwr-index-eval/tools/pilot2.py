@@ -102,7 +102,8 @@ def triggers(rec):
 def routed(rec, is_priority, rule='v5'):
     """Second-reader trigger. 'v5' (BRIEF_V5_DECISIONS V17, owner's placeholder): two or more uncertain_fields, or equity
     level_confidence low, in every segment. 'v4' (D18 b, used for pilot 2's reports/p2_routing.tsv): any signal routes a
-    priority-segment report; others need a strong signal."""
+    priority-segment report; others need a strong signal. Both are kept to reproduce the pilot reports only: V19 retires
+    routing for production (random audit plus a groupwise check instead)."""
     t = triggers(rec)
     strong = rec['equity'].get('level_confidence') == 'low' or len(rec.get('uncertain_fields', [])) >= 2
     if rule == 'v4' and is_priority:
