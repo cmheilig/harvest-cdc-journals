@@ -1,10 +1,10 @@
-# Production plan (draft, 2026-10-16)
+# Production plan (accepted 2026-10-16)
 
-Entry point for the session that builds and runs production. It assumes brief v5.1 (`READER_BRIEF.md`), validator v2.3 (`tools/validate.py`) and the decisions in `BRIEF_V4_DECISIONS.md` and `BRIEF_V5_DECISIONS.md`. Nothing here is approved until the owner says so; decisions go in the table at the end, and a blank `Decision:` means pending.
+Entry point for the session that builds and runs production. It assumes brief v5.1 (`READER_BRIEF.md`), validator v2.3 (`tools/validate.py`) and the decisions in `BRIEF_V4_DECISIONS.md` and `BRIEF_V5_DECISIONS.md`. The owner accepted P1–P5 (table at the end). Build and run from a disk-local session: start with `HANDOFF_LOCAL.md`.
 
 ## 1. Close out the pilot
 1. **Merge the v5.1 PR** (squash). Tag the merge commit `brief-v5.1`. Every production record names that tag (see 3.4), so later brief changes never mix silently with earlier reads.
-2. **Confirm V20** in `BRIEF_V5_DECISIONS.md` (the v5.1 wording edits; currently "owner: requested").
+2. **Confirm V20** in `BRIEF_V5_DECISIONS.md`. *Done: accepted by the owner.*
 3. **No further confirmation run.** v5.1 changes wording at rule boundaries, not the record shape. Pilot 2 and the confirmation run already settled effort, the brief and routing. The first production gate (vol 73, 4.2) is the check.
 4. **Remaining brief gray zones** from `reports/cv5_brief_issues.md` that v5.1 did not address, each seen once:
    - ecologic regression and `nonindependence`;
@@ -20,8 +20,8 @@ Entry point for the session that builds and runs production. It assumes brief v5
    - the V9(i) note citing mm7332e1.
 
    They stay open and the audit watches for them. A brief edit happens only between volumes and makes a new tag.
-5. **Condition map.** Add the 23 terms that `reports/cv5_conditions.tsv` reports as missing. In production this is a grouping pass after each volume (see 3.6).
-6. **Packet builder.** `packets/` was built outside this repository, and no builder is checked in. Find it, or rewrite it, as `tools/build_packets.py` (article.txt in reading order with references omitted, `tables/*.csv`, `prepass.json`). Check it reproduces the 100 pilot packets byte for byte (or with documented differences) before it builds production packets. **This is the largest open item.**
+5. **Condition map.** Add the 23 terms that `reports/cv5_conditions.tsv` reports as missing. *Done 2026-10-16: the map has 147 terms.* In production this is a grouping pass after each volume.
+6. **Packet builder.** `packets/` was built on the owner's disk, outside this repository, and arrived through PR #2. No builder is checked in. Find it, or rewrite it, as `tools/build_packets.py` (article.txt in reading order with references omitted, `tables/*.csv`, `prepass.json`). Check it reproduces the 100 pilot packets byte for byte (or with documented differences) before it builds production packets. **This is the largest open item.**
 
 ## 2. Shape of production (any environment)
 The unit of work is one article. Every environment does the same four things, so moving between them is a change of driver, not of method:

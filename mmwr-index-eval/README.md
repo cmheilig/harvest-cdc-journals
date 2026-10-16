@@ -1,6 +1,6 @@
 # mmwr-index-eval
 
-An evaluation of LLM readers for indexing *MMWR* reports by **how they make claims about data**. It covers summaries, comparisons, tests, standardization, weighting and regression, along with design, data source, condition and a graded health-equity reading. This is a pilot. If it works it will be promoted, and the output is not yet an index.
+An evaluation of LLM readers for indexing *MMWR* reports by **how they make claims about data**. It covers summaries, comparisons, tests, standardization, weighting and regression, along with design, data source, condition and a graded health-equity reading. The pilot closed on 2026-10-16 with brief v5.1; production follows `PRODUCTION_PLAN.md`, starting from `HANDOFF_LOCAL.md`. The output is not yet an index.
 
 ## Contents
 
@@ -13,7 +13,8 @@ An evaluation of LLM readers for indexing *MMWR* reports by **how they make clai
 | `RUN_ARMB_AUDIT.md`, `reports/AUDIT_REPORT.md` | the arm-B audit and its result |
 | `RUN_PILOT2.md`, `tools/pilot2.py`, `p2_sample.tsv`, `reports/PILOT2_REPORT.md` | pilot 2 on brief v4: effort low vs medium, routing, condition grouping |
 | `RUN_CONFIRM_V5.md`, `tools/confirm_v5.py`, `cv5_sample.tsv` | the brief v5 confirmation run; result in `reports/CONFIRM_V5_REPORT.md` |
-| `PRODUCTION_PLAN.md`, `tools/estimate_cost.py` | the draft plan for production (API batches, volume gating, audit) and its cost estimate |
+| `PRODUCTION_PLAN.md`, `tools/estimate_cost.py` | the accepted plan for production (API batches, volume gating, audit) and its cost estimate |
+| `HANDOFF_LOCAL.md` | where a disk-local session starts: what to assess, then build and run |
 | `CONDITION_RUBRIC.md`, `conditions_map.tsv`, `tools/group_conditions.py` | grouping readers' free-text conditions |
 | `CONDITION_RUBRIC.md` | groups for the later condition-grouping pass (readers do not classify conditions) |
 | `ADJUDICATOR_BRIEF.md` | how disagreements between the two readers are judged |
