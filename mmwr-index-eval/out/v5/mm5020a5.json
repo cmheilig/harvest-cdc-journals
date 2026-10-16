@@ -1,0 +1,71 @@
+{
+ "id": "mm5020a5",
+ "reader": {"model": "claude-opus-5-5", "reader_id": "v5", "role": "judgment"},
+ "data_focus": {"v": "yes", "ev": [{"loc": "text", "q": "the rate of drowning among blacks was more than twice the rate of whites, 4.8 per 100,000 and 2.3 per 100,000, respectively."}]},
+ "outcome_types": [
+  {"v": "count/rate", "ev": [{"loc": "summary", "q": "the fatality rate from drowning for Louisiana residents was 3.1 per 100,000 population"}]},
+  {"v": "binary/categorical", "ev": [{"loc": "summary", "q": "alcohol or illicit drug use was found in approximately 60% of tested victims aged > 13 years"}]}
+ ],
+ "analytic_depth": [
+  {"v": "summary", "ev": [{"loc": "summary", "q": "the fatality rate from drowning for Louisiana residents was 3.1 per 100,000 population"}]},
+  {"v": "comparison", "ev": [{"loc": "summary", "q": "higher than the U.S. rate of 1.9 per 100,000, and more than twice the 2000 national target of 1.3 per 100,000 population."}, {"loc": "text", "q": "the rate of drowning among blacks was more than twice the rate of whites, 4.8 per 100,000 and 2.3 per 100,000, respectively."}]}
+ ],
+ "procedures": [],
+ "comparison": {
+  "framework": "fixed referent",
+  "scale": "relative",
+  "referent": "U.S. drowning rate (1.9 per 100,000) and 2000 national target (1.3 per 100,000)",
+  "across": ["state vs nation", "race/ethnicity", "age group", "drowning setting (boating share)"],
+  "ev": [{"loc": "summary", "q": "higher than the U.S. rate of 1.9 per 100,000, and more than twice the 2000 national target of 1.3 per 100,000 population."}, {"loc": "text", "q": "which is proportionately more than in the entire United States, where boating accounts for 20% of drowning ( 1 )."}]
+ },
+ "inference": {"v": "none", "method_stated": false, "ev": []},
+ "primary_measures": [
+  {"v": "rate per 100,000 population", "ev": [{"loc": "summary", "q": "the fatality rate from drowning for Louisiana residents was 3.1 per 100,000 population"}]},
+  {"v": "percentage", "ev": [{"loc": "text", "q": "43 (60%) had evidence for the presence of alcohol and/or illicit drugs."}]}
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What were the demographics, rates and modifiable risk factors (alcohol/drug use, PFD use, pool fencing) of drowning deaths among Louisiana residents in 1998?",
+  "ev": [{"loc": "summary", "q": "This report describes the demographics and risk factors associated with drownings in Louisiana in 1998."}]
+ },
+ "conditions": [
+  {"v": "drowning", "role": "outcome", "ev": [{"loc": "title", "q": "Drowning --- Louisiana, 1998"}]},
+  {"v": "alcohol and illicit drug use", "role": "exposure", "ev": [{"loc": "text", "q": "Alcohol and illicit drug use were examined in the deaths of persons aged > 13 years."}]}
+ ],
+ "study_design": [
+  {"v": "surveillance/descriptive", "ev": [{"loc": "text", "q": "The Louisiana Office of Public Health examined three sources of data on persons who died by drowning"}]}
+ ],
+ "data_source_type": [
+  {"v": "registry", "ev": [{"loc": "text", "q": "1998 death certificates, coroners' records, and records of investigations performed by the Louisiana Department of Wildlife and Fisheries (LDWF)."}]},
+  {"v": "record abstraction or interview", "ev": [{"loc": "text", "q": "Of these, 114 investigative reports were reviewed: 96 with coroners' records, six with LDWF reports, and 12 with both"}]}
+ ],
+ "data_source_named": [
+  {"v": "Louisiana death certificates", "ev": [{"loc": "text", "q": "Using death certificates, 137 cases were identified."}]},
+  {"v": "coroners' records", "ev": [{"loc": "text", "q": "1998 death certificates, coroners' records, and records of investigations"}]},
+  {"v": "Louisiana Department of Wildlife and Fisheries investigation records", "ev": [{"loc": "text", "q": "records of investigations performed by the Louisiana Department of Wildlife and Fisheries (LDWF)."}]}
+ ],
+ "setting": {"v": "US subnational", "ev": [{"loc": "title", "q": "Drowning --- Louisiana, 1998"}]},
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 3,
+  "level_reason": "The Black-White drowning rate contrast is framed against equal case counts ('however') and quantified as 'more than twice' (4.8 vs 2.3 per 100,000); prevention is to be culturally appropriate for highest-risk populations. No specific determinant explains it.",
+  "level_confidence": "medium",
+  "level_alternative": {"level": 2, "reason": "The racial contrast is stated once in Results and barely interpreted; the cultural-appropriateness line could be read as a generic recommendation rather than interpretation of a disparity."},
+  "dimensions": [
+   {"v": "race/ethnicity", "role": "stratifier", "basis": "assigned or observed", "ev": [{"loc": "text", "q": "the rate of drowning among blacks was more than twice the rate of whites, 4.8 per 100,000 and 2.3 per 100,000, respectively."}]},
+   {"v": "age", "role": "stratifier", "ev": [{"loc": "text", "q": "The highest drowning rate was among persons aged 25--35 years (3.8 per 100,000)."}]},
+   {"v": "age", "role": "population", "ev": [{"loc": "text", "q": "Alcohol and illicit drug use were examined in the deaths of persons aged > 13 years."}]},
+   {"v": "sex", "role": "descriptor", "ev": [{"loc": "text", "q": "Of the 137 drowning cases, 115 (84%) occurred among males."}]}
+  ],
+  "determinants_of_health": {"v": null, "ev": []},
+  "equity_action": {"v": false, "ev": []},
+  "equity_measurement": "Black vs White rates only; race taken from death certificates. State regulations on alcohol and PFDs are cited for overall prevention, not as explanations of the racial gap."
+ },
+ "groupwise": [
+  {"across": ["age"], "n_groups": null, "ordered": true, "assessment": "side by side", "resolves_to_finer": false, "ev": [{"loc": "text", "q": "Children aged <4 years accounted for 10% of the total deaths and had the second highest rate (3.5 per 100,000)."}]}
+ ],
+ "uncertain_fields": ["equity.level"],
+ "confidence": "medium",
+ "notes": "Design inferred (record review of death certificates, coroner and LDWF reports; no design named). The U.S. rate, national target and U.S. boating share (20%) are cited and treated as fixed referents. Rates are hand-computed; no tests or CIs.",
+ "view_issues": "Alcohol results are inconsistent: 13 + 28 + 1 = 42, not 43, and the percentages (30%, 67%, 2%) use 43 as denominator; boating-related 13 (48%) of 34 does not compute (38%)."
+}

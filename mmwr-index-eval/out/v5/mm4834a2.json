@@ -1,0 +1,412 @@
+{
+ "id": "mm4834a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "v5",
+  "role": "judgment"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "the mean difference in treatment costs per eligible preschooler was $36.28 (95% confidence interval=$9.69-$62.87)."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The average caries-related cost per Medicaid-eligible child in each parish was obtained by dividing parish Medicaid reimbursements by the number of Medicaid-eligible children"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "For all age groups, the percentage of Medicaid-eligible children who received one or more caries-related procedures was higher in NF parishes."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "at all ages, costs were higher in NF than in F parishes."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In addition to fluoridation status, per capita income, population, and dentists per 1000 residents were included in the model as dichotomous variables."
+    },
+    {
+     "loc": "text",
+     "q": "For each age group, linear regression was used to examine the association between parish average caries-related cost per Medicaid-eligible child and fluoridation status"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "linear regression with backward elimination",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "'linear regression' of parish average cost on fluoridation status, run per age group, adjusted R2 reported → linear",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "For each age group, linear regression was used to examine the association between parish average caries-related cost per Medicaid-eligible child and fluoridation status"
+    },
+    {
+     "loc": "table 2",
+     "q": "Results of multivariate regression* analysis: adjusted R2 and estimated treatment cost savings associated with water fluoridation"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "CIs for the cost difference (null 0) taken from the linear regression; the association claim rests on them",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the mean difference in treatment costs per eligible preschooler was $36.28 (95% confidence interval=$9.69-$62.87)."
+    },
+    {
+     "loc": "text",
+     "q": "although the analysis showed an association between lower caries-related costs and residence in one of the five F parishes"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "both",
+  "referent": "fluoridated (F) parishes",
+  "across": [
+   "parish fluoridation status",
+   "age"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "were three times more likely than Medicaid-eligible children in communities with fluoridated water to receive dental treatment in a hospital OR"
+   },
+   {
+    "loc": "text",
+    "q": "The difference in treatment costs per Medicaid-eligible child residing in F parishes compared with those residing in NF parishes ranged from $14.68"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "Results of multivariate regression* analysis: adjusted R2 and estimated treatment cost savings associated with water fluoridation"
+   },
+   {
+    "loc": "text",
+    "q": "the mean difference in treatment costs per eligible preschooler was $36.28 (95% confidence interval=$9.69-$62.87)."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "mean percentage of Medicaid-eligible children who received procedures",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Mean percentage of Medicaid-eligible children who received procedures"
+    }
+   ]
+  },
+  {
+   "v": "mean caries-related cost per eligible child",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Mean caries-related cost per eligible child"
+    }
+   ]
+  },
+  {
+   "v": "estimated treatment cost savings associated with water fluoridation (95% CI)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Estimated treatment cost savings associated with water fluoridation (95% CI&)"
+    }
+   ]
+  },
+  {
+   "v": "adjusted R2",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "adjusted R2"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Controlling for the parish variables of per capita income, population, and number of dentists per 1000 population."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "parish per capita income, population, and dentists per 1000 residents (dichotomous; reduced by backward elimination)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Independent variables that added no explanatory power were eliminated through backward elimination to obtain the reduced model (5)."
+    },
+    {
+     "loc": "table 2",
+     "q": "Controlling for the parish variables of per capita income, population, and number of dentists per 1000 population."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Did the average Medicaid dental-caries treatment cost for children aged 1-5 years in Louisiana differ by parish community water fluoridation status?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To determine whether the average treatment cost for Medicaid-eligible children in Louisiana differed by community fluoridation status"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "dental caries",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Water Fluoridation and Costs of Medicaid Treatment for Dental Decay -- Louisiana, 1995-1996"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "ecologic",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All analyses were conducted at the parish level."
+    }
+   ]
+  },
+  {
+   "v": "cost/economic",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the expected annual reduction in their dental treatment costs is $1.4 million."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "administrative/claims",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "analyzed Medicaid dental reimbursements and Medicaid eligibility records from July 1995 through June 1996 for children aged 1-5 years."
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was estimated based on CDC's 1992 fluoridation census (4) and a study by LDHH"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Louisiana Medicaid dental reimbursement and eligibility records (Louisiana Bureau of Health Financing)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The Louisiana Bureau of Health Financing provided data on Medicaid dental reimbursements and Medicaid eligibility"
+    }
+   ]
+  },
+  {
+   "v": "CDC 1992 fluoridation census",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was estimated based on CDC's 1992 fluoridation census (4)"
+    }
+   ]
+  },
+  {
+   "v": "Bureau of the Census demographic data",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Demographic data for each parish were obtained from the Bureau of the Census (3)."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Water Fluoridation and Costs of Medicaid Treatment for Dental Decay -- Louisiana, 1995-1996"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "The population is defined by Medicaid eligibility (low income), and parish per capita income enters only as a model covariate; no SPD contrast is reported. Low-income caries burden is cited background, and income appears again in a generalizability limitation.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 0,
+   "reason": "Per capita income is an attribute of parishes (geography) in an ecologic model, so SES may only define the population, which is level 0."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "population",
+    "ses_components": [
+     "Medicaid eligibility"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "analyzed Medicaid dental reimbursements and Medicaid eligibility records from July 1995 through June 1996 for children aged 1-5 years."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "per capita income"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "In addition to fluoridation status, per capita income, population, and dentists per 1000 residents were included in the model as dichotomous variables."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "low-income households",
+     "high- and middle-income families"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "should not be generalized to preschoolers from high- and middle-income families because of their lower prevalence of dental caries in primary teeth"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Medicaid eligibility records from July 1995 through June 1996 for children aged 1-5 years."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "For each age group, linear regression was used to examine the association"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Income enters only as a dichotomized parish-level covariate; no individual-level SES or race data are analyzed."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "ranged from $14.68 for 1-year-olds to $58.91 for 3-year-olds ( Table 2 ); at all ages, costs were higher in NF than in F parishes."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "inference",
+  "study_design"
+ ],
+ "confidence": "medium",
+ "notes": "Design is not named; ecologic is inferred from parish-level analysis, and cost/economic from the cost outcome and projected savings. The 'three times more likely' and 'twice as high' contrasts are computed from Table 1 parish means with no test. The $650 OR charge is a fixed add-on to costs, and the all-ages estimate assumes a uniform age distribution (arithmetic, not weighting).",
+ "view_issues": "The Summary's 'three times more likely' hospital OR contrast is not given as a number in the text; it is derivable only from Table 1 means (e.g. 1.4% vs 5.0% at age 3)."
+}
