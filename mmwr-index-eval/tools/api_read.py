@@ -31,7 +31,8 @@ BUDGET = 100.0                 # owner's spending note (HANDOFF_LOCAL.md): ~$100
 PRICE = {'input': 4.00, 'output': 20.00, 'cache_read': 0.20, 'write_1h': 8.00, 'write_5m': 5.00}
 BATCH_DISCOUNT = 0.5
 # estimate defaults until calibrate and the ledger have figures (tools/estimate_cost.py)
-CHARS_PER_TOKEN, OUT_TOKENS, FIXUP_SHARE = 3.3, 2116 + 6000, 0.15
+# OUT_TOKENS: the 3-read slice gave 2,659-5,515 output tokens (thinking included); 4,500 leans to full reports
+CHARS_PER_TOKEN, OUT_TOKENS, FIXUP_SHARE = 2.3, 4500, 0.15
 
 PREAMBLE, BRIEF, EXAMPLES = 'API_PREAMBLE.md', 'READER_BRIEF.md', ('examples/mm6925a1.json', 'examples/mm7223a3.json')
 PACKETS, LEDGER, BATCHES, CALIB = 'prod_packets', 'prod_ledger.tsv', 'prod_batches.tsv', 'prod_calibration.tsv'
