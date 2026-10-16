@@ -2,7 +2,7 @@
 
 This file turns pilot 2's findings (`reports/PILOT2_REPORT.md`, `reports/p2_brief_issues.md` with 50 adjudicator notes, and the readers' notes in `p2_run_log.tsv`) into decisions for `READER_BRIEF.md` v5. Each item gives the issue (with pilot-2 article ids), a **proposed** rule and a **Decision** line. Section numbers refer to brief v4.
 
-**How to use it.** Edit the `Decision:` line of any item you care about: write `accept`, `reject`, `defer`, or your own rule. **A blank Decision line means the proposal is accepted.** Items with sub-rules (a), (b), … can be decided together ("accept") or one by one ("accept; reject (c)").
+**How to use it.** Edit the `Decision:` line of any item you care about: write `accept`, `reject`, `defer`, or your own rule. **A blank Decision line means the item is not yet reviewed (pending); only an explicit `accept` counts.** (Changed 2026-10-16 from v4's convention, where a blank meant accepted.) Items with sub-rules (a), (b), … can be decided together ("accept") or one by one ("accept; reject (c)").
 
 **Why these items.** In pilot 2 most disagreements between the two Opus reads came from the brief, not from misreading: adjudicators ruled 25 of 135 disputed fields "brief gap" and 33 "ambiguity". The items below are ordered by how many errors they caused.
 
@@ -61,6 +61,7 @@ Decision: accept
 - (b) Repeated measurements over time (one person or one series) are a period comparison: pair for 2 time points, group for 3 or more. Thresholds they are judged against go in `referent`.
 - (c) In an indicator or nowcast evaluation, comparing the indicator with later complete data is a comparison (pair or group by period), not a reference standard.
 Decision: accept, with refinement for (b) and (c); the question of pairwise or groupwise for characterizing equity pertains primarily to groups compared on the basis of social standing; for individual persons or other cross-group comparisons, the question of pairwise or groupwise is about a statistical procedure apart from equity considerations
+*Implementation:* `comparison.framework` describes the statistical comparison, whatever is compared. `groupwise` entries and the equity reading apply only to groups defined by social position. A person's repeated measurements, or an indicator compared with later data, are comparisons, never groupwise entries.
 
 ### V8. Inference edge cases
 **Issue.** Readers split on stray significance language, method lines about CI overlap, Bayesian probabilities and the combined value (mm7242a2, mm7248a2, mm7241e1, mm7346a3, mm4910a3, mm7320a3).
@@ -71,6 +72,7 @@ Decision: accept, with refinement for (b) and (c); the question of pairwise or g
 - (d) **A CI used as an inversion test** gives `inference` "CIs and tests": the reported CI contributes "CIs" and the inversion adds "tests".
 - (e) **CIs alongside p-values.** Record the named test. Add a CI-inversion test only when a conclusion rests on the CI itself.
 Decision: accept
+*Implementation, with the owner's D16 rule-3 decision (2026-10-16):* a claim resting on CI overlap is recorded as a procedure of class `test`, `"name": "CI overlap assertion"`, and counts toward `inference` "tests"; `ci_overlap: true` is kept so these can be told apart from formal tests. (b) still applies: only when a claim actually rests on the overlap.
 
 ### V9. Procedure edge cases
 **Issue.** Several recurring calls are not in the procedure lists (mm7205e1, mm7316a3, mm7207a3, mm7339a2, mm7207a6, mm7308a5, mm7305a4, mm7225a3, mm7234a6, mm4948a1, mm7332e1).
@@ -85,6 +87,7 @@ Decision: accept
 - (h) **A regression that only sets a threshold** (e.g. a Serfling baseline for excess deaths) is `ancillary`.
 - (i) **Methods named only in table or figure notes.** Before writing `procedures`, read every table and figure note. One missed hazard-ratio model in a Table 1 note (mm7332e1) produced the run's largest single error, 8 fields.
 Decision: accept, especially (i)
+*Implementation:* the table- and figure-notes check becomes a numbered step in the brief's rules (§3) and in the reader prompt.
 
 ### V10. Survey weighting that is never stated
 **Issue.** Readers split on recording weighting for NHIS or BRFSS estimates that never say "weighted" (mm7215a8, mm7218a7, mm7207a6). Adjudicators sided with not recording it.
@@ -104,6 +107,7 @@ Decision: accept
 - (c) Reports on program operations or progress, measured against stated goals or targets: `evaluation or monitoring`. Without goals or targets: `surveillance/descriptive`.
 - (d) A case series nested inside an outbreak investigation: `outbreak investigation` only.
 Decision: accept, with refinement for (a): consider including scholarly synthesis to accommodate reviews that might not be interpreted as pertaining to evidence
+*Implementation:* the new value is `review or synthesis` (systematic reviews, GRADE and evidence-to-recommendation summaries, scholarly or narrative reviews and syntheses).
 
 ## Equity fields
 
@@ -114,6 +118,7 @@ Decision: accept, with refinement for (a): consider including scholarly synthesi
 - (b) **SDOH as the outcome.** Extend the level-3 clause for SDOH exposures to SDOH outcomes (e.g. problems paying medical bills): quantified contrasts across SPD groups meet level 3 without the word "disparity". Side-by-side values stay capped at 2, so most QuickStats remain level 2.
 - (c) **"More than twice" is a computed ratio.** A stated multiple or difference ("more than twice", "3 percentage points higher") counts as quantified.
 Decision: accept, with note about (a): in practice, i expect to use the binary equity category less often than the reported level and mode of comparison, so the distinction here is worth keeping precise but doesn't lose much operationally
+*Implementation:* no change to the rule.
 
 ### V14. A target for an SPD-defined population with no groups compared
 **Issue.** mm7314a2: a coverage policy for an SES-defined population (Medicaid) is measured against a Healthy People target, with laws named as explanations, but no SPD groups are compared. Both readers gave level 1 with low confidence, offering 3 or 4 as the alternative.
@@ -133,6 +138,7 @@ Decision: accept
 - (h) **Age bounds of the patients a provider survey asks about** define the population: age, role `population`.
 - (i) **Citizenship of cases abroad** (mm4943a3): keep v4's rule (nativity, descriptor, level 1).
 Decision: accept, with refinement to (a) and (b): somehow capture distinction between how one identifies vs how others perceive, as with sex-at-birth or sexual behavior apart from identity
+*Implementation (owner concurred 2026-10-16):* a new optional attribute `basis` on equity dimension entries for sex, SOGI and race/ethnicity: self-identified · assigned or observed · behavior · not stated. (a) A composite sex-at-birth/gender-identity variable is SOGI with basis self-identified; its sex-at-birth component is sex with basis assigned or observed. (b) MSM and sex of partners are SOGI with basis behavior, recorded rather than left out; the equity level still depends on framing.
 
 ### V16. Scope of `determinants_of_health`
 **Issue.** `has_determinants` caused 11 disagreements, tied with `equity_dimensions` for the most of any equity field (mm4834a2, mm4836a2, mm5016a4, mm7219a1, mm7234a6, mm7212a1, mm7330a2, mm7248a2, mm7251a4, mm7301a1).
@@ -162,6 +168,7 @@ Decision: **owner: accept as a placeholder** (2026-10-14).
 Decision (a): **owner: group vaccine safety** (rule as proposed unless edited)
 Decision (b): **owner: normalize** (method as proposed unless edited)
 Decision (c): accept: care-setting are not conditions
+*Implementation:* the reader brief says health care use and care settings are not conditions; record the condition that drives them, or none.
 
 ---
 
