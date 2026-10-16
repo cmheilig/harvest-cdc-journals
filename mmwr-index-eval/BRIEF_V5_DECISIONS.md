@@ -194,7 +194,7 @@ Decision: **owner: accept** (2026-10-16).
 - imputation without a stated method.
 
 No schema change.
-Decision: **owner: requested** (2026-10-16).
+Decision: ~~**owner: requested** (2026-10-16).~~ Accept.
 
 ---
 
