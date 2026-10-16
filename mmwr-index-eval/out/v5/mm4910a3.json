@@ -1,0 +1,191 @@
+{
+ "id": "mm4910a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "v5",
+  "role": "judgment"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Among luncheon attendees, eating potato salad was associated strongly with illness (odds ratio=42.7; 95% confidence interval=18.6--101.7)."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Of 343 company employees who completed a questionnaire and ate luncheon food, 191 (56%) had an illness meeting the case definition."
+    },
+    {
+     "loc": "text",
+     "q": "Of 236 luncheon attendees who ate potato salad, 183 (78%) became ill."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Nineteen (53%) of the residents had illnesses meeting the case definition."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among luncheon attendees, eating potato salad was associated strongly with illness (odds ratio=42.7; 95% confidence interval=18.6--101.7)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "OR 42.7 with 95% CI 18.6-101.7 excluding 1, with the conclusion 'associated strongly'; CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "eating potato salad was associated strongly with illness (odds ratio=42.7; 95% confidence interval=18.6--101.7)."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "luncheon attendees who did not eat potato salad",
+  "across": [
+   "potato salad consumption"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Among luncheon attendees, eating potato salad was associated strongly with illness (odds ratio=42.7; 95% confidence interval=18.6--101.7)."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "(odds ratio=42.7; 95% confidence interval=18.6--101.7)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "191 (56%) had an illness meeting the case definition."
+    }
+   ]
+  },
+  {
+   "v": "odds ratio",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(odds ratio=42.7; 95% confidence interval=18.6--101.7)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What were the sources and modes of transmission of two Norwalk-like virus gastroenteritis outbreaks, one foodborne in Alaska and one person-to-person in Wisconsin?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This report presents investigations of a foodborne NLV outbreak in Alaska and person-to-person transmission in Wisconsin."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "Norwalk-like viral gastroenteritis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Outbreaks of Norwalk-like Viral Gastroenteritis --- Alaska and Wisconsin, 1999"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "outbreak investigation",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This report presents investigations of a foodborne NLV outbreak in Alaska and person-to-person transmission in Wisconsin."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "record abstraction or interview",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "On November 11, questionnaires were e-mailed to 500 company employees; 456 (91%) were returned."
+    },
+    {
+     "loc": "text",
+     "q": "All residents of the involved floor were administered a symptom, event, and food history questionnaire."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Outbreaks of Norwalk-like Viral Gastroenteritis --- Alaska and Wisconsin, 1999"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "No social-position dimension is analyzed; populations are company employees and university residence-hall students, and shared living is framed as a transmission setting, not social position.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "groupwise": [],
+ "uncertain_fields": [],
+ "confidence": "high",
+ "notes": "Median incubation (33 hours) and illness durations are reported descriptively and not compared, so outcome_types stays binary/categorical. RT-PCR and sequencing confirm case status and link the foodhandler; they are not procedures. Wisconsin illness clustering into generations (Figure 2) is descriptive.",
+ "view_issues": "Figures 1 and 2 are shown only as images, with no description in the text."
+}
