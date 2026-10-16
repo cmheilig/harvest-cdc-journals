@@ -140,7 +140,7 @@ Decision: include alcohol and vaping use with other substances; treat tobacco us
 
 **Open choice:** does rule 1 need the article to draw a conclusion from the CI, or does any reported CI for a contrast count as a test by inversion? Proposed: a conclusion is required. A bare CI with no claim is estimation (`inference` "CIs").
 Decision (principle): **accepted by owner.**
-Decision (rules 1–3): 
+Decision (rules 1–3): accept (1) and (2); for (3), consider recording as a test (since it is reported that way) and giving the type as something like "assertion about interval overlap"
 Decision (open choice): **owner: only when the article draws a conclusion from the CI.** Owner's note: MMWR authors are fairly consistent in naming hypothesis-test results inferred from CIs, and much less consistent in saying how the intervals were constructed. So expect `CI method not stated` to be common, and do not treat it as a reader error.
 
 ## D17. A design category for evaluation, program evaluation and monitoring (owner's decision)
@@ -151,7 +151,7 @@ Decision (open choice): **owner: only when the article draws a conclusion from t
 - General rule for `study_design`: when the report names its design ("evaluation", "case-control", "field trial", "cross-sectional survey"), use that, mapped to the nearest value. Infer only when no design is named, and note it.
 - This preference applies to `study_design`. For method fields, owner note D5 (record "this reader interprets thus" separately from "how the authors framed it") is the model. D7's rule that an authors' "stratified" label does not decide `analytic_depth` still stands.
 
-Decision: 
+Decision: accept
 
 ## D18. Production design: one Opus reader, a selective second reader (owner's decision, held loosely)
 **Basis.** The audit (`reports/AUDIT_REPORT.md`): review mode anchors on the first reader and saves little.
