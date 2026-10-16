@@ -1,0 +1,347 @@
+{
+ "id": "mm4948a1",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "tested 8511 specimens for influenza; 118 (1.4%) were positive for laboratory-confirmed influenza."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During October 1--November 25, 1% of patient visits to U.S. sentinel physicians were for influenza-like illness (ILI)"
+    },
+    {
+     "loc": "text",
+     "q": "The 122 Cities Mortality Reporting System attributed 6.5% of total deaths to pneumonia and influenza (P&I)."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "tested 8511 specimens for influenza; 118 (1.4%) were positive for laboratory-confirmed influenza."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This percentage was below the epidemic threshold of 7.9% for week 47."
+    },
+    {
+     "loc": "text",
+     "q": "increased from zero for the week ending October 21 to 4% for the week ending November 25."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "periodic (Serfling-type) robust regression for the P&I seasonal baseline and epidemic threshold",
+   "class": "regression",
+   "regression_family": "other",
+   "inferred_from": "'robust regression procedure in which a periodic regression model is applied' → periodic (Serfling-type) robust regression → other; used only to set the threshold, so ancillary",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "The expected seasonal baseline is projected using a robust regression procedure in which a periodic regression model is applied to observed percentages of deaths"
+    },
+    {
+     "loc": "note",
+     "q": "The epidemic threshold is 1.645 standard deviations above the seasonal baseline."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "fixed referent",
+  "scale": null,
+  "referent": "P&I epidemic threshold (7.9% for week 47); ILI baseline levels (0--3%)",
+  "across": [
+   "week",
+   "surveillance region",
+   "season (2000--01 vs 1999)"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This percentage was below the epidemic threshold of 7.9% for week 47."
+   },
+   {
+    "loc": "text",
+    "q": "among each of the nine surveillance regions, patient visits for ILI were at baseline levels (0--3%)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "primary_measures": [
+  {
+   "v": "percentage of patient visits for ILI",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "1% of patient visits to U.S. sentinel physicians were for influenza-like illness (ILI)"
+    }
+   ]
+  },
+  {
+   "v": "percentage of deaths attributed to P&I",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "attributed 6.5% of total deaths to pneumonia and influenza (P&I)."
+    }
+   ]
+  },
+  {
+   "v": "percentage of specimens positive for influenza",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The percentage of positive influenza infections identified each week, an important early indicator of influenza activity"
+    }
+   ]
+  },
+  {
+   "v": "number of states by activity level",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "24 state and territorial health departments reported no influenza activity, 24 reported sporadic activity"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "What was the level and type of influenza activity in the United States during October 1--November 25, 2000, early in the 2000--01 season?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "This report summarizes influenza activity in the United States during October 1--November 25, 2000"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "influenza",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Influenza Activity --- United States, 2000--01 Season"
+    }
+   ]
+  },
+  {
+   "v": "influenza-like illness",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "1% of patient visits to U.S. sentinel physicians were for influenza-like illness (ILI)"
+    }
+   ]
+  },
+  {
+   "v": "pneumonia and influenza deaths",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "attributed 6.5% of total deaths to pneumonia and influenza (P&I)."
+    }
+   ]
+  },
+  {
+   "v": "influenza",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "approximately 51.2 million (68%) of the 75 million doses of influenza vaccine projected to be produced this year had been distributed."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All four influenza surveillance system components indicated that influenza activity was low during October--November 25"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "1% of patient visits to U.S. sentinel physicians were for influenza-like illness (ILI)"
+    },
+    {
+     "loc": "text",
+     "q": "World Health Organization (WHO) collaborating laboratories and National Respiratory and Enteric Virus Surveillance System laboratories in the United States"
+    }
+   ]
+  },
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The 122 Cities Mortality Reporting System attributed 6.5% of total deaths to pneumonia and influenza (P&I)."
+    }
+   ]
+  },
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "24 state and territorial health departments reported no influenza activity, 24 reported sporadic activity"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "122 Cities Mortality Reporting System",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The 122 Cities Mortality Reporting System attributed 6.5% of total deaths"
+    }
+   ]
+  },
+  {
+   "v": "National Respiratory and Enteric Virus Surveillance System",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "National Respiratory and Enteric Virus Surveillance System laboratories in the United States tested 8511 specimens"
+    }
+   ]
+  },
+  {
+   "v": "WHO collaborating laboratories",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "World Health Organization (WHO) collaborating laboratories"
+    }
+   ]
+  },
+  {
+   "v": "U.S. sentinel physicians",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "patient visits to U.S. sentinel physicians were for influenza-like illness (ILI)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Influenza Activity --- United States, 2000--01 Season"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "other",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "approximately 51.2 million (68%) of the 75 million doses of influenza vaccine projected to be produced this year had been distributed."
+   }
+  ]
+ },
+ "equity": {
+  "level": 0,
+  "level_reason": "No social-position dimension is analyzed; age appears only in vaccination recommendations and antiviral approval ages.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Efforts also should be made to vaccinate persons aged 50--64 years."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "inference"
+ ],
+ "confidence": "medium",
+ "notes": "The P&I epidemic threshold (1.645 SD above a periodic robust-regression baseline) acts as a one-sided prediction bound; comparing the weekly percentage with it is recorded as a fixed-referent comparison, not a test. Vaccine distribution (68% of doses distributed) and antigenic match are secondary; antiviral text is guidance.",
+ "view_issues": null
+}
