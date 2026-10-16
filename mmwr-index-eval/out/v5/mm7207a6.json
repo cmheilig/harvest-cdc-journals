@@ -1,0 +1,237 @@
+{
+ "id": "mm7207a6",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "v5",
+  "role": "judgment"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "figure 1",
+    "q": "In 2021, 76.0% of women aged 50–74 years reported that they had a mammogram within the preceding 2 years."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "In 2021, 76.0% of women aged 50–74 years reported that they had a mammogram within the preceding 2 years."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "In 2021, 76.0% of women aged 50–74 years reported that they had a mammogram within the preceding 2 years."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "increased with family income, from 67.7% of women with family income <200% of FPL, to 74.3% of women with income 200% to <400% of FPL"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "imputation of missing family income",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "imputed income values enter the income-group estimates; imputation method not stated",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Family income was imputed when missing."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "family income (% of FPL)"
+  ],
+  "ev": [
+   {
+    "loc": "figure 1",
+    "q": "from 67.7% of women with family income <200% of FPL, to 74.3% of women with income 200% to <400% of FPL, and 81.5%"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "note",
+    "q": "With 95% CIs indicated by error bars."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Percentage* of Women Aged 50–74 Years Who Had a Mammogram Within the Preceding 2 Years"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did the percentage of U.S. women aged 50–74 years who had a mammogram within the preceding 2 years vary by family income in 2021?",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Percentage* of Women Aged 50–74 Years Who Had a Mammogram Within the Preceding 2 Years, † by Family Income §"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "mammography screening",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Percentage* of Women Aged 50–74 Years Who Had a Mammogram Within the Preceding 2 Years"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Estimates are based on household interviews of a sample of the civilian, noninstitutionalized U.S. population."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Source: National Center for Health Statistics, National Health Interview Survey, 2021."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Health Interview Survey (NHIS)",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "National Health Interview Survey, United States, 2021"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "National Health Interview Survey, United States, 2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Mammography percentages are reported by three family-income groups and described as increasing with income, but only set side by side with CIs, with no computed difference or disparity framing.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The income gradient (67.7% to 81.5%) could be read as an implicitly quantified SES disparity, though no difference or ratio is stated."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "primary comparison",
+    "ses_components": [
+     "family income as % of federal poverty level"
+    ],
+    "ev": [
+     {
+      "loc": "figure 1",
+      "q": "The percentage of women who had a mammogram within the preceding 2 years increased with family income"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Percentage* of Women Aged 50–74 Years Who Had a Mammogram"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Percentage* of Women Aged 50–74 Years Who Had a Mammogram"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Family income as percentage of FPL in three groups; missing income imputed."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "increased with family income, from 67.7% of women with family income <200% of FPL, to 74.3% of women with income 200% to <400% of FPL"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [],
+ "confidence": "high",
+ "notes": "QuickStats; no trend test or survey weighting is stated, so neither is recorded. The 'increased with family income' claim rests on side-by-side estimates with CI error bars.",
+ "view_issues": null
+}
