@@ -72,6 +72,6 @@ Candidates for a brief v5.2, made between volumes with a new tag. The first thre
 ## Decisions for the owner
 | Item | Proposal | Decision |
 |---|---|---|
-| G1 | Accept vol 73 as passed: the cost overrun is explained and its causes fixed | |
-| G2 | Brief v5.2 before vol 72, limited to issues 1–3, tagged `brief-v5.2`; issues 4–7 stay open for the audit to watch | |
-| G3 | Go ahead with vol 72 (~$36–41), then stop and reassess at about $75 in all, as planned | |
+| G1 | Accept vol 73 as passed: the cost overrun is explained and its causes fixed | owner: accept (2026-10-17) |
+| G2 | Brief v5.2 before vol 72, limited to issues 1–3, tagged `brief-v5.2`; issues 4–7 stay open for the audit to watch | owner: accept; draft for review (2026-10-17) |
+| G3 | Go ahead with vol 72 (~$36–41), then stop and reassess at about $75 in all, as planned | owner: accept, after v5.2 (2026-10-17); equity fields kept as they are |

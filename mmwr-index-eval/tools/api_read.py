@@ -26,6 +26,7 @@ from validate import check, _values
 
 MODEL, EFFORT, MAX_TOKENS, RETRY_MAX_TOKENS = 'claude-opus-5-5', 'medium', 32000, 64000
 BRIEF_TAG = 'brief-v5.1'
+TAG = BRIEF_TAG                # the tag of the prefix in use: a pinned volume keeps its own (fixed_prefix)
 READER_ID, ROLE = 'prod', 'judgment'
 FALLBACK_BETA = 'server-side-fallback-2026-07-01'
 BUDGET = 100.0                 # owner's spending note (HANDOFF_LOCAL.md): ~$100 on the platform, then reassess
@@ -117,10 +118,13 @@ def fixed_prefix(vol=None):
     fix-ups (append-only: the system prompt must not change under replayed thinking), retries and audit second reads
     keep the prefix the volume was read with, whatever API_PREAMBLE.md says later."""
     pin = f"out/prod/{vol.removesuffix('-audit')}/prefix.json" if vol and vol != 'slice' else None
+    global TAG
+    TAG = BRIEF_TAG
     if pin and os.path.exists(pin):
         p = json.load(open(pin))
         if _sha(p['system']) != p['sha']:
             sys.exit(f'{pin}: content does not match its sha')
+        TAG = p['brief_tag']
         return p['system'], p['sha']
     ex = '\n\n'.join(f'=== {p} ===\n{_tagged(p)}' for p in EXAMPLES)
     system = [{'type': 'text', 'text': open(PREAMBLE, encoding='utf-8').read()},
@@ -242,7 +246,7 @@ def handle(vol, i, msg, attempt, env, batch_id, sha):
         else:
             reader = rec['reader'] if isinstance(rec.get('reader'), dict) else {}
             rec['reader'] = {**reader, 'model': msg.model, 'reader_id': READER_ID, 'role': ROLE, 'effort': EFFORT,
-                             'brief_tag': BRIEF_TAG, 'prefix_sha': sha, 'request_id': msg.id,
+                             'brief_tag': TAG, 'prefix_sha': sha, 'request_id': msg.id,
                              **({'batch_id': batch_id} if batch_id else {})}
             try:
                 errs = check(rec) if rec.get('id') == i else [f"record id {rec.get('id')!r} is not {i}"]
@@ -268,7 +272,7 @@ def handle(vol, i, msg, attempt, env, batch_id, sha):
 def ledger(i, vol, attempt, env, model, sha, batch_id, request_id, us, cost, status, note=''):
     append_tsv(LEDGER, LEDGER_COLS, {
         'time': now(), 'id': i, 'volume': vol, 'attempt': attempt, 'environment': env, 'model': model, 'effort': EFFORT,
-        'brief_tag': BRIEF_TAG, 'prefix_sha': sha, 'batch_id': batch_id or '', 'request_id': request_id or '',
+        'brief_tag': TAG, 'prefix_sha': sha, 'batch_id': batch_id or '', 'request_id': request_id or '',
         'input_tokens': us.get('input', 0), 'cache_write_tokens': us.get('write_1h', 0) + us.get('write_5m', 0),
         'cache_read_tokens': us.get('cache_read', 0), 'output_tokens': us.get('output', 0), 'cost_usd': f'{cost:.4f}',
         'status': status, 'note': note})
