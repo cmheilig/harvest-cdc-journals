@@ -55,6 +55,6 @@ Together with vol 73's open issues 4–7, these are candidates for a later brief
 ## Decisions for the owner
 | Item | Proposal | Decision |
 |---|---|---|
-| H1 | Accept vol 72 as passed | |
-| H2 | Vol 71 on brief v5.2 as is, with the budget line raised to cover it (~$110–115 in all) | |
-| H3 | After vol 71, pause production and build the query tool on vols 71–73 before deciding on vols 70–65 | |
+| H1 | Accept vol 72 as passed | owner: accept (2026-10-17) |
+| H2 | Vol 71 on brief v5.2 as is, with the budget line raised to cover it (~$110–115 in all) | owner: accept; budget line $120 (2026-10-17) |
+| H3 | After vol 71, pause production and build the query tool on vols 71–73 before deciding on vols 70–65 | owner: accept (2026-10-17) |

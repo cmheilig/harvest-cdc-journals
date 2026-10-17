@@ -29,13 +29,13 @@ BRIEF_TAG = 'brief-v5.2'
 TAG = BRIEF_TAG                # the tag of the prefix in use: a pinned volume keeps its own (fixed_prefix)
 READER_ID, ROLE = 'prod', 'judgment'
 FALLBACK_BETA = 'server-side-fallback-2026-07-01'
-BUDGET = 100.0                 # owner's spending note (HANDOFF_LOCAL.md): ~$100 on the platform, then reassess
+BUDGET = 120.0                 # owner, 2026-10-17 (H2): raised from ~$100 to cover vol 71; then pause for the query tool (H3)
 # $ per 1M tokens, claude-opus-5-5 (claude-api skill, 2026-10): standard; batches halve every class
 PRICE = {'input': 4.00, 'output': 20.00, 'cache_read': 0.20, 'write_1h': 8.00, 'write_5m': 5.00}
 BATCH_DISCOUNT = 0.5
 # estimate defaults until calibrate and the ledger have figures (tools/estimate_cost.py)
 # OUT_TOKENS: the 3-read slice gave 2,659-5,515 output tokens (thinking included); 4,500 leans to full reports
-CHARS_PER_TOKEN, OUT_TOKENS, FIXUP_SHARE = 2.3, 4500, 0.30      # vol 73: 61 of 202 reads needed a fix-up
+CHARS_PER_TOKEN, OUT_TOKENS, FIXUP_SHARE = 2.3, 4500, 0.10      # fix-ups: vol 73 61 of 202 (v5.1), vol 72 16 of 267 (v5.2)
 # Batch caching is best effort. Vol 73: 43 of 202 batch reads hit the cache and 159 wrote it again at the 1-hour price
 # (2x input), which cost more than sending the prefix uncached. So batch requests carry no cache marker; sync ones do.
 CACHE_IN_BATCH = False
