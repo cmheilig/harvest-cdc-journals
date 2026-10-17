@@ -33,7 +33,7 @@ OMNIBUS_WORDS = re.compile(r'chi|rao.scott|wald|kruskal|anova|analysis of varian
 
 def records(vol):
     """{id: record} for the volume's valid production records."""
-    return {os.path.basename(f)[:-5]: json.load(open(f)) for f in sorted(glob.glob(f'out/prod/{vol}/*.json'))}
+    return {os.path.basename(f)[:-5]: json.load(open(f)) for f in sorted(glob.glob(f'out/prod/{vol}/mm*.json'))}
 
 
 def types(vol):

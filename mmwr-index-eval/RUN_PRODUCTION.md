@@ -22,7 +22,7 @@ Follows `PRODUCTION_PLAN.md` §3–§5, with the frame decisions in `reports/LOC
 5. `python3 tools/audit_sample.py score VOL`. Gate: field error at most 1.5%, and the groupwise looks reviewed.
 
 ## 3. Conditions and close
-1. `python3 tools/group_conditions.py audit/VOL/conditions.tsv out/prod/VOL/*.json --missing audit/VOL/conditions_missing.tsv`.
+1. `python3 tools/group_conditions.py audit/VOL/conditions.tsv out/prod/VOL/mm*.json --missing audit/VOL/conditions_missing.tsv`.
 2. Grouping pass:
    - fill `canonical` and `groups` in the missing file, following `CONDITION_RUBRIC.md`;
    - append those rows (term, canonical, groups, note) to `conditions_map.tsv`;
