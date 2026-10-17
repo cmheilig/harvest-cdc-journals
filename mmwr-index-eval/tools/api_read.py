@@ -106,13 +106,34 @@ def _tagged(path):
     return r.stdout.decode('utf-8')
 
 
-def fixed_prefix():
-    """The cached system blocks and their SHA-256. Byte-stable: any change invalidates the cache and the tag check."""
+def _sha(system):
+    return hashlib.sha256(json.dumps(system, sort_keys=True).encode()).hexdigest()[:12]
+
+
+def fixed_prefix(vol=None):
+    """The system blocks and their SHA-256. Byte-stable: any change invalidates the cache and the tag check.
+    With a production volume, the prefix is pinned in out/prod/<vol>/prefix.json at its first read batch, so that its
+    fix-ups (append-only: the system prompt must not change under replayed thinking), retries and audit second reads
+    keep the prefix the volume was read with, whatever API_PREAMBLE.md says later."""
+    pin = f"out/prod/{vol.removesuffix('-audit')}/prefix.json" if vol and vol != 'slice' else None
+    if pin and os.path.exists(pin):
+        p = json.load(open(pin))
+        if _sha(p['system']) != p['sha']:
+            sys.exit(f'{pin}: content does not match its sha')
+        return p['system'], p['sha']
     ex = '\n\n'.join(f'=== {p} ===\n{_tagged(p)}' for p in EXAMPLES)
     system = [{'type': 'text', 'text': open(PREAMBLE, encoding='utf-8').read()},
               {'type': 'text', 'text': f'=== {BRIEF} ===\n{_tagged(BRIEF)}'},
               {'type': 'text', 'text': ex, 'cache_control': {'type': 'ephemeral', 'ttl': '1h'}}]
-    return system, hashlib.sha256(json.dumps(system, sort_keys=True).encode()).hexdigest()[:12]
+    return system, _sha(system)
+
+
+def pin_prefix(vol, system, sha):
+    pin = f'out/prod/{vol}/prefix.json'
+    if not os.path.exists(pin):
+        os.makedirs(os.path.dirname(pin), exist_ok=True)
+        with open(pin, 'w', encoding='utf-8') as o:
+            json.dump({'sha': sha, 'brief_tag': BRIEF_TAG, 'pinned': now(), 'system': system}, o, ensure_ascii=False, indent=1)
 
 
 def _tnum(name):
@@ -269,6 +290,13 @@ def estimate(packet_chars, n_prefix_chars):
     return cached * BATCH_DISCOUNT, uncached * BATCH_DISCOUNT
 
 
+def no_open_batch(vol):
+    """Ids in an uncollected batch are not in the ledger yet; acting on the volume now would send them twice."""
+    open_ = [b['batch_id'] for b in read_tsv(BATCHES) if b['volume'] == str(vol) and b['status'] != 'collected']
+    if open_:
+        sys.exit(f'vol {vol} has an open batch ({" ".join(open_)}): poll and collect it first')
+
+
 def guard(est, budget):
     left = budget - spent() - pending()
     print(f'budget ${budget:.2f}: spent ${spent():.2f}, open batches ~${pending():.2f}, remaining ~${left:.2f}; '
@@ -337,7 +365,8 @@ def cmd_slice(ids):
 
 
 def cmd_submit(vol, dry, budget):
-    system, sha = fixed_prefix()
+    no_open_batch(vol)
+    system, sha = fixed_prefix(vol)
     s = state(vol)
     ids = [i for i in frame_packets(vol) if i not in s]
     if not ids:
@@ -360,6 +389,8 @@ def cmd_submit(vol, dry, budget):
         us = usage_of(warm.usage)
         ledger('-', vol, 'warm', 'api-sync', warm.model, sha, '', warm.id, us, cost_of(us, False), 'ok')
         warmed = f'cache warmed ({us["write_1h"]:,} tokens written)'
+    if not vol.endswith('-audit'):
+        pin_prefix(vol, system, sha)
     batch = c.messages.batches.create(requests=reqs)
     append_tsv(BATCHES, BATCH_COLS, {'batch_id': batch.id, 'volume': vol, 'kind': 'read', 'n': len(ids),
                                      'est_usd': f'{uncached:.2f}', 'prefix_sha': sha, 'submitted': now(),
@@ -419,7 +450,8 @@ def cmd_collect(vol):
 
 
 def cmd_fixup(vol, sync, dry, budget):
-    system, sha = fixed_prefix()
+    no_open_batch(vol)
+    system, sha = fixed_prefix(vol)
     s = state(vol)
     ids = sorted(i for i, rows in s.items() if rows[-1]['status'] in FIXABLE and not any(r['attempt'] == 'fixup' for r in rows))
     print(f'vol {vol}: {len(ids)} fix-ups' + (f": {' '.join(ids)}" if ids else ''))
@@ -447,7 +479,8 @@ def cmd_fixup(vol, sync, dry, budget):
 
 
 def cmd_retry(vol, dry, budget):
-    system, sha = fixed_prefix()
+    no_open_batch(vol)
+    system, sha = fixed_prefix(vol)
     s = state(vol)
     ids = sorted(i for i, rows in s.items() if rows[-1]['status'] in RETRYABLE and not any(r['attempt'] == 'retry' for r in rows))
     print(f'vol {vol}: {len(ids)} retries' + (f": {' '.join(ids)}" if ids else ''))
