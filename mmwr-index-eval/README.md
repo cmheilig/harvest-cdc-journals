@@ -23,6 +23,7 @@ An evaluation of LLM readers for indexing *MMWR* reports by **how they make clai
 | `tools/cost_report.py` | cost per article joined to report characteristics -> `reports/cost_by_article.tsv`, with summaries by type |
 | `RUN_PRODUCTION.md`, `tools/audit_sample.py` | one volume end to end: read, fix up, audit (draw, second reads, blinded packets, score), groupwise check, condition grouping; writes `audit/<vol>/` |
 | `CONDITION_RUBRIC.md`, `conditions_map.tsv`, `tools/group_conditions.py` | grouping readers' free-text conditions |
+| `tools/query.py`, `query_meta.tsv`, `QUERY_LIMITS.md` | the query tool over vols 73–71: filters on method, groupwise, design, equity and condition fields, printing each match's title, date, URL and evidence quotes; 16 named queries (`examples`), value counts (`facets`), a static filter page (`html`, git-ignored `query.html`); `query_meta.tsv` holds titles and dates (rebuild: `meta`); what it answers less well is in `QUERY_LIMITS.md` |
 | `CONDITION_RUBRIC.md` | groups for the later condition-grouping pass (readers do not classify conditions) |
 | `ADJUDICATOR_BRIEF.md` | how disagreements between the two readers are judged |
 | `RUN_CLOUD_PILOT.md` | step-by-step instructions for the orchestrating session |
