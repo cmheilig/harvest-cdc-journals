@@ -1,0 +1,411 @@
+{
+ "id": "mm7149a5",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GwjJavd3V2fms19eKT",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "mpox incidence (cases per 100,000 population at risk) among unvaccinated persons was 7.4 (95% CI = 6.0–9.1) times that among persons"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The proportion of vaccinated persons with mpox known to have received dose 1 subcutaneously or intradermally was not statistically different"
+    }
+   ]
+  },
+  {
+   "v": "event-time",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A proportional hazards model that accounted for time-varying risk supported the finding of a larger risk reduction"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Mpox incidence estimates were higher among unvaccinated persons than among persons known to have received only 1 dose of JYNNEOS vaccine ≥14 days earlier"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "calculated using negative binomial regression, controlling for week in the model using an indicator variable"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "negative binomial regression",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'negative binomial regression' giving incidence rate ratios, with week indicator → loglinear",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The incidence rate ratio (IRR) during the study period was calculated using negative binomial regression, controlling for week in the model"
+    }
+   ]
+  },
+  {
+   "name": "Cox proportional hazards regression",
+   "class": "regression",
+   "regression_family": "event-time",
+   "inferred_from": "'Cox proportional hazards regression' giving hazard ratios → event-time; supplementary analysis",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A Cox proportional hazards regression analysis that accounted for follow-up time among unvaccinated persons compared with that among persons known to have received"
+    }
+   ]
+  },
+  {
+   "name": "Pearson chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "Table 2 note names Pearson's chi-square comparing observed with expected route proportions (goodness of fit)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Pearson’s chi-square test comparing observed and expected proportions of route of administration among cases with approved or authorized route of administration."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "IRR CIs excluding 1 support the protection claim; CIs presumably model-based from negative binomial regression, CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "among those who received dose 2 ≥14 days earlier (IRR = 9.6; 95% CI = 6.9–13.2)"
+    },
+    {
+     "loc": "summary",
+     "q": "evidence indicates that JYNNEOS vaccination provides protection against mpox."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "persons vaccinated with 1 dose or 2 doses ≥14 days earlier (IRR denominators); expected route distribution",
+  "across": [
+   "vaccination status",
+   "route of administration",
+   "week"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "mpox incidence among unvaccinated persons was 9.6 times as high as that among persons who had received 2 vaccine doses"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "Pearson’s chi-square test comparing observed and expected proportions of route of administration"
+   },
+   {
+    "loc": "text",
+    "q": "(IRR = 7.4; 95% CI = 6.0–9.1)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "incidence (cases per 100,000 population)",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Cases per 100,000 population."
+    }
+   ]
+  },
+  {
+   "v": "IRR",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "IRR = incidence rate ratio."
+    }
+   ]
+  },
+  {
+   "v": "hazard ratio",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(hazard ratio = 4.3; 95% CI = 3.9–4.8)"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "263 (87.1%) and 39 (12.9%) had received subcutaneous and intradermal administration, respectively."
+    }
+   ]
+  },
+  {
+   "v": "vaccination coverage (%)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "JYNNEOS vaccination coverage (%)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "controlling for week in the model using an indicator variable"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "week (indicator variable)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "controlling for week in the model using an indicator variable"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A supplementary analysis using a Cox proportional hazards model to account for follow-up time also indicated that incidence was higher"
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "Among vaccine-eligible men aged 18–49 years, how does mpox incidence differ between unvaccinated persons and those with 1 or 2 JYNNEOS doses, and by route?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To further examine mpox incidence among persons who were unvaccinated and those who had received either 1 or 2 JYNNEOS doses"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "mpox",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Reduced Risk for Mpox After Receipt of 1 or 2 Doses of JYNNEOS Vaccine"
+    }
+   ]
+  },
+  {
+   "v": "mpox",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "evidence indicates that JYNNEOS vaccination provides protection against mpox."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In this evaluation of mpox among men aged 18–49 years, incidences were lower among those who were vaccinated"
+    }
+   ]
+  },
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Monitoring mpox incidence by vaccination status using currently available surveillance data provides an indication of the real-world impact"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "linkage of mpox case surveillance and vaccination administration data might have resulted in misclassifications"
+    }
+   ]
+  },
+  {
+   "v": "vaccination registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "route of vaccine administration through interviews and immunization registries and submit deidentified vaccine administration data to CDC."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "mpox case surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "linkage of mpox case surveillance and vaccination administration data"
+    }
+   ]
+  },
+  {
+   "v": "immunization registries",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "through interviews and immunization registries"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "43 U.S. Jurisdictions, July 31–October 1, 2022"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "effectiveness",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Reduced Risk for Mpox After Receipt of 1 or 2 Doses of JYNNEOS Vaccine Compared with Risk Among Unvaccinated Persons"
+   }
+  ]
+ },
+ "equity": {
+  "level": 0,
+  "level_reason": "Age, sex and MSM status only define the vaccine-eligible population; no results are given by any social-position group.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 1,
+   "reason": "The introduction notes the outbreak disproportionately affected MSM, but this is background, not an analysis."
+  },
+  "dimensions": [
+   {
+    "v": "sex",
+    "role": "population",
+    "basis": "assigned or observed",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "Persons who reported male sex assigned at birth or male gender identity."
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "population",
+    "basis": "behavior",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "estimated as the number of gay, bisexual, and other men who have sex with men who have HIV infection"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Among JYNNEOS vaccine-eligible men aged 18–49 years in 43 U.S. jurisdictions"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "study_design",
+  "outcome_types"
+ ],
+ "confidence": "high",
+ "notes": "The 14-fold IRR is cited from a previous report and not the article's own. Expected route counts are computed arithmetically from jurisdiction-week distributions; 33 cases with unknown route were assumed subcutaneous, and unknown vaccination status was treated as unvaccinated.",
+ "view_issues": "Table 1 note uses the †† symbol twice; the second (2-dose coverage) should be ¶¶. 'Illness onset' is the earliest available date, which may include report dates."
+}

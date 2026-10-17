@@ -1,0 +1,473 @@
+{
+ "id": "mm7129a4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GvimJoeTWL9L31SmSa",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "higher PTSD prevalence was associated with more weekly work hours and more time spent on COVID-19 response activities."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "6,090 (27.7%) reported symptoms of depression, 6,467 (27.9%) anxiety, 6,324 (28.4%) PTSD, and 1,853 (8.1%) suicidal ideation."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, approximately one half of respondents (48.0% [95% CI = 47.3%–48.7%])"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Respondents who worked >60 hours per week were more likely than were respondents working ≤40 hours per week to experience depression (PR = 1.73)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "by percentage of work time spent on COVID-19 response activities and hours worked in a week"
+    },
+    {
+     "loc": "text",
+     "q": "PRs for PTSD increased in 2022 for respondents who worked >60 hours per week and spent any time on COVID-19 activities"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Poisson regression (bivariate prevalence ratios)",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'Poisson regression' giving bivariate PRs → loglinear",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Bivariate PRs of the four mental health conditions were calculated separately using Poisson regression with 95% CIs."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based CIs from the stated Poisson regression; PR CIs excluding 1.0 judged significant",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "p<0.05 or CIs for the PR that exclude 1.0 were considered statistically significant."
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "p-values for 2021 vs 2022 prevalence differences; test not named",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were lower (−3.1%, −2.4%, and −8.4%, respectively) (p<0.001) among 2022 survey respondents compared with 2021 survey respondents"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "both",
+  "referent": "≤40 hours per week; 0% time on COVID-19 response; Ref level of each characteristic; 2021 survey",
+  "across": [
+   "hours worked per week",
+   "% time on COVID-19 response activities",
+   "work factors",
+   "survey year",
+   "age group",
+   "gender",
+   "race/ethnicity",
+   "education"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "higher PTSD prevalence was associated with more weekly work hours and more time spent on COVID-19 response activities."
+   },
+   {
+    "loc": "table 1",
+    "q": "Ref = referent group."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Bivariate PRs of the four mental health conditions were calculated separately using Poisson regression with 95% CIs."
+   },
+   {
+    "loc": "text",
+    "q": "p<0.05 or CIs for the PR that exclude 1.0 were considered statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "prevalence (%)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "PTSD* prevalence (%)"
+    }
+   ]
+  },
+  {
+   "v": "PR",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "PR (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "difference in prevalence",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were lower (−3.1%, −2.4%, and −8.4%, respectively) (p<0.001)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Bivariate PRs of the four mental health conditions were calculated separately using Poisson regression with 95% CIs."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a multivariable analysis was not conducted"
+    }
+   ]
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "What is the prevalence of symptoms of depression, anxiety, PTSD and suicidal ideation among STLT public health workers in 2022, how does it compare with 2021, and how is it associated with work factors?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To evaluate trends in these conditions from the previous year, the prevalence of symptoms of mental health conditions and suicidal ideation"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "depression",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "6,090 (27.7%) reported symptoms of depression"
+    }
+   ]
+  },
+  {
+   "v": "anxiety",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "6,467 (27.9%) anxiety"
+    }
+   ]
+  },
+  {
+   "v": "posttraumatic stress disorder",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "6,324 (28.4%) PTSD"
+    }
+   ]
+  },
+  {
+   "v": "suicidal ideation",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Symptoms of Mental Health Conditions and Suicidal Ideation Among State, Tribal, Local, and Territorial Public Health Workers"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "data came from cross-sectional surveys"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Response frequencies from the 2021 and the 2022 surveys were tabulated"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a nonprobability-based, self-administered, anonymous, web-based survey was disseminated to a convenience sample of public health workers"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "2022 CDC survey of public health workers",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "in the 2022 CDC survey of public health workers"
+    }
+   ]
+  },
+  {
+   "v": "2021 survey of STLT public health workers",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "2021 survey (Mar–Apr 2021) (N = 26,174)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, March 14–25, 2022"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Prevalences and PRs by race/ethnicity, age, gender and education are reported (Table 1) and race is described once ('highest... compared with other races'), but no disparity is framed or interpreted.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "SPD contrasts sit mostly in an interpretive table; the one race sentence is descriptive and not discussed."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Respondents who identified as multiple races reported the highest prevalences of symptoms of depression (31.4%), anxiety (33.5%), and PTSD (34.4%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group, yrs › ≤29"
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "stratifier",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Gender › Transgender or nonbinary"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Gender › Female"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "highest educational degree attained"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Highest educational degree attained › Less than bachelor’s"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Each SPD level is compared with a single referent (White, ≥60 years, male, less than bachelor's); AI/AN and NH/OPI groups are small; convenience sample."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 7,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Respondents who identified as multiple races reported the highest prevalences of symptoms of depression (31.4%), anxiety (33.5%), and PTSD (34.4%)"
+    },
+    {
+     "loc": "table 1",
+     "q": "Race or ethnicity › White, non-Hispanic"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group, yrs › ≥60"
+    }
+   ]
+  },
+  {
+   "across": [
+    "sexual orientation and gender identity",
+    "sex"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Gender › Male"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Highest educational degree attained › Graduate"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "analytic_depth",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "The methods say 2021 and 2022 prevalences and 95% CIs 'were compared' without naming a test; the p<0.001 claims are recorded as an unnamed test. Table 2 gives PRs for COVID-19 time within strata of hours worked, read as stratified. Comparisons of 2021 vs 2022 PRs are side by side, not a formal interaction test.",
+ "view_issues": "Table 1 'Yrs worked in public health' suicidal ideation PRs (1.37, 1.56, 1.41, 1.16) duplicate the COVID-19 time rows, likely a copy error. Table 3 CSV has a stray ')' in '0.84 (0.80–0.88))'. Text says 'Since March 2022' where 'since March 2021' seems meant. Table 1 overall row puts CIs in the PR column."
+}

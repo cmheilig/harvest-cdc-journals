@@ -1,0 +1,429 @@
+{
+ "id": "mm7108a5",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "From 2019 to 2020, the overall suicide rate declined significantly by 3.0% (from 13.9 to 13.5 per 100,000 population)."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "From 2019 to 2020, the overall suicide rate declined significantly by 3.0% (from 13.9 to 13.5 per 100,000 population)."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2020, a total of 45,979 deaths were attributable to suicide"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "From 2019 to 2020, the suicide rate declined overall by 3%, including 8% among females and 2% among males."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-adjusted death rates (per 100,000 population) and CIs were calculated by using the direct method and the 2000 U.S. standard population."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "'direct method and the 2000 U.S. standard population' → direct standardization",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-adjusted death rates (per 100,000 population) and CIs were calculated by using the direct method and the 2000 U.S. standard population."
+    }
+   ]
+  },
+  {
+   "name": "z-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "z-tests for 2019 vs 2020 rate differences when deaths ≥100",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Differences in rates between 2019 and 2020 were assessed using z-tests when the number of deaths was ≥100"
+    }
+   ]
+  },
+  {
+   "name": "CI overlap assertion",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "nonoverlapping gamma-based CIs used as the significance criterion when deaths <100 (e.g. NHPI, small states)",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using nonoverlapping CIs based on a gamma distribution when the number was <100; p-values <0.05 were considered statistically significant."
+    }
+   ]
+  },
+  {
+   "name": "suppression of rates for counts <20",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "small-cell suppression of unstable rates",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates were suppressed for case counts <20 because they are unstable as a result of the small number of deaths"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "both",
+  "referent": "2019",
+  "across": [
+   "year",
+   "sex",
+   "race/ethnicity",
+   "age group",
+   "county urbanization level",
+   "mechanism of injury",
+   "state"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "From 2019 to 2020, the suicide rate declined overall by 3%, including 8% among females and 2% among males."
+   },
+   {
+    "loc": "text",
+    "q": "Absolute and relative changes in rates were calculated and are shown in the tables"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "ci_overlap": true,
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Differences in rates between 2019 and 2020 were assessed using z-tests when the number of deaths was ≥100"
+   },
+   {
+    "loc": "text",
+    "q": "using nonoverlapping CIs based on a gamma distribution when the number was <100; p-values <0.05 were considered statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted rate per 100,000",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Annual number of suicides and age-adjusted* rates of suicide † per 100,000 population"
+    }
+   ]
+  },
+  {
+   "v": "crude rate per 100,000",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Crude rates (deaths per 100,000) are presented for age groups."
+    }
+   ]
+  },
+  {
+   "v": "absolute change",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Absolute change was the rate in 2020 minus the rate in 2019."
+    }
+   ]
+  },
+  {
+   "v": "relative change",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Relative change was calculated using the equation: (2020 rate–2019 rate)/2019 rate x 100."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did suicide rates change from 2019 to 2020 in the United States overall and by demographic group, mechanism, urbanization level and state?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To understand how changes in suicide death rates might have varied among subpopulations, CDC analyzed counts and age-adjusted suicide rates during 2019 and 2020"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "suicide",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Changes in Suicide Rates — United States, 2019 and 2020"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Death certificate data from the 2019–2020 National Vital Statistics System multiple cause-of-death mortality files were analyzed."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Changes in suicide rates from 2019 to 2020 were examined overall and by race/ethnicity, age, mechanism of injury, county urbanization level, sex, and state."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Death certificate data from the 2019–2020 National Vital Statistics System multiple cause-of-death mortality files were analyzed."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System multiple cause-of-death mortality files",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Death certificate data from the 2019–2020 National Vital Statistics System multiple cause-of-death mortality files were analyzed."
+    }
+   ]
+  },
+  {
+   "v": "2013 NCHS Urban–Rural Classification Scheme for Counties",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "categorized by using the 2013 National Center for Health Statistics Urban–Rural Classification Scheme for Counties."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Changes in Suicide Rates — United States, 2019 and 2020"
+   },
+   {
+    "loc": "text",
+    "q": "The overall suicide rate declined significantly from 2019 to 2020 in seven states"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Rates by race/ethnicity, age, sex and rurality are reported and ranked, and the Summary frames increases in some groups as persistent disparities, but between-group contrasts are only set side by side; the computed changes are within-group period changes.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Quantified increases among Hispanic males (5.7%) and multiracial females (29.2%) are explicitly interpreted as evidence of persistent demographic disparities."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "basis": "assigned or observed",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Demographic disparities in suicide persist, as evidenced by increasing rates among persons aged 25–34 years, Hispanic males, and non-Hispanic multiracial females."
+     },
+     {
+      "loc": "table 1",
+      "q": "Potential racial misclassification might lead to underestimates for certain categories"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Rates in 2020 were highest among persons aged ≥85 years (20.9 per 100,000), followed by those aged 75–84 and 25–34 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Age-adjusted death rates (per 100,000 population) and CIs were calculated by using the direct method and the 2000 U.S. standard population."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "data were not presented for persons aged <10 years in age group analyses"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "From 2019 to 2020, the suicide rate among males declined by 1.9% (from 22.4 to 22.0 per 100,000)."
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Suicide rates were inversely related to county urbanization level, with the most rural (noncore) counties experiencing the highest rate (20.6 per 100,000)."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Single-race categories from death certificates; Hispanic origin and AI/AN/Asian/PI misclassification acknowledged; NHPI female and unknown-race rates suppressed or not calculated; national 20% reduction goal is cited, not compared by group."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 7,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among racial/ethnic groups, overall, suicide rates in 2020 were highest among persons who were non-Hispanic American Indian or Alaska Native (23.9 per 100,000)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 9,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates in 2020 were highest among persons aged ≥85 years (20.9 per 100,000), followed by those aged 75–84 and 25–34 years"
+    }
+   ]
+  },
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Suicide rates were inversely related to county urbanization level, with the most rural (noncore) counties experiencing the highest rate (20.6 per 100,000)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity",
+    "sex",
+    "age"
+   ],
+   "n_groups": null,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Subgroups with the highest suicide rates were non-Hispanic American Indian or Alaska Native males aged 25–34 years (71.1) and 15–24 years (59.7)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise"
+ ],
+ "confidence": "high",
+ "notes": "Design is not named; surveillance/descriptive with a two-year before/after comparison is inferred. Tests are 2019 vs 2020 within each group, not across SPD groups, so they make no groupwise entry. The 20% by 2025 national goal is cited only as context, not used as a referent.",
+ "view_issues": "article.txt table summary lists 'Race/Ethnicity › Unknown' rows repeatedly and mislabels one suppressed row; the CSV is clear."
+}

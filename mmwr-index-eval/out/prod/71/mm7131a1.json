@@ -1,0 +1,377 @@
+{
+ "id": "mm7131a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8Gw1Pw8iYpQMwdt4mgZ",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Getting splash pad water in the mouth was associated with illness on both days."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "21 (29%) experienced illness meeting the shigellosis case definition"
+    },
+    {
+     "loc": "text",
+     "q": "Getting splash pad water in the mouth was associated with illness (aOR C = 24.1, p = 0.007"
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Analysis of data from 404 respondents who only visited the park once during May 28–June 19 identified two distinct outbreaks"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "21 (29%) experienced illness meeting the shigellosis case definition"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Got splash pad water in the mouth"
+    },
+    {
+     "loc": "text",
+     "q": "Touching or feeding lemurs (the only nonhuman primates available for patron interaction) was not associated with illness."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Unadjusted and adjusted odds ratios and CIs were estimated using Firth penalized maximum likelihood logistic regression"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Firth penalized logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Firth penalized maximum likelihood logistic regression' giving unadjusted and adjusted ORs → logistic; CIs by penalized profile likelihood",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Unadjusted and adjusted odds ratios and CIs were estimated using Firth penalized maximum likelihood logistic regression"
+    },
+    {
+     "loc": "note",
+     "q": "CIs were calculated using penalized profile likelihood for complete case analysis and a combination of likelihood profiles for multiply imputed analyses."
+    }
+   ]
+  },
+  {
+   "name": "multiple imputation by chained equations (60 imputations)",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "imputed values enter the headline aOR MI estimates, pooled across imputations",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Missing values were multiply imputed 60 times using chained equations."
+    },
+    {
+     "loc": "table 1",
+     "q": "aORs calculated using Firth penalized likelihood logistic regression, pooled estimates for multiply imputed analysis."
+    }
+   ]
+  },
+  {
+   "name": "Mann-Whitney U test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in footnote for case vs control age comparison",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Case-patient and control age data were compared using the Mann-Whitney U test."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "control respondents (no gastrointestinal illness)",
+  "across": [
+   "case status by exposure",
+   "visit date (separate outbreaks)"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Participants who did not experience gastrointestinal illness were considered control respondents."
+   },
+   {
+    "loc": "summary",
+    "q": "Getting splash pad water in the mouth was associated with illness on both days."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "note",
+    "q": "CIs were calculated using penalized profile likelihood for complete case analysis and a combination of likelihood profiles for multiply imputed analyses."
+   },
+   {
+    "loc": "note",
+    "q": "Case-patient and control age data were compared using the Mann-Whitney U test."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "aOR C (complete case)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "aOR C = adjusted odds ratio, complete case"
+    }
+   ]
+  },
+  {
+   "v": "aOR MI (multiply imputed)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "aOR MI = adjusted odds ratio, multiply imputed"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "21 (29%) experienced illness meeting the shigellosis case definition"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Bivariate complete case analysis"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Multivariate multiply imputed analysis"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "other potential exposures in the table (played in splash pad water, drank from drinking fountain, touched or fed lemurs); age removed",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age was found to be associated with illness but was removed from the model"
+    },
+    {
+     "loc": "table 1",
+     "q": "None of these behaviors were associated with illness in initial analyses and were removed from consideration before multivariate modeling."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Multiply imputed analyses were compared with complete case analyses."
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "Which exposures at a Kansas wildlife park, including its splash pad, were associated with the June 2021 shigellosis and norovirus outbreaks, and what factors contributed?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "SCHD worked with the splash pad operator and CDC to identify potential factors contributing to the outbreaks."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "shigellosis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "one caused by Shigella and involving 21 cases in study respondents who visited on June 11"
+    }
+   ]
+  },
+  {
+   "v": "norovirus infection",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "the other caused by norovirus and involving six cases in respondents who visited on June 18."
+    }
+   ]
+  },
+  {
+   "v": "acute gastrointestinal illness",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Outbreaks of Acute Gastrointestinal Illness Associated with a Splash Pad in a Wildlife Park"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "outbreak investigation",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "KDHE and Sedgwick County Health Department (SCHD) consulted with CDC on the outbreak investigation, which included a case-control study"
+    }
+   ]
+  },
+  {
+   "v": "case-control",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A case-control study identified two distinct outbreaks associated with the park"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "record abstraction or interview",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "to voluntarily complete an online outbreak questionnaire during July 12–August 4."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "online outbreak questionnaire",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "to voluntarily complete an online outbreak questionnaire during July 12–August 4."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Kansas, June 2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Only age (case-patients younger than controls) and sex (predominantly female, not associated) appear, without social-position framing.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "were 5 years (range = 1–15 years) and 11 years (range = 1–70 years), respectively (p<0.01)."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Both case-patients and controls were predominantly female (62% and 67%, respectively)."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "outcome_types"
+ ],
+ "confidence": "high",
+ "notes": "Bivariate and multivariable Firth logistic models were fit under complete case and multiple imputation; p-values are model-term p-values. Environmental water testing (coliforms, E. coli) and lab confirmation are not procedures. Multivariable covariates are inferred from the table (other exposures), as the text does not list them.",
+ "view_issues": "Table labels bivariate estimates 'aOR' though unadjusted. For 'Played in splash pad water' (June 11), bivariate complete case and MI give identical OR and CI but p-values 0.032 vs <0.001. Typo 'jurisdicitons'."
+}

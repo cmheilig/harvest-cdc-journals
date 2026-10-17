@@ -1,0 +1,473 @@
+{
+ "id": "mm7135a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GviuVjBpA7odRwsfaF",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "parental intent to vaccinate children against COVID-19 and perception of COVID-19 vaccine safety and effectiveness declined over a 3-month period"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among 393 parents who participated in a baseline survey, approximately 64%, 19%, and 10% reported they were likely, were unsure, or were unlikely"
+    },
+    {
+     "loc": "text",
+     "q": "30 (11.2%) parents changed their perception of vaccine effectiveness from neutral or negative to positive"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among 393 parents who participated in a baseline survey, approximately 64%, 19%, and 10% reported they were likely, were unsure, or were unlikely"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "There were statistically significant differences in vaccine intention identified by study site (p<0.001)"
+    },
+    {
+     "loc": "table 2",
+     "q": "Odds ratios for both time points are compared with baseline responses."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted for receiving a positive SARS-CoV-2 test result before survey completion, age, sex, race and ethnicity, health insurance, and site."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "GEE cumulative logit (ordinal multinomial) regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'GEE models with multinomial distributions and cumulative logit links' for intention → logistic (multinomial, cumulative logit); ORs reported",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "For vaccination intention outcomes, GEE models with multinomial distributions and cumulative logit links were used"
+    }
+   ]
+  },
+  {
+   "name": "GEE logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "GEE with 'binomial distributions and logit links' for perception outcomes → logistic; ORs reported",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the other models assessing perception outcomes used binomial distributions and logit links."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based CIs from the named GEE models; significance of ORs vs baseline judged from 95% CIs (stated as 'nonoverlapping 95% CIs')",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "statistical significance was defined as p<0.05 for chi-square tests and nonoverlapping 95% CIs for GEE models."
+    },
+    {
+     "loc": "text",
+     "q": "but were no longer significant after adjusting for the child’s receipt of a positive SARS-CoV-2 test result before survey completion"
+    }
+   ]
+  },
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "table note names chi-square tests of characteristics by intention group",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Chi-square tests performed to test if the distribution of each characteristic differed by intention group."
+    }
+   ]
+  },
+  {
+   "name": "analysis of variance",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "table note names ANOVA for age and vaccine belief scores by intention group",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "An analysis of variance was used to test if the median age of children and vaccine belief questions differed between intention groups."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "baseline survey",
+  "across": [
+   "survey time point (baseline, 3 months, 6 months)",
+   "study site",
+   "household income",
+   "race and ethnicity",
+   "positive SARS-CoV-2 test result"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The survey time point was added as a categorical predictor to calculate the OR for vaccine intention and vaccine perceptions."
+   },
+   {
+    "loc": "table 2",
+    "q": "Odds ratios for both time points are compared with baseline responses."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "statistical significance was defined as p<0.05 for chi-square tests and nonoverlapping 95% CIs for GEE models."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "At baseline, 253 (64.4%) parents reported that they were likely to get their child vaccinated"
+    }
+   ]
+  },
+  {
+   "v": "OR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "in unadjusted models (OR = 1.66, 95% CI = 1.1–2.5; and OR = 1.82, 95% CI = 1.3–2.6, respectively)"
+    }
+   ]
+  },
+  {
+   "v": "aOR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "they were 39% less likely to perceive the vaccine as effective (aOR = 0.61)."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "GEE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A generalized estimating equation (GEE) model was used for each question to evaluate whether within-parent responses changed"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Both unadjusted and adjusted models were calculated"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted for receiving a positive SARS-CoV-2 test result before survey completion, age, sex, race and ethnicity, health insurance, and site."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "positive SARS-CoV-2 test result before survey completion, age, sex, race and ethnicity, health insurance, and site",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted for receiving a positive SARS-CoV-2 test result before survey completion, age, sex, race and ethnicity, health insurance, and site."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did parental intent to vaccinate children aged <5 years against COVID-19, and perceptions of the vaccine, change over 3 and 6 months of follow-up?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "changes in parental perceptions toward COVID-19 vaccines and vaccination ¶ for children aged <5 years were examined during July 2021–May 2022."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Parental Intentions and Perceptions Toward COVID-19 Vaccination Among Children Aged 4 Months to 4 Years"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "prospective cohort",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "PROTECT is an ongoing prospective cohort that includes >2,300 children and adolescents aged 4 months–17 years"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Upon enrollment, parents provided sociodemographic information, COVID-19 illness history, vaccination history, and their perceptions about COVID-19 vaccines for children."
+    },
+    {
+     "loc": "text",
+     "q": "Participants are surveyed every 3 months."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Pediatric Research Observing Trends and Exposures in COVID-19 Timelines (PROTECT)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "PROTECT is an ongoing prospective cohort that includes >2,300 children and adolescents aged 4 months–17 years"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "the study monitors infections with SARS-CoV-2 in Arizona, Florida, Texas, and Utah"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "other",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "parental intent to vaccinate children against COVID-19 and perception of COVID-19 vaccine safety and effectiveness declined over a 3-month period"
+   }
+  ]
+ },
+ "equity": {
+  "level": 2,
+  "level_reason": "Baseline intent is reported by household income, insurance and race/ethnicity with chi-square p-values (income p=0.003 noted in text), but no disparity is framed or quantified; capped at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "SES and race appear mainly as Table 1 descriptors and model covariates; the text only names income among characteristics with significant differences."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "This study was restricted to 393 children aged <5 years who were enrolled in the PROTECT study during July 2021–May 2022."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Adjusted for receiving a positive SARS-CoV-2 test result before survey completion, age, sex, race and ethnicity, health insurance, and site."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Adjusted for receiving a positive SARS-CoV-2 test result before survey completion, age, sex, race and ethnicity, health insurance, and site."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race and ethnicity › Black, non-Hispanic"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Adjusted for receiving a positive SARS-CoV-2 test result before survey completion, age, sex, race and ethnicity, health insurance, and site."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "household income",
+     "parent insured"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "percent of household members vaccinated (p = 0.011), and household income (p = 0.003)."
+     },
+     {
+      "loc": "table 1",
+      "q": "Household income › $0–$49,999"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "health insurance"
+    ],
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Adjusted for receiving a positive SARS-CoV-2 test result before survey completion, age, sex, race and ethnicity, health insurance, and site."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "SPD contrasts are only Table 1 chi-square tests of intention by group; Black and Asian groups are small (12, 13); sex and insurance include missing categories."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Chi-square tests performed to test if the distribution of each characteristic differed by intention group."
+    },
+    {
+     "loc": "table 1",
+     "q": "Race and ethnicity › Black, non-Hispanic"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "percent of household members vaccinated (p = 0.011), and household income (p = 0.003)."
+    },
+    {
+     "loc": "table 1",
+     "q": "Household income › ≥$150,000"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "inference",
+  "equity.level",
+  "outcome_types"
+ ],
+ "confidence": "medium",
+ "notes": "The stated rule 'nonoverlapping 95% CIs for GEE models' applies to single ORs vs baseline, read as CI inversion against 1 rather than a CI overlap assertion. Table 1 mean belief scores compared by ANOVA are ancillary, so continuous is not listed. One child per household was randomly selected to avoid clustering (design step).",
+ "view_issues": "Summary/text gives 3-month intention aOR = 0.84 (0.6–1.0), but Table 2 shows 0.84 (0.68–1.04) as unadjusted and 0.76 as adjusted (text later says aOR = 0.76). Table 2 marks vaccine knowledge ORs with * instead of ¶. Text says 6-month intent/safety 'less likely to be neutral or negative' while ORs measure moves to positive."
+}

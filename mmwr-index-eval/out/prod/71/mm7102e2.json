@@ -1,0 +1,370 @@
+{
+ "id": "mm7102e2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8Gvif7WjsbevavDUT31",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In the IQVIA database, diabetes incidence was 316 per 100,000 person-years in the COVID-19 group"
+    }
+   ]
+  },
+  {
+   "v": "event-time",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Cox regression models were used to estimate HRs for diabetes risk."
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "DKA was reported in 48.5% (IQVIA) and 40.2% (HealthVerity) of patients with COVID-19 and diabetes"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Diabetes risk was 166% higher in the COVID-19 group than in the non-COVID-19 group (HR = 2.66, 95% CI = 1.98–3.56)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "HRs were also estimated by age group and sex."
+    },
+    {
+     "loc": "text",
+     "q": "In the HealthVerity database, there was no association with diabetes in children aged <12 years"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Cox proportional hazards regression",
+   "class": "regression",
+   "regression_family": "event-time",
+   "inferred_from": "'Cox regression models' estimating HRs → event-time",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Cox regression models were used to estimate HRs for diabetes risk."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "HR CIs judged against 1 ('did not significantly differ', 'significantly increased risk'); CIs model-based from the Cox models",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Diabetes incidence did not significantly differ between the prepandemic ARI and non-ARI groups (HR = 0.99, 95% CI = 0.84–1.15)."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "pandemic non–COVID-19 group; prepandemic ARI group",
+  "across": [
+   "COVID-19 status",
+   "ARI status",
+   "age group",
+   "sex",
+   "database"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "with COVID-19 were more likely to receive a new diabetes diagnosis >30 days after infection than were those without COVID-19"
+   },
+   {
+    "loc": "text",
+    "q": "116% higher than in the prepandemic ARI group (HR = 2.16, 95% CI = 1.64–2.86)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Cox regression models were used to estimate HRs for diabetes risk."
+   },
+   {
+    "loc": "text",
+    "q": "However, no age group or sex interaction terms were statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "HR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Diabetes risk was 166% higher in the COVID-19 group than in the non-COVID-19 group (HR = 2.66, 95% CI = 1.98–3.56)"
+    }
+   ]
+  },
+  {
+   "v": "diabetes incidence per 100,000 person-years",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Cases per 100,000 person-years."
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Diabetes was coded in 0.08% (IQVIA) and 0.25% (HealthVerity) of claims for patients with COVID-19"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the present analyses lacked information on covariates that could have affected the association between COVID-19 and incident diabetes"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Patients with COVID-19 were matched by age and sex to pandemic and prepandemic period comparison groups."
+    }
+   ]
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age and sex effect modifications were assessed using interaction terms."
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Analyses were replicated using a second data source (HealthVerity; March 1, 2020–June 28, 2021)"
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "Is SARS-CoV-2 infection among persons aged <18 years associated with increased risk of a new diabetes diagnosis >30 days after infection?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "after acute infection with SARS-CoV-2 (the virus that causes COVID-19), CDC estimated diabetes incidence among patients aged <18 years"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "diabetes",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Risk for Newly Diagnosed Diabetes >30 Days After SARS-CoV-2 Infection Among Persons Aged <18 Years"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Risk for Newly Diagnosed Diabetes >30 Days After SARS-CoV-2 Infection Among Persons Aged <18 Years"
+    }
+   ]
+  },
+  {
+   "v": "diabetic ketoacidosis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "DKA was reported in 48.5% (IQVIA) and 40.2% (HealthVerity) of patients with COVID-19 and diabetes"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "retrospective cohort",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Retrospective cohorts were constructed using two U.S. medical claims databases"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "administrative/claims",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Retrospective cohorts were constructed using two U.S. medical claims databases"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "IQVIA PharMetrics Plus",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "IQVIA PharMetrics Plus ( https://www.iqvia.com ) is a database of adjudicated health care claims from closed U.S. health plans"
+    }
+   ]
+  },
+  {
+   "v": "HealthVerity",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Analyses were replicated using a second data source (HealthVerity; March 1, 2020–June 28, 2021)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, March 1, 2020–June 28, 2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Race/ethnicity appears only in the Discussion and limitations (data unavailable; future studies should address disparities). Age and sex define the population and stratify HRs without social-position framing.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 0,
+   "reason": "Only age and sex are analyzed; race/ethnicity is mentioned but never measured."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Risk for Newly Diagnosed Diabetes >30 Days After SARS-CoV-2 Infection Among Persons Aged <18 Years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "HRs were also estimated by age group and sex."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "HRs were also estimated by age group and sex."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Race/ethnicity data were unavailable in the present data sets"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity unavailable in both claims databases; commercially insured, care-seeking children only; age and sex used as matching variables."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "comparison",
+  "regression_fields"
+ ],
+ "confidence": "high",
+ "notes": "Matching on age, sex (and month) is a design step; Cox model covariates are not stated, so read as unadjusted. Replication in HealthVerity is recorded as sensitivity analysis. Log-scale plotting of HRs and the 'specificity' limitation are prepass false hits.",
+ "view_issues": "Table 2 CSV shows '407,74 1' person-years (spacing artifact). Table 1 HealthVerity hospitalized row (7,510 (0.9); 5,608 (1.3); overall 13,118 (3.0)) has percentages inconsistent with the counts and denominators."
+}

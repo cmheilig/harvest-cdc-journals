@@ -1,0 +1,374 @@
+{
+ "id": "mm7149a3",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "In 2020, 316,023 (10.3%) deaths among ever-employed persons were associated with COPD."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The highest age-specific COPD death rate (855.8 deaths per 100,000 ever-employed persons) was for persons aged ≥75 years"
+    },
+    {
+     "loc": "note",
+     "q": "PMR was defined as the observed number of deaths from COPD in a specified industry or occupation, divided by the expected number"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among 3,077,127 decedents, 316,023 (10.3%) had COPD listed on the death certificate."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "316,023 (10.3%; age-adjusted death rate = 102.5 deaths per 100,000 ever-employed persons) had COPD listed on their death certificates"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The three industries with the highest PMRs were mining (1.33), accommodation and food services (1.28), and construction (1.23)."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Death rates were age-adjusted to the 2000 U.S. population. PMRs adjusted for age, sex, and race were calculated."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization of death rates",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "age-specific rates applied to the 2000 U.S. standard population → direct standardization",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Age-adjusted death rates were calculated by applying age-specific death rates to the 2000 U.S. Census Bureau standard population age distribution."
+    }
+   ]
+  },
+  {
+   "name": "proportionate mortality ratio (observed/expected), adjusted for age group, sex and race",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "expected deaths from the all-industry COPD proportion, adjusted by 10-year age group, sex and race → indirect standardization of a proportion",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "The COPD PMRs were adjusted by 10-year age groups, sex, and race."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "PMR judged significant when lower 95% CI >1.0; CIs assume a Poisson distribution",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A PMR with the lower 95% CI >1.0 indicated a significantly higher proportion of deaths associated with COPD"
+    },
+    {
+     "loc": "text",
+     "q": "CIs were calculated assuming Poisson distribution of data."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "PMR = 1.0 (expected COPD deaths from all industries or occupations)",
+  "across": [
+   "industry",
+   "occupation",
+   "age group",
+   "sex",
+   "race",
+   "ethnicity"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The COPD proportionate mortality ratios were elevated for several industries and occupations, and highest among workers in the mining industry"
+   },
+   {
+    "loc": "text",
+    "q": "PMRs were significantly elevated among ever-employed persons in 10 of the 23 industries and 11 of the 26 occupations"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CIs were calculated assuming Poisson distribution of data."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "PMR",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "PMR (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "age-adjusted death rate per 100,000 ever-employed persons",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Death rates (per 100,000 ever-employed persons) were based on postcensal population estimates as of July 1, 2020."
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. of deaths (%)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How does COPD mortality among ever-employed U.S. decedents in 2020 vary by demographic group, industry and occupation?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To describe COPD mortality among U.S. residents aged ≥15 years categorized as ever-employed"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "chronic obstructive pulmonary disease",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Chronic Obstructive Pulmonary Disease Mortality by Industry and Occupation — United States, 2020"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed the most recent 2020 multiple cause-of-death data from 46 states and New York City."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "whose record in National Vital Statistics System public use multiple-cause-of-death data included information on their usual industry and occupation"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System public use multiple cause-of-death data",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Source: National Vital Statistics System public use multiple cause files 2020."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Chronic Obstructive Pulmonary Disease Mortality by Industry and Occupation — United States, 2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Age-adjusted COPD death rates are reported by race and ethnicity and the highest groups (White, non-Hispanic) are described and linked to prior findings, but no difference or ratio is computed and no disparity is framed.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The Discussion interprets elevated rates among White and non-Hispanic persons, which could be read as a framed disparity, though unquantified."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "basis": "assigned or observed",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The highest age-adjusted death rates were for females (101.3), White persons (116.9), and non-Hispanic persons (115.8)"
+     },
+     {
+      "loc": "table 1",
+      "q": "Race and Hispanic origin are reported separately on the death certificate."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "PMRs were adjusted for 10-year age group, sex, and race."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "PMRs were adjusted for 10-year age group, sex, and race."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The highest age-specific COPD death rate (855.8 deaths per 100,000 ever-employed persons) was for persons aged ≥75 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Death rates were age-adjusted to the 2000 U.S. population."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "To describe COPD mortality among U.S. residents aged ≥15 years categorized as ever-employed"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race has four categories with Hispanic origin reported separately, from death certificates. Industry and occupation are treated as routes of workplace exposure, not social position."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The highest age-adjusted death rates were for females (101.3), White persons (116.9), and non-Hispanic persons (115.8)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 7,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The highest age-specific COPD death rate (855.8 deaths per 100,000 ever-employed persons) was for persons aged ≥75 years"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "comparison",
+  "equity.level"
+ ],
+ "confidence": "high",
+ "notes": "Design inferred as surveillance/descriptive; none is named. 'Poisson distribution' refers to CI construction, not a regression. Industry and occupation comparisons are non-SPD and recorded only in comparison.",
+ "view_issues": "Table 1: White CI '116.1–17.7' and age row '64–74' look like typos; female rate (101.3) is called highest, yet the total is 102.5. Table 2: Real estate 3.6% and Healthcare 1.1% are inconsistent with counts; agriculture is marked significant with lower CI 1.00. Table 3: Management '24.301'."
+}

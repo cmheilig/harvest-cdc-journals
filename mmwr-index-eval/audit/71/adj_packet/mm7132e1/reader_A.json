@@ -1,0 +1,437 @@
+{
+ "id": "mm7132e1",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Treatment rates are low overall and vary by age and insurance payor."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Initiation of DAA treatment prevalence was calculated as the percentage of eligible patients who initiated DAA treatment within 360 days"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Few insured persons with diagnosed hepatitis C receive timely DAA treatment, and disparities in treatment exist."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "among persons continuously enrolled in Medicaid, Medicare, and private insurance was 23%, 28%, and 35%, respectively"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "All models adjusted for sex, age group, and race. The Medicaid sample was also adjusted for Medicaid treatment restrictions."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multivariable logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Multivariable logistic regression' yielding aORs → logistic; models fitted overall and separately by insurance type",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Multivariable logistic regression was used to assess the association between initiation of DAA treatment and sex, age, race, payor, and Medicaid restriction status"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "aOR 95% CIs judged against 1; CIs model-based from the logistic regression",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "95% CIs that exclude 1 were considered statistically significant."
+    }
+   ]
+  },
+  {
+   "name": "Wald chi-square test of independence",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named test comparing baseline characteristics by treatment status",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a Wald chi-square test of independence was used to compare baseline characteristics by treatment status"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "private insurance; age 50–59 years; White race; female; states without Medicaid restrictions",
+  "across": [
+   "insurance type",
+   "age group",
+   "race",
+   "sex",
+   "state Medicaid treatment restrictions"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Treatment rates are low overall and vary by age and insurance payor."
+   },
+   {
+    "loc": "table 2",
+    "q": "Abbreviations: aOR = adjusted odds ratio; Ref = referent group."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "aORs and 95% CIs were calculated with p<0.05 considered statistically significant."
+   },
+   {
+    "loc": "table 2",
+    "q": "95% CIs that exclude 1 were considered statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage (DAA treatment initiation prevalence)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Initiation of DAA treatment prevalence was calculated as the percentage of eligible patients who initiated DAA treatment within 360 days"
+    }
+   ]
+  },
+  {
+   "v": "aOR",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Multivariable aOR (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a Wald chi-square test of independence was used to compare baseline characteristics by treatment status"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusting for sex, age group, race, insurance type, and Medicaid treatment restrictions status"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "sex, age group, race, insurance type, and Medicaid treatment restrictions status",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusting for sex, age group, race, insurance type, and Medicaid treatment restrictions status"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Sensitivity analyses were conducted to assess potential effects of missing ethnicity data, alternative codings for race"
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "Among insured adults with diagnosed hepatitis C, how does initiation of DAA treatment vary by sex, age, race, insurance type and state Medicaid treatment restrictions?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "assess hepatitis C treatment among persons with diagnosed HCV infection by sex, age, race, insurance type"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "hepatitis C",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Vital Signs: Hepatitis C Treatment Among Insured Adults — United States, 2019–2020"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "retrospective cohort",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The retrospective cohort in this study included approximately 2 million persons from all 50 states and the District of Columbia"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "administrative/claims",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Data from HealthVerity, an administrative claims and encounters database, were used to construct a cohort"
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "State-level Medicaid treatment restrictions data were obtained from HepVu"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "HealthVerity",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Deidentified data came from HealthVerity, a nationwide administrative claims and encounters database"
+    }
+   ]
+  },
+  {
+   "v": "HepVu",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "State-level Medicaid treatment restrictions data were obtained from HepVu"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "approximately 2 million persons from all 50 states and the District of Columbia"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Disparities by insurance type (Medicaid framed as low income) and by race within Medicaid are framed, quantified with aORs (e.g., 46% less likely; up to 27% less likely) and interpreted; state Medicaid treatment restrictions (a policy) are analyzed as an exposure, and social determinants and health system barriers are named.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Racial-disparity causes are offered only speculatively ('might involve'), and restriction status could be read as geography/policy status rather than a social determinant."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "within Medicaid, among persons reporting Black or other race and persons in states with treatment restrictions"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "All models adjusted for sex, age group, and race."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "primary comparison",
+    "ses_components": [
+     "insurance payor (Medicaid, Medicare, private)"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Medicaid provides health insurance for eligible adults and children in low-income households."
+     },
+     {
+      "loc": "summary",
+      "q": "Treatment rates are low overall and vary by age and insurance payor."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "DAA treatment is lowest among young adults aged 18–29 years and Medicaid recipients"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "a cohort of adults aged 18–69 years with HCV infection diagnosed during January 30, 2019–October 31, 2020"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Male sex was consistently associated with lower treatment initiation among Medicaid, Medicare, and private insurance recipients"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "state Medicaid treatment restrictions; social determinants of health among low-income Medicaid recipients; health system barriers (patient access, provider availability, quality of care, distrust, stigma, language and cultural factors)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "persons in states with Medicaid treatment restrictions had lower odds of receiving treatment than did those living in states without restrictions"
+    },
+    {
+     "loc": "text",
+     "q": "Medicaid recipients have fewer financial resources and are more likely to be affected by social determinants of health"
+    },
+    {
+     "loc": "text",
+     "q": "might involve health system barriers associated with patient access, provider availability, quality of care, patient distrust, stigma"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Insurance type read as SES (Medicaid as low income; Medicare also covers age ≥65 and disability). Race referent White; ethnicity missing for 61% and excluded; race missing 13% kept as its own category; uninsured and incarcerated persons excluded."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "persons with hepatitis C with Medicaid and Medicare had lower odds of initiating DAA treatment than did those with private insurance"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "treatment initiation was lowest among adults aged 18–29 and 30–39 years with Medicaid or private insurance, compared with those aged 50–59 years"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "DAA treatment initiation was similar across most racial groups, except persons with missing race information"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise",
+  "equity.dimensions"
+ ],
+ "confidence": "high",
+ "notes": "The Wald chi-square of baseline characteristics by treatment status would be an omnibus test across race and age levels, but its results are not reported, so groupwise entries use the reported aORs vs referents. Medicaid restriction status is a state policy, recorded as a determinant rather than an SPD.",
+ "view_issues": "Table 2 private-insurance Black aOR 1.08 has CI 0.93–1.81, identical to the Asian row's CI, likely a copy error. Results text says model adjusted for sex, age, race and insurance, while Methods also list Medicaid restrictions."
+}

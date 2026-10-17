@@ -1,0 +1,425 @@
+{
+ "id": "mm7118a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8Gvij5TPsJdyQSujwPh",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Annual percent change (APC) for each trend segment and AAPC from 1999 to 2019 were estimated"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "1999 › Deaths per 100,000 population (95% CI)"
+    },
+    {
+     "loc": "text",
+     "q": "Queries to CDC WONDER generated yearly age-adjusted sex-specific mortality rates (deaths per 100,000 standard population)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "From 1999 to 2019, overall age-adjusted COPD mortality rates among women did not change"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "rates increased among women living in the Midwest and those in small metropolitan or nonmetropolitan areas."
+    },
+    {
+     "loc": "text",
+     "q": "but in 2019 the rate was 84% higher in noncore areas."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-adjusted rates with 95% CIs were estimated using the 2000 U.S. standard population and 10-year age groups."
+    },
+    {
+     "loc": "text",
+     "q": "trends in age-adjusted, sex-specific COPD mortality rates differed by region and urban-rural status during this period"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "age-adjusted rates using the 2000 U.S. standard population and 10-year age groups → direct standardization",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-adjusted rates with 95% CIs were estimated using the 2000 U.S. standard population and 10-year age groups."
+    }
+   ]
+  },
+  {
+   "name": "joinpoint regression",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "joinpoint estimating APC and AAPC implies a log-linear model of rates; APC/AAPC tested against 0 with t or z distribution (part of the model); joinpoints chosen by Monte Carlo permutation",
+   "role": "primary",
+   "alternative_reading": "linear (least squares on log rates, Joinpoint default)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Trends were evaluated using Joinpoint software (version 4.8.0.1; National Cancer Institute)."
+    },
+    {
+     "loc": "note",
+     "q": "Joinpoint software identifies statistically significant changes in a trend using Monte Carlo permutation, then fits them as a series of joined trend segments."
+    }
+   ]
+  },
+  {
+   "name": "CI overlap assertion",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "no test stated for comparing rates between areas; 1999 rates 52.3 (51.4–53.1) vs 51.5 (50.0–53.3) have overlapping CIs. CI method not stated",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "in 1999 there was no significant difference in rates between large central metropolitan areas and noncore areas among women"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": null,
+  "across": [
+   "urban-rural status",
+   "U.S. Census Bureau region",
+   "state",
+   "sex",
+   "year"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "rates increased among women living in the Midwest and those in small metropolitan or nonmetropolitan areas."
+   },
+   {
+    "loc": "text",
+    "q": "for men the relative difference between these two areas increased from 37% in 1999 to 88% in 2019."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "ci_overlap": true,
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "note",
+    "q": "Significantly different from 0 at p≤0.05. For APCs and for AAPCs within one segment (e.g., no joinpoint), the t-distribution is used."
+   },
+   {
+    "loc": "text",
+    "q": "values significantly <0 (p≤0.05) were interpreted as a significant decrease in mortality rates"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted mortality rate per 100,000",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "1999 › Deaths per 100,000 population (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "AAPC",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "AAPC † 1999–2019 (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "APC",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Segment-specific APC † 1999–2019 (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Trends were evaluated using Joinpoint software (version 4.8.0.1; National Cancer Institute)."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Joinpoint software identifies statistically significant changes in a trend using Monte Carlo permutation"
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did sex-specific age-adjusted COPD mortality rate trends among U.S. adults aged ≥25 years vary by urban-rural status, region and state during 1999–2019?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To examine the geographic variation in sex-specific trends in age-adjusted COPD mortality rates among adults aged ≥25 years"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "chronic obstructive pulmonary disease",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Geographic Differences in Sex-Specific Chronic Obstructive Pulmonary Disease Mortality Rate Trends Among Adults Aged ≥25 Years"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed 1999–2019 death certificate data, by urban-rural status, † U.S. Census Bureau region, § and state."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Trends were evaluated using Joinpoint software (version 4.8.0.1; National Cancer Institute)."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Mortality data from the CDC National Vital Statistics System during 1999–2019 were analyzed"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System (NVSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Mortality data from the CDC National Vital Statistics System during 1999–2019 were analyzed"
+    }
+   ]
+  },
+  {
+   "v": "CDC WONDER",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Queries to CDC WONDER generated yearly age-adjusted sex-specific mortality rates"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Among women, rates decreased significantly in 17 states"
+   },
+   {
+    "loc": "title",
+    "q": "United States, 1999–2019"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Urban-rural disparities are framed, quantified (noncore rate 84% higher than large central metro; relative difference 37% to 88% in men) and interpreted, with access and cost (uninsurance, lower SES) offered as explanations.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The determinants are offered tentatively ('might'), from cited sources, in a recommendation context rather than analyzed."
+  },
+  "dimensions": [
+   {
+    "v": "rurality",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Among both men and women, urban-rural disparities became more pronounced during this time."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Geographic Differences in Sex-Specific Chronic Obstructive Pulmonary Disease Mortality Rate Trends"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "the number and rate of deaths from COPD among adults aged ≥25 years"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "uninsured",
+     "lower socioeconomic status"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "higher likelihood of being uninsured or having a lower socioeconomic status"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "access (less access to pulmonologists, longer travel distances to health care facilities); cost (being uninsured, lower socioeconomic status)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adults in rural areas might be more likely to experience challenges related to access (e.g., less access to pulmonologists"
+    },
+    {
+     "loc": "text",
+     "q": "and cost (e.g., higher likelihood of being uninsured or having a lower socioeconomic status)."
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Rurality is assigned from the county of residence (2013 NCHS six-level scheme); the authors note the levels may oversimplify populations and social environments. Region and state are geography, not SPDs."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COPD mortality rates among men in 1999 and 2019 and among women in 2019 were inversely related to urbanicity"
+    },
+    {
+     "loc": "text",
+     "q": "but in 2019 the rate was 84% higher in noncore areas."
+    }
+   ]
+  },
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COPD mortality rates among men decreased in all urban-rural categories (range = −1.9% [large central metropolitan] to −0.4% [noncore])."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "regression_fields",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Design not named; surveillance/descriptive with trend inferred. AAPC/APC tests against 0 are model-term tests within joinpoint, so not listed as separate tests. Restricted-period statements ('when analysis was limited to later years') read as segment-specific APCs from the same joinpoint models, not a sensitivity re-analysis; adjusted_results false because age standardization precedes the model.",
+ "view_issues": "Introduction has a stray parenthesis: '(−0.4%) areas (and in the Northeast'. Text cites Figure 1 for regional trends, but Figure 1 shows urban-rural trends only."
+}

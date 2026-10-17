@@ -1,0 +1,393 @@
+{
+ "id": "mm7106e2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8L9PxRorpzJkKg6MMWF",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "fewer Omicron-period patients required ICU admission (16.8% versus 23.3%; p = 0.01) or IMV (9.2% versus 13.6%; p = 0.03)"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Fewer fully vaccinated adults hospitalized during Omicron predominance died while hospitalized (3.4%) compared with those hospitalized during Delta predominance (10.6%) (p = 0.02)."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among the 105 patients hospitalized for COVID-19, 63.8% had lower respiratory tract symptoms, 51.4% had abnormal chest radiography, and 39.0% had hypoxemia."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "fewer Omicron-period patients required ICU admission (16.8% versus 23.3%; p = 0.01)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "When stratified by vaccination status, however, differences in ICU admission and IMV between the two periods were not significant"
+    },
+    {
+     "loc": "text",
+     "q": "among adults aged ≥65 years, lower likelihood of death while hospitalized (p = 0.04)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Fisher's exact test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated in methods for categorical variables; p-values in Tables 1 and 2",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Fisher’s exact tests were used to compare categorical variables"
+    }
+   ]
+  },
+  {
+   "name": "Mann-Whitney U test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated in methods for ordinal or continuous variables (median age; likely ordinal vaccination status)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the Mann-Whitney U test was used to compare ordinal or continuous variables."
+    }
+   ]
+  },
+  {
+   "name": "small-cell suppression of partially vaccinated percentages",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "percentages withheld from the figure because of small sample size",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Percentages among partially vaccinated adults were included in analysis but are not displayed because of small sample size."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "vaccination status",
+   "variant period",
+   "age group",
+   "reason for admission",
+   "race/ethnicity"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "these severity indicators were compared by four-level vaccination status (unvaccinated, partially vaccinated, fully vaccinated without a booster dose, and fully vaccinated with a booster dose)"
+   },
+   {
+    "loc": "text",
+    "q": "Patient demographic and clinical characteristics were compared between Delta- and Omicron-period hospitalizations, overall and stratified by vaccination status"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Two-tailed p-values <0.05 were considered statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "26 (19.8%) were admitted primarily for non–COVID-19 conditions"
+    }
+   ]
+  },
+  {
+   "v": "median (IQR)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age, yrs, median (IQR)"
+    }
+   ]
+  },
+  {
+   "v": "p-value",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "p-value"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did clinical characteristics and severity of adults hospitalized with SARS-CoV-2 infection differ between Delta and Omicron predominance and by vaccination status?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To describe characteristics of patients hospitalized with SARS-CoV-2 infection during periods of Delta and Omicron predominance"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Clinical Characteristics and Outcomes Among Adults Hospitalized with Laboratory-Confirmed SARS-CoV-2 Infection"
+    }
+   ]
+  },
+  {
+   "v": "severe COVID-19 (ICU admission, IMV, in-hospital death)",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "COVID-19 vaccination, including with a booster dose, was associated with lower likelihood of intensive care unit admission."
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "COVID-19 vaccination, particularly a booster dose, continues to be critical in mitigating the health care burden of the Omicron variant."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "retrospective cohort",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "clinical characteristics and outcomes were retrospectively abstracted from the electronic health records (EHRs) of adults aged ≥18 years"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Compared with patients during the period of Delta predominance, a higher proportion of adults admitted during Omicron predominance had received the final dose"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "electronic health records",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Patient demographic and clinical characteristics were abstracted from the EHR."
+    }
+   ]
+  },
+  {
+   "v": "vaccination registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Vaccination status was ascertained through electronic linkage from the EHR to the California Immunization Registry (CAIR)."
+    }
+   ]
+  },
+  {
+   "v": "record abstraction or interview",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "detailed chart review was performed by one of four clinicians to determine whether the reason for admission was likely or not likely due to COVID-19"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "California Immunization Registry (CAIR)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "electronic linkage from the EHR to the California Immunization Registry (CAIR)."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "One Hospital, California"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "effectiveness",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Among adults hospitalized during Omicron predominance, increasing vaccination was associated with lower likelihood of ICU admission (p = 0.02)"
+   }
+  ]
+ },
+ "equity": {
+  "level": 2,
+  "level_reason": "Race/ethnicity shares of fully vaccinated patients are compared between periods with Fisher p-values (Hispanic 21.9% vs 10.6%) and described, but not framed as a disparity; age is a stratifier without social-position framing.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "The race/ethnicity contrasts are composition of hospitalized patients in Table-1-style comparisons, arguably only descriptors."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The proportion of fully vaccinated adults who were Hispanic was higher during Omicron predominance (21.9%) than during Delta predominance (10.6%) (p = 0.02)."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "adults aged ≥18 years with positive reverse transcription–polymerase chain reaction (RT-PCR) SARS-CoV-2 test results"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "figure 1",
+      "q": "death while hospitalized (age ≥65 years)."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Women"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity has five categories with NH/PI, AI/AN and unknown collapsed into other; each category tested against the rest by period. The Hispanic shift is explained by vaccination coverage, which is not recorded as a determinant."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race and ethnicity › Hispanic"
+    },
+    {
+     "loc": "text",
+     "q": "Fisher’s exact tests were used to compare categorical variables"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Race and ethnicity › White, non-Hispanic"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "study_design",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Design is not named; retrospective cohort inferred from EHR abstraction. The test behind the 'increasing vaccination' association across four vaccination levels is not specified; Mann-Whitney on ordinal status is assumed. Exclusions of boosted and still-hospitalized patients are exclusion rules.",
+ "view_issues": "Table 1 fully vaccinated Delta age IQR '71 (5–82)' is implausible for adults. Table 2 'Other therapies' total 29 (19.8) does not equal 0 + 26, and 29/131 is 22.1%."
+}

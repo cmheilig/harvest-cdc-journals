@@ -1,0 +1,446 @@
+{
+ "id": "mm7113e2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8Gvj2gUCQmzwnijPe1s",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "VE for the same strategies against COVID-19–associated hospitalization was 31%, 67%, 78%, and 90% respectively."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "investigators estimated VE by comparing the odds of a positive SARS-CoV-2 test result between vaccinated and unvaccinated patients"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All booster strategies provided higher protection than a single Janssen dose against ED/UC visits and hospitalizations"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Models were adjusted using inverse propensity to be vaccinated weights (calculated separately for each VE estimate)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multivariable logistic regression (test-negative VE)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'multivariable logistic regression' giving odds ratios; VE = (1 − OR) × 100 → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "VE was calculated as [1 − odds ratio] x 100%. Odds ratios were estimated using multivariable logistic regression."
+    }
+   ]
+  },
+  {
+   "name": "inverse propensity to be vaccinated weighting (IPTW)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated inverse propensity weights applied in each VE model",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Models were adjusted using inverse propensity to be vaccinated weights (calculated separately for each VE estimate)"
+    }
+   ]
+  },
+  {
+   "name": "generalized boosted regression trees (propensity model)",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "machine-learning propensity model used only to build the weights",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Generalized boosted regression trees were used to estimate the propensity to be vaccinated based on sociodemographic characteristics"
+    }
+   ]
+  },
+  {
+   "name": "CI overlap assertion",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "methods state nonoverlapping 95% CIs as the significance criterion; 'significantly higher' VE claims rest on it; CI method not stated beyond the logistic model",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A statistically significant difference was indicated by nonoverlapping 95% CIs or standardized mean or proportion differences ≥0.2"
+    },
+    {
+     "loc": "text",
+     "q": "VE against hospitalizations was 78% after 1 Janssen/1 mRNA dose and 67% after 2 Janssen doses; however, CIs overlapped."
+    }
+   ]
+  },
+  {
+   "name": "standardized mean or proportion difference threshold (SMD ≥0.20)",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "absolute SMD ≥0.20 used to flag imbalance in Table 1 and 3 characteristics",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "An absolute SMD ≥0.20 indicates a nonnegligible difference in variable distributions between medical events for vaccinated versus unvaccinated patients"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "unvaccinated",
+  "across": [
+   "vaccination status (booster strategy)",
+   "medical event type"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "VE against COVID-19–associated emergency department/urgent care visits was 24% after 1 Jansen dose, 54% after 2 Jansen doses"
+   },
+   {
+    "loc": "table 2",
+    "q": "Unvaccinated (Ref)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "ci_overlap": true,
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "A statistically significant difference was indicated by nonoverlapping 95% CIs or standardized mean or proportion differences ≥0.2"
+   },
+   {
+    "loc": "table 2",
+    "q": "Odds ratios were estimated using multivariable logistic regression."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "VE %",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "VE %* (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Positive SARS-CoV-2 result, no. (%)"
+    }
+   ]
+  },
+  {
+   "v": "SMD",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "SMD = standardized mean or proportion difference"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Models were adjusted using inverse propensity to be vaccinated weights (calculated separately for each VE estimate)"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age, calendar week of index date, geographic area, local virus circulation, patient comorbidities including immunocompromise, previous SARS-CoV-2 testing and test positivity",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "with age, calendar week of index date, geographic area, local virus circulation"
+    },
+    {
+     "loc": "note",
+     "q": "previous SARS-CoV-2 testing and test positivity were not balanced after applying inverse propensity weights"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "sensitivity analysis limited to immunocompetent persons found no significant change in results."
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "During Omicron predominance, how effective are homologous and heterologous booster strategies after one Janssen dose against COVID-19–associated ED/UC visits and hospitalizations, compared with 3 mRNA doses?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "determined real-world VE of 1 Janssen vaccine dose and 2 alternative booster dose strategies"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Vaccine Dose Against COVID-19–Associated Emergency Department and Urgent Care Encounters and Hospitalizations Among Adults"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Effectiveness of Homologous and Heterologous COVID-19 Booster Doses"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19–like illness",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "all medical encounters among adults aged ≥18 years with a COVID-19–like illness diagnosis"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "test-negative",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Using a test-negative design, investigators estimated VE"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VISION Network methods have been previously published"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "VISION Network",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "VISION Network, 10 States, December 2021–March 2022"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Across 306 ED/UC clinics and 164 hospitals from 10 states"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "effectiveness",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "VE against COVID-19–associated emergency department/urgent care visits was 24% after 1 Jansen dose"
+   }
+  ]
+ },
+ "equity": {
+  "level": 1,
+  "level_reason": "Race/ethnicity appears only as a Table 1/3 descriptor and among sociodemographic propensity variables, and in a limitation; no VE results by race are reported. Age and sex otherwise define the population or are covariates.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 0,
+   "reason": "Race/ethnicity is not named explicitly as a propensity or model covariate; it may count only as a Table-1 descriptor and limitation, which still gives level 1 at most."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "all medical encounters among adults aged ≥18 years with a COVID-19–like illness diagnosis"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "with age, calendar week of index date, geographic area, local virus circulation"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race/Ethnicity › Black, non-Hispanic"
+     },
+     {
+      "loc": "text",
+      "q": "precluded estimation of VE stratified by demographic factors including age and race"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "Generalized boosted regression trees were used to estimate the propensity to be vaccinated based on sociodemographic characteristics"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Asian, NH/OPI, AI/AN and multiple races are collapsed into 'Unknown' race/ethnicity; small Janssen groups precluded VE by age or race."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group, yrs › 18–44"
+    },
+    {
+     "loc": "text",
+     "q": "A statistically significant difference was indicated by nonoverlapping 95% CIs or standardized mean or proportion differences ≥0.2"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity › Black, non-Hispanic"
+    },
+    {
+     "loc": "table 1",
+     "q": "An absolute SMD ≥0.20 indicates a nonnegligible difference in variable distributions"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise",
+  "procedures",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "Table 1 and 3 SMDs for multi-level age and race/ethnicity across vaccination status are framed by the methods as a significance criterion, so they are recorded as omnibus-like groupwise entries; SMD itself is a balance measure, not a formal test. Comparisons between booster strategies rest on CI overlap, though authors note adjustment did not address differences among strategies.",
+ "view_issues": "Summary misspells Janssen as 'Jansen'. The limitations say adjustment did not account for differences among vaccinated groups, yet between-strategy claims are made by CI overlap. 'Unknown' race includes Asian and other named groups."
+}

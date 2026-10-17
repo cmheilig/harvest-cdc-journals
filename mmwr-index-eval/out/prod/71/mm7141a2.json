@@ -1,0 +1,383 @@
+{
+ "id": "mm7141a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GwhA6Yboar1epZkXqZ",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "attempted suicide: 38.7% versus 0.9%, aPR = 25.06, 95% CI = 11.35–55.30"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "attempted suicide: 38.7% versus 0.9%, aPR = 25.06, 95% CI = 11.35–55.30"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Nearly three quarters (73.1%) of high school students aged <18 years reported at least one ACE during the COVID-19 pandemic"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A dose-response relationship between accumulating exposure to ACEs during the pandemic and poor mental health and suicidal behaviors was observed"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "aPRs were adjusted for sex, grade in school, race and ethnicity, sexual identity, and method of school instruction"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Poisson regression with robust SEs",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'Poisson regression with robust SEs' giving adjusted prevalence ratios → loglinear (modified Poisson)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Adjusted prevalence ratios (aPRs) and 95% CIs were calculated using Poisson regression with robust SEs"
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (complex survey design)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weighted prevalence estimates; analyses account for complex survey design",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Weighted pairwise prevalence estimates and 95% CIs for reported ACE exposure by poor mental health or suicidal behaviors were calculated."
+    },
+    {
+     "loc": "text",
+     "q": "Analyses were conducted using SAS statistical software (version 9.4, SAS Institute), accounting for complex survey design."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated rule: aPR CIs excluding 1.0 significant; CIs model-based from Poisson regression with robust SEs under survey design",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "95% CIs that excluded 1.0 were considered statistically significant."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "no ACEs (or no exposure to the ACE type)",
+  "across": [
+   "number of ACEs",
+   "ACE type",
+   "food insecurity",
+   "parent or caregiver job loss"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "were four and 25 times as high as those without ACEs, respectively."
+   },
+   {
+    "loc": "text",
+    "q": "A dose-response relationship between accumulating exposure to ACEs during the pandemic and poor mental health and suicidal behaviors was observed"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "95% CIs that excluded 1.0 were considered statistically significant."
+   },
+   {
+    "loc": "text",
+    "q": "Adjusted prevalence ratios (aPRs) and 95% CIs were calculated using Poisson regression with robust SEs"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted prevalence (%)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "% Yes, 95% CI"
+    }
+   ]
+  },
+  {
+   "v": "aPR",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "aPR = adjusted prevalence ratio"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "accounting for complex survey design."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Adjusted for sex, race and ethnicity, grade in school, sexual identity, and method of school instruction."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "sex, race and ethnicity, grade in school, sexual identity, method of school instruction; in mutually adjusted models also all other ACE types",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "method of school instruction, and all other types of adverse childhood experiences."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Among U.S. high school students, are ACEs experienced during the COVID-19 pandemic associated with poor mental health and suicidal behaviors?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Associations between ACEs occurring during the pandemic and mental health or suicidal behaviors among U.S. high school students were examined"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "adverse childhood experiences",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Adverse Childhood Experiences During the COVID-19 Pandemic and Associations with Poor Mental Health and Suicidal Behaviors"
+    }
+   ]
+  },
+  {
+   "v": "poor mental health",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Associations with Poor Mental Health and Suicidal Behaviors Among High School Students"
+    }
+   ]
+  },
+  {
+   "v": "suicidal behaviors",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Associations with Poor Mental Health and Suicidal Behaviors Among High School Students"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the cross-sectional nature of the data does not permit causal inferences in associations"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The voluntary, probability-based online ABES used stratified, three-stage cluster sampling to obtain nationally representative data"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Adolescent Behaviors and Experiences Survey (ABES)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the 2021 Adolescent Behaviors and Experiences Survey (ABES)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to obtain nationally representative data from U.S. public and private high school students in grades 9–12"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Food insecurity and parent job loss (SES-type ACEs) are analyzed as exposures with aPRs, but are not framed as social position or disparity; race, sex and sexual identity are only covariates.",
+  "level_confidence": "low",
+  "level_alternative": {
+   "level": 4,
+   "reason": "Under the SDOH-exposure rule, quantified aPRs for food insecurity and job loss could meet level 3, and an analyzed determinant as exposure would then meet level 4."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The analysis was restricted to 4,390 high school students aged <18 years with complete data on analytic variables"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Adjusted for sex, race and ethnicity, grade in school, sexual identity, and method of school instruction."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Adjusted for sex, race and ethnicity, grade in school, sexual identity, and method of school instruction."
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "covariate",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Adjusted for sex, race and ethnicity, grade in school, sexual identity, and method of school instruction."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "primary comparison",
+    "ses_components": [
+     "food insecurity",
+     "parent or caregiver job loss"
+    ],
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Food insecurity during the COVID-19 pandemic › Yes"
+     },
+     {
+      "loc": "table 2",
+      "q": "Parent lost job during the COVID-19 pandemic › Yes"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "family economic pressures (food insecurity, parent or caregiver job loss) analyzed as exposures",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "than was experience of other forms of violence or family economic pressures"
+    },
+    {
+     "loc": "table 2",
+     "q": "Food insecurity during the COVID-19 pandemic › Yes"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "SES enters only as binary ACE exposures (food insecurity, parent job loss) vs none; no results reported by race, sex or sexual identity."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "equity.level",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Models with and without mutual adjustment for other ACEs are alternative estimands, not recorded as sensitivity analysis. Crude prevalences by ACE count (figure) and by ACE type (Table 2) are set side by side with no crude ratio, so unadjusted_results is false.",
+ "view_issues": "Prepass p_value cue is a false hit; no p-values are reported. Table 2 rows in article.txt repeat outcome labels; the CSV gives the structure."
+}

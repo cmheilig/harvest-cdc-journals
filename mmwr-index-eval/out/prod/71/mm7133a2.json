@@ -1,0 +1,335 @@
+{
+ "id": "mm7133a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8Gvj88uLAZhJfysZkFm",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Reported measles incidence declined by 92%; measles vaccination averted an estimated 9.3 million deaths."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "estimated MCV1 and MCV2 coverage increased from 65% to 88% and from 6% to 80%, respectively"
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Annual measles incidence decreased 92%, from 57.0 cases per 1 million population to 4.8 cases per 1 million population"
+    },
+    {
+     "loc": "text",
+     "q": "estimated annual measles deaths decreased 97%, from 163,044 to 5,649"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2003–2020, compared with no vaccination, measles vaccination averted an estimated 9.3 million deaths in the region."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimated MCV1 regional coverage increased 35%, from 65% in 2003 to 88% in 2020"
+    },
+    {
+     "loc": "text",
+     "q": "In 2020, however, only five countries achieved the target discard rate of ≥2 per 100,000 population"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "measles mortality model (estimated cases, deaths and deaths averted)",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "a previously described measles estimation model updated with recent coverage and surveillance data; model form not stated, not classifiable as a regression",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "A measles mortality model was used to generate estimated measles cases and deaths using the WHO/UNICEF estimates of national immunization coverage data"
+    }
+   ]
+  },
+  {
+   "name": "suppression of unreliable mortality-reduction estimates",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "estimates withheld when mortality too low for reliable measurement (NA in Table 2)",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Estimated measles mortality was too low to allow reliable measurement of mortality reduction."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "≥95% MCV coverage target; ≥2 discarded cases per 100,000 population",
+  "across": [
+   "year (2003 vs 2020)",
+   "country"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During 2003–2020, all countries in SEAR introduced MCV2, and estimated MCV1 and MCV2 coverage increased from 65% to 88%"
+   },
+   {
+    "loc": "text",
+    "q": "five countries reported ≥95% MCV1 coverage in 2020"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "Estimated no. of measles cases (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "WHO/UNICEF estimated coverage, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "WHO/UNICEF estimated coverage,* %"
+    }
+   ]
+  },
+  {
+   "v": "measles incidence (cases per 1 million population)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Cases per 1 million population."
+    }
+   ]
+  },
+  {
+   "v": "% change",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% Change, 2003–2020"
+    }
+   ]
+  },
+  {
+   "v": "estimated reduction, %",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Estimated reduction, % 2003–2020"
+    }
+   ]
+  },
+  {
+   "v": "cumulative measles deaths averted",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Cumulative no. of measles deaths averted by vaccination, 2003–2020 (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "discard rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the regional discard rate was 0.98"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What progress did the WHO South-East Asia Region make toward measles elimination during 2003–2020 in vaccination coverage, surveillance, and measles incidence and mortality?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "describes progress toward measles elimination in SEAR during 2003–2020"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "measles",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Progress Toward Measles Elimination — South-East Asia Region, 2003–2020"
+    }
+   ]
+  },
+  {
+   "v": "measles",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "measles vaccination averted an estimated 9.3 million deaths"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Progress Toward Measles Elimination — South-East Asia Region, 2003–2020"
+    },
+    {
+     "loc": "text",
+     "q": "In 2019, eight of 11 member states achieved the sensitivity indicator target"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% Change, 2003–2020"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "international surveillance",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Countries report the number of incident measles cases to WHO and UNICEF annually using the Joint Reporting Form."
+    },
+    {
+     "loc": "table 1",
+     "q": "Data were from WHO and UNICEF estimates, 2021 revision (as of July 2022)."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "WHO/UNICEF Joint Reporting Form (JRF)",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Countries report the number of incident measles cases to WHO and UNICEF annually using the Joint Reporting Form."
+    }
+   ]
+  },
+  {
+   "v": "WHO and UNICEF estimates of national immunization coverage, 2021 revision",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Data were from WHO and UNICEF estimates, 2021 revision (as of July 2022)."
+    }
+   ]
+  },
+  {
+   "v": "WHO Global Measles and Rubella Laboratory Network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "an integral component of the WHO Global Measles and Rubella Laboratory Network"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "international",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Progress Toward Measles Elimination — South-East Asia Region, 2003–2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "estimated MCV1 and MCV2 coverage increased from 65% to 88% and from 6% to 80%, respectively"
+   }
+  ]
+ },
+ "equity": {
+  "level": 0,
+  "level_reason": "No social-position dimension is analyzed; results are by country and year, and age only defines the vaccinated population (children).",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "figure 1",
+      "q": "estimated percentage of children who received their first and second dose of measles-containing vaccine"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Geography only (11 countries); no social-position groups. Elimination and coverage targets are general program targets."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "procedures"
+ ],
+ "confidence": "high",
+ "notes": "Prepass diagnostic_accuracy cue is surveillance sensitivity (discard rate), a false hit. Percent changes and incidence per million are arithmetic, not procedures. Design inferred as monitoring against elimination targets; Table 2 CIs come from the model and no conclusion rests on them.",
+ "view_issues": "Table 1 percent change for Bhutan and North Korea is 0 though incidence was 0 in both years; Thailand 2020 cases not reported."
+}

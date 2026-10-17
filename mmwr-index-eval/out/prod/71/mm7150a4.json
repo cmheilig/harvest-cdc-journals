@@ -1,0 +1,416 @@
+{
+ "id": "mm7150a4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GvjZgKcCe5QeByPczT",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "SARS-CoV-2 coinfections occurred in 6% (32 of 575) of pediatric influenza-associated hospitalizations and in 16% (seven of 44)"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A higher proportion of patients with coinfection than with influenza received invasive mechanical ventilation (13% versus 4%; p = 0.03)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During the 2021–22 influenza season, 6% of hospitalized pediatric influenza patients had SARS-CoV-2 coinfection"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A higher proportion of patients with coinfection than with influenza received invasive mechanical ventilation (13% versus 4%; p = 0.03)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Pearson chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated: proportions among hospitalized patients compared with Pearson's chi-square tests",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "with between-group comparisons analyzed using Pearson’s chi-square tests for hospitalizations and Fisher’s exact tests for deaths"
+    }
+   ]
+  },
+  {
+   "name": "Fisher's exact test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated: proportions among decedents compared with Fisher's exact tests",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Proportions were compared using Fisher’s exact tests."
+    }
+   ]
+  },
+  {
+   "name": "Wilcoxon rank sum test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated: medians (age) compared with a Wilcoxon rank sum test; descriptive characteristic only",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Medians and IQRs are presented for continuous variables, with between-group comparisons analyzed using a Wilcoxon rank sum test."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": "patients with influenza only",
+  "across": [
+   "coinfection status (influenza and SARS-CoV-2 vs influenza only)"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "outcomes are reported by illness status (influenza and SARS-CoV-2 coinfection and influenza infection alone) as frequencies and proportions"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "with between-group comparisons analyzed using Pearson’s chi-square tests for hospitalizations and Fisher’s exact tests for deaths"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "SARS-CoV-2 coinfections occurred in 6% (32 of 575) of pediatric influenza-associated hospitalizations"
+    }
+   ]
+  },
+  {
+   "v": "median (IQR)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age, yrs, median (IQR)"
+    }
+   ]
+  },
+  {
+   "v": "p-value",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "BiPAP or CPAP (16% versus 6%; p = 0.05)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Among children aged <18 years hospitalized or dying with influenza in 2021–22, how prevalent was SARS-CoV-2 coinfection and did coinfected patients differ clinically from those with influenza alone?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This report describes characteristics and prevalence of laboratory-confirmed influenza virus and SARS-CoV-2 coinfections among patients aged <18 years"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "influenza",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Among Children and Adolescents Aged <18 Years Who Were Hospitalized or Died with Influenza"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "a higher percentage of patients with coinfection required invasive or noninvasive respiratory support compared with those with influenza only"
+    }
+   ]
+  },
+  {
+   "v": "influenza and SARS-CoV-2 coinfection",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Prevalence of SARS-CoV-2 and Influenza Coinfection"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "as reported to three CDC surveillance platforms during the 2021–22 influenza season"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC collects data on influenza-associated hospitalizations through the Influenza Hospitalization Surveillance Network (FluSurv-NET)"
+    }
+   ]
+  },
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were obtained from the Influenza-Associated Pediatric Mortality Surveillance System"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Influenza Hospitalization Surveillance Network (FluSurv-NET)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Influenza Hospitalization Surveillance Network (FluSurv-NET), a population-based RESP-NET system"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19–associated Hospitalization Surveillance Network (COVID-NET)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the COVID-19–associated Hospitalization Surveillance Network (COVID-NET)"
+    }
+   ]
+  },
+  {
+   "v": "Influenza-Associated Pediatric Mortality Surveillance System",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were obtained from the Influenza-Associated Pediatric Mortality Surveillance System"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "whereas the Influenza-Associated Pediatric Mortality Surveillance System reflects data across all U.S. states and territories"
+   },
+   {
+    "loc": "note",
+    "q": "FluSurv-NET data from the 2021–22 influenza season included county data from 13 U.S. states"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "receipt of seasonal influenza vaccination was less prevalent among those with coinfections (17%) than among those with influenza (42%)"
+   }
+  ]
+ },
+ "equity": {
+  "level": 1,
+  "level_reason": "Race/ethnicity appears only as a descriptor of the two illness groups in Tables 1 and 2 (composition tested by chi-square/Fisher, not discussed); age defines the population and sex is a descriptor.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 2,
+   "reason": "Tables report race- and age-group distributions with tests across the groups, which could be read as group-specific results by an SPD."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Among Children and Adolescents Aged <18 Years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group, yrs › 0–4"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race and ethnicity › Black or African American, non-Hispanic"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity in six categories (AI/AN, Asian/Pacific Islander, Black, Hispanic, White, multiracial); unknown for 6%–7% of hospitalized patients."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race and ethnicity › White, non-Hispanic"
+    },
+    {
+     "loc": "table 1",
+     "q": "Proportions were compared using Pearson’s chi-square tests."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group, yrs › 12–17"
+    },
+    {
+     "loc": "table 1",
+     "q": "Proportions were compared using Pearson’s chi-square tests."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Race and ethnicity › Hispanic or Latino"
+    },
+    {
+     "loc": "table 2",
+     "q": "Proportions were compared using Fisher’s exact tests."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Age group, yrs › 5–11"
+    },
+    {
+     "loc": "table 2",
+     "q": "Proportions were compared using Fisher’s exact tests."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise",
+  "equity.level"
+ ],
+ "confidence": "high",
+ "notes": "Design is inferred as surveillance/descriptive from the use of three CDC surveillance platforms. Table 2 withholds p-values for types of high-risk conditions because of small numbers. The monthly counts in the figure only describe timing and carry no claim.",
+ "view_issues": "Table 1 CSV row 'Ineligible' reads '5 (0.0)' and '46' without percentage; Table 2 lists male coinfected decedents as 4 (51.7), which should be 57.1%."
+}

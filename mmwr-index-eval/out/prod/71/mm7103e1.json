@@ -1,0 +1,323 @@
+{
+ "id": "mm7103e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8L8BPc2RwaQJQ5PNzVW",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Relative disparities in mAb** treatment among all patients †† (805,276) with a positive SARS-CoV-2 test result"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "among patients of Hispanic or non-Hispanic ethnicity, mAb use was 1.8% and 4.0%, respectively"
+    },
+    {
+     "loc": "table 2",
+     "q": "Mean of monthly percentage treated"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among all patients with positive SARS-CoV-2 test results, the overall use of mAb was infrequent, with mean monthly use at 4% or less"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Hispanic patients received mAb 58% less often than did non-Hispanic patients"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Wilcoxon signed rank test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named: pairwise Wilcoxon signed rank tests on monthly treated time series, minority vs majority group paired by month",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "pairwise Wilcoxon signed rank tests, with p-values indicated as p w , were used to assess whether treatment receipt differed systematically over time"
+    }
+   ]
+  },
+  {
+   "name": "one-sample t-test of mean monthly relative disparity vs zero",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named: t-tests for difference of the grand mean relative disparity from zero",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "t-tests for statistical difference from zero, with p-values indicated as p t , were used to assess presence of overall relative treatment disparities"
+    }
+   ]
+  },
+  {
+   "name": "small-cell masking by data partners",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "small-cell suppression applied before data submission; strata do not sum to totals",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Strata are not expected to sum to the total because the small cell masking by the data partners before submission of data."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "White patients (race); non-Hispanic patients (ethnicity)",
+  "across": [
+   "race/ethnicity",
+   "treatment"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Black, Asian, or Other race patients received mAb 22%, 48%, and 47% less often, respectively, than did White patients"
+   },
+   {
+    "loc": "table 2",
+    "q": "Ref. = referent group."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "Mean of monthly relative disparity, § % (95% CI)"
+   },
+   {
+    "loc": "text",
+    "q": "Results were considered statistically significant for p-values <0.05."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "mean of monthly percentage treated",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Mean of monthly percentage treated"
+    }
+   ]
+  },
+  {
+   "v": "mean of monthly relative disparity, % (95% CI)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Mean of monthly relative disparity, § % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "percentage treated",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Total no. (%) treated"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Did receipt of mAb, dexamethasone and remdesivir for COVID-19 differ by race and ethnicity among patients with positive SARS-CoV-2 tests in 41 U.S. health care systems?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "this study assessed receipt of medications for COVID-19 treatment by race (White, Black, Asian, and Other races"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Racial and Ethnic Disparities in Receipt of Medications for Treatment of COVID-19"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Using COVID-19 patient electronic health record data from 41 U.S. health care systems that participated in the PCORnet"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "electronic health records",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Using COVID-19 patient electronic health record data from 41 U.S. health care systems that participated in the PCORnet"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "PCORnet, the National Patient-Centered Clinical Research Network",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "41 health care systems participating in the PCORnet, the National Patient-Centered Clinical Research Network"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "PCORnet data are derived from a convenience sample of health care facilities, limiting generalizability to the U.S. population."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Racial and ethnic treatment disparities are framed, quantified as mean relative disparities with CIs and t-tests, and interpreted; specific structural factors (access, insurance coverage, transportation, prescribing bias, supply distribution) are named as possible explanations.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The article says it did not identify underlying causes; the determinants are offered only as speculative explanations, not analyzed."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "this study assessed receipt of medications for COVID-19 treatment by race (White, Black, Asian, and Other races"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "was calculated separately by race and by ethnicity (as aggregated in PCORnet) for adults aged ≥20 years."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group, yrs › 20–39"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "limited access to testing and care; inadequate insurance coverage; transportation challenges; lack of a primary care provider; treatment supply and distribution; biases in prescribing practices; ease of medication access in hospitals",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "might reflect systemic factors such as limited access to testing and care because of availability constraints, inadequate insurance coverage, and transportation challenges"
+    },
+    {
+     "loc": "text",
+     "q": "lack of a primary care provider to recommend treatment; variations in treatment supply and distribution; potential biases in prescribing practices"
+    },
+    {
+     "loc": "text",
+     "q": "Relative differences in treatment with dexamethasone and remdesivir were less apparent in hospital settings, which might be attributed to ease of medication access."
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referents are White (race) and non-Hispanic (ethnicity); race and ethnicity analyzed separately; Other race collapses AI/AN, NHOPI, multiple and other; race missing for 9.3% of positive patients; mAb denominator is all positive patients, not those eligible."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "White race is the referent group; p-values for Black, Asian, and Other races are 0.004, 0.002, and 0.002, respectively."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "study_design",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "No design is named; cross-sectional is inferred from aggregated monthly EHR queries. CIs for mean relative disparities are reported, but conclusions rest on the named t-tests, so no CI-inversion test is added. Analyses are unadjusted (aggregate data), as the limitations state.",
+ "view_issues": "Discussion says Black and Asian inpatients received dexamethasone less often, but Table 2 race disparities for dexamethasone are not significant (p t 0.50, 0.78). Results text on dexamethasone temporal differences is garbled ('among White inpatients and Black, and Asian inpatients'). Article was corrected after publication."
+}

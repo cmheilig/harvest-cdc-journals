@@ -1,0 +1,469 @@
+{
+ "id": "mm7120a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GvjyVCDvGA3iujWWTC",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Thirty-eight percent of participants reported having previously received a positive test result for HIV."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "self-reported viral suppression was less common among participants who reported experiencing homelessness during the past 12 months (aPR = 0.88; p = 0.003)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Forty-four percent earned <$10,000 annually. During the past 12 months 39% experienced homelessness, and 40% experienced severe food insecurity."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "PrEP use was more common among participants who reported having health insurance (aPR = 1.54; p<0.001)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "models were adjusted for age, race and ethnicity, and urban area."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "log-linked Poisson regression with GEE (adjusted prevalence ratios)",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'log-linked Poisson regression models with generalized estimating equations' giving aPRs → loglinear; model-based CIs and p-values",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were estimated using log-linked Poisson regression models with generalized estimating equations clustered on recruitment chain and urban area"
+    }
+   ]
+  },
+  {
+   "name": "small-cell suppression",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "Table 1 note: cells <5 suppressed",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Dashes indicate suppression because of small cell size (<5)."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "referent level of each factor (e.g., income ≤$9,999; no homelessness; no food insecurity)",
+  "across": [
+   "SES (income, education, homelessness, food insecurity, health insurance)",
+   "unmet need for health care",
+   "usual source of care",
+   "comfort with a provider"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Low income (44%), experiencing homelessness (39%), and severe food insecurity (40%) were common and associated with lower likelihood of receipt of HIV prevention"
+   },
+   {
+    "loc": "table 2",
+    "q": "Annual household income, USD › ≤9,999"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Adjusted prevalence ratios (aPRs) and 95% CIs for prevention and treatment outcomes, by self-reported HIV status, were estimated using log-linked Poisson regression models"
+   },
+   {
+    "loc": "text",
+    "q": "Severe food insecurity (aPR = 0.84; p<0.001)"
+   }
+  ]
+ },
+ "groupwise": [
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Annual household income, USD › ≤9,999"
+    },
+    {
+     "loc": "table 2",
+     "q": "Ref = referent group"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the likelihood of viral suppression decreased as the number of nights of homelessness increased."
+    },
+    {
+     "loc": "table 2",
+     "q": "No. of nights homeless § › None"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Education › Less than high school"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race and ethnicity** › Black, non-Hispanic"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group, yrs › 18–29"
+    }
+   ]
+  }
+ ],
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Thirty-eight percent reported having previously received a positive HIV test result."
+    }
+   ]
+  },
+  {
+   "v": "aPR",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "aPR = adjusted prevalence ratio"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "GEE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "generalized estimating equations clustered on recruitment chain and urban area"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted for age, race and ethnicity, city, and network size and clustered on urban areas and recruitment chains."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age, race and ethnicity, urban area (city), and network size",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted for age, race and ethnicity, city, and network size"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Among transgender women in seven U.S. urban areas, which socioeconomic and health care factors are associated with HIV testing, PrEP use, antiretroviral use and viral suppression?",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Factors Associated with Use of HIV Prevention and Health Care Among Transgender Women — Seven Urban Areas, 2019–2020"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "HIV infection",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "HIV treatment among transgender women living with a positive HIV test result"
+    }
+   ]
+  },
+  {
+   "v": "HIV infection",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "38% of transgender women surveyed in seven major U.S. cities reported receiving a previous positive HIV test result."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Initiated in 2003, NHBS conducts biobehavioral surveillance among persons at high risk for HIV infection."
+    }
+   ]
+  },
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NHBS surveyed 1,608 transgender women in seven U.S. urban areas using respondent-driven sampling."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "participated in CDC’s National HIV Behavioral Surveillance (NHBS) during 2019–2020"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National HIV Behavioral Surveillance (NHBS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "participated in CDC’s National HIV Behavioral Surveillance (NHBS) during 2019–2020"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Seven Urban Areas, 2019–2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "SES determinants (income, homelessness, food insecurity, insurance) are the analyzed exposures, with quantified aPRs for HIV care outcomes; stigma and discrimination are named as structural causes of these conditions.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Contrasts are across SES exposures within one population, and the named stigma explains the SES conditions rather than an outcome disparity between SPD groups."
+  },
+  "dimensions": [
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "population",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "Persons who were assigned male sex at birth and who currently identify as women or transgender women."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "population",
+    "basis": "assigned or observed",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "were assigned male sex or intersex at birth."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "primary comparison",
+    "ses_components": [
+     "annual household income",
+     "homelessness",
+     "severe food insecurity"
+    ],
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Low income (44%), experiencing homelessness (39%), and severe food insecurity (40%) were common and associated with lower likelihood of receipt"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "models were adjusted for age, race and ethnicity, and urban area."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Because of racial and ethnic disparities in HIV prevalence, recruitment was focused on Black or African American and Hispanic or Latina transgender women"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "models were adjusted for age, race and ethnicity, and urban area."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "Eligible persons were those who were aged ≥18 years"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "stigma and discrimination reducing access to education, employment and health care; homelessness, poverty and food insecurity as structural factors; access to health insurance and care",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "might result from the pervasive experience of stigma and discrimination, which reduce access to education, employment, and health care"
+    },
+    {
+     "loc": "text",
+     "q": "These structural factors are associated with lower likelihood of viral suppression among transgender women with HIV infection."
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Population is transgender women recruited by respondent-driven sampling, with Black and Hispanic seeds; SES exposures compared against referent levels (income ≤$9,999, no homelessness); race 'Other' collapses Asian, AI/AN and NH/OPI."
+ },
+ "uncertain_fields": [
+  "comparison",
+  "equity.level",
+  "study_design"
+ ],
+ "confidence": "medium",
+ "notes": "Cross-sectional design inferred from the survey; the report names surveillance. Model p-values are part of the regression, not separate tests. Respondent-driven sampling is not weighted in the stated analysis.",
+ "view_issues": "Text reverses direction ('food insecurity... less common among participants who reported viral suppression'). Discussion claims uninsured were less likely to be virally suppressed, but aPR 1.14 (0.96–1.35) is not significant. Table 3 PrEP 'No' usual-source row lacks 'Ref'. Table note adds network size, not in methods text."
+}

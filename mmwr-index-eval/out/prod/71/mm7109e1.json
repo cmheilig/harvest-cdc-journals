@@ -1,0 +1,386 @@
+{
+ "id": "mm7109e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8LfyPBREYzm5hdXaUDd",
+  "batch_id": "msgbatch_01223jmKkoKoihZVXHvJ1Q2r"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Among 431 household contacts, 227 were classified as having a case of COVID-19 (attack rate [AR] = 52.7%)."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Transmission occurred within 67.8% (124 of 183) of households, and the overall AR among household contacts with known status was 52.7%"
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The median interval between index patient onset date and household contact onset date was 4 days (IQR = 2–7 days)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Omicron transmission occurred in 124 (67.8%) of 183 households."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The AR was lower among household contacts of index patients who isolated (41.2%, 99 of 240)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "generalized estimating equations (p-values for differences in stratum-specific ARs)",
+   "class": "regression",
+   "regression_family": "other",
+   "inferred_from": "'generalized estimating equation approach to account for clustering by household'; family and link not stated, used only to produce p-values",
+   "role": "ancillary",
+   "alternative_reading": "logistic: binary case status of each household contact suggests a GEE logistic model",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "P-values comparing differences in stratum-specific ARs were calculated using a generalized estimating equation approach to account for clustering by household"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "index patient vaccination status",
+   "index patient isolation",
+   "index patient mask use at home",
+   "household contact vaccination status",
+   "household contact previous infection",
+   "age",
+   "race/ethnicity"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Omicron infection resulted in high transmission among household contacts, particularly among those who lived with index patients who were not vaccinated"
+   },
+   {
+    "loc": "text",
+    "q": "ARs among household contacts were estimated overall, by household contact characteristics, and by index patient characteristics"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "P-values comparing differences in stratum-specific ARs were calculated using a generalized estimating equation approach"
+   },
+   {
+    "loc": "figure 2",
+    "q": "95% CIs for attack rates are represented by error bars."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "attack rate (AR), %",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "227 were classified as having a case of COVID-19 (attack rate [AR] = 52.7%)."
+    }
+   ]
+  },
+  {
+   "v": "median interval, days",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The median interval between index patient onset date and household contact onset date was 4 days (IQR = 2–7 days)"
+    }
+   ]
+  },
+  {
+   "v": "p-value",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "compared with 59.8% (183 of 306) among those without previous infection (p-value = 0.08)."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "GEE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "generalized estimating equation approach to account for clustering by household"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "P-values comparing differences in stratum-specific ARs were calculated using a generalized estimating equation approach"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "ARs were calculated after restricting the case definition to cases identified ≤7 days*** after the index date."
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "How frequently is the Omicron variant transmitted within households, and do attack rates differ by index patient vaccination status and prevention practices?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To investigate the effectiveness of prevention strategies in household settings, CDC partnered with four U.S. jurisdictions to describe Omicron household transmission"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19 (Omicron variant)",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Persons with sequence-confirmed Omicron infection and their household contacts were interviewed."
+    }
+   ]
+  },
+  {
+   "v": "COVID-19 (Omicron variant)",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "SARS-CoV-2 B.1.1.529 (Omicron) Variant Transmission Within Households"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "outbreak investigation",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "contacted by telephone to assess eligibility of the household to participate in the investigation."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "record abstraction or interview",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Index patients and household contacts participated in voluntary telephone interviews to retrospectively collect information"
+    }
+   ]
+  },
+  {
+   "v": "vaccination registry",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "When possible, vaccination data were supplemented with or verified using state or jurisdiction registry data."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "four U.S. jurisdictions (Chicago, Illinois; Connecticut; Milwaukee, Wisconsin; and Utah)"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "other",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "of fully vaccinated index patients who completed their COVID-19 primary series within the previous 5 months, and of unvaccinated index patients"
+   }
+  ]
+ },
+ "equity": {
+  "level": 2,
+  "level_reason": "Figure 2 shows household contact ARs by index patient race/ethnicity, set side by side and not discussed; age groups are compared without social-position framing. Capped at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Race/ethnicity results appear only in a figure and are never described in the text, so race may be read as a descriptor only."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "figure 2",
+      "q": "Persons reported their race (White, Black, Asian, American Indian or Alaska Native, or Native Hawaiian or other Pacific Islander)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "A majority of index patients were White (59.0%, 108 of 183), and 21.3% (39 of 183) were Hispanic/Latino."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Household contact ARs ranged from a low of 47.5% (19 of 40) when the index patient was aged 5–11 years"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Gender › Female"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity of the index patient only, in Figure 2; AI/AN and NHPI collapsed into other/multiple; race unknown for 31% of household contacts."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Similar ARs were observed across age groups for household contacts, including those aged 0–4 years (51.2%, 21 of 41)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "ranged from a low of 47.5% (19 of 40) when the index patient was aged 5–11 years to a high of 72.0%"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": null,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "figure 2",
+     "q": "by household contact characteristics, † , § index patient characteristics and practices"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "study_design",
+  "procedures",
+  "outcome_types"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred: the report calls itself an investigation of household transmission. The GEE yields only p-values for AR contrasts; its family and covariates are not stated. Subanalyses (two-person households, ≤7-day case definition) are recorded as sensitivity analyses.",
+ "view_issues": "Figure 2 data (including race/ethnicity strata) are not available as text; the number of race groups is not stated."
+}

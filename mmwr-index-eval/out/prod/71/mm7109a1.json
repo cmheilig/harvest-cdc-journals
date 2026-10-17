@@ -1,0 +1,319 @@
+{
+ "id": "mm7109a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GwUCVH7vdwZ8jyRFf9",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Spatial analysis identified three hotspots of health facilities with significantly higher rates of recent infection than expected across five districts."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among 9,168 new HIV diagnoses, 3.3% (304) were recent infections"
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Hotspot P3 was a single facility in Blantyre with a recent infection rate of 818 per 100,000 persons at risk"
+    },
+    {
+     "loc": "table 2",
+     "q": "No. of expected recent infections**"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among 9,168 new HIV diagnoses, 3.3% (304) were recent infections"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The percentages of new diagnoses that were recent infections was highest in Machinga district (6.9%) and lowest in Blantyre (2.4%)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The analysis was adjusted for sex and age (<30 years or ≥30 years), and did not allow cluster overlap."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "spatial scan statistic (Poisson probability model, SaTScan)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "SaTScan spatial scan statistic: a likelihood-ratio test of observed vs expected counts under a Poisson model, giving cluster RRs and p-values. Expected counts adjusted for age and sex.",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "via spatial scan statistic in a Poisson probability model to identify clustering of facilities, using facility geographic coordinates"
+    },
+    {
+     "loc": "text",
+     "q": "defined as one or more facilities in which the observed rate of recent infections was significantly higher (p<0.05) than the expected rate."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "expected rate based on overall rate of recent infection (facilities outside hotspot)",
+  "across": [
+   "facility location (hotspot vs outside)",
+   "sex",
+   "age group",
+   "HIV testing entry point",
+   "district",
+   "facility urban-rural classification"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Higher proportions of recent infections were identified among females, persons aged <30 years, and clients at maternal and child health and youth clinics."
+   },
+   {
+    "loc": "text",
+    "q": "Relative risks were calculated as the risk for recent infection among facilities inside a given hotspot compared with the risk outside of the hotspot."
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The recent infection rate in hotspot P2 was 376 per 100,000 persons at risk (RR = 2.0; p = 0.018)."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage of new diagnoses that were recent infections",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. of recent infections (%)"
+    }
+   ]
+  },
+  {
+   "v": "recent infection rate per 100,000 persons at risk",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Recent infection rate (per 100,000 population) §"
+    }
+   ]
+  },
+  {
+   "v": "RR",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "RR †† (p-value)"
+    }
+   ]
+  },
+  {
+   "v": "observed and expected recent infections",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "No. of expected recent infections**"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Where are geospatial hotspots of recent HIV infection among health facilities in five Malawi districts, and which groups have higher proportions of recent infection?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "transmission hotspots were identified with rates of recent infection that were significantly higher than expected."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "recent HIV infection",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Geospatial Transmission Hotspots of Recent HIV Infection — Malawi, October 2019–March 2020"
+    }
+   ]
+  },
+  {
+   "v": "HIV infection",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among 9,168 persons aged ≥15 years with a new HIV diagnosis who received testing across 103 facilities"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a novel recent infection surveillance initiative was integrated into routine HIV testing services in Malawi"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "international surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a phased approach was used to integrate recent infection surveillance into HIV testing services in 11 of Malawi’s 28 districts."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Malawi recent HIV infection surveillance initiative",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "HIV-1 recent infection surveillance using point-of-care test for recent infection in Malawi protocol."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "international",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Geospatial Transmission Hotspots of Recent HIV Infection — Malawi, October 2019–March 2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Only age and sex are SPDs, used as stratifiers and as adjustment variables, without social-position framing. Urban-rural classification is of facilities (non-human units).",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 2,
+   "reason": "Table 1 labels urban/rural as 'Residence', so rurality could be read as an SPD of persons with group results reported side by side."
+  },
+  "dimensions": [
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The analysis was adjusted for sex and age (<30 years or ≥30 years)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group, yrs › <30"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The analysis was adjusted for sex and age (<30 years or ≥30 years)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Among 9,168 persons aged ≥15 years with a new HIV diagnosis"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Urban-rural classification is of facilities (Global Human Settlement categories), labeled 'Residence' in Table 1; age is collapsed to <30 vs ≥30."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "procedures",
+  "outcome_types",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "The SaTScan Poisson scan statistic is recorded as a test rather than a regression; its age and sex adjustment works through the expected counts. HIV-negative test totals were adjusted proportionally for partial quarters, which is data handling and not recorded as a procedure.",
+ "view_issues": "Table 2 CSV gives '79 5' for P2 % female (missing decimal). The text calls the P1 rate 'in Blantyre district'. P3 and S2 are the same facility with differing expected counts and RRs. Methods say the percentages are 'among total tests performed', but Table 1 uses new diagnoses."
+}

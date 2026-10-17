@@ -1,0 +1,361 @@
+{
+ "id": "mm7140a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GvjTESBMCJFGn4T7VD",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During 2021, the number of infections reported to FoodNet decreased 8% compared with the 2016–2018 average, likely related to the pandemic."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Incidence was highest for Campylobacter (17.8 cases per 100,000 population) and Salmonella (14.2)."
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Two thirds (67%) of bacterial infections were diagnosed using CIDT in 2021, compared with approximately one half (49%) during 2016–2018"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Incidence was highest for Campylobacter (17.8 cases per 100,000 population) and Salmonella (14.2)."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, 8% fewer infections were reported during 2021 than the average during 2016–2018"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusted for state-specific trends and changes in population over time"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Bayesian negative binomial regression with penalized thin plate splines",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'negative binomial model' for incidence counts with population offset changes → loglinear; splines are model terms",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a new Bayesian, negative binomial model with penalized thin plate splines that adjusted for state-specific trends"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based 95% credible intervals from the Bayesian negative binomial model; CrI excluding 0% read as increase/decrease, including 0% as unchanged",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "unchanged for Javiana (−23.0%; 95% CrI = −44.0% to 12.4%) and Newport (−8.7%; 95% CrI = −28.5% to 19.2%)"
+    },
+    {
+     "loc": "text",
+     "q": "The overall incidence of HUS was similar to that during 2016–2018 (−7.6% change; 95% CrI = −21.1% to 8.4%)"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "both",
+  "referent": "2016–2018 average annual incidence (Healthy People 2030 reference period)",
+  "across": [
+   "period (2021 vs 2016–2018)",
+   "pathogen",
+   "Salmonella serotype"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During 2021, the number of infections reported to FoodNet decreased 8% compared with the 2016–2018 average, likely related to the pandemic."
+   },
+   {
+    "loc": "table 1",
+    "q": "Absolute change in percentage of infections resulting in hospitalization during 2021 compared with annual average for 2016–2018"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "unchanged for Javiana (−23.0%; 95% CrI = −44.0% to 12.4%) and Newport (−8.7%; 95% CrI = −28.5% to 19.2%)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "crude incidence per 100,000",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Cases per 100,000 population."
+    }
+   ]
+  },
+  {
+   "v": "% change in infection incidence (95% CrI)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% Change in infection incidence"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The percentage of infections resulting in hospitalization and the percentage of outbreak-associated infections were stable."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, 8% fewer infections were reported during 2021 than the average during 2016–2018"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusted for state-specific trends and changes in population over time"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "state-specific trends and changes in population over time",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusted for state-specific trends and changes in population over time"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did 2021 incidence of laboratory-diagnosed enteric infections in FoodNet sites change compared with the 2016–2018 average, by pathogen?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This report summarizes preliminary 2021 data and describes changes in annual incidence compared with the average annual incidence for 2016–2018"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "enteric infections transmitted commonly through food",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Preliminary Incidence and Trends of Infections Caused by Pathogens Transmitted Commonly Through Food"
+    }
+   ]
+  },
+  {
+   "v": "Salmonella infection",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2021, the incidence of infections caused by Salmonella decreased"
+    }
+   ]
+  },
+  {
+   "v": "Campylobacter infection",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Incidence was highest for Campylobacter (17.8 cases per 100,000 population) and Salmonella (14.2)."
+    }
+   ]
+  },
+  {
+   "v": "Shiga toxin-producing Escherichia coli infection",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among 1,203 STEC isolates in 2021, serogroup O157 was most common (314; 26%)"
+    }
+   ]
+  },
+  {
+   "v": "hemolytic uremic syndrome",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This report includes HUS cases in children and adolescents aged <18 years for 2020"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(FoodNet) conducts active population-based surveillance for laboratory-diagnosed infections caused by Campylobacter"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "describes changes in annual incidence compared with the average annual incidence for 2016–2018"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "FoodNet is a collaboration among CDC, 10 state health departments"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Foodborne Diseases Active Surveillance Network (FoodNet)",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Foodborne Diseases Active Surveillance Network, 10 U.S. Sites, 2016–2021"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "FoodNet’s catchment area (Connecticut, Georgia, Maryland, Minnesota, New Mexico, Oregon, Tennessee, and selected counties in California, Colorado, and New York)"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "No social-position dimension is analyzed; age only defines the HUS population (<18 years) and gives one descriptive subgroup (<5 years).",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "This report includes HUS cases in children and adolescents aged <18 years for 2020"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "including 21 (43%) in children aged <5 years (0.7 per 100,000)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "procedures",
+  "inference"
+ ],
+ "confidence": "high",
+ "notes": "Bayesian credible intervals excluding or including 0% drive the increased/decreased/unchanged claims, recorded as CI inversion tests. Unknown hospitalization, death, outbreak and travel status were classified as 'no' (a fixed fill-in, not a procedure). Healthy People 2030 goals are cited but no target values are compared; diagnostic-accuracy and smoothing seeds are false hits (cited CIDT sensitivity; splines inside the model).",
+ "view_issues": "Table 2 CSV has an extra empty column shifting the 2016–2018 CIDT values; the article text's 2016–2018 CIDT 49% matches the first value."
+}

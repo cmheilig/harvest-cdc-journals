@@ -1,0 +1,481 @@
+{
+ "id": "mm7146a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GwnX4B1t2e6bZ9sCTo",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Higher perceived local COVID-19 transmission was associated with more use of preventive behaviors"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Models estimated odds of having “Always” or “Often” versus “Rarely” or “Never” used preventive behaviors"
+    },
+    {
+     "loc": "text",
+     "q": "Among all respondents, 702 (14%) characterized local COVID-19 transmission when surveyed as high"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "perceived local COVID-19 transmission when surveyed to be low or moderate, despite documented sustained high transmission"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Pearson’s chi-square tests were used to compare perceived local COVID-19 transmission across demographic groups"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Multivariable regression models are adjusted for geographic area, gender identity, age group, and combined race and ethnicity."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multivariable logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'multivariable logistic regression models' giving aORs → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusted odds ratios (aORs) were estimated using multivariable logistic regression models"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based CIs from the named logistic regression; 'more likely' conclusions rest on aOR CIs excluding 1",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were more likely to report having always or often worn masks in public settings (aOR = 3.0; 95% CI = 2.3–3.8)"
+    }
+   ]
+  },
+  {
+   "name": "Pearson chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods and Table note; p-values for differences in perception across characteristics",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Pearson’s chi-square tests were used to compare perceived local COVID-19 transmission across demographic groups"
+    }
+   ]
+  },
+  {
+   "name": "Bonferroni adjustment",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "multiple-comparison correction applied to the chi-square p-values",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "A Bonferroni adjustment (10) was applied to account for the number of comparisons."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "low perceived transmission",
+  "across": [
+   "perceived local transmission level",
+   "county",
+   "gender identity",
+   "age group",
+   "race/ethnicity",
+   "education",
+   "employment status",
+   "vaccine doses",
+   "health status",
+   "concern about variants"
+  ],
+  "ev": [
+   {
+    "loc": "figure 1",
+    "q": "Referent group = low transmission."
+   },
+   {
+    "loc": "text",
+    "q": "Perceived level of local COVID-19 transmission varied by county, gender identity, age group, race and ethnicity, education, employment status"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Pearson’s chi-square tests were used to compare perceived local COVID-19 transmission across demographic groups"
+   },
+   {
+    "loc": "text",
+    "q": "adjusted odds ratios (aORs) were estimated using multivariable logistic regression models"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "no. (%)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Perception of local COVID-19 transmission when surveyed, no. (%)"
+    }
+   ]
+  },
+  {
+   "v": "aOR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusted odds ratios (aORs) were estimated using multivariable logistic regression models"
+    }
+   ]
+  },
+  {
+   "v": "p-value",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Pearson’s chi-square tests were used to estimate p-values for differences across groups."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Multivariable regression models are adjusted for geographic area, gender identity, age group, and combined race and ethnicity."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "geographic area, gender identity, age group, combined race and ethnicity",
+   "ev": [
+    {
+     "loc": "figure 2",
+     "q": "Multivariable regression models are adjusted for geographic area, gender identity, age group, and combined race and ethnicity."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Among adults with recent SARS-CoV-2 infection, how did they perceive local COVID-19 transmission, and was perception associated with use of preventive behaviors?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The association between awareness of local COVID-19 transmission and use of preventive behaviors and practices was assessed"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Use of Preventive Behaviors Among Adults with Recent SARS-CoV-2 Infection"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19 preventive behaviors",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "including wearing a mask in public, limiting travel, and avoiding crowded places or events"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "invited via SMS text messages to complete anonymous, English-language Internet-based questionnaires"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "as part of the COVID-19 Outbreak Public Evaluation (COPE) Initiative."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "COVID-19 Outbreak Public Evaluation (COPE) Initiative",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "as part of the COVID-19 Outbreak Public Evaluation (COPE) Initiative."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Illinois and Michigan, June 1–July 31, 2022"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Perception is reported by race/ethnicity, education, age and gender with chi-square p-values, and education differences are described in text, but no disparity is framed or quantified.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Race/ethnicity enters the models only as a covariate and its table differences are not discussed; education is described only briefly."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "figure 1",
+      "q": "Multivariable regression models are adjusted for geographic area, gender identity, age group, and combined race and ethnicity."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race and ethnicity › Black, non-Hispanic"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "highest level of education",
+     "employment status"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "High perceived local COVID-19 transmission levels were also more common among adults with relatively higher education attainment"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "adults aged ≥18 years who had received positive SARS-CoV-2 test results within the preceding 3 weeks"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Respondents aged 30–59 years were more likely than those aged 18–29 years or ≥60 years to characterize local COVID-19 transmission as high."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "figure 1",
+      "q": "Multivariable regression models are adjusted for geographic area, gender identity, age group, and combined race and ethnicity."
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "stratifier",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "gender identities were categorized as male, female, and other or unknown"
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "covariate",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "adjusted for geographic area, gender identity,*** age group, and combined race and ethnicity"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Gender 'other or unknown' collapses trans, nonbinary and 'prefer not to say'; other races are collapsed; education and employment are not in the models."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Pearson’s chi-square tests were used to estimate p-values for differences across groups."
+    },
+    {
+     "loc": "table 1",
+     "q": "Race and ethnicity › Other race or races, non-Hispanic"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Respondents aged 30–59 years were more likely than those aged 18–29 years or ≥60 years to characterize local COVID-19 transmission as high."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "High perceived local COVID-19 transmission levels were also more common among adults with relatively higher education attainment"
+    }
+   ]
+  },
+  {
+   "across": [
+    "sexual orientation and gender identity",
+    "sex"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Perceived level of local COVID-19 transmission varied by county, gender identity, age group, race and ethnicity, education, employment status"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "comparison",
+  "procedures"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred as cross-sectional; COPE is described elsewhere as case-control surveys, but this analysis is a single survey of cases. The Summary also contrasts perception with documented high CDC transmission levels (a fixed referent); group leads because of the aOR comparisons. The R survey package is named but no weights or design are stated, so weighting is not recorded.",
+ "view_issues": "Counts differ: intro gives 987 substantial and 789 don't know, while results and Table give 971 and 778. Figure 2 text gives aOR 4.4 for high with CI 3.2–5.0, identical to the substantial CI. The Table CSV repeats each chi-square p-value on every row of its block."
+}

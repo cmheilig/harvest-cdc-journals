@@ -1,0 +1,403 @@
+{
+ "id": "mm7139a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GvmHcQreMBE6rCqQFQ",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "60-day VE of a second mRNA COVID-19 vaccine booster dose was 25.8% (95% CI = 1.2–44.3) against infection"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "event-time",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Kaplan-Meier estimators were used to estimate VE as 1 − relative ratio of the cumulative incidence curves between groups"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Events per 1,000 nursing home residents."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "60-day VE of a second mRNA COVID-19 vaccine booster dose was 25.8% (95% CI = 1.2–44.3) against infection"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "matched to controls exactly by facility of residence and index date with 1:1 nearest neighbor matching"
+    },
+    {
+     "loc": "text",
+     "q": "Propensity scores were estimated using logistic regression adjusting for 1) previous COVID-19 infection history"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Kaplan-Meier cumulative incidence",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "'Kaplan-Meier estimators' give cumulative incidence curves; VE = 1 − ratio of curves",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Kaplan-Meier estimators were used to estimate VE as 1 − relative ratio of the cumulative incidence curves between groups"
+    }
+   ]
+  },
+  {
+   "name": "bootstrap",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "resampling of matched pairs, 500 replications, percentile CIs",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Sampling with replacement by matched pair with 500 replications was used to generate 95% CIs."
+    },
+    {
+     "loc": "table 2",
+     "q": "Bootstrapped percentile CIs."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "bootstrap percentile CIs for VE judged against 0 (null not excluded for hospitalization; protection claimed for severe outcomes and death)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "might explain not being able to exclude a null effect for preventing hospitalization alone."
+    },
+    {
+     "loc": "text",
+     "q": "too few hospitalization events were observed to definitely attribute a reduction to vaccination."
+    }
+   ]
+  },
+  {
+   "name": "propensity score logistic regression (for matching)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Propensity scores were estimated using logistic regression' → logistic; used only to build matched pairs",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Propensity scores were estimated using logistic regression adjusting for 1) previous COVID-19 infection history"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "both",
+  "referent": "first booster dose only (matched controls)",
+  "across": [
+   "vaccination status (second booster vs first booster only)"
+  ],
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "Risk difference (per 1,000 residents)"
+   },
+   {
+    "loc": "summary",
+    "q": "90% against death alone compared with receipt of a single booster dose."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Sampling with replacement by matched pair with 500 replications was used to generate 95% CIs."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "vaccine effectiveness %",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Vaccine effectiveness % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "cumulative incidence per 1,000 residents",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Events per 1,000 nursing home residents."
+    }
+   ]
+  },
+  {
+   "v": "risk difference per 1,000 residents",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Risk difference (per 1,000 residents)"
+    }
+   ]
+  },
+  {
+   "v": "aSMD",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "aSMD = absolute standardized mean difference"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Propensity scores were estimated using logistic regression adjusting for 1) previous COVID-19 infection history"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "previous COVID-19 infection history, immunosuppressive condition, do-not-resuscitate orders, hospitalization in preceding 90 days, time since last vaccination, length of stay, previous-season influenza vaccination, age, number of Charlson comorbidities",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "7) history of any influenza vaccination during the previous influenza season, 8) age, and 9) number of Charlson index comorbidities"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Among nursing home residents with 3 prior mRNA doses, how effective is a second booster dose versus a single booster against infection, hospitalization and death?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to estimate VE of a second mRNA COVID-19 vaccine booster dose among nursing home residents who had received 3 previous COVID-19 vaccine doses"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Effectiveness of a Second COVID-19 Vaccine Booster Dose Against Infection, Hospitalization, or Death Among Nursing Home Residents"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Effectiveness of a Second COVID-19 Vaccine Booster Dose Against Infection, Hospitalization, or Death Among Nursing Home Residents"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "retrospective cohort",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This analysis emulated target trials that compared the effectiveness of a second mRNA booster dose versus non-receipt"
+    },
+    {
+     "loc": "text",
+     "q": "evaluated routine care data collected from 196 U.S. community nursing homes"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "electronic health records",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were collected from nursing home electronic health record systems."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Genesis HealthCare nursing home electronic health records",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "operated by Genesis HealthCare."
+    }
+   ]
+  },
+  {
+   "v": "Minimum Data Set (MDS) 3.0",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "other demographic variables are extracted from nursing home MDS assessments (version 3.0)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Among Nursing Home Residents — 19 States, March 29–July 25, 2022"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "effectiveness",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "was 74% effective at 60 days against severe COVID-19–related outcomes (including hospitalization or death) and 90% against death alone"
+   }
+  ]
+ },
+ "equity": {
+  "level": 1,
+  "level_reason": "Race/ethnicity and language-translator need appear only as Table 1 baseline descriptors of matched groups; no results by any social-position dimension.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 0,
+   "reason": "The race rows are only balance-check descriptors in Table 1, which some readers would treat as no equity content."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Black or African American"
+     }
+    ]
+   },
+   {
+    "v": "country of birth/language/nativity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Needed language translator"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Residents in the matched group had a mean age of 78 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "8) age, and 9) number of Charlson index comorbidities"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Male"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "analytic_depth",
+  "regression_fields"
+ ],
+ "confidence": "high",
+ "notes": "The report names an emulated target trial on routine EHR data; mapped to retrospective cohort. The logistic model only estimates propensity scores for 1:1 matching (with exact matching on facility and index date), so regression_fields describe that model; the VE contrast itself is Kaplan-Meier based. Risk differences are reported without CIs.",
+ "view_issues": "Text gives the hospitalization CI as '−18.8−91.5' (Table 2: −18.8 to 91.5). Table 2 risk difference for hospitalization (−5) does not equal 3 − 9, presumably rounding."
+}

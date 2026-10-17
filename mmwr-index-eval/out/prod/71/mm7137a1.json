@@ -1,0 +1,430 @@
+{
+ "id": "mm7137a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GvjWD5iNrfXpj9S1W5",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Nearly 55% of AI/AN suicide decedents experienced any relationship problems or losses before their death, compared with 42.2% of non-AI/AN decedents"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Approximately three quarters (74.6%) of AI/AN suicide decedents were aged ≤44 years, compared with less than one half (46.5%) of non-AI/AN decedents."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Each aOR used Non-AI/AN as the referent group and controlled for age group and sex."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "logistic regression (aOR adjusted for age group and sex)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'logistic regression analyses ... to estimate aORs with 95% CIs' → logistic; CIs model-based",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "logistic regression analyses, controlling for age and sex to estimate aORs with 95% CIs."
+    }
+   ]
+  },
+  {
+   "name": "Pearson chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods and table notes; p-value for each AI/AN vs non-AI/AN row",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All comparisons between AI/AN and non-AI/AN persons were examined using Pearson’s chi-square tests (with p<0.05 considered statistically significant)"
+    }
+   ]
+  },
+  {
+   "name": "Fisher exact test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "table 2 note: used for small cells in place of chi-square",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Fisher’s exact test when one or more of the cell counts in a 2×2 table is <5"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "non-AI/AN suicide decedents",
+  "across": [
+   "race/ethnicity"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "AI/AN suicide decedents had higher adjusted odds of a range of relationship and alcohol or other substance use problems"
+   },
+   {
+    "loc": "table 1",
+    "q": "Each aOR used non-AI/AN as the referent group and controlled for age group and sex."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "All comparisons between AI/AN and non-AI/AN persons were examined using Pearson’s chi-square tests (with p<0.05 considered statistically significant)"
+   },
+   {
+    "loc": "text",
+    "q": "logistic regression analyses, controlling for age and sex to estimate aORs with 95% CIs."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Denominator includes all suicide decedents."
+    }
+   ]
+  },
+  {
+   "v": "aOR",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "aOR (95% CI) §"
+    }
+   ]
+  },
+  {
+   "v": "chi-square p-value",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Chi-square p-value †"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Pearson’s chi-square test result for difference between AI/AN and non-AI/AN populations"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Each aOR used non-AI/AN as the referent group and controlled for age group and sex."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age group and sex",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "logistic regression analyses, controlling for age and sex to estimate aORs with 95% CIs."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Post-hoc analyses controlling for metropolitan status did not change these results, suggesting possible contribution of other factors."
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "How do the characteristics and precipitating circumstances of suicide among AI/AN decedents differ from those among non-AI/AN decedents in NVDRS, 2015–2020?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to examine differences in suicide characteristics and contributing circumstances among Hispanic and non-Hispanic AI/AN populations, including multiracial AI/AN"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "suicide",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Suicides Among American Indian or Alaska Native Persons — National Violent Death Reporting System, United States, 2015–2020"
+    }
+   ]
+  },
+  {
+   "v": "alcohol and substance use problems",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "AI/AN decedents had higher odds of six of seven alcohol or substance use problems"
+    }
+   ]
+  },
+  {
+   "v": "mental health conditions",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The prevalences of known mental health diagnoses (41.5%; [aOR = 0.7])"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NVDRS is a state-based surveillance system that collects information from death certificates, coroner or medical examiner reports, and law enforcement reports"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "2015–2020 National Violent Death Reporting System (NVDRS) data among 49 states, Puerto Rico, and the District of Columbia"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Violent Death Reporting System (NVDRS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "2015–2020 National Violent Death Reporting System (NVDRS) data among 49 states, Puerto Rico, and the District of Columbia"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Data in this report are from the District of Columbia, Puerto Rico, and 49 U.S. states participating in NVDRS during 2015–2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "AI/AN vs non-AI/AN differences are framed as inequities, quantified with aORs and interpreted; less available or accessible mental health services and historical trauma are named as explanations.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Determinants are offered briefly and partly as recommendations; the quantified contrasts concern circumstances among decedents, not suicide risk itself."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Comparison of 2015–2020 suicides among all AI/AN and non-AI/AN decedents in 49 states, Puerto Rico, and the District of Columbia"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Ethnicity › Hispanic or Latino"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Analyses were limited to decedents aged ≥10 years, because determining suicide intent in young children can be difficult"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Each aOR used non-AI/AN as the referent group and controlled for age group and sex."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Approximately three quarters (74.6%) of AI/AN suicide decedents were aged ≤44 years, compared with less than one half (46.5%) of non-AI/AN decedents."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Each aOR used non-AI/AN as the referent group and controlled for age group and sex."
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Nearly 45% of AI/AN suicide decedents (compared with 18.7% of non-AI/AN suicide decedents) lived in nonmetropolitan areas."
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Post-hoc analyses controlling for metropolitan status did not change these results, suggesting possible contribution of other factors."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "homelessness"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Other characteristic › Current experience of homelessness"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "less available or accessible mental health services; historical trauma and intergenerational transmission; systemic and long-standing inequities",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This might be the result of less available or accessible mental health services, especially in rural areas, and therefore fewer diagnoses."
+    },
+    {
+     "loc": "text",
+     "q": "must consider the context and consequences of current inequities as well as historical trauma, including intergenerational transmission"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "AI/AN includes any AI/AN identification (multiracial, any ethnicity) vs all other decedents as referent; tribal affiliation unavailable; misclassification may undercount AI/AN deaths."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group, yrs › 25–44"
+    },
+    {
+     "loc": "table 1",
+     "q": "Pearson’s chi-square test p-value for difference between AI/AN and non-AI/AN populations."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise"
+ ],
+ "confidence": "high",
+ "notes": "The logistic models take AI/AN race as the outcome and each circumstance as the predictor, adjusted for age group and sex. Suicide rates in the introduction are cited from earlier reports. Age-group chi-square in Table 1 is read as one test across six age groups (same p repeated per row).",
+ "view_issues": "Table 2 CSV has malformed counts ('3,4291', '475,96'). Some aORs conflict with crude data (e.g., ADHD 1.3% vs 1.3%, aOR 0.5 significant; family-relationship crisis p=0.794, aOR 0.7 significant). Text says '10 of 14' relationship problems in one place and 'an additional nine of 14' in another."
+}

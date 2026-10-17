@@ -1,0 +1,457 @@
+{
+ "id": "mm7126a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8Gvie7b1k82onJgXKKS",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The availability of each provider type was associated with higher county-level vaccination coverage among children aged 5–11 years."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "divided by the county population aged 5–11 years."
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among all counties, median vaccination coverage among children aged 5–11 years was 14.5% (IQR = 8.9%–23.6%)."
+    },
+    {
+     "loc": "table 1",
+     "q": "County-level vaccination coverage"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Most counties had at least one active provider (87.5%), with the most common being a pharmacy (69.1%) or public health clinic (61.3%)"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In univariate models, the presence of at least one active provider in a county was associated with higher vaccination coverage"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Models controlled for social vulnerability index quartile and urbanicity."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "GEE negative binomial regression with robust SEs",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'generalized estimating equation models with negative binomial regression' giving rate ratios → loglinear; GEE for counties clustered in states",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Associations between provider availability and vaccination coverage among children aged 5–11 years were measured using generalized estimating equation models with negative binomial regression"
+    },
+    {
+     "loc": "table 2",
+     "q": "Analysis performed using generalized estimating equation models with negative binomial regression to account for clustering of counties within states."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "counties with no active providers (overall or of the same type)",
+  "across": [
+   "provider availability (≥1 vs 0), overall and by provider type",
+   "social vulnerability index quartile",
+   "urbanicity"
+  ],
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "RRs compare the vaccination rate in counties with ≥1 providers overall and of a given type to counties with 0 providers"
+   },
+   {
+    "loc": "table 1",
+    "q": "Social vulnerability index › Quartile 4 (highest vulnerability)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Rate ratios were calculated with 95% CIs to compare vaccination coverage among counties with and without active COVID-19 vaccine providers"
+   },
+   {
+    "loc": "text",
+    "q": "P-values <0.05 were considered statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "aRR",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "the largest associations with vaccination coverage were found for active providers (aRR = 1.66) and pediatric clinics (aRR = 1.37)."
+    }
+   ]
+  },
+  {
+   "v": "RR",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Abbreviation: RR = rate ratio."
+    }
+   ]
+  },
+  {
+   "v": "median county-level vaccination coverage (IQR)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among all counties, median vaccination coverage among children aged 5–11 years was 14.5% (IQR = 8.9%–23.6%)."
+    }
+   ]
+  },
+  {
+   "v": "percentage of counties",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Most counties had at least one active provider (87.5%)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "GEE",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Analysis performed using generalized estimating equation models with negative binomial regression to account for clustering of counties within states."
+    },
+    {
+     "loc": "note",
+     "q": "Robust SEs were used."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Univariate model"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Models controlled for social vulnerability index quartile and urbanicity."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "social vulnerability index quartile and urbanicity",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Models controlled for social vulnerability index quartile and urbanicity."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a sensitivity analysis was also conducted in which active providers were defined as those reporting either administration or inventory"
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "Is county-level availability of COVID-19 vaccine providers, overall and by provider type, associated with vaccination coverage among U.S. children aged 5–11 years?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To better understand how provider availability has affected COVID-19 vaccination coverage among children aged 5–11 years"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "COVID-19 Vaccine Provider Availability and Vaccination Coverage Among Children Aged 5–11 Years"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This cross-sectional analysis used COVID-19 vaccine administration data reported to CDC"
+    }
+   ]
+  },
+  {
+   "v": "ecologic",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among 3,142 U.S. counties, 2,586 (82.3%) were included."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "vaccination registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "through immunization information systems, the Vaccine Administration Management System, and direct data submission."
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-19 provider enrollment data were used to classify active providers into the following provider types"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "immunization information systems",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "through immunization information systems, the Vaccine Administration Management System, and direct data submission."
+    }
+   ]
+  },
+  {
+   "v": "Vaccine Administration Management System",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "through immunization information systems, the Vaccine Administration Management System, and direct data submission."
+    }
+   ]
+  },
+  {
+   "v": "COVID-19 provider enrollment data",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-19 provider enrollment data were used to classify active providers"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, November 1, 2021–April 25, 2022"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The availability of each provider type was associated with higher county-level vaccination coverage among children aged 5–11 years."
+   }
+  ]
+ },
+ "equity": {
+  "level": 2,
+  "level_reason": "SVI and urbanicity are model covariates; Table 1 also reports median coverage by SVI quartile and urbanicity level side by side, but the text never discusses these group differences, so the level is capped at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "The SPD results appear only in a descriptive table and are not described; SVI and urbanicity function mainly as adjustment covariates."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "social vulnerability index"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "After adjusting for social vulnerability index (SVI) † and urbanicity"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "social vulnerability index"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Social vulnerability index › Quartile 4 (highest vulnerability)"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Models controlled for social vulnerability index quartile and urbanicity."
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Urbanicity › Noncore"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Vaccination Coverage Among Children Aged 5–11 Years"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "access to COVID-19 vaccine providers",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Lack of access to a pediatrician or other regular health care provider that administers COVID-19 vaccines could be a barrier to vaccination"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "SVI (2018, county-level area index) in quartiles and the 2013 NCHS urban-rural scheme (6 levels) are linked to counties; SPD results are county medians only, with no contrast computed."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Social vulnerability index › Quartile 1 (lowest vulnerability)"
+    },
+    {
+     "loc": "table 1",
+     "q": "Social vulnerability index › Quartile 4 (highest vulnerability)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Urbanicity › Large central metropolitan"
+    },
+    {
+     "loc": "table 1",
+     "q": "Urbanicity › Noncore"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "outcome_types",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "Coverage is a proportion modelled as counts with negative binomial GEE yielding rate ratios; recorded as binary/categorical, with county medians compared in Table 1 as continuous. P-values are for model terms, so no separate test is recorded. Provider availability as the analyzed exposure is recorded as an access determinant, though not tied to a disparity.",
+ "view_issues": null
+}

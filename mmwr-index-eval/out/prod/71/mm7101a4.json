@@ -1,0 +1,385 @@
+{
+ "id": "mm7101a4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GvjvkjbapkAQPvFUay",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among persons with COVID-19 after primary vaccination, a logistic regression model was specified to estimate the odds for severe versus nonsevere outcomes."
+    },
+    {
+     "loc": "summary",
+     "q": "Among 1,228,664 persons who completed primary vaccination during December 2020–October 2021, severe COVID-19–associated outcomes (0.015%) or death (0.0033%) were rare."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Among 1,228,664 persons who completed primary vaccination during December 2020–October 2021, severe COVID-19–associated outcomes (0.015%) or death (0.0033%) were rare."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The frequency of having four or more risk factors increased with disease severity"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Adjusted odds ratios (aOR) of severe COVID-19 outcomes after primary vaccination were higher among persons aged ≥65 years"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multivariable logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'logistic regression model ... to estimate the odds for severe versus nonsevere outcomes' giving aORs → logistic; CIs model-based",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among persons with COVID-19 after primary vaccination, a logistic regression model was specified to estimate the odds for severe versus nonsevere outcomes."
+    },
+    {
+     "loc": "text",
+     "q": "p-values <0.05 were considered statistically significant"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "persons without each risk factor; age 18–39 years; Janssen recipients; non-Hispanic White persons",
+  "across": [
+   "underlying medical conditions",
+   "age group",
+   "sex",
+   "race/ethnicity",
+   "vaccine type",
+   "time since vaccination",
+   "Delta period",
+   "previous COVID-19",
+   "outcome severity"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Risk factors for severe outcomes included age ≥65 years, immunosuppressed, and six other underlying conditions."
+   },
+   {
+    "loc": "text",
+    "q": "Compared with persons who received the Janssen vaccine, Pfizer-BioNTech recipients had similar odds of severe outcomes (aOR = 0.70; 95% CI = 0.39–1.26)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Statistically significant risk factors for severe outcomes were identified from the model"
+   },
+   {
+    "loc": "text",
+    "q": "Odds of severe outcomes did not differ significantly by sex, race/ethnicity, time since primary vaccination"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "aOR",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "aOR of severe versus nonsevere COVID-19 outcome (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Among 1,228,664 persons who completed primary vaccination during December 2020–October 2021, severe COVID-19–associated outcomes (0.015%) or death (0.0033%) were rare."
+    }
+   ]
+  },
+  {
+   "v": "per 10,000 vaccinated persons",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a total of 2,246 (18.0 per 10,000 vaccinated persons) developed COVID-19 and 189 (1.5 per 10,000) had a severe outcome"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Covariates included age group, sex, race/ethnicity, six selected underlying conditions"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age group, sex, race/ethnicity, six underlying conditions, vaccine type, time since primary vaccination, Delta variant prevalence, previous COVID-19",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Covariates included age group, sex, race/ethnicity, six selected underlying conditions"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How often do adults who completed primary COVID-19 vaccination have severe COVID-19 outcomes, and what are the risk factors?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "this study assessed the frequency of and risk factors for developing a severe COVID-19 outcome after completing a primary COVID-19 vaccination series"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Risk Factors for Severe COVID-19 Outcomes Among Persons Aged ≥18 Years Who Completed a Primary COVID-19 Vaccination Series"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among persons with COVID-19 after primary vaccination, a logistic regression model was specified to estimate the odds for severe versus nonsevere outcomes."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "retrospective cohort",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from 465 facilities in the Premier Healthcare Database Special COVID-19 Release (PHD-SR) were analyzed."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "administrative/claims",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "a large U.S. health care all-payor administrative database that includes inpatient and hospital-based outpatient"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Premier Healthcare Database Special COVID-19 Release (PHD-SR)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from 465 facilities in the Premier Healthcare Database Special COVID-19 Release (PHD-SR) were analyzed."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "465 Health Care Facilities, United States, December 2020–October 2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "other",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Risk factors for severe outcomes included age ≥65 years, immunosuppressed, and six other underlying conditions."
+   }
+  ]
+ },
+ "equity": {
+  "level": 2,
+  "level_reason": "Race/ethnicity-specific aORs vs non-Hispanic White are reported and described as not differing significantly; the Discussion links this to cited population disparities, but the article's own contrast shows no disparity.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The aORs are quantified contrasts, and the Discussion frames them against racial/ethnic disparities and interprets them."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Covariates included age group, sex, race/ethnicity, six selected underlying conditions"
+     },
+     {
+      "loc": "text",
+      "q": "this study did not find an association between race/ethnicity and severe COVID-19 outcomes after primary vaccination"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Risk Factors for Severe COVID-19 Outcomes Among Persons Aged ≥18 Years Who Completed a Primary COVID-19 Vaccination Series"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Adjusted odds ratios (aOR) of severe COVID-19 outcomes after primary vaccination were higher among persons aged ≥65 years"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Covariates included age group, sex, race/ethnicity, six selected underlying conditions"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "higher SARS-CoV-2 exposure; reduced access to care; uncontrolled underlying conditions",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This might be explained by higher levels of SARS-CoV-2 exposure, reduced access to care, and higher rates of uncontrolled underlying conditions"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referent is non-Hispanic White; unknown race (2.8%) kept as a model level; groups other than Hispanic, Asian, Black and White are collapsed into Other. Determinants explain cited population disparities, not the article's own data."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group, yrs › 18–39"
+    },
+    {
+     "loc": "text",
+     "q": "Adjusted odds ratios (aOR) of severe COVID-19 outcomes after primary vaccination were higher among persons aged ≥65 years"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity › White, non-Hispanic"
+    },
+    {
+     "loc": "text",
+     "q": "Odds of severe outcomes did not differ significantly by sex, race/ethnicity, time since primary vaccination"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "comparison",
+  "procedures",
+  "equity.level",
+  "study_design"
+ ],
+ "confidence": "medium",
+ "notes": "The design is not named; retrospective cohort is inferred from the use of existing administrative records. Significance comes from model p-values, so no separate CI-inversion test is recorded. Figure 2 sets risk-factor counts side by side by outcome severity, with no test.",
+ "view_issues": "In Table 1, the ≤60 days row shows 325 (13.3) of 2,246 persons, but 325/2,246 is 14.5%. The text puts the severe ICU/respiratory-failure survivors at 153 (Figure 2), while Table 1 gives 24 + 129 = 153, which is consistent. The model does not account for clustering by facility."
+}

@@ -1,0 +1,476 @@
+{
+ "id": "mm7129e2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GviYAbg53XVRrtxH8F",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "overdose death rates increased by 44% and 39% among non-Hispanic Black (Black) and non-Hispanic American Indian or Alaska Native persons"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the proportion of decedents with documented evidence of previous substance use treatment was low overall, with the lowest proportions among Black (8.3%)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "No. (%) › Total"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Relative rate increases were highest among Black (44%) and AI/AN persons (39%)"
+    },
+    {
+     "loc": "summary",
+     "q": "Evidence of previous substance use treatment was lowest for Black decedents (8.3%)."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Death rates (overdose deaths per 100,000 population) were age-adjusted to the 2000 U.S. standard population, and rate ratios were calculated."
+    },
+    {
+     "loc": "text",
+     "q": "rates among Black males aged ≥65 years were nearly six times as high as those among White males of the same age in 2019"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "Table 1 note: age-adjusted using the direct method and the 2000 U.S. standard population",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Rates are age-adjusted using the direct method and the 2000 U.S. standard population, except for age-specific crude rates."
+    }
+   ]
+  },
+  {
+   "name": "CI overlap assertion",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "2019 vs 2020 differences judged significant if CIs did not overlap; gamma-distribution CIs when <100 deaths, otherwise CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Differences in age-adjusted death rates from 2019 to 2020 were considered statistically significant if CIs did not overlap"
+    },
+    {
+     "loc": "table 1",
+     "q": "Nonoverlapping CIs were used to assess statistical significance between 2019 and 2020."
+    }
+   ]
+  },
+  {
+   "name": "suppression of rates based on <20 deaths and counts <10",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "small-cell and unreliable-rate suppression rule",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates based on <20 deaths and counts <10 were suppressed."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "both",
+  "referent": "White persons (rate ratios); 2019 (rate change)",
+  "across": [
+   "year (2019 vs 2020)",
+   "race/ethnicity",
+   "age group",
+   "sex",
+   "county income inequality tertile",
+   "mental health provider availability tertile",
+   "opioid treatment program presence",
+   "DATA-waived provider capacity tertile"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Significant disparities were found across sex, age, and racial and ethnic subgroups."
+   },
+   {
+    "loc": "table 1",
+    "q": "Rate ratio is calculated by dividing the rate for persons of race/ethnicities other than White by the rate for White persons."
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "ci_overlap": true,
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "Statistically significant (p value <0.05). Nonoverlapping CIs were used to assess statistical significance between 2019 and 2020."
+   },
+   {
+    "loc": "text",
+    "q": "a gamma distribution was used if <100 deaths occurred in either year."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted rate per 100,000",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Death rates (overdose deaths per 100,000 population) were age-adjusted to the 2000 U.S. standard population"
+    }
+   ]
+  },
+  {
+   "v": "rate ratio",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(2019 rate ratio = 1.06; 2020 rate ratio = 1.66)"
+    }
+   ]
+  },
+  {
+   "v": "absolute rate change",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Absolute rate change is the difference between 2019 and 2020 rates."
+    }
+   ]
+  },
+  {
+   "v": "relative rate change (%)",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Relative rate change is the absolute rate change divided by the 2019 rate, multiplied by 100."
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Evidence of naloxone administration was highest among AI/AN (21.5%) decedents"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did drug overdose death rates change from 2019 to 2020 by race/ethnicity, sex and age, and how did they vary by county-level income inequality and treatment availability?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "assesses differences in overdose death rates by county-level income inequality and availability of mental health treatment providers"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "drug overdose death",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Drug Overdose Deaths, by Selected Sociodemographic and Social Determinants of Health Characteristics"
+    }
+   ]
+  },
+  {
+   "v": "opioid overdose death",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2020, the rates of opioid-involved deaths among Black and AI/AN persons in counties with at least one opioid treatment program"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Data from the State Unintentional Drug Overdose Reporting System (SUDORS) were used to analyze overdose death rates from 2019 to 2020"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This report describes changes in drug overdose death rates from 2019 to 2020"
+    }
+   ]
+  },
+  {
+   "v": "ecologic",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was obtained from the 2021 County Health Rankings and analyzed by tertile."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Data from the State Unintentional Drug Overdose Reporting System (SUDORS) were used to analyze overdose death rates from 2019 to 2020"
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The Drug Enforcement Administration’s controlled substance registration database was used to ascertain whether a county had at least one opioid treatment program"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "State Unintentional Drug Overdose Reporting System (SUDORS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were obtained from the State Unintentional Drug Overdose Reporting System (SUDORS)."
+    }
+   ]
+  },
+  {
+   "v": "2021 County Health Rankings",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was obtained from the 2021 County Health Rankings and analyzed by tertile."
+    }
+   ]
+  },
+  {
+   "v": "DEA controlled substance registration database",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The Drug Enforcement Administration’s controlled substance registration database was used"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "25 States and the District of Columbia, 2019–2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Racial/ethnic disparities in overdose rates are framed, quantified (rate ratios, 'nearly seven times', 'more than twice') and interpreted; income inequality and treatment access are analyzed as county-level determinants and stigma, criminalization and tribal clinic underfunding are named as causes.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Determinants are measured only as county-level tertiles shown side by side; one could read the structural explanations as cited background rather than analyzed."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "assigned or observed",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Rates were examined by race and ethnicity and county-level social determinants of health (e.g., income inequality and treatment provider availability)."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "county-level income inequality ratio"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "the overdose rate for counties with the highest income inequality (46.5) was more than twice that of counties with the lowest"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "This report describes changes in drug overdose death rates from 2019 to 2020, stratified by sex, age group, and race and ethnicity."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "When stratified by sex and age group, higher overdose death rates occurred among older Black males"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "income inequality; unequal access to substance use and mental health treatment; stigma; criminalization; mistrust in the health care system; underfunding of tribal clinics; transportation barriers",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "social determinants of health, such as income inequality, exacerbate these inequities."
+    },
+    {
+     "loc": "text",
+     "q": "More stigmatization, criminalization, and lack of access to evidence-based treatments among racial/ethnic minority groups with substance use disorders have been well-documented"
+    },
+    {
+     "loc": "text",
+     "q": "in AI/AN communities underfunding of tribal clinics has affected the availability of mental health treatment"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Rate ratios use White persons as referent. SES is an area measure (county income inequality ratio tertiles from County Health Rankings), not individual. Multiracial persons excluded; Hispanic not split by race; treatment availability measured at county level."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Rate ratio is calculated by dividing the rate for persons of race/ethnicities other than White by the rate for White persons."
+    },
+    {
+     "loc": "text",
+     "q": "Relative rate increases were highest among Black (44%) and AI/AN persons (39%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Evidence of injection drug use was most prevalent among White (28.0%) and AI/AN (22.9%) decedents."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2020, overdose death rates increased with increasing county-level income inequality ratios"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Black persons aged 15–24 years experienced the largest relative rate increase from 2019 to 2020 (86%)."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "study_design",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Designs are not named; surveillance, trend and ecologic (county-tertile rates) are inferred. The CI-overlap test covers only 2019 vs 2020 within each group; race contrasts are rate ratios without inference. A residence check (>95% died in state of residence) is a data check; Supplementary tables and figures are not in the packet.",
+ "view_issues": "The abstract claims 'significant disparities' across sex, age and race, but the only stated test is the 2019 vs 2020 CI overlap within groups. Table 1 labels marks 'p value <0.05' though no p-values are computed. The Discussion says AI/AN females were 'nearly twice' White females, but the stated 2020 rate ratio is 1.66."
+}

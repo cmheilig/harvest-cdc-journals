@@ -1,0 +1,366 @@
+{
+ "id": "mm7108e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GvifMcst22U97TMRC6",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Compared with 2019, overall pediatric emergency department visits decreased by 51%, 22%, and 23% during 2020, 2021, and January 2022, respectively."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC selected 15 categories with the largest increases and decreases in number of mean weekly visits"
+    },
+    {
+     "loc": "text",
+     "q": "with an increase of eight visits per week in 2020 (VR = 3.94)"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "VRs were calculated as the proportion of all ED visits in each diagnostic category during the pandemic surveillance period"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Compared with 2019, overall pediatric emergency department visits decreased by 51%, 22%, and 23% during 2020, 2021, and January 2022, respectively."
+    },
+    {
+     "loc": "text",
+     "q": "Visits related to behavioral concerns increased across pandemic years, particularly among older children and adolescents."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "VR 95% CIs excluding 1 judged significant; increases and decreases claimed from them; CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CIs that excluded 1 were considered statistically significant."
+    }
+   ]
+  },
+  {
+   "name": "suppression of imprecise or small-count visit ratios",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "VRs withheld for <100 visits, difference <100, or relative standard error >30%",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "VRs were suppressed if there were <100 visits, the difference in visit counts between periods was <100, or the relative standard error was >30%."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "both",
+  "referent": "corresponding weeks in 2019",
+  "across": [
+   "period",
+   "diagnostic category",
+   "age group"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "and compared them with corresponding weeks in 2019 from health care facilities consistently"
+   },
+   {
+    "loc": "text",
+    "q": "with an increase of eight visits per week in 2020 (VR = 3.94)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CIs that excluded 1 were considered statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "visit ratio (VR)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "identified 20 categories with the largest relative change measured by visit ratios (VRs)"
+    }
+   ]
+  },
+  {
+   "v": "mean weekly visits",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC selected 15 categories with the largest increases and decreases in number of mean weekly visits"
+    }
+   ]
+  },
+  {
+   "v": "percent decline in visits",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Compared with 2019, overall pediatric emergency department visits decreased by 51%, 22%, and 23% during 2020, 2021, and January 2022, respectively."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did pediatric ED visits overall and by diagnostic category and age group change during 2020, 2021 and January 2022 compared with 2019?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC examined changes in U.S. ED visit trends to assess the continued impact of the pandemic on visits among children and adolescents"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "COVID-19 visits predominated across all pediatric ages"
+    }
+   ]
+  },
+  {
+   "v": "respiratory illnesses",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "visits for other respiratory illnesses mostly declined."
+    }
+   ]
+  },
+  {
+   "v": "firearm injuries",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Number and proportion of visits increased for certain injuries (e.g., firearm injuries, self-harm, and drug poisonings)"
+    }
+   ]
+  },
+  {
+   "v": "self-harm",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Number and proportion of visits increased for certain injuries (e.g., firearm injuries, self-harm, and drug poisonings)"
+    }
+   ]
+  },
+  {
+   "v": "drug poisonings",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Number and proportion of visits increased for certain injuries (e.g., firearm injuries, self-harm, and drug poisonings)"
+    }
+   ]
+  },
+  {
+   "v": "cannabis-involved visits",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the number and proportion of cannabis-involved visits among children aged 0–4 years increased during 2020 and 2021"
+    }
+   ]
+  },
+  {
+   "v": "eating disorders",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the number and proportion of visits for drug poisonings and eating disorders increased during all 3 years compared with 2019"
+    }
+   ]
+  },
+  {
+   "v": "behavioral health concerns",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "some chronic diseases, and behavioral health concerns, with variations by age group."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC assessed data from the National Syndromic Surveillance Program (NSSP)"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC examined changes in U.S. ED visit trends to assess the continued impact of the pandemic on visits among children and adolescents"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC assessed data from the National Syndromic Surveillance Program (NSSP)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Syndromic Surveillance Program (NSSP)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC assessed data from the National Syndromic Surveillance Program (NSSP)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "note",
+    "q": "Visits from 1,674 facilities from 41 states were eligible to be included in the study."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Only age (three pediatric age groups) and sex appear, without social-position framing; no other SPD is analyzed.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 2,
+   "reason": "Age-group-specific results are reported and described; this would reach 2 only if age were read as framed as social position."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Data were evaluated by total visits among children and adolescents aged 0–17 years, and by three age groups (0–4, 5–11, and 12–17 years)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Visits related to behavioral concerns increased across pandemic years, particularly among older children and adolescents."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "but negligible differences between sexes."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Age groups 0–4, 5–11 and 12–17 years; sex differences mentioned only as negligible; no race/ethnicity or SES data."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Visits related to behavioral concerns increased across pandemic years, particularly among older children and adolescents."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "analytic_depth",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Period-vs-2019 VRs are computed within each age group; per brief this is a series by group (comparison), not stratification. Caregiver financial hardship is offered as a general explanation for children's vulnerability, not tied to a social-position group, so not recorded as a determinant. Detailed VRs and CIs are in supplementary tables not in the packet.",
+ "view_issues": "VR CIs are not shown in the article text; they appear only in supplementary tables."
+}

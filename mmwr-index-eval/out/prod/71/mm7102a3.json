@@ -1,0 +1,349 @@
+{
+ "id": "mm7102a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8Gvk9eznfwXkSgYpsaT",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the percentage of new HIV diagnoses decreased from 11.4% in the first quarter of fiscal year 2016 to 3.3%"
+    },
+    {
+     "loc": "text",
+     "q": "the new HIV diagnosis rate was calculated using the formula"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The difference in the percentage reduction among adolescent girls and young women in DREAMS versus non-DREAMS districts was statistically significant (p = 0.002)."
+    },
+    {
+     "loc": "text",
+     "q": "Data from the first quarter of fiscal year 2016 (October 2015–December 2015) served as the baseline for comparison"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Poisson log-linear regression of quarterly new HIV diagnoses, with comparison of rates of decline between groups",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'Poisson log-linear regression model' → loglinear; p-values for declines and for the between-group difference in decline are model terms",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A Poisson log-linear regression model was used to determine rates of decline in new HIV diagnoses"
+    },
+    {
+     "loc": "text",
+     "q": "to compare rates of decline between groups, with p<0.05 considered statistically significant"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "non-DREAMS districts; baseline FY2016 Q1",
+  "across": [
+   "DREAMS district status",
+   "quarter",
+   "age group"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "decreased significantly in both DREAMS and non-DREAMS districts, although reductions were greater in DREAMS districts."
+   },
+   {
+    "loc": "text",
+    "q": "decreased 71.4% in the two districts that implemented DREAMS compared with a reduction of 48.4% in three comparison districts"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to compare rates of decline between groups, with p<0.05 considered statistically significant"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage of new HIV diagnoses",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. of new HIV diagnoses (%)"
+    }
+   ]
+  },
+  {
+   "v": "new HIV diagnosis rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the new HIV diagnosis rate was calculated using the formula"
+    }
+   ]
+  },
+  {
+   "v": "percentage reduction",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The difference in the percentage reduction among adolescent girls and young women in DREAMS versus non-DREAMS districts was statistically significant (p = 0.002)."
+    }
+   ]
+  },
+  {
+   "v": "rates of decline",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A Poisson log-linear regression model was used to determine rates of decline in new HIV diagnoses"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A Poisson log-linear regression model was used to determine rates of decline in new HIV diagnoses"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "to compare rates of decline between groups, with p<0.05 considered statistically significant"
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "When restricting the analysis to women aged ≥25 years in the two DREAMS districts, the percentage new HIV diagnoses decreased 54.6%"
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "Did new HIV diagnoses among adolescent girls and young women attending antenatal care in Lesotho decline more in DREAMS than in non-DREAMS districts?",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Impact of the DREAMS Program on New HIV Diagnoses in Adolescent Girls and Young Women Attending Antenatal Care"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "HIV infection",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Impact of the DREAMS Program on New HIV Diagnoses in Adolescent Girls and Young Women Attending Antenatal Care"
+    }
+   ]
+  },
+  {
+   "v": "pregnancy",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "provided data on the number of pregnant adolescent girls and young women who were tested for HIV at ANC"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Impact of the DREAMS Program on New HIV Diagnoses in Adolescent Girls and Young Women Attending Antenatal Care"
+    }
+   ]
+  },
+  {
+   "v": "ecologic",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Fourth, this assessment was based on an ecologic analysis."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the first quarter of fiscal year 2016 (October 2015–December 2015) served as the baseline for comparison"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "PEPFAR treatment partners reported quarterly on monitoring, evaluation, and reporting indicators"
+    },
+    {
+     "loc": "text",
+     "q": "data for HIV testing at ANC were obtained from implementing partners rather than from the database maintained by OGAC"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "PEPFAR monitoring, evaluation, and reporting indicators",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "PEPFAR treatment partners reported quarterly on monitoring, evaluation, and reporting indicators"
+    }
+   ]
+  },
+  {
+   "v": "Elizabeth Glaser Pediatric AIDS Foundation data",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the Elizabeth Glaser Pediatric AIDS Foundation data were more complete and contained fewer values considered to be outliers"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "international",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Attending Antenatal Care — Lesotho, 2015–2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Only age and sex appear: they define the population (females aged 15–24 years), and women aged ≥25 years serve as an ineligible comparison group. Gender disparities are mentioned only from cited LePHIA results.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Gender disparities and the vulnerability of young women are raised as context and as a call for further work, which could count as equity raised only as a limitation or recommendation."
+  },
+  "dimensions": [
+   {
+    "v": "sex",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Adolescent girls and young women were defined as females aged 15–24 years."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "results of the second LePHIA indicate that substantial work remains to address gender disparities"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Adolescent girls and young women were defined as females aged 15–24 years."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Data for women aged ≥25 years in the two DREAMS districts were also examined."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "The comparison is by district program status (geography) and by age, which is used as program eligibility. The DREAMS incidence targets (25%, 40%) are cited but not assessed."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "regression_fields",
+  "equity.level",
+  "outcome_types"
+ ],
+ "confidence": "medium",
+ "notes": "The ecologic design is named in the limitations; the evaluation design is inferred from the title 'Impact of'. The ≥25-year group, ineligible for DREAMS, is read as a negative-control check, hence sensitivity_analysis is true. The p-values for each decline and for the difference in declines are Poisson model terms, so they are not recorded as separate tests.",
+ "view_issues": "The 'new HIV diagnosis rate' is a proportion of women tested, but it is modelled with Poisson regression; no offset is stated. The table cell for FY2019 Q3 in non-DREAMS districts is '48(3.6)', with a missing space."
+}

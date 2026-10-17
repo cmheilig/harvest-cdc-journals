@@ -1,0 +1,338 @@
+{
+ "id": "mm7106a4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8Gvj6QYknJVenAhd9Hr",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Omicron was estimated to account for 99.2% (95% CI = 99.0%–99.5%) of SARS-CoV-2 infections nationwide"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Omicron was estimated to account for 99.2% (95% CI = 99.0%–99.5%) of SARS-CoV-2 infections nationwide"
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Omicron’s variant proportion had an estimated initial doubling time of 3.2 days"
+    },
+    {
+     "loc": "text",
+     "q": "which was faster than those of Delta (7.2 days; 95% CI = 7.0–7.4 days)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Omicron was estimated to account for 99.2% (95% CI = 99.0%–99.5%) of SARS-CoV-2 infections nationwide"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Omicron rose from 1% to 99% of infections nationally in 6 weeks, compared with 18 weeks for Delta"
+    },
+    {
+     "loc": "text",
+     "q": "Region 7 had the highest proportion of Delta (3.0%; 95% CI = 1.9%–4.4%) and the lowest proportion of Omicron"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "complex survey design weighting (sequencing-probability weights, trimmed at 99th percentile)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated complex survey design with PSUs, strata and analysis weights producing every variant proportion; weights trimmed to the 99th percentile",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Proportion estimation methods used a complex survey design with statistical weights to correct potential biases"
+    },
+    {
+     "loc": "text",
+     "q": "Weights account for the probability that a sample from an infection is sequenced and are trimmed to the 99th percentile."
+    }
+   ]
+  },
+  {
+   "name": "multinomial regression nowcast (survey-weighted)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'multinomial regression models' → logistic (multinomial), fit to complex survey data; nowcasts the latest 2 weeks and gives doubling times from the time covariate",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "multinomial regression models were fit for national and regional estimates to nowcast ( 2 ) variant proportions"
+    },
+    {
+     "loc": "text",
+     "q": "the doubling time of each variant was calculated using the “time” covariate in nowcast models."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": ">50% of national circulating lineages (predominance)",
+  "across": [
+   "week",
+   "variant",
+   "HHS region"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The Delta (B.1.617.2 and AY sublineages) variant rose to predominance in late June 2021, followed by the rapid rise of Omicron"
+   },
+   {
+    "loc": "note",
+    "q": "Predominance refers to a variant accounting for >50% of national circulating SARS-CoV-2 lineages among infections."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "figure 2",
+    "q": "The methods for estimating variant proportions and 95% CIs use a complex survey design and statistical weights"
+   },
+   {
+    "loc": "text",
+    "q": "nowcast ( 2 ) variant proportions with corresponding 95% projection intervals"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted variant proportion (%)",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "to produce weighted estimates of variant proportions at the jurisdiction level."
+    }
+   ]
+  },
+  {
+   "v": "doubling time (days)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Omicron’s variant proportion had an estimated initial doubling time of 3.2 days"
+    }
+   ]
+  },
+  {
+   "v": "95% projection interval",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "nowcast ( 2 ) variant proportions with corresponding 95% projection intervals"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Nowcast model: multinomial regression analysis of complex survey data"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the doubling time of each variant was calculated using the “time” covariate in nowcast models."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did the proportions of circulating SARS-CoV-2 variants change nationally and by HHS region during June 2021–January 2022, as Delta and then Omicron became predominant?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The data in this report are a summary of findings of recent proportions of circulating variants"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Genomic Surveillance for SARS-CoV-2 Variants: Predominance of the Delta (B.1.617.2) and Omicron (B.1.1.529) Variants"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "CDC conducts genomic surveillance to track SARS-CoV-2 variants in the United States."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The proportional distribution of SARS-CoV-2 variants circulating in the United States changed considerably during 2021."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the National SARS-CoV-2 Strain Surveillance (NS3) program ¶ ; 2) CDC-contracted commercial sequencing data"
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "public genomic data repositories, such as Global Initiative on Sharing All Influenza Data (GISAID) and National Center for Biotechnology Information (NCBI) GenBank"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National SARS-CoV-2 Strain Surveillance (NS3) program",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the National SARS-CoV-2 Strain Surveillance (NS3) program"
+    }
+   ]
+  },
+  {
+   "v": "GISAID",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Global Initiative on Sharing All Influenza Data (GISAID)"
+    }
+   ]
+  },
+  {
+   "v": "NCBI GenBank",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "National Center for Biotechnology Information (NCBI) GenBank"
+    }
+   ]
+  },
+  {
+   "v": "CDC-contracted commercial sequencing data",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "88% of sequences were from CDC-contracted commercial diagnostic laboratories, 2% from NS3, and 10% were baseline-tagged sequences."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "analyzed for weekly estimation of variant proportions at the national, HHS regional, and jurisdictional levels."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "No social-position dimension is analyzed; comparisons are across weeks, variants and HHS regions (geography is not an SPD).",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Only geographic strata (HHS regions, jurisdictions) are reported; these are not SPDs."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "comparison",
+  "regression_fields"
+ ],
+ "confidence": "medium",
+ "notes": "Doubling-time and region contrasts are side by side with CIs; no explicit conclusion rests on CI overlap, so inference is CIs only. Estimates failing NCHS presentation standards are flagged, not suppressed, so no suppression procedure is recorded. The design is inferred as surveillance with a trend headline.",
+ "view_issues": "Text says Omicron reached >95% 'by the week ending January 8, 2021'; this should be 2022. Prepass 'diagnostic_accuracy' and 'adjusted_for' cues are false hits (lineage labels; weighting for SGTF oversampling)."
+}

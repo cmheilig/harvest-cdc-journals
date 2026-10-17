@@ -1,0 +1,331 @@
+{
+ "id": "mm7101a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8Gvj88sj8RrvCgLC9tx",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The rates for large MSAs combined and nationally were 6.2 and 8.1, respectively, both representing increases from 2015–2016"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Numbers and annual rates of firearm homicides and suicides (per 100,000 persons) for the 50 most populous metropolitan statistical areas"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "non-Hispanic Black (Black) persons represented a disproportionately large percentage of firearm homicide victims for the large MSAs combined (approximately 65%)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Firearm homicide rates among persons of all ages remained nearly unchanged from 2015–2016 to 2018–2019 in large metropolitan areas collectively and nationally"
+    },
+    {
+     "loc": "text",
+     "q": "From 2015–2016 to 2018–2019, firearm suicides rates increased for 30 (60%) of the 50 largest MSAs."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall rates were age-adjusted to the year 2000 U.S. standard population profile."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "rates age-adjusted to the year 2000 U.S. standard population → direct standardization",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall rates were age-adjusted to the year 2000 U.S. standard population profile."
+    }
+   ]
+  },
+  {
+   "name": "small-count suppression (counts <20)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "MSA-specific estimates with counts below 20 withheld for stability and privacy",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "MSA-specific data involving firearm homicide or suicide counts less than 20 are not presented because of concerns related to statistical stability and data privacy."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "period (2015–2016 vs 2018–2019)",
+   "MSA",
+   "large MSAs combined vs national",
+   "age group (all ages vs 10–19 years)",
+   "race/ethnicity"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Firearm homicide rates among persons of all ages remained nearly unchanged from 2015–2016 to 2018–2019 in large metropolitan areas collectively and nationally"
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted rate per 100,000 residents per year",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Per 100,000 residents per year. Rates are age–adjusted to the year 2000 U.S. standard population profile."
+    }
+   ]
+  },
+  {
+   "v": "number",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. † (rate) §"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Males accounted for approximately 85% of firearm homicide victims during both reporting periods"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did firearm homicide and suicide rates, overall and among youths, change from 2015–2016 to 2018–2019 in the 50 largest U.S. metropolitan areas and nationally?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "provides statistics on firearm homicides and suicides in major metropolitan areas"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "firearm homicide",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Firearm Homicides and Suicides in Major Metropolitan Areas — United States, 2015–2016 and 2018–2019"
+    }
+   ]
+  },
+  {
+   "v": "firearm suicide",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Firearm Homicides and Suicides in Major Metropolitan Areas — United States, 2015–2016 and 2018–2019"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using mortality data from the National Vital Statistics System (NVSS) and population data from the U.S. Census Bureau"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "for the periods 2015–2016 and 2018–2019, separated by a transition year (2017)"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NVSS mortality data for 2015–2016 and 2018–2019 were used to identify firearm homicides"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System (NVSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using mortality data from the National Vital Statistics System (NVSS) and population data from the U.S. Census Bureau"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Firearm homicide and suicide counts were tabulated for the 50 largest MSAs (by population rank midyear 2019)."
+   },
+   {
+    "loc": "text",
+    "q": "The rate for all large MSAs combined was 4.8 and the national rate was 4.5"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Black and White shares of victims are set beside population shares and called disproportionate, without a computed difference or ratio, so the side-by-side cap of 2 applies despite named structural determinants.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "The 65% vs 15% contrast could be read as quantified; systemic racism and multigenerational poverty are offered as explanations."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "non-Hispanic Black (Black) persons represented a disproportionately large percentage of firearm homicide victims for the large MSAs combined (approximately 65%)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "reduce overall rates as well as ethnic and racial disparities"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Rates were similarly calculated for youths and young adults aged 10–19 years."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "annual firearm suicide rates for persons aged ≥10 years"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Males accounted for approximately 85% of firearm homicide victims during both reporting periods"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "rates among youths increased somewhat within and outside large metropolitan areas."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "under-resourced communities; systemic racism; multigenerational poverty; limited educational and economic opportunities",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Persistently high rates among racial and ethnic minority youths might be rooted in stressors associated with living in under-resourced communities"
+    },
+    {
+     "loc": "text",
+     "q": "ultimately caused by systemic racism or multigenerational poverty resulting from limited educational and economic opportunities"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race shares of victims compared with population shares (NVSS unpublished data); only Black (homicide) and White (suicide) shares reported. Metro status is large MSAs combined vs national, not a metro/nonmetro contrast."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "equity.level",
+  "analytic_depth"
+ ],
+ "confidence": "medium",
+ "notes": "Comparisons of age-adjusted rates between two periods, across MSAs and against national rates; no CIs or tests. Less populous and nonmetropolitan rates are cited from another report. Race and sex shares are from unpublished NVSS data, given only in text.",
+ "view_issues": "Table counts differ slightly from text (28,370 vs 28,372) because of records with undocumented age, as the table note explains."
+}

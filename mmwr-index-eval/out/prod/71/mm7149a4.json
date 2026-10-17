@@ -1,0 +1,350 @@
+{
+ "id": "mm7149a4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8Gw3iqHbUSpBMeMsWkf",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The administration error reporting rate was higher for intradermal (818 per million doses administered) than for subcutaneous administration (314)"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The myocarditis reporting rate was 1.53 cases per million doses within 30 days after receipt of dose 1 and 2.99 after dose 2."
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Adverse events were reported for 10 (18%) of 57 after the first dose and five (21%) of 24 after the second dose."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "overall reporting rate = 3.04; 95% CI = 0.63–8.88 cases per million doses administered"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The reporting rates of adverse health events were similar for intradermal and subcutaneous administration"
+    },
+    {
+     "loc": "text",
+     "q": "is at least seven times lower than the background rate."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Fisher's exact test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods for comparing rates and rate ratios; CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "rates and bivariate rate ratios (RRs) with associated 95% CIs were estimated and compared using Fisher’s exact test"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "VSD incidence CIs judged against the published background myocarditis rate; CI method not stated",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VSD myocarditis incidence estimates have wide CIs that encompass both the background rate and the lower incidence estimates for the replicating smallpox vaccines."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "subcutaneous administration; background myocarditis rate (21.6 per million per 30 days)",
+  "across": [
+   "route of administration",
+   "dose in series",
+   "background rate"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The administration error reporting rate was higher for intradermal (818 per million doses administered) than for subcutaneous administration (314)"
+   },
+   {
+    "loc": "text",
+    "q": "The background myocarditis rate has been estimated to be 21.6 cases per million in a 30-day period"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ci_overlap": false,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "rates and bivariate rate ratios (RRs) with associated 95% CIs were estimated and compared using Fisher’s exact test"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "reporting rate per million doses administered",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Reports per million doses administered"
+    }
+   ]
+  },
+  {
+   "v": "RR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(RR = 1.03; 95% CI = 0.87–1.24)"
+    }
+   ]
+  },
+  {
+   "v": "incidence per million doses",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The incidence among males after dose 1 was 39 per million doses (95% CI = 0.1–217.1)"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Fourteen reports (1%) were classified as serious."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What adverse events were reported after JYNNEOS vaccination during the 2022 mpox outbreak, and did reporting rates differ by route of administration?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC has monitored JYNNEOS vaccine safety using the Vaccine Adverse Event Reporting System (VAERS) and the Vaccine Safety Datalink (VSD)"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "mpox",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Safety Monitoring of JYNNEOS Vaccine During the 2022 Mpox Outbreak"
+    }
+   ]
+  },
+  {
+   "v": "adverse events after JYNNEOS vaccination",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The most common adverse health events reported were nonserious and included injection site reactions."
+    }
+   ]
+  },
+  {
+   "v": "myocarditis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "One case of myocarditis was identified after each dose in males."
+    }
+   ]
+  },
+  {
+   "v": "anaphylaxis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Three reports of anaphylaxis within 24 hours of vaccination were received"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Surveillance supports JYNNEOS vaccine safety."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VAERS is a national passive surveillance system for adverse events after vaccination"
+    }
+   ]
+  },
+  {
+   "v": "electronic health records",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "uses electronic health record data to perform active vaccine safety surveillance"
+    }
+   ]
+  },
+  {
+   "v": "record abstraction or interview",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC solicited information from vaccine providers about adverse events occurring during the 28 days after each dose."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Vaccine Adverse Event Reporting System (VAERS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using the Vaccine Adverse Event Reporting System (VAERS)"
+    }
+   ]
+  },
+  {
+   "v": "Vaccine Safety Datalink (VSD)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "and the Vaccine Safety Datalink (VSD) for vaccine recipients of all ages"
+    }
+   ]
+  },
+  {
+   "v": "Emergency Investigational New Drug (EIND) procedures",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "through single-patient emergency Investigational New Drug (EIND) procedures for persons aged <18 years"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, May 22–October 21, 2022"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "safety",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Serious adverse events were rare among adults, and no serious adverse events have been identified among persons aged <18 years."
+   }
+  ]
+ },
+ "equity": {
+  "level": 0,
+  "level_reason": "Only age (persons aged <18 years reported separately) and sex (descriptive shares) appear, without social-position framing.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "VAERS received 13 reports for persons aged <18 years, one of which included an adverse health event (syncope)."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Male"
+     },
+     {
+      "loc": "text",
+      "q": "Overall, 90% of vaccinated persons were male."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "procedures"
+ ],
+ "confidence": "high",
+ "notes": "Fisher's exact test is named, but no p-values are reported; the route comparisons rest on RRs with CIs. VAERS myocarditis rates are compared with a published background rate (arithmetic: 'at least seven times lower'). The comparison of two deaths with expected deaths uses a cited mortality rate.",
+ "view_issues": "First plus second doses (652,641 + 334,568 = 987,209) do not sum to the stated total of 987,294 doses."
+}

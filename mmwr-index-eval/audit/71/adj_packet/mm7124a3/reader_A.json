@@ -1,0 +1,367 @@
+{
+ "id": "mm7124a3",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "COVID-19–associated hospitalization rates among disability-eligible Medicare beneficiaries (3,148 per 100,000) were approximately 50% higher than rates among age-eligible"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, the in-hospital mortality rate was lower among disability-eligible patients (16.5%) than among age-eligible patients (19.0%)."
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The median length of hospital stay for COVID-19 hospitalizations was 7 days for both disability- and age-eligible beneficiaries."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The overall COVID-19–associated hospitalization rate was also significantly higher among disability-eligible beneficiaries (3,148 per 100,000) than among age-eligible beneficiaries (2,129 per 100,000) (p<0.001)."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Hospitalization rates increased with increasing age in both groups and were also significantly higher among disability-eligible beneficiaries of all age groups (p<0.001)."
+    },
+    {
+     "loc": "text",
+     "q": "Hospitalization rates among disability-eligible beneficiaries were significantly higher than were those among age-eligible beneficiaries for all racial and ethnic groups other than AI/AN."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Pearson chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods and table note as the test of rate differences between eligibility groups",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Rate differences between age- and disability-eligible groups were tested with two-tailed Pearson’s chi-square test"
+    }
+   ]
+  },
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "methods state two-tailed t-tests for continuous variables; no specific result attributed to them",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rate differences between groups were tested using two-tailed t-tests for continuous variables and Pearson’s chi-square tests for categorical variables"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "age-eligible beneficiaries",
+  "across": [
+   "disability eligibility",
+   "sex",
+   "age group",
+   "race/ethnicity"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "COVID-19–associated hospitalization rates among disability-eligible Medicare beneficiaries (3,148 per 100,000) were approximately 50% higher than rates among age-eligible"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Rate differences between groups were tested using two-tailed t-tests for continuous variables and Pearson’s chi-square tests for categorical variables"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "COVID-19 incidence per 100,000 population",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "COVID-19 cases 100,000 population."
+    }
+   ]
+  },
+  {
+   "v": "COVID-19–associated hospitalizations per 100,000 population",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "COVID-19–associated hospitalizations per 100,000 population."
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, the in-hospital mortality rate was lower among disability-eligible patients (16.5%) than among age-eligible patients (19.0%)."
+    }
+   ]
+  },
+  {
+   "v": "median length of hospital stay",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The median length of hospital stay for COVID-19 hospitalizations was 7 days for both disability- and age-eligible beneficiaries."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Do COVID-19 incidence and hospitalization rates differ between disability-eligible and age-eligible Medicare beneficiaries, and how does age contribute?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To describe the impact of COVID-19 on persons with disabilities and whether and how age contributes to disease rates"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "COVID-19 Cases and Hospitalizations Among Medicare Beneficiaries With and Without Disabilities"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Medicare fee-for-service claims data, Medicare Advantage Plans encounter data, and Medicare enrollment information were used to identify the first diagnosis or hospitalization"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "administrative/claims",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Medicare fee-for-service claims data, Medicare Advantage Plans encounter data, and Medicare enrollment information were used"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Medicare fee-for-service claims",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Medicare fee-for-service claims data, Medicare Advantage Plans encounter data, and Medicare enrollment information"
+    }
+   ]
+  },
+  {
+   "v": "Medicare Advantage Plans encounter data",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Medicare Advantage Plans encounter data"
+    }
+   ]
+  },
+  {
+   "v": "Medicare enrollment information",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Medicare enrollment information were used"
+    }
+   ]
+  },
+  {
+   "v": "Chronic Condition Warehouse",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "defined using measures of Chronic Condition Warehouse chronic disease indicators"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, January 1, 2020–November 20, 2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Higher rates among persons with disabilities are framed as a disparity, quantified (about 50% higher) and interpreted; lower vaccination access among persons with disabilities is named as a contributing explanation.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The named explanation mixes vaccination access with coverage and comorbidity; read as unequal uptake rather than access, no structural determinant is named."
+  },
+  "dimensions": [
+   {
+    "v": "disability",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "COVID-19 Cases and Hospitalizations Among Medicare Beneficiaries With and Without Disabilities"
+     },
+     {
+      "loc": "text",
+      "q": "These finding suggest that the observed disparity among persons with disabilities is being driven, in part, by age"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "By race and ethnicity, hospitalization rates were highest among AI/AN persons (both disability-eligible [4,962 per 100,000] and age-eligible [5,024 per 100,000])"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Medicare beneficiaries aged ≥18 years who were either eligible because of a disability"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Both COVID-19 incidence and hospitalization rates increased with age in both disability- and age-eligible beneficiaries."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Among disability-eligible beneficiaries, hospitalization rates among females and males (3,175 and 3,121 per 100,000, respectively) were significantly higher"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "lower vaccination access among persons with disabilities",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "other factors, including lower vaccination access and coverage among persons with disabilities"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Disability is defined by reason for initial Medicare enrollment; the referent (age-eligible, ≥65 years without disability) differs in age, so disability and age are confounded. Race groups AI/AN, Hispanic, Black, Asian, White, Other/Unknown."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "By race and ethnicity, hospitalization rates were highest among AI/AN persons (both disability-eligible [4,962 per 100,000] and age-eligible [5,024 per 100,000])"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Both COVID-19 incidence and hospitalization rates increased with age in both disability- and age-eligible beneficiaries."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "outcome_types",
+  "analytic_depth"
+ ],
+ "confidence": "medium",
+ "notes": "No design is named; surveillance/descriptive is inferred for a claims-based rate analysis. Tests compare disability- vs age-eligible within each sex, age and race level; race and age gradients are not tested.",
+ "view_issues": "Methods name t-tests for continuous variables but no result is attributed to them; mortality and length-of-stay comparisons have no reported test. Text says AI/AN had the highest disability-eligible rate, though the age-eligible AI/AN rate is slightly higher."
+}
