@@ -1,0 +1,225 @@
+{
+ "id": "mm7232a7",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "In 2021, death rates for pedestrians involved in collision with motor vehicles were 3.6 per 100,000 population for males and 1.5 for females."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Deaths per 100,000 U.S. population with 95% CIs indicated by error bars."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2021, death rates for pedestrians involved in collision with motor vehicles were 3.6 per 100,000 population for males and 1.5 for females."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates were higher for males than for females at each urbanization level."
+    }
+   ]
+  }
+ ],
+ "procedures": [],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "sex",
+   "urbanization level"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Rates were higher for males than for females at each urbanization level."
+   },
+   {
+    "loc": "text",
+    "q": "Rates were the highest for males (4.4) and females (1.8) in large central metropolitan areas."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "note",
+    "q": "Deaths per 100,000 U.S. population with 95% CIs indicated by error bars."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "death rate per 100,000 population",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Deaths per 100,000 U.S. population with 95% CIs indicated by error bars."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did 2021 US pedestrian motor-vehicle collision death rates differ by sex and county urbanization level?",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Death Rates* for Pedestrians Involved in Collision with Motor Vehicles, † by Sex and Urbanization Level"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "pedestrian deaths from motor vehicle collisions",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Death Rates* for Pedestrians Involved in Collision with Motor Vehicles"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Source: National Vital Statistics System, Underlying Cause of Death, 2018–2021"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Source: National Vital Statistics System, Underlying Cause of Death, 2018–2021"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System (NVSS), Underlying Cause of Death",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Source: National Vital Statistics System, Underlying Cause of Death, 2018–2021"
+    }
+   ]
+  },
+  {
+   "v": "CDC WONDER",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "https://wonder.cdc.gov/ucd-icd10-expanded.html"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "National Vital Statistics System, United States, 2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Rates are reported by urbanization level (rurality) and sex, with the highest rates in large central metropolitan areas described, but no disparity is framed or quantified.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 0,
+   "reason": "Urbanization could be read as geography rather than social position, leaving only sex, which keeps the level at 0."
+  },
+  "dimensions": [
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "Counties were classified using the 2013 National Center for Health Statistics Urban-Rural Classification Scheme for Counties."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Rates were higher for males than for females at each urbanization level."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "County urbanization uses the six-level 2013 NCHS Urban-Rural Classification Scheme; there is no referent group and no computed contrast."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates were the highest for males (4.4) and females (1.8) in large central metropolitan areas."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "analytic_depth",
+  "equity.level"
+ ],
+ "confidence": "high",
+ "notes": "The CIs are shown as error bars, but no claim is stated to rest on them, so no CI-based test is recorded. The male–female contrast within each urbanization level is read as stratified, although the values are only set side by side.",
+ "view_issues": "The prepass cue 'percentage' is a false hit; the article reports only rates. The source line says 2018–2021, but the data shown are for 2021."
+}

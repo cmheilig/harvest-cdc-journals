@@ -1,0 +1,398 @@
+{
+ "id": "mm7207a3",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "VE of two monovalent Moderna doses (complete primary series) was 60% at 2 weeks–2 months after dose 2 and 36% at 3–4 months."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "No. (%) of positive test results"
+    },
+    {
+     "loc": "text",
+     "q": "VE was calculated as (1 − adjusted odds ratio) x 100."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VE, stratified by vaccine product and dose number, was estimated by comparing odds of COVID-19 vaccination versus being unvaccinated in case-patients"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Odds ratios were calculated using multivariable logistic regression, adjusting for single year of age, gender, race, ethnicity, Social Vulnerability Index of the testing location"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multivariable logistic regression (test-negative VE)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'multivariable logistic regression' giving adjusted odds ratios → logistic; VE = (1 − aOR) × 100",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Odds ratios were calculated using multivariable logistic regression, adjusting for single year of age, gender, race, ethnicity, Social Vulnerability Index of the testing location"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "protection claims rest on VE CIs excluding 0 (Pfizer 1-dose CI −1 to 35: 'significant protection was not observed'); CI implied model-based from the logistic regression",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Significant protection was not observed in the 2 weeks–1 month period after a single monovalent Pfizer-BioNTech vaccine dose."
+    },
+    {
+     "loc": "table 2",
+     "q": "VE ¶ (95% CI)"
+    }
+   ]
+  },
+  {
+   "name": "CI overlap assertion",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "waning claim qualified by overlapping CIs of the two Moderna time-since-dose estimates",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "might occur among children aged 3–5 years by 3–4 months after the second dose based on point estimates (although CIs overlapped)"
+    }
+   ]
+  },
+  {
+   "name": "suppression of imprecise estimates (CI width >50 percentage points)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "CI-width rule withholds estimates (Moderna 2-dose 5–6 months)",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VE estimates with 95% CI width >50 percentage points were considered imprecise and not reported."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "unvaccinated children",
+  "across": [
+   "vaccination status (product, number of doses)",
+   "time since last dose"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Complete monovalent Moderna and Pfizer-BioNTech primary series vaccination provides protection for children aged 3–5 and 3–4 years, respectively, against symptomatic SARS-CoV-2 infection"
+   },
+   {
+    "loc": "table 2",
+    "q": "Unvaccinated (Ref)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "ci_overlap": true,
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Significant protection was not observed in the 2 weeks–1 month period after a single monovalent Pfizer-BioNTech vaccine dose."
+   },
+   {
+    "loc": "text",
+    "q": "might occur among children aged 3–5 years by 3–4 months after the second dose based on point estimates (although CIs overlapped)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "VE",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "VE ¶ (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "adjusted odds ratio",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VE was calculated as (1 − adjusted odds ratio) x 100."
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "No. (%) of positive test results"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VE was calculated as (1 − adjusted odds ratio) x 100."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "single year of age, gender, race, ethnicity, SVI of testing location, underlying conditions, HHS region, pharmacy chain, local incidence, testing calendar date",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Odds ratios were calculated using multivariable logistic regression, adjusting for single year of age, gender, race, ethnicity, Social Vulnerability Index of the testing location"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How effective are monovalent Moderna and Pfizer-BioNTech mRNA primary series vaccines against symptomatic SARS-CoV-2 infection among children aged 3–5 years?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "postauthorization vaccine effectiveness data are limited."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Monovalent mRNA Vaccines in Preventing Symptomatic SARS-CoV-2 Infection Among Children Aged 3–5 Years"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Complete monovalent Moderna and Pfizer-BioNTech primary series vaccination provides protection for children aged 3–5 and 3–4 years, respectively, against symptomatic SARS-CoV-2 infection"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "test-negative",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NAATs from children with one or more COVID-19–like illness symptom were eligible for inclusion in the test-negative design case-control study."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "evaluated using the Increasing Community Access to Testing (ICATT) program, which provides SARS-CoV-2 testing to persons aged ≥3 years at pharmacy"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Increasing Community Access to Testing (ICATT) program",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "evaluated using the Increasing Community Access to Testing (ICATT) program, which provides SARS-CoV-2 testing to persons aged ≥3 years at pharmacy"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Increasing Community Access to Testing Program, United States, July 2022–February 2023"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "effectiveness",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Preliminary Estimates of Effectiveness of Monovalent mRNA Vaccines in Preventing Symptomatic SARS-CoV-2 Infection"
+   }
+  ]
+ },
+ "equity": {
+  "level": 1,
+  "level_reason": "Race, ethnicity and the SVI of the testing location enter only as adjustment covariates in the VE model; race/ethnicity counts in Table 1 are descriptors with no comparison or framing.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 0,
+   "reason": "If SVI and race are read as routine confounders only, with age (3–5 years) defining the population, no equity reading is made."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "Odds ratios were calculated using multivariable logistic regression, adjusting for single year of age, gender, race, ethnicity, Social Vulnerability Index of the testing location"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race and ethnicity § › Hispanic or Latino"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "Social Vulnerability Index of the testing location"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "SVI, mean (SD)**"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Gender › Other"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Among Children Aged 3–5 Years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "Odds ratios were calculated using multivariable logistic regression, adjusting for single year of age, gender, race, ethnicity, Social Vulnerability Index of the testing location"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "SVI is an area index of the testing site's census tract used as a covariate; AI/AN, Asian and NH/PI are collapsed into Other, NH; race/ethnicity is unknown for about 8%."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "18%, 17%, and 26% of those aged 3, 4, and 5 years, respectively, had received ≥1 COVID-19 vaccine dose."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "inference",
+  "groupwise"
+ ],
+ "confidence": "high",
+ "notes": "Fisher seed is a false hit (Thermo Fisher Scientific). Vaccination percentages by single year of age are descriptive context before exclusions. The CI overlap assertion is a hedge on the waning claim, so it is recorded as ancillary.",
+ "view_issues": "Article notes an erratum (2023-03-10). Table 2 counts for 3 Pfizer doses (53/342) differ from Table 1 (54/341). The date range 'July 4–February 5, 2023' omits the year 2022."
+}

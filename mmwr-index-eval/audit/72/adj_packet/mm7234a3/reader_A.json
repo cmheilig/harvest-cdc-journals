@@ -1,0 +1,458 @@
+{
+ "id": "mm7234a3",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "CDC analyzed data from the 2022 National Immunization Survey–Teen for 16,043 adolescents aged 13–17 years to assess vaccination coverage."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2022, 89.9% of adolescents aged 13–17 years had received ≥1 Tdap dose, 88.6% had received ≥1 MenACWY dose"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2022, 89.9% of adolescents aged 13–17 years had received ≥1 Tdap dose, 88.6% had received ≥1 MenACWY dose"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "By age 13 years, coverage with ≥1 Tdap was 3.2 percentage points lower in the 2008 birth cohort than in the 2007 birth cohort"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "coverage with ≥1 Tdap dose by age 14 years was 4.3 percentage points lower among those living in mostly suburban areas"
+    },
+    {
+     "loc": "table 2",
+     "q": "Statistically significant difference (p<0.05) in estimated vaccination coverage by age 14 years; referent group was 2007 birth year."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "z-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'Z-tests were used to compare differences' with p<0.05 significance; marks in Tables 1 and 2",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Z-tests were used to compare differences in vaccination coverage by survey year, birth year, and among sociodemographic groups"
+    }
+   ]
+  },
+  {
+   "name": "Kaplan-Meier cumulative coverage by age",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "Kaplan-Meier estimates of cumulative coverage by age in days, by birth cohort, accounting for censoring",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Kaplan-Meier techniques were used to account for censoring of vaccination status at age ≥14 years."
+    },
+    {
+     "loc": "note",
+     "q": "Kaplan-Meier methods were used to calculate cumulative vaccination coverage estimates by age in days, stratified by annual birth cohort"
+    }
+   ]
+  },
+  {
+   "name": "survey sampling weights",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weights adjusted for nonresponse, multiplicity and noncoverage, calibrated to population totals; SUDAAN",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Sampling weights were adjusted for survey nonresponse, adolescent multiplicity (number of chances of selection), and noncoverage of the survey sampling frame"
+    }
+   ]
+  },
+  {
+   "name": "small-sample suppression of estimates",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "estimates with n<30 and NHPI/multiracial estimates suppressed",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Estimates with sample size <30 were suppressed and marked with NA."
+    },
+    {
+     "loc": "table 2",
+     "q": "Estimates for Native Hawaiian or other Pacific Islander and multiracial adolescents were suppressed because of small sample size."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "absolute",
+  "referent": "2007 birth cohort; 2021 survey year; adolescents aged 13 years (Table 1)",
+  "across": [
+   "birth year",
+   "survey year",
+   "age at interview",
+   "MSA status (rurality)",
+   "poverty status (SES)",
+   "race/ethnicity",
+   "health insurance status (SES)",
+   "sex"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Analyses of recent trends in routine vaccination coverage show declines in coverage by age 13 and 14 years among adolescents born in 2008."
+   },
+   {
+    "loc": "summary",
+    "q": "Among adolescents aged 13–17 years, routine vaccination coverage in 2022 was similar to coverage in 2021."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Z-tests were used to compare differences in vaccination coverage by survey year, birth year, and among sociodemographic groups"
+   },
+   {
+    "loc": "table 1",
+    "q": "Statistically significant difference (p<0.05) in estimated vaccination coverage by age; referent group was adolescents aged 13 years."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "vaccination coverage, % (95% CI)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Vaccination coverage,% (95% CI)§§"
+    }
+   ]
+  },
+  {
+   "v": "percentage points difference",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "in 2022, coverage with ≥1 HPV vaccine dose among Medicaid beneficiaries declined by 3.3 percentage points compared with coverage in 2021"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What was routine and catch-up vaccination coverage among U.S. adolescents aged 13–17 years in 2022, and did coverage by age 13 and 14 years lag in birth cohorts due for vaccination during the COVID-19 pandemic?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Birth cohort analyses were conducted to assess trends in vaccination coverage by age 13 years"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "pertussis",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Three vaccines are routinely recommended for adolescents to prevent pertussis, meningococcal disease, and cancers caused by human papillomavirus (HPV)."
+    }
+   ]
+  },
+  {
+   "v": "meningococcal disease",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Three vaccines are routinely recommended for adolescents to prevent pertussis, meningococcal disease, and cancers caused by human papillomavirus (HPV)."
+    }
+   ]
+  },
+  {
+   "v": "HPV-associated cancers",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Three vaccines are routinely recommended for adolescents to prevent pertussis, meningococcal disease, and cancers caused by human papillomavirus (HPV)."
+    }
+   ]
+  },
+  {
+   "v": "varicella",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "History of varicella or receipt of ≥2 varicella vaccine doses"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Cross-sectional analysis was used to estimate vaccination coverage among adolescents aged 13–17 years."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Birth cohort analyses were conducted to assess trends in vaccination coverage by age 13 years"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "CDC analyzed data from the 2022 National Immunization Survey–Teen for 16,043 adolescents aged 13–17 years to assess vaccination coverage."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Immunization Survey–Teen (NIS-Teen)",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "CDC analyzed data from the 2022 National Immunization Survey–Teen for 16,043 adolescents aged 13–17 years to assess vaccination coverage."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "conducted among households that include adolescents aged 13–17 years in the 50 states, the District of Columbia"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Among adolescents aged 13–17 years, routine vaccination coverage in 2022 was similar to coverage in 2021."
+   }
+  ]
+ },
+ "equity": {
+  "level": 2,
+  "level_reason": "Coverage is reported by poverty, insurance, MSA status and race/ethnicity, and the quantified contrasts are birth-cohort or year changes within groups; differences across SPD groups (e.g. uninsured lowest) are not computed, so the level stays at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The Medicaid-specific 3.3-point HPV decline is quantified and interpreted as a need for outreach to VFC-eligible, underserved communities."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "poverty status",
+     "health insurance status"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "HPV UTD status was 5.0–6.0 percentage points lower among adolescents living at or above the federal poverty level"
+     },
+     {
+      "loc": "text",
+      "q": "Coverage with ≥1 HPV vaccine dose remains lowest among uninsured adolescents."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "VFC eligibility (Medicaid-eligible, uninsured)"
+    ],
+    "ev": [
+     {
+      "loc": "note",
+      "q": "Persons aged ≤18 years who are Medicaid-eligible, uninsured, or American Indian or Alaska Native"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "All four vaccine measures ranged from 3.9 to 11.7 percentage points lower among those living in mostly urban areas in the 2008 birth cohort"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "those who were non-Hispanic White, and those privately insured than among those born in 2007"
+     },
+     {
+      "loc": "table 2",
+      "q": "Race and ethnicity › White, NH"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "CDC analyzed data from the 2022 National Immunization Survey–Teen for 16,043 adolescents aged 13–17 years to assess vaccination coverage."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Statistically significant difference (p<0.05) in estimated vaccination coverage by age; referent group was adolescents aged 13 years."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "percentages are reported among females and males combined (16,043) and for females only (7,623) and males only (8,420)."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Birth-cohort contrasts (2008 vs 2007) are tested within SES, MSA, race and insurance groups, not across them; NHPI and multiracial estimates are suppressed; poverty status unknown for 435 adolescents."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Statistically significant difference (p<0.05) in estimated vaccination coverage by age; referent group was adolescents aged 13 years."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Coverage with ≥1 HPV vaccine dose remains lowest among uninsured adolescents."
+    },
+    {
+     "loc": "text",
+     "q": "Z-tests were used to compare differences in vaccination coverage by survey year, birth year, and among sociodemographic groups"
+    }
+   ]
+  },
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "indicating that pandemic disruptions might have differentially affected urban areas"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "outcome_types"
+ ],
+ "confidence": "medium",
+ "notes": "Kaplan-Meier cumulative coverage by age is reported as percentages, so outcome is recorded as binary/categorical; event-time is a defensible addition. The insurance 'lowest' claim rests on a supplementary figure, with z-tests among sociodemographic groups stated only generally. VFC ordering declines are unpublished data cited as context.",
+ "view_issues": "Text says 'mostly urban' and 'mostly suburban' areas, while Table 2 uses MSA principal city and nonprincipal city labels. Table 2 shows an AI/AN 2009 HPV UTD estimate (31.8) where other AI/AN 2009 cells are NA."
+}
