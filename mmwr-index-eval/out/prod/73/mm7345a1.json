@@ -1,0 +1,481 @@
+{
+ "id": "mm7345a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.1",
+  "prefix_sha": "f4030e441a8d",
+  "request_id": "msg_011Cg6vxWa4PVceVkUkzGFsR",
+  "batch_id": "msgbatch_01UAUCb9fTF2eLcQ9R5SBrye"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "For children in their first RSV season (292), nirsevimab effectiveness was 76% (95% CI = 42%–90%) against medically attended RSV illness"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, among patients with positive RSV test results, 10 (15%) had received nirsevimab; 217 (54%) patients with negative RSV test results had received nirsevimab."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, 48% of all children had received nirsevimab ≥7 days before the ARI medical visit"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "this percentage was lower among children in their second RSV season (37%) and among those living in the regional hub (35%)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Regression models were adjusted for age in months at medical visit, sex, calendar month, residence community type"
+    },
+    {
+     "loc": "text",
+     "q": "Among children in their first and second RSV seasons, effectiveness was 76% and 88%, respectively."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multivariable logistic regression (test-negative VE)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'multivariable logistic regression' giving adjusted odds ratios; VE = (1 − aOR) × 100% → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Odds ratios and 95% CIs were estimated using multivariable logistic regression analysis comparing receipt of nirsevimab among case- and control patients."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based CIs from the logistic regression for VE excluding 0, used to conclude nirsevimab is effective",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "89% (95% CI = 32%–98%) against RSV hospitalization."
+    },
+    {
+     "loc": "summary",
+     "q": "Nirsevimab is effective for preventing severe RSV illness among infants entering their first RSV season"
+    }
+   ]
+  },
+  {
+   "name": "CI overlap assertion",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "waning claim qualified by overlapping CIs of the 7–89 and 90–179 day VE estimates",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Some evidence of waning overall effectiveness was observed"
+    },
+    {
+     "loc": "text",
+     "q": "but 95% CIs were wide and overlapped."
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "p<0.05 for differences in characteristics by RSV season; test not named",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "These differences in characteristics by the child’s RSV season were all statistically significant (p<0.05)."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "no nirsevimab doses",
+  "across": [
+   "nirsevimab receipt",
+   "RSV season (age)",
+   "time since receipt",
+   "residence community type (rurality)"
+  ],
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "Overall › No nirsevimab doses (Ref)"
+   },
+   {
+    "loc": "text",
+    "q": "Odds ratios and 95% CIs were estimated using multivariable logistic regression analysis comparing receipt of nirsevimab among case- and control patients."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "ci_overlap": true,
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Odds ratios and 95% CIs were estimated using multivariable logistic regression analysis"
+   },
+   {
+    "loc": "note",
+    "q": "These differences in characteristics by the child’s RSV season were all statistically significant (p<0.05)."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "adjusted effectiveness, %",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted effectiveness, % (95% CI)*"
+    }
+   ]
+  },
+  {
+   "v": "adjusted odds ratio",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Effectiveness was calculated as (1 − adjusted odds ratio) × 100%."
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, 48% of all children had received nirsevimab ≥7 days before the ARI medical visit"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "none",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "only the first occurring medically attended ARI was included for each child."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Odds ratios were calculated using multivariable logistic regression, adjusted by age in months at medical visit (continuous), sex, calendar month of medical visit"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age in months at medical visit (continuous), sex, calendar month of medical visit, residence community type, presence of a high-risk underlying condition",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Regression models were adjusted for age in months at medical visit, sex, calendar month, residence community type"
+    },
+    {
+     "loc": "text",
+     "q": "and presence of one or more high-risk underlying condition."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Sensitivity analyses were conducted excluding cases and controls in which SARS-CoV-2 or influenza virus was detected."
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "How effective was nirsevimab against medically attended RSV illness and RSV hospitalization among Alaska Native children in their first and second RSV seasons?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "This evaluation in Alaska’s Yukon-Kuskokwim Delta region estimated nirsevimab effectiveness among AI/AN children in their first or second RSV seasons during 2023–2024."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "respiratory syncytial virus (RSV) illness",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Nirsevimab Effectiveness Against Medically Attended Respiratory Syncytial Virus Illness and Hospitalization Among Alaska Native Children"
+    }
+   ]
+  },
+  {
+   "v": "respiratory syncytial virus (RSV) illness",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "To prevent severe respiratory syncytial virus (RSV) illness, nirsevimab is recommended for all infants aged <8 months"
+    }
+   ]
+  },
+  {
+   "v": "acute respiratory illness",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Among 472 children with medically attended acute respiratory illness (ARI), 48% overall had received nirsevimab ≥7 days earlier"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "test-negative",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Nirsevimab effectiveness against medically attended ARI associated with RSV infection was evaluated using a test-negative design."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "electronic health records",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "immunization data from YKHC electronic health records and the state immunization information system."
+    }
+   ]
+  },
+  {
+   "v": "vaccination registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "immunization data from YKHC electronic health records and the state immunization information system."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Yukon-Kuskokwim Health Corporation (YKHC) electronic health records",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "immunization data from YKHC electronic health records and the state immunization information system."
+    }
+   ]
+  },
+  {
+   "v": "Alaska state immunization information system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "immunization data from YKHC electronic health records and the state immunization information system."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Yukon-Kuskokwim Delta Region, Alaska, October 2023–June 2024"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "effectiveness",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "nirsevimab was 89% effective in preventing RSV-associated hospitalization for infants in their first RSV season"
+   }
+  ]
+ },
+ "equity": {
+  "level": 2,
+  "level_reason": "AI/AN race and age define the population. Nirsevimab receipt is reported by residence community type (hub 35% vs villages 53%) and described, but not framed as a disparity; residence type is also a model covariate.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Hub town vs village may be read as geography rather than rurality as social position, leaving residence only a covariate and race a population definition."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Among Alaska Native Children"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race › AI/AN"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Eligible children were aged <20 months on or born after October 1, 2023"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Children were stratified by their RSV season based on their age on October 1, 2023"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Regression models were adjusted for age in months at medical visit, sex"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Regression models were adjusted for age in months at medical visit, sex"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "calendar month, residence community type, and presence of one or more high-risk underlying condition."
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "among those living in the regional hub (35%) than among children in their first season (55%) and those living in other villages (53%)."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Population is 98% AI/AN; race is collapsed to AI/AN vs other. Residence is hub town vs remote village (no road connection); the AI/AN rate excess in the Introduction is cited from earlier reports."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group at medical visit, mos › 0–5"
+    },
+    {
+     "loc": "table 1",
+     "q": "Age group at medical visit, mos › 24–27"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "equity.dimensions"
+ ],
+ "confidence": "high",
+ "notes": "Nirsevimab is a monoclonal antibody rather than a vaccine; it is treated as immunization for vaccine_outcome_type. The comparison of 28 hospitalizations with a 9-season average of 56 uses cited regional surveillance and is context. The report calls itself an evaluation but names a test-negative design.",
+ "view_issues": "Table 2 omits '(Ref)' on the second-season no-dose row, inconsistent with the other referent rows."
+}

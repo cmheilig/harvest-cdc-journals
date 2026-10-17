@@ -1,0 +1,539 @@
+{
+ "id": "mm7333e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.1",
+  "prefix_sha": "f4030e441a8d",
+  "request_id": "msg_011Cg6vxXPRH3TyotNxqSA7k",
+  "batch_id": "msgbatch_01UAUCb9fTF2eLcQ9R5SBrye"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Among children born in 2020, vaccination coverage was 4–14 percentage points lower among children who were eligible versus non-eligible for the VFC program."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Overall, approximately 52.2% of U.S. children were VFC eligible."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "coverage with ≥1 dose of MMR, rotavirus vaccine, and the combined 7-vaccine series was 3.8, 11.5, and 13.8 percentage points, respectively, lower among VFC-eligible"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "all three vaccination coverage measures were lower among VFC-eligible children than among non–VFC-eligible children who were 1) White (−17.9 to −6.2 percentage points)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Kaplan-Meier",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "'Kaplan-Meier techniques were used to estimate vaccination coverage' by age 24 months",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Kaplan-Meier techniques were used to estimate vaccination coverage with all vaccines by age 24 months"
+    }
+   ]
+  },
+  {
+   "name": "Z-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods for percentage point differences by VFC eligibility",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were analyzed using Z-tests to assess the gap in coverage by VFC program eligibility status."
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "Table 3 marks significant differences vs Ref groups within VFC-eligible children; test not named",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Statistically significant difference in coverage (p<0.05) compared with Ref."
+    }
+   ]
+  },
+  {
+   "name": "weighted linear regression (AAPPC)",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "'Weighted linear regression models' fitted to coverage estimates by birth year → linear; slope tested vs zero",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Weighted linear regression models assessed the average annual percentage point change (AAPPC) in vaccination coverage among children born during 2011–2020."
+    },
+    {
+     "loc": "table 2",
+     "q": "Slope of line created by fitting a linear regression model to the coverage estimates from birth years 2011–2020."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "data weighted for nonresponse and telephone coverage; SUDAAN",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted to account for nonresponse and households without telephones"
+    },
+    {
+     "loc": "text",
+     "q": "Analyses were conducted using SAS-callable SUDAAN (version 11.0.3, RTI International)"
+    }
+   ]
+  },
+  {
+   "name": "suppression of unreliable estimates",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "CI-width, relative SE and sample-size suppression rule",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimate suppressed because it did not meet standards for data reliability (95% CI >20, relative SE >30, or sample size <30)."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "absolute",
+  "referent": "non–VFC-eligible children",
+  "across": [
+   "VFC eligibility",
+   "birth year",
+   "health insurance status",
+   "poverty status",
+   "race/ethnicity",
+   "urbanicity"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "vaccination coverage was 4–14 percentage points lower among children who were eligible versus non-eligible for the VFC program."
+   },
+   {
+    "loc": "table 3",
+    "q": "PP difference in coverage = coverage among VFC-eligible children − coverage among non–VFC-eligible children."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "were analyzed using Z-tests to assess the gap in coverage by VFC program eligibility status."
+   },
+   {
+    "loc": "table 2",
+    "q": "AAPPC is statistically significantly different from zero (p<0.05)."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "vaccination coverage %",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Coverage % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "percentage point difference",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Percentage point difference (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "AAPPC",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "AAPPC = average annual percentage point change in coverage"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NIS-Child is a nationally representative household survey"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Slope of line created by fitting a linear regression model to the coverage estimates from birth years 2011–2020."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the gap in coverage between VFC-eligible and non–VFC-eligible children increased for ≥1 dose of MMR (AAPPC = −0.2)"
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How has childhood vaccination coverage among VFC-eligible children changed during 2011–2020 birth cohorts, and how does it differ from non–VFC-eligible children and by sociodemographic characteristics?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "identifies gaps in vaccination coverage among VFC-eligible children compared with children who are not VFC-eligible."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "measles",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "coverage with measles, mumps, and rubella vaccine was high and stable during 2012 through 2022"
+    }
+   ]
+  },
+  {
+   "v": "mumps",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "coverage with measles, mumps, and rubella vaccine was high and stable during 2012 through 2022"
+    }
+   ]
+  },
+  {
+   "v": "rubella",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "coverage with measles, mumps, and rubella vaccine was high and stable during 2012 through 2022"
+    }
+   ]
+  },
+  {
+   "v": "rotavirus",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "2–3 doses of rotavirus vaccine, and a combined 7-vaccine series"
+    }
+   ]
+  },
+  {
+   "v": "vaccine-preventable diseases",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "help ensure that all U.S. children are protected from life-threatening vaccine-preventable diseases."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Sixth, this study was cross-sectional"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "CDC analyzed data from the 2012–2022 National Immunization Survey-Child (NIS-Child) to assess trends in vaccination coverage"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NIS-Child is a nationally representative household survey"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Immunization Survey-Child (NIS-Child)",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "CDC analyzed data from the 2012–2022 National Immunization Survey-Child (NIS-Child)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "National Immunization Survey-Child, United States, 2012–2022"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Among VFC-eligible children born during 2011–2020, coverage by age 24 months was stable for ≥1 MMR dose (88.0%–89.9%)"
+   }
+  ]
+ },
+ "equity": {
+  "level": 4,
+  "level_reason": "Disparities by VFC eligibility (insurance/AI/AN composite), insurance and poverty are framed, quantified as percentage point gaps and interpreted; office visit fees, lack of insurance and Medicaid access are named as explanations for lower coverage in low-income and uninsured children.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The determinants are offered tentatively ('might present potential barriers') and largely cited, so the disparity may be read as quantified with generic causes."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "primary comparison",
+    "ses_components": [
+     "Medicaid-insured or uninsured (VFC eligibility)"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "enrolled in Medicaid or the Indian Health Service (IHS) or uninsured"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "VFC-eligible children were defined as meeting one of these criteria: 1) AI/AN"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "health insurance status",
+     "poverty level"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "coverage with rotavirus vaccine and the combined 7-vaccine series among those living below the poverty level was 9.3–9.9 percentage points lower."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "rotavirus vaccination coverage among AI/AN and Hispanic or Latino children was 6.9–8.9 percentage points higher than that among non-Hispanic White (White) children."
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "stratified by the child’s race and ethnicity, health insurance status, urbanicity,**** and household income."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "among children aged 19–35 months in the 50 states, the District of Columbia, and some U.S. territories"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "office visit fees and nonvaccine service fees for low-income households; lack of insurance; access to Medicaid; a place to receive ongoing routine care",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "fees for nonvaccine services received during the visit ( 2 ) beyond vaccination cost might present potential barriers for low-income households"
+    },
+    {
+     "loc": "text",
+     "q": "Efforts to further reduce the proportion of uninsured children, including increasing access to Medicaid, can facilitate connection to the health care system"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "demonstrating continued success in providing equitable access to vaccination through the VFC program"
+    }
+   ]
+  },
+  "equity_measurement": "VFC eligibility is a composite of insurance status (Medicaid/IHS/uninsured) and AI/AN identity; referent is non–VFC-eligible children, and within VFC-eligible children, Medicaid, at/above poverty, White and MSA principal city; NH/OPI suppressed; underinsured excluded from eligibility."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 7,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Race and ethnicity ¶¶¶ › White only (Ref)"
+    },
+    {
+     "loc": "table 3",
+     "q": "Statistically significant difference in coverage (p<0.05) compared with Ref."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Health insurance status › Any Medicaid insurance (Ref)"
+    },
+    {
+     "loc": "text",
+     "q": "among those who were uninsured was 18.9–34.7 percentage points lower than that among Medicaid-insured children"
+    }
+   ]
+  },
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Urbanicity › MSA, principal city (Ref)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "regression_fields",
+  "equity.level",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Within-VFC comparisons vs Ref in Table 3 use an unnamed test; the Z-test is named only for VFC vs non-VFC gaps. The AAPPC of the gap is read as a test that trends differ by eligibility (interaction). equity_action is set true because the report assesses the VFC program's equity role via eligibility gaps; this is a boundary call.",
+ "view_issues": "Race/ethnicity n_groups counts overlapping AI/AN categories (alone or combined vs only) as separate rows."
+}

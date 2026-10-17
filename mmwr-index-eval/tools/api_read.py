@@ -8,6 +8,7 @@
     python3 tools/api_read.py poll                          # status of open batches
     python3 tools/api_read.py collect VOL                   # results of ended batches -> out/prod/<VOL>/<id>.json, ledger
     python3 tools/api_read.py fixup VOL [--sync] [--dry-run]   # one validator fix-up turn for invalid or unparsed reads
+        [--again]                                           # a second turn, same conversation, for failed fix-ups
     python3 tools/api_read.py retry VOL [--dry-run]         # one synchronous retry, with fallbacks, for refused/truncated/errored
     python3 tools/api_read.py status [VOL]                  # counts by status; spend against the budget
     option: --budget USD (default BUDGET)
@@ -21,7 +22,7 @@ prod_ledger.tsv has one row per attempt; prod_batches.tsv one row per batch. Cre
 """
 import csv, datetime, hashlib, json, os, re, subprocess, sys
 
-from validate import check
+from validate import check, _values
 
 MODEL, EFFORT, MAX_TOKENS, RETRY_MAX_TOKENS = 'claude-opus-5-5', 'medium', 32000, 64000
 BRIEF_TAG = 'brief-v5.1'
@@ -161,15 +162,28 @@ def read_messages(vol, i):
     return [{'role': 'user', 'content': packet_text(vol, i)}]
 
 
-def fixup_messages(vol, i, raw):
-    """Append-only: the original turn, the response as returned, then the validator's messages."""
-    replay = [b for b in raw['content'] if b.get('type') in ('thinking', 'redacted_thinking', 'text')]
-    if raw['status'] == 'unparsed':
+def feedback(raw):
+    """The user turn that answers one failed attempt. Deterministic: a later turn resends earlier ones byte for byte."""
+    if raw['status'] == 'unparsed' or raw.get('error_kind') == 'unparsed':
         ask = f"The driver could not parse your reply as one JSON object ({raw['errors'][0]})."
     else:
         ask = 'The driver\'s validator rejected your record:\n' + '\n'.join(f'- {e}' for e in raw['errors'])
-    ask += '\nReply with the corrected full JSON record only: one JSON object, with no text before or after it.'
-    return read_messages(vol, i) + [{'role': 'assistant', 'content': replay}, {'role': 'user', 'content': ask}]
+    return ask + '\nReply with the corrected full JSON record only: one JSON object, with no text before or after it.'
+
+
+def chain(vol, i, rows):
+    """Raw attempts of the current conversation: the last read or retry, then the fix-ups that followed it."""
+    start = max(k for k, r in enumerate(rows) if r['attempt'] in ('read', 'retry'))
+    return [json.load(open(f"{outdir(vol)}/raw/{i}.{r['attempt']}.json")) for r in rows[start:]]
+
+
+def fixup_messages(vol, i, raws):
+    """Append-only: the original turn, then each response as returned and the driver's answer to it."""
+    msgs = read_messages(vol, i)
+    for raw in raws:
+        replay = [b for b in raw['content'] if b.get('type') in ('thinking', 'redacted_thinking', 'text')]
+        msgs += [{'role': 'assistant', 'content': replay}, {'role': 'user', 'content': feedback(raw)}]
+    return msgs
 
 
 # ---------- response
@@ -192,6 +206,15 @@ def usage_of(u):
 def cost_of(us, batch):
     c = sum(us[k] * PRICE[k] for k in PRICE) / 1e6
     return c * (BATCH_DISCOUNT if batch else 1)
+
+
+def quote_errors(rec):
+    """Quote-length errors in the validator's words, found even when the schema check fails first."""
+    try:
+        return [f"quote over 25 words: {e['q'][:60]}…" for v in _values(rec) for e in v.get('ev', [])
+                if isinstance(e, dict) and isinstance(e.get('q'), str) and len(e['q'].split()) > 25]
+    except (AttributeError, TypeError):
+        return []
 
 
 def parse(content):
@@ -223,19 +246,21 @@ def handle(vol, i, msg, attempt, env, batch_id, sha):
                              **({'batch_id': batch_id} if batch_id else {})}
             try:
                 errs = check(rec) if rec.get('id') == i else [f"record id {rec.get('id')!r} is not {i}"]
+                errs += [e for e in quote_errors(rec) if e not in errs]   # check() stops at schema errors
             except (KeyError, TypeError, AttributeError) as e:
                 errs = [f'record shape: {e.__class__.__name__} {e}']
-            status = ('fixed' if attempt == 'fixup' else 'ok') if not errs else 'invalid'
+            status = ('fixed' if attempt.startswith('fixup') else 'ok') if not errs else 'invalid'
             if not errs:
                 with open(f'{outdir(vol)}/{i}.json', 'w') as o:
                     json.dump(rec, o, ensure_ascii=False, indent=1)
             note = f'{len(errs)} errors' if errs else ''
-    if attempt == 'fixup' and status in FIXABLE:
+    kind = status if status in FIXABLE else ''
+    if attempt.startswith('fixup') and status in FIXABLE:
         status = 'failed'
     os.makedirs(f'{outdir(vol)}/raw', exist_ok=True)
     with open(f'{outdir(vol)}/raw/{i}.{attempt}.json', 'w') as o:
         json.dump({'id': i, 'attempt': attempt, 'status': status, 'message_id': msg.id, 'model': msg.model,
-                   'stop_reason': msg.stop_reason, 'errors': errs, 'usage': us, 'content': content}, o, ensure_ascii=False)
+                   'stop_reason': msg.stop_reason, 'error_kind': kind, 'errors': errs, 'usage': us, 'content': content}, o, ensure_ascii=False)
     ledger(i, vol, attempt, env, msg.model, sha, batch_id, msg.id, us, cost_of(us, env == 'api-batch'), status, note)
     return status
 
@@ -253,7 +278,7 @@ def state(vol):
     """{id: [ledger rows in order]} for one volume."""
     s = {}
     for r in read_tsv(LEDGER):
-        if r['volume'] == str(vol) and r['attempt'] in ('read', 'fixup', 'retry'):
+        if r['volume'] == str(vol) and r['attempt'] in ('read', 'fixup', 'fixup2', 'retry'):
             s.setdefault(r['id'], []).append(r)
     return s
 
@@ -354,8 +379,8 @@ def cmd_slice(ids):
             sys.exit(f'{i} has no out/v5 record')
         st = handle('slice', i, stream(c, params(system, read_messages('slice', i))), 'read', 'api-sync', None, sha)
         if st in FIXABLE:
-            raw = latest_raw('slice', i, state('slice')[i])
-            st = handle('slice', i, stream(c, params(system, fixup_messages('slice', i, raw))), 'fixup', 'api-sync', None, sha)
+            raws = chain('slice', i, state('slice')[i])
+            st = handle('slice', i, stream(c, params(system, fixup_messages('slice', i, raws))), 'fixup', 'api-sync', None, sha)
         if st not in DONE:
             print(f'{i}: {st}')
             continue
@@ -449,15 +474,20 @@ def cmd_collect(vol):
     cmd_status(vol)
 
 
-def cmd_fixup(vol, sync, dry, budget):
+def cmd_fixup(vol, sync, dry, budget, again=False):
+    """One fix-up turn for invalid or unparsed reads; with again, a second turn for those whose fix-up failed."""
     no_open_batch(vol)
     system, sha = fixed_prefix(vol)
     s = state(vol)
-    ids = sorted(i for i, rows in s.items() if rows[-1]['status'] in FIXABLE and not any(r['attempt'] == 'fixup' for r in rows))
-    print(f'vol {vol}: {len(ids)} fix-ups' + (f": {' '.join(ids)}" if ids else ''))
+    attempt = 'fixup2' if again else 'fixup'
+    if again:
+        ids = sorted(i for i, rows in s.items() if rows[-1]['status'] == 'failed' and rows[-1]['attempt'] == 'fixup')
+    else:
+        ids = sorted(i for i, rows in s.items() if rows[-1]['status'] in FIXABLE and not any(r['attempt'] == 'fixup' for r in rows))
+    print(f'vol {vol}: {len(ids)} {attempt}s' + (f": {' '.join(ids)}" if ids else ''))
     if not ids:
         return
-    msgs = {i: fixup_messages(vol, i, latest_raw(vol, i, s[i])) for i in ids}
+    msgs = {i: fixup_messages(vol, i, chain(vol, i, s[i])) for i in ids}
     _, uncached = estimate([len(json.dumps(m)) for m in msgs.values()], sum(len(b['text']) for b in system))
     guard(uncached * (2 if sync else 1), budget)   # the estimate is at batch prices; synchronous costs twice that
     if dry:
@@ -466,13 +496,13 @@ def cmd_fixup(vol, sync, dry, budget):
     if sync:
         n = {}
         for i in ids:
-            st = handle(vol, i, stream(c, params(system, msgs[i])), 'fixup', 'api-sync', None, sha)
+            st = handle(vol, i, stream(c, params(system, msgs[i])), attempt, 'api-sync', None, sha)
             n[st] = n.get(st, 0) + 1
         print(', '.join(f'{k} {v}' for k, v in sorted(n.items())))
         return
     batch = c.messages.batches.create(requests=[{'custom_id': i, 'params': params(system, msgs[i], cache=CACHE_IN_BATCH)}
                                                 for i in ids])
-    append_tsv(BATCHES, BATCH_COLS, {'batch_id': batch.id, 'volume': vol, 'kind': 'fixup', 'n': len(ids),
+    append_tsv(BATCHES, BATCH_COLS, {'batch_id': batch.id, 'volume': vol, 'kind': attempt, 'n': len(ids),
                                      'est_usd': f'{uncached:.2f}', 'prefix_sha': sha, 'submitted': now(),
                                      'status': batch.processing_status})
     print(f'fix-up batch {batch.id} submitted: {len(ids)} requests')
@@ -529,7 +559,7 @@ def main(argv):
         k = args.index('--vol'); vol = args[k + 1]; del args[k:k + 2]
     flags = {a for a in args if a.startswith('--')}
     args = [a for a in args if not a.startswith('--')]
-    dry, sync = '--dry-run' in flags, '--sync' in flags
+    dry, sync, again = '--dry-run' in flags, '--sync' in flags, '--again' in flags
     cmd, rest = (args[0], args[1:]) if args else ('', [])
     if cmd == 'prefix':
         cmd_prefix()
@@ -544,7 +574,7 @@ def main(argv):
     elif cmd == 'collect' and len(rest) == 1:
         cmd_collect(rest[0])
     elif cmd == 'fixup' and len(rest) == 1:
-        cmd_fixup(rest[0], sync, dry, budget)
+        cmd_fixup(rest[0], sync, dry, budget, again)
     elif cmd == 'retry' and len(rest) == 1:
         cmd_retry(rest[0], dry, budget)
     elif cmd == 'status':
