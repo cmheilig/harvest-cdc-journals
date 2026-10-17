@@ -1,0 +1,410 @@
+{
+ "id": "mm7117e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GvjViPDtvS6Tyr6gCq",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The overall age-adjusted death rate increased by 0.7% in 2021 from 2020."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "From 2020 to 2021, the age-adjusted death rate (AADR) increased by 0.7%, from 835.4 to 841.6 per 100,000 standard population."
+    },
+    {
+     "loc": "text",
+     "q": "The number of deaths peaked during the week ending January 16, 2021 (87,222)"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-19 was the underlying cause for 13.3% of all deaths in 2021, increasing from 10.4% (350,831 deaths) in 2020."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2021, COVID-19 was listed as the underlying or contributing cause of 460,513 deaths (111.4 per 100,000)"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The overall age-adjusted death rate increased by 0.7% in 2021 from 2020."
+    },
+    {
+     "loc": "text",
+     "q": "Death rates increased for most age groups from 2020 to 2021, except for persons aged 75–84 and ≥85 years."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "AADRs were calculated for deaths by sex and race and ethnicity."
+    },
+    {
+     "loc": "text",
+     "q": "In 2021, AADRs were higher among males (1,011.0) than among females (694.6)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "age standardization (direct, to a standard population)",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "'age-adjusted' rates 'per 100,000 standard population' imply direct standardization; standard not named",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Deaths per 100,000 standard population. Age-adjusted death rates are provided overall and by sex and race and ethnicity."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "final 2020 data",
+  "across": [
+   "year",
+   "age group",
+   "sex",
+   "race/ethnicity",
+   "cause of death"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Provisional death counts and rates for 2021 were compared with final 2020 data"
+   },
+   {
+    "loc": "summary",
+    "q": "The overall age-adjusted death rate increased by 0.7% in 2021 from 2020."
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted death rate per 100,000 standard population",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Deaths per 100,000 standard population."
+    }
+   ]
+  },
+  {
+   "v": "crude death rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Crude death rates were calculated by age."
+    }
+   ]
+  },
+  {
+   "v": "number of deaths",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the number of deaths were calculated for each week from all causes and from COVID-19"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-19 was the underlying cause for 13.3% of all deaths in 2021"
+    }
+   ]
+  },
+  {
+   "v": "percent change",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The age-adjusted rate was 841.6 deaths per 100,000 standard population, an increase of 0.7% from 835.4 in 2020."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did U.S. overall and COVID-19 death counts, rates and leading causes in 2021 compare with 2020, by age, sex and race/ethnicity?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This report presents an overview of provisional U.S. mortality data for 2021, including a comparison of death rates for 2020 and 2021."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "all-cause mortality",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Provisional Mortality Data — United States, 2021"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "For a second year, COVID-19 was the third leading cause of death after heart disease and cancer."
+    }
+   ]
+  },
+  {
+   "v": "heart disease",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "ranked as the third leading underlying cause of death after heart disease (693,021 deaths) and cancer (604,553 deaths)"
+    }
+   ]
+  },
+  {
+   "v": "cancer",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "ranked as the third leading underlying cause of death after heart disease (693,021 deaths) and cancer (604,553 deaths)"
+    }
+   ]
+  },
+  {
+   "v": "unintentional injuries",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Unintentional injuries, the fourth leading cause of death in 2020 and 2021, increased from 200,955 in 2020 to 219,487 in 2021."
+    }
+   ]
+  },
+  {
+   "v": "chronic liver disease and cirrhosis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Chronic liver disease and cirrhosis, which was not among the 10 leading causes of death in 2020, was the ninth leading cause in 2021"
+    }
+   ]
+  },
+  {
+   "v": "influenza and pneumonia",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Influenza and pneumonia, which was the ninth leading cause of death in 2020 (53,544 deaths), dropped out of the 10 leading causes"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This report analyzed provisional NVSS death certificate data for deaths occurring among U.S. residents in the United States during January–December 2021."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Provisional death counts and rates for 2021 were compared with final 2020 data"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "National Vital Statistics System (NVSS) collects and reports annual mortality statistics using U.S. death certificate data."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System (NVSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "National Vital Statistics System (NVSS) collects and reports annual mortality statistics using U.S. death certificate data."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Provisional Mortality Data — United States, 2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Overall and COVID-19 death rates by race/ethnicity are reported and ranked (highest among AI/AN, Black, NH/OPI) with persons 'most affected' mentioned, but values are only set side by side with no computed difference or ratio, so the level is capped at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The Summary and Discussion frame race and ethnic minority groups as most affected and interpret the rankings, which could be read as a framed disparity."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "basis": "assigned or observed",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Overall death rates were highest among non-Hispanic American Indian or Alaskan Native and non-Hispanic Black or African American populations."
+     },
+     {
+      "loc": "text",
+      "q": "there is a higher potential for misclassification of certain categories of race (i.e., AI/AN or Asian) and Hispanic ethnicity reported on death certificates"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Crude death rates were calculated by age."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age-adjusted death rates are provided overall and by sex and race and ethnicity."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "basis": "assigned or observed",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "In 2021, AADRs were higher among males (1,011.0) than among females (694.6)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity from death certificates, with acknowledged misclassification for AI/AN, Asian and Hispanic; race/ethnicity unknown for 0.24% of decedents; no referent group or computed contrasts."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 7,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2021, overall AADRs were lowest among multiracial (399.5) and Asian persons (439.6) and highest among AI/AN (1,088.5) and Black persons (1,081.2)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 11,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2021, overall death rates were lowest among persons aged 5–14 years (14.6) and highest among persons aged ≥85 years (13,826.2)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level"
+ ],
+ "confidence": "high",
+ "notes": "Standardization method is not named; direct age adjustment is inferred from 'per 100,000 standard population'. No tests or CIs are reported; group and year comparisons are descriptive.",
+ "view_issues": "Figure 1 and Figure 2 descriptions are swapped. Text says COVID-19 was the underlying cause for 13.3% of 2021 deaths, but 415,399/3,458,697 is 12.0%; 13.3% matches underlying or contributing. Table CSV shows '10,4490' for 2020 deaths aged 35–44 (likely 104,490)."
+}

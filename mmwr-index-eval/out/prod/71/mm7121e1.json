@@ -1,0 +1,332 @@
+{
+ "id": "mm7121e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GwdDiNtCxVGtH6GQQ4",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Among persons aged 18–64 years, 35.4% of case-patients and 14.6% of controls experienced at least one incident condition."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among persons aged 18–64 years, 35.4% of case-patients and 14.6% of controls experienced at least one incident condition."
+    },
+    {
+     "loc": "summary",
+     "q": "COVID-19 survivors have twice the risk for developing pulmonary embolism or respiratory conditions"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among patients aged ≥65 years, the risks were higher among case-patients than among controls for all 26 incident conditions"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The analysis was stratified by age into two groups: adults aged 18–64 and adults aged ≥65 years."
+    },
+    {
+     "loc": "text",
+     "q": "The RR for cardiac dysrhythmia was significantly higher among patients aged 18–64 years (RR = 1.7) compared with those aged ≥65 years (1.5)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "RR 95% CIs judged against 1 to claim higher risk or no significant difference; CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "no significant difference was observed for cerebrovascular disease, or mental health conditions, such as mood disorders"
+    },
+    {
+     "loc": "text",
+     "q": "Incidence rates per 100 person-months, and RRs with 95% CIs, were calculated."
+    }
+   ]
+  },
+  {
+   "name": "CI overlap assertion",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated rule that nonoverlapping CIs between age groups are significant, used for age-group RR differences; CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Nonoverlapping CIs between age groups were considered statistically significant."
+    },
+    {
+     "loc": "text",
+     "q": "The RR for cardiac dysrhythmia was significantly higher among patients aged 18–64 years (RR = 1.7) compared with those aged ≥65 years (1.5)."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "both",
+  "referent": "control patients without COVID-19",
+  "across": [
+   "COVID-19 status",
+   "age group",
+   "incident condition"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "COVID-19 survivors have twice the risk for developing pulmonary embolism or respiratory conditions"
+   },
+   {
+    "loc": "text",
+    "q": "who developed an incident condition was 20.8 percentage points for those aged 18–64 years and 26.9 percentage points for those aged ≥65 years"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "ci_overlap": true,
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Nonoverlapping CIs between age groups were considered statistically significant."
+   },
+   {
+    "loc": "text",
+    "q": "Incidence rates per 100 person-months, and RRs with 95% CIs, were calculated."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percentage of adult COVID-19 case-patients and control patients with ≥1 post-COVID–attributable incident conditions"
+    }
+   ]
+  },
+  {
+   "v": "risk ratio (RR)",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Risk ratios* for developing post-COVID conditions among adults aged 18–64 years and ≥65 years"
+    }
+   ]
+  },
+  {
+   "v": "absolute risk difference",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percentage point difference between COVID-19 case-patients and control patients"
+    }
+   ]
+  },
+  {
+   "v": "incidence rate per 100 person-months",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Incidence rates per 100 person-months, and RRs with 95% CIs, were calculated."
+    }
+   ]
+  },
+  {
+   "v": "No. of COVID-19 survivors with a post-COVID condition (1/5, 1/4)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Number of COVID-19 survivors who experienced a post-COVID condition estimated as the inverse of the absolute risk difference."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Among U.S. adults, is a previous COVID-19 diagnosis associated with higher incidence of 26 post-COVID conditions compared with matched controls, and does this differ between ages 18–64 and ≥65 years?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to assess the incidence of 26 conditions often attributable to post-COVID"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "post-COVID conditions",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Post–COVID Conditions Among Adult COVID-19 Survivors Aged 18–64 and ≥65 Years"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "COVID-19 survivors have twice the risk for developing pulmonary embolism or respiratory conditions"
+    }
+   ]
+  },
+  {
+   "v": "acute pulmonary embolism",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "including acute pulmonary embolism (RR = 2.2 [patients aged ≥65 years] and 2.1 [patients aged 18–64 years])"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "retrospective cohort",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A retrospective matched cohort design was used to analyze EHRs during March 2020–November 2021, from Cerner Real-World Data,"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "electronic health records",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a national, deidentified data set of approximately 63.4 million unique adult records from 110 data contributors in the 50 states"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Cerner Real-World Data",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A retrospective matched cohort design was used to analyze EHRs during March 2020–November 2021, from Cerner Real-World Data,"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "a national, deidentified data set of approximately 63.4 million unique adult records from 110 data contributors in the 50 states"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Age is the only SPD analyzed (two strata, framed clinically, not as social position). Sex and race/ethnicity appear only as unavailable confounders in a limitation.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "The limitation naming sex, race and ethnicity as unconsidered confounders could be read as raising equity as a limitation."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The analysis was stratified by age into two groups: adults aged 18–64 and adults aged ≥65 years."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Post–COVID Conditions Among Adult COVID-19 Survivors Aged 18–64 and ≥65 Years"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "nor were potentially confounding factors (e.g., SARS-CoV-2 variant, sex, race, ethnicity, health care entity, or geographic region)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "nor were potentially confounding factors (e.g., SARS-CoV-2 variant, sex, race, ethnicity, health care entity, or geographic region)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Only two age strata are compared; sex, race and ethnicity were unavailable or inconsistent and not analyzed."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "outcome_types",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "Controls matched 5:1 on visit month; RRs are crude, not conditional, so matching is a design step. The 1-in-5 estimate is the reciprocal of the risk difference (arithmetic). Incidence rates per 100 person-months are stated as computed but not reported in the text or table, so count/rate is not listed.",
+ "view_issues": "The limitations give the data period as January 2020–November 2021, but the methods say March 2020. The 'number of survivors' is the reciprocal of the risk difference (a number-needed-to-harm), yet it is interpreted as a share of survivors. The prepass p_value cue is a false hit: there are no p-values."
+}

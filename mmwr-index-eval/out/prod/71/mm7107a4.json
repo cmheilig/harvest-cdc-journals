@@ -1,0 +1,343 @@
+{
+ "id": "mm7107a4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GviLWbv9VBuoqPKfd7",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Test-positive survey respondents reported engaging in certain activities more frequently than did test-negative respondents"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "karaoke (18.8% versus 2.4%), or nightclubs (10.4% versus 3.0%) outside of the convention"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among the 4,560 attendees with test result data, 119 (2.6%) event-associated cases were identified by January 6, 2022, from 16 jurisdictions"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Test-positive survey respondents reported engaging in certain activities more frequently than did test-negative respondents, including attending bars (16.7% versus 6.9%)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Pearson chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods and table notes for categorical comparisons of test-positive vs test-negative attendees",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Wilcoxon rank-sum tests were used for continuous data, and Pearson’s chi-square or Fisher’s exact tests were used for categorical data"
+    }
+   ]
+  },
+  {
+   "name": "Fisher exact test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named as alternative to chi-square for categorical comparisons",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Pearson’s chi-square or Fisher’s exact test to compare categorical data. Statistical significance was defined as p<0.05."
+    }
+   ]
+  },
+  {
+   "name": "Wilcoxon rank-sum test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named for continuous data (age, days since vaccination), secondary to the main activity claims",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "nonparametric tests (i.e., Wilcoxon rank-sum) to compare continuous data"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": "test-negative attendees",
+  "across": [
+   "SARS-CoV-2 test result"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Available surveillance information and survey responses from U.S. resident attendees who received positive and negative test results were compared."
+   },
+   {
+    "loc": "summary",
+    "q": "Compared with test-negative respondents, test-positive respondents were more likely to report attending bars, karaoke, or nightclubs"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Wilcoxon rank-sum tests were used for continuous data, and Pearson’s chi-square or Fisher’s exact tests were used for categorical data"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "attending bars (16.7% versus 6.9%), karaoke (18.8% versus 2.4%)"
+    }
+   ]
+  },
+  {
+   "v": "p-value",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "eating or drinking indoors near others for at least 15 minutes at the convention (62.5% versus 43.7%) (all p<0.05)"
+    }
+   ]
+  },
+  {
+   "v": "median",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The median interval from booster dose receipt to a SARS-CoV-2–positive specimen was 12 days (IQR = 10–21 days)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Did a large indoor convention with vaccination and mask requirements in New York City lead to widespread SARS-CoV-2 transmission, and which exposures were associated with infection?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "collaborated with CDC to determine the extent of transmission during the convention and to make public health recommendations."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Investigation of SARS-CoV-2 Transmission Associated With a Large Indoor Convention — New York City, November–December 2021"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "outbreak investigation",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Investigation of SARS-CoV-2 Transmission Associated With a Large Indoor Convention"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "These attendees were matched with data from COVID-19 surveillance systems using personal identifiers (name and complete or partial address)."
+    }
+   ]
+  },
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The second data source, an online anonymous survey, was administered via text message"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "health department COVID-19 surveillance systems",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "reported by health department COVID-19 surveillance systems"
+    }
+   ]
+  },
+  {
+   "v": "online anonymous attendee survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using data from COVID-19 surveillance systems and an anonymous online attendee survey"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "an indoor convention (event) in New York City (NYC), was attended by approximately 53,000 persons from 52 U.S. jurisdictions"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Race/ethnicity, gender, sex and age appear only as Table 1/2 descriptors of test-positive vs test-negative attendees, with omnibus chi-square tests and no disparity framing.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 2,
+   "reason": "Race/ethnicity and gender distributions are tested across groups in Table 2, which could be read as group-specific results reported."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "15 (32.6%) of 46 with reported race/ethnicity were non-Hispanic White"
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "descriptor",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Gender › Transgender"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "among 116 with gender data available, 54 (46.6%) were male"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Among event-associated cases the median age was 26.5 years (IQR = 23.0–36.6 years)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity and gender only as composition of test-positive vs test-negative survey respondents; race collapsed to five groups including Other."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Race/Ethnicity › Asian, non-Hispanic"
+    },
+    {
+     "loc": "table 2",
+     "q": "Pearson’s chi-square or Fisher’s exact test to compare categorical data."
+    }
+   ]
+  },
+  {
+   "across": [
+    "sexual orientation and gender identity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Gender › Transgender"
+    },
+    {
+     "loc": "table 2",
+     "q": "Pearson’s chi-square or Fisher’s exact test to compare categorical data."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "outcome_types",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "Discussion also judges the 2.6% positivity similar to NYC's 3.0% 7-day average, an informal comparison with a population value. Days from booster to test (14 vs 34, p<0.01) are compared by Wilcoxon but treated as a characteristic, not a continuous outcome. Design named as investigation.",
+ "view_issues": "Attendee counts vary (34,541; 34,072; ~35,000; 35,613). Text IQR for test-negative primary series (187–225) differs from Table 1 total (188–225). Table 2 lists 'N94/N95', likely KN94/N95."
+}

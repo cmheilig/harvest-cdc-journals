@@ -1,0 +1,326 @@
+{
+ "id": "mm735152a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.1",
+  "prefix_sha": "f4030e441a8d",
+  "request_id": "msg_011Cg6gFNe3MFcL7Q9jGvvj6",
+  "batch_id": "msgbatch_01Pnk7KDZXhJ3DshXVpkoE1T"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Among the 645 workers included in the epidemiologic investigation, 162 (25%) persons with blastomycosis were identified"
+   },
+   {
+    "loc": "table 1",
+    "q": "Wilcoxon signed-rank tests were used for continuous variables, and Pearson chi-square tests were used for categorical variables to test differences by the case classification."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Based on 120 blastomycosis cases identified among 603 NIOSH medical survey participants, estimated blastomycosis case prevalence among mill workers was 20%."
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "during the week of February 27–March 5, 2023, the number of new onset cases peaked at 21"
+    },
+    {
+     "loc": "text",
+     "q": "paper mill areas with the highest blastomycosis case counts were paper machine line #1 (35) and maintenance (22)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "estimated blastomycosis case prevalence among mill workers was 20%."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Workers with blastomycosis were younger with a shorter tenure at the mill compared with workers without blastomycosis."
+    },
+    {
+     "loc": "text",
+     "q": "Among 483 workers without blastomycosis, 294 (61%) reported cough."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Pearson chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "table note names Pearson chi-square tests for categorical characteristics by case status; § marks p<0.05",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Pearson chi-square tests were used for categorical variables to test differences by the case classification."
+    }
+   ]
+  },
+  {
+   "name": "Wilcoxon signed-rank test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "table note names Wilcoxon signed-rank tests for continuous variables (age, tenure) by case status",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Wilcoxon signed-rank tests were used for continuous variables"
+    }
+   ]
+  },
+  {
+   "name": "small-cell suppression",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "cells with fewer than five responses withheld to avoid worker identification",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Number and percentage omitted to avoid worker identification because of small numbers of responses (fewer than five) in at least one cell."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "blastomycosis case status"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Workers with blastomycosis were younger with a shorter tenure at the mill compared with workers without blastomycosis."
+   },
+   {
+    "loc": "table 1",
+    "q": "Characteristics of paper mill workers included in a workplace epidemiologic investigation, by blastomycosis case status"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "A value of p<0.05 indicates statistically significant values."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "number of cases",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Assessment of 645 mill workers identified 162 cases of blastomycosis"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. (%)"
+    }
+   ]
+  },
+  {
+   "v": "case prevalence",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "estimated blastomycosis case prevalence among mill workers was 20%."
+    }
+   ]
+  },
+  {
+   "v": "median (range)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age, yrs, median (range)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What was the extent, timing, and source of a blastomycosis outbreak among paper mill workers in Michigan, and how did workers with blastomycosis differ from those without?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "to investigate potential workplace exposures to Blastomyces and recommend prevention and control measures at the mill."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "blastomycosis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Outbreak of Blastomycosis Among Paper Mill Workers — Michigan, November 2022–May 2023"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "outbreak investigation",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Outbreak of Blastomycosis Among Paper Mill Workers"
+    },
+    {
+     "loc": "text",
+     "q": "initiated outbreak response and prevention measures."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a medical survey, which included a work and health questionnaire and Blastomyces urine antigen testing to identify potential cases"
+    }
+   ]
+  },
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "with additional case information from MDHHS blastomycosis surveillance data."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "NIOSH health hazard evaluation (HHE) medical survey",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "combined a NIOSH HHE medical survey consisting of a questionnaire on work and health with Blastomyces urine antigen testing"
+    }
+   ]
+  },
+  {
+   "v": "MDHHS blastomycosis surveillance data",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "with additional case information from MDHHS blastomycosis surveillance data."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "workers at a local paper mill in Delta County, Michigan"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Race and ethnicity appear only as Table descriptors (case-status cells suppressed); age and sex are compared between cases and non-cases without social-position framing. Occupation is a route of exposure, not SES.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 0,
+   "reason": "Race/ethnicity is only an overall composition line with no group results, so it could be read as adding nothing beyond age and sex."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "A majority of workers were men (83%), White (94%), and non-Hispanic (98%)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Male"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Workers with blastomycosis were younger with a shorter tenure at the mill compared with workers without blastomycosis."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race and ethnicity collapsed to White vs other/multiracial and Hispanic vs non-Hispanic, with case-status cells suppressed for small numbers."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "procedures",
+  "outcome_types"
+ ],
+ "confidence": "medium",
+ "notes": "Case finding used urine antigen testing and self-reported diagnoses; these are case-definition steps, not procedures. Department (8 groups) and smoking (3) chi-square comparisons are non-SPD, so no groupwise entry; race was suppressed. Hospitalization (12% vs ~65%) and Michigan incidence are compared only to cited figures in the Discussion.",
+ "view_issues": "Table note names Wilcoxon signed-rank tests for comparing independent case and non-case groups; a rank-sum test would be expected. Percentages for some items use 120 survey cases as denominator rather than 162."
+}

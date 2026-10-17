@@ -1,0 +1,208 @@
+{
+ "id": "mm7241a4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg7nFP7mLyMqaXm4cpMdj",
+  "batch_id": "msgbatch_01FaGSxRvLPM3Hp7zgHNqiVG"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The highest rate was in Region 1 (14.8), which includes Connecticut, Maine, Massachusetts, New Hampshire, Rhode Island, and Vermont."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Deaths per 100,000 standard population."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2021, the U.S. age-adjusted drug overdose death rate involving cocaine was 7.3 deaths per 100,000 standard population."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates were higher in HHS regions 1–5 (mostly areas east of the Mississippi River) and were lower in regions 6–10"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Age-adjusted drug overdose death rates were calculated using the direct method and the 2000 U.S. population."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "'direct method and the 2000 U.S. population' → direct standardization",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Age-adjusted drug overdose death rates were calculated using the direct method and the 2000 U.S. population."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "HHS region"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The highest rate was in Region 1 (14.8)"
+   },
+   {
+    "loc": "text",
+    "q": "The lowest rate was in Region 10 (2.3), which includes Alaska, Idaho, Oregon, and Washington."
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted death rate per 100,000 standard population",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Deaths per 100,000 standard population."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did age-adjusted drug overdose death rates involving cocaine vary by HHS region in the United States in 2021?",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Age-Adjusted Drug Overdose Death Rates* Involving Cocaine, † by Region § — National Vital Statistics System, United States, 2021"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "drug overdose deaths involving cocaine",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Age-Adjusted Drug Overdose Death Rates* Involving Cocaine"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Source: National Center for Health Statistics, National Vital Statistics System, Mortality Data, 2021."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Source: National Center for Health Statistics, National Vital Statistics System, Mortality Data, 2021."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System (NVSS) Mortality Data",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Source: National Center for Health Statistics, National Vital Statistics System, Mortality Data, 2021."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "National Vital Statistics System, United States, 2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Age enters only through direct age standardization; regions are geography, not a social-position dimension.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "Age-adjusted drug overdose death rates were calculated using the direct method and the 2000 U.S. population."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Comparison is across 10 HHS regions (geography, not an SPD)."
+ },
+ "groupwise": [],
+ "uncertain_fields": [],
+ "confidence": "high",
+ "notes": "Ten HHS region rates are set side by side on a map with highest and lowest named; no tests or CIs. Territories are excluded from regions 2 and 9.",
+ "view_issues": null
+}

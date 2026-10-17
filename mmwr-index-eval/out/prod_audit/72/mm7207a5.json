@@ -1,0 +1,463 @@
+{
+ "id": "mm7207a5",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg7t7T964cfhdaTX7k1ED",
+  "batch_id": "msgbatch_016zgJzMRrDCS5q8khoNqiYU"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "only 27.1% of adults and 18.5% of adolescents who had completed a COVID-19 primary series received a bivalent booster"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "only 27.1% of adults and 18.5% of adolescents who had completed a COVID-19 primary series received a bivalent booster"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Bivalent booster dose coverage was lower among Black (21.2%), Hispanic (15.0%), and Asian (25.1%) adults compared with White adults (32.1%)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "all percentages weighted to the noninstitutionalized U.S. population; weights calibrated to vaccine administration data",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All percentages were weighted to represent the noninstitutionalized U.S. adolescent or adult population."
+    },
+    {
+     "loc": "note",
+     "q": "Survey weights were also calibrated by age and sex to state-level vaccine administration data reported to CDC by jurisdictions"
+    }
+   ]
+  },
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "t-tests of each level against a reference level, p<0.05, marked in Tables 1–3",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "T-tests were used to determine differences between groups with p<0.05 considered statistically significant."
+    },
+    {
+     "loc": "table 1",
+     "q": "p<0.05 by T-test for comparisons of vaccination coverage within each variable with the indicated reference level."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": "White, non-Hispanic (reference level); other reference levels per variable",
+  "across": [
+   "race/ethnicity",
+   "urbanicity",
+   "SVI",
+   "household income",
+   "education",
+   "health insurance",
+   "age group",
+   "sex",
+   "nativity",
+   "month of interview",
+   "booster intent category",
+   "provider recommendation"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "and coverage was lower among Black and Hispanic persons."
+   },
+   {
+    "loc": "table 2",
+    "q": "p<0.05 by T-test for comparisons of vaccination coverage within each variable with the indicated reference level."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "T-tests were used to determine differences between groups with p<0.05 considered statistically significant."
+   },
+   {
+    "loc": "table 1",
+    "q": "% † (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted percentage (coverage)",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Weighted percentage."
+    }
+   ]
+  },
+  {
+   "v": "95% CI",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "% † (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What were bivalent booster coverage and intent among U.S. adolescents and adults in November–December 2022, and how did they differ by demographic, social and behavioral factors?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "were analyzed to assess demographic, behavioral, and social factors associated with COVID-19 primary series vaccination"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "COVID-19 Bivalent Booster Vaccination Coverage and Intent to Receive Booster Vaccination Among Adolescents and Adults"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NIS-CCM and NIS-ACM data were collected by telephone interview in English, Spanish, or other languages"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "from the National Immunization Survey–Adult COVID Module (NIS-ACM)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Immunization Survey–Child COVID Module (NIS-CCM)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "from the National Immunization Survey–Child COVID Module (NIS-CCM)"
+    }
+   ]
+  },
+  {
+   "v": "National Immunization Survey–Adult COVID Module (NIS-ACM)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "from the National Immunization Survey–Adult COVID Module (NIS-ACM)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, November–December 2022"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "only 27.1% of adults and 18.5% of adolescents who had completed a COVID-19 primary series received a bivalent booster"
+   }
+  ]
+ },
+ "equity": {
+  "level": 2,
+  "level_reason": "Coverage by race/ethnicity, SES (income, insurance, SVI) and rurality is reported and called disparities, but contrasts are group values set side by side with t-test marks, no computed difference or ratio, so the cap at 2 applies.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "If the side-by-side racial and SES contrasts are read as quantified disparities, the named structural or access barriers would raise it to 4."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "and coverage was lower among Black and Hispanic persons."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "household income/poverty",
+     "health insurance",
+     "SVI"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Bivalent booster dose coverage among adults who lived below the poverty level, were uninsured, and who lived in a moderate or high SVI county"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Adults in rural (non-MSA) areas had lower COVID-19 vaccine primary series completion rate and up-to-date coverage than those in MSA principal city areas."
+     }
+    ]
+   },
+   {
+    "v": "country of birth/language/nativity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "U.S.-born status › Non–U.S.-born"
+     },
+     {
+      "loc": "table 2",
+      "q": "Interview language › Other language"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "among all adolescents aged 12–17 years who completed a primary series"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Age group, yrs › ≥65"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Sex › Female"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "unmeasured structural or access barriers to vaccination",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This finding suggests the presence of unmeasured structural or access barriers to vaccination"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "White, low SVI, below-poverty, uninsured and MSA principal city are reference levels; adolescent AI/AN collapsed into other/multiple races; disability is a functional-limitation row, not framed as social position."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 7,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Bivalent booster dose coverage was lower among Black (21.2%), Hispanic (15.0%), and Asian (25.1%) adults compared with White adults (32.1%)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "bivalent booster coverage was lower among Black (10.2%), Hispanic (14.6%), and non-Hispanic other or multiracial adolescents (14.0%) than among White (22.9%) adolescents."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Age group, yrs › ≥65"
+    }
+   ]
+  },
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Adults in rural (non-MSA) areas had lower COVID-19 vaccine primary series completion rate and up-to-date coverage than those in MSA principal city areas."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "SVI of county of residence › High"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Household income › Below poverty level"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Education level › College graduate"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Health insurance › Medicaid"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "analytic_depth",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Cross-sectional design inferred from a random-digit-dialed telephone survey. The standardization cue is a false hit (cited age-adjusted mortality). Estimates failing NCHS reliability criteria are flagged, not suppressed; monovalent booster rows are shown within age strata but not discussed.",
+ "view_issues": "Table 3: 'difficulty getting an appointment' (5.5%) exceeds overall 'difficulty getting a booster vaccine' (5.2%), though the text calls it the most common barrier. Typo 'who were reluctance'."
+}

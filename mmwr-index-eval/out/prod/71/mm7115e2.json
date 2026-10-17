@@ -1,0 +1,457 @@
+{
+ "id": "mm7115e2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GvkUFdmDWna4vTRr32",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "compared vaccination status of 3,761 case-patients (positive NAAT result associated with hospitalization) with 7,522 matched control-patients (negative NAAT result)"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "compared vaccination status of 3,761 case-patients (positive NAAT result associated with hospitalization) with 7,522 matched control-patients (negative NAAT result)"
+    },
+    {
+     "loc": "table 2",
+     "q": "VE was calculated as [1 − odds ratio] x 100, estimated using conditional logistic regression in a test-negative design"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VE after each vaccine dose was estimated using the unvaccinated group as a referent."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "estimates were adjusted for sex, race/ethnicity, number of clinical encounters during 2019, number of underlying health conditions, and days since the previous infection"
+    },
+    {
+     "loc": "text",
+     "q": "Estimated VE of a booster dose was similar among persons aged <65 years (67.7%; 95% CI = 57.7%–75.3%)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "conditional logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'conditional logistic regression' on matched case/control status giving ORs, VE = 100 × (1 − OR) → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VE was estimated using conditional logistic regression, comparing the vaccination status among case-patients and control-patients."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based CIs from the conditional logistic regression; conclusions of protection (VE CI excludes 0) and of similar VE",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Among persons with previous infection, COVID-19 mRNA vaccination provided protection against subsequent COVID-19–associated hospitalization."
+    },
+    {
+     "loc": "text",
+     "q": "Estimated VE of a booster dose was similar among persons aged <65 years (67.7%; 95% CI = 57.7%–75.3%)"
+    }
+   ]
+  },
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated chi-square tests comparing proportions of case- and control-patient characteristics in Table 1",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Wilcoxon rank-sum tests and chi-square tests were used to compare group medians and proportions, respectively; p-values <0.05 were considered statistically significant."
+    }
+   ]
+  },
+  {
+   "name": "Wilcoxon rank-sum test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated for comparing medians of characteristics between case- and control-patients",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Wilcoxon rank-sum tests and chi-square tests were used to compare medians and proportions, respectively"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "unvaccinated",
+  "across": [
+   "vaccination status",
+   "variant period",
+   "age group",
+   "timing of previous infection",
+   "case vs control status"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Estimated vaccine effectiveness against reinfection leading to hospitalization during the Omicron-predominant period was approximately 35% after dose 2, and 68% after a booster dose."
+   },
+   {
+    "loc": "text",
+    "q": "VE after each vaccine dose was estimated using the unvaccinated group as a referent."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "VE was estimated using conditional logistic regression, comparing the vaccination status among case-patients and control-patients."
+   },
+   {
+    "loc": "text",
+    "q": "Wilcoxon rank-sum tests and chi-square tests were used to compare group medians and proportions, respectively; p-values <0.05 were considered statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "VE",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "VE § (95% CI) › Adjusted"
+    }
+   ]
+  },
+  {
+   "v": "relative VE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Relative VE of a booster dose compared with ≥5 months after dose 2 was 55.9% (95% CI = 43.6%–65.5%)."
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, 61.2% of case-patients were unvaccinated, 4.3% had received 1 vaccine dose, 27.6% had received 2 doses"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "conditional (matched)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "estimated using conditional logistic regression in a test-negative design after matching by 2-week calendar period of NAAT"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "VE § (95% CI) › Unadjusted"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "estimates were adjusted for sex, race/ethnicity, number of clinical encounters during 2019, number of underlying health conditions, and days since the previous infection"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "sex, race/ethnicity (White non-Hispanic yes/no, Hispanic yes/no), clinical encounters during 2019, number of underlying conditions, days since previous infection; matched on 2-week period, 10-year age group, state",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "estimates were adjusted for sex, race/ethnicity, number of clinical encounters during 2019, number of underlying health conditions, and days since the previous infection"
+    },
+    {
+     "loc": "text",
+     "q": "Eligible case-patients were matched with control-patients using a 1:2 ratio by 2-week period of the hospitalization-associated NAAT, 10-year age group, and state of residence."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In a sensitivity analysis, VE was also estimated defining previous infection as a positive NAAT result."
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "Among adults with previous SARS-CoV-2 infection, how effective is COVID-19 mRNA vaccination against COVID-19–associated hospitalization during Delta and Omicron predominance?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "A test-negative design was used to estimate effectiveness of COVID-19 mRNA vaccines in preventing subsequent COVID-19–associated hospitalization"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Effectiveness of COVID-19 mRNA Vaccination in Preventing COVID-19–Associated Hospitalization Among Adults with Previous SARS-CoV-2 Infection"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Effectiveness of COVID-19 mRNA Vaccination in Preventing COVID-19–Associated Hospitalization"
+    }
+   ]
+  },
+  {
+   "v": "previous SARS-CoV-2 infection",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Among Adults with Previous SARS-CoV-2 Infection"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "test-negative",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A test-negative design was used to estimate effectiveness of COVID-19 mRNA vaccines in preventing subsequent COVID-19–associated hospitalization"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "electronic health records",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "an EHR data set that includes information from more than 135 million patients and 154 health care organizations in the United States"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Cosmos (Epic Systems aggregated EHR data platform)",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Cosmos is an aggregated EHR data platform of participating health systems that use software provided by Epic Systems Corporation"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, June 2021–February 2022"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "effectiveness",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Among persons with previous infection, COVID-19 mRNA vaccination provided protection against subsequent COVID-19–associated hospitalization."
+   }
+  ]
+ },
+ "equity": {
+  "level": 1,
+  "level_reason": "Race/ethnicity appears only as an adjustment covariate in the VE model and as a Table 1 descriptor tested between cases and controls; age and sex define the population, matching and strata without social-position framing.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 0,
+   "reason": "If the Table 1 race composition and covariate use were treated as negligible, only age and sex would remain."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "race/ethnicity (White non-Hispanic race: yes/no and Hispanic ethnicity: yes/no)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race and ethnicity › Black, non-Hispanic"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "among adults aged ≥18 years with a previous positive nucleic acid amplification test (NAAT) or diagnosis of COVID-19"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Eligible case-patients were matched with control-patients using a 1:2 ratio by 2-week period of the hospitalization-associated NAAT, 10-year age group, and state of residence."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Estimated VE of a booster dose was similar among persons aged <65 years (67.7%; 95% CI = 57.7%–75.3%)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "estimates were adjusted for sex, race/ethnicity, number of clinical encounters during 2019"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity collapsed to four groups in Table 1 (Asian, NH/PI and AI/AN combined as other) and to two binary indicators in the model."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race and ethnicity › Hispanic"
+    },
+    {
+     "loc": "table 1",
+     "q": "Wilcoxon rank-sum tests and chi-square tests were used to compare medians and proportions, respectively"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group, yrs › 45–64"
+    },
+    {
+     "loc": "table 1",
+     "q": "Wilcoxon rank-sum tests and chi-square tests were used to compare medians and proportions, respectively"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "comparison"
+ ],
+ "confidence": "high",
+ "notes": "VE = 100 × (1 − OR) is arithmetic. Stratified VE estimates by variant period, age (<65/≥65), time since dose and timing of initial infection are reported; relative booster VE uses ≥5 months after dose 2 as referent. Age-group comparison in Table 3 is two groups only, so no groupwise entry.",
+ "view_issues": "A Wilcoxon rank-sum test for medians is stated, but Table 1 shows only categorical characteristics. Table 1 Northeast row lacks a p-value; Table 2 CSV has a stray parenthesis in the last cell."
+}

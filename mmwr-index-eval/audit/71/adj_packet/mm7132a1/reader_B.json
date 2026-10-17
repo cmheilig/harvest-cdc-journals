@@ -1,0 +1,295 @@
+{
+ "id": "mm7132a1",
+ "reader": {
+  "label": "B"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Completeness of reporting demographic variables and trends in percent positivity were similar across test types."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "For all test types, the peak reported test volume occurred during the week ending January 8, 2022"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the highest percentage of positive laboratory-based and point-of-care NAAT results (29.1%) and self-tests (17.3%) occurred during the week ending January 8, 2022"
+    },
+    {
+     "loc": "table 1",
+     "q": "% of records with complete information"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "for the customer’s name (first and last) were included in 24.8% of reported self-test results"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was similar to, but generally higher for laboratory-based and point-of-care tests than for self-tests"
+    },
+    {
+     "loc": "text",
+     "q": "the volume of reported laboratory-based and point-of-care NAAT results ranged from 1,947 to 14 times that of self-reported test results"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "7-day moving average of percent positivity",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "percentage positive computed over a rolling 7-day window and plotted as a weekly trend: smoothing by moving average",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "7-day average percentage of positive test results (the number of positive tests reported divided by total tests reported within a 7-day period)"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": null,
+  "across": [
+   "test type",
+   "week"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Completeness of reporting demographic variables and trends in percent positivity were similar across test types."
+   },
+   {
+    "loc": "text",
+    "q": "the volume of reported laboratory-based and point-of-care NAAT results ranged from 1,947 to 14 times that of self-reported test results"
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "primary_measures": [
+  {
+   "v": "weekly number of reported test results",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "1) weekly testing volume (number of test results reported)"
+    }
+   ]
+  },
+  {
+   "v": "7-day average percentage of positive test results",
+   "ev": [
+    {
+     "loc": "figure 2",
+     "q": "Seven-day average percentage of positive test results reported for COVID-19 self-tests"
+    }
+   ]
+  },
+  {
+   "v": "% of records with complete information",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% of records with complete information"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How do voluntarily reported COVID-19 self-test data compare with laboratory-based and point-of-care test data in volume, percent positivity and completeness, and can they support surveillance?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "compares these self-test data with data received by CDC for 361.9 million laboratory-based and point-of-care tests performed during the same period"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "COVID-19 Self-Test Data: Challenges and Opportunities — United States, October 31, 2021–June 11, 2022"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "to describe available data and related metrics compared with those from COVID-19 laboratory-based and point-of-care nucleic acid amplification tests"
+    }
+   ]
+  },
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Current limitations in self-test data reduce their usefulness to guide public health decision-making."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "reported by states and territories through the COVID-19 Electronic Laboratory Reporting (CELR) data system"
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "send individual self-test result data voluntarily reported by customers to the Association of Public Health Laboratories Informatics Messaging Services platform via ReportStream"
+    },
+    {
+     "loc": "note",
+     "q": "were provided by the Office of the Assistant Secretary for Preparedness and Response"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "COVID-19 Electronic Laboratory Reporting (CELR)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "through the COVID-19 Electronic Laboratory Reporting (CELR) data system"
+    }
+   ]
+  },
+  {
+   "v": "ReportStream",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Association of Public Health Laboratories Informatics Messaging Services platform via ReportStream"
+    }
+   ]
+  },
+  {
+   "v": "HHS Protect",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "deidentified versions of the data are then made available to CDC within HHS Protect"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "COVID-19 Self-Test Data: Challenges and Opportunities — United States, October 31, 2021–June 11, 2022"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Age, sex and race/ethnicity appear only as data fields whose completeness is assessed, not as groups compared; equity is raised only as a future-analysis recommendation (equitable access to self-tests).",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 0,
+   "reason": "The equity mention is a passing suggestion for future analyses and no SPD groups are analyzed."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "overall completeness of reporting of critical demographic variables (age, sex, and race or ethnicity)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "overall completeness of reporting of critical demographic variables (age, sex, and race or ethnicity)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "overall completeness of reporting of critical demographic variables (age, sex, and race or ethnicity)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Demographic variables are assessed only for completeness of reporting by test type; no outcomes are reported by demographic group."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "procedures",
+  "study_design",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "No design is named; surveillance/descriptive and evaluation (of self-test data as a surveillance source) are inferred. Manufacturer production totals from ASPR serve mainly as denominators for the share of self-tests reported. A footnote notes that optional reporting of negative antigen results may inflate point-of-care antigen percent positivity.",
+ "view_issues": null
+}

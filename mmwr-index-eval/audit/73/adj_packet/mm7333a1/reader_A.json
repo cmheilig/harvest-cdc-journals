@@ -1,0 +1,401 @@
+{
+ "id": "mm7333a1",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Among adolescents aged 13–17 years included in the 2023 survey, 89.0% had received ≥1 Tdap dose"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was 10.3 percentage points lower among adolescents born in 2010 compared with those born in 2007"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among adolescents aged 13–17 years included in the 2023 survey, 89.0% had received ≥1 Tdap dose"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "coverage with ≥1 Tdap and ≥1 MenACWY dose by age 13 years was lower among VFC-eligible adolescents than among non–VFC-eligible adolescents"
+    },
+    {
+     "loc": "text",
+     "q": "In 2023, coverage with all routine vaccines recommended for adolescents was similar to coverage in 2022."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "z-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named 'Z-tests' with p<0.05 behind survey-year, birth-year and VFC-eligibility contrasts",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Z-tests were used to compare differences in vaccination coverage by survey year, birth year, and eligibility for the VFC program"
+    },
+    {
+     "loc": "text",
+     "q": "differences with p<0.05 were considered statistically significant."
+    }
+   ]
+  },
+  {
+   "name": "Kaplan-Meier cumulative coverage by age",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "stated Kaplan-Meier methods for censoring of vaccination status, giving coverage by age 13–15 by birth year",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Kaplan-Meier techniques were used to account for censoring of vaccination status at age ≥13 years."
+    }
+   ]
+  },
+  {
+   "name": "survey sampling weights",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated weighting for nonresponse, multiplicity, noncoverage and calibration; SUDAAN",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted §§§ and analyses were conducted using SAS-callable SUDAAN (version 11; RTI International)."
+    },
+    {
+     "loc": "note",
+     "q": "Sampling weights were adjusted for survey nonresponse, adolescent multiplicity (number of chances for selection), and noncoverage of the survey sampling frame"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "absolute",
+  "referent": "2007 birth year; non–VFC-eligible adolescents; 2022 survey year; adolescents aged 13 years",
+  "across": [
+   "birth year",
+   "VFC eligibility (insurance status, AI/AN)",
+   "survey year",
+   "age at interview",
+   "sex"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "the 2007–2010 birth years were compared by age using the 2007 birth year as the reference group"
+   },
+   {
+    "loc": "table 1",
+    "q": "between non–VFC-eligible adolescents and VFC-eligible adolescents born in the same year; referent group was non–VFC-eligible adolescents."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Z-tests were used to compare differences in vaccination coverage by survey year, birth year, and eligibility for the VFC program"
+   },
+   {
+    "loc": "table 1",
+    "q": "Estimates with 95% CI >20 might not be reliable."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "vaccination coverage, % (95% CI)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Birth year, % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "percentage points difference",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "coverage with ≥1 MenB dose***** increased by 3.0 percentage points"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What was routine vaccination coverage among U.S. adolescents aged 13–17 years in 2023, and how did coverage by age 13 change by birth year and VFC eligibility around the COVID-19 pandemic?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "to assess vaccination coverage in 2023, recent trends in coverage by birth year, and trends in coverage by eligibility"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "human papillomavirus infection",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "a decline in human papillomavirus vaccine up-to-date coverage by age 13 years among those born in 2010"
+    }
+   ]
+  },
+  {
+   "v": "tetanus, diphtheria, and pertussis",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "tetanus, diphtheria, and acellular pertussis vaccine (Tdap)"
+    }
+   ]
+  },
+  {
+   "v": "meningococcal disease",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "quadrivalent meningococcal conjugate vaccine (MenACWY)"
+    }
+   ]
+  },
+  {
+   "v": "hepatitis A",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "coverage with ≥2 hepatitis A vaccine doses ††††† increased by 1.9 percentage points"
+    }
+   ]
+  },
+  {
+   "v": "hepatitis B",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Hepatitis B vaccine ≥3 doses"
+    }
+   ]
+  },
+  {
+   "v": "measles, mumps, and rubella",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "MMR ≥2 doses"
+    }
+   ]
+  },
+  {
+   "v": "varicella",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "No history of varicella disease › ≥2 doses vaccine"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Cross-sectional analysis was used to estimate vaccination coverage among adolescents aged 13–17 years in the 2023 survey year"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "To assess coverage trends before and after the COVID-19 pandemic began, the 2007–2010 birth years were compared by age"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NIS-Teen is a random–digit-dialed mobile telephone survey ¶ conducted in the United States to monitor vaccination coverage"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Immunization Survey-Teen (NIS-Teen)",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "National Immunization Survey-Teen, United States, 2023"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "National Immunization Survey-Teen, United States, 2023"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Overall, vaccination coverage among VFC-eligible adolescents remained stable across recent birth years"
+   }
+  ]
+ },
+ "equity": {
+  "level": 2,
+  "level_reason": "Coverage by VFC eligibility (insurance status/AI/AN) is reported and described as lower/higher, with contrasts shown only via significance marks and no computed VFC vs non-VFC difference; the Discussion's program-reach framing is capped at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The Discussion interprets VFC vs non-VFC differences as program effectiveness for under-resourced communities and quantifies the VFC-eligible HPV UTD decline (10.3 points)."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "primary comparison",
+    "ses_components": [
+     "Medicaid enrollment",
+     "uninsured"
+    ],
+    "ev": [
+     {
+      "loc": "note",
+      "q": "1) enrolled in Medicaid or Indian Health Service; 2) uninsured; 3) American Indian or Alaska Native"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "1) enrolled in Medicaid or Indian Health Service; 2) uninsured; 3) American Indian or Alaska Native"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "National Vaccination Coverage Among Adolescents Aged 13–17 Years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Statistically significant difference (p<0.05) in estimated vaccination coverage by age; referent group was adolescents aged 13 years."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "percentages are reported among females and males combined (16,568) and for females only (7,857) and males only (8,711)."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "accessibility to vaccination through the VFC program",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The decline in the percentage of VFC-eligible adolescents who are HPV UTD could signal a change in accessibility to vaccination through the VFC program"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "VFC eligibility is a composite proxy (Medicaid/IHS, uninsured, AI/AN, IHS/Tribal facility use); referent is non–VFC-eligible adolescents; contrasts flagged only by significance marks."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Statistically significant difference (p<0.05) in estimated vaccination coverage by age; referent group was adolescents aged 13 years."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "analytic_depth",
+  "equity.level",
+  "outcome_types"
+ ],
+ "confidence": "medium",
+ "notes": "VFC vs non-VFC contrasts by birth year are read as a series over time by group (comparison), not stratification. Kaplan-Meier coverage by age is reported as cumulative %, so outcome kept binary/categorical. CI construction not stated beyond SUDAAN.",
+ "view_issues": "Table 2 CSV has an extra empty column under the age-13 header, shifting values one cell right of their labels. Summary says coverage 'remained stable' though 2008 birth-year coverage was significantly lower than 2007."
+}

@@ -1,0 +1,421 @@
+{
+ "id": "mm7304a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.1",
+  "prefix_sha": "f4030e441a8d",
+  "request_id": "msg_011Cg6vxWHSk4S42n835VLwZ",
+  "batch_id": "msgbatch_01UAUCb9fTF2eLcQ9R5SBrye"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among 9,222 NAAT results for persons with COVID-19–like illness symptoms eligible for the full analysis, 3,295 (36%) were positive for SARS-CoV-2"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Among 9,222 total eligible tests, overall VE among adults aged ≥18 years was 54% (95% CI = 46%–60%)"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VE against symptomatic disease was calculated by comparing odds of receipt versus nonreceipt of the updated COVID-19 vaccine among case- and control patients."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Odds ratios (ORs) were estimated using multivariable logistic regression"
+    },
+    {
+     "loc": "text",
+     "q": "In the full analysis, VE for persons aged 18–49 years was 57% (95% CI = 48%–65%) and for persons aged ≥50 years was 46%"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multivariable logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'multivariable logistic regression' giving adjusted ORs, with VE = (1 − aOR) × 100 → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Odds ratios (ORs) were estimated using multivariable logistic regression"
+    },
+    {
+     "loc": "table 2",
+     "q": "VE = (1 − adjusted odds ratio) x 100."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "VE CIs excluding 0 underpin the claim of protection; model-based CIs from the logistic regression (CI construction not otherwise described)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Updated COVID-19 vaccines provide protection against symptomatic infection, including against currently circulating lineages."
+    },
+    {
+     "loc": "summary",
+     "q": "VE 60–119 days after vaccination was 49% (95% CI = 19%–68%) among tests exhibiting SGTF and 60% (95% CI = 35%–75%)"
+    }
+   ]
+  },
+  {
+   "name": "CI overlap assertion",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "the claim of no difference between SGTF and SGTP VE rests on overlapping CIs",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were lower for SGTF than SGTP results in this analysis, CIs overlapped, indicating no statistically significant difference."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "no updated dose",
+  "across": [
+   "updated vaccine receipt",
+   "time since dose",
+   "SGTF vs SGTP status",
+   "age group"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Receipt of updated COVID-19 vaccine provided approximately 54% increased protection against symptomatic SARS-CoV-2 infection compared with no receipt of updated vaccine."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "ci_overlap": true,
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Odds ratios (ORs) were estimated using multivariable logistic regression"
+   },
+   {
+    "loc": "text",
+    "q": "CIs overlapped, indicating no statistically significant difference."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "VE",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "VE* (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "adjusted odds ratio",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "VE = (1 − adjusted odds ratio) x 100."
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "SARS-CoV-2–positive test results, no. (row %)"
+    }
+   ]
+  },
+  {
+   "v": "median days since last dose",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Median days (IQR) since last dose among vaccinated"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Odds ratios were calculated using multivariable logistic regression, adjusting for age (as a continuous variable), gender, race and ethnicity"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age (continuous), gender, race and ethnicity, SVI of testing location (<0.5 vs ≥0.5), pharmacy contractor, underlying conditions, HHS region, date of testing",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "adjusting for age (as a continuous variable), gender, race and ethnicity, Social Vulnerability Index of the testing location (<0.5 versus ≥0.5), pharmacy contractor"
+    },
+    {
+     "loc": "table 2",
+     "q": "underlying conditions (presence versus absence), U.S. Department of Health and Human Services region of testing location, and date of testing."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Secondary analyses examined alternative reference groups, including 1) receipt of a bivalent dose"
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "How effective was updated 2023–2024 (XBB.1.5) COVID-19 vaccine against symptomatic SARS-CoV-2 infection among immunocompetent adults, overall, by time since dose and by likely JN.1 (SGTF) vs other lineages?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Data from the Increasing Community Access to Testing SARS-CoV-2 pharmacy testing program were analyzed to estimate updated COVID-19 vaccine effectiveness (VE)"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Early Estimates of Updated 2023–2024 (Monovalent XBB.1.5) COVID-19 Vaccine Effectiveness Against Symptomatic SARS-CoV-2 Infection"
+    }
+   ]
+  },
+  {
+   "v": "symptomatic SARS-CoV-2 infection",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "COVID-19 Vaccine Effectiveness Against Symptomatic SARS-CoV-2 Infection Attributable to Co-Circulating Omicron Variants"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "test-negative",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "among adults who reported ≥1 symptom of COVID-19 were included in the test-negative design study."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Increasing Community Access to Testing (ICATT) is a CDC program that provides access to no-cost SARS-CoV-2 testing at pharmacies nationwide"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Increasing Community Access to Testing (ICATT)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Increasing Community Access to Testing (ICATT) is a CDC program"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "provides access to no-cost SARS-CoV-2 testing at pharmacies nationwide"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "effectiveness",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "overall VE among adults aged ≥18 years was 54% (95% CI = 46%–60%) at a median of 52 days after vaccination."
+   }
+  ]
+ },
+ "equity": {
+  "level": 1,
+  "level_reason": "Race/ethnicity and SVI enter only as covariates in the VE model, and SVI and uninsured status describe the program; age-stratified VE has no social-position framing.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 0,
+   "reason": "If covariate-only SPDs in a VE model were not counted, only age strata and population bounds would remain."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "adjusting for age (as a continuous variable), gender, race and ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race and ethnicity › Black or African American"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "Social Vulnerability Index"
+    ],
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Social Vulnerability Index of the testing location (<0.5 versus ≥0.5)"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "uninsured",
+     "socially vulnerable areas"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "prioritizing socially vulnerable areas."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "adjusting for age (as a continuous variable), gender, race and ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Among Immunocompetent Adults"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "VE for persons aged 18–49 years was 57% (95% CI = 48%–65%) and for persons aged ≥50 years was 46%"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "adjusting for age (as a continuous variable)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "SVI of the testing location (tract-level area index) dichotomized at 0.5 as a covariate; race/ethnicity collapsed to Black, White, Hispanic, Other, Unknown."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "inference"
+ ],
+ "confidence": "high",
+ "notes": "SGTF is a lab proxy that defines likely JN.1 case status, so it is treated as a case definition, not a procedure. Age-group VE compares only two groups (18–49 vs ≥50), so it has no groupwise entry. Secondary analyses with alternative reference groups are reported only in a supplement.",
+ "view_issues": "Prepass 'fisher' (Thermo Fisher Scientific) and 'weighting' ('inherently weighted') are false hits. Table 1 CSV gives laboratory-based NAAT controls as 1,582 in the subanalysis, against n = 1,520 in the header. The Summary's '54% increased protection' wording misstates VE."
+}

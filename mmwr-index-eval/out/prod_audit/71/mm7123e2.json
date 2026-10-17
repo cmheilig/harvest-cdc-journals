@@ -1,0 +1,328 @@
+{
+ "id": "mm7123e2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8N1tsF5Po6sxMKwq18g",
+  "batch_id": "msgbatch_01THxcVjCM9oj7vRLBXSzDjL"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Weighted percentages (with 95% CIs) of ventilation improvement strategies among K–12 public schools, including by locale and school poverty level, were estimated."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A smaller proportion of schools reported more resource-intensive strategies such as replacing or upgrading HVAC systems (38.5%)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the four most frequently reported were relocating activities outdoors when possible (73.6%)"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Mid-poverty schools were less likely than were high-poverty schools to have replaced or upgraded HVAC systems (32.4% versus 48.8%)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'Chi-square tests were used'; table notes report pairwise chi-square tests between locale and poverty groups",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Chi-square tests were used to test for differences in the percentage of schools reporting each ventilation strategy by school-level characteristics"
+    },
+    {
+     "loc": "table 2",
+     "q": "City schools differed significantly from rural schools based on chi-square test (p<0.05)."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting for nonresponse and design strata",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "data 'weighted to account for nonresponse and design strata'; all percentages are weighted",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were weighted to account for nonresponse and design strata"
+    },
+    {
+     "loc": "table 1",
+     "q": "Weighted percentages and 95% CIs are presented for each category."
+    }
+   ]
+  },
+  {
+   "name": "suppression of estimates with relative SE >30%",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "small-precision suppression rule in Table 1 note",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimate was suppressed because the relative SE was >30%."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "school locale (city, suburb, town, rural)",
+   "school poverty level (low, mid, high)"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Overall, rural and mid-poverty schools were the least likely to report implementing several resource-intensive ventilation strategies."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ci_overlap": false,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Chi-square tests were used to test for differences in the percentage of schools reporting each ventilation strategy by school-level characteristics"
+   },
+   {
+    "loc": "table 1",
+    "q": "Weighted percentages and 95% CIs are presented for each category."
+   }
+  ]
+ },
+ "groupwise": [
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "pairwise (all pairs)",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "No significant differences between rural versus town and suburb versus town schools were noted based on chi-square test (p>0.05)."
+    },
+    {
+     "loc": "table 2",
+     "q": "City schools differed significantly from rural schools based on chi-square test (p<0.05)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "pairwise (all pairs)",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Mid-poverty schools differed significantly from low-poverty schools based on chi-square test (p<0.05)."
+    },
+    {
+     "loc": "table 3",
+     "q": "No significant differences between low- versus high-poverty schools were noted based on chi-square test (p>0.05)."
+    }
+   ]
+  }
+ ],
+ "primary_measures": [
+  {
+   "v": "weighted percentage (95% CI)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Weighted percentages and 95% CIs are presented for each category."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Which ventilation improvement strategies do U.S. K–12 public schools report, and do they differ by school locale and poverty level?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC examined reported ventilation improvement strategies among a nationally representative sample of K–12 public schools in the United States"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Ventilation Improvement Strategies Among K–12 Public Schools — The National School COVID-19 Prevention Study"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a web-based survey administered to school-level administrators beginning in summer 2021"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using wave 4 (February 14–March 27, 2022) data from the National School COVID-19 Prevention Study (NSCPS)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National School COVID-19 Prevention Study (NSCPS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using wave 4 (February 14–March 27, 2022) data from the National School COVID-19 Prevention Study (NSCPS)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Among a nationally representative sample of U.S. K–12 public schools"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Locale and school poverty groups are compared with chi-square significance marks and equitable implementation is invoked, but values are only set side by side with no computed difference or ratio, so the cap at 2 applies.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "Rural and mid-poverty shortfalls are framed as an equity concern, and school/community resources, technical assistance and federal-fund access are named as explanations."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "primary comparison",
+    "ses_components": [
+     "free or reduced-price meals eligibility (school poverty level)"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The percentage of students eligible for free or reduced-priced meals during 2019–20 served as a proxy for school poverty level"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "School locale was categorized as city, suburban, town, or rural according to NCES."
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "A stratified random sample of schools by region, school level, and NCES locale is conducted."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Ventilation Improvement Strategies Among K–12 Public Schools"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "supply chain challenges; differences in school or community resources; accessibility of technical assistance and support for funding applications; experience accessing federal funds",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "might be due to supply chain challenges, differences in school or community resources, or accessibility of technical assistance and support"
+    },
+    {
+     "loc": "text",
+     "q": "higher poverty schools might have had more experience in accessing and using federal funds"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Units are schools; school poverty is proxied by the share of students eligible for free or reduced-price meals (low ≤25%, mid 26%–75%, high ≥76%); locale follows NCES (city, suburb, town, rural)."
+ },
+ "uncertain_fields": [
+  "equity.level",
+  "equity.dimensions",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred as cross-sectional: wave 4 of a longitudinal school survey analyzed alone. A footnote warns that CIs may overlap despite significant chi-square tests; no claim rests on overlap. Whether school locale counts as rurality (an SPD) for school units is a judgment call.",
+ "view_issues": "Summary misspells HEPA as 'high-efficiency particular air'. Methods say chi-square tests without stating survey-design adjustment, though estimates are weighted."
+}

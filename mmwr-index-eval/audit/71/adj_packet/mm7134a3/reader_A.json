@@ -1,0 +1,400 @@
+{
+ "id": "mm7134a3",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Weekly hospitalization rates (hospitalizations per 100,000 population) among adults aged ≥65 years increased threefold, from 6.9 (week ending April 2, 2022)"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Proportions of hospitalized adults admitted to an intensive care unit during the Delta, BA.1 and BA.2 periods were 24.3%, 17.9% and 13.2%, respectively."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Among hospitalized nonpregnant patients, 44.1% had received primary vaccination and ≥1 booster or additional dose."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "hospitalization rate ratios for adults aged ≥65 years were 3.9, 5.7, and 8.2 in the Delta, BA.1, and BA.2 periods"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the monthly population-based, age-adjusted hospitalization rate among unvaccinated adults aged ≥18 years was 3.4 times as high (95% CI = 3.2–3.6)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting for sampling probability with Taylor series variance",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weighted percentages from an age- and site-stratified sample; Taylor series linearization in SAS survey procedures",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Percentages presented were weighted to account for the probability of selection for sampled cases."
+    },
+    {
+     "loc": "text",
+     "q": "Variances were estimated using Taylor series linearization method."
+    }
+   ]
+  },
+  {
+   "name": "age standardization of rates",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "'age-adjusted hospitalization rate'; standard population and method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the monthly population-based, age-adjusted hospitalization rate among unvaccinated adults aged ≥18 years was 3.4 times as high"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "CI method not stated; rate ratio CI excludes 1 and the article concludes rates are higher among unvaccinated adults",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was 3.4 times as high (95% CI = 3.2–3.6) as rates among vaccinated adults who had received ≥1 booster or additional dose"
+    },
+    {
+     "loc": "text",
+     "q": "Hospitalization rates continue to remain higher among unvaccinated adults than among adults who received a primary COVID-19 vaccination series"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "adults aged 18–49 years",
+  "across": [
+   "age group",
+   "variant predominance period",
+   "vaccination status"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Increased hospitalization rates among adults aged ≥65 years compared with rates among younger adults were most pronounced during the Omicron BA.2–predominant period."
+   },
+   {
+    "loc": "figure 2",
+    "q": "Adults aged 18–49 years are the referent group; the rate ratio for this group is 1.0 for all periods."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "was 3.4 times as high (95% CI = 3.2–3.6) as rates among vaccinated adults who had received ≥1 booster or additional dose"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "hospitalization rate per 100,000 population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Weekly hospitalization rates (hospitalizations per 100,000 population)"
+    }
+   ]
+  },
+  {
+   "v": "rate ratio",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rate ratios were calculated by dividing rates of hospitalization among unvaccinated persons by rates among vaccinated persons"
+    }
+   ]
+  },
+  {
+   "v": "weighted percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percentages presented for demographic and other characteristics are weighted column percentages."
+    }
+   ]
+  },
+  {
+   "v": "age-adjusted rate ratio",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the monthly population-based, age-adjusted hospitalization rate among unvaccinated adults aged ≥18 years was 3.4 times as high"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did COVID-19–associated hospitalization rates and the characteristics of hospitalized adults change by age and vaccination status during Omicron BA.2 predominance compared with the Delta and BA.1 periods?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Data from the COVID-19–Associated Hospitalization Surveillance Network (COVID-NET) were analyzed to describe recent COVID-19–associated hospitalization rates among adults aged ≥18 years"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Laboratory-Confirmed COVID-19–Associated Hospitalizations Among Adults During SARS-CoV-2 Omicron BA.2 Variant Predominance"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Hospitalization rates among unvaccinated adults were approximately triple those of vaccinated adults."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-NET conducts population-based surveillance for laboratory-confirmed COVID-19–associated hospitalizations"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the BA.2 period were compared with those from the Delta (B.1.617.2; June 20–December 18, 2021) and BA.1"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-NET conducts population-based surveillance for laboratory-confirmed COVID-19–associated hospitalizations"
+    }
+   ]
+  },
+  {
+   "v": "vaccination registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was determined for individual hospitalized patients and for the catchment population using state immunization information systems data."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "COVID-19–Associated Hospitalization Surveillance Network (COVID-NET)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the COVID-19–Associated Hospitalization Surveillance Network (COVID-NET) were analyzed"
+    }
+   ]
+  },
+  {
+   "v": "state immunization information systems",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using state immunization information systems data."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "in 99 counties across 14 U.S. states."
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "effectiveness",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Hospitalization rates among unvaccinated adults were approximately triple those of vaccinated adults."
+   }
+  ]
+ },
+ "equity": {
+  "level": 1,
+  "level_reason": "Age groups are the main comparison but are not framed as social position. Race/ethnicity and sex appear only as Table composition descriptors; disability is named only in a recommendation.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 0,
+   "reason": "Race/ethnicity appears only as case composition in the Table and is never discussed, so the report is effectively age-only."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "COVID-19–Associated Hospitalizations Among Adults During SARS-CoV-2 Omicron BA.2 Variant Predominance"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Increased hospitalization rates among adults aged ≥65 years compared with rates among younger adults were most pronounced during the Omicron BA.2–predominant period."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race and ethnicity §§ › Black or African American"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female"
+     }
+    ]
+   },
+   {
+    "v": "disability",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "persons at high risk for severe illness and hospitalization because of older age, disability, moderate or severe immunocompromise"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Age referent is 18–49 years; persons with multiple, unknown or missing race (3.4%) are excluded from race proportions; pregnant patients excluded."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "figure 2",
+     "q": "Adults aged 18–49 years are the referent group; the rate ratio for this group is 1.0 for all periods."
+    },
+    {
+     "loc": "text",
+     "q": "hospitalization rate ratios for adults aged ≥65 years were 3.9, 5.7, and 8.2 in the Delta, BA.1, and BA.2 periods"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "these proportions were 95.8%, 89.2%, and 80.8% in adults aged 50–64 years and 93.4%, 76.3% and 70.6% in adults aged 18–49 years"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "inference",
+  "procedures",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "The age-adjusted unvaccinated vs boosted rate ratio (3.4) comes from unpublished COVID-NET data; its CI method is not stated, so method_stated is false even though Taylor series variances are stated for weighted percentages. Long-term care facility residence is treated as a setting, not an SPD.",
+ "view_issues": "Table note calls the BA.1 period 'the B.1 period'. The Summary says 'vaccinated adults' while the text's 3.4 ratio compares with adults with ≥1 booster dose."
+}

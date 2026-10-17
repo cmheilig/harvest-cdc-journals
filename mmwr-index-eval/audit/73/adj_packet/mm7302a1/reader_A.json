@@ -1,0 +1,373 @@
+{
+ "id": "mm7302a1",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During 2008–2021, in King County, Washington, current cannabis use prevalences among male and female students in grades 8, 10, and 12 declined."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence of current use was lowest during the 2021 cycle for both male (7.7%) and female students (9.0%)."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "current-use prevalence among male students was significantly lower than that among female students, representing a reversal of previous sex-specific differences"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Lastly, analyses were replicated, stratifying by grade (8, 10, and 12)."
+    },
+    {
+     "loc": "summary",
+     "q": "Sex-specific differences by grade mirrored overall patterns."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "quasibinomial generalized linear model with identity link (prevalence differences)",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "GLM with identity link gives additive prevalence differences as sex coefficients → linear (identity link); quasibinomial variance",
+   "role": "primary",
+   "alternative_reading": "other: a binomial-family GLM rather than least squares",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "separate generalized linear models for each outcome containing a quasibinomial distribution and identity link"
+    },
+    {
+     "loc": "text",
+     "q": "Models contained an interaction term between sex and categorical survey year, accounting for variations in PDs over time"
+    }
+   ]
+  },
+  {
+   "name": "raking survey weights",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated raked weights used for all prevalence estimates and PD models",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Analyses used raked weights based on grade by sex by school district margins to be representative of King County public school students"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based CIs from the quasibinomial identity-link GLM; significance defined as 95% CI excluding 0",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "P-values <0.05 were considered statistically significant, corresponding to estimates for which 95% CIs exclude 0."
+    },
+    {
+     "loc": "text",
+     "q": "prevalence among male students was significantly higher than that among female students between the 2008 (PD = 4.8%, 95% CI = 3.8%–5.8%)"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "absolute",
+  "referent": "female students",
+  "across": [
+   "sex",
+   "survey year",
+   "grade"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "In 2021, for the first time, current-use prevalence was lower among male students than female students."
+   },
+   {
+    "loc": "figure 1",
+    "q": "Weighted sex-based prevalence differences* in current † (A) and frequent § (B) cannabis use"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "P-values <0.05 were considered statistically significant, corresponding to estimates for which 95% CIs exclude 0."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted prevalence, % (95% CI)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Cannabis use status, % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "prevalence difference (PD)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(PD = −1.3%, 95% CI = −2.1% to −0.5%)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Crude prevalence differences (PDs) and 95% CIs by sex were assessed"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Models contained an interaction term between sex and categorical survey year, accounting for variations in PDs over time"
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did current and frequent cannabis use, and sex-based differences in use, change among King County students in grades 8, 10 and 12 during 2008–2021?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "described recent trends in cannabis use by sex among King County, Washington students in grades 8, 10, and 12 and examined trends in sex-based differences"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "cannabis use",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Cannabis Use Among Students in Grades 8, 10, and 12, by Sex"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The Healthy Youth Survey is a representative, biennial, cross-sectional survey of health and health-related behaviors"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During 2008–2021, cannabis use declined among both male and female students."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The Healthy Youth Survey is a representative, biennial, cross-sectional survey of health and health-related behaviors administered by Washington State Department of Health"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Healthy Youth Survey (Washington State Department of Health)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "PHSKC used data from seven survey cycles conducted during 2008–2021, restricting analyses to King County students in grades 8, 10, and 12."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "King County, Washington, 2008–2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "The analysis compares only sex (and grade/age) without social-position framing; race, ethnicity, SES and gender identity appear only in a limitation and a recommendation, and equity is raised only in recommendations.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The sex PDs are quantified and the implications frame tailored interventions by sex as promoting equity, which could be read as a framed, quantified disparity."
+  },
+  "dimensions": [
+   {
+    "v": "sex",
+    "role": "primary comparison",
+    "basis": "assigned or observed",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "this report relied on self-reported sex assigned at birth to categorize students by sex"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Cannabis Use Among Students in Grades 8, 10, and 12, by Sex"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Lastly, analyses were replicated, stratifying by grade (8, 10, and 12)."
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The Healthy Youth Survey introduced gender identity questions in 2018; thus, examining trends by gender identity was not possible."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "future analyses could explore potential variations across additional demographic variables including race, ethnicity, or socioeconomic status."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "socioeconomic status"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "future analyses could explore potential variations across additional demographic variables including race, ethnicity, or socioeconomic status."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "evolving social norms regarding cannabis use",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A second explanation might be related to evolving social norms regarding cannabis use."
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Sex is self-reported sex assigned at birth; transgender and nonbinary students are not represented. Grade (8, 10, 12) serves as an age proxy."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2021, the highest prevalence of current cannabis use was observed among 12th grade students (males 15.3%, females 17.4%), followed by 10th"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "regression_fields"
+ ],
+ "confidence": "medium",
+ "notes": "Grade-level ranking is treated as an age dimension. The grade-stratified replication is recorded as stratification rather than as a sensitivity analysis. Legalization and pandemic explanations concern the overall trend and are not recorded as determinants.",
+ "view_issues": "Grade-stratified results are only in an external supplementary table, which is not in the packet."
+}

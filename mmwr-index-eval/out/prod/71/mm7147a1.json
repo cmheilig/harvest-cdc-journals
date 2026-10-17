@@ -1,0 +1,413 @@
+{
+ "id": "mm7147a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GvjAcvfLXsqcp1Kiz7",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During 2000–2021, measles vaccination prevented an estimated 56 million deaths worldwide."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In 2021, only 81% of children received their first dose of measles containing vaccine (MCV), the lowest coverage reported since 2008"
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "From 2000 to 2016, annual measles incidence decreased 88%, from 145 cases per 1 million population to 18"
+    },
+    {
+     "loc": "text",
+     "q": "estimated annual measles deaths decreased 83%, from 761,000 to 128,000"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During 2000–2021, measles vaccination prevented an estimated 56 million deaths worldwide."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among regions, the Southeast Asia Region faced the largest decrease in MCV1 coverage (from 94% to 86%) between 2019 and 2021"
+    },
+    {
+     "loc": "text",
+     "q": "From 2000 to 2016, annual measles incidence decreased 88%, from 145 cases per 1 million population to 18"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "state-space model of measles incidence and deaths (with no-vaccination counterfactual)",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "a state-space model of unobserved incidence, rerun with 2021 data, produces estimated cases, deaths and deaths averted; not a named regression",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "State-space model of unobserved measles incidence during 2000–2021 generated using the following inputs from all member countries"
+    },
+    {
+     "loc": "figure 1",
+     "q": "Deaths prevented by vaccination are estimated by the area between estimated deaths with vaccination and those without vaccination"
+    }
+   ]
+  },
+  {
+   "name": "Bayesian meta-regression of case fatality ratios",
+   "class": "regression",
+   "regression_family": "other",
+   "inferred_from": "'Bayesian meta-regression modeling framework' with no family named → other; it fits CFRs that feed the death estimates",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a suite of covariates with known relationships to case fatality were used in a Bayesian meta-regression modeling framework"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "both",
+  "referent": "95% two-dose MCV coverage target; surveillance sensitivity target of ≥2 discarded cases per 100,000 population",
+  "across": [
+   "year",
+   "WHO region",
+   "vaccination vs no vaccination scenario"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "In 2021, only 81% of children received their first dose of measles containing vaccine (MCV), the lowest coverage reported since 2008"
+   },
+   {
+    "loc": "text",
+    "q": "achieved the sensitivity indicator target of two or more discarded cases per 100,000 population in 2021"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "figure 1",
+    "q": "Vertical bars represent 95% CIs around the point estimate."
+   },
+   {
+    "loc": "table 2",
+    "q": "No. (95% CI) › Estimated no. of measles deaths"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "MCV1 coverage, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percentage › MCV1* coverage"
+    }
+   ]
+  },
+  {
+   "v": "measles incidence per 1 million population",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "** Cases per 1 million population."
+    }
+   ]
+  },
+  {
+   "v": "estimated measles deaths",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "No. (95% CI) › Estimated no. of measles deaths"
+    }
+   ]
+  },
+  {
+   "v": "deaths averted by vaccination",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Cumulative no. of measles deaths averted by vaccination 2000–2021"
+    }
+   ]
+  },
+  {
+   "v": "discarded case rate per 100,000",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "The discarded case rate is used to measure the sensitivity of measles surveillance."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "note",
+     "q": "The model fitted the reported case fatality ratios from the systematic review as a function of the following covariates"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "GDP per capita, HIV prevalence, maternal education, MCV1 coverage, proportion urban, total fertility rate, under-5 mortality, vitamin A deficiency, war and terrorism mortality, wasting, measles incidence",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "1) gross domestic product per capita, 2) HIV prevalence, 3) maternal education, 4) MCV1 coverage, 5) proportion urban"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "What progress toward regional measles elimination was made worldwide during 2000–2021 in vaccination coverage, surveillance, incidence and mortality?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This report describes progress toward measles elimination during 2000–2021 and updates a previous report"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "measles",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Progress Toward Regional Measles Elimination — Worldwide, 2000–2021"
+    }
+   ]
+  },
+  {
+   "v": "measles",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In 2021, only 81% of children received their first dose of measles containing vaccine (MCV)"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This report describes progress toward measles elimination during 2000–2021 and updates a previous report"
+    }
+   ]
+  },
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Countries report the number of incident measles cases to WHO and UNICEF annually, using the Joint Reporting Form."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2000–2010, estimated MCV1 coverage increased worldwide from 72% to 84%."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "international surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Countries report the number of incident measles cases to WHO and UNICEF annually, using the Joint Reporting Form."
+    },
+    {
+     "loc": "text",
+     "q": "In 2021, GMRLN laboratories received 122,735 specimens for measles testing compared with 122,116 specimens in 2020."
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data on case fatality from an updated systematic review"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "WHO-UNICEF estimates of national immunization coverage",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "annual MCV1 coverage from WHO-UNICEF estimates of national immunization coverage"
+    }
+   ]
+  },
+  {
+   "v": "Joint Reporting Form",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using the Joint Reporting Form."
+    }
+   ]
+  },
+  {
+   "v": "Global Measles and Rubella Laboratory Network (GMRLN)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "WHO’s Global Measles and Rubella Laboratory Network (GMRLN) supports countries"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "international",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Progress Toward Regional Measles Elimination — Worldwide, 2000–2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "In 2021, only 81% of children received their first dose of measles containing vaccine (MCV), the lowest coverage reported since 2008"
+   }
+  ]
+ },
+ "equity": {
+  "level": 1,
+  "level_reason": "Maternal education and proportion urban appear only as country-level covariates in the case-fatality meta-regression; results are by WHO region and year, not by social position.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 0,
+   "reason": "The covariates are ecological country-level inputs to an ancillary model, and geography is not an SPD."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "Calculated for MCV1, among children aged 1 year or, if MCV1 is administered at age ≥1 year, among children aged 24 months."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "maternal education",
+     "gross domestic product per capita"
+    ],
+    "ev": [
+     {
+      "loc": "note",
+      "q": "1) gross domestic product per capita, 2) HIV prevalence, 3) maternal education"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "5) proportion urban"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Comparisons are by WHO region and country; high-income countries excluded from the CFR model; non-reporting countries removed from incidence numerators and denominators."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "procedures",
+  "equity.level",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Countries not reporting cases are excluded from incidence numerators and denominators (an exclusion rule). The 'surveillance sensitivity' cue is a performance indicator, not diagnostic accuracy. The model is previously published but rerun with 2021 data, so its estimates are treated as the report's own.",
+ "view_issues": "Table 2 CSV repeats the regional mortality reduction and deaths-averted values in both the 2000 and 2021 rows (merged cells expanded)."
+}

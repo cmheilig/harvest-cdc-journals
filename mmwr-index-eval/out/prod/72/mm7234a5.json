@@ -1,0 +1,359 @@
+{
+ "id": "mm7234a5",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg7nMEkeVtHRVovyyL8MU",
+  "batch_id": "msgbatch_01FaGSxRvLPM3Hp7zgHNqiVG"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Emergency department visits for asthma were 17% higher than expected during 19 days of wildfire smoke that occurred during April–August 2023."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During June 6–8, higher-than-expected asthma-associated ED visits occurred for all age groups on 2 days, representing 364 excess visits"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Visit anomalies (i.e., higher-than-expected numbers of asthma-associated ED visits) were detected when either the number or percentage"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Emergency department visits for asthma were 17% higher than expected during 19 days of wildfire smoke that occurred during April–August 2023."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were compared with expected numbers and percentages, stratified by HHS region and age group (0–4, 5–17, 18–64, and ≥65 years)"
+    },
+    {
+     "loc": "note",
+     "q": "The model adjusts for linear trends, day-of-week effects, and holidays."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "adaptive multiple linear regression (anomaly detection baseline)",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "'adaptive multiple linear regression' fitted to a 28-day baseline to forecast expected visits → linear",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Adaptive multiple linear regression fits a model to a baseline of 28 days"
+    },
+    {
+     "loc": "note",
+     "q": "The model adjusts for linear trends, day-of-week effects, and holidays."
+    }
+   ]
+  },
+  {
+   "name": "exponentially weighted moving average (EWMA) baseline",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "moving-average smoothing used as the expected baseline when the regression fits poorly",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "When the regression model does not fit the baseline data well based on adjusted R-squared values (adjusted R-squared <0.60), then EWMA is used."
+    },
+    {
+     "loc": "note",
+     "q": "In EWMA, weighted averages of recent data are compared with the average of the 28-day baseline and divided by the SD."
+    }
+   ]
+  },
+  {
+   "name": "Student t-test (observed vs expected anomaly test)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "test statistic (observed minus predicted over SE) referred to Student's t; p<0.05 flags an anomaly",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Student t -tests were used to derive p-values, and p<0.05 was considered statistically significant."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "fixed referent",
+  "scale": "both",
+  "referent": "expected visits from anomaly detection baseline",
+  "across": [
+   "HHS region",
+   "age group",
+   "day (wildfire smoke days)"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Excess asthma-associated ED visits were calculated as the sum of observed visits minus the sum of expected visits for days with wildfire smoke exposure."
+   },
+   {
+    "loc": "summary",
+    "q": "Emergency department visits for asthma were 17% higher than expected during 19 days of wildfire smoke that occurred during April–August 2023."
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Student t -tests were used to derive p-values, and p<0.05 was considered statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "excess asthma-associated ED visits",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Excess asthma-associated ED visits were calculated as the sum of observed visits minus the sum of expected visits for days with wildfire smoke exposure."
+    }
+   ]
+  },
+  {
+   "v": "percentage higher than expected",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "overall observed asthma-associated ED visits ¶¶ were 17% higher than expected among all age groups and HHS regions."
+    }
+   ]
+  },
+  {
+   "v": "days of higher-than-expected visits (anomalies)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "2 days of higher-than-expected visits were observed among patients aged 18–64 years (128 excess visits)."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "note",
+     "q": "The model adjusts for linear trends, day-of-week effects, and holidays."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "linear trends, day-of-week effects, and holidays",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "The model adjusts for linear trends, day-of-week effects, and holidays."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Were asthma-associated ED visits higher than expected on days with Canadian wildfire smoke in U.S. HHS regions, overall and by age group?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "CDC used National Syndromic Surveillance Program data to assess numbers and percentages of asthma-associated emergency department (ED) visits on days with wildfire smoke"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "asthma",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Asthma-Associated Emergency Department Visits During the Canadian Wildfire Smoke Episodes"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the National Syndromic Surveillance Program (NSSP)."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the National Syndromic Surveillance Program (NSSP)."
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Air quality monitors from all 50 states and District of Columbia are included."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Syndromic Surveillance Program (NSSP)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the National Syndromic Surveillance Program (NSSP)."
+    }
+   ]
+  },
+  {
+   "v": "ESSENCE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NSSP data were extracted from the Electronic Surveillance System for the Early Notification of Community-Based Epidemics (ESSENCE)"
+    }
+   ]
+  },
+  {
+   "v": "EPA air quality monitors (AQI)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "at least one Environmental Protection Agency (EPA) air quality monitor"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "overall observed asthma-associated ED visits ¶¶ were 17% higher than expected among all age groups and HHS regions."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Age is the only social-position dimension, used as a stratifier without social-position framing.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 2,
+   "reason": "Age-group-specific excess visits are reported and described, if age stratification were read as group-specific results by an SPD."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "were compared with expected numbers and percentages, stratified by HHS region and age group (0–4, 5–17, 18–64, and ≥65 years)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Age groups only; geography (HHS region) is not an SPD. No race/ethnicity or SES data."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "larger increases were observed in regions that experienced higher numbers of continuous wildfire smoke days and among persons aged 5–17 and 18–64 years."
+    },
+    {
+     "loc": "text",
+     "q": "but were most common among persons aged 18–64 years."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "analytic_depth",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Each age group and region is tested only against its own expected baseline; no test across age groups or regions. Design inferred (syndromic surveillance with anomaly detection). Wildfire smoke is an environmental exposure, not recorded as a condition or determinant.",
+ "view_issues": "The Abstract says smoke days were compared with days without smoke, but the methods compare observed with algorithm-expected visits on smoke days."
+}

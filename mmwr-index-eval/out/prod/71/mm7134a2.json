@@ -1,0 +1,218 @@
+{
+ "id": "mm7134a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GviJ2hd3ww7pHQnUd7",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "During May 2019–December 2020, permits for the importation of 296 dogs from Egypt into the United States were issued"
+   },
+   {
+    "loc": "text",
+    "q": "The average processing time for permit requests was 7.9 days for U.S.-vaccinated dogs and 10.4 days for foreign-vaccinated dogs."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "50.0% had dogs that had been vaccinated outside the United States"
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The average processing time for permit requests was 7.9 days for U.S.-vaccinated dogs and 10.4 days for foreign-vaccinated dogs."
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Number of permits* issued and number needing rabies serology to import dogs from Egypt during suspension, by time of arrival"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "None of the 296 dogs developed rabies after importation."
+    },
+    {
+     "loc": "text",
+     "q": "50.0% had dogs that had been vaccinated outside the United States"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The average processing time for permit requests was 7.9 days for U.S.-vaccinated dogs and 10.4 days for foreign-vaccinated dogs."
+    }
+   ]
+  }
+ ],
+ "procedures": [],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "vaccination location (U.S. vs foreign)",
+   "arrival month"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The average processing time for permit requests was 7.9 days for U.S.-vaccinated dogs and 10.4 days for foreign-vaccinated dogs."
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "primary_measures": [
+  {
+   "v": "No. (%)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Characteristic › No. (%)"
+    }
+   ]
+  },
+  {
+   "v": "average processing time (days)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The average processing time for permit requests was 7.9 days for U.S.-vaccinated dogs"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did CDC's risk mitigation strategy and permit process for importing dogs from Egypt during the 2019–2020 suspension operate, and did it prevent rabid dog importations?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Consultation with subject matter experts enabled CDC to develop a risk mitigation strategy that permitted 296 dogs to be imported from Egypt"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "rabies",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "None of the 296 dogs developed rabies after importation."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Review of CDC’s Suspension of and Advance Written Approval Process for Dogs Entering the United States from Egypt"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Applications were uploaded and stored in CDC’s Quarantine Activity Reporting System (QARS), a secure database that records CDC’s border public health activities"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Quarantine Activity Reporting System (QARS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC’s Quarantine Activity Reporting System (QARS)"
+    }
+   ]
+  },
+  {
+   "v": "CDC Application for Permission to Import A Dog Inadequately Immunized Against Rabies — Single Entry forms",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC Application for Permission to Import A Dog Inadequately Immunized Against Rabies — Single Entry forms"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "permits for the importation of 296 dogs from Egypt into the United States were issued"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "The units are imported dogs and their permits; no human social-position dimension is analyzed. Importer affiliation (military, State Department, contractors) is administrative, not framed as social position.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "comparison",
+  "outcome_types"
+ ],
+ "confidence": "medium",
+ "notes": "Design is a program review of a CDC import permit process; no tests or CIs. Dog rabies vaccination is an animal vaccine, so vaccine_outcome_type is null. Comparison led by the processing-time pair; Table 2 also shows monthly counts side by side.",
+ "view_issues": "Table 1 percentages do not match counts for some ports (JFK 105 shown as 36.8%, ≈35.5%; Seattle 7 shown as 2.7%, ≈2.4%). Text says 42% short-term travelers; Table 1 gives 42.9% for travelers in Egypt <1 year. Table 2 '2019 total' cell has a stray period."
+}

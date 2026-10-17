@@ -1,0 +1,259 @@
+{
+ "id": "mm7337a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.1",
+  "prefix_sha": "f4030e441a8d",
+  "request_id": "msg_011Cg6gFQLEor97k1NhGZ7Es",
+  "batch_id": "msgbatch_01Pnk7KDZXhJ3DshXVpkoE1T"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Among the 32 states with H5 testing in wastewater and no H5 detections in wastewater during the analysis period, 30 (94%) had no herds"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "15 of 24 sites (63%) with H5 detections identified some animal inputs within the sewershed or county."
+    },
+    {
+     "loc": "table 1",
+     "q": "Human influenza surveillance signals › Evidence of human influenza activity based on other surveillance systems"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Eight of 24 sites (33%) identified milk-processing inputs within the sewershed catchment area."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The nine states with H5 detections in wastewater included seven states with an HPAI A(H5N1)–infected herd reported during this period"
+    },
+    {
+     "loc": "text",
+     "q": "These differences highlight the importance of influenza A virus subtyping to provide data specific to HPAI outbreaks."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "percentile ranking of site concentration against the previous season's distribution",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "each week's normalized concentration expressed as a percentile of the Oct 2023–Mar 2024 values (nonlinear rank transformation), then binned into levels",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the percentile of the most recent week’s normalized concentration was calculated compared with the normalized concentrations reported during October 1, 2023–March 2, 2024"
+    }
+   ]
+  },
+  {
+   "name": "digital PCR quantification of influenza A and H5 RNA",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "laboratory assay producing the analyzed concentrations and H5 detections",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "concentrations of influenza A virus in wastewater were measured using digital polymerase chain reaction testing"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "wastewater signal type (high influenza A level vs H5 detection)",
+   "state H5 detection status"
+  ],
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "Sites with high level n = 11"
+   },
+   {
+    "loc": "text",
+    "q": "Among the 32 states with H5 testing in wastewater and no H5 detections in wastewater during the analysis period, 30 (94%) had no herds"
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "primary_measures": [
+  {
+   "v": "No. (%)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. (%)"
+    }
+   ]
+  },
+  {
+   "v": "influenza A virus level category (percentile)",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Influenza A levels were categorized as being at a high (≥80th percentile compared with previous influenza season)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What did the first 9 weeks of wastewater monitoring for influenza A virus and the H5 subtype show, and what likely sources did follow-up investigations identify?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This report summarizes data from the first 9 weeks of monitoring influenza A virus and the H5 subtype in wastewater across the United States"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "influenza A",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Wastewater Surveillance for Influenza A Virus and H5 Subtype"
+    }
+   ]
+  },
+  {
+   "v": "highly pathogenic avian influenza A(H5N1)",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Concurrent with the Highly Pathogenic Avian Influenza A(H5N1) Virus Outbreak in Cattle and Poultry and Associated Human Cases"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "CDC and partners are monitoring influenza A virus levels and detection of the H5 subtype in wastewater."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "results were submitted to CDC’s Data Collation and Integration for Public Health Event Response (DECIPHER) pipeline."
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "an academic partner program (WastewaterSCAN"
+    }
+   ]
+  },
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "states reported information on the investigations of sewershed inputs for sites with high influenza A virus levels or H5 detections"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "DECIPHER",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC’s Data Collation and Integration for Public Health Event Response (DECIPHER) pipeline."
+    }
+   ]
+  },
+  {
+   "v": "WastewaterSCAN",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "an academic partner program (WastewaterSCAN"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, May 12–July 13, 2024"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Units are wastewater sites and states; no social-position dimension appears.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "comparison",
+  "procedures"
+ ],
+ "confidence": "medium",
+ "notes": "Sites without sufficient prior-season data were excluded from level classification (an eligibility rule, not recorded as a procedure). The 80th-percentile cutpoint is treated as classification, not a referent. Authors state no comparison data were collected for sites without signals, so no measures of association were computed.",
+ "view_issues": "Table rows 'Information not provided' under influenza A states show 1 (9), which is inconsistent with n = 4 (expected 25%); likely copied from the sites column."
+}

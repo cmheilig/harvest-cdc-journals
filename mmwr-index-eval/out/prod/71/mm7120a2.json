@@ -1,0 +1,492 @@
+{
+ "id": "mm7120a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GvkCP4UVeGBx5R6MxG",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence of SCD was 11.3% overall and increased from 3.9% among adults with no risk factors"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among the risk factors, prevalence was highest for high blood pressure (49.9%) and lowest for binge drinking (10.3%)"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "were more likely to report four or more risk factors compared with those without SCD (34.3% versus 13.1%)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "methods name t-tests for subgroup differences; table notes mark each level vs referent (p<0.05)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "T-tests were used to determine statistically significant differences by subgroup (p<0.05)."
+    },
+    {
+     "loc": "table 2",
+     "q": "p-value using t-tests for comparisons of prevalence of SCD between the following groups"
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (complex survey design, SUDAAN)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "all percentages stated as weighted; SUDAAN used to account for complex survey design and weighting",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All percentages were weighted and unadjusted."
+    },
+    {
+     "loc": "text",
+     "q": "Analyses were conducted using SAS-callable SUDAAN (version 9.4; SAS Institute) to account for complex survey design and weighting."
+    }
+   ]
+  },
+  {
+   "name": "relative SE reliability standard (<30%)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "stated reliability rule for withholding imprecise estimates; all estimates met it",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All estimates met reliability standards by having a relative SE <30%."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": "adults without SCD; referent level of each characteristic (e.g., White, non-Hispanic)",
+  "across": [
+   "SCD status",
+   "risk factor status",
+   "number of risk factors",
+   "age",
+   "sex",
+   "sexual and gender minority status",
+   "race/ethnicity",
+   "education level",
+   "employment status",
+   "primary care provider"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "were more likely to report four or more risk factors compared with those without SCD (34.3% versus 13.1%)"
+   },
+   {
+    "loc": "table 1",
+    "q": "Indicates the referent group used for t-tests to determine significant differences between levels of each characteristic for the prevalence of risk factors (p<0.05)."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "T-tests were used to determine statistically significant differences by subgroup (p<0.05)."
+   },
+   {
+    "loc": "table 2",
+    "q": "% (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted prevalence, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Prevalence of risk factors, % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "p-value",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "p-value"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Among adults aged ≥45 years, how prevalent are eight modifiable ADRD risk factors, overall and by demographics and SCD status, and how does SCD prevalence vary with them?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess the status of eight potential modifiable risk factors"
+   },
+   {
+    "loc": "text",
+    "q": "Prevalence of SCD was determined among respondents with and without each risk factor and by number of risk factors."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "subjective cognitive decline",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Modifiable Risk Factors for Alzheimer Disease and Related Dementias Among Adults Aged ≥45 Years"
+    },
+    {
+     "loc": "text",
+     "q": "Prevalence of SCD was 11.3% overall"
+    }
+   ]
+  },
+  {
+   "v": "Alzheimer disease and related dementias",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Modifiable Risk Factors for Alzheimer Disease and Related Dementias Among Adults Aged ≥45 Years"
+    }
+   ]
+  },
+  {
+   "v": "high blood pressure",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "High blood pressure › Yes"
+    }
+   ]
+  },
+  {
+   "v": "physical inactivity",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Not meeting aerobic physical activity guideline › Yes"
+    }
+   ]
+  },
+  {
+   "v": "obesity",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Obesity › Yes"
+    }
+   ]
+  },
+  {
+   "v": "diabetes",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Diabetes › Yes"
+    }
+   ]
+  },
+  {
+   "v": "depression",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Depression › Yes"
+    }
+   ]
+  },
+  {
+   "v": "cigarette smoking",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Current cigarette smoking › Yes"
+    }
+   ]
+  },
+  {
+   "v": "hearing loss",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Hearing loss › Yes"
+    }
+   ]
+  },
+  {
+   "v": "binge drinking",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Binge drinking › Yes"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "causality between risk factors and SCD cannot be inferred from a cross-sectional study"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "BRFSS is a cross-sectional, random-digit–dialed, annual telephone survey of noninstitutionalized U.S. adults aged ≥18 years."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS), cognitive decline module",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "investigators analyzed data from the cognitive decline module that was administered to adults aged ≥45 years in 31 states"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "administered to adults aged ≥45 years in 31 states and the District of Columbia (DC)"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Risk-factor prevalences by race/ethnicity, education, employment, SOGI, age and sex are reported and called disparities, but contrasts are shown only with significance marks and 'higher' statements, with no computed difference or ratio; the cap at 2 holds despite the framing and the named social determinants.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "The Discussion frames racial/ethnic disparities and attributes them to social determinants of health, which would be level 4 if the significance-marked contrasts counted as quantified."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "the prevalence of several risk factors was higher among adults who were American Indian or Alaska Native, non-Hispanic Black or African American, or Hispanic"
+     },
+     {
+      "loc": "text",
+      "q": "Disparities in the prevalence of risk factors were observed by selected demographic characteristics, including race and ethnicity."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Modifiable Risk Factors for Alzheimer Disease and Related Dementias Among Adults Aged ≥45 Years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group, yrs › >75"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Women"
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "stratifier",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sexual and gender minority status › LGBT"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education level",
+     "employment status"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Education level › Some college or more"
+     },
+     {
+      "loc": "table 1",
+      "q": "Employment status › Unemployed"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "social determinants of health",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "consistent with known understandings of chronic disease disparities which are influenced by differences in the social determinants of health."
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Each level is tested against a referent (White non-Hispanic; non-high school graduate; employed; men; non-LGBT; age 45–54) by t-tests; AI/AN and multiple-race groups are small; percentages are unadjusted."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 7,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Indicates the referent group used for t-tests to determine significant differences between levels of each characteristic for the prevalence of risk factors (p<0.05)."
+    },
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity › White, non-Hispanic**"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group, yrs › 45–54**"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Education level › Not a high school graduate** ¶¶"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Employment status › Employed** , ***"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "The Summary leads with a pair contrast (SCD vs no SCD) and also a five-level gradient by number of risk factors (non-SPD, tested against no risk factors); pair chosen as lead. A sensitivity analysis excluding missing values is mentioned in a limitation; there is no regression. Having a primary care provider is treated as access, not SES.",
+ "view_issues": "Table 1 CSV: LGBT binge drinking CI lacks a closing parenthesis. Methods say respondents with missing risk factor data were excluded from prevalence calculations, while the limitation says they were not excluded from the risk-factor count."
+}

@@ -1,0 +1,409 @@
+{
+ "id": "mm7205e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg7nFR7Kd8akrNSWZZKf5",
+  "batch_id": "msgbatch_01FaGSxRvLPM3Hp7zgHNqiVG"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "13,648 (47%) were positive for SARS-CoV-2, including 10,596 (78%) with SGTF (BA.5-related) and 3,052 (22%) with SGTP"
+    },
+    {
+     "loc": "text",
+     "q": "calculated by comparing odds of receipt of a bivalent booster dose with those of no bivalent booster dose"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "calculated by comparing odds of receipt of a bivalent booster dose with those of no bivalent booster dose"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Odds ratios were calculated using multivariable logistic regression, adjusting for single year of age, gender, race, ethnicity"
+    },
+    {
+     "loc": "table 2",
+     "q": "against symptomatic SARS-CoV-2 infection, by age group and S -gene target status"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multivariable logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'multivariable logistic regression' giving adjusted ORs; VE = (1 − aOR) × 100 → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Odds ratios (ORs) were estimated using multivariable logistic regression"
+    },
+    {
+     "loc": "table 2",
+     "q": "VE = (1 – adjusted odds ratio) x 100."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "CI method not stated; VE CIs excluding 0 underpin the claim of added protection",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "a bivalent mRNA booster dose provided additional protection against symptomatic XBB/XBB.1.5 infection for at least the first 3 months after vaccination"
+    },
+    {
+     "loc": "table 2",
+     "q": "SGTP (likely XBB/XBB.1.5-related) › VE (95% CI)"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "received 2–4 monovalent doses only (no bivalent booster)",
+  "across": [
+   "bivalent booster receipt",
+   "age group",
+   "S-gene target status",
+   "time since bivalent booster"
+  ],
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "Received 2–4 monovalent doses only (Ref)"
+   },
+   {
+    "loc": "text",
+    "q": "calculated by comparing odds of receipt of a bivalent booster dose with those of no bivalent booster dose"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "VE (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "relative VE",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Relative vaccine effectiveness* of a single bivalent mRNA COVID-19 booster received after 2–4 monovalent vaccine doses"
+    }
+   ]
+  },
+  {
+   "v": "adjusted odds ratio",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "VE = (1 – adjusted odds ratio) x 100."
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. (Col. %)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Odds ratios were calculated using multivariable logistic regression, adjusting for single year of age, gender, race, ethnicity"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "single year of age, gender, race, ethnicity, SVI of testing location (<0.5 vs ≥0.5), underlying conditions, HHS region, local incidence, testing date",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Multivariable logistic regression models were controlled for age (adjusting for single year of age), gender, race, ethnicity, SVI of the testing location"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Sensitivity analyses were conducted using two intervals, December 11, 2022–January 13, 2023, and December 18, 2022–January 13, 2023"
+    },
+    {
+     "loc": "text",
+     "q": "Sensitivity analyses did not show a meaningful change in VE by different analytic period start dates"
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "Among immunocompetent adults with prior monovalent doses, how effective is a bivalent mRNA booster against symptomatic BA.5- and XBB/XBB.1.5-related infection?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to estimate VE of updated (bivalent) mRNA COVID-19 vaccines against symptomatic infection caused by BA.5-related and XBB/XBB.1.5-related sublineages among immunocompetent adults"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Vaccine Effectiveness in Preventing Symptomatic SARS-CoV-2 Infection Attributable to Omicron BA.5– and XBB/XBB.1.5–Related Sublineages"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Early Estimates of Bivalent mRNA Booster Dose Vaccine Effectiveness"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "test-negative",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "control-patients were those who received a negative NAAT result."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the Increasing Community Access to Testing (ICATT) national pharmacy program for SARS-CoV-2 testing were analyzed"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Increasing Community Access to Testing (ICATT) program",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the Increasing Community Access to Testing (ICATT) national pharmacy program for SARS-CoV-2 testing were analyzed"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Increasing Community Access to Testing Program, United States, December 2022–January 2023"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "effectiveness",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "a bivalent mRNA booster dose provided additional protection against symptomatic XBB/XBB.1.5 infection"
+   }
+  ]
+ },
+ "equity": {
+  "level": 1,
+  "level_reason": "Race, ethnicity and testing-site SVI enter only as model covariates and Table 1 descriptors; age-specific VE is reported without social-position framing.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 0,
+   "reason": "If SVI and race are viewed only as routine adjustment with age the sole stratifier, the reading drops to age-only."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "adjusting for single year of age, gender, race, ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race and ethnicity › Hispanic or Latino"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "Social Vulnerability Index of the testing location"
+    ],
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Social Vulnerability Index of the testing location (<0.5 versus ≥0.5)"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "areas with high social vulnerability"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "ICATT is designed to increase access to SARS-CoV-2 testing in areas with high social vulnerability"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "against symptomatic SARS-CoV-2 infection, by age group and S -gene target status"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "adjusting for single year of age"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Among Immunocompetent Adults"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "adjusting for single year of age, gender, race, ethnicity"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "SVI is an area index of the testing location, dichotomized at 0.5; race groups other than Black, Hispanic and White are collapsed into Other, NH."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VE against symptomatic BA.5-related infection was 52% among persons aged 18–49 years, 43% among persons aged 50–64, and 37%"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "inference"
+ ],
+ "confidence": "high",
+ "notes": "Design inferred as test-negative from the case/control definition by NAAT result; the article does not name it. SGTF/SGTP is a case-definition proxy, not a procedure; national variant proportions and Nowcast PIs are cited, not the article's own analysis. CIs are presumably model-based but their construction is not stated.",
+ "view_issues": "Limitations mention differences between vaccinated and unvaccinated persons although unvaccinated persons were excluded; Summary has the typo 'recommend COVID-19 vaccines'."
+}

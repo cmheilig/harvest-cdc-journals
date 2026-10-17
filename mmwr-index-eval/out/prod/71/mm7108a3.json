@@ -1,0 +1,435 @@
+{
+ "id": "mm7108a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GvjzyKd8uGrHFLXE5v",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Between 5 and 9 days after symptom onset or after initial diagnosis with SARS-CoV-2 infection, 54% of persons had positive SARS-CoV-2 antigen test results."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, 396 (54.3%) tested persons had a positive BinaxNOW antigen test 5–9 days after symptom onset or after an initial positive test"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, 396 (54.3%) tested persons had a positive BinaxNOW antigen test 5–9 days after symptom onset or after an initial positive test"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A positive antigen test was more likely after a symptomatic infection (361 of 564, 64.0%) than after an asymptomatic infection"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Multivariable logistic regression models were used to identify factors independently associated with a positive follow-up antigen test result"
+    },
+    {
+     "loc": "table 2",
+     "q": "Odds ratio (95% CI) › Symptomatic infections* (n = 564) › Adjusted †"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multivariable logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Multivariable logistic regression models' giving unadjusted and adjusted odds ratios → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Multivariable logistic regression models were used to identify factors independently associated with a positive follow-up antigen test result"
+    }
+   ]
+  },
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated: univariate comparisons by chi-square, p<0.05 two-sided",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "univariate comparisons were made using the chi-square test"
+    },
+    {
+     "loc": "text",
+     "q": "The proportion of positive antigen test results declined with the number of days since an initial positive test (p<0.001)"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based CIs from the multivariable logistic regression; 'more/less likely' conclusions rest on aOR CIs excluding 1",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "receipt of a primary COVID-19 vaccination series (aOR = 0.60; 95% CI = 0.39–0.93)"
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "p-value for median age of tested vs untested persons; test not named",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "those with follow-up antigen testing were more likely to be older (median age = 30 years versus 22 years, p<0.001)"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "day 9; asymptomatic infection; no previous infection; no vaccination; age <18 years",
+  "across": [
+   "days since symptom onset or initial test",
+   "symptom status",
+   "previous infection",
+   "vaccination status",
+   "age group",
+   "race/ethnicity",
+   "sex"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The proportion of positive results declined over time."
+   },
+   {
+    "loc": "summary",
+    "q": "Negative follow-up antigen test results were associated with asymptomatic infection, previous infection, and being vaccinated."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "using a two-sided significance threshold of p<0.05; univariate comparisons were made using the chi-square test."
+   },
+   {
+    "loc": "text",
+    "q": "symptomatic infection (aOR = 9.63; 95% CI = 6.03–15.37)"
+   }
+  ]
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Age group, yrs › ≥50 ¶"
+    },
+    {
+     "loc": "table 2",
+     "q": "Compared with children and adolescents (aged <18 years)."
+    }
+   ]
+  }
+ ],
+ "primary_measures": [
+  {
+   "v": "percentage positive",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Antigen test result* positive, no./total no. (%)"
+    }
+   ]
+  },
+  {
+   "v": "odds ratio",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Odds ratio (95% CI) › All infections* (N = 729) › Unadjusted"
+    }
+   ]
+  },
+  {
+   "v": "aOR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a positive antigen test result was more likely after 5 days than after 9 days (aOR = 6.39; 95% CI = 3.39–12.03)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "none",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "only one follow-up antigen test was included in the analysis for each person"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Odds ratio (95% CI) › All infections* (N = 729) › Unadjusted"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted for age group, days since symptom onset or positive test result, previous infection status, previous vaccination status, and whether symptoms were reported."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age group, days since symptom onset or positive test result, previous infection status, vaccination status, and whether symptoms were reported",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted for age group, days since symptom onset or positive test result, previous infection status, previous vaccination status, and whether symptoms were reported."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Odds ratio (95% CI) › Asymptomatic infections* (n = 165) › Adjusted †"
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "Among persons with SARS-CoV-2 infection during Omicron emergence, what proportion had positive antigen tests 5–9 days after onset, and which characteristics were associated with positivity?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Antigen test results and associated individual characteristics were analyzed among 3,502 infections reported to YKHC during January 1–February 9, 2022."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Antigen Test Positivity After COVID-19 Isolation"
+    }
+   ]
+  },
+  {
+   "v": "SARS-CoV-2 antigen test positivity after isolation",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The proportion of positive results declined over time."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "data were cross-sectional rather than longitudinal"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "electronic health records",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "vaccination and previous infection status were assessed from electronic health records"
+    }
+   ]
+  },
+  {
+   "v": "record abstraction or interview",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were interviewed by a public health or clinic staff member after notification to YKHC"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Yukon-Kuskokwim Health Corporation (YKHC) case reports and electronic health record",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "results of the first follow-up antigen test were recorded in the electronic health record."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Yukon-Kuskokwim Delta Region, Alaska, January–February 2022"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "other",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "less likely after previous infection (aOR = 0.30; 95% CI = 0.19–0.46), receipt of a primary COVID-19 vaccination series (aOR = 0.60"
+   }
+  ]
+ },
+ "equity": {
+  "level": 2,
+  "level_reason": "Antigen positivity is shown by race (American Indian or Alaska Native vs other), sex and age in Table 1 side by side, not discussed or framed as a disparity; age ORs are not framed as social position.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Race/ethnicity appears only as a table row and population descriptor, never discussed, so it could be read as a descriptor only."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race and ethnicity › American Indian or Alaska Native"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "666 (91.4%) were of the American Indian or Alaska Native race."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group, yrs › ≥50"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Adjusted for age group"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race collapsed to American Indian or Alaska Native vs other (63 persons); no SES measures."
+ },
+ "uncertain_fields": [
+  "equity.level",
+  "regression_fields",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Models stratified by symptom status are recorded as subset re-analyses (sensitivity). The test behind the day-trend p-value is not named beyond the blanket chi-square statement. The booster aOR (1.69) comes from a separate model among vaccinated persons.",
+ "view_issues": "The text says booster recipients' positivity was similar to unvaccinated persons, while a footnote reports a booster aOR of 1.69 vs no booster; Table 2 row label says 'days after symptom onset' although it also covers days since initial test for asymptomatic persons."
+}

@@ -1,0 +1,434 @@
+{
+ "id": "mm7103a4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GvjSjtXwbnTCp6k8Qy",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "resulting in an overall TTS reporting rate of 3.83 cases per million doses administered"
+   },
+   {
+    "loc": "table 2",
+    "q": "Estimated COVID-19 hospitalizations prevented during 180 days after administration of 1-dose Janssen (Johnson & Johnson) COVID-19 vaccine and 2-dose mRNA COVID-19 vaccine"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "TTS rates were highest among women aged 30–39 years (10.6 per million doses) and 40–49 years (9.0 per million doses)"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "five deaths among 39 [13%] TTS patients vaccinated before the pause and three deaths among 15 patients (20%) vaccinated after the pause"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "resulting in an overall TTS reporting rate of 3.83 cases per million doses administered"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "TTS rates were highest among women aged 30–39 years (10.6 per million doses) and 40–49 years (9.0 per million doses)"
+    },
+    {
+     "loc": "text",
+     "q": "when compared with the benefit-risk balance for mRNA COVID-19 vaccines, the Janssen COVID-19 vaccine prevented fewer COVID-19 hospitalizations."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Each benefit-risk assessment was stratified by sex and age group (18–49, 50–64, and ≥65 years)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "benefit-risk analysis (expected hospitalizations prevented and adverse events per million doses)",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "work group's model combining hospitalization rates, cited VE estimates and adverse-event rates over 180 days, by sex and age",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "an individual benefit-risk analysis to quantify COVID-19 hospitalizations prevented by Janssen COVID-19 vaccination in the United States and possible vaccine-associated adverse events"
+    },
+    {
+     "loc": "text",
+     "q": "The estimated benefits of the Janssen COVID-19 vaccine outweighed the risks when compared with no vaccine for all persons aged ≥18 years"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "vaccine product",
+   "sex",
+   "age group"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "when compared with the benefit-risk balance for mRNA COVID-19 vaccines, the Janssen COVID-19 vaccine prevented fewer COVID-19 hospitalizations."
+   },
+   {
+    "loc": "text",
+    "q": "Each benefit-risk assessment was stratified by sex and age group (18–49, 50–64, and ≥65 years)."
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "primary_measures": [
+  {
+   "v": "reporting rate per million doses administered",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "reporting rate per million Janssen COVID-19 vaccine doses administered"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19 hospitalizations prevented per million doses",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Estimated COVID-19 hospitalizations prevented during 180 days after administration of 1-dose Janssen (Johnson & Johnson) COVID-19 vaccine"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "five deaths among 39 [13%] TTS patients vaccinated before the pause and three deaths among 15 patients (20%) vaccinated after the pause"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Given updated TTS safety data and benefit-risk estimates, should ACIP's interim recommendations for the Janssen COVID-19 vaccine be updated?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to determine whether the interim recommendations for the use of the Janssen COVID-19 vaccine in the United States should be updated"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "thrombosis with thrombocytopenia syndrome",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Cases of thrombosis with thrombocytopenia syndrome and Guillain-Barré syndrome have been reported after receipt of Janssen COVID-19 vaccine."
+    }
+   ]
+  },
+  {
+   "v": "Guillain-Barré syndrome",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Cases of thrombosis with thrombocytopenia syndrome and Guillain-Barré syndrome have been reported after receipt of Janssen COVID-19 vaccine."
+    }
+   ]
+  },
+  {
+   "v": "myocarditis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The risks for mRNA COVID-19 vaccination were based on myocarditis rates through October 6, 2021, previously reported to ACIP."
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Pfizer-BioNTech or Moderna mRNA COVID-19 vaccines are preferred over the Janssen COVID-19 vaccine for primary and booster vaccination."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "guidance or recommendations",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Pfizer-BioNTech or Moderna mRNA COVID-19 vaccines are preferred over the Janssen COVID-19 vaccine for primary and booster vaccination."
+    }
+   ]
+  },
+  {
+   "v": "review or synthesis",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a benefit-risk assessment for the use of the Janssen COVID-19 vaccine was presented to ACIP using an adapted Evidence to Recommendations (EtR) framework."
+    }
+   ]
+  },
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, 54 cases of TTS were identified in persons who received the Janssen COVID-19 vaccine during March 2–August 31, 2021"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "thrombosis with thrombocytopenia syndrome reported to the Vaccine Adverse Event Reporting System following administration of Janssen (Johnson & Johnson) COVID-19 vaccine"
+    }
+   ]
+  },
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "https://gis.cdc.gov/grasp/COVIDNet/COVID19_3.html"
+    },
+    {
+     "loc": "text",
+     "q": "COVID-19 hospitalizations prevented, based on rates during the week ending November 13, 2021"
+    }
+   ]
+  },
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "According to 46 jurisdictional immunization programs that voluntarily completed an online form shared with jurisdictions during December 12–15, 2021"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Vaccine Adverse Event Reporting System (VAERS)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "thrombosis with thrombocytopenia syndrome reported to the Vaccine Adverse Event Reporting System following administration of Janssen (Johnson & Johnson) COVID-19 vaccine"
+    }
+   ]
+  },
+  {
+   "v": "COVID-NET",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "https://gis.cdc.gov/grasp/COVIDNet/COVID19_3.html"
+    }
+   ]
+  },
+  {
+   "v": "Influenza and Other Viruses in the Acutely Ill (IVY) Network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "age- and vaccine-specific vaccine effectiveness estimates from the Influenza and Other Viruses in the Acutely Ill (IVY) Network"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, December 2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "safety",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Cases of thrombosis with thrombocytopenia syndrome and Guillain-Barré syndrome have been reported after receipt of Janssen COVID-19 vaccine."
+   }
+  ]
+ },
+ "equity": {
+  "level": 1,
+  "level_reason": "Age and sex strata are shown without social-position framing; homeless shelters and correctional facilities appear only as a concern that harder-to-reach populations might bear inequitable TTS/GBS risk, with no group-specific results.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 0,
+   "reason": "The transitional-settings concern is about vaccine distribution, not an SPD analysis; only age and sex are analyzed."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "in all persons aged ≥18 years in the United States."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Each benefit-risk assessment was stratified by sex and age group (18–49, 50–64, and ≥65 years)."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Each benefit-risk assessment was stratified by sex and age group (18–49, 50–64, and ≥65 years)."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "45 (83%) were White non-Hispanic persons"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "homeless shelters",
+     "correctional facilities"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "in some transitional settings (e.g., correctional facilities, homeless shelters, or airports), it might have been the only vaccine offered."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "Janssen as the only vaccine offered to harder-to-reach populations in transitional settings",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "if Janssen COVID-19 vaccine is the only vaccine offered to some harder-to-reach populations, an inequitable distribution of risk for TTS and GBS might occur"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "No group-specific results for harder-to-reach populations; race/ethnicity reported only as a case descriptor (83% White non-Hispanic)."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age",
+    "sex"
+   ],
+   "n_groups": 10,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "TTS rates were highest among women aged 30–39 years (10.6 per million doses) and 40–49 years (9.0 per million doses)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Each benefit-risk assessment was stratified by sex and age group (18–49, 50–64, and ≥65 years)."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "data_focus",
+  "analytic_depth",
+  "groupwise",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "VE inputs (adjusted estimates from the IVY Network) and GBS and myocarditis rates are cited from earlier reports and are not the article's own procedures. The TTS case review is also presented from reference 8, but Table 1 rates and Table 2 benefit-risk estimates are tabulated here as the work group's own, so data_focus is yes rather than limited. No CIs or tests are reported.",
+ "view_issues": "The text gives the overall TTS rate as 3.83 per million, while Table 1 gives 3.8. In article.txt the overall Total row is nested under Men; the CSV shows it as an overall total (54 cases)."
+}

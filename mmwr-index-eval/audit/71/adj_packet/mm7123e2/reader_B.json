@@ -1,0 +1,275 @@
+{
+ "id": "mm7123e2",
+ "reader": {
+  "label": "B"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Weighted percentages (with 95% CIs) of ventilation improvement strategies among K–12 public schools, including by locale and school poverty level, were estimated."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using portable HEPA filtration systems in classrooms (28.2%), using HEPA filtration systems in areas where students eat (29.8%)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the four most frequently reported were relocating activities outdoors when possible (73.6%)"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Mid-poverty schools were less likely than were high-poverty schools to have replaced or upgraded HVAC systems (32.4% versus 48.8%)"
+    },
+    {
+     "loc": "text",
+     "q": "rural schools were less likely to use portable HEPA filtration systems in classrooms (15.6%) than were city (37.7%)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "chi-square test (pairwise between school groups)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named chi-square tests; table footnotes report each pair of locale and poverty groups",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Chi-square tests were used to test for differences in the percentage of schools reporting each ventilation strategy by school-level characteristics"
+    },
+    {
+     "loc": "table 2",
+     "q": "City schools differed significantly from rural schools based on chi-square test (p<0.05)."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting for nonresponse and design strata",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated weighting of the stratified random sample; all percentages are weighted",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were weighted to account for nonresponse and design strata."
+    }
+   ]
+  },
+  {
+   "name": "suppression of estimates with relative SE >30%",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "relative-SE suppression rule in Table 1 note",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimate was suppressed because the relative SE was >30%."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "school locale",
+   "school poverty level"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Overall, rural and mid-poverty schools were the least likely to report implementing several resource-intensive ventilation strategies."
+   },
+   {
+    "loc": "text",
+    "q": "Six ventilation strategies significantly differed by school poverty level ( Table 3 )."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Chi-square tests were used to test for differences in the percentage of schools reporting each ventilation strategy by school-level characteristics"
+   },
+   {
+    "loc": "table 1",
+    "q": "Weighted percentages and 95% CIs are presented for each category."
+   }
+  ]
+ },
+ "groupwise": [
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "pairwise (all pairs)",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Mid-poverty schools differed significantly from low-poverty schools based on chi-square test (p<0.05)."
+    },
+    {
+     "loc": "table 3",
+     "q": "No significant differences between low- versus high-poverty schools were noted based on chi-square test (p>0.05)."
+    }
+   ]
+  }
+ ],
+ "primary_measures": [
+  {
+   "v": "weighted percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Weighted percentages and 95% CIs are presented for each category."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Which ventilation improvement strategies do U.S. K–12 public schools report, and do they differ by school locale and poverty level?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC examined reported ventilation improvement strategies among a nationally representative sample of K–12 public schools in the United States"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Ventilation Improvement Strategies Among K–12 Public Schools — The National School COVID-19 Prevention Study"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using wave 4 (February 14–March 27, 2022) data from the National School COVID-19 Prevention Study (NSCPS) (420 schools)"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a web-based survey administered to school-level administrators beginning in summer 2021."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National School COVID-19 Prevention Study (NSCPS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "data from the National School COVID-19 Prevention Study (NSCPS) (420 schools)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "among a nationally representative sample of K–12 public schools in the United States"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Strategy percentages by school poverty level are reported and tested, with equitable implementation discussed, but contrasts are only side-by-side percentages with significance marks and no computed difference or ratio, so the cap at 2 applies.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "If 'less likely (32.4% versus 48.8%)' is read as quantified, the named determinants (school/community resources, access to technical assistance and federal funds) would give 4."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "primary comparison",
+    "ses_components": [
+     "percentage of students eligible for free or reduced-priced meals"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The percentage of students eligible for free or reduced-priced meals during 2019–20 served as a proxy for school poverty level"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "differences in school or community resources; accessibility of technical assistance; experience accessing federal funds",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "might be due to supply chain challenges, differences in school or community resources, or accessibility of technical assistance"
+    },
+    {
+     "loc": "text",
+     "q": "higher poverty schools might have had more experience in accessing and using federal funds"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "School poverty is proxied by the share of students eligible for FRPM (low ≤25%, mid 26–75%, high ≥76%). School locale (city/suburb/town/rural) is rurality of schools, a non-human unit, so it is not treated as an SPD."
+ },
+ "uncertain_fields": [
+  "equity.level",
+  "equity.dimensions",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "The design is inferred as cross-sectional from one wave of a longitudinal school survey. Locale comparisons (4 groups, all pairs tested) are recorded only in comparison because school rurality was not treated as an SPD. If it is an SPD, it adds a pairwise (all pairs) groupwise entry with n_groups 4.",
+ "view_issues": "The Summary says 'high-efficiency particular air'. A footnote warns that chi-square significance may coexist with overlapping CIs. The text uses ≥76% for high poverty while the Table 3 note uses >75%; these are equivalent."
+}

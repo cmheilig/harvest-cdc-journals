@@ -1,0 +1,344 @@
+{
+ "id": "mm7345a4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.1",
+  "prefix_sha": "f4030e441a8d",
+  "request_id": "msg_011Cg6gFyhC4AEgM3A6mZrce",
+  "batch_id": "msgbatch_01Pnk7KDZXhJ3DshXVpkoE1T"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Vaccination coverage, reported measles incidence,** and discarded case rates are calculated using population estimates from the 2024 United Nations Population Division update."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2023, MCV1 coverage was 64% in low-income countries, 86% in middle-income countries, and 94% in high-income countries"
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2023, measles incidence in low-income countries was 583 per million compared with 37 and 26 per million in middle- and high-income countries, respectively."
+    },
+    {
+     "loc": "text",
+     "q": "the estimated annual number of measles deaths decreased 87%, from 800,000 in 2000 to 107,500 in 2023"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During 2000–2023, measles vaccination saved an estimated 60 million lives."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "From 2022 to 2023, estimated measles cases increased 20% worldwide, from 8,645,000 to 10,341,000"
+    },
+    {
+     "loc": "text",
+     "q": "measles incidence in countries with FCV settings was 362 cases per million, more than 10 times that in non-FCV countries (34 per million)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "state-space model of measles incidence, cases, deaths and deaths averted",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "footnote names a state-space model of unobserved incidence fitted to reported cases, coverage, SIAs and births; produces modeled cases, deaths with 95% CIs and the no-vaccination counterfactual",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "State-space model of unobserved measles incidence during 2000–2023 generated using the following data from all WHO countries"
+    },
+    {
+     "loc": "text",
+     "q": "measles cases and deaths were estimated using a previously described model updated with 2023 measles and United Nations population estimates"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "both",
+  "referent": "discarded case rate target of ≥2 per 100,000 population; ≥95% MCV1 coverage",
+  "across": [
+   "year",
+   "WHO region",
+   "country income group",
+   "FCV setting status",
+   "large or disruptive outbreak status",
+   "vaccination vs no vaccination"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "the number of countries affected by large or disruptive outbreaks increased from 36 to 57"
+   },
+   {
+    "loc": "text",
+    "q": "the measles surveillance sensitivity indicator target of two or more discarded cases per 100,000 population was achieved by 86 (58%) countries"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "Estimated no. (95% CI)"
+   },
+   {
+    "loc": "figure 1",
+    "q": "With 95% CIs indicated by error bars."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "MCV1/MCV2 coverage, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percentage › MCV1 coverage †"
+    }
+   ]
+  },
+  {
+   "v": "measles incidence per 1 million population",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "†† Cases per 1 million population."
+    }
+   ]
+  },
+  {
+   "v": "estimated measles cases and deaths (95% CI)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Estimated no. (95% CI) › Measles deaths"
+    }
+   ]
+  },
+  {
+   "v": "percent change",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Estimated measles deaths decreased 8%, from 116,800 in 2022 to 107,500 in 2023"
+    }
+   ]
+  },
+  {
+   "v": "measles deaths averted by vaccination",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Cumulative no. of measles deaths averted by vaccination"
+    }
+   ]
+  },
+  {
+   "v": "discarded case rate per 100,000",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "The discarded case rate is a measure of the sensitivity of measles surveillance; the target is two or more discarded cases per 100,000 population."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What progress has been made worldwide toward measles elimination during 2000–2023, in vaccination coverage, surveillance, incidence, and modeled cases and deaths?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This report updates a previous report ( 4 ) and describes progress toward measles elimination during 2000–2023."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "measles",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Progress Toward Measles Elimination — Worldwide, 2000–2023"
+    }
+   ]
+  },
+  {
+   "v": "measles",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Measles vaccination is effective at preventing measles"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "describes progress toward measles elimination during 2000–2023."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "From 2022 to 2023, coverage with the first dose of measles-containing vaccine (MCV) remained at 83%, estimated measles cases increased 20%"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "international surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "to WHO and UNICEF through the Joint Reporting Form (JRF)."
+    },
+    {
+     "loc": "text",
+     "q": "Laboratory data are generated by the Global Measles and Rubella Laboratory Network (GMRLN)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "WHO/UNICEF Joint Reporting Form (JRF)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "to WHO and UNICEF through the Joint Reporting Form (JRF)."
+    }
+   ]
+  },
+  {
+   "v": "WHO and UNICEF estimates of national immunization coverage (WUENIC)",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "annual MCV1 coverage from WHO and UNICEF estimates of national immunization coverage (WUENIC)"
+    }
+   ]
+  },
+  {
+   "v": "Global Measles and Rubella Laboratory Network (GMRLN)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Laboratory data are generated by the Global Measles and Rubella Laboratory Network (GMRLN)"
+    }
+   ]
+  },
+  {
+   "v": "measlesCFR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data on case fatality rates from a publicly available statistical package (measlesCFR)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "international",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Progress Toward Measles Elimination — Worldwide, 2000–2023"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "From 2022 to 2023, coverage with the first dose of measles-containing vaccine (MCV) remained at 83%"
+   }
+  ]
+ },
+ "equity": {
+  "level": 0,
+  "level_reason": "Contrasts are by country income group and FCV status, which the brief excludes as SPDs (a country's income group is geography); age only defines the coverage population.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The article frames lower coverage and higher incidence in low-income and FCV countries as inequities and quantifies them (more than 10 times), which would be a quantified, interpreted disparity if country income were read as SES."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "Calculated for MCV1, among children aged 1 year or, if MCV1 is given at age ≥1 year, among children aged 24 months."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Comparisons are across countries grouped by World Bank income group and FCV-setting status, not by social position of persons; IA2030 'equitable 95% coverage' is a general program target."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "equity.level",
+  "procedures",
+  "study_design"
+ ],
+ "confidence": "medium",
+ "notes": "Case fatality ratios come from the external measlesCFR package (a covariate model fitted to a systematic review), treated as a cited input rather than the article's own procedure. WUENIC coverage estimates are external WHO/UNICEF estimates. Design inferred as monitoring progress against elimination and coverage targets.",
+ "view_issues": "Table 2 CSV repeats the % reduction and deaths-averted values in both the 2000 and 2023 rows (merged cells expanded). Prepass 'diagnostic_accuracy' is a false hit on 'surveillance sensitivity'."
+}

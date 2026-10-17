@@ -1,0 +1,448 @@
+{
+ "id": "mm7148a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8Gwp64umkgAHjefh867",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "During 2020, the number of HIV tests decreased 32% from Q1 (2,471,614) to Q2 (1,682,578) but increased in Q3 to 2,325,554"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2020, the number of HIV tests decreased 32% from Q1 (2,471,614) to Q2 (1,682,578) but increased in Q3 to 2,325,554"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the percentage who were linked to care did not vary during 2019–2020, ranging from 88.0% to 89.4% (2019–2020 EQPC = 0.24%)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2020, the number of HIV tests decreased 32% from Q1 (2,471,614) to Q2 (1,682,578) but increased in Q3 to 2,325,554"
+    },
+    {
+     "loc": "figure 1",
+     "q": "The percentage change in the number of HIV tests from Q1 2020 to Q2 2020 was larger among persons aged ≥35 years"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Poisson regression (estimated quarterly percent change)",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'Poisson regression models' giving EQPC with 95% CIs → loglinear; CI method model-based",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Poisson regression models were used to assess trends in service use and outcomes by calculating the estimated quarterly percent change (EQPC)"
+    },
+    {
+     "loc": "text",
+     "q": "from Q1 to Q2 during 2020 differed significantly among age groups"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "EQPC CIs judged against 0 for 'did not vary'/stable claims; CIs model-based from the Poisson regression",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the percentage who were linked to care did not vary during 2019–2020, ranging from 88.0% to 89.4% (2019–2020 EQPC = 0.24%)"
+    },
+    {
+     "loc": "table 1",
+     "q": "0.24 (−0.12 to 0.60)"
+    }
+   ]
+  },
+  {
+   "name": "statistical adjustment for missing transmission category",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "imputation of missing transmission category entering Table 2 counts; method not stated",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Data have been statistically adjusted to account for missing transmission category."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "previous quarter",
+  "across": [
+   "quarter",
+   "age group",
+   "race/ethnicity",
+   "transmission category"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "decreased between the first and second calendar quarters but rebounded by the third quarter."
+   },
+   {
+    "loc": "text",
+    "q": "stratified by age group (15–24, 25–34, and ≥35 years)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Poisson regression models were used to assess trends in service use and outcomes by calculating the estimated quarterly percent change (EQPC)"
+   },
+   {
+    "loc": "text",
+    "q": "from Q1 to Q2 during 2020 differed significantly among age groups"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "number",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. of persons prescribed PrEP"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% with suppressed viral load"
+    }
+   ]
+  },
+  {
+   "v": "% change from previous quarter",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. or % (% change from previous quarter)"
+    }
+   ]
+  },
+  {
+   "v": "EQPC",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "2019–2021 EQPC, % (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Poisson regression models were used to assess trends in service use and outcomes by calculating the estimated quarterly percent change (EQPC)"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "from Q1 to Q2 during 2020 differed significantly among age groups"
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did HIV testing, PrEP and ART prescriptions, diagnoses, linkage to care and viral suppression change by quarter during the COVID-19 pandemic, 2019–2021?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess changes in these measures during 2019–2021"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "HIV infection",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "HIV Services and Outcomes During the COVID-19 Pandemic — United States, 2019–2021"
+    }
+   ]
+  },
+  {
+   "v": "HIV infection",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the proportion of those tests indicating viral load suppression"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "four data sources were used to estimate HIV service use and outcomes by quarter: 1) LabCorp, 2) Quest Diagnostics, 3) IQVIA, and 4) NHSS."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Poisson regression models were used to assess trends in service use and outcomes by calculating the estimated quarterly percent change (EQPC)"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NHSS data from 2019–2020 were analyzed to identify the number of persons who received a diagnosis of HIV infection"
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Combined LabCorp and Quest Diagnostics laboratory data were analyzed to estimate the number of HIV tests performed during 2019–2021"
+    },
+    {
+     "loc": "text",
+     "q": "IQVIA data on antiretroviral drugs dispensed by U.S. retail pharmacies and mail-order pharmacies during 2019–2021 were analyzed"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National HIV Surveillance System (NHSS)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "National HIV Surveillance System, 2019–2020."
+    }
+   ]
+  },
+  {
+   "v": "IQVIA Real-World Data — Longitudinal Prescription Database",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "IQVIA Real-World Data — Longitudinal Prescription Database, 2019–2021."
+    }
+   ]
+  },
+  {
+   "v": "LabCorp",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Commercial laboratory testing data from LabCorp and Quest Diagnostics, 2019–2021."
+    }
+   ]
+  },
+  {
+   "v": "Quest Diagnostics",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Commercial laboratory testing data from LabCorp and Quest Diagnostics, 2019–2021."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "HIV Services and Outcomes During the COVID-19 Pandemic — United States, 2019–2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Quarterly changes in HIV diagnoses are reported by race and ethnicity (and age, transmission category) and described as a range, but not framed as a disparity.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Race results appear mainly in Table 2 and one range sentence; arguably barely described."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "by age group, race and ethnicity, and transmission category"
+     },
+     {
+      "loc": "text",
+      "q": "(range = −21.1 [White] to −29.4 [Other]"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "stratified by age group (15–24, 25–34, and ≥35 years)"
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "stratifier",
+    "basis": "behavior",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Transmission category › Male-to-male sexual contact"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "basis": "assigned or observed",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "classification is determined based on the person’s sex assigned at birth."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race available only in NHSS diagnoses; AI/AN, Asian, NH/PI and multiracial collapsed into Other. Loss of employer-sponsored insurance is cited only as context for overall declines."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "model joint test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "from Q1 to Q2 during 2020 differed significantly among age groups"
+    },
+    {
+     "loc": "figure 1",
+     "q": "The percentage change in the number of HIV tests from Q1 2020 to Q2 2020 was larger among persons aged ≥35 years"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(range = −21.1 [White] to −29.4 [Other]"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "analytic_depth",
+  "procedures",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred (no design named). Age-group differences in Q1–Q2 change tested within the Poisson models; unclear whether as a joint test or per-group contrasts. Period changes within age groups recorded as comparison per the brief.",
+ "view_issues": "Text says HIV diagnoses fell 6% Q1–Q2 2020, but Table 1 and intro give 26%. ART EQPC 0.24 (0.22–0.26) excludes 0 yet called 'did not vary'. Figure note calls PrEP decline 'larger' in 15–24 than 25–34 despite overlapping CIs."
+}

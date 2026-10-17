@@ -21,7 +21,7 @@ Entry point for the session that builds and runs production. It assumes brief v5
 
    They stay open and the audit watches for them. A brief edit happens only between volumes and makes a new tag.
 5. **Condition map.** Add the 23 terms that `reports/cv5_conditions.tsv` reports as missing. *Done 2026-10-16: the map has 147 terms.* In production this is a grouping pass after each volume.
-6. **Packet builder.** `packets/` was built on the owner's disk, outside this repository, and arrived through PR #2. No builder is checked in. Find it, or rewrite it, as `tools/build_packets.py` (article.txt in reading order with references omitted, `tables/*.csv`, `prepass.json`). Check it reproduces the 100 pilot packets byte for byte (or with documented differences) before it builds production packets. **This is the largest open item.**
+6. **Packet builder.** `packets/` was built on the owner's disk, outside this repository, and arrived through PR #2. No builder is checked in. Find it, or rewrite it, as `tools/build_packets.py` (article.txt in reading order with references omitted, `tables/*.csv`, `prepass.json`). Check it reproduces the 100 pilot packets byte for byte (or with documented differences) before it builds production packets. *Done 2026-10-16: `tools/build_packets.py` ports the extraction's builder, and `check` reproduces all 293 files byte for byte (`reports/LOCAL_ASSESSMENT.md`).*
 
 ## 2. Shape of production (any environment)
 The unit of work is one article. Every environment does the same four things, so moving between them is a change of driver, not of method:

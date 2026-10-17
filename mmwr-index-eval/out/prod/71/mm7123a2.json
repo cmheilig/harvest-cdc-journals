@@ -1,0 +1,402 @@
+{
+ "id": "mm7123a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8Lg23v4oAQZzQi2XzNx",
+  "batch_id": "msgbatch_01223jmKkoKoihZVXHvJ1Q2r"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "By the end of November 2021, disparities in vaccination coverage for some racial and ethnic groups narrowed"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "to estimate the cumulative percentage of persons vaccinated by the end of each month during December 2020–November 2021."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "By the end of November 2021, differences in vaccination coverage were no longer statistically significant among Black and NH/OPI adults"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Differences in ≥1-dose COVID-19 vaccination coverage were assessed by race and ethnicity and stratified by U.S. Census Bureau region"
+    },
+    {
+     "loc": "text",
+     "q": "By November 2021, coverage among Hispanic adults reached or exceeded that of White adults in all sociodemographic categories"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated: t-tests of each group's coverage vs White adults, p<0.05; marked in Table 1",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "T-tests were used to determine differences among groups, with p<0.05 considered statistically significant."
+    },
+    {
+     "loc": "table 1",
+     "q": "Coverage is statistically significantly lower than coverage among White, non-Hispanic adults (p<0.05)."
+    }
+   ]
+  },
+  {
+   "name": "Kaplan-Meier",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "stated Kaplan-Meier with vaccination month as time-to-event variable gives cumulative monthly coverage",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The Kaplan-Meier survival analysis procedure was used, with vaccination month as the time-to-event variable"
+    }
+   ]
+  },
+  {
+   "name": "survey weighting calibrated to vaccine administration data",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated survey weights calibrated by jurisdiction, age group and sex; SUDAAN",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data are weighted to represent the noninstitutionalized U.S. adult population and calibrated to state-level vaccine administration data reported to CDC."
+    }
+   ]
+  },
+  {
+   "name": "hot deck imputation of first-dose month",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "stated hot deck imputation for 4.9% missing vaccination month; imputed values enter the KM estimates",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using hot deck imputation (replacing missing values with observed values from a respondent with similar characteristics)"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "absolute",
+  "referent": "White, non-Hispanic adults",
+  "across": [
+   "race/ethnicity",
+   "month",
+   "U.S. Census Bureau region",
+   "urbanicity",
+   "age group",
+   "annual household income",
+   "health insurance"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Asian and non-Hispanic White adults had the highest COVID-19 vaccination coverage by the end of April 2021."
+   },
+   {
+    "loc": "figure 1",
+    "q": "Referent group = White, non-Hispanic."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "T-tests were used to determine differences among groups, with p<0.05 considered statistically significant."
+   },
+   {
+    "loc": "figure 1",
+    "q": "95% CIs indicated by error bars."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "coverage, % (≥1 dose)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "≥1-dose COVID-19 vaccination coverage, % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "coverage difference (percentage points)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(difference = −0.5 and −3.0 percentage points, respectively), compared with coverage among White adults"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did COVID-19 first-dose vaccination coverage among U.S. adults differ by race and ethnicity during December 2020–November 2021, overall and within sociodemographic strata?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to assess disparities in COVID-19 vaccination coverage by race and ethnicity among U.S. adults during December 2020–November 2021."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "COVID-19 Vaccination Coverage, by Race and Ethnicity"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a random-digit–dialed cellular telephone survey of adults aged ≥18 years"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "By the end of November 2021, disparities in vaccination coverage for some racial and ethnic groups narrowed"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the National Immunization Survey Adult COVID Module (NIS-ACM)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Immunization Survey Adult COVID Module (NIS-ACM)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the National Immunization Survey Adult COVID Module (NIS-ACM)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "National Immunization Survey Adult COVID Module, United States, December 2020–November 2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "COVID-19 Vaccination Coverage, by Race and Ethnicity"
+   }
+  ]
+ },
+ "equity": {
+  "level": 4,
+  "level_reason": "Racial and ethnic coverage disparities are framed, quantified as percentage-point differences vs White adults, and interpreted; equitable-access programs, free vaccine and SES-linked access are named as explanations of the narrowing gap.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The structural explanations are speculative (might have contributed) and are not analyzed."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "Please choose one or more of the following categories to describe your race."
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Urbanicity › Non-MSA"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "annual household income",
+     "poverty",
+     "health insurance status"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Annual household income › Below poverty"
+     },
+     {
+      "loc": "table 1",
+      "q": "Health insurance › Not insured"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "a random-digit–dialed cellular telephone survey of adults aged ≥18 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "and among those aged 18–29 years (−4.2) for Black adults"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "Survey weights were calibrated to the COVID-19 vaccine administration data by jurisdiction, age group, and sex."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "programmatic efforts for equitable access; free vaccine at various providers; supplemental funding for coverage equity; access issues associated with lower socioeconomic status",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Substantial programmatic efforts to provide equitable access to COVID-19 vaccines might have contributed to closing the coverage gap."
+    },
+    {
+     "loc": "text",
+     "q": "suggesting that access issues typically associated with lower socioeconomic status were not necessarily barriers to vaccination"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Differences in coverage among these racial and ethnic groups compared with that in White adults peaked during March–May 2021"
+    }
+   ]
+  },
+  "equity_measurement": "Referent is White, non-Hispanic adults; differences in percentage points. Race/ethnicity missing for 2.9%; Table 2 gives national-origin subgroups of Asian, Hispanic and Black adults without tests."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 7,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Coverage is statistically significantly lower than coverage among White, non-Hispanic adults (p<0.05)."
+    },
+    {
+     "loc": "summary",
+     "q": "Asian and non-Hispanic White adults had the highest COVID-19 vaccination coverage by the end of April 2021."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 7,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among Hispanic adults, coverage ranged from 90.6% among persons identifying as South American, to 79.3% among those identifying as Mexican."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "outcome_types"
+ ],
+ "confidence": "high",
+ "notes": "Coverage is a Kaplan-Meier cumulative percentage, recorded as binary/categorical rather than event-time. The prepass standardization cue is a cited age-adjusted mortality finding, not the article's method. Intent and hesitancy figures in the Discussion are cited from another report.",
+ "view_issues": "Discussion says Hispanic coverage was significantly higher than White across almost all categories, but Table 1 shows several nonsignificant November differences (Northeast, West, non-MSA, 65 and older, high and unknown income)."
+}

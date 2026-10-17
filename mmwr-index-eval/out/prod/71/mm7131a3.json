@@ -1,0 +1,469 @@
+{
+ "id": "mm7131a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GvjzEGLBQE5i5sj3xw",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "those with previous COVID-19 had higher rates of acute pulmonary embolism (adjusted hazard ratio = 2.01)"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "event-time",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Separate Cox proportional hazards models were used to estimate aHRs for each symptom and condition"
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The incidences (occurrence per 100,000 person-years) of nine potential post-COVID symptoms and 15 potential post-COVID conditions"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "five post-COVID conditions with the highest aHRs had low incidence rates, ranging from 23 (acute pulmonary embolism) to 140 (type 1 diabetes)"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Patients with COVID-19 were significantly more likely than were those without to develop the following assessed post-COVID symptoms"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All models were adjusted for age, sex, race, U.S. Census Bureau region, payor type, previous medical complexity"
+    },
+    {
+     "loc": "text",
+     "q": "The same models were estimated separately for three age groups (2–4, 5–11, and 12–17 years)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Cox proportional hazards regression",
+   "class": "regression",
+   "regression_family": "event-time",
+   "inferred_from": "'Cox proportional hazards models' estimating aHRs → event-time; CIs and p-values model-based",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Separate Cox proportional hazards models were used to estimate aHRs for each symptom and condition"
+    },
+    {
+     "loc": "text",
+     "q": "p-values <0.05 were considered statistically significant."
+    }
+   ]
+  },
+  {
+   "name": "Weibull regression (robustness check)",
+   "class": "regression",
+   "regression_family": "event-time",
+   "inferred_from": "'Weibull models' compared with Cox aHRs → event-time; used only as a check",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "The estimated aHRs from Cox models were compared against aHRs from Weibull models"
+    }
+   ]
+  },
+  {
+   "name": "weighted Cox regression (average HR, robustness check)",
+   "class": "regression",
+   "regression_family": "event-time",
+   "inferred_from": "'weighted Cox models' via coxphw → event-time; weights address nonproportionality, not survey weighting",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "average aHRs from weighted Cox models (estimated using “coxphw” R package)"
+    }
+   ]
+  },
+  {
+   "name": "proportional hazards assumption test (Schoenfeld residuals)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model diagnostic stated in a footnote; test not named",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Proportional hazards assumption was tested for every Cox proportional hazards model."
+    }
+   ]
+  },
+  {
+   "name": "small-cell suppression of age-stratified estimates",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "estimates withheld when fewer than 10 patients per group had the outcome",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Age-stratified analyses were only performed when there were at least 10 patients with COVID-19 and at least 10 patients without COVID-19"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "patients without COVID-19",
+  "across": [
+   "COVID-19 status",
+   "age group"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The analysis identified several symptoms and conditions with elevated adjusted hazard ratios among patients with COVID-19 (compared with those without)."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "aHR (95% CI)"
+   },
+   {
+    "loc": "text",
+    "q": "p-values <0.05 were considered statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "aHR",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "aHR = adjusted hazard ratio."
+    }
+   ]
+  },
+  {
+   "v": "incidence per 100,000 person-years",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Occurrences per 100,000 person-years."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All models were adjusted for age, sex, race, U.S. Census Bureau region, payor type, previous medical complexity"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age, sex, race, U.S. Census Bureau region, payor type, previous medical complexity, and previous hospitalization",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All models were adjusted for age, sex, race, U.S. Census Bureau region, payor type, previous medical complexity"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A sensitivity analysis was performed to assess the incidences of potential post-COVID symptoms and conditions among children and adolescents aged 0–17 years"
+    },
+    {
+     "loc": "note",
+     "q": "The estimated aHRs from Cox models were compared against aHRs from Weibull models"
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "Do children and adolescents with laboratory-confirmed COVID-19 have higher rates of potential post-COVID symptoms and conditions 31–365 days later than those without COVID-19?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC assessed nine potential post-COVID signs and symptoms (symptoms) and 15 potential post-COVID conditions among 781,419 U.S. children and adolescents"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Post–COVID-19 Symptoms and Conditions Among Children and Adolescents"
+    }
+   ]
+  },
+  {
+   "v": "post-COVID conditions",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Post–COVID-19 Symptoms and Conditions Among Children and Adolescents"
+    }
+   ]
+  },
+  {
+   "v": "acute pulmonary embolism",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "higher rates of acute pulmonary embolism (adjusted hazard ratio = 2.01), myocarditis and cardiomyopathy (1.99)"
+    }
+   ]
+  },
+  {
+   "v": "myocarditis and cardiomyopathy",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "higher rates of acute pulmonary embolism (adjusted hazard ratio = 2.01), myocarditis and cardiomyopathy (1.99)"
+    }
+   ]
+  },
+  {
+   "v": "type 1 diabetes",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "acute and unspecified renal failure (1.32), and type 1 diabetes (1.23)"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "retrospective cohort",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "A retrospective cohort of children and adolescents aged 0–17 years with continuous enrollment in an insurance plan"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "administrative/claims",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed linked medical claims and commercial laboratory data"
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "HealthVerity, Inc. medical claims data linked to SARS-CoV-2 commercial laboratory data (May 2022 release)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "HealthVerity medical claims database",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "HealthVerity, Inc. medical claims data linked to SARS-CoV-2 commercial laboratory data (May 2022 release)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, March 1, 2020–January 31, 2022"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Race and payor type (Medicaid vs commercial) enter only as model covariates; Medicaid enrollment is raised as a generalizability limitation. Age-stratified aHRs lack social-position framing.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Post–COVID-19 Symptoms and Conditions Among Children and Adolescents"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The same models were estimated separately for three age groups (2–4, 5–11, and 12–17 years)."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "matched 1:3 based on age at encounter, sex, and month of index date."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "matched 1:3 based on age at encounter, sex, and month of index date."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "All models were adjusted for age, sex, race, U.S. Census Bureau region, payor type, previous medical complexity"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "payor type (Medicaid)"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Payor type › Medicaid"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "Medicaid managed care"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "approximately 70% of whom were enrolled in Medicaid managed care"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race only (no ethnicity); about 19% unknown race. Payor type proxies insurance/SES."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Unlike other age groups, children aged 2–4 years had higher rates of asthma diagnosis (1.12) and respiratory signs and symptoms (1.07) after COVID-19."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise"
+ ],
+ "confidence": "high",
+ "notes": "Matching (1:3 main, 1:2 sensitivity cohort) on age, sex and index month is a design step; the Cox models are not stated to be conditional on matched sets. Significance claims rest on Cox model p-values, so no separate test is recorded. The age-group aHR entry in groupwise compares a non-SPD contrast across age levels side by side and may not qualify.",
+ "view_issues": "Methods say models were estimated separately by age group, but the Table 3 note says a single Cox model stratified by age group. Table 2 note lists age group as a covariate, while the text says age."
+}

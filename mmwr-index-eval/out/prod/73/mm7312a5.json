@@ -1,0 +1,371 @@
+{
+ "id": "mm7312a5",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.1",
+  "prefix_sha": "f4030e441a8d",
+  "request_id": "msg_011Cg6vxWgG25dCoSKACe75V",
+  "batch_id": "msgbatch_01UAUCb9fTF2eLcQ9R5SBrye"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "VE against COVID-19–associated hospitalization was 38% in the 7–59 days after receipt of an updated vaccine dose"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A total of 195 (14%) case-patients had received an updated COVID-19 vaccine dose compared with 2,401 (18%) control patients."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Few persons (18%) in this high-risk study population had received updated COVID-19 vaccine."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A total of 195 (14%) case-patients had received an updated COVID-19 vaccine dose compared with 2,401 (18%) control patients."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Regression models were adjusted for age, sex, race and ethnicity, calendar time, and geographic region."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multivariable logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'multivariable logistic regression' estimating ORs; VE = (1 − aOR) × 100% → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Odds ratios (ORs) and 95% CIs were estimated using multivariable logistic regression comparing persons who received an updated COVID-19 vaccine dose"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based CIs from the logistic regression; VE CIs excluding 0 underpin the claim of increased protection",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted VE, % † (95% CI)"
+    },
+    {
+     "loc": "summary",
+     "q": "receipt of an updated COVID-19 vaccine provided increased protection against COVID-19–associated hospitalizations compared with not receiving an updated COVID-19 vaccine."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "no updated dose",
+  "across": [
+   "updated COVID-19 vaccination status",
+   "time since updated dose"
+  ],
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "No updated dose § (Ref)"
+   },
+   {
+    "loc": "summary",
+    "q": "receipt of an updated COVID-19 vaccine provided increased protection against COVID-19–associated hospitalizations compared with not receiving an updated COVID-19 vaccine."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Odds ratios (ORs) and 95% CIs were estimated using multivariable logistic regression"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "VE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VE was calculated as (1 − adjusted OR) × 100%."
+    }
+   ]
+  },
+  {
+   "v": "adjusted OR",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "The odds ratio was adjusted for age, sex, race and ethnicity, geographic region, and calendar time"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Few persons (18%) in this high-risk study population had received updated COVID-19 vaccine."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Unadjusted VE, %* (95% CI)"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Regression models were adjusted for age, sex, race and ethnicity, calendar time, and geographic region."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age, sex, race and ethnicity, calendar time (days since January 1, 2021), geographic region",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "The odds ratio was adjusted for age, sex, race and ethnicity, geographic region, and calendar time (days since January 1, 2021)."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How effective were updated 2023–2024 (XBB.1.5) COVID-19 vaccines against COVID-19–associated hospitalization among adults with immunocompromising conditions?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This analysis estimated effectiveness of updated 2023–2024 COVID-19 vaccines against COVID-19–associated hospitalizations among adults aged ≥18 years with immunocompromising conditions"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "COVID-19 Vaccines Against COVID-19–Associated Hospitalization Among Adults Aged ≥18 Years with Immunocompromising Conditions"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Interim Effectiveness of Updated 2023–2024 (Monovalent XBB.1.5) COVID-19 Vaccines"
+    }
+   ]
+  },
+  {
+   "v": "immunocompromising conditions",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Among Adults Aged ≥18 Years with Immunocompromising Conditions"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "test-negative",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VISION is a multisite † electronic health care records (EHR)–based network that utilizes a test-negative design to estimate COVID-19 VE."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VISION is a multisite † electronic health care records (EHR)–based network"
+    }
+   ]
+  },
+  {
+   "v": "electronic health records",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VISION is a multisite † electronic health care records (EHR)–based network"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Virtual SARS-CoV-2, Influenza, and Other respiratory viruses Network (VISION)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Methods for Virtual SARS-CoV-2, Influenza, and Other respiratory viruses Network (VISION) VE analyses have been reported"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "note",
+    "q": "HealthPartners (Minnesota and Wisconsin), Intermountain Health (Utah), Kaiser Permanente Northern California (California)"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "effectiveness",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "vaccine effectiveness (VE) of an updated COVID-19 vaccine dose against COVID-19–associated hospitalization was evaluated"
+   }
+  ]
+ },
+ "equity": {
+  "level": 1,
+  "level_reason": "Race and ethnicity appears only as a model covariate and as Table 1 descriptors with SMDs; no race-specific results are reported or discussed. Age and sex define the population or are covariates.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 2,
+   "reason": "Table 1 shows row percentages of updated-dose receipt by race/ethnicity group, which could be read as group-specific results set side by side."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Regression models were adjusted for age, sex, race and ethnicity, calendar time, and geographic region."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race and ethnicity › Black or African American, non-Hispanic"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Among Adults Aged ≥18 Years with Immunocompromising Conditions"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Regression models were adjusted for age, sex, race and ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Regression models were adjusted for age, sex, race and ethnicity"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "AI/AN, Asian, NH/OPI, other and multiple races collapsed into 'Other, non-Hispanic' because of small numbers; 1% unknown race/ethnicity."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "groupwise"
+ ],
+ "confidence": "high",
+ "notes": "Table 1 reports standardized mean or proportion differences (SMDs) as balance diagnostics without tests; not recorded as a procedure. VE by time since dose (7–59 and 60–119 days) is reported against the no-updated-dose referent.",
+ "view_issues": null
+}

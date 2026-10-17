@@ -1,0 +1,358 @@
+{
+ "id": "mm7104e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GwNTxJCzzrGJS7G3kf",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Age-adjusted hazard rates of incident laboratory-confirmed COVID-19 cases in both states were compared among cohorts"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Estimated hazard rate is laboratory-confirmed COVID-19-associated hospitalizations per 100,000 person-days"
+    }
+   ]
+  },
+  {
+   "v": "event-time",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A lifetable method was used to calculate hazard rates"
+    },
+    {
+     "loc": "table 2",
+     "q": "Life tables estimated at 7-day intervals for cases and 14-day intervals for hospitalizations."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "case and hospitalization rates were highest among persons who were unvaccinated without a previous diagnosis."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates were age-adjusted to 2000 U.S. Census data using direct standardization."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "life table hazard rates and hazard ratios",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "'A lifetable method was used to calculate hazard rates' and hazard ratios with 95% CIs per interval; no regression",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A lifetable method was used to calculate hazard rates"
+    },
+    {
+     "loc": "table 2",
+     "q": "Life tables estimated at 7-day intervals for cases and 14-day intervals for hospitalizations."
+    }
+   ]
+  },
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "'age-adjusted ... using direct standardization' to the 2000 U.S. Census",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates were age-adjusted to 2000 U.S. Census data using direct standardization."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "CI method not stated (CIs come from the life table method); protection and 'higher' conclusions rest on hazard-ratio CIs excluding 1",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "rates among vaccinated persons without a previous diagnosis were 6.2-fold lower (95% CI = 6.0–6.4) in California"
+    },
+    {
+     "loc": "text",
+     "q": "These results demonstrate that vaccination protects against COVID-19 and related hospitalization"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "unvaccinated, no previous COVID-19 diagnosis",
+  "across": [
+   "vaccination status",
+   "previous COVID-19 diagnosis",
+   "week/period",
+   "state"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "case and hospitalization rates were highest among persons who were unvaccinated without a previous diagnosis."
+   },
+   {
+    "loc": "table 2",
+    "q": "Hazard ratio (95% CI) › Unvaccinated, no previous COVID-19 diagnosis versus"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Rates among vaccinated persons who had had COVID-19 were 32.5-fold lower (95% CI = 27.5–37.6)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "hazard rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A lifetable method was used to calculate hazard rates"
+    }
+   ]
+  },
+  {
+   "v": "hazard ratio",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Hazard ratio (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "X-fold lower rate",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "is equivalent to a 19.9-fold lower (95% CI = 17.9–21.9) rate"
+    }
+   ]
+  },
+  {
+   "v": "cumulative incidence per 1,000",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Cumulative cases per 1,000 persons."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How do COVID-19 case and hospitalization rates differ among adults by vaccination status and previous COVID-19 diagnosis, before and after Delta predominance?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To examine the impact of primary COVID-19 vaccination and previous SARS-CoV-2 infection on COVID-19 incidence and hospitalization rates"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "COVID-19 Cases and Hospitalizations by COVID-19 Vaccination Status and Previous COVID-19 Diagnosis"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "surviving a previous infection protects against a reinfection and related hospitalization"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "vaccination remains the safest strategy for averting future SARS-CoV-2 infections, hospitalizations, long-term sequelae, and death."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "retrospective cohort",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Four cohorts of persons aged ≥18 years were assembled via linkages of records"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "assembled via linkages of records from electronic laboratory reporting databases and state-specific immunization information systems"
+    }
+   ]
+  },
+  {
+   "v": "vaccination registry",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Statewide immunization databases in California are the California Immunization Registry, Regional Immunization Data Exchange, and San Diego Immunization Registry"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "California COVID Reporting System (CCRS)",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "the laboratory system is the California COVID Reporting System (CCRS)"
+    }
+   ]
+  },
+  {
+   "v": "Electronic Clinical Laboratory Reporting System (ECLRS)",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "the laboratory system is the Electronic Clinical Laboratory Reporting System (ECLRS)"
+    }
+   ]
+  },
+  {
+   "v": "California Immunization Registry; Regional Immunization Data Exchange; San Diego Immunization Registry",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Statewide immunization databases in California are the California Immunization Registry, Regional Immunization Data Exchange, and San Diego Immunization Registry"
+    }
+   ]
+  },
+  {
+   "v": "Citywide Immunization Registry; New York State Immunization Information System",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "In New York, immunization information systems include Citywide Immunization Registry and the New York State Immunization Information System"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "California and New York, May–November 2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "effectiveness",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "These results demonstrate that vaccination protects against COVID-19 and related hospitalization"
+   }
+  ]
+ },
+ "equity": {
+  "level": 0,
+  "level_reason": "Age only defines the population (adults ≥18 years) and is the standardization variable; no other social-position dimension appears.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Four cohorts of adults aged ≥18 years were considered"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Rates were age-adjusted to 2000 U.S. Census data using direct standardization."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "inference",
+  "outcome_types"
+ ],
+ "confidence": "high",
+ "notes": "Retrospective cohort is inferred from the article's 'cohorts' built from existing linked records. The size of the unvaccinated, never-diagnosed cohort is derived as Census estimates minus observed groups (a design step). Supplementary analyses stratified by time since diagnosis and vaccine product are not shown in the packet.",
+ "view_issues": "The text reports 'X-fold lower' as HR minus 1 (Table 2 note), e.g. 6.2-fold lower for HR 7.2, which is an unusual convention. Table 2 row label 'Jun 27–10' is a typo for Jun 27–Jul 10."
+}

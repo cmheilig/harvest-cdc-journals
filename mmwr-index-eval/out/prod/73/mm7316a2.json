@@ -1,0 +1,288 @@
+{
+ "id": "mm7316a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.1",
+  "prefix_sha": "f4030e441a8d",
+  "request_id": "msg_011Cg6gFSCMYKVguiDbuCpNY",
+  "batch_id": "msgbatch_01Pnk7KDZXhJ3DshXVpkoE1T"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "sensitivity of rapid antigen tests was 47% compared with RT-PCR and 80% compared with viral culture."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The highest percentage of positive antigen (59%; 95% CI = 51%–67%) and RT-PCR (83%; 95% CI = 76%–88%) test results occurred 3 days after onset"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the overall sensitivities of daily antigen test results were 47% (95% CI = 44%–50%) and 80% (95% CI = 76%–85%), respectively"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "antigen test sensitivity increased with occurrence of any COVID-19 symptoms (56% and 85% compared with RT-PCR and culture, respectively)"
+    },
+    {
+     "loc": "text",
+     "q": "sensitivity of antigen testing was low on days when no symptoms were reported (18% and 45%, respectively)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "diagnostic-accuracy measure (sensitivity)",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "antigen test sensitivity computed against same-day RT-PCR and culture references",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Antigen test sensitivity was calculated using RT-PCR and viral culture as references."
+    }
+   ]
+  },
+  {
+   "name": "cluster-robust bootstrap",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "bootstrap CIs for sensitivity accounting for within-participant correlation",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Cluster-robust bootstrapping was used to calculate 95% CIs around sensitivity to account for within-participant correlation."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "reference test (RT-PCR vs culture)",
+   "symptom status on test day",
+   "day since onset",
+   "test type"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "sensitivity of rapid antigen tests was 47% compared with RT-PCR and 80% compared with viral culture."
+   },
+   {
+    "loc": "text",
+    "q": "The percentage of positive antigen test results was stratified by symptom and fever status."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Wilson score intervals were used for calculating 95% CIs around percentage of positive test results."
+   },
+   {
+    "loc": "text",
+    "q": "Cluster-robust bootstrapping was used to calculate 95% CIs around sensitivity"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "sensitivity",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the overall sensitivities of daily antigen test results were 47% (95% CI = 44%–50%) and 80% (95% CI = 76%–85%)"
+    }
+   ]
+  },
+  {
+   "v": "percentage of positive test results",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The highest percentage of positive viral culture results (52%; 95% CI = 43%–61%) occurred 2 days after onset."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How sensitive are rapid antigen tests for SARS-CoV-2 compared with RT-PCR and viral culture during a period of greater population immunity and Omicron circulation?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The objective of this investigation was to reevaluate the performance characteristics of SARS-CoV-2 antigen tests with those of RT-PCR and viral culture tests"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "SARS-CoV-2 Viral Shedding and Rapid Antigen Test Performance"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "diagnostic accuracy",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Antigen test sensitivity was calculated using RT-PCR and viral culture as references."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This evaluation included participants enrolled in an antigen test substudy within a case-ascertained household transmission study"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Respiratory Virus Transmission Network",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Respiratory Virus Transmission Network, November 2022–May 2023"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "note",
+    "q": "sites that participated in the antigen substudy were located in Arizona, Colorado, New York, Tennessee, and Wisconsin."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Race/ethnicity, SVI, age and gender appear only as Table descriptors of the infected participants; no results are given by them.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 0,
+   "reason": "The descriptors are single Table counts with no use in analysis."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race and ethnicity › Hispanic or Latino"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "Social Vulnerability Index"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "SVI, median (IQR)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Participants ranged in age from 2 months to 83 years (median = 36 years; IQR = 17–50 years)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Gender › Female"
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "descriptor",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Gender › Nonbinary/Transgender"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "SVI is a tract-level area index linked to home location, reported only as a median."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "comparison",
+  "analytic_depth"
+ ],
+ "confidence": "medium",
+ "notes": "Wilson score intervals give CIs for daily percentages positive; bootstrap CIs for sensitivity. No formal tests; differences by symptom status and between references are set side by side. Design inferred as diagnostic accuracy within a household transmission study.",
+ "view_issues": "Table 1 Rows line mis-nests symptom and test rows under 'Any previous SARS-CoV-2 infection'; the CSV lists them separately."
+}

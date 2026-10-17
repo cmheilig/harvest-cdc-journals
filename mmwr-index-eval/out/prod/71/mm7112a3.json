@@ -1,0 +1,405 @@
+{
+ "id": "mm7112a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8L8TvGoyCAm5t5xzjLZ",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Approximately one in six (17.3%) U.S. children and adolescents aged 3–17 years had DDs during 2014–2018."
+    },
+    {
+     "loc": "text",
+     "q": "Children with DDs were more likely to participate in special education or EIS (41.9% versus 2.4%)."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The estimated prevalence of DDs among U.S. children aged 3–17 years was 17.3%"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Children with DDs were more likely to participate in special education or EIS (41.9% versus 2.4%)."
+    },
+    {
+     "loc": "text",
+     "q": "Among children with DDs, the percentage with limited abilities and special health needs, and who used specialty services varied across sociodemographic subgroups"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Rao-Scott chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods and Table 2 notes as the test for differences in percentages, survey-adjusted",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Differences in percentages were evaluated using Rao-Scott chi-square tests with p < 0.05 considered statistically significant."
+    },
+    {
+     "loc": "table 2",
+     "q": "p – value for Rao-Scott chi-square test for difference in percentages among subgroups."
+    }
+   ]
+  },
+  {
+   "name": "complex survey weighting (NHIS clustering, stratification, weights)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "methods state weights and survey design accounted for in all estimates (SAS, SUDAAN)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "all analyses accounted for clustering, stratification, and weights, using SAS software"
+    },
+    {
+     "loc": "table 1",
+     "q": "Weighted estimates and 95% CIs account for the complex survey design."
+    }
+   ]
+  },
+  {
+   "name": "suppression of unreliable estimates (relative standard error ≥50%)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "Table 2 note withholds estimates with RSE ≥50%; RSE 30–50% flagged",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Unreliable estimate based on a relative standard error ≥50% or comparison based on a group with an unreliable estimate are not shown."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "children without DDs",
+  "across": [
+   "DD status",
+   "number of DDs",
+   "type of DD",
+   "sex",
+   "race/ethnicity",
+   "age group",
+   "mother's education",
+   "poverty status",
+   "region",
+   "health insurance"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Compared with children and adolescents without DDs, those with DDs were two to seven times as likely to take prescription medication"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Differences in percentages were evaluated using Rao-Scott chi-square tests with p < 0.05 considered statistically significant."
+   },
+   {
+    "loc": "table 2",
+    "q": "Weighted estimates and 95% CIs account for the complex survey design."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The weighted percentages of children with each measure of reported functional ability, health needs, and use of specialty health care providers"
+    }
+   ]
+  },
+  {
+   "v": "prevalence",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Weighted prevalence estimates of DDs and 95% CIs were calculated."
+    }
+   ]
+  },
+  {
+   "v": "times as likely",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "18 times as likely to receive special education or early intervention services."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What are the prevalence of developmental disabilities and the functional abilities, health needs and service use of U.S. children with them, overall and by subgroup?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To guide strategies to optimize health for U.S. children with DDs, CDC analyzed data from 44,299 participants in the 2014–2018 National Health Interview Survey"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "developmental delays, disorders, or disabilities",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The estimated prevalence of DDs among U.S. children aged 3–17 years was 17.3%"
+    }
+   ]
+  },
+  {
+   "v": "developmental delays, disorders, or disabilities",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Compared with children and adolescents without DDs, those with DDs were two to seven times as likely to take prescription medication"
+    }
+   ]
+  },
+  {
+   "v": "developmental delays, disorders, or disabilities",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Health Needs and Use of Services Among Children with Developmental Disabilities"
+    }
+   ]
+  },
+  {
+   "v": "limited functional abilities",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among children with DDs, 5.7% had limited movement or play abilities, 4.7% needed help with personal care"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "an annual, multistage probability sample survey of the noninstitutionalized U.S. civilian population."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The study included data from the 2014–2018 NHIS"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Health Interview Survey (NHIS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from 44,299 participants in the 2014–2018 National Health Interview Survey (NHIS)."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To reflect the complex sampling design and generate nationally representative estimates"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Service use by race/ethnicity, poverty, maternal education and insurance is reported with p-values and significance marks; the text says lower or less likely without computed differences or ratios, so the cap at 2 holds despite inequity framing and named determinants (access, racism, poverty).",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "Subgroup percentages with CIs are in Table 2, differences are framed as inequities, and access, insurance, racism and poverty are named as explanations."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Compared with non-Hispanic White children with DDs, a lower percentage of non-Hispanic Black, non-Hispanic other, and Hispanic children with DDs took prescription medication."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "mother's education",
+     "poverty status",
+     "health insurance"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "those living at or below the federal poverty level were less likely to see a medical specialist"
+     },
+     {
+      "loc": "text",
+      "q": "Among children with DDs, those whose mother had less than a high school education were less likely to take prescription medication"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Compared with children aged 3–8 years who had DDs, a lower percentage of children aged 9–17 years with DDs needed special equipment"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "U.S. children and adolescents aged 3–17 years (hereafter children)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Sex › Female"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "differential access to care (health insurance coverage, specialist proximity, language or cultural barriers, practices and policies); racism; poverty",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The observed differences could be associated with differential access to care resulting from a variety of factors, including health insurance coverage, specialist proximity"
+    },
+    {
+     "loc": "text",
+     "q": "lower service use associated with race or ethnic identification is of concern given the pervasive impact of racism on child development"
+    },
+    {
+     "loc": "text",
+     "q": "Lower service use associated with poverty is of concern given the impact of poverty on child development"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity collapsed to 4 groups with White as referent; poverty dichotomized at 100% FPL; mother's education dichotomized; insurance any vs none; estimates unadjusted. Census region also compared (geography, not SPD)."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Race or ethnicity › p – value"
+    },
+    {
+     "loc": "table 2",
+     "q": "Significantly different from non-Hispanic White children (p<0.05; Rao-Scott chi-square test)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Age group, yrs › p-value"
+    },
+    {
+     "loc": "table 2",
+     "q": "Significantly different from children aged 3–8 years (p<0.05; Rao-Scott chi-square test)."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "equity.dimensions"
+ ],
+ "confidence": "high",
+ "notes": "Design inferred as cross-sectional from the NHIS survey; the report names none. Developmental disability is treated as a clinical condition, not a disability SPD, though the report discusses access to services. Region (4 groups, vs South) is compared with Rao-Scott tests but is geography, so it makes no groupwise entry.",
+ "view_issues": "Table 1 CSV has a missing parenthesis ('36.5 34.2–38.8)'). Table 2 insurance footnote has a stray period ('private health insurance. Medicare'). Text sentence on region ('and used services was higher') is garbled."
+}

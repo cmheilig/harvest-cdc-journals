@@ -1,0 +1,252 @@
+{
+ "id": "mm7204a3",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "NHSN calculated IRRs by up-to-date vaccination status each week."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the COVID-19 weekly incidence rates (new cases per 1,000 nursing home residents) among residents who were not up to date"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Up-to-date vaccination status among nursing home residents remained low throughout the study period, increasing to 48.9% by the week ending January 8, 2023."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": ">99% of residents classified as being up to date had received a bivalent booster dose."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Nursing home residents who were not up to date with recommended COVID-19 vaccines had a 30%–50% higher risk for acquiring SARS-CoV-2 infection"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "Weekly IRR 95% CIs computed by Mid-P exclude 1; text calls the IRRs statistically significant",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "IRRs between residents who were not up to date with COVID-19 vaccination and those who were up to date were statistically significant"
+    },
+    {
+     "loc": "table 1",
+     "q": "95% CIs calculated using Mid-P."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "residents up to date with COVID-19 vaccines",
+  "across": [
+   "up-to-date vaccination status",
+   "week"
+  ],
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "Incidence rate ratios are calculated as the incidence rate among residents who were not UTD divided by the incidence rate among residents who were UTD"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "95% CIs calculated using Mid-P."
+   },
+   {
+    "loc": "text",
+    "q": "to calculate crude COVID-19 incidence rates with 95% CIs, by up-to-date vaccination status for each reporting week."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "incidence rate per 1,000 residents",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "New cases per 1,000 nursing home residents."
+    }
+   ]
+  },
+  {
+   "v": "IRR",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Incidence rate ratio (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "percentage up to date",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Percentage of nursing home residents with up-to-date COVID-19 vaccination"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Among U.S. nursing home residents, do weekly COVID-19 incidence rates differ by up-to-date (bivalent booster) vaccination status?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "analyzed surveillance data to examine weekly incidence rates of COVID-19 among nursing home residents by up-to-date vaccination status"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Laboratory-Confirmed COVID-19 Case Incidence Rates Among Residents in Nursing Homes by Up-to-Date Vaccination Status"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Nursing home residents can maximize protection against COVID-19 by receiving bivalent COVID-19 booster doses"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC’s National Healthcare Safety Network (NHSN) analyzed surveillance data"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC’s National Healthcare Safety Network (NHSN) analyzed surveillance data"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Healthcare Safety Network (NHSN)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC’s National Healthcare Safety Network (NHSN) analyzed surveillance data"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "in the 50 U.S. states and the District of Columbia reported case and vaccination data"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "effectiveness",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "the impact of recently recommended vaccinations, including bivalent booster doses, in this population is unknown."
+   }
+  ]
+ },
+ "equity": {
+  "level": 0,
+  "level_reason": "No social-position dimension is analyzed; nursing home residence defines the population and age appears only as an unmeasured confounder in a limitation.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 1,
+   "reason": "The congregate nature of nursing homes is noted as raising residents' risk, which could be read as equity framing of a living situation."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "such as time since vaccination, previous infection, age, comorbidities, community transmission rates"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Up-to-date coverage is shown by U.S. region and facility size (geography and facility traits, not SPDs); no resident demographics are reported."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "procedures"
+ ],
+ "confidence": "high",
+ "notes": "Rates and IRRs are crude and facility-aggregate; the limitations note no adjustment for confounders. Facilities with missing data were excluded (design step). Coverage by region and facility size is described as similar, side by side.",
+ "view_issues": "Table: Jan 8 UTD total residents (454,826) duplicates Oct 16 and does not reproduce the rate 15.6 from 9,157 cases. Text gives IRR range 1.3–1.5, but the table shows 1.2 for Jan 8."
+}

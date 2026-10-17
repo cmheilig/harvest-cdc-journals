@@ -1,0 +1,276 @@
+{
+ "id": "mm7346a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.1",
+  "prefix_sha": "f4030e441a8d",
+  "request_id": "msg_011Cg6gFRH3QLYkPiS3YLjRk",
+  "batch_id": "msgbatch_01Pnk7KDZXhJ3DshXVpkoE1T"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "then retrospectively compared with final emergency department (ED) visit data to determine their ability to detect or confirm real-time changes in subsequent ED visits"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the percentage of reported COVID-19–related ED visits in the United States at this time was low (0.3%)"
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "ED visit data reported 304 COVID-19–related ED visits during the week of September 6 (7 days), compared with 489 such visits during the previous week."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "After the summer wave peaked in late August (i.e., COVID-19 accounted for 2.6% of ED visits, reported on August 30)"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "As of May 10, 99 COVID-19–related ED visits had been reported for the preceding 7 days, substantially fewer than the 130 such visits reported"
+    },
+    {
+     "loc": "text",
+     "q": "However, the reports available on May 10 for the preceding 7 days included only 70% of the total 141 ED visits"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Rt estimation (EpiNow2 renewal model) with probability that Rt >1",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "EpiNow2 Bayesian model of Rt from nowcasted ED visits; not a regression family in the table; its P(Rt>1) is binned into trend categories (quantization, not a test)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "R t was estimated from the nowcast of COVID-19 ED visits †† using the statistical package EpiNow2 (version 1.4.0; EpiForecasts)"
+    },
+    {
+     "loc": "text",
+     "q": "The epidemic trend category was determined based on the probability that R t >1"
+    }
+   ]
+  },
+  {
+   "name": "nowcasting correction for reporting delays",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "jurisdiction-specific delay distribution used to estimate final counts from partially reported data",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "To adjust for reporting delays, a statistical nowcasting correction was applied to daily ED visit counts from the previous 30 days."
+    }
+   ]
+  },
+  {
+   "name": "suppression of Rt estimates for small counts or failed checks",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "small-count and reliability rule withholding estimates as 'not estimated'",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "R t was categorized as “not estimated” if fewer than 10 COVID-19–related ED visits were reported in each of the previous 2 weeks"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "period (four time points)",
+   "jurisdiction",
+   "trend category vs later complete ED visit data"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "at four points during summer 2024: 1) before an increase in ED visits for COVID-19 (May 10), 2) during the increase (July 5)"
+   },
+   {
+    "loc": "summary",
+    "q": "then retrospectively compared with final emergency department (ED) visit data to determine their ability to detect or confirm real-time changes in subsequent ED visits"
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "primary_measures": [
+  {
+   "v": "epidemic trend category",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The epidemic trend category was classified as growing (probability >90%), likely growing (>75% to ≤90%), not changing (>25% to ≤75%)"
+    }
+   ]
+  },
+  {
+   "v": "percentage of COVID-19–related ED visits",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "COVID-19 ED visits, %"
+    }
+   ]
+  },
+  {
+   "v": "number of COVID-19–related ED visits",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "ED visit data reported 304 COVID-19–related ED visits during the week of September 6 (7 days)"
+    }
+   ]
+  },
+  {
+   "v": "Rt",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "EpiNow2 estimates R t and the probability that R t >1, R t = 1, or R t <1."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How well did Rt-based COVID-19 epidemic trend categories using nowcasted ED visit data detect or confirm real-time changes in transmission nationally and in New Mexico during summer 2024?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "CDC analyzed the performance of epidemic trend categories for COVID-19 during summer 2024"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Detection of Real-Time Changes in Direction of COVID-19 Transmission"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "CDC analyzed the performance of epidemic trend categories for COVID-19 during summer 2024"
+    },
+    {
+     "loc": "note",
+     "q": "was assumed to be relatively constant during this evaluation."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "calculated from nowcasted ED visit data from NSSP"
+    }
+   ]
+  },
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "New Mexico has granted permission to publish its state-level ED visit count data for this assessment."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Syndromic Surveillance Program (NSSP)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the National Syndromic Surveillance Program (NSSP)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States Overall and New Mexico, April–October 2024"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "No social-position dimension appears; comparisons are across periods and jurisdictions only.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "outcome_types",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Design is an indicator/nowcast evaluation: real-time trend categories are compared with later complete ED data at four time points; no formal accuracy measures or tests are computed. Binning P(Rt>1) into five trend categories is quantization, not a test. Rt itself (a model-derived parameter) is not reported numerically, so continuous is not listed.",
+ "view_issues": "Table note writes the category thresholds as 'growing ( R t >90%)', conflating Rt with the probability that Rt >1 stated in the text."
+}

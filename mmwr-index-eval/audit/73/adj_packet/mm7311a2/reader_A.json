@@ -1,0 +1,389 @@
+{
+ "id": "mm7311a2",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "incidences of all diseases were slightly higher among persons aged 65–79 years (coccidioidomycosis = 27.3 per 100,000; histoplasmosis = 2.5; blastomycosis = 1.3)"
+    },
+    {
+     "loc": "summary",
+     "q": "Coccidioidomycosis and histoplasmosis case counts declined in 2020 compared with 2019, then increased in 2021."
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the blastomycosis CFR nearly doubled from 9% in 2019 and 2020 to 17% in 2021."
+    },
+    {
+     "loc": "summary",
+     "q": "In 2020, fewer cases of each disease occurred in spring compared with other seasons, and most cases occurred in fall"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "108 (6%) histoplasmosis patients and 80 (14%) blastomycosis patients died"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Coccidioidomycosis and histoplasmosis case counts declined in 2020 compared with 2019, then increased in 2021."
+    },
+    {
+     "loc": "text",
+     "q": "blastomycosis incidence was approximately eight times higher among non-Hispanic American Indian or Alaska Native (AI/AN) persons (5.5)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "robust Poisson regression (univariate incidence rate ratios)",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'robust Poisson models' giving univariate incidence rate ratios → loglinear with robust variance",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Univariate incidence rate ratios were calculated using robust Poisson models to compare different demographic groups with the referent population."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "2019 (prepandemic); non-Hispanic White persons for race/ethnicity",
+  "across": [
+   "year",
+   "season",
+   "race/ethnicity",
+   "age group",
+   "sex"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Coccidioidomycosis and histoplasmosis case counts declined in 2020 compared with 2019, then increased in 2021."
+   },
+   {
+    "loc": "text",
+    "q": "Compared with 2019, histoplasmosis case counts declined by 10% in 2020, but subsequently increased 44% in 2021 compared with 2020"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "Incidence* (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "number of cases",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "a total of 59,655 coccidioidomycosis cases, 3,595 histoplasmosis cases, and 719 blastomycosis cases were reported to CDC"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Number and percentage of coccidioidomycosis, histoplasmosis, and blastomycosis cases"
+    }
+   ]
+  },
+  {
+   "v": "incidence per 100,000",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Cases per 100,000 population."
+    }
+   ]
+  },
+  {
+   "v": "incidence rate ratio",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Univariate incidence rate ratios were calculated using robust Poisson models"
+    }
+   ]
+  },
+  {
+   "v": "case fatality rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the blastomycosis CFR nearly doubled from 9% in 2019 and 2020 to 17% in 2021."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "clustered or robust SE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Univariate incidence rate ratios were calculated using robust Poisson models"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Univariate incidence rate ratios were calculated using robust Poisson models"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did the epidemiology (case counts, seasonality, demographics, hospitalization and fatality) of coccidioidomycosis, histoplasmosis and blastomycosis change during the COVID-19 pandemic compared with 2019?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "examines epidemiologic changes that occurred during the COVID-19 pandemic compared with prepandemic data."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "coccidioidomycosis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Surveillance for Coccidioidomycosis, Histoplasmosis, and Blastomycosis During the COVID-19 Pandemic"
+    }
+   ]
+  },
+  {
+   "v": "histoplasmosis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Surveillance for Coccidioidomycosis, Histoplasmosis, and Blastomycosis During the COVID-19 Pandemic"
+    }
+   ]
+  },
+  {
+   "v": "blastomycosis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Surveillance for Coccidioidomycosis, Histoplasmosis, and Blastomycosis During the COVID-19 Pandemic"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "CDC analyzed case surveillance data for 2019–2021."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Coccidioidomycosis and histoplasmosis case counts declined in 2020 compared with 2019, then increased in 2021."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Case-level coccidioidomycosis data were submitted to NNDSS by 26 states and the District of Columbia."
+    }
+   ]
+  },
+  {
+   "v": "registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Death data were based on vital records"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Notifiable Diseases Surveillance System (NNDSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Case-level coccidioidomycosis data were submitted to NNDSS by 26 states and the District of Columbia."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, 2019–2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 3,
+  "level_reason": "Racial and ethnic disparities are named and quantified as incidence multiples vs White persons (eight times, twice, 1.6 times) and interpreted against 2019; causes are described as unclear (geographic, biologic or sociodemographic).",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "Sociodemographic differences are named as a possible explanation of the disparities, though only generically and as uncertain."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "blastomycosis incidence was approximately eight times higher among non-Hispanic American Indian or Alaska Native (AI/AN) persons (5.5)"
+     },
+     {
+      "loc": "text",
+      "q": "The racial and ethnic disparities observed in 2020–2021 generally align with those reported in 2019"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "incidences of all diseases were slightly higher among persons aged 65–79 years (coccidioidomycosis = 27.3 per 100,000; histoplasmosis = 2.5; blastomycosis = 1.3)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Sex › Male"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referent is non-Hispanic White persons; race/ethnicity missing for about half of coccidioidomycosis cases; Asian and NH/OPI collapsed; multiracial persons grouped as Other; race-specific rates and IRRs are in a supplementary table."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Univariate incidence rate ratios were calculated using robust Poisson models to compare different demographic groups with the referent population."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "incidences of all diseases were slightly higher among persons aged 65–79 years (coccidioidomycosis = 27.3 per 100,000; histoplasmosis = 2.5; blastomycosis = 1.3)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "procedures"
+ ],
+ "confidence": "medium",
+ "notes": "The IRRs themselves are not shown in the article (supplementary table); text multiples of incidence vs White persons presumably reflect them. The typical blastomycosis CFR of 8%–10% is cited from earlier reports, not a computed referent.",
+ "view_issues": "Table 1 CSV has malformed counts ('6,01', '9,08'). Text gives coccidioidomycosis incidence 27.3 for ages 65–79 for 2020–2021, but Table 2 shows 27.3 for 2019. Methods cite 2020–2021 Census denominators while Table 2 note says 2019–2021."
+}

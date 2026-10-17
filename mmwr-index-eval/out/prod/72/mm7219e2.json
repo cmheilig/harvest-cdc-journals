@@ -1,0 +1,439 @@
+{
+ "id": "mm7219e2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg7nGNA13EpDXvtgqB8gF",
+  "batch_id": "msgbatch_01FaGSxRvLPM3Hp7zgHNqiVG"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "COVID-19–associated hospital admission rates lagged 1 day behind case rates and 4 days behind percentages of COVID-19 emergency department visits"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Summary of estimated time lags and ratios for COVID-19 surveillance indicators relative to hospital admission rates per 100,000 population"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "which demonstrated >99% concordance by county during February 2022–March 2023"
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Cross-correlation was used to estimate the lag (offset in days) in indicators relative to COVID-19–associated hospital admission rates"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "which demonstrated >99% concordance by county during February 2022–March 2023"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "correlation since April 2022 was lower for deaths (0.41) and slightly lower for positive test results (0.70)"
+    },
+    {
+     "loc": "summary",
+     "q": "COVID-19–associated hospital admission rates lagged 1 day behind case rates and 4 days behind percentages of COVID-19 emergency department visits"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Spearman cross-correlation (lag estimation)",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "Spearman correlations over a range of lags in moving 12-week windows; lag with highest mean correlation selected",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "by calculating Spearman’s correlation coefficients by state with reporting lags from −35 days to 35 days over a moving 12-week window"
+    }
+   ]
+  },
+  {
+   "name": "pairwise Spearman correlation",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "correlation coefficients between indicators, averaged and ranked",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Pairwise Spearman’s correlations were used to evaluate associations between indicators, and mean correlations were calculated and ranked."
+    }
+   ]
+  },
+  {
+   "name": "Spearman autocorrelation (7-day lag)",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "correlation of each indicator with itself offset by 7 days, as a signal-to-noise measure",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Spearman’s autocorrelations were used to assess the signal-to-noise ratio for each indicator (compared with itself, offset by 7 days)."
+    }
+   ]
+  },
+  {
+   "name": "linear regression through the origin (ratio to hospital admission rate)",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "'linear regression model' y = mx with intercept fixed at zero, fit with scikit-learn → linear",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "This model took the form y = mx + b where x represents the hospital admission rate"
+    },
+    {
+     "loc": "note",
+     "q": "the intercept b was fixed at zero."
+    }
+   ]
+  },
+  {
+   "name": "moving 7-day averages",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "smoothing of daily indicator series",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Statistical measures were used to compare trends in moving 7-day averages for COVID-19 surveillance indicators"
+    }
+   ]
+  },
+  {
+   "name": "z-score geographic consistency metric",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "daily z-scores averaged by state; SD over states",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "computing daily z-scores for each indicator, averaging these scores by U.S. state, and computing the standard deviation over all states"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "both",
+  "referent": "COVID-19–associated hospital admission rates",
+  "across": [
+   "surveillance indicator/data source",
+   "period"
+  ],
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "Summary of estimated time lags and ratios for COVID-19 surveillance indicators relative to hospital admission rates per 100,000 population"
+   },
+   {
+    "loc": "summary",
+    "q": "COVID-19–associated hospital admission rates lagged 1 day behind case rates and 4 days behind percentages of COVID-19 emergency department visits"
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "primary_measures": [
+  {
+   "v": "Spearman’s correlation coefficient",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Mean correlation with other indicators (rank)"
+    }
+   ]
+  },
+  {
+   "v": "estimated lag (days)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimated lag (days) vs. hospital admission rates"
+    }
+   ]
+  },
+  {
+   "v": "ratio with hospital admission rates",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Ratios with hospital admission rates by period"
+    }
+   ]
+  },
+  {
+   "v": "autocorrelation with a 7-day lag",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Autocorrelation with a 7-day lag (rank)"
+    }
+   ]
+  },
+  {
+   "v": "geographic consistency metric",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Geographic consistency metric (rank)"
+    }
+   ]
+  },
+  {
+   "v": "percent agreement",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Percent agreement for weekly CCLs and COVID-19 hospital admission levels"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "note",
+     "q": "This model took the form y = mx + b where x represents the hospital admission rate"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "note",
+     "q": "A sensitivity analysis that replaced suppressed counts with 9 obtained similar results."
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "How timely and correlated are national COVID-19 surveillance indicators, and are hospital admission rates a suitable primary indicator after the public health emergency ends?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The timeliness and correlations among surveillance indicators were analyzed to assess the usefulness of COVID-19–associated hospital admission rates as a primary indicator"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Correlations and Timeliness of COVID-19 Surveillance Data Sources and Indicators"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This evaluation of national COVID-19 surveillance data sources and indicators was performed in anticipation of the transition"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-19 hospital admission rates from the National Healthcare Safety Network (NHSN)"
+    },
+    {
+     "loc": "text",
+     "q": "COVID-19 emergency department (ED) visits from the National Syndromic Surveillance Program (NSSP)"
+    },
+    {
+     "loc": "text",
+     "q": "National Vital Statistics System (NVSS) trends in the percentage of deaths that were COVID-19–associated"
+    }
+   ]
+  },
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NREVSS, an established sentinel network of more than 450 clinical, public health, and commercial laboratories"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Healthcare Safety Network (NHSN)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-19 hospital admission rates from the National Healthcare Safety Network (NHSN)"
+    }
+   ]
+  },
+  {
+   "v": "National Syndromic Surveillance Program (NSSP)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-19 emergency department (ED) visits from the National Syndromic Surveillance Program (NSSP)"
+    }
+   ]
+  },
+  {
+   "v": "National Vital Statistics System (NVSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "National Vital Statistics System (NVSS) trends in the percentage of deaths that were COVID-19–associated"
+    }
+   ]
+  },
+  {
+   "v": "National Respiratory and Enteric Viruses Surveillance System (NREVSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the National Respiratory and Enteric Viruses Surveillance System (NREVSS) and COVID-19 electronic laboratory reporting (CELR)"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19 electronic laboratory reporting (CELR)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the National Respiratory and Enteric Viruses Surveillance System (NREVSS) and COVID-19 electronic laboratory reporting (CELR)"
+    }
+   ]
+  },
+  {
+   "v": "aggregate case and death counts (ACDC)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "national reporting of aggregate case and death counts, which CDC compiles from official public health jurisdiction sources"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, October 1, 2020–March 22, 2023"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "No social-position dimension is analyzed; race and ethnicity appear only in a remark on NVSS data completeness.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Race and ethnicity are mentioned as a descriptor of NVSS data completeness, which could be read as level 1."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "However, NVSS data elements are more complete (e.g., for race and ethnicity)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "comparison",
+  "outcome_types"
+ ],
+ "confidence": "medium",
+ "notes": "Suppressed NVSS counts (1–9) were set to 1, a fixed fill-in treated as data cleaning. The sensitivity check with 9 applies to all death indicators. Percent agreement between CCLs and admission levels and figure normalization by the maximum are arithmetic or rescaling, not procedures.",
+ "view_issues": "The NVSS vs aggregate death correlation is 0.78 in the introduction and 0.79 in the results. The figure description says October 1, 2022, but the title says 2020. Table 1 has the typo 'NAAT rest results'."
+}

@@ -1,0 +1,412 @@
+{
+ "id": "mm7117e2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GvkZTk1Kt1kU3zdEZB",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Overall AADR increased by 19.2% from 85.0 in 2020 to 101.3 per 100,000 U.S. residents in 2021"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Changes in age-adjusted death rates* with COVID-19 as underlying cause, by race/ethnicity"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Black persons (13.3%–16.1%), and White persons (59.6%–65.2%) were significantly overrepresented (p<0.001) among decedents"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "including non-Hispanic White persons, who accounted for 59.6%–65.2% of all decedents"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2021, the AADR relative disparity decreased by 34.0% for AI/AN, 37.6% for Asian, 40.2% for Black"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Crude death rates were calculated by sex, age group, and race and ethnicity, and AADRs were calculated by race and ethnicity."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization (AADR)",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "age-adjusted death rates per 100,000 standard population",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Deaths per 100,000 standard population."
+    },
+    {
+     "loc": "text",
+     "q": "AADRs were calculated by race and ethnicity."
+    }
+   ]
+  },
+  {
+   "name": "z-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated z-tests for differences in percent change in relative disparity; CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Z-tests of statistical significance were used to compare differences in the percent change in each measure of relative disparity."
+    }
+   ]
+  },
+  {
+   "name": "Pearson chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated Pearson's chi-square comparing decedent distribution with population",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "P-values <0.05 were considered statistically significant (Pearson’s chi-square)."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "non-Hispanic multiracial persons",
+  "across": [
+   "race/ethnicity",
+   "year (2020 vs 2021)",
+   "sex",
+   "age group"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Using the non-Hispanic multiracial group (the group with the lowest death rate) as the referent group"
+   },
+   {
+    "loc": "summary",
+    "q": "disparities in AADR ratios from COVID-19 decreased significantly by 14.0%–40.2% for most racial and ethnic groups"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "changes from 2020 to 2021 in AADR ratios with 95% CIs and statistical tests of significance"
+   },
+   {
+    "loc": "text",
+    "q": "Z-tests of statistical significance were used to compare differences in the percent change"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "AADR (deaths per 100,000)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Deaths per 100,000 standard population."
+    }
+   ]
+  },
+  {
+   "v": "RR",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "RR = rate ratio."
+    }
+   ]
+  },
+  {
+   "v": "% change in AADR",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "% Change in AADR, 2020–2021 (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "% change in AADR ratio",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "% Change in AADR ratio, 2020–2021(95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "column %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "This column contains column percent plus the overall total rate in the last row."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did racial and ethnic disparities in COVID-19 age-adjusted death rates change from 2020 to 2021 in the United States?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to estimate changes in COVID-19–related age-adjusted death rates (AADRs) by race and ethnicity during 2020–2021."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Provisional COVID-19 Age-Adjusted Death Rates, by Race and Ethnicity — United States, 2020–2021"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This analysis used U.S. provisional mortality data from death certificates collected by CDC’s National Vital Statistics System (NVSS)"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "to assess annual changes in COVID-19 deaths among U.S. residents of any age during January 2020–December 2021."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC WONDER* mortality data from 2020 (final) and 2021 (provisional) reported to NVSS as of February 6, 2022"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System (NVSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "collected by CDC’s National Vital Statistics System (NVSS)"
+    }
+   ]
+  },
+  {
+   "v": "CDC WONDER Provisional Multiple Cause of Death data",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "AADRs and their SEs were downloaded using CDC WONDER Provisional Multiple Cause of Death data file"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "by Race and Ethnicity — United States, 2020–2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 3,
+  "level_reason": "Racial/ethnic disparities in AADR are framed, quantified as rate ratios and their percent change, and interpreted; explanations (effective interventions including vaccination) are generic.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "Reductions are attributed to interventions and a CDC grant initiative launched in response to disparities, which could count as named structural/policy determinants."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "assigned or observed",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "certain categories of race (e.g., AI/AN, Asian, and multiracial) and Hispanic ethnicity reported on death certificates might have been misclassified"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "AADRs were calculated by race and ethnicity."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "those aged >65 years (68.0%–80.6%)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Persons who were male (54.9%–56.7%)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "preventive, medical care and social service assistance programs; effective interventions including vaccination; access to services",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Reductions in disparities in AADR for most racial and ethnic groups reflect the widespread impact of effective interventions, including vaccination"
+    },
+    {
+     "loc": "text",
+     "q": "in proportion to their needs rather than their historical demand for or access to services."
+    }
+   ]
+  },
+  "equity_action": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The potential impact of such efforts on annual changes in racial and ethnic disparities in mortality rates"
+    }
+   ]
+  },
+  "equity_measurement": "Referent is non-Hispanic multiracial persons (lowest rate); sensitivity analysis with White referent. 2020 population estimates used as 2021 denominators; race from death certificates may be misclassified; not-stated race excluded."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 7,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "statistical tests of significance of differences between each racial and ethnic group and the referent group were calculated."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 7,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Pearson’s chi-square tests of differences in the distribution of decedents by sex, age group, and race and ethnicity"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Pearson’s chi-square tests of differences in the distribution of decedents by sex, age group, and race and ethnicity"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "comparison",
+  "groupwise",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "Sensitivity analysis with non-Hispanic White as referent changed NH/OPI result to a significant increase. Design inferred (not named): national death-certificate surveillance comparing two years.",
+ "view_issues": "Table 1 shows a p-value per category row (all <0.001) though methods describe chi-square tests of the distribution; unclear whether omnibus or per-category. Text gives 2020 crude rate as 'per 100,00'."
+}

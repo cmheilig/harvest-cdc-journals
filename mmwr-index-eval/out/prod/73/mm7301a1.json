@@ -1,0 +1,264 @@
+{
+ "id": "mm7301a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.1",
+  "prefix_sha": "f4030e441a8d",
+  "request_id": "msg_011Cg6gFUci2sZqwVFhiNgyQ",
+  "batch_id": "msgbatch_01Pnk7KDZXhJ3DshXVpkoE1T"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Using 2021 Medicare Part D data, CDC examined prescription volumes, rates, and costs for topical antifungals"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the highest prescription rate was in the Northeast (188.0 prescriptions per 1,000 beneficiaries), followed by the South (138.1 per 1,000)"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among all topical antifungal prescriptions, 44.2% (2.9 million) were written by the top 10% (13,106) of topical antifungal prescribers."
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The highest average per prescription costs were for efinaconazole ($1,035.38), tavaborole ($784.63), and oxiconazole ($729.84)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During 2021, approximately 6.5 million topical antifungal prescriptions were filled (134 prescriptions per 1,000 beneficiaries), at a total cost of $231 million."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The number of prescriptions per provider was highest for dermatologists (87.1), followed by podiatrists (67.2), and primary care physicians (12.3)."
+    },
+    {
+     "loc": "text",
+     "q": "Total prescription volumes were compared between higher-volume prescribers (top 10% of topical antifungal prescribers by volume) and lower-volume prescribers."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "small-cell suppression in source data (records with <11 prescriptions excluded)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "the CMS data set withholds prescriber-drug records with <11 prescriptions; suppression of observed values",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The data set excludes clinician records with <11 prescriptions."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "provider type",
+   "U.S. Census Bureau region",
+   "antifungal drug",
+   "prescriber volume (top 10% vs bottom 90%)"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Most prescriptions were written by primary care physicians, nurse practitioners, or physician assistants."
+   },
+   {
+    "loc": "text",
+    "q": "the percentage of topical antifungal prescriptions written by higher-volume topical antifungal prescribers ranged from 35.5% for dermatologists to 54.8% for podiatrists."
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "primary_measures": [
+  {
+   "v": "No. of prescriptions",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. of prescriptions (% of all prescriptions)"
+    }
+   ]
+  },
+  {
+   "v": "prescriptions per 1,000 beneficiaries",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Prescriptions per 1,000 beneficiaries"
+    }
+   ]
+  },
+  {
+   "v": "aggregate cost and avg. cost per prescription, USD",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Aggregate cost, all prescriptions, USD*"
+    },
+    {
+     "loc": "table 1",
+     "q": "Avg. cost per prescription, USD*"
+    }
+   ]
+  },
+  {
+   "v": "No. of prescriptions per provider",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "No. of prescriptions per provider"
+    }
+   ]
+  },
+  {
+   "v": "percentage of prescriptions",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "No. of prescriptions (% of total)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What were the volume, rates, costs and prescriber patterns of topical antifungal prescriptions among Medicare Part D beneficiaries in 2021?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "data were used to characterize prescribing volume of topical antifungal medications among Medicare Part D beneficiaries in the United States during 2021."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "superficial fungal infections",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "health care providers could use diagnostic testing*** whenever possible to confirm suspected superficial fungal infections."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prescription volume (i.e., number of prescriptions), total costs, and average costs for topical antifungal and topical antifungal-corticosteroid drugs covered by Medicare Part D"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "administrative/claims",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The publicly available CMS Medicare Part D Prescribers–by Provider and Drug data set"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "CMS Medicare Part D Prescribers–by Provider and Drug data set",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The publicly available CMS Medicare Part D Prescribers–by Provider and Drug data set"
+    }
+   ]
+  },
+  {
+   "v": "Medicare Monthly Enrollment dataset",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The Medicare Monthly Enrollment dataset †† was used to ascertain the total number of Medicare Part D beneficiaries."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Topical Antifungal Prescribing for Medicare Part D Beneficiaries — United States, 2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "No social-position dimension is analyzed; comparisons are by drug, provider type, prescriber volume and Census region (geography, not an SPD). Age ≥65 appears only in the program's general eligibility description.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Census region differences are geographic only; 'more ready access to medical care' is offered for the Northeast but is not tied to social position."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "analytic_depth"
+ ],
+ "confidence": "high",
+ "notes": "Design inferred (none named): descriptive analysis of aggregated claims data. Higher-volume share is reported within each provider type, read as comparison rather than stratified. Enrollment dataset supplies denominators only.",
+ "view_issues": "Methods sentence is garbled ('calculated by drug and region and to calculate prescription rates per 1,000 beneficiaries by drug and region'). 'Top 10th percentile' is used for the top 10% of prescribers."
+}

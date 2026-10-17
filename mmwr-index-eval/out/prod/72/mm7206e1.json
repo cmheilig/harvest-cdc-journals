@@ -1,0 +1,583 @@
+{
+ "id": "mm7206e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg7nFKEMwboXTJmUfRX2q",
+  "batch_id": "msgbatch_01FaGSxRvLPM3Hp7zgHNqiVG"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "the S. aureus bloodstream infection rate during 2017–2020 was 100 times higher among hemodialysis patients (4,248 of 100,000 person-years)"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "the S. aureus bloodstream infection rate during 2017–2020 was 100 times higher among hemodialysis patients (4,248 of 100,000 person-years)"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "42.1% of S. aureus bloodstream infections among patients on hemodialysis occurred in tracts in the highest quartile"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "S. aureus was isolated from 5,070 (34.2%), yielding a rate of 0.1 S. aureus bloodstream infections per 100 patient-months"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Unadjusted rates of S. aureus bloodstream infection were higher among Black and Hispanic hemodialysis patients"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Adjusting for EIP site of residence, sex, and vascular access type, S. aureus bloodstream infection risk in EIP was highest in Hispanic patients"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "negative binomial regression (NHSN facility incidence model)",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'forward stage-wise negative binomial regression' of facility incidence giving aRRs → loglinear",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "S. aureus bloodstream infection incidence was modeled using forward stage-wise negative binomial regression."
+    },
+    {
+     "loc": "table 1",
+     "q": "Negative binomial regression was used to fit this multivariate model."
+    }
+   ]
+  },
+  {
+   "name": "negative binomial regression (EIP rate model)",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'negative binomial regression ... to determine aRRs' for overdispersed counts with person-year denominators → loglinear",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "To handle overdispersion, negative binomial regression was performed to determine aRRs for age, race and ethnicity, sex, vascular access type, and EIP site."
+    }
+   ]
+  },
+  {
+   "name": "likelihood ratio test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "likelihood ratio chi-square per factor in Table 1, testing each factor's association in the model",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Likelihood ratio test evaluates whether a factor is statistically significantly associated with Staphylococcus aureus bloodstream infection incidence."
+    }
+   ]
+  },
+  {
+   "name": "multiple imputation of missing race and ethnicity",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "10 imputed data sets combined with SAS MIANALYZE; imputed values enter rates and aRRs",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "for multivariable modeling, the SAS MIANALYZE procedure was used to incorporate results from modeling the 10 imputation data sets."
+    }
+   ]
+  },
+  {
+   "name": "bootstrap validation of the model",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "bootstrap resampling used to validate the best candidate NHSN model",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "The best candidate model was validated using bootstrap resampling methods and independently assessed by two separate analysts."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "fistula access; non-Hispanic White patients; patients aged ≥65 years; adults not on hemodialysis",
+  "across": [
+   "vascular access type",
+   "race/ethnicity",
+   "age group",
+   "sex",
+   "EIP site",
+   "facility characteristics",
+   "tract SES quartile",
+   "hemodialysis status"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Unadjusted S. aureus bloodstream infection rates were highest among non-Hispanic Black or African American (Black) and Hispanic or Latino (Hispanic) hemodialysis patients."
+   },
+   {
+    "loc": "summary",
+    "q": "Vascular access via central venous catheter was strongly associated with S. aureus bloodstream infections"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Black patients did not have significantly elevated risk when accounting for access type, age, sex, and EIP site."
+   },
+   {
+    "loc": "table 1",
+    "q": "Likelihood ratio test evaluates whether a factor is statistically significantly associated with Staphylococcus aureus bloodstream infection incidence."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "aRR",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "aRR = adjusted rate ratio"
+    }
+   ]
+  },
+  {
+   "v": "rate per 100,000 hemodialysis person-years",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Per 100,000 hemodialysis person-years."
+    }
+   ]
+  },
+  {
+   "v": "rate per 100 patient-months",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "yielding a rate of 0.1 S. aureus bloodstream infections per 100 patient-months"
+    }
+   ]
+  },
+  {
+   "v": "percentage distribution",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Percentage distribution of Staphylococcus aureus hemodialysis bloodstream infections among adult hemodialysis patients"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Although several statistically significant differences in facility characteristics were found in univariate analyses"
+    },
+    {
+     "loc": "note",
+     "q": "Univariate analyses were also performed using the model."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted for age, race and ethnicity, sex, vascular access type, and EIP site as appropriate."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "EIP: age, race and ethnicity, sex, vascular access type, EIP site; NHSN: vascular access type, facility characteristics, SVI variables (stage-wise selection)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted for age, race and ethnicity, sex, vascular access type, and EIP site as appropriate."
+    },
+    {
+     "loc": "text",
+     "q": "selected dialysis facility characteristics, including those related to infection control practices (45 variables), and SVI data (20 variables)"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Do rates of hemodialysis-associated S. aureus bloodstream infections differ by vascular access, race, ethnicity, and socioeconomic factors?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to understand markers of disparities in the risk for S. aureus bloodstream infections in hemodialysis patients"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "Staphylococcus aureus bloodstream infection",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Health Disparities in Hemodialysis-Associated Staphylococcus aureus Bloodstream Infections"
+    }
+   ]
+  },
+  {
+   "v": "end-stage kidney disease",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "ESKD patients on dialysis are at increased risk for Staphylococcus aureus bloodstream infections"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "this study used a national facility-level reporting system and a laboratory- and population-based surveillance network"
+    }
+   ]
+  },
+  {
+   "v": "ecologic",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "relied on linkage with ecologic 2018 SVI data that were not patient-specific"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Surveillance data from the 2020 National Healthcare Safety Network (NHSN)"
+    }
+   ]
+  },
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "from CDC’s EIP surveillance in selected counties from seven sites"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Healthcare Safety Network (NHSN)",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Surveillance data from the 2020 National Healthcare Safety Network (NHSN)"
+    }
+   ]
+  },
+  {
+   "v": "Emerging Infections Program (EIP)",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "the 2017–2020 Emerging Infections Program (EIP) were used"
+    }
+   ]
+  },
+  {
+   "v": "NHSN Outpatient Dialysis Center Practices Survey",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Source of data was NHSN Outpatient Dialysis Center Practices Survey."
+    }
+   ]
+  },
+  {
+   "v": "CDC/ATSDR Social Vulnerability Index (SVI)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC/ATSDR SVI data from 2018 were linked to the facility at the county level"
+    }
+   ]
+  },
+  {
+   "v": "United States Renal Data System (USRDS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "aggregated county-level denominator data on the number of hemodialysis patients"
+    },
+    {
+     "loc": "text",
+     "q": "were obtained from USRDS."
+    }
+   ]
+  },
+  {
+   "v": "American Community Survey",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "5-year U.S. Census Bureau American Community Survey data"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "During 2020, 4,840 dialysis facilities (68.2% of 7,097 reporting to NHSN) reported 14,822 bloodstream infections"
+   },
+   {
+    "loc": "summary",
+    "q": "Among seven EIP sites"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Racial/ethnic disparities are framed and quantified (Hispanic aRR 1.4 vs White, '40% higher risk') and interpreted; tract poverty, crowding and education are analyzed as exposures, and care resources and access are offered as explanations.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "SES factors are only shown as case shares by quartile, and the named explanations (resources, education, access) are speculative or recommendations."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "with Hispanic or Latino ethnicity as an independent risk factor"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Adjusted for age, race and ethnicity, sex, vascular access type, and EIP site as appropriate."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "poverty",
+     "household crowding",
+     "education"
+    ],
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Areas with higher poverty levels, crowding, and lower education levels accounted for disproportionately higher proportions"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "Social Vulnerability Index"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "CDC/ATSDR SVI data from 2018 were linked to the facility at the county level"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "among adult hemodialysis patients (aged ≥18 years)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "younger age groups (patients aged 18–49 years [aRR = 1.7; 95 CI = 1.5–1.9]"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "male sex (aRR = 1.2; 95% CI = 1.1–1.4)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "tract poverty, household crowding, lower education; resources for CVC care; access to pre-ESKD care and ESKD treatment",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "lower SES might also be related to development of S. aureus bloodstream infections"
+    },
+    {
+     "loc": "text",
+     "q": "Other mediating factors might include how patients with CVCs are educated about CVC care or what resources are available"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referent White non-Hispanic; race/ethnicity imputed for ~10% missing; SES is tract-level (ACS quartiles) with no denominators, so only case shares by quartile; NHSN uses county-level SVI."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Race and ethnicity › White, non-Hispanic"
+    },
+    {
+     "loc": "text",
+     "q": "Hispanic ethnicity (aRR = 1.4; 95% CI = 1.2–1.7)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "younger age groups (patients aged 18–49 years [aRR = 1.7; 95 CI = 1.5–1.9] and patients aged 50–64 years"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "model joint test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Quartile of % of persons aged ≥65 yrs › Quartile 4: 75–100 (highest)"
+    },
+    {
+     "loc": "table 1",
+     "q": "Source of data was CDC/ATSDR SVI."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "study_design"
+ ],
+ "confidence": "medium",
+ "notes": "Distribution of infections across tract SES quartiles is composition with no per-group rate, so no groupwise entry; population was roughly equal across quartiles. The NHSN area quartile of % aged ≥65 is an SVI variable, recorded as SES with a likelihood-ratio joint test. Ecologic design is inferred for the facility-level NHSN model.",
+ "view_issues": "Table 2 race counts are averaged over imputations and sum to >2,800; text gives '95 CI' for one age aRR."
+}

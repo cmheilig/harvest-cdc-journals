@@ -1,0 +1,478 @@
+{
+ "id": "mm7346a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.1",
+  "prefix_sha": "f4030e441a8d",
+  "request_id": "msg_011Cg6gFSQ1pWePmakxx1Jt5",
+  "batch_id": "msgbatch_01Pnk7KDZXhJ3DshXVpkoE1T"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "As of November 9, 2024, cumulative estimated coverage with 2024–2025 influenza and COVID-19 vaccines among adults aged ≥18 years was 34.7% and 17.9%, respectively."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "As of November 9, 2024, cumulative estimated coverage with 2024–2025 influenza and COVID-19 vaccines among adults aged ≥18 years was 34.7% and 17.9%, respectively."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Coverage with all vaccines was lowest among uninsured persons"
+    },
+    {
+     "loc": "text",
+     "q": "COVID-19 vaccination coverage among adults aged ≥18 years was 4.7 percentage points higher in the 2024–25 season (17.9%) than the 2023–24 season (13.2%)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "NIS-ACM data weighted to population control totals; all coverage estimates are weighted percentages",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data are weighted to represent the noninstitutionalized U.S. population."
+    },
+    {
+     "loc": "table 1",
+     "q": "Weighted percentage."
+    }
+   ]
+  },
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated in methods as the basis for group differences",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Differences were determined using t-tests with p-values <0.05 considered statistically significant."
+    }
+   ]
+  },
+  {
+   "name": "nondecreasing composite estimation procedure",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "cumulative weekly coverage estimates combine current and all previous weeks' interviews; intent estimates adjusted to the cumulative coverage",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Vaccination coverage estimates were calculated for weekly data collection periods using a nondecreasing composite estimation procedure"
+    }
+   ]
+  },
+  {
+   "name": "small-sample suppression (n<30)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "estimates withheld for groups with sample size <30",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "figure 2",
+     "q": "Estimates for vaccination or vaccination intent are not shown for groups with sample size <30."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "both",
+  "referent": null,
+  "across": [
+   "age",
+   "health insurance status",
+   "urbanicity",
+   "race/ethnicity",
+   "disability",
+   "jurisdiction",
+   "season"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Coverage varied by jurisdiction and demographic characteristics and was lowest among younger adults and those without health insurance."
+   },
+   {
+    "loc": "text",
+    "q": "Coverage with influenza vaccine was more than twice as high among adults aged ≥65 years (58.6%) as it was among those aged 18–29"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Differences were determined using t-tests with p-values <0.05 considered statistically significant."
+   },
+   {
+    "loc": "table 1",
+    "q": "% Vaccinated † (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted percentage vaccinated",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% Vaccinated † (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "percentage points difference",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-19 vaccination coverage among adults aged ≥18 years was 4.7 percentage points higher in the 2024–25 season (17.9%) than the 2023–24 season (13.2%)"
+    }
+   ]
+  },
+  {
+   "v": "vaccination intent, %",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "14.5% and 13.5% reported that they definitely will be vaccinated against influenza and COVID-19, respectively"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What were early-season 2024–25 influenza, COVID-19 and RSV vaccination coverage and intent among U.S. adults, overall and by demographic group and jurisdiction?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "were reviewed to assess influenza, COVID-19, and RSV vaccination coverage early in the fall respiratory virus season."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "influenza",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Influenza, COVID-19, and Respiratory Syncytial Virus Vaccination Coverage Among Adults"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Influenza, COVID-19, and Respiratory Syncytial Virus Vaccination Coverage Among Adults"
+    }
+   ]
+  },
+  {
+   "v": "respiratory syncytial virus infection",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Influenza, COVID-19, and Respiratory Syncytial Virus Vaccination Coverage Among Adults"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The National Immunization Survey-Adult COVID Module (NIS-ACM) is a random-digit–dialed cellular telephone survey of adults aged ≥18 years"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The National Immunization Survey-Adult COVID Module (NIS-ACM) is a random-digit–dialed cellular telephone survey of adults aged ≥18 years"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Immunization Survey-Adult COVID Module (NIS-ACM)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The National Immunization Survey-Adult COVID Module (NIS-ACM) is a random-digit–dialed cellular telephone survey"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Vaccination coverage varied by jurisdiction, ranging from 17.0% (Puerto Rico) to 50.5% (Maryland) for influenza vaccine"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "an estimated 34.7% and 17.9% of adults aged ≥18 years had received influenza and COVID-19 vaccines, respectively, for the 2024–25 season"
+   }
+  ]
+ },
+ "equity": {
+  "level": 2,
+  "level_reason": "Coverage is reported by race/ethnicity, insurance, urbanicity and disability and described (lowest among uninsured; higher among Asian and White adults), and the Discussion speaks of disparities and access, but SPD contrasts are not quantified as differences or ratios (the multiples quantified are by age only).",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "The Discussion frames gaps as disparities and names insurance access (end of the Bridge Access Program) as a structural factor; the uninsured contrast is visible in figures with t-tests."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Vaccination coverage was generally higher among non-Hispanic Asian (Asian) and non-Hispanic White (White) adults, than among non-Hispanic Black or African American (Black)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "using population control totals for age group, sex, metropolitan statistical area status, education, Hispanic ethnicity, and race."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "health insurance"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Coverage with all vaccines was lowest among uninsured persons"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "education"
+    ],
+    "ev": [
+     {
+      "loc": "note",
+      "q": "using population control totals for age group, sex, metropolitan statistical area status, education, Hispanic ethnicity, and race."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "incarceration"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "adults who were incarcerated or who live in long-term care or nursing home facilities"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Coverage and intent to be vaccinated were generally higher among adults living in urban and suburban areas compared with those living in rural areas."
+     }
+    ]
+   },
+   {
+    "v": "disability",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Among adults with any disability (versus those with no disability), RSV vaccination coverage was lower"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Coverage with influenza and COVID-19 vaccines increased with age."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "RSV vaccination coverage was estimated among adults aged ≥75 years and those aged 60–74 years at increased risk"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "using population control totals for age group, sex, metropolitan statistical area status, education, Hispanic ethnicity, and race."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "lack of health insurance; end of the Bridge Access Program; access to vaccination",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "but this program ended in August 2024."
+    },
+    {
+     "loc": "text",
+     "q": "might increase equitable access to vaccination and decrease disparities for these recommended vaccines."
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Groups compared with t-tests without a stated referent; group estimates mainly in Figure 2 and supplementary tables; groups with n<30 suppressed; race/ethnicity also a weighting variable."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": null,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Vaccination coverage was generally higher among non-Hispanic Asian (Asian) and non-Hispanic White (White) adults, than among non-Hispanic Black or African American (Black)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": null,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Coverage with influenza and COVID-19 vaccines increased with age."
+    }
+   ]
+  },
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Coverage and intent to be vaccinated were generally higher among adults living in urban and suburban areas compared with those living in rural areas."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": null,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Coverage with all vaccines was lowest among uninsured persons"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Group comparisons rest on a blanket t-test statement; Figure 2 values by demographic group are not in the packet. Season-to-season and post-recommendation RSV changes are reported as percentage-point differences. Survey weighting yields population estimates and does not make the analysis adjusted.",
+ "view_issues": "Figure 2 group estimates and supplementary tables are not available in the packet; which group contrasts were significant by t-test is not stated."
+}

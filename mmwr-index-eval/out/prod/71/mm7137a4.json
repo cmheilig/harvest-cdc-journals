@@ -1,0 +1,470 @@
+{
+ "id": "mm7137a4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GvinJc8VW23BE71xfR",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Crude mortality risk (cMR) (deaths per 100 patients hospitalized primarily for COVID-19) was lower during the early Omicron (13.1)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During the later Omicron period, 81.9% of in-hospital deaths occurred among adults aged ≥65 years"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In-hospital mortality among patients hospitalized primarily for COVID-19 decreased from 15.1% (Delta period) to 4.9% (later Omicron period; April–June 2022)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "After adjustment, in-hospital mortality was 0.69 (95% CI = 0.68–0.70) times as likely during the early Omicron period"
+    },
+    {
+     "loc": "note",
+     "q": "and for each subsample (where the corresponding covariate was set at the specific category and other covariates were set at their observed values)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "GEE log-binomial regression",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'log-linked binomial regression' fitted by generalized estimating equations → log-binomial → loglinear",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Using a generalized estimating equations model, specified as a log-linked binomial regression including all three periods"
+    }
+   ]
+  },
+  {
+   "name": "average predicted probabilities (marginal standardization)",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "aMRD and aMRR computed from average predicted probabilities with period set and other covariates at observed values",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "aMRD is the difference in the average predicted probabilities (PLO minus PD and PEO minus PD)."
+    }
+   ]
+  },
+  {
+   "name": "hospital-patient clustered bootstrap",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "SEs and 95% CIs from clustered bootstrap with 500 replications",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "SEs and 95% CIs were obtained by hospital-patient clustered bootstrapping with 500 replications."
+    }
+   ]
+  },
+  {
+   "name": "z-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated: Z-tests comparing cMR, aMRDs and aMRRs among periods, p<0.05",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Z-tests were used to compare cMR, aMRDs, and aMRRs among pandemic periods; p<0.05 was considered statistically significant."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "both",
+  "referent": "Delta period",
+  "across": [
+   "pandemic period",
+   "age group",
+   "sex",
+   "race/ethnicity",
+   "number of underlying medical conditions",
+   "disability"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "aMRDs and aMRRs for in-hospital death were estimated across periods (early Omicron versus Delta and later Omicron versus Delta)."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "SEs and 95% CIs were obtained by hospital-patient clustered bootstrapping with 500 replications."
+   },
+   {
+    "loc": "text",
+    "q": "Z-tests were used to compare cMR, aMRDs, and aMRRs among pandemic periods; p<0.05 was considered statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "crude mortality risk (deaths per 100 patients)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Crude mortality risk (cMR) (deaths per 100 patients hospitalized primarily for COVID-19)"
+    }
+   ]
+  },
+  {
+   "v": "aMRD",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted mortality risk difference (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "aMRR",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted mortality risk ratio (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During the later Omicron period, 81.9% of in-hospital deaths occurred among adults aged ≥65 years"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "GEE",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "with prediction errors adjusted for clustering at the hospital and patient level."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was lower during the early Omicron (13.1) and later Omicron (4.9) periods than during the Delta (15.1) period (p<0.001)."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "estimated by a multivariable generalized estimating equation model specified as log-linked binomial"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age, sex, race and ethnicity, number of underlying medical conditions, disability, insurance type, previous COVID-19, hospital Census region, number of hospital beds",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "The model included main effects and two-way interactions between pandemic period and the following covariates"
+    },
+    {
+     "loc": "note",
+     "q": "Additional covariates were included in the model without interaction terms: insurance type (commercial, Medicare, Medicaid, self-pay, and other or unknown), prevoius COVID-19"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "note",
+     "q": "The model included main effects and two-way interactions between pandemic period and the following covariates"
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Did in-hospital mortality risk among patients hospitalized primarily for COVID-19 differ between the Delta and Omicron periods, overall and by patient characteristics?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC assessed in-hospital mortality risk overall and by demographic and clinical characteristics during the Delta (July–October 2021), early Omicron"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Mortality Risk Among Patients Hospitalized Primarily for COVID-19 During the Omicron and Delta Variant Pandemic Periods"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19 in-hospital death",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a COVID-19 in-hospital death was defined as a COVID-19 hospitalization with expired discharge status."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Monthly cMRs (deaths per 100 hospitalizations) were calculated for COVID-19 hospitalizations"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In-hospital mortality among patients hospitalized primarily for COVID-19 decreased from 15.1% (Delta period) to 4.9% (later Omicron period; April–June 2022)"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "administrative/claims",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Using a large hospital administrative database"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Premier Healthcare Database Special COVID-19 Release (PHD-SR)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "identified from 678 hospitals in the Premier Healthcare Database Special COVID-19 Release (PHD-SR)."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, April 2020–June 2022"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Period contrasts in mortality are reported within each race/ethnicity group (Table 2) and described as lower for all groups, but no racial disparity is framed or quantified; age and sex are clinical risk strata.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Race-specific results appear only in an interpretive table and a blanket 'all racial and ethnic groups' statement, so race could be read as a covariate/descriptor only."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "lower than it was during the Delta period for patients aged ≥18 years, males and females, all racial and ethnic groups"
+     },
+     {
+      "loc": "table 2",
+      "q": "Race and ethnicity › Black or African American, NH"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "race and ethnicity (Hispanic or Latino [Hispanic], non-Hispanic White, non-Hispanic Black or African American [Black]"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "63.8%, 66.8%, and 69.1%, respectively, were non-Hispanic White (White)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Larger aMRDs were observed with increasing age and number of underlying medical conditions"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "age (0–17, 18–34, 35–49, 50–64, 65–79, and ≥80 years)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Sex › Female"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "sex (male and female)"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "insurance type"
+    ],
+    "ev": [
+     {
+      "loc": "note",
+      "q": "insurance type (commercial, Medicare, Medicaid, self-pay, and other or unknown)"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "insurance type"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Insurance type › Medicaid"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Disability is ICD-coded and framed as clinical risk, so not recorded as an SPD. Race has six categories including other and unknown; insurance type is only a covariate and descriptor."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Larger aMRDs were observed with increasing age and number of underlying medical conditions"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "comparison",
+  "study_design",
+  "groupwise",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "No design is named; surveillance/descriptive plus before/after was inferred from monthly and period mortality comparisons in an administrative database. VE figures and seroprevalence are cited from other reports, not computed here. The 'specificity' cue refers to the case definition choice, not a diagnostic-accuracy analysis.",
+ "view_issues": "Table 2 aMRR CIs for ages 0–17 have a negative lower bound (−0.12), impossible for a ratio. Table 1 later Omicron race 'Unknown' 376 (3.8) disagrees with 376/20,655 ≈ 1.8%. The figure description says April–June 2022 while the caption says April 2020–June 2022."
+}

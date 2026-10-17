@@ -1,0 +1,406 @@
+{
+ "id": "mm7145a3",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was higher during the Omicron BA.2/BA.5 period (13.7) than during the Delta period (8.3) (RR = 1.6; 95% CI = 1.4–1.8)"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the proportion of hospitalizations that required intensive care unit admission, high-flow nasal cannula, mechanical ventilation"
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Hospitalization intervention or outcome › Length of hospital stay, days, median (IQR)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among 473 infants aged <6 months hospitalized during the Omicron BA.2/BA.5 variant-predominant period, 397 (84%) had COVID-19–related symptoms."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "population-based COVID-19–associated hospitalization rates among infants aged <6 months increased in the Omicron variant–predominant periods compared with the Delta variant–predominant period"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "chi-square test (weighted)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named chi-square tests comparing weighted proportions, Delta vs Omicron BA.2/BA.5, accounting for sampling weights",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Proportions between the Delta variant and Omicron BA.2/BA.5 variant periods of predominance were compared with chi-square tests"
+    }
+   ]
+  },
+  {
+   "name": "Wilcoxon rank-sum test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named test comparing medians (length of stay, age) between periods",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Wilcoxon rank-sum tests and chi-square tests were used to compare medians and proportions, respectively"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "rate ratios with 95% CIs excluding 1 support 'higher' and 'increased' claims; CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the weekly hospitalization rate among infants aged <6 months increased elevenfold (95% CI = 4.3–33.3)"
+    },
+    {
+     "loc": "text",
+     "q": "was higher during the Omicron BA.2/BA.5 period (13.7) than during the Delta period (8.3) (RR = 1.6; 95% CI = 1.4–1.8)"
+    }
+   ]
+  },
+  {
+   "name": "sampling and nonresponse weights",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated weighting for probability of selection of sampled cases, adjusted for nonresponse; all clinical percentages are weighted",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Percentages were weighted to account for the probability of selection for sampled cases, and further adjusted to account for nonresponse"
+    }
+   ]
+  },
+  {
+   "name": "3-week moving average",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "smoothing of weekly rates for the figure only",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Three-week moving averages are presented for visualization purposes."
+    }
+   ]
+  },
+  {
+   "name": "small-cell suppression",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "conditions and symptoms with fewer than five sampled cases in any stratum withheld",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Underlying conditions that occurred in fewer than five sampled cases in any stratum are not displayed."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "Delta variant–predominant period",
+  "across": [
+   "variant-predominant period",
+   "age group"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "population-based COVID-19–associated hospitalization rates among infants aged <6 months increased in the Omicron variant–predominant periods compared with the Delta variant–predominant period"
+   },
+   {
+    "loc": "text",
+    "q": "was higher during the Omicron BA.2/BA.5 period (13.7) than during the Delta period (8.3) (RR = 1.6; 95% CI = 1.4–1.8)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Wilcoxon rank-sum tests and chi-square tests were used to compare medians and proportions, respectively"
+   },
+   {
+    "loc": "text",
+    "q": "Rate ratios (RRs) and 95% CIs were calculated."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "rate per 100,000",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Number of patients with a laboratory-confirmed COVID-19–associated hospitalization per 100,000 population."
+    }
+   ]
+  },
+  {
+   "v": "RR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rate ratios (RRs) and 95% CIs were calculated."
+    }
+   ]
+  },
+  {
+   "v": "weighted percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Sample sizes presented are unweighted with weighted percentages."
+    }
+   ]
+  },
+  {
+   "v": "median (IQR)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Hospitalization intervention or outcome › Length of hospital stay, days, median (IQR)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did COVID-19–associated hospitalization rates and severity among U.S. infants aged <6 months change from the Delta to Omicron variant–predominant periods?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "were analyzed to describe changes in the age distribution of COVID-19–associated hospitalizations since the Delta-predominant period"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "COVID-19–Associated Hospitalizations Among U.S. Infants Aged <6 Months"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-NET conducts population-based surveillance for laboratory-confirmed COVID-19–associated hospitalizations among residents of predefined surveillance catchment areas."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Average weekly rates and demographic and clinical characteristics of infants aged <6 months were compared across variant-predominant periods."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the Coronavirus Disease 2019–Associated Hospitalization Surveillance Network (COVID-NET)* were analyzed"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Coronavirus Disease 2019–Associated Hospitalization Surveillance Network (COVID-NET)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the Coronavirus Disease 2019–Associated Hospitalization Surveillance Network (COVID-NET)* were analyzed"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "COVID-NET, 13 States, June 2021–August 2022"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Age defines the population and strata without social-position framing; race/ethnicity appears only as a Table 1 descriptor tested across periods, not discussed.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 0,
+   "reason": "Race/ethnicity is only Table 1 composition by period; one could read the record as age-only, level 0."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "COVID-19–Associated Hospitalizations Among U.S. Infants Aged <6 Months"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Hospitalization rates from the pre-Delta period and among all other age groups are included for comparison."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race and ethnicity ¶ › Black or African American, NH"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Unknown ethnicity assumed non-Hispanic; AI/AN collapsed into 'all other races'; race tested only as composition across periods."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Proportions between the Delta variant and Omicron BA.2/BA.5 variant periods of predominance were compared with chi-square tests"
+    },
+    {
+     "loc": "table 1",
+     "q": "Race and ethnicity ¶ › Unknown race or ethnicity"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "similar to that of adults aged 65–74 years (13.8) and higher than rates in all other pediatric age groups"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "similar proportions were hospitalized with COVID-19–related symptoms among infants aged <1 month (94%), 1–2 months (97%) and 3–5 months (96%)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "Maternal vaccine effectiveness figures (52%, 38%, 80%) are cited from an earlier report and are not the article's own. Table 1 shows three periods but tests compare only Delta vs Omicron BA.2/BA.5. Race omnibus n_groups counts six categories including unknown.",
+ "view_issues": "Table 1 repeats one race/ethnicity p-value (0.10) and one sex p-value in every row. Methods footnote lists 14 states including Iowa, which was excluded from all analyses."
+}

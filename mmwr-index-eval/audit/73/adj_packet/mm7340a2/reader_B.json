@@ -1,0 +1,421 @@
+{
+ "id": "mm7340a2",
+ "reader": {
+  "label": "B"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Adjusted odds of mpox were 5.4 times as high among those who reported having condomless receptive anal sex with a person with mpox"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "condomless receptive anal sex (OR = 3.2; p = 0.006), condomless insertive anal sex (OR = 2.8; p = 0.009)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A lower proportion of case-patients (45.8%) than control patients (76.9%) reported using HIV PrEP"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "After adjusting for age, race, HIV status and HIV PrEP or ARV use, number of sexual partners, mpox vaccination status, and index month"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multilevel (mixed) logistic regression with random intercept for jurisdiction",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Multilevel logistic regression models' with a random intercept giving unadjusted and adjusted ORs → logistic (mixed); CIs model-based",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Multilevel logistic regression models were used to examine the unadjusted and adjusted odds of select types of intimate and nonintimate contact"
+    },
+    {
+     "loc": "table 2",
+     "q": "P-value calculated using logistic regression with a random intercept for jurisdiction."
+    }
+   ]
+  },
+  {
+   "name": "Pearson chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "Table 1 note names Pearson's chi-square for case vs control percentages",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "P-values comparing the percentage of case-patients to control patients by sociodemographic and health categories were calculated using Pearson’s chi-square test."
+    }
+   ]
+  },
+  {
+   "name": "Kruskal-Wallis test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "Table 1 note names Kruskal-Wallis for continuous characteristics (age, number of partners)",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "P-values for continuous variables were calculated using the Kruskal-Wallis test."
+    }
+   ]
+  },
+  {
+   "name": "top-coding of number of sexual partners at five",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "censoring of observed values at five for outliers",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "The reported number was truncated at five to account for outliers and implausible values."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "participants with close contact with a person with mpox and no condomless receptive anal sex with that person",
+  "across": [
+   "case vs control status",
+   "intimate and nonintimate close contact behaviors",
+   "mpox vaccination status",
+   "race/ethnicity"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "compared with participants who reported close contact with a person with mpox and no condomless receptive anal sex with that person"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "P-value calculated using logistic regression with a random intercept for jurisdiction."
+   },
+   {
+    "loc": "table 2",
+    "q": "Unadjusted OR (95% CI) n = 207"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "OR",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted OR (95% CI) n = 159"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Case-patient, † no. (%) § n = 150"
+    }
+   ]
+  },
+  {
+   "v": "p-value",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(OR = 5.4; p = 0.031)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "mixed effects",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "and included a random intercept for jurisdiction to account for clustering."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "condomless receptive anal sex (OR = 3.2; p = 0.006), condomless insertive anal sex (OR = 2.8; p = 0.009)"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Adjusted models included demographic and health history covariates with p<0.05 in the unadjusted models, index month, and all reported close contact behaviors."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age, race, HIV status and HIV PrEP or ARV use, number of sexual partners, mpox vaccination status, index month, and all reported close contact behaviors",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "After adjusting for age, race, HIV status and HIV PrEP or ARV use, number of sexual partners, mpox vaccination status, and index month"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Among MSM and transgender adults with close contact with a person with mpox, which intimate and nonintimate contact types are associated with mpox?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Odds of mpox associated with selected types of intimate and nonintimate close contact with a person with mpox were estimated."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "mpox",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Risk of Clade II Mpox Associated with Intimate and Nonintimate Close Contact Among Men Who Have Sex with Men and Transgender Adults"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "case-control",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A secondary analysis was conducted using data previously collected for a vaccine effectiveness (VE) case-control study using patient self-reported survey data"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Eligible participants completed a survey online or by telephone in English or Spanish."
+    }
+   ]
+  },
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were identified through jurisdiction health departments’ case registries."
+    }
+   ]
+  },
+  {
+   "v": "vaccination registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "mpox vaccination history (verified using jurisdiction vaccination registries, where available)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "multijurisdictional mpox vaccine effectiveness case-control study",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "This report used data from a multijurisdictional vaccine effectiveness case-control study"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "using data from 12 U.S. jurisdictions."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Race/ethnicity and gender identity enter as covariates and Table 1 descriptors; race-specific ORs appear only in Table 2 as model byproducts and are not discussed. MSM/transgender status and age define the population.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 2,
+   "reason": "Table 2 reports race-specific ORs vs White with CIs and Table 1 tests race distribution, which could count as group-specific results capped at 2."
+  },
+  "dimensions": [
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "population",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "sexually active persons aged 18–49 years who identified as MSM or transgender"
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "covariate",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The unadjusted models examined demographic characteristics (age, race, and gender identity)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "After adjusting for age, race, HIV status and HIV PrEP or ARV use"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race and ethnicity †† › Hispanic or Latino"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "sexually active persons aged 18–49 years who identified as MSM or transgender"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "After adjusting for age, race, HIV status and HIV PrEP or ARV use"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity has four groups with Asian, NH/PI and AI/AN collapsed into Other; White is the referent. Gender identity was dropped from adjusted models; transgender male had no participants."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "P-values comparing the percentage of case-patients to control patients by sociodemographic and health categories were calculated using Pearson’s chi-square test."
+    },
+    {
+     "loc": "table 2",
+     "q": "Race and ethnicity § › Hispanic or Latino"
+    }
+   ]
+  },
+  {
+   "across": [
+    "sexual orientation and gender identity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Gender identity › Another gender identity"
+    },
+    {
+     "loc": "table 1",
+     "q": "P-values comparing the percentage of case-patients to control patients by sociodemographic and health categories were calculated using Pearson’s chi-square test."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise"
+ ],
+ "confidence": "high",
+ "notes": "Controls were frequency matched on index timing and region in the parent VE study; index month is adjusted for. Covariates were selected by p<0.05 in unadjusted models. Gender identity groupwise count excludes transgender male (no participants).",
+ "view_issues": "article.txt row lists mis-nest STI history under immunocompromising condition and number of partners under gender identity; the CSV is correct. Adjusted model n=159 vs 207 unexplained. Article is marked corrected after publication."
+}

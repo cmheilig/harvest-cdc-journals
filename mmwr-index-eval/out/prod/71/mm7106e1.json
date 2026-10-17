@@ -1,0 +1,380 @@
+{
+ "id": "mm7106e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8Gvkt4AZSCC2cQemsb1",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Always using a face mask or respirator in indoor public settings was associated with lower adjusted odds of a positive test result"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "393 (60.3%) case-participants and 819 (69.6%) control-participants reported always wearing a face mask or respirator in indoor public settings"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Adjusted odds ratios comparing history of mask-wearing among case- and control-participants were calculated using conditional logistic regression."
+    },
+    {
+     "loc": "text",
+     "q": "Match strata were defined by participants’ week of SARS-CoV-2 testing and by county-level SARS-CoV-2 risk tiers"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "conditional logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'conditional logistic regression' giving unadjusted and adjusted ORs within match strata → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Adjusted odds ratios comparing history of mask-wearing among case- and control-participants were calculated using conditional logistic regression."
+    }
+   ]
+  },
+  {
+   "name": "Wald test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated two-sided Wald tests with p-values reported in Tables 2 and 3",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Statistical significance was defined by two-sided Wald tests with p-values <0.05."
+    }
+   ]
+  },
+  {
+   "name": "multiple imputation of missing covariates",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "imputed values enter a sensitivity re-estimation only; main models are complete case",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "A sensitivity analysis using multiple imputation of missing covariate values obtained results similar to those reported in the table"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "never wearing a face mask or respirator (no mask use)",
+  "across": [
+   "frequency of face mask or respirator use",
+   "type of face mask or respirator"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Use of respirators with higher filtration capacity was associated with the most protection, compared with no mask use."
+   },
+   {
+    "loc": "table 2",
+    "q": "Abbreviation: Ref = referent group."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Statistical significance was defined by two-sided Wald tests with p-values <0.05."
+   },
+   {
+    "loc": "text",
+    "q": "(aOR = 0.44; 95% CI = 0.24–0.82)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "aOR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(aOR = 0.44; 95% CI = 0.24–0.82)"
+    }
+   ]
+  },
+  {
+   "v": "unadjusted odds ratio",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Odds ratio (95% CI) › Unadjusted † [p-value]"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "44 (6.7%) case-participants and 42 (3.6%) control-participants reported never wearing a face mask or respirator"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "conditional (matched)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Conditional logistic regression models were used to estimate the unadjusted odds of mask use"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Odds ratio (95% CI) › Unadjusted † [p-value]"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "adjusting for COVID-19 vaccination status, household income, race/ethnicity, age group, sex, state region, and county population density."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "COVID-19 vaccination status, household income, race/ethnicity, age group, sex, state region, county population density; Table 3 models also known or suspected contact",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "adjusting for COVID-19 vaccination status, household income, race/ethnicity, age group, sex, state region, and county population density."
+    },
+    {
+     "loc": "table 3",
+     "q": "Instead, models adjusted for history of known or suspected contact as a covariate."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "An additional sensitivity analysis was conducted with additional adjustment for the reasons for SARS-CoV-2 testing as listed in Table 1"
+    },
+    {
+     "loc": "table 3",
+     "q": "In a sensitivity analysis restricting to participants who did not report known or suspected contact (N = 316)"
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "Is consistent use, and the type, of face mask or respirator in indoor public settings associated with lower odds of SARS-CoV-2 infection?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "few studies have assessed their real-world effectiveness in preventing acquisition of SARS-CoV-2 infection"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Effectiveness of Face Mask or Respirator Use in Indoor Public Settings for Prevention of SARS-CoV-2 Infection"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "test-negative",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A test-negative design case-control study enrolled randomly selected California residents who had received a test result for SARS-CoV-2"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "record abstraction or interview",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "interviewers administered a telephone questionnaire in English or Spanish."
+    }
+   ]
+  },
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "recorded for each participant in the California Reportable Disease Registry."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "California Reportable Disease Registry",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "recorded for each participant in the California Reportable Disease Registry."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "from among all California residents, without age restriction, who received a molecular test result for SARS-CoV-2"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Race/ethnicity and household income appear only as model covariates and Table 1 descriptors; age and sex are matching and adjustment variables. No group-specific results by an SPD are reported.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 0,
+   "reason": "If Table 1 descriptors and covariates were treated as population description only, no SPD would raise the level."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "adjusting for COVID-19 vaccination status, household income, race/ethnicity, age group, sex"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race/Ethnicity › Black, non-Hispanic"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "household income"
+    ],
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "adjusting for COVID-19 vaccination status, household income, race/ethnicity, age group, sex"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "annual household income"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Annual household income › <$50,000"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "interviewers enrolled one control-participant matched by age group, sex, and state region"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "interviewers enrolled one control-participant matched by age group, sex, and state region"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity and income are adjustment covariates only; 'Refused' and 'Not sure' income categories retained; county population density is an area covariate, not framed as rurality."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "comparison"
+ ],
+ "confidence": "high",
+ "notes": "Design named as test-negative case-control. Adjusted models are complete-case (454 cases, 789 controls); the mask-type analysis (Table 3) adjusts for known contact rather than restricting. Access to high-quality masks appears only as a recommendation.",
+ "view_issues": "Enrollment matching is by age group, sex and region, but model match strata are week of testing and reopening tier; age, sex and region are entered as covariates. Text calls rising aORs 'stepwise reductions in protection'."
+}

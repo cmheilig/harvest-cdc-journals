@@ -1,0 +1,333 @@
+{
+ "id": "mm7245a6",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg7nFKGLnURenUGGo7j5M",
+  "batch_id": "msgbatch_01FaGSxRvLPM3Hp7zgHNqiVG"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "the percentage of HCP vaccinated against influenza decreased to 85.9% in 2020–21 and 81.1% in 2022–23."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During the six-season period, overall pooled influenza vaccination coverage among HCP was 85.8%."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During the six-season period, overall pooled influenza vaccination coverage among HCP was 85.8%."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Influenza vaccination among HCP increased during the prepandemic period from 88.6% during 2017–18 to 90.7% during 2019–20."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "When controlled for HCP type and urbanicity, HCP were significantly less likely to be vaccinated against influenza during the pandemic"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "logistic regression with generalized estimating equations",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'logistic regression model with generalized estimating equations' giving ORs → logistic; GEE for facility clustering",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A logistic regression model with generalized estimating equations was developed to assess differences in influenza vaccination coverage"
+    },
+    {
+     "loc": "table 2",
+     "q": "Based on a generalized estimating equations model, controlling for health care provider type and urbanicity."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based CIs from the GEE logistic regression judged against 1",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "P-values <0.05 and 95% CI that excluded 1 were considered statistically significant."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "2017–18 season (seasons); employees (HCP type); rural (urbanicity)",
+  "across": [
+   "influenza season / pandemic period",
+   "HCP type",
+   "urbanicity of hospital location"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "were less likely to be vaccinated against influenza during the COVID-19 pandemic"
+   },
+   {
+    "loc": "text",
+    "q": "with the 2017–18 season set as the reference season."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "odds ratios (OR) and 95% CI were calculated. P-values <0.05 and 95% CI that excluded 1 were considered statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "vaccination coverage, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Vaccination coverage, %"
+    }
+   ]
+  },
+  {
+   "v": "facility-level coverage, median (IQR)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Facility-level coverage, %, median (IQR)"
+    }
+   ]
+  },
+  {
+   "v": "odds ratio",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Odds ratio (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "GEE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A logistic regression model with generalized estimating equations was developed"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "controlling for health care provider type and urbanicity."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "HCP type, urbanicity of hospital location, influenza season",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "three levels of urbanicity of the hospital location (urban, suburban, and rural),"
+    },
+    {
+     "loc": "table 2",
+     "q": "controlling for health care provider type and urbanicity."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Did influenza vaccination coverage among HCP in U.S. acute care hospitals change from before to during the COVID-19 pandemic?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "This analysis used NHSN data to describe changes in influenza vaccination coverage among HCP in acute care hospitals before and during the COVID-19 pandemic."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "influenza",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Declines in Influenza Vaccination Coverage Among Health Care Personnel in Acute Care Hospitals During the COVID-19 Pandemic"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This study of a large national surveillance system found that influenza vaccination coverage among HCP in acute care hospitals has declined"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "to describe annual changes in influenza vaccination coverage among HCP before and during the COVID-19 pandemic."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "acute care hospitals report aggregate facility-level influenza vaccination data among HCP"
+    },
+    {
+     "loc": "summary",
+     "q": "acute care hospitals report receipt of influenza vaccination among HCP to CDC’s National Healthcare Safety Network (NHSN)."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Healthcare Safety Network (NHSN)",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "acute care hospitals report receipt of influenza vaccination among HCP to CDC’s National Healthcare Safety Network (NHSN)."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, 2017–2023"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "the percentage of HCP vaccinated against influenza decreased to 85.9% in 2020–21 and 81.1% in 2022–23."
+   }
+  ]
+ },
+ "equity": {
+  "level": 1,
+  "level_reason": "Urbanicity is a hospital-location attribute (rurality of non-human units) and HCP type is occupational, so neither is an SPD; race, ethnicity and age appear only in a limitation.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 2,
+   "reason": "If urbanicity of the HCP's work location is read as rurality, rural vs suburban/urban ORs are reported and discussed but not framed as a disparity."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "vaccination coverage could not be stratified by person-level covariates including age, race, or ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "vaccination coverage could not be stratified by person-level covariates including age, race, or ethnicity"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Aggregate facility-level data; no person-level race, ethnicity or age. Urbanicity (NCHS county scheme) describes hospital location, referent rural."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "equity.level",
+  "equity.dimensions",
+  "groupwise",
+  "procedures"
+ ],
+ "confidence": "medium",
+ "notes": "Facility-level medians and IQRs are descriptive. If hospital urbanicity were taken as rurality, a groupwise entry (3 ordered groups, per-group vs referent only) would follow. Season ORs vs 2017–18 underlie the pandemic-period claim.",
+ "view_issues": "Text gives student trainee/volunteer OR = 0.98 (95% CI 0.81–0.98); Table 2 gives 0.89 (0.81–0.98). Methods say 'nonemployee licensed practitioner', results 'licensed independent practitioners'. Footnotes *** and ††† appear swapped."
+}

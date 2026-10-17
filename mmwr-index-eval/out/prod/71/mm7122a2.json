@@ -1,0 +1,337 @@
+{
+ "id": "mm7122a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8Ljj17JriY8XtNSkiBD",
+  "batch_id": "msgbatch_01223jmKkoKoihZVXHvJ1Q2r"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The age-adjusted COVID-19 incidence was 26,583 per 100,000 persons among AI/AN persons compared with 11,935 among White persons (RR = 2.23)"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The age-adjusted COVID-19 incidence was 26,583 per 100,000 persons among AI/AN persons compared with 11,935 among White persons (RR = 2.23)"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "more were female (52.5%) compared with those of all other races (47.9%)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The age-adjusted COVID-19–associated hospitalization rate was 742 per 100,000 among AI/AN persons compared with 273 among White persons (RR = 2.72)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates were calculated by age group and race, using the direct method standardized to the U.S. 2000 standard population"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "'direct method standardized to the U.S. 2000 standard population' gives every age-adjusted rate and RR",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates were calculated by age group and race, using the direct method standardized to the U.S. 2000 standard population"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "RR CIs excluding 1 judged significant; CI method for RRs not stated (rate CIs are gamma-based)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "RRs were calculated using age-adjusted rates, with White persons as the referent group; corresponding 95% CIs that excluded 1 were considered statistically significant."
+    },
+    {
+     "loc": "text",
+     "q": "In Alaska, AI/AN persons had significantly higher adjusted rates of COVID-19, COVID-19–associated hospitalization, and COVID-19–related deaths compared with rates among White persons."
+    }
+   ]
+  },
+  {
+   "name": "Fisher's exact test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named for bivariate analyses; no p-values reported, presumably behind Table 1 characteristic comparisons",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Bivariate analyses used Fisher’s exact test given the lack of normality of the underlying data; p-values <0.05 were considered statistically significant."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "White persons",
+  "across": [
+   "race/ethnicity"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Rate ratios for age-adjusted case, hospitalization, and mortality rates for AI/AN persons compared with White persons in 2020 and 2021 were 2.2, 2.7, and 2.9"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Corresponding 95% CIs were calculated based on the gamma distribution"
+   },
+   {
+    "loc": "text",
+    "q": "Bivariate analyses used Fisher’s exact test given the lack of normality of the underlying data"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted rate per 100,000",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Incidence † (95% CI) › Age-adjusted"
+    }
+   ]
+  },
+  {
+   "v": "rate ratio",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Rate ratio (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. (%)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How much higher are age-adjusted COVID-19 case, hospitalization, and death rates among AI/AN persons than among White persons in Alaska during 2020–2021?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To examine the extent of COVID-19–associated disparities among AI/AN persons living in Alaska"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "COVID-19 Cases, Hospitalizations, and Deaths Among American Indian or Alaska Native Persons — Alaska, 2020–2021"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A retrospective analysis was conducted of COVID-19 incidence, and associated hospitalizations and deaths in Alaska reported to AKDHSS Section of Epidemiology"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "cases reported to the Alaska Department of Health and Social Services (AKDHSS)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Alaska Department of Health and Social Services (AKDHSS) Section of Epidemiology limited data set",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data analyzed consisted of a limited data set received through a data sharing agreement with AKDHSS Section of Epidemiology."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "COVID-19 Cases, Hospitalizations, and Deaths Among American Indian or Alaska Native Persons — Alaska, 2020–2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "AI/AN vs White disparities in age-adjusted rates are framed, quantified as rate ratios (2.23, 2.72, 2.86) and interpreted; historical trauma, structural racism and rural remoteness limiting access to care are named as explanations.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The determinants are cited from literature in the Discussion, not measured or analyzed."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "RRs were calculated using age-adjusted rates, with White persons as the referent group"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Population proportions and age-adjusted COVID-19 case, hospitalization, and mortality rates were calculated to account for differences in underlying population age distributions."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "those who were AI/AN were younger (70.1% aged <40 years) compared with those of all other races (59.0% aged <40 years)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "approximately one half of the state’s AI/AN population (AI/AN race alone or in combination with another race) live in remote rural areas"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "historical trauma; structural racism; living in rural and remote areas with decreased access to health care",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Historical trauma and structural racism negatively affect the health and well-being of AI/AN persons"
+    },
+    {
+     "loc": "text",
+     "q": "living in rural and remote areas can result in increased health risks and decreased access to and use of health care"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referent is White race alone; AI/AN is alone or in combination; Asian, Black, NHPI and multiracial are collapsed into Other; race unknown for 24.9% of cases, tested by a sensitivity analysis recoding unknown as White."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Abbreviations: AI/AN = American Indian or Alaska Native; Ref = referent group."
+    },
+    {
+     "loc": "text",
+     "q": "Among persons of other races, the age-adjusted COVID-19 incidence was 18,268 per 100,000 persons"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "study_design",
+  "outcome_types"
+ ],
+ "confidence": "high",
+ "notes": "Design named only as 'retrospective analysis' of surveillance data; mapped to surveillance/descriptive. A sensitivity analysis recoding unknown race as White recomputes RRs (cases 1.31, hospitalizations 2.18, deaths 2.62); no schema field outside regression. Fisher's exact test results are not reported.",
+ "view_issues": "Concluding sentence says 'compared with other races' though the referent is White; Other persons' hospitalization RR (2.84) exceeds AI/AN's but is not discussed. Sensitivity case RR (1.31) is much lower than 2.23 and not discussed. 'R (version 1.2.5001; RStudio)' is an RStudio version."
+}

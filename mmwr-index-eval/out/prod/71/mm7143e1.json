@@ -1,0 +1,507 @@
+{
+ "id": "mm7143e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GvkGMJBkqrsajoNKwG",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Overall vaccination coverage in the 2021–22 influenza season was 49.4% among adults aged ≥18 years and varied by race and ethnicity."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "age-adjusted influenza hospitalization rates (hospitalizations per 100,000 population) were higher among non-Hispanic Black (Black) (rate ratio [RR] = 1.8)"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Coverage was higher among White adults (53.9%) than among AI/AN (40.9%), Hispanic (37.9%), Black (42.0%)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall vaccination coverage in the 2021–22 influenza season was 49.4% among adults aged ≥18 years and varied by race and ethnicity."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Coverage was higher among White adults (53.9%) than among AI/AN (40.9%), Hispanic (37.9%), Black (42.0%)"
+    },
+    {
+     "loc": "text",
+     "q": "Between the 2020–21 and 2021–22 seasons, coverage decreased among all adults by 0.8 percentage points"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Unadjusted rates by race, ethnicity, and age group were multiplied by the age distribution of the total FluSurv-NET catchment population to obtain age-adjusted rates"
+    },
+    {
+     "loc": "text",
+     "q": "among adults with medical insurance, a personal health care provider, and a routine medical checkup in the past year"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "stratum rates multiplied by the catchment population's age distribution; direct standardization via SAS STDRATE",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Unadjusted rates by race, ethnicity, and age group were multiplied by the age distribution of the total FluSurv-NET catchment population to obtain age-adjusted rates"
+    }
+   ]
+  },
+  {
+   "name": "Kaplan-Meier estimation of vaccination coverage",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "coverage computed as cumulative proportion vaccinated by Kaplan-Meier from reported month and year of vaccination",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Vaccination coverage estimates were calculated using Kaplan-Meier survival analysis, as previously described"
+    }
+   ]
+  },
+  {
+   "name": "BRFSS survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated weighted estimates analyzed in SUDAAN for the complex survey design",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All estimates were weighted and analyzed using SAS (version 9.4; SAS Institute) and SAS-callable SUDAAN"
+    },
+    {
+     "loc": "text",
+     "q": "to account for the complex survey design"
+    }
+   ]
+  },
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named t-tests with p<0.05; coverage CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Differences between estimates were determined using t-tests with p-values <0.05 considered statistically significant."
+    },
+    {
+     "loc": "table 1",
+     "q": "§ p<0.05 when compared with non-Hispanic White (column comparisons)."
+    }
+   ]
+  },
+  {
+   "name": "FluSurv-NET 2017–18 sampling weights",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "race/ethnicity collected on a stratified random sample in one season; weighted counts",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "sampling weights were used to calculate the weighted number of hospitalizations by race and ethnicity that season"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "both",
+  "referent": "White adults",
+  "across": [
+   "race/ethnicity",
+   "influenza season",
+   "age group",
+   "education level",
+   "medical insurance",
+   "personal health care provider",
+   "routine checkup",
+   "U.S. Census region"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "rates were higher among Black (RR = 1.8), AI/AN (RR = 1.3), and Hispanic adults (RR = 1.2)"
+   },
+   {
+    "loc": "table 1",
+    "q": "§ p<0.05 when compared with non-Hispanic White (column comparisons)."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "95% CIs were calculated assuming a simple random sample design and a normal distribution via the SAS STDRATE procedure"
+   },
+   {
+    "loc": "text",
+    "q": "Differences between estimates were determined using t-tests with p-values <0.05 considered statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted hospitalization rate per 100,000",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Hospitalizations per 100,000 population."
+    }
+   ]
+  },
+  {
+   "v": "rate ratio (RR)",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "age-adjusted influenza hospitalization rates (hospitalizations per 100,000 population) were higher among non-Hispanic Black (Black) (rate ratio [RR] = 1.8)"
+    }
+   ]
+  },
+  {
+   "v": "influenza vaccination coverage, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Influenza vaccination coverage, % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "percentage points",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Between the 2020–21 and 2021–22 seasons, coverage decreased among all adults by 0.8 percentage points"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How have influenza hospitalization rates and influenza vaccination coverage among U.S. adults differed by race and ethnicity from 2009–10 through 2021–22, and does the coverage disparity persist within access-to-care strata?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "This report examines influenza hospitalization and vaccination rates by race and ethnicity during a 12–13-year period (through the 2021–22 influenza season)."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "influenza",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Vital Signs: Influenza Hospitalizations and Vaccination Coverage by Race and Ethnicity"
+    }
+   ]
+  },
+  {
+   "v": "influenza",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Vaccination coverage estimates were calculated using Kaplan-Meier survival analysis, as previously described"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Data from population-based surveillance for laboratory-confirmed influenza-associated hospitalizations in selected states"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "trends in influenza vaccination coverage by race and ethnicity from the 2010–11 through 2021–22 seasons"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "FluSurv-NET conducts all-age, population-based surveillance for laboratory-confirmed influenza-associated hospitalizations in selected states"
+    }
+   ]
+  },
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "BRFSS data for adults aged ≥18 years were analyzed to estimate influenza vaccination coverage"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Influenza-Associated Hospitalization Surveillance Network (FluSurv-NET)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The Influenza-Associated Hospitalization Surveillance Network (FluSurv-NET) has been previously described"
+    }
+   ]
+  },
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The Behavioral Risk Factor Surveillance System (BRFSS) is a state-based random-digit–dialed cellular and landline telephone survey"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "in selected states representing approximately 8%–9% of the U.S. population"
+   },
+   {
+    "loc": "table 1",
+    "q": "Behavioral Risk Factor Surveillance System, United States, 2021–22 influenza season"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During the 2021–22 season, influenza vaccination coverage was lower among Hispanic (37.9%), AI/AN (40.9%), Black (42.0%)"
+   }
+  ]
+ },
+ "equity": {
+  "level": 4,
+  "level_reason": "Racial and ethnic disparities in hospitalization and coverage are framed, quantified (RRs 1.2–1.8; up to 2.7 times) and interpreted; access to care is analyzed as strata, and structural racism, health care access barriers, poverty and crowded housing are named as explanations.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The structural determinants are offered from cited literature rather than analyzed; only access proxies are measured."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Influenza Hospitalizations and Vaccination Coverage by Race and Ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "medical insurance",
+     "education level"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Medical insurance › No"
+     },
+     {
+      "loc": "table 1",
+      "q": "Education level › High school or less"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "BRFSS data for adults aged ≥18 years were analyzed to estimate influenza vaccination coverage"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "vaccination coverage among all racial and ethnic groups was higher among adults aged ≥65 years than among younger adults"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "structural racism; barriers to affordable, quality health care (health insurance, transportation, child care); access to vaccination; distrust of the medical system; poverty; crowded housing",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "downstream effects of structural racism have been demonstrated to affect economic stability, housing, and education"
+    },
+    {
+     "loc": "text",
+     "q": "might face barriers to affordable, quality health care, including access to health insurance, transportation to health providers, and child care"
+    },
+    {
+     "loc": "text",
+     "q": "suggests that access to influenza vaccination likely plays a role in lower coverage among these groups"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referent is White adults. FluSurv-NET excludes multiracial and unknown-race persons and combines Asian/Pacific Islander; 17% with unknown ethnicity assumed non-Hispanic. BRFSS groups NH/OPI with other/multiple race. Insurance, provider and checkup serve as access proxies."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "rates were higher among Black (RR = 1.8), AI/AN (RR = 1.3), and Hispanic adults (RR = 1.2)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "§ p<0.05 when compared with non-Hispanic White (column comparisons)."
+    },
+    {
+     "loc": "text",
+     "q": "Coverage was higher among White adults (53.9%) than among AI/AN (40.9%), Hispanic (37.9%), Black (42.0%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group, yrs › ≥65 (Ref)"
+    },
+    {
+     "loc": "table 1",
+     "q": "¶ p<0.05 when compared with referent category (row comparisons)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Education level › College (Ref)"
+    },
+    {
+     "loc": "table 1",
+     "q": "¶ p<0.05 when compared with referent category (row comparisons)."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "study_design"
+ ],
+ "confidence": "high",
+ "notes": "Design inferred (no design named): surveillance plus trend across seasons. RR CIs appear only in a supplementary table, so no CI-inversion test is recorded for hospitalization contrasts. The cited campaign survey (concerns fell 43% to 33%) is not the article's own analysis.",
+ "view_issues": "Table CSV has an extra empty column under Other/Multiple races, shifting its coverage column. FluSurv-NET reports Asian/Pacific Islander combined, while BRFSS reports Asian separately."
+}

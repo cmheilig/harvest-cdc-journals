@@ -1,0 +1,470 @@
+{
+ "id": "mm7110e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GvjagAcRb2CC9jH7iH",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "districts with universal mask requirements had a 23% lower incidence of COVID-19 among staff members and students compared with districts without mask requirements"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "incidence among students and staff members decreased by 479.7 per 100,000 (p<0.01) upon implementation of the mask policy"
+    },
+    {
+     "loc": "table 1",
+     "q": "Adjusted IRR (95% CI)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-19 incidence among students and staff members was 23% lower in districts with full mask policies than in districts with no mask policy"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Multivariable adjusted IRRs, which included adjustment for vaccination coverage, indicated that districts with full mask requirements had 23% lower COVID-19 incidence"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "negative binomial GEE (adjusted IRRs and observed-to-expected models)",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'negative binomial generalized estimating equation models' with log population (or expected-count) offset → loglinear; GEE with AR(1) correlation",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using negative binomial generalized estimating equation models with autoregressive correlation structure"
+    },
+    {
+     "loc": "note",
+     "q": "Models used an autoregressive correlation structure of order 1 with a log population offset."
+    }
+   ]
+  },
+  {
+   "name": "observed-to-expected ratio (expected from community incidence)",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "expected school cases = school population × community rate, an indirect-standardization (SMR-type) ratio",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "ratios of observed-to-expected numbers of cases were estimated by district (given the underlying weekly community COVID-19 incidence)"
+    }
+   ]
+  },
+  {
+   "name": "comparative interrupted time series (OLS)",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "'estimated using ordinary least-squares' with time, post and treatment interaction terms → linear",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "associations between mask policy and COVID-19 incidence were estimated using a comparative interrupted time series model among students and staff members"
+    },
+    {
+     "loc": "note",
+     "q": "the following regression specification was estimated using ordinary least-squares and standard errors"
+    }
+   ]
+  },
+  {
+   "name": "bootstrap",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "Figure 1 mean observed-to-expected ratios from 5,000 bootstrap samples",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "The mean estimates were calculated by drawing 5,000 random bootstrap samples from the dataset and averaging over all school districts"
+    }
+   ]
+  },
+  {
+   "name": "2-week moving average of community cases",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "smoothing of community case counts used for expected cases",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "the community cases for a given week is a 2-week moving average of cases during the same week as the school cases"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based CIs from the negative binomial GEE; partial-policy IRR CIs include 1 and O/E CIs exclude 1, with conclusions drawn",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "IRRs comparing districts with partial mask policies with those with no mask policy were not statistically significant"
+    },
+    {
+     "loc": "text",
+     "q": "Ratios comparing observed-to-expected cases among students and staff members exceeded 1.0 for all groups"
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'did not significantly differ' for stratified vs unstratified estimates; no test named",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Adjusted student estimates stratified by vaccine-eligible (grades 7–12) and -ineligible (K–6) grade levels did not significantly differ from the unstratified estimates."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "both",
+  "referent": "districts with no mask requirement",
+  "across": [
+   "mask policy",
+   "period (pre/post mask policy)",
+   "students and staff vs community",
+   "grade level",
+   "student vaccination coverage"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "districts with universal mask requirements had a 23% lower incidence of COVID-19 among staff members and students compared with districts without mask requirements"
+   },
+   {
+    "loc": "text",
+    "q": "estimated difference in point reduction = 375.0 per 100,000; p<0.01"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "IRRs and 95% CIs were used to compare districts with full or partial mask requirements to those with no mask requirements"
+   },
+   {
+    "loc": "text",
+    "q": "Statistical significance was defined as p<0.05."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "adjusted IRR",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Adjusted IRR (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "ratio of observed-to-expected cases",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "ratios of observed-to-expected numbers of cases, by district were calculated"
+    }
+   ]
+  },
+  {
+   "v": "incidence per 100,000",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "decreased over time from 745 per 100,000 (August 29–September 4) to 137 per 100,000 (October 10–16)"
+    }
+   ]
+  },
+  {
+   "v": "estimated point reduction in incidence",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "estimated point reduction in incidence = 479.7 per 100,000; p<0.01"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "GEE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using negative binomial generalized estimating equation models with autoregressive correlation structure"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "IRRs and ratios of observed-to-expected case numbers were adjusted for district-wide weekly COVID-19 non–school-associated (community) attack rates"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "week of school; community COVID-19 incidence in preceding week; student and staff vaccination coverage in previous week; percentage of students receiving free or reduced-cost lunch (2019)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusted for district-wide weekly COVID-19 non–school-associated (community) attack rates, district-wide weekly staff member and student vaccination coverage"
+    },
+    {
+     "loc": "table 1",
+     "q": "and percentage of students in the district receiving free or reduced-cost lunch in 2019"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "note",
+     "q": "These three interaction terms were used to determine whether pre- to postimplementation period changes in incidence rates differed"
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Analyses with 0-, 2-, and 3-week lag times were consistent with the initial analysis."
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "Were K–12 school district mask policies in Arkansas associated with lower COVID-19 incidence among students and staff members during fall 2021?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To identify any association between mask policies and COVID-19 incidence"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "SARS-CoV-2 Incidence in K–12 School Districts with Mask-Required Versus Mask-Optional Policies"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "ecologic",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "First, this was an ecologic study"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "incidence in districts that switched from no mask requirement to any mask requirement were compared before and after implementation of the mask policy"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "District-level data were compiled from the Arkansas Department of Health’s (ADH’s) COVID-19 surveillance database and immunization registry"
+    }
+   ]
+  },
+  {
+   "v": "vaccination registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Weekly district-level vaccination coverage rates among students and staff members were calculated from the ADH immunization registry"
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Arkansas Center for Health Improvement’s mask policy database, and Arkansas Department of Education’s 2021–22 enrollment and 2019 free or reduced-cost school lunch databases"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "ADH COVID-19 surveillance database",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Arkansas Department of Health’s (ADH’s) COVID-19 surveillance database and immunization registry"
+    }
+   ]
+  },
+  {
+   "v": "ADH immunization registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "calculated from the ADH immunization registry"
+    }
+   ]
+  },
+  {
+   "v": "Arkansas Center for Health Improvement mask policy database",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Arkansas Center for Health Improvement’s mask policy database"
+    }
+   ]
+  },
+  {
+   "v": "Arkansas Department of Education enrollment and free or reduced-cost school lunch databases",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Arkansas Department of Education’s 2021–22 enrollment and 2019 free or reduced-cost school lunch databases"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Arkansas, August–October 2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Free or reduced-cost lunch, a stated SES proxy, enters only as a model covariate; grade-level strata (age) are not framed as social position.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 0,
+   "reason": "If the lunch proxy is read as a district-level adjustment rather than an SPD, only age (grade level) remains, which is level 0."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "free or reduced-cost school lunch"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "the proportion of students receiving free or reduced-cost school lunches (as a proxy for socioeconomic status and educational disadvantage)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "SARS-CoV-2 Incidence in K–12 School Districts with Mask-Required Versus Mask-Optional Policies"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Stratification by school level (grades K–5, 6–8, and 9–12) did not change the main results"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "SES measured at district level by 2019 free or reduced-cost lunch proportion, used only for adjustment."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "procedures",
+  "regression_fields"
+ ],
+ "confidence": "high",
+ "notes": "The two negative binomial GEE models (IRR model with population offset; observed-to-expected model with expected-count offset) are recorded as one procedure. No crude IRRs are reported; the CITS model has only design terms but addresses a different (pre/post) contrast, so unadjusted_results is false. Grade-level strata compare mask policies within each grade level, so no groupwise entry.",
+ "view_issues": "Text calls vaccine-ineligible grades K–6, the table note says K–5 ineligible and 7–12 eligible. The CITS footnote states OLS estimation yet also an autoregressive covariance structure."
+}

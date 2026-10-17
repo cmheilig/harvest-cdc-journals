@@ -1,0 +1,552 @@
+{
+ "id": "mm7105a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8Gvij5FSUThQSCFckcq",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Responses were dichotomized into fair/poor versus good, very good, or excellent."
+    },
+    {
+     "loc": "text",
+     "q": "the prevalence of reporting fair/poor physical health was significantly higher in medium/small urban (31.1%), metro-adjacent rural (40.2%), and remote rural (34.0%) counties"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the prevalence of reporting fair/poor physical health was significantly higher in medium/small urban (31.1%), metro-adjacent rural (40.2%), and remote rural (34.0%) counties"
+    },
+    {
+     "loc": "text",
+     "q": "than in large urban counties (23.4%)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a significantly higher probability of reporting fair/poor health persisted among residents of metro-adjacent rural counties"
+    },
+    {
+     "loc": "text",
+     "q": "Individual-level covariates included sex, age, race/ethnicity, marital status, household income, education, health insurance coverage, and employment status."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "weighted logistic regression with predicted probabilities",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Logistic regression analyses predicting self-reported fair/poor physical health' → logistic; predicted probabilities and p-values vs referent come from the model; clustered SEs for states",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Logistic regression analyses predicting self-reported fair/poor physical health with clustered standard errors for states were used to calculate predicted probabilities"
+    }
+   ]
+  },
+  {
+   "name": "poststratification weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated poststratification weights applied to all analyses",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Poststratification demographic weights were used to allow generalizability to the broader U.S. working-aged population."
+    },
+    {
+     "loc": "text",
+     "q": "All analyses were weighted with the poststratification weight and conducted using SAS software"
+    }
+   ]
+  },
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "Table 1 reports a chi-square statistic and p-value for each characteristic across the four county classes",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "County classification (weighted unadjusted %) › Chi-square statistic"
+    },
+    {
+     "loc": "text",
+     "q": "residents of metro-adjacent and remote rural counties were significantly more likely than residents of large urban counties to be on disability"
+    }
+   ]
+  },
+  {
+   "name": "c-statistic (goodness of fit)",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "c-statistic reported for unadjusted and adjusted models",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "The c-statistic is a measure of goodness of fit for binary outcomes and ranges from 0.5 to 1.0."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": "large urban counties",
+  "across": [
+   "rural-urban status",
+   "employment status",
+   "educational attainment",
+   "household income",
+   "sex",
+   "age group",
+   "race/ethnicity",
+   "marital status",
+   "health insurance"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During 2021, working-aged adults in small/medium urban counties and rural counties reported worse physical health compared with residents of large urban counties."
+   },
+   {
+    "loc": "table 2",
+    "q": "Rural-urban status † › Large urban"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Logistic regression analyses predicting self-reported fair/poor physical health with clustered standard errors for states were used to calculate predicted probabilities"
+   },
+   {
+    "loc": "table 1",
+    "q": "County classification (weighted unadjusted %) › Chi-square statistic"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted unadjusted %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "County classification (weighted unadjusted %)"
+    }
+   ]
+  },
+  {
+   "v": "adjusted predicted probability (%)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Adjusted probabilities were higher among the following comparison groups"
+    }
+   ]
+  },
+  {
+   "v": "c-statistic",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Income, USD › c-statistic §"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "clustered or robust SE",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "adjusted for clustered SEs for states."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "by unadjusted and adjusted probabilities of reporting fair/poor physical health"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Predicted probabilities of self-rated fair/poor physical health in the fully adjusted model"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "sex, age, race/ethnicity, marital status, household income, education, health insurance coverage, employment status, perceived impact of COVID-19",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Individual-level covariates included sex, age, race/ethnicity, marital status, household income, education, health insurance coverage, and employment status."
+    },
+    {
+     "loc": "text",
+     "q": "models also control for respondents’ perceived impact of COVID-19 on their lives."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Does self-rated fair/poor physical health among U.S. working-aged adults differ along the rural-urban continuum, and do socioeconomic factors explain the differences?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to examine differences in self-rated physical health among residents of large urban; medium/small urban; metro-adjacent rural; and remote rural counties."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "fair/poor self-rated physical health",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Self-Rated Physical Health Among Working-Aged Adults Along the Rural-Urban Continuum"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NWS is a national, cross-sectional, web-based survey of U.S. adults aged 18–64 years (working-aged adults)."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a national sample of approximately 4,000 U.S. working-aged adults conducted during February and March 2021"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Well-being Survey (NWS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This analysis used data from the National Well-being Survey (NWS)"
+    }
+   ]
+  },
+  {
+   "v": "Qualtrics Panels",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Recruitment was conducted by Qualtrics Panels"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, 2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Rural-urban health disparities are framed and SES determinants analyzed, but the contrasts are group probabilities set side by side with p-values, with no computed difference, ratio or multiple, so the cap at 2 applies.",
+  "level_confidence": "low",
+  "level_alternative": {
+   "level": 4,
+   "reason": "Disparities are framed and interpreted, socioeconomic factors are analyzed as explaining them (stepwise models), and structural factors and policy are named; a reader counting significant group differences as quantified would give 4."
+  },
+  "dimensions": [
+   {
+    "v": "rurality",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The recoded RUCC categories were used as the primary independent variable."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "educational attainment",
+     "household income",
+     "employment status"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "those with household income <$25,000 (41.2%) or $25,000–$49,999 (36.1%) versus those with household income ≥$50,000 (15.4%)"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "household income",
+     "education",
+     "health insurance coverage"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Individual-level covariates included sex, age, race/ethnicity, marital status, household income, education, health insurance coverage, and employment status."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Individual-level covariates included sex, age, race/ethnicity, marital status, household income, education, health insurance coverage, and employment status."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "There were no significant differences by sex or race/ethnicity in self-rated physical health."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "There were no significant differences by sex or race/ethnicity in self-rated physical health."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "NWS is a national, cross-sectional, web-based survey of U.S. adults aged 18–64 years (working-aged adults)."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Age group, yrs › 50–64"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "socioeconomic status (education, income, employment); macro and structural factors in the South (lower access to care, place-level poverty); livable wage jobs",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "These differences are largely explained by differences in socioeconomic status (including lower educational attainment, household income, and probability of employment)."
+    },
+    {
+     "loc": "text",
+     "q": "more likely to be located in the South where a myriad of macro and structural factors produce worse health outcomes"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Rurality is county-level RUCC linked to residence, collapsed from 9 codes to 4 with large urban as referent; employment status is recoded with any disability as its own group."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "County classification (weighted unadjusted %) › Chi-square statistic"
+    },
+    {
+     "loc": "table 2",
+     "q": "Rural-urban status † › Large urban"
+    }
+   ]
+  },
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "residents of metro-adjacent and remote rural counties were significantly more likely than residents of large urban counties to be on disability"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Adjusted probabilities were higher among the following comparison groups: those who were unemployed (37.6%) or on disability (66.8%) versus those who were employed (18.3%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "those with a high school diploma or less (35.0%) and some college (35.1%) versus those with a bachelor’s degree or more (14.9%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "those with household income <$25,000 (41.2%) or $25,000–$49,999 (36.1%) versus those with household income ≥$50,000 (15.4%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "There were no significant differences by sex or race/ethnicity in self-rated physical health."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Age group, yrs › 18–29"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Stepwise (sequential) logistic models are used to attribute the remote rural disadvantage to income, education and disability; they are recorded under the logistic regression, not as a sensitivity analysis. Table 1 chi-squares test each characteristic across the four county classes; whether they account for the survey weights is not stated. NWS is a nonprobability opt-in web panel, classed here as a national survey.",
+ "view_issues": "Discussion says lower insurance coverage accounts for the rural disadvantage, but uninsured vs insured has adjusted p=0.994. Table 2 gives an unexplained p<0.001 for the Overall row. The phrase 'limited city and rural disadvantage' is unclear."
+}

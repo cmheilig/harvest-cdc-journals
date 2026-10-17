@@ -1,0 +1,556 @@
+{
+ "id": "mm7135a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GvjzyctBjh6dphuPjs",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Coverage with ≥1 HPV vaccine dose in 2021 was 76.9%, an increase of 1.8 percentage points from 2020"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2021, 89.6% of adolescents aged 13–17 years had received ≥1 Tdap dose and 89.0% had received ≥1 MenACWY dose"
+    }
+   ]
+  },
+  {
+   "v": "event-time",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Kaplan-Meier methods were used to calculate cumulative vaccination coverage estimates by age in days, stratified by annual birth cohort"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2021, 89.6% of adolescents aged 13–17 years had received ≥1 Tdap dose and 89.0% had received ≥1 MenACWY dose"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Coverage with ≥1 HPV vaccine dose in 2021 was 76.9%, an increase of 1.8 percentage points from 2020"
+    },
+    {
+     "loc": "text",
+     "q": "coverage among those in non-MSAs was 9.0 percentage points lower for ≥1 HPV vaccine dose"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Disparities between non-MSAs and MSA principal cities were statistically significant for adolescents living at or above the poverty level"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting (complex survey design)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated: data weighted for complex survey design; sampling weights adjusted for nonresponse and noncoverage; SUDAAN",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted and analyzed to account for the complex survey design."
+    },
+    {
+     "loc": "note",
+     "q": "Sampling weights were adjusted for single frame (mobile telephone), nonresponse, and noncoverage."
+    }
+   ]
+  },
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated t-tests for 2021 vs 2020 and sociodemographic group differences, p<0.05",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "T-tests were used to compare differences in vaccination coverage by survey year (2021 versus 2020) and among sociodemographic groups"
+    }
+   ]
+  },
+  {
+   "name": "Kaplan-Meier",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "stated Kaplan-Meier cumulative coverage by age, accounting for censoring, stratified by birth cohort",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "assessed using Kaplan-Meier estimates to account for censoring of vaccination status at ages ≥14 years"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "CI for percentage-point difference excludes 0 and a decrease is concluded; CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was 5.1 percentage points lower (95% CI = −9.8 to −0.4) than among those who reached age 13 years before the pandemic"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "absolute",
+  "referent": "2020 estimates; MSA principal cities; adolescents born before the pandemic",
+  "across": [
+   "survey year",
+   "MSA status",
+   "birth cohort",
+   "poverty status",
+   "age",
+   "race/ethnicity",
+   "health insurance status"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Among adolescents aged 13–17 years in 2021, HPV vaccination coverage (≥1 dose and HPV vaccine up to date) increased."
+   },
+   {
+    "loc": "text",
+    "q": "Compared with adolescents living in MSA principal cities, coverage among those in non-MSAs was 9.0 percentage points lower"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ci_overlap": false,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "differences with p<0.05 were considered statistically significant."
+   },
+   {
+    "loc": "text",
+    "q": "4.1 percent points lower (95% CI = −8.1 to −0.1)"
+   }
+  ]
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Statistically significant difference (p<0.05) in estimated vaccination coverage by age; reference group was adolescents aged 13 years."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Hispanic or Latino (Hispanic) adolescents had lower coverage with ≥2 MenACWY doses (−10.8 percentage points)"
+    },
+    {
+     "loc": "note",
+     "q": "Non-Hispanic Asian and non-Hispanic American Indian or Alaska Native (AI/AN) adolescents had higher coverage with most vaccines compared with White adolescents."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Adolescents with any Medicaid insurance had higher coverage with ≥1 HPV vaccine dose (4.6 percentage points) compared with adolescents with private health insurance."
+    },
+    {
+     "loc": "note",
+     "q": "Adolescents who were uninsured had lower coverage with ≥1 MenACWY dose, ≥1 HPV vaccine dose, and HPV UTD"
+    }
+   ]
+  }
+ ],
+ "primary_measures": [
+  {
+   "v": "vaccination coverage, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age at interview, yrs, % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "percentage-point difference",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "coverage among those in non-MSAs was 9.0 percentage points lower for ≥1 HPV vaccine dose"
+    }
+   ]
+  },
+  {
+   "v": "Kaplan-Meier cumulative coverage by milestone age",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Kaplan-Meier methods were used to calculate cumulative vaccination coverage estimates by age in days"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What was routine vaccination coverage among U.S. adolescents aged 13–17 years in 2021, how did it differ by year and sociodemographic group, and did the COVID-19 pandemic lower coverage?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To estimate vaccination coverage, CDC analyzed data for 18,002 adolescents aged 13–17 years from the 2021 National Immunization Survey-Teen"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "tetanus",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "routine vaccination of persons aged 11–12 years with tetanus, diphtheria, and acellular pertussis vaccine (Tdap)"
+    }
+   ]
+  },
+  {
+   "v": "diphtheria",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "routine vaccination of persons aged 11–12 years with tetanus, diphtheria, and acellular pertussis vaccine (Tdap)"
+    }
+   ]
+  },
+  {
+   "v": "pertussis",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "routine vaccination of persons aged 11–12 years with tetanus, diphtheria, and acellular pertussis vaccine (Tdap)"
+    }
+   ]
+  },
+  {
+   "v": "HPV infection",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "human papillomavirus (HPV) vaccine are routinely recommended for adolescents."
+    }
+   ]
+  },
+  {
+   "v": "meningococcal disease",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "quadrivalent meningococcal conjugate vaccine (MenACWY)"
+    }
+   ]
+  },
+  {
+   "v": "hepatitis A",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Catch-up vaccination is recommended for hepatitis A vaccine (HepA); hepatitis B vaccine (HepB); measles, mumps, and rubella vaccine (MMR); and varicella vaccine (VAR)"
+    }
+   ]
+  },
+  {
+   "v": "hepatitis B",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Catch-up vaccination is recommended for hepatitis A vaccine (HepA); hepatitis B vaccine (HepB); measles, mumps, and rubella vaccine (MMR); and varicella vaccine (VAR)"
+    }
+   ]
+  },
+  {
+   "v": "measles",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Catch-up vaccination is recommended for hepatitis A vaccine (HepA); hepatitis B vaccine (HepB); measles, mumps, and rubella vaccine (MMR); and varicella vaccine (VAR)"
+    }
+   ]
+  },
+  {
+   "v": "mumps",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Catch-up vaccination is recommended for hepatitis A vaccine (HepA); hepatitis B vaccine (HepB); measles, mumps, and rubella vaccine (MMR); and varicella vaccine (VAR)"
+    }
+   ]
+  },
+  {
+   "v": "rubella",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Catch-up vaccination is recommended for hepatitis A vaccine (HepA); hepatitis B vaccine (HepB); measles, mumps, and rubella vaccine (MMR); and varicella vaccine (VAR)"
+    }
+   ]
+  },
+  {
+   "v": "varicella",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Catch-up vaccination is recommended for hepatitis A vaccine (HepA); hepatitis B vaccine (HepB); measles, mumps, and rubella vaccine (MMR); and varicella vaccine (VAR)"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NIS-Teen is an annual random-digit–dialed telephone survey"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Increases in coverage with the following vaccines occurred from 2020 to 2021"
+    },
+    {
+     "loc": "text",
+     "q": "The potential impact of the COVID-19 pandemic was assessed by comparing vaccination coverage by age and birth year before and during the COVID-19 pandemic."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "from the 2021 National Immunization Survey-Teen (NIS-Teen)."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Immunization Survey-Teen (NIS-Teen)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "from the 2021 National Immunization Survey-Teen (NIS-Teen)."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "National Vaccination Coverage Among Adolescents Aged 13–17 Years — National Immunization Survey-Teen, United States, 2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Coverage with ≥1-dose Tdap and ≥1-dose MenACWY remained high."
+   }
+  ]
+ },
+ "equity": {
+  "level": 4,
+  "level_reason": "Rural (non-MSA) vs MSA principal-city coverage gaps are framed as disparities, quantified in percentage points and interpreted; VFC program access and well-child visit access are named as explanations of the pattern by poverty and rurality.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The explanations are hedged and partly attitudinal (vaccine confidence); VFC access could be read as a generic explanation rather than a specific structural determinant."
+  },
+  "dimensions": [
+   {
+    "v": "rurality",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Despite overall progress in vaccination coverage among adolescents, coverage disparities remain, particularly by MSA status."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "cross-classifier",
+    "ses_components": [
+     "poverty status"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Disparities between non-MSAs and MSA principal cities were statistically significant for adolescents living at or above the poverty level"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "health insurance status"
+    ],
+    "ev": [
+     {
+      "loc": "note",
+      "q": "Adolescents with any Medicaid insurance had higher coverage with ≥1 HPV vaccine dose (4.6 percentage points) compared with adolescents with private health insurance."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "Hispanic or Latino (Hispanic) adolescents had lower coverage with ≥2 MenACWY doses (−10.8 percentage points)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "National Vaccination Coverage Among Adolescents Aged 13–17 Years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Statistically significant difference (p<0.05) in estimated vaccination coverage by age; reference group was adolescents aged 13 years."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "HPV vaccine › Female › ≥1 dose"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "access to the Vaccines for Children program; fewer well-child visits in rural areas; lower vaccine confidence in rural areas",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "might contribute to higher vaccination coverage and lack of a geographic disparity for adolescents living below the poverty level"
+    },
+    {
+     "loc": "text",
+     "q": "adolescents in rural areas were less likely than were those in urban areas to have had an age 11–12-year well-child visit"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Rurality by MSA status (3 categories) but only non-MSA vs MSA principal city is reported; race/ethnicity and insurance contrasts are vs White and private insurance, given in footnotes with full tables external; poverty unknown for 579."
+ },
+ "uncertain_fields": [
+  "outcome_types",
+  "equity.level",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Design not named; cross-sectional survey inferred from the annual NIS-Teen. Table note flags estimates with CI width >20 as possibly unreliable but does not suppress them, so no transformation recorded. Race and insurance groupwise counts are taken from the groups named in footnotes; full tables are online.",
+ "view_issues": "Methods give 41.2% of completed interviews with adequate provider data; limitations give 41.4%. Table male HPV ≥1 dose at age 17 carries '**' where '¶' appears intended."
+}

@@ -1,0 +1,383 @@
+{
+ "id": "mm7315a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.1",
+  "prefix_sha": "f4030e441a8d",
+  "request_id": "msg_011Cg6gT4VinCh2fDRrosRTP",
+  "batch_id": "msgbatch_01Pnk7KDZXhJ3DshXVpkoE1T"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC analyzed National Syndromic Surveillance Program (NSSP) data to compare daily HRI ED visit rates during May–September 2023 with those during May–September 2018–2022."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The daily number of HRI visits was regressed against predictors such as age group, sex, HHS region, and an indicator to denote the occurrence"
+    },
+    {
+     "loc": "table 2",
+     "q": "Number of days that the heat-related illness emergency department visit rate exceeded the 95th percentile"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During January 1–December 31, 2023, a total of 119,605 HRI ED visits were recorded in the ESSENCE system"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "rates of emergency department visits for heat-related illness substantially increased across several U.S. regions compared with previous years"
+    },
+    {
+     "loc": "text",
+     "q": "the number of days with HRI ED visit rates exceeding the 95th percentile was higher than that in any previous year"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rate ratios (RRs) and associated 95% CIs were estimated using a multivariate Poisson regression model."
+    },
+    {
+     "loc": "text",
+     "q": "The daily number of HRI visits was regressed against predictors such as age group, sex, HHS region, and an indicator to denote the occurrence"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Poisson regression with log all-cause ED visits offset",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'multivariate Poisson regression model' for daily HRI counts with log(all-cause ED visits) offset giving RRs and 95% CIs → loglinear; model-based p-values in Table 1",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rate ratios (RRs) and associated 95% CIs were estimated using a multivariate Poisson regression model."
+    },
+    {
+     "loc": "text",
+     "q": "The model also included the logarithm of all-cause ED visits to account as an offset term."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "2018–2022 region-specific 95th percentile of daily HRI ED visit rate; model referents: age <18 years, female, Region 2, May/June/September",
+  "across": [
+   "period (2023 vs 2018–2022)",
+   "age group",
+   "sex",
+   "HHS region",
+   "peak heat season (July–August vs other warm-season months)"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The 95th percentile for each region was computed based on HRI ED data recorded for the 2018–2022 warm-season months."
+   },
+   {
+    "loc": "text",
+    "q": "the risk for HRI ED visits among adults aged 18–25 and 26–54 years was approximately 2.5 times the risk in the referent population"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Rate ratios (RRs) and associated 95% CIs were estimated using a multivariate Poisson regression model."
+   },
+   {
+    "loc": "table 1",
+    "q": "Year › 2023 › p-value"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "HRI ED visits per 100,000 ED visits",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "HRI ED visits per 100,000 ED visits."
+    }
+   ]
+  },
+  {
+   "v": "mean RR",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Mean RR (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "number of days exceeding the 95th percentile",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Number of days that the heat-related illness emergency department visit rate exceeded the 95th percentile"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The daily number of HRI visits was regressed against predictors such as age group, sex, HHS region, and an indicator to denote the occurrence"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age group, sex, HHS region, July–August indicator",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The daily number of HRI visits was regressed against predictors such as age group, sex, HHS region, and an indicator to denote the occurrence"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did heat-related illness ED visit rates during the May–September 2023 warm season compare with 2018–2022, overall and by age, sex, HHS region and peak heat months?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC analyzed National Syndromic Surveillance Program (NSSP) data to compare daily HRI ED visit rates during May–September 2023 with those during May–September 2018–2022."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "heat-related illness",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Heat-Related Emergency Department Visits — United States, May–September 2023"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "CDC examined emergency department (ED) visits associated with heat-related illness (HRI) from the National Syndromic Surveillance Program"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "compared daily HRI ED visit rates during the warm-season months (May–September) of 2023 with those during 2018–2022."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were extracted from NSSP’s Electronic Surveillance System for the Early Notification of Community-Based Epidemics (ESSENCE)."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Syndromic Surveillance Program (NSSP)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed National Syndromic Surveillance Program (NSSP) data"
+    }
+   ]
+  },
+  {
+   "v": "ESSENCE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were extracted from NSSP’s Electronic Surveillance System for the Early Notification of Community-Based Epidemics (ESSENCE)."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The daily number of HRI and all-cause ED visits were tabulated for each of the 10 U.S. Department of Health and Human Services (HHS) regions."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Only age and sex are analyzed (rates and RRs by group, unframed as social position). Low-income communities, access to cooling and social determinants are raised only as background and in a mitigation/recommendation paragraph.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 0,
+   "reason": "Age and sex are the only analyzed SPDs; SES mentions are background context, which could be read as not raising the level at all."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Differences in HRI ED visit rates were evaluated by age group (0–17, 18–25, 26–54, 55–64, 65–74, and ≥75 years), sex, HHS region"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The daily number of HRI visits was regressed against predictors such as age group, sex, HHS region, and an indicator to denote the occurrence"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "higher rates of HRI ED visits were observed among males (271 per 100,000 ED visits) than among females (104)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female (Ref)"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "low-income communities",
+     "access to cooling resources"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "persons with limited access to cooling resources, and persons living in low-income communities."
+     },
+     {
+      "loc": "text",
+      "q": "Effective implementation of heat mitigation strategies is associated with social determinants of health."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Only age and sex are measured; no race/ethnicity or SES data. Rates are per 100,000 all-cause ED visits, not population-based; referents are lowest-rate groups (<18 years, female)."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group, yrs › <18 (Ref)"
+    },
+    {
+     "loc": "text",
+     "q": "For each predictor, the category with the lowest warm-season HRI ED visit rate was identified as the referent population."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "outcome_types",
+  "equity.level",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Rates are visits per 100,000 ED visits (a proportion of visits) but are modelled as Poisson counts with an offset, so count/rate is used. The 95th-percentile exceedance is a cutpoint (quantization), not a procedure; it serves as a fixed referent for 2023 daily rates. Comparisons of 2023 vs 2018–2022 RRs rest on separate models with no formal test of difference.",
+ "view_issues": "Methods say a maximum of 826 facilities (median 36) while footnotes and table notes say 823 (median 111). 'Multivariate' Poisson means multivariable. Text says region RRs in 2023 were '1.5–2.5 times those during 2018–2022', a ratio of RRs not shown in Table 1."
+}

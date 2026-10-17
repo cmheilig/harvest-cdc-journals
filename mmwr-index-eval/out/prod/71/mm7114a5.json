@@ -1,0 +1,206 @@
+{
+ "id": "mm7114a5",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GwYk5zRTHxXPvfp4tJ",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The rate for males was 2.4 per 100,000 in rural areas and 0.9 in urban areas."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Crude rate of deaths per 100,000 population; 95% CIs indicated by error bars."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Males had higher death rates than females in both rural and urban areas."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the death rate attributed to unintentional injury from fire or flames was higher in rural areas than in urban areas for females and males"
+    }
+   ]
+  }
+ ],
+ "procedures": [],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "urban-rural status",
+   "sex"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "the death rate attributed to unintentional injury from fire or flames was higher in rural areas than in urban areas for females and males"
+   },
+   {
+    "loc": "text",
+    "q": "Males had higher death rates than females in both rural and urban areas."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "note",
+    "q": "Crude rate of deaths per 100,000 population; 95% CIs indicated by error bars."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "crude rate per 100,000 population",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Crude rate of deaths per 100,000 population; 95% CIs indicated by error bars."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "In 2020, how did US death rates from unintentional fire or flame injury differ by sex and urban-rural status?",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Rate* of Deaths Attributed to Unintentional Injury from Fire or Flames,† by Sex and Urban-Rural Status§"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "unintentional injury from fire or flames (death)",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Rate* of Deaths Attributed to Unintentional Injury from Fire or Flames,†"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Source: National Center for Health Statistics, National Vital Statistics System, Mortality Data, 2020."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Source: National Center for Health Statistics, National Vital Statistics System, Mortality Data, 2020."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System (NVSS) Mortality Data",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Source: National Center for Health Statistics, National Vital Statistics System, Mortality Data, 2020."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "National Vital Statistics System, United States, 2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Rates are reported by rurality and sex and differences described (rural higher), but values are set side by side with no computed contrast and no disparity framing, so level 2.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Urban-rural status could be read as geography rather than social position."
+  },
+  "dimensions": [
+   {
+    "v": "rurality",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "the death rate attributed to unintentional injury from fire or flames was higher in rural areas than in urban areas for females and males"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Males had higher death rates than females in both rural and urban areas."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Rurality is the OMB 2013 MSA delineation, dichotomized (areas <50,000 inhabitants rural); rates are crude, not age-adjusted."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "analytic_depth"
+ ],
+ "confidence": "high",
+ "notes": "The 2×2 sex × rurality cells are compared one margin at a time (rural vs urban within sex; male vs female within area), so no groupwise entry. 'Higher' claims are not tied to a stated test; CIs are shown only as error bars.",
+ "view_issues": null
+}

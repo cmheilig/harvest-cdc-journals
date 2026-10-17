@@ -1,0 +1,384 @@
+{
+ "id": "mm7109e2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GvjwFpAGSsqMJ5u6B9",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Local injection site reactions were more commonly reported after booster dose (82.0%) than dose 2 (77.8%) (p<0.001)"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In the week after booster dose vaccination, 20.0% (682) of adolescents were reported as being unable to attend school or work."
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the reporting rate for confirmed cases of myocarditis after Pfizer-BioNTech booster vaccination was 11.4 per 1 million booster doses administered"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Most VAERS reports were for nonserious events (837; 91.6%)"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Local injection site reactions were more commonly reported after booster dose (82.0%) than dose 2 (77.8%) (p<0.001)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "This model adjusted for demographic variables (i.e., age, sex, race, and ethnicity)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "GEE logistic regression (odds of reporting, booster vs dose 2)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'odds of reporting' compared with a 'multivariable generalized estimating equations model' → GEE on a binary outcome, logistic; repeated measures per registrant",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The odds of reporting an adverse reaction or health impact after dose 2 and booster dose were compared"
+    },
+    {
+     "loc": "text",
+     "q": "were compared using a multivariable generalized estimating equations model; p<0.05 was defined as statistically significant."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": "dose 2",
+  "across": [
+   "vaccine dose (booster vs dose 2)"
+  ],
+  "ev": [
+   {
+    "loc": "note",
+    "q": "All dose 2 and booster dose comparisons were statistically significant, except any systemic reaction and needed medical care."
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "systemic reactions were similarly reported after booster dose (77.8%) and dose 2 (77.2%) (p = 0.48)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percentage of registrants who reported a reaction or health impact at least once during days 0–7 after vaccination."
+    }
+   ]
+  },
+  {
+   "v": "reporting rate per 1 million booster doses administered",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the reporting rate for confirmed cases of myocarditis after Pfizer-BioNTech booster vaccination was 11.4 per 1 million booster doses administered"
+    }
+   ]
+  },
+  {
+   "v": "p-value",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "however, the difference was not statistically significant (p = 0.12)."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "GEE",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "accounted for repeated measures among doses reported by each registrant"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "note",
+     "q": "This model adjusted for demographic variables (i.e., age, sex, race, and ethnicity)"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age, sex, race, and ethnicity (not adjusted for needed medical care)",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "This model adjusted for demographic variables (i.e., age, sex, race, and ethnicity)"
+    },
+    {
+     "loc": "figure 1",
+     "q": "(needed medical care was not adjusted due to small numbers)"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "What adverse events and health impacts are reported after a homologous Pfizer-BioNTech booster dose among adolescents aged 12–17 years, and how do they compare with dose 2?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To characterize the safety of Pfizer-BioNTech booster doses among persons aged 12–17 years (adolescents), CDC reviewed adverse events"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Safety Monitoring of COVID-19 Vaccine Booster Doses Among Persons Aged 12–17 Years"
+    }
+   ]
+  },
+  {
+   "v": "local and systemic vaccine reactions",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "the frequency of local and systemic reactions reported to v-safe after a booster dose were equal to or slightly higher"
+    }
+   ]
+  },
+  {
+   "v": "myocarditis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Myocarditis was less frequently reported after a booster dose than a second primary dose."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a voluntary smartphone–based safety surveillance system for adverse events after COVID-19 vaccination"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Vaccine Adverse Event Reporting System (VAERS), a passive vaccine safety surveillance system managed by CDC and FDA"
+    },
+    {
+     "loc": "text",
+     "q": "V-safe is a voluntary, smartphone–based U.S. active safety surveillance system established to monitor adverse events after COVID-19 vaccination"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "v-safe",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "V-safe is a voluntary, smartphone–based U.S. active safety surveillance system"
+    }
+   ]
+  },
+  {
+   "v": "Vaccine Adverse Event Reporting System (VAERS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Vaccine Adverse Event Reporting System (VAERS), a passive vaccine safety surveillance system managed by CDC and FDA"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, December 9, 2021–February 20, 2022"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "safety",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Myocarditis was less frequently reported after a booster dose than a second primary dose."
+   }
+  ]
+ },
+ "equity": {
+  "level": 1,
+  "level_reason": "Race and ethnicity appear only as adjustment variables in the GEE model; age and sex define the population or stratify myocarditis rates without social-position framing.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 0,
+   "reason": "Race/ethnicity is named only in a footnote listing model covariates and plays no visible role in results."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Safety Monitoring of COVID-19 Vaccine Booster Doses Among Persons Aged 12–17 Years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "This model adjusted for demographic variables (i.e., age, sex, race, and ethnicity)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Reporting rates for myocarditis were stratified by sex and age group."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "This model adjusted for demographic variables (i.e., age, sex, race, and ethnicity)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Reporting rates for myocarditis were stratified by sex and age group."
+     },
+     {
+      "loc": "text",
+      "q": "All 32 reports were among adolescent boys"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "This model adjusted for demographic variables (i.e., age, sex, race, and ethnicity)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity used only as a model covariate; no group-specific results by race/ethnicity."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "comparison"
+ ],
+ "confidence": "high",
+ "notes": "The myocarditis comparison (booster 11.4 vs dose 2 70.7 and 105.9 per million) uses dose-2 rates cited from an earlier report; no test. GEE odds ratios are not reported, only percentages with p-values, so scale is null. The myocarditis case definition and the MedDRA coding are case-definition steps, not procedures.",
+ "view_issues": "Table 2 gives dizziness 100 (11.9) and syncope 87 (12.0), but the text gives 12.0% and 10.4%. The figure N is 3,274 (registrants with check-ins after both doses) and Table 1's N is 3,418."
+}

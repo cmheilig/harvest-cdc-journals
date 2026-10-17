@@ -1,0 +1,502 @@
+{
+ "id": "mm7203a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg7nFKXy2ezZtFbQ8cYSP",
+  "batch_id": "msgbatch_01FaGSxRvLPM3Hp7zgHNqiVG"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "who were more likely to receive a positive test result (33%; 714 of 2,164) than were adults (20%; 483 of 2,462) (p<0.001)"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Weekly pediatric influenza-associated hospitalizations reached 12.6 per 100,000 children aged <5 years and 6.9 per 100,000 persons aged <18 years"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "who were more likely to receive a positive test result (33%; 714 of 2,164) than were adults (20%; 483 of 2,462) (p<0.001)"
+    },
+    {
+     "loc": "text",
+     "q": "the secondary attack rate was 11.9% (range = 6.1%–22.0%) among child contacts and 5.1% (range = 2.7%–9.4%) among adult contacts"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among 332 specimens with completed sequencing data, 179 (54%) were classified as A(H3N2)3C.2a1b2a.2"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Children were less likely to be treated (41%; 63 of 155) than were adults (55%; 46 of 83) (p = 0.03)."
+    },
+    {
+     "loc": "text",
+     "q": "exceeding the 90th percentile (high intensity) and approaching the 98th percentile (very high intensity) of peak weekly rates for children"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In the transmission model, children were more likely to become ill than were adults (adjusted OR = 2.50; 95% CI = 1.55–4.03)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "p-values for children vs adults proportions with no test named",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "who were more likely to receive a positive test result (33%; 714 of 2,164) than were adults (20%; 483 of 2,462) (p<0.001)"
+    },
+    {
+     "loc": "text",
+     "q": "Children were less likely to be treated (41%; 63 of 155) than were adults (55%; 46 of 83) (p = 0.03)."
+    }
+   ]
+  },
+  {
+   "name": "chain binomial transmission model",
+   "class": "regression",
+   "regression_family": "other",
+   "inferred_from": "chain binomial household transmission model with covariates on susceptibility, giving adjusted ORs and secondary attack rates; not a standard family",
+   "role": "primary",
+   "alternative_reading": "logistic: covariate effects reported as odds ratios",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "with adjustment for age, vaccination status, and household size were assessed with a chain binomial model"
+    },
+    {
+     "loc": "table 1",
+     "q": "Adjusted ORs of illness were estimated using a chain binomial model accounting for age, vaccination status, and household size."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "aOR CI excluding 1 supports 'children were more likely'; table marks it statistically significant; CI model-based from chain binomial model",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In the transmission model, children were more likely to become ill than were adults (adjusted OR = 2.50; 95% CI = 1.55–4.03)"
+    }
+   ]
+  },
+  {
+   "name": "logistic regression (outpatient test positivity)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'logistic regression' stated → logistic; results reported only as percentages and p-values",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Factors associated with positive influenza test results in patients who received testing at participating clinics were identified using logistic regression."
+    }
+   ]
+  },
+  {
+   "name": "univariate logistic regression accounting for household clustering",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'univariate logistic regression' with household clustering → logistic, unadjusted ORs",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Characteristics of household contacts were compared using logistic regression accounting for household clustering."
+    },
+    {
+     "loc": "text",
+     "q": "household contacts reporting any illness were more likely to be children (odds ratio [OR] = 1.85; 95% CI = 1.45–2.35)"
+    }
+   ]
+  },
+  {
+   "name": "intensity thresholds from probability distribution of previous seasons' peak rates",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "percentile thresholds of a distribution of past peak weekly rates set the referent",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was used to define age group–specific intensity thresholds for the 50th (medium), 90th (high), and 98th (very high) percentiles"
+    }
+   ]
+  },
+  {
+   "name": "underdetection adjustment of previous seasons' hospitalization rates",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "correction for testing practices applied to comparison seasons only",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Hospitalization data from previous seasons were adjusted for underdetection using data on age group–specific testing practices"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "adults; previous seasons' intensity thresholds",
+  "across": [
+   "age group",
+   "influenza season",
+   "vaccination status",
+   "household size"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "higher rates of pediatric hospitalization, and a higher rate of symptomatic illness among children than among adults or during past seasons"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "In the transmission model, children were more likely to become ill than were adults (adjusted OR = 2.50; 95% CI = 1.55–4.03)"
+   },
+   {
+    "loc": "table 1",
+    "q": "† Statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "rate per 100,000",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Weekly pediatric influenza-associated hospitalizations reached 12.6 per 100,000 children aged <5 years"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "ILI-ED visits in this group accounting for 31% of all visits during the week ending November 26, 2022"
+    }
+   ]
+  },
+  {
+   "v": "OR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "household contacts reporting any illness were more likely to be children (odds ratio [OR] = 1.85; 95% CI = 1.45–2.35)"
+    }
+   ]
+  },
+  {
+   "v": "adjusted OR",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Adjusted OR (95% CI)*"
+    }
+   ]
+  },
+  {
+   "v": "secondary attack rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the secondary attack rate was 11.9% (range = 6.1%–22.0%) among child contacts and 5.1% (range = 2.7%–9.4%) among adult contacts"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "clustered or robust SE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Characteristics of household contacts were compared using logistic regression accounting for household clustering."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "From a univariate logistic regression model"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Adjusted ORs of illness were estimated using a chain binomial model accounting for age, vaccination status, and household size."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age, vaccination status, and household size",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "with adjustment for age, vaccination status, and household size were assessed with a chain binomial model"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How early and intense was the 2022–23 influenza season in middle Tennessee, and which groups, especially children, were most affected in testing, hospitalization and household transmission?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to understand early influenza activity in 14 of 95 Tennessee counties clustered in middle Tennessee and to identify groups most affected."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "influenza",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Early and Increased Influenza Activity Among Children — Tennessee, 2022–23 Influenza Season"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "outbreak investigation",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This report describes a field investigation conducted in Tennessee during November 2022, following reports of increasing influenza hospitalizations."
+    }
+   ]
+  },
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were obtained from the Electronic Surveillance System for the Early Notification of Community-Based Epidemics (ESSENCE) and FluSurv-NET surveillance systems"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "FluSurv-NET data identifies influenza-associated hospitalizations in eight middle Tennessee counties"
+    }
+   ]
+  },
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "The Electronic Surveillance System for the Early Notification of Community-Based Epidemics (ESSENCE) captures emergency department visits statewide"
+    }
+   ]
+  },
+  {
+   "v": "vaccination registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "influenza vaccination records for the current season obtained from the Tennessee Immunization Information System"
+    }
+   ]
+  },
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were invited to complete a survey asking about their illness"
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "provided the Tennessee Department of Health (TDH) with information about persons who received testing for influenza"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "ESSENCE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Electronic Surveillance System for the Early Notification of Community-Based Epidemics (ESSENCE)"
+    }
+   ]
+  },
+  {
+   "v": "FluSurv-NET",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "ESSENCE) and FluSurv-NET surveillance systems"
+    }
+   ]
+  },
+  {
+   "v": "Tennessee Immunization Information System",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "obtained from the Tennessee Immunization Information System"
+    }
+   ]
+  },
+  {
+   "v": "REDCap",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "which was facilitated by REDCap electronic data capture tools hosted at TDH"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "early influenza activity in 14 of 95 Tennessee counties clustered in middle Tennessee"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Seasonal influenza vaccination coverage was low in both children (23%; 499 of 2,164) and adults (34%; 830 of 2,462)"
+   }
+  ]
+ },
+ "equity": {
+  "level": 0,
+  "level_reason": "The only SPD analyzed is age (children vs adults, pediatric age groups) without social-position framing; access to care appears only as a representativeness limitation.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "The limitation that participants likely had more access to health care could be read as equity raised only as a limitation."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "In the transmission model, children were more likely to become ill than were adults (adjusted OR = 2.50; 95% CI = 1.55–4.03)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Adjusted ORs of illness were estimated using a chain binomial model accounting for age, vaccination status, and household size."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Age dichotomized as <18 vs ≥18 years in household and outpatient analyses; hospitalization reported for <5, <18 and all ages against past-season thresholds."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "comparison",
+  "procedures",
+  "study_design"
+ ],
+ "confidence": "medium",
+ "notes": "The chain binomial model is classed as regression 'other' because it yields covariate-adjusted ORs. Hospitalization comparisons rest on thresholds from past seasons; age categories in surveillance overlap (<5, <18, all ages), so no groupwise entry. Whole genome sequencing is a lab characterization, not a procedure.",
+ "view_issues": "Bedroom-sharing OR = 2.11 is reported with 95% CI = 2.59–2.80, which excludes the point estimate. The text gives aOR 2.50 (1.55–4.03); the table rounds to 2.5 (1.6–4.0)."
+}

@@ -1,0 +1,315 @@
+{
+ "id": "mm7103a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GviG3xLamqveGRzdtG",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "the frequency of any Zika-associated birth defect was higher among those with first*** (8.0%) and second (6.0%) trimester infections compared with third trimester infections (3.8%)."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among live-born infants reported in USZPIR, 4.6% (315 of 6,799) had any Zika-associated birth defect."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Approximately 5% of infants in USZPIR had any Zika-associated brain or eye defect."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Frequency of Zika-associated birth defects in infants was similar among those born to symptomatic (5.3%) and asymptomatic (4.2%) pregnant women"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "exact Poisson regression for CIs",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'exact Poisson regression' → loglinear; used only to compute CIs for percentages, so ancillary",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CIs were calculated using exact Poisson regression."
+    }
+   ]
+  },
+  {
+   "name": "small-cell suppression",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "unknown-trimester and missing-symptom rows withheld because of small cell sizes",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Unknown trimester of exposure is not shown because of small cell sizes"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "birth defect type",
+   "trimester of exposure",
+   "maternal symptom status",
+   "location of birth",
+   "laboratory evidence subgroup (all vs NAAT-positive)"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Several individual brain and eye defects were more commonly reported."
+   },
+   {
+    "loc": "text",
+    "q": "the frequency of any Zika-associated birth defect was higher among those with first*** (8.0%) and second (6.0%) trimester infections"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CIs were calculated using exact Poisson regression."
+   },
+   {
+    "loc": "table 1",
+    "q": "% (95% CI)"
+   }
+  ]
+ },
+ "groupwise": [],
+ "primary_measures": [
+  {
+   "v": "percentage (95% CI)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "No. of infants (%)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "No. of infants (%)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CIs were calculated using exact Poisson regression."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A subgroup of infants from pregnancies with confirmed Zika virus infection (i.e., positive Zika virus NAAT) are reported to examine whether findings are consistent"
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "How frequent are individual Zika-associated brain and eye birth defects among live-born infants from pregnancies with laboratory evidence of Zika virus infection?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This report describes the frequency of individual Zika-associated brain and eye defects among infants from pregnancies"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "Zika virus infection",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Zika-Associated Birth Defects Reported in Pregnancies with Laboratory Evidence of Confirmed or Possible Zika Virus Infection"
+    }
+   ]
+  },
+  {
+   "v": "Zika-associated birth defects",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Approximately 5% of infants in USZPIR had any Zika-associated brain or eye defect."
+    }
+   ]
+  },
+  {
+   "v": "pregnancy",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Reported in Pregnancies with Laboratory Evidence of Confirmed or Possible Zika Virus Infection"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "established USZPIR to conduct mother-infant linked longitudinal surveillance of outcomes in pregnant women and infants"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "registry",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "U.S. Zika Pregnancy and Infant Registry"
+    }
+   ]
+  },
+  {
+   "v": "record abstraction or interview",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "from medical records in a standardized format."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "U.S. Zika Pregnancy and Infant Registry (USZPIR)",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "U.S. Zika Pregnancy and Infant Registry"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "in the 50 U.S. states, the District of Columbia (DC), U.S. territories, and freely associated states."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "No social-position dimension is analyzed; sex (pregnant women) and age (live-born infants) only define the population. Location of birth (states vs territories) is geography.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 1,
+   "reason": "States vs territories could be read as a social-position proxy, but the article does not frame it so."
+  },
+  "dimensions": [
+   {
+    "v": "sex",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "outcomes in pregnant women and infants with laboratory evidence of confirmed or possible Zika virus infection during pregnancy"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Among 6,799 live-born infants in USZPIR born during December 1, 2015–March 31, 2018"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Location of birth (U.S. states and DC vs territories and freely associated states) is geographic, not an SPD."
+ },
+ "uncertain_fields": [
+  "procedures",
+  "regression_fields",
+  "inference"
+ ],
+ "confidence": "medium",
+ "notes": "The 'higher' (trimester) and 'similar' (symptom status) claims rest on group percentages with separate CIs; no contrast, test or overlap rule is stated, so no test is recorded. Significantly higher prevalence ratios are cited from the Zika Birth Defects Surveillance System, not computed here. Pregnancy-loss defects come from unpublished data.",
+ "view_issues": "Table 1 footnote says maternal symptom status is not shown because of small cells, yet symptom rows are shown; presumably the missing-status row is meant."
+}

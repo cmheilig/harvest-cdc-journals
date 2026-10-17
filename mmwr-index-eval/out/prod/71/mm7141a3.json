@@ -1,0 +1,207 @@
+{
+ "id": "mm7141a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GvjXCnRHZqwoVn27Lu",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "In contrast, microcystins were detected in the tap water of 22 of the 31 homes with lake water intakes"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In contrast, microcystins were detected in the tap water of 22 of the 31 homes with lake water intakes"
+    },
+    {
+     "loc": "table 1",
+     "q": "Result, no. › Microcystin detected †"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Microcystins were not detected in the tap water of any homes with near-shore wells"
+    },
+    {
+     "loc": "text",
+     "q": "the level of microsystin concentration was at or above the EPA drinking water health advisory level of 0.3 μ g/L"
+    }
+   ]
+  }
+ ],
+ "procedures": [],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": "EPA drinking water health advisory level of 0.3 μg/L",
+  "across": [
+   "private water source (lake water intake vs well)",
+   "treatment system"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Microcystins were not detected in the tap water of any homes with near-shore wells"
+   },
+   {
+    "loc": "text",
+    "q": "In contrast, microcystins were detected in the tap water of 22 of the 31 homes with lake water intakes"
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "primary_measures": [
+  {
+   "v": "no. of homes with microcystin detected",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Result, no. › Microcystin detected †"
+    }
+   ]
+  },
+  {
+   "v": "no. of homes with microcystin ≥0.3 μg/L",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Result, no. › Microcystin ≥0.3 μ g/L"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "During the 2021 Clear Lake harmful algal blooms, was tap water in homes with private lake water intakes or near-shore wells contaminated with microcystins?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "collected and analyzed tap water samples for cyanotoxins from households with private lake water intakes and private wells located ≤50 ft"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "microcystin (cyanotoxin) contamination of drinking water",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Harmful Algal Bloom Affecting Private Drinking Water Intakes — Clear Lake, California, June–November 2021"
+    }
+   ]
+  },
+  {
+   "v": "cyanobacteria harmful algal bloom",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During June–November 2021, multiple cyanobacteria harmful algal blooms (HABs) occurred in Clear Lake"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Forty-six eligible homeowners enrolled in the study, and study staff members collected questionnaires and at least one water sample from each home"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "study staff members collected questionnaires and at least one water sample from each home during June to November 2021"
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "collected and analyzed tap water samples for cyanotoxins from households with private lake water intakes"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "California Water: Assessment of Toxins for Community Health (Cal-WATCH) project",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the California Water: Assessment of Toxins for Community Health (Cal-WATCH) project collected and analyzed tap water samples for cyanotoxins"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Clear Lake, California, June–November 2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "No social-position dimension defines, describes or stratifies the homes; groups are water source and treatment system.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 1,
+   "reason": "A tribal environmental department took part in case finding, which could be read as tribal community context, though no SPD is analyzed."
+  },
+  "dimensions": [],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "study_design"
+ ],
+ "confidence": "high",
+ "notes": "No design is named; cross-sectional is inferred from one-time household sampling with questionnaires. For homes sampled several times, the highest result was used, a data-handling step rather than a procedure.",
+ "view_issues": "Text misspells 'microsystin'. The table's § footnote marker is also used in the body for a press-release link."
+}

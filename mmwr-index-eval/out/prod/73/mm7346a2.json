@@ -1,0 +1,343 @@
+{
+ "id": "mm7346a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.1",
+  "prefix_sha": "f4030e441a8d",
+  "request_id": "msg_011Cg6vxXSPuJcujD5R45m4a",
+  "batch_id": "msgbatch_01UAUCb9fTF2eLcQ9R5SBrye"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "As of November 10, 2024, 29.7% of nursing home residents had received a 2024–2025 COVID-19 vaccine."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimates of coverage (percentage of residents vaccinated) with COVID-19, influenza, and RSV vaccines"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "As of November 10, 2024, 29.7% of nursing home residents had received a 2024–2025 COVID-19 vaccine."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Vaccination coverage varied by U.S. Department of Health and Human Services region, social vulnerability index level, and facility size."
+    },
+    {
+     "loc": "text",
+     "q": "COVID-19 vaccination coverage was highest in the least socially vulnerable counties (33.6%) and in small facilities (34.7%) and lowest in large facilities (28.0%)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Poisson regression for coverage CIs",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'Poisson regression models' used to estimate coverage and 95% CIs → loglinear; used only for estimation, so ancillary",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates of coverage (percentage of residents vaccinated) with COVID-19, influenza, and RSV vaccines, and 95% CIs were estimated using Poisson regression models."
+    }
+   ]
+  },
+  {
+   "name": "CI overlap assertion",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "methods state nonoverlapping 95% CIs as the only significance criterion; CIs model-based from Poisson regression",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Nonoverlapping 95% CIs were considered to represent statistically significant differences."
+    },
+    {
+     "loc": "text",
+     "q": "RSV vaccination coverage was highest in the least socially vulnerable counties (21.3%) and in small facilities (24.1%)"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "HHS region",
+   "SVI tertile",
+   "facility size"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Vaccination coverage varied by U.S. Department of Health and Human Services region, social vulnerability index level, and facility size."
+   },
+   {
+    "loc": "text",
+    "q": "For each vaccine, coverage was stratified by U.S. Department of Health and Human Services (HHS) region, county-level social vulnerability index (SVI) tertile"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "ci_overlap": true,
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Nonoverlapping 95% CIs were considered to represent statistically significant differences."
+   },
+   {
+    "loc": "table 1",
+    "q": "95% CIs were calculated using Poisson regression models."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "coverage, % (95% CI)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Coverage, % (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates of coverage (percentage of residents vaccinated) with COVID-19, influenza, and RSV vaccines, and 95% CIs were estimated using Poisson regression models."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "What was COVID-19, influenza, and RSV vaccination coverage among U.S. nursing home residents early in the 2024–25 season, and how did it vary by region, county social vulnerability, and facility size?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The purpose of this study was to assess COVID-19, influenza, and RSV vaccination coverage among nursing home residents early in the 2024–25 respiratory virus season."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Coverage with Influenza, Respiratory Syncytial Virus, and COVID-19 Vaccines Among Nursing Home Residents"
+    }
+   ]
+  },
+  {
+   "v": "influenza",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Coverage with Influenza, Respiratory Syncytial Virus, and COVID-19 Vaccines Among Nursing Home Residents"
+    }
+   ]
+  },
+  {
+   "v": "respiratory syncytial virus infection",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Coverage with Influenza, Respiratory Syncytial Virus, and COVID-19 Vaccines Among Nursing Home Residents"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data reported from CMS-certified nursing homes for the week of November 10, 2024, were used for analysis."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "can voluntarily report influenza and RSV vaccination coverage among residents to CDC’s National Healthcare Safety Network."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Healthcare Safety Network (NHSN)",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "National Healthcare Safety Network, United States, November 2024"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "National Healthcare Safety Network, United States, November 2024"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "58.4% had received influenza vaccination, and 17.9% had received RSV vaccination."
+   }
+  ]
+ },
+ "equity": {
+  "level": 2,
+  "level_reason": "Coverage is reported by county SVI tertile and the Discussion links lower coverage in high-SVI counties to cost and billing barriers, but SVI values are only set side by side (e.g., 33.6% vs 27.4%) with no computed difference or ratio, so the cap at 2 applies.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "The SVI gradient is framed as barriers that 'disproportionately affect' under-resourced nursing homes, with cost and Medicare Part D billing named as structural explanations."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "county-level social vulnerability index"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "coverage was stratified by U.S. Department of Health and Human Services (HHS) region, county-level social vulnerability index (SVI) tertile"
+     },
+     {
+      "loc": "table 1",
+      "q": "SVI ¶ › High"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "vaccination data reported to NHSN are not disaggregated by age"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "cost of vaccines; Medicare Part D billing systems; nursing homes with limited resources",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "coverage with all three vaccines was highest in counties with lower social vulnerability"
+    },
+    {
+     "loc": "text",
+     "q": "suggesting that barriers related to cost and billing disproportionately affect nursing homes with limited resources."
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "SES is proxied by the county-level SVI tertile of the facility's location, not residents' own position; 30 facilities in counties without an SVI score are excluded."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "pairwise (all pairs)",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "RSV vaccination coverage was highest in the least socially vulnerable counties (21.3%)"
+    },
+    {
+     "loc": "text",
+     "q": "lowest in the most socially vulnerable counties (15.3%) and large facilities (15.9%)."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred as surveillance/descriptive; none named. Comparisons with 2023 coverage and NIS adult coverage in the Discussion use unpublished or cited data and are context. Representativeness of voluntary reporters was judged by comparing distributions side by side, with no test.",
+ "view_issues": "In the CSV, the RSV facility-size rows shift 'No. of residents' into the blank column, so the later RSV values sit one column off. The prepass 'prevalence_ratio' cue is a false hit on the abbreviation 'PR'."
+}

@@ -1,0 +1,485 @@
+{
+ "id": "mm7101a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GviUCQpGWhxK9tgzXg",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During 2018–2020, 13.5% of pregnant adults in the United States reported current drinking, and 5.2% reported binge drinking in the past 30 days."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During 2018–2020, 13.5% of pregnant adults in the United States reported current drinking, and 5.2% reported binge drinking in the past 30 days."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among pregnant adults, 13.5% reported current drinking and 5.2% reported binge drinking (38.5% of current drinkers)"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The prevalence of current drinking did not differ significantly by year: 11.8% (95% CI = 9.6–14.1) in 2018"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Multivariable regression was used to estimate adjusted prevalence ratios (aPRs) and 95% CIs to identify factors associated with current and binge drinking."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multivariable regression for adjusted prevalence ratios",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "family not named; 'adjusted prevalence ratios' imply a log link (log-binomial or Poisson) → loglinear",
+   "role": "primary",
+   "alternative_reading": "other: a regression not otherwise named; aPRs could also come from logistic predicted marginals",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Multivariable regression was used to estimate adjusted prevalence ratios (aPRs) and 95% CIs to identify factors associated with current and binge drinking."
+    }
+   ]
+  },
+  {
+   "name": "Rao-Scott chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods; survey-adjusted chi-square for differences by year and HHS region",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Differences by year and HHS region were examined using Rao-Scott chi-square tests."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "aPR CIs excluding 1.0 judged significant; model-based CIs from an unnamed multivariable regression",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "P-values <0.05 and 95% CIs of aPRs that excluded 1.0 were considered statistically significant."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weighted BRFSS estimates analyzed with SAS SURVEY procedures",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted to represent state-level population estimates and aggregated to represent regional and national estimates."
+    },
+    {
+     "loc": "text",
+     "q": "SAS statistical software (version 9.4; SAS Institute) SURVEY procedures were used to account for complex sampling."
+    }
+   ]
+  },
+  {
+   "name": "suppression of estimates with relative SE >0.3",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "relative-SE suppression rule in table note",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimate suppressed because the relative SE is >0.3."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "both",
+  "referent": "pregnant adults without frequent mental distress; with a usual health care provider; reference levels in Table",
+  "across": [
+   "frequent mental distress",
+   "usual health care provider",
+   "age",
+   "race/ethnicity",
+   "education",
+   "employment status",
+   "marital status",
+   "year",
+   "HHS region"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Those with no usual health care provider and those reporting frequent mental distress were more likely to consume alcohol."
+   },
+   {
+    "loc": "text",
+    "q": "both measures were 2 percentage points higher than during 2015–2017."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Differences by year and HHS region were examined using Rao-Scott chi-square tests."
+   },
+   {
+    "loc": "text",
+    "q": "P-values <0.05 and 95% CIs of aPRs that excluded 1.0 were considered statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "prevalence, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimated prevalence* and adjusted prevalence ratios of current drinking † and binge drinking §"
+    }
+   ]
+  },
+  {
+   "v": "aPR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Pregnant adults reporting frequent mental distress had approximately twice the prevalence of current drinking (aPR = 2.3 [1.7–3.1])"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "SAS statistical software (version 9.4; SAS Institute) SURVEY procedures were used to account for complex sampling."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Model includes age, race/ethnicity, education, employment status, marital status, usual health care provider, and frequent mental distress."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age, race/ethnicity, education, employment status, marital status, usual health care provider, and frequent mental distress",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Model includes age, race/ethnicity, education, employment status, marital status, usual health care provider, and frequent mental distress."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "What is the prevalence of current and binge drinking among pregnant U.S. adults aged 18–49 years during 2018–2020, and which characteristics are associated with it?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC estimated the prevalence of self-reported current drinking (at least one alcoholic drink in the past 30 days) and binge drinking"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "alcohol consumption during pregnancy",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Alcohol Consumption and Binge Drinking During Pregnancy Among Adults Aged 18–49 Years"
+    }
+   ]
+  },
+  {
+   "v": "binge drinking",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Alcohol Consumption and Binge Drinking During Pregnancy Among Adults Aged 18–49 Years"
+    }
+   ]
+  },
+  {
+   "v": "pregnancy",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Persons who reported their sex at birth as female were asked if they were currently pregnant."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "First, cross-sectional data limit inferences about temporal relationships."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using 2018–2020 Behavioral Risk Factor Surveillance System (BRFSS) data."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using 2018–2020 Behavioral Risk Factor Surveillance System (BRFSS) data."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC analyzed 2018–2020 BRFSS self-reported data from 6,327 pregnant adults aged 18–49 years from all 50 U.S. states"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Prevalence and aPRs are reported by race/ethnicity, education, employment and age, and described ('differed by age, education, employment'), but no SPD contrast is framed or interpreted as a disparity.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "If having a usual health care provider is read as an access determinant analyzed as exposure, quantified SPD contrasts (education aPR 2.2) could meet level 3."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race/Ethnicity › Black, non-Hispanic"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Model includes age, race/ethnicity, education, employment status, marital status, usual health care provider, and frequent mental distress."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education",
+     "employment status"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Current drinking differed by age, education, employment, and marital status, and binge drinking differed by employment and marital status."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "education",
+     "employment status"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Model includes age, race/ethnicity, education, employment status, marital status, usual health care provider, and frequent mental distress."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Alcohol Consumption and Binge Drinking During Pregnancy Among Adults Aged 18–49 Years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group, yrs › 35–49"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "population",
+    "basis": "assigned or observed",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Persons who reported their sex at birth as female were asked if they were currently pregnant."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "having a usual health care provider; access to care",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Having a usual health care provider might increase receipt of prevention services including alcohol screening and brief intervention"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity collapsed to four groups with Hispanic as referent; many binge-drinking estimates by race suppressed (relative SE >0.3); education and employment status are the SES measures."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group, yrs › 35–49"
+    },
+    {
+     "loc": "text",
+     "q": "Current drinking differed by age, education, employment, and marital status"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Education › High school diploma or less"
+    },
+    {
+     "loc": "table 1",
+     "q": "Education › College degree"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity › Other, non-Hispanic"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "procedures",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "The regression family is not named; loglinear is inferred from prevalence ratios. The 2-percentage-point increase is relative to 2015–2017 estimates from earlier reports. Rao-Scott tests cover year and HHS region only; group differences by characteristics rest on aPR CIs.",
+ "view_issues": "Article notes a post-publication erratum (2022-01-28); the corrected values are not identifiable in the packet."
+}

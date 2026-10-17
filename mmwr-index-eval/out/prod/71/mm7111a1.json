@@ -1,0 +1,610 @@
+{
+ "id": "mm7111a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8LfyGjeksLktQHxy3i5",
+  "batch_id": "msgbatch_01223jmKkoKoihZVXHvJ1Q2r"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "In 2020, 19.0% of U.S. adults (47.1 million) used any tobacco product."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In 2020, 19.0% of U.S. adults (47.1 million) used any tobacco product."
+    },
+    {
+     "loc": "text",
+     "q": "the percentage who reported smoking 30 or more cigarettes per day decreased from 12.7% to 6.4%"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In 2020, 19.0% of U.S. adults (47.1 million) used any tobacco product."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "From 2019 to 2020, the prevalence of overall tobacco product use, combustible tobacco product use, cigarettes, e-cigarettes"
+    },
+    {
+     "loc": "text",
+     "q": "men (24.5%) than among women (13.9%)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "rural areas than among those who resided in urban areas among non-Hispanic Black (38% higher), Hispanic (38% higher)"
+    },
+    {
+     "loc": "figure 2",
+     "q": "Linear trends were adjusted for sex, age, race, and ethnicity."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated weights adjusting for selection probability and nonresponse; SUDAAN used for all analyses",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted to provide nationally representative estimates, adjusting for differences in selection probability and nonresponse."
+    },
+    {
+     "loc": "text",
+     "q": "SAS-callable SUDAAN software (version 11.0.3; Research Triangle Institute) was used to conduct all analyses."
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "p-values for 2019 vs 2020 changes and for urban-rural differences within race groups; test not named",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "From 2019 to 2020, statistically significant decreases (p<0.05) were observed in the prevalence of use of any tobacco product (20.8% to 19.0%; p<0.001)"
+    },
+    {
+     "loc": "figure 1",
+     "q": "p<0.05 for differences in urban-rural cigarette smoking prevalence for the following race/ethnicity groups"
+    }
+   ]
+  },
+  {
+   "name": "adjusted linear trend regression (cigarettes per day, 2005–2020)",
+   "class": "regression",
+   "regression_family": "other",
+   "inferred_from": "'Linear trends were adjusted for sex, age, race, and ethnicity' implies a regression whose family is not named (likely logistic on survey data) → other",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "figure 2",
+     "q": "Linear trends were adjusted for sex, age, race, and ethnicity."
+    },
+    {
+     "loc": "figure 2",
+     "q": "prevalence of adults who smoked daily and smoked 1–9 cigarettes per day and 10–19 cigarettes per day significantly increased (p<0.05)"
+    }
+   ]
+  },
+  {
+   "name": "suppression of statistically unreliable estimates",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "NCHS data presentation standards; dashes in Table",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Based on National Center for Health Statistics data presentation standards, estimates were statistically unreliable"
+    },
+    {
+     "loc": "table 1",
+     "q": "SAS MACRO used for suppression criteria check."
+    }
+   ]
+  },
+  {
+   "name": "imputed family income",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "NHIS imputed income variable used for income strata; imputation method not stated",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Based on the imputed sample adult family income (grouped) variable (n = 31,568)."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": null,
+  "across": [
+   "year (2019 vs 2020)",
+   "sex",
+   "age group",
+   "race/ethnicity",
+   "U.S. Census region",
+   "urban-rural designation",
+   "education",
+   "marital status",
+   "annual household income",
+   "sexual orientation",
+   "health insurance coverage",
+   "disability",
+   "anxiety/depression",
+   "year 2005–2020 (cigarettes per day)"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "From 2019 to 2020, the prevalence of overall tobacco product use, combustible tobacco product use, cigarettes, e-cigarettes"
+   },
+   {
+    "loc": "text",
+    "q": "rural areas than among those who resided in urban areas among non-Hispanic Black (38% higher), Hispanic (38% higher)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "95% Korn-Graubard CIs."
+   },
+   {
+    "loc": "text",
+    "q": "CDC assessed statistically significant (p<0.05) differences in current cigarette smoking by urban-rural designation among each racial and ethnic group"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Tobacco product use,* % (95% CI) †"
+    }
+   ]
+  },
+  {
+   "v": "estimated number of users",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In 2020, 19.0% of U.S. adults (47.1 million) used any tobacco product."
+    }
+   ]
+  },
+  {
+   "v": "percent higher",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "rural areas than among those who resided in urban areas among non-Hispanic Black (38% higher), Hispanic (38% higher)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "SAS-callable SUDAAN software (version 11.0.3; Research Triangle Institute) was used to conduct all analyses."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "figure 2",
+     "q": "Linear trends were adjusted for sex, age, race, and ethnicity."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "sex, age, race, and ethnicity",
+   "ev": [
+    {
+     "loc": "figure 2",
+     "q": "Linear trends were adjusted for sex, age, race, and ethnicity."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "What was the prevalence of commercial tobacco product use among U.S. adults in 2020, how did it change from 2019, and how did it vary across population groups?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess recent national estimates of commercial tobacco product use among U.S. adults aged ≥18 years"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "tobacco product use",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Tobacco Product Use Among Adults — United States, 2020"
+    }
+   ]
+  },
+  {
+   "v": "cigarette smoking",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Cigarettes were the most commonly used tobacco product (12.5%), followed by e-cigarettes (3.7%)."
+    }
+   ]
+  },
+  {
+   "v": "e-cigarette use",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Cigarettes were the most commonly used tobacco product (12.5%), followed by e-cigarettes (3.7%)."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NHIS is an annual, nationally representative household survey of the noninstitutionalized U.S. civilian population."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "From 2019 to 2020, the prevalence of overall tobacco product use, combustible tobacco product use, cigarettes, e-cigarettes"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2020 National Health Interview Survey (NHIS)."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Health Interview Survey (NHIS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2020 National Health Interview Survey (NHIS)."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Tobacco Product Use Among Adults — United States, 2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Rural-urban smoking differences within racial groups are quantified (38%, 62% higher) and interpreted, with tobacco-industry targeting of rural, low-income and Black/Hispanic groups named as explanation; disparities in tobacco use are framed in Summary and Discussion.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Most SPD contrasts are side by side; determinants are cited from literature in general terms rather than tied to the specific quantified contrasts."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "non-Hispanic AI/AN (34.9%), non-Hispanic Other (29.1%), non-Hispanic White (21.1%), and non-Hispanic Black (19.4%) adults than among Hispanic (11.7%)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "cross-classifier",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "figure 1",
+      "q": "by urban-rural † designation and race and ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "rural areas than among those who resided in urban areas among non-Hispanic Black (38% higher), Hispanic (38% higher)"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "persons from rural areas (27.3%) than among those from urban areas (17.7%)"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education",
+     "annual household income",
+     "health insurance coverage"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "persons who had an annual household income of <$35,000 (25.2%) than those with higher income"
+     },
+     {
+      "loc": "text",
+      "q": "persons with a GED (40.5%) than among those with other levels of education (Table)"
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "stratifier",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "lesbian, gay, or bisexual adults (25.1%) than heterosexual/straight adults (18.8%)"
+     },
+     {
+      "loc": "note",
+      "q": "Which of the following best represents how you think of yourself?"
+     }
+    ]
+   },
+   {
+    "v": "disability",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "persons with a disability (25.4%) than those who did not (18.4%)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "men (24.5%) than among women (13.9%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "persons aged 25–44 years (22.9%), 45–64 years (20.4%), or 18–24 years (17.6%) than among those aged ≥65 years (11.8%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "commercial tobacco product use among U.S. adults aged ≥18 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "figure 2",
+      "q": "Linear trends were adjusted for sex, age, race, and ethnicity."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "tobacco industry targeting of rural and low-income areas (advertising, price promotions, retailer access); targeted menthol marketing to Black and Hispanic groups; inequitable conditions (poverty, housing, access to health care)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The tobacco industry has historically targeted rural and low-income areas with increased advertising, price promotions, and access to tobacco retailers"
+    },
+    {
+     "loc": "text",
+     "q": "Targeted marketing of menthol cigarettes to non-Hispanic Black and Hispanic racial and ethnic groups has also been documented"
+    },
+    {
+     "loc": "text",
+     "q": "policies that reduce the effects of inequitable conditions (e.g., poverty, housing, and access to health care)"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "No single referent for most groups; AI/AN limited to single-race non-Hispanic, multiracial AI/AN placed in Other; small AI/AN and Other samples with suppressed cells; income imputed; education restricted to adults ≥25."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "non-Hispanic AI/AN (34.9%), non-Hispanic Other (29.1%), non-Hispanic White (21.1%), and non-Hispanic Black (19.4%) adults than among Hispanic (11.7%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "persons aged 25–44 years (22.9%), 45–64 years (20.4%), or 18–24 years (17.6%) than among those aged ≥65 years (11.8%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 7,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "persons with a GED (40.5%) than among those with other levels of education (Table)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "persons who had an annual household income of <$35,000 (25.2%) than those with higher income"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "persons insured by Medicaid (28.6%) or who were uninsured (27.3%), than those who had some other public insurance (21.3%), private insurance (16.4%)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "procedures",
+  "groupwise",
+  "equity.level",
+  "equity.dimensions"
+ ],
+ "confidence": "medium",
+ "notes": "Design is not named; cross-sectional inferred from the annual NHIS survey, with trend added for the 2019–2020 headline change. The Figure 2 trend model is unnamed, so its family is recorded as other. Urban-rural tests within each race group are tests of rurality within race levels, not tests across race, so they make no groupwise entry.",
+ "view_issues": "The 'higher among' group comparisons have no stated test or overlap rule; only 2019–2020 changes, urban-rural by race, and per-day trends are said to be tested. The text says 'past-year prevalence' for current-use changes, and Figure 2 note has the typo 'deceased'."
+}

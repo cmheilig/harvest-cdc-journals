@@ -1,0 +1,430 @@
+{
+ "id": "mm7107e3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8L8iQANZgBBstFuxkvW",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Effectiveness of maternal completion of a 2-dose primary mRNA COVID-19 vaccination series during pregnancy against COVID-19 hospitalization among infants aged <6 months was 61%"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among case-infants, 16% of mothers had received 2 COVID-19 vaccine doses during pregnancy, whereas 32% of control-infant mothers were vaccinated."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among case-infants, 43 (24%) were admitted to an intensive care unit (ICU)"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Case- and control-infants had similar prevalences of underlying medical conditions (20% and 23%, respectively; p = 0.42)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Models were adjusted for infant age and sex, U.S. Census region, calendar time of admission, and race/ethnicity"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multivariable logistic regression (adjusted OR for VE)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'logistic regression models' giving adjusted odds ratios; VE = 100% × (1 − aOR) → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "determined from logistic regression models. Models were adjusted for infant age and sex, U.S. Census region, calendar time of admission, and race/ethnicity"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "VE CIs judged against 0 underpin the protection claim; CIs model-based from the logistic regression",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "was 61% (95% CI = 31% to 78%)."
+    },
+    {
+     "loc": "text",
+     "q": "was associated with reduced risk for COVID-19 hospitalization among infants aged <6 months"
+    }
+   ]
+  },
+  {
+   "name": "Pearson chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods and Table 1 note for case vs control characteristics",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Testing for statistical significance was conducted using the Pearson chi-square test and Fisher’s exact test for comparisons with fewer than five observations."
+    }
+   ]
+  },
+  {
+   "name": "Fisher exact test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in Table 1 note for small cells",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Pearson chi-square test and Fisher’s exact test for comparisons with fewer than five observations."
+    }
+   ]
+  },
+  {
+   "name": "Wilcoxon rank-sum test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in Table 1 note for continuous characteristics (age, SVI)",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Wilcoxon rank-sum tests were used to compare continuous data."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "control-infants (odds of maternal vaccination); unvaccinated mothers",
+  "across": [
+   "maternal vaccination status during pregnancy",
+   "timing of maternal vaccination",
+   "case status"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "comparing the odds of having completed a 2-dose primary mRNA COVID-19 vaccination series during pregnancy among mothers of case-infants and control-infants"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Descriptive statistics (Pearson chi-square tests and Fisher’s exact tests for categorical outcomes or Wilcoxon rank-sum tests for continuous outcomes)"
+   },
+   {
+    "loc": "text",
+    "q": "determined from logistic regression models."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "VE",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Vaccine effectiveness,* % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "adjusted odds ratio",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VE = 100% × (1 – adjusted odds ratio of completing 2-doses of COVID-19 mRNA vaccines during pregnancy"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Case status, n/N † (column %)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Maternal vaccination during pregnancy §§"
+    },
+    {
+     "loc": "text",
+     "q": "Among case-infants, 16% of mothers had received 2 COVID-19 vaccine doses during pregnancy, whereas 32% of control-infant mothers were vaccinated."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "adjusted for U.S. Census region, admission date (biweekly intervals), continuous age, sex, and race/ethnicity"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "infant age, sex, U.S. Census region, calendar time of admission (biweekly), race/ethnicity",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Models were adjusted for infant age and sex, U.S. Census region, calendar time of admission, and race/ethnicity"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Does maternal completion of a 2-dose mRNA COVID-19 vaccine series during pregnancy protect infants aged <6 months against COVID-19 hospitalization?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to assess effectiveness of maternal completion of a 2-dose primary mRNA COVID-19 vaccination series during pregnancy against COVID-19 hospitalization in infants."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Against COVID-19–Associated Hospitalization in Infants Aged <6 Months"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Effectiveness of Maternal Vaccination with mRNA COVID-19 Vaccine During Pregnancy"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "test-negative",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The Overcoming COVID-19 network conducted a test-negative, case-control study at 20 pediatric hospitals in 17 states"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The Overcoming COVID-19 network conducted a test-negative, case-control study at 20 pediatric hospitals in 17 states"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Overcoming COVID-19 network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The Overcoming COVID-19 network conducted a test-negative, case-control study"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "17 States, July 2021–January 2022"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "effectiveness",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Effectiveness of completion of the primary COVID-19 vaccine series early and later in pregnancy was 32% (95% CI = –43% to 68%)"
+   }
+  ]
+ },
+ "equity": {
+  "level": 1,
+  "level_reason": "Race/ethnicity is a model covariate and SVI a candidate confounder; race composition of case vs control infants is tested and briefly described but not framed as a group result or disparity.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 2,
+   "reason": "The text describes case-infants as more commonly Black and Hispanic than controls, with a chi-square across race groups, which could count as described group-specific results."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 3",
+      "q": "race/ethnicity (non-Hispanic White, non-Hispanic Black, non-Hispanic other, Hispanic of any race, or unknown)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Case-infants were more commonly non-Hispanic Black (18%) and Hispanic (34%) than were control-infants (9% and 28%, respectively)."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "Social Vulnerability Index"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Other factors were assessed (e.g., infant’s underlying health conditions, Social Vulnerability Index, and behavioral factors) but were not included in the final model"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Hospitalization in Infants Aged <6 Months"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 3",
+      "q": "continuous age, sex, and race/ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Models were adjusted for infant age and sex"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "SVI is an area index compared as medians between case and control infants (p = 0.06) and screened as a confounder; race includes an unknown category (about 11%)."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race and ethnicity › Black, non-Hispanic"
+    },
+    {
+     "loc": "table 1",
+     "q": "Testing for statistical significance was conducted using the Pearson chi-square test"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise"
+ ],
+ "confidence": "high",
+ "notes": "Controls were matched to cases by site and admission window; matching is a design step, and the model is not stated to be conditional. VE = 100 × (1 − aOR) is arithmetic. The 'Yates' prepass cue is a person's name (false hit).",
+ "view_issues": "Text says one critically ill infant (0.4%) died, but Table 2 gives 1/170 (0.6%). The race chi-square p = 0.02 is repeated on every race row in Table 1, including Unknown."
+}

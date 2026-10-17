@@ -1,0 +1,348 @@
+{
+ "id": "mm7144a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8Gvji7Uqvx8Cu7CNDoB",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Prevalence of arthritis was higher among caregivers (35.1%) than among noncaregivers (24.5%)."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Prevalence of arthritis was higher among caregivers (35.1%) than among noncaregivers (24.5%)."
+    },
+    {
+     "loc": "text",
+     "q": "Caregivers with arthritis were more likely than were those without arthritis to have the following types of disability: mobility (38.0% versus 7.3%)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "one in five adults (20.6%; 95% CI = 20.1%–21.2%) was a caregiver"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Prevalence of arthritis was higher among caregivers (35.1%) than among noncaregivers (24.5%)."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence of arthritis was greater among caregivers than among noncaregivers overall (35.1% versus 24.5%), in each state, and across all demographic subgroups"
+    },
+    {
+     "loc": "table 1",
+     "q": "between caregivers and noncaregivers for each subgroup of selected characteristics."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "table notes name t-tests for caregiver vs noncaregiver and arthritis vs no-arthritis differences; survey-adjusted in SUDAAN",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "T-tests were used to determine statistically significant differences in arthritis prevalence between caregivers and noncaregivers for each subgroup of selected characteristics."
+    },
+    {
+     "loc": "table 2",
+     "q": "T-tests were used to determine statistically significant differences in characteristics between respondents with and without arthritis."
+    }
+   ]
+  },
+  {
+   "name": "BRFSS survey weighting (complex survey design)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated: estimates weighted to each state's adult population; SUDAAN for complex survey design and weighting",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Analyses were conducted using SUDAAN (version 11.0; RTI International) to account for the complex survey design and weighting."
+    },
+    {
+     "loc": "table 1",
+     "q": "Estimates were weighted to each state’s adult population."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "caregiver status",
+   "arthritis status",
+   "age",
+   "sex",
+   "race/ethnicity",
+   "education level",
+   "employment status",
+   "body mass index category",
+   "physical inactivity",
+   "state"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Prevalence of arthritis was compared between caregivers and noncaregivers overall and by selected demographic subgroups and individual states."
+   },
+   {
+    "loc": "text",
+    "q": "Bivariate analyses were conducted among caregivers with and without arthritis to assess distributions of characteristics related to caregiving"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Statistical significance was determined at α = 0.05."
+   },
+   {
+    "loc": "table 2",
+    "q": "T-tests were used to determine statistically significant differences in characteristics between respondents with and without arthritis."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "prevalence of arthritis, % (95% CI)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Prevalence of arthritis,** % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "weighted %",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Weighted** % (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How prevalent is arthritis among caregivers compared with noncaregivers, and how do caregivers with arthritis differ in caregiving, disability and employment from those without?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess arthritis among caregivers of a family member or friend, CDC examined data from 17 states"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "arthritis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Prevalence and Characteristics of Arthritis Among Caregivers — 17 States, 2017 and 2019"
+    }
+   ]
+  },
+  {
+   "v": "arthritis",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Compared with caregivers without arthritis, those with arthritis provided similar types of care"
+    }
+   ]
+  },
+  {
+   "v": "disability",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "higher proportions of caregivers with arthritis reported disabilities compared with those without arthritis, including mobility issues (38.0% versus 7.3%)."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "BRFSS is a cross-sectional, random-digit–dialed, annual telephone survey of noninstitutionalized U.S. adults aged ≥18 years."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "administered both the arthritis and caregiving modules as part of the Behavioral Risk Factor Surveillance System (BRFSS)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "administered both the arthritis and caregiving modules as part of the Behavioral Risk Factor Surveillance System (BRFSS)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Prevalence and Characteristics of Arthritis Among Caregivers — 17 States, 2017 and 2019"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Caregiver vs noncaregiver arthritis prevalence is reported and described within race/ethnicity, education and employment groups, but no disparity across social-position groups is framed or quantified.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "SPDs serve only as strata for the caregiver contrast; no SPD contrast itself is described."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "noninstitutionalized U.S. adults aged ≥18 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group, yrs › 18–44"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Women"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Prevalence of arthritis was higher among caregivers than among noncaregivers for most employment statuses, races, and ethnicities."
+     },
+     {
+      "loc": "table 1",
+      "q": "Race and ethnicity › Black or African American, non-Hispanic"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education level",
+     "employment status"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Education level › High school graduate or less"
+     },
+     {
+      "loc": "table 1",
+      "q": "Employment status › Unable to work"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "financial insecurity because of loss of paid income",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "might experience unique challenges to sustaining the care they provide, including financial insecurity because of loss of paid income"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "SPDs stratify the caregiver vs noncaregiver contrast; AI/AN and Black differences were not significant. Employment status is also an outcome (figure) by arthritis status. Disability is a functional outcome, not framed as social position."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "groupwise",
+  "equity.level",
+  "analytic_depth"
+ ],
+ "confidence": "medium",
+ "notes": "Tests are caregiver vs noncaregiver within each SPD level, so they make no groupwise entry (rule 6); arthritis prevalence across race or age groups is shown in Table 1 but not discussed. The comparison with a prior national estimate (43.9%) is cited, not a referent.",
+ "view_issues": "Table 1 overall noncaregiver CI 24.5 (23.9–29.1) looks implausibly asymmetric; the 'Other, non-Hispanic' noncaregiver CI lacks a closing parenthesis."
+}

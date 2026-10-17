@@ -1,0 +1,327 @@
+{
+ "id": "mm7226a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg7nGTYwg2M5DFcvrr2dH",
+  "batch_id": "msgbatch_01FaGSxRvLPM3Hp7zgHNqiVG"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "the prevalence of viral clearance among persons with diagnosed hepatitis C was only 34% overall"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "356,807 (34%) of those with initial infection as cured or cleared"
+    },
+    {
+     "loc": "table 1",
+     "q": "Cured or cleared † (%) §"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among the approximately 1.0 million persons in this analysis with initial infection, only 34% had laboratory evidence of viral clearance."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "By payor type, cured or cleared prevalences ranged from 23% for other to 45% for Medicare."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Hepatitis C viral clearance increased with age when stratified by payor type among those with initial infection"
+    },
+    {
+     "loc": "text",
+     "q": "Within this age group, those with other, unspecified or Medicaid payor type had lower viral clearance prevalences"
+    }
+   ]
+  }
+ ],
+ "procedures": [],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": "≥80% viral clearance by 2030 (Viral Hepatitis National Strategic Plan)",
+  "across": [
+   "age group",
+   "payor type"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "was only 34% overall and was even lower (16%) among persons aged 20–39 years with other payor (client or self-pay) insurance."
+   },
+   {
+    "loc": "text",
+    "q": "highlight the large gap between current viral clearance and the nation’s goal of ≥80% viral clearance"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "figure 2",
+    "q": "With 95% CIs indicated by error bars."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "conditional proportion (%)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Conditional proportion based on immediately preceding column."
+    }
+   ]
+  },
+  {
+   "v": "prevalence of viral clearance",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "the prevalence of viral clearance among persons with diagnosed hepatitis C was only 34% overall"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What proportion of U.S. persons with HCV infection progress through testing to viral clearance, and how does this vary by age, sex and payor type?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Characterizing the HCV clearance cascade is critical for monitoring progress toward national elimination goals"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "hepatitis C",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Hepatitis C Virus Clearance Cascade — United States, 2013–2022"
+    }
+   ]
+  },
+  {
+   "v": "hepatitis C",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "7% of those with viral clearance had evidence of subsequent viremia (persistent infection or reinfection)."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "will facilitate the process of monitoring progress toward national elimination goals."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were analyzed from patients living in all 50 states and the District of Columbia who received hepatitis C testing by Quest Diagnostics."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Quest Diagnostics",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "who received hepatitis C testing by Quest Diagnostics."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Data were analyzed from patients living in all 50 states and the District of Columbia"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Clearance is reported by payor type (insurance as SES) and age, with lower values for self-pay, Medicaid and young adults, but contrasts are only values set side by side with no computed difference or ratio, so capped at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Payor and age gaps are discussed as 'disproportionate need' and barriers, which could be read as a framed, interpreted disparity."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "payor type"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Persons in each of the HCV clearance cascade steps were analyzed by age group, sex, and payor type."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "cross-classifier",
+    "ses_components": [
+     "payor type"
+    ],
+    "ev": [
+     {
+      "loc": "figure 2",
+      "q": "Proportion* of hepatitis C virus–infected persons with evidence of viral clearance, by age group † and payor type §"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Age group was categorized as 0–19, 20–39, 40–59, and ≥60 years."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex ¶ › Female"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "access to diagnosis, treatment, and prevention services; treatment regardless of payor",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "These findings highlight the disproportionate need for increased access to hepatitis C treatment and prevention services among younger adults."
+    },
+    {
+     "loc": "text",
+     "q": "Overcoming these barriers requires implementation of universal hepatitis C screening recommendations"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Payor type (Medicare, Medicaid, commercial, self-pay/client, unspecified) is the only SES proxy; ages 0–19 excluded from Figure 2 for small numbers."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "By payor type, cured or cleared prevalences ranged from 23% for other to 45% for Medicare."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The prevalence of being cured or cleared was lowest among persons aged 20–29 years (24%), and highest among those aged ≥60 years (42%)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age",
+    "SES"
+   ],
+   "n_groups": 15,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The highest proportion of cured or cleared among all age groups and payors was 49% for commercially insured persons aged ≥60 years."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "analytic_depth",
+  "equity.level",
+  "study_design",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Figure 2 shows 95% CIs, but no conclusion rests on them, so no procedure is recorded; conditional proportions are arithmetic. The design is inferred as monitoring against the national ≥80% clearance goal.",
+ "view_issues": "Text says 'aged 20–29 years (24%)' but the age group is 20–39. Discussion gives Medicare 40% and commercial 45%, swapped versus the table (Medicare 44.8%, commercial 39.6%)."
+}

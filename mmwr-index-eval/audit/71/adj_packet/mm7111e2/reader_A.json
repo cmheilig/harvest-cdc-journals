@@ -1,0 +1,451 @@
+{
+ "id": "mm7111e2",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This peak hospitalization rate during Omicron predominance was approximately five times the peak during Delta predominance (2.9)"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Unadjusted weekly COVID-19–associated hospitalization rates were calculated by dividing the total number of hospitalized patients by the population estimates"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the proportion of hospitalized infants and children requiring ICU admission (27% versus 21%, p = 0.02) was lower."
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Compared with Delta predominance, hospital length of stay during Omicron predominance was shorter (2 versus 1.5 days, p = 0.002)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During Omicron predominance, 37% of hospitalized infants and children had one or more underlying medical condition."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This peak hospitalization rate during Omicron predominance was approximately five times the peak during Delta predominance (2.9)"
+    },
+    {
+     "loc": "text",
+     "q": "Length of stay, ICU admission, and need for respiratory support did not significantly differ by age group."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated: chi-square tests compare proportions between periods and across age groups",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Wilcoxon rank-sum tests and chi-square tests were used to compare medians and proportions, respectively; p-values <0.05 were considered statistically significant."
+    }
+   ]
+  },
+  {
+   "name": "Wilcoxon rank-sum test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated: Wilcoxon rank-sum tests compare medians (length of stay)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Compared with Delta predominance, hospital length of stay during Omicron predominance was shorter (2 versus 1.5 days, p = 0.002)"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "CI method not stated; RR CIs excluding 1 support 'elevated' claims",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rate ratios (RR) comparing Omicron- and Delta-predominant periods and 95% CIs were calculated."
+    },
+    {
+     "loc": "text",
+     "q": "hospitalization RRs were also elevated among infants and children aged 6–23 months (16.9 versus 3.3; RR = 5.1"
+    }
+   ]
+  },
+  {
+   "name": "sampling weights with nonresponse adjustment",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated: percentages weighted for probability of selection and adjusted for nonresponse",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Percentages were weighted to account for the probability of selection for sampled cases and adjusted to account for nonresponse."
+    }
+   ]
+  },
+  {
+   "name": "3-week moving average",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "smoothing of weekly rates for the figure only",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Three-week moving averages are presented for visualization purposes."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "Delta predominance peak",
+  "across": [
+   "variant predominance period",
+   "age group"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "U.S. infants and children aged 0–4 years were hospitalized at approximately five times the rate of the previous peak during Delta variant predominance."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Wilcoxon rank-sum tests and chi-square tests were used to compare medians and proportions, respectively; p-values <0.05 were considered statistically significant."
+   },
+   {
+    "loc": "text",
+    "q": "(RR = 5.0; 95% CI = 3.8–6.8)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "hospitalization rate per 100,000",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All rates are estimated per 100,000 infants and children aged 0–4 years."
+    }
+   ]
+  },
+  {
+   "v": "RR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rate ratios (RR) comparing Omicron- and Delta-predominant periods and 95% CIs were calculated."
+    }
+   ]
+  },
+  {
+   "v": "monthly ICU admission rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Monthly ICU admission rates were calculated."
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Sample sizes presented are unweighted with weighted percentages."
+    }
+   ]
+  },
+  {
+   "v": "median length of stay",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Length of hospital stay, days, median (IQR)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did COVID-19–associated hospitalization rates and clinical characteristics of hospitalized children aged 0–4 years change during Omicron predominance, and do they differ by age?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "data were analyzed to describe COVID-19–associated hospitalizations among U.S. infants and children aged 0–4 years since March 2020."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Hospitalization of Infants and Children Aged 0–4 Years with Laboratory-Confirmed COVID-19"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Clinical characteristics and outcomes among infants and children aged 0–4 years hospitalized with laboratory-confirmed COVID-19 (N = 572),"
+    }
+   ]
+  },
+  {
+   "v": "respiratory syncytial virus infection",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the proportion hospitalized with RSV codetections was significantly higher during Delta predominance (20%) than during Omicron predominance (7%) (p<0.001)."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-NET conducts population-based surveillance for laboratory-confirmed COVID-19–associated hospitalizations in 99 counties across 14 U.S. states."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Proportions were compared between periods of pre-Delta predominance (March 1, 2020–June 26, 2021), Delta predominance"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Trained surveillance staff conducted medical chart abstractions for all pediatric COVID-NET patients using a standardized case report form"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Coronavirus Disease 2019–Associated Hospitalization Surveillance Network (COVID-NET)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Coronavirus Disease 19–Associated Hospitalization Surveillance Network (COVID-NET)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "in 99 counties across 14 U.S. states."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Race/ethnicity appears only as a Table 1 descriptor (with a chi-square across periods) and is not discussed; age groups are compared but not framed as social position.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 0,
+   "reason": "Race/ethnicity is only a composition row in Table 1; the analysis otherwise rests on age only."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Hospitalization of Infants and Children Aged 0–4 Years with Laboratory-Confirmed COVID-19"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "For the period of Omicron predominance, proportions were compared by age (<6 months, 6–23 months, and 2–4 years)."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Male"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race/Ethnicity** › Black, non-Hispanic"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity has six Table 1 categories including unknown; non-Hispanic ethnicity assumed when unknown; AI/AN and other races collapsed into 'all other races'."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Proportions of infants and children aged <6 months, 6–23 months, and 2–4 years were compared using chi-square tests"
+    },
+    {
+     "loc": "text",
+     "q": "Length of stay, ICU admission, and need for respiratory support did not significantly differ by age group."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Infants aged <6 months had the highest rates of hospitalization"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Proportions between the Omicron and Delta and Omicron and pre-Delta predominance periods were compared using chi-square tests"
+    },
+    {
+     "loc": "table 1",
+     "q": "Age group, yrs, median (IQR) › 6–23 months"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Proportions between the Omicron and Delta and Omicron and pre-Delta predominance periods were compared using chi-square tests"
+    },
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity** › Hispanic"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "procedures",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Period RRs compare peak weeks, overall and within each age group (period contrasts within age levels read as comparison, not stratification). Table 1 tests compare Omicron with each earlier period separately, so the period comparison is pairwise.",
+ "view_issues": "Prepass 'yates' is a false hit (Yates County). Text says 30 of 146 infants <2 months were birth hospitalizations, while the Table 2 note gives 31 of 250 infants <6 months; Table 1 CSV repeats each variable's p-value on every category row."
+}

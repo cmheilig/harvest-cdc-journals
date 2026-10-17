@@ -1,0 +1,457 @@
+{
+ "id": "mm7101e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GvmPZZGpoqTDibW4yo",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The overall prevalence of preterm birth and SGA at birth were 6.6 and 8.2 per 100 live births, respectively"
+    }
+   ]
+  },
+  {
+   "v": "event-time",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-19 vaccination during pregnancy was not associated with preterm birth (adjusted hazard ratio [aHR] = 0.91; 95% CI = 0.82–1.01)."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The overall prevalence of preterm birth and SGA at birth were 6.6 and 8.2 per 100 live births, respectively"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "COVID-19 vaccination during pregnancy was not associated with preterm birth or small-for-gestational-age at birth overall, stratified by trimester of vaccination"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "accounting for time-dependent vaccine exposures and propensity to be vaccinated"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "time-dependent Cox proportional hazards regression",
+   "class": "regression",
+   "regression_family": "event-time",
+   "inferred_from": "'time-dependent covariate Cox model' giving aHRs → event-time",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Associations were estimated using a time-dependent covariate Cox model with inverse probability weighting and COVID-19 disease status as a time-dependent covariate."
+    }
+   ]
+  },
+  {
+   "name": "standardized inverse probability of treatment weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated standardized inverse probability weighting from a propensity model",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Time-dependent COVID-19 vaccine and COVID-19 diagnosis Cox models with standardized inverse probability weighting were used to estimate the aHR"
+    }
+   ]
+  },
+  {
+   "name": "generalized additive model for propensity to be vaccinated",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'binomial distribution and logit link' → logistic; used only to build weights",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Propensity to be vaccinated during pregnancy was estimated using a generalized additive model with binomial distribution and logit link"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "aHR CIs including 1 underpin 'not associated' conclusions; CIs model-based from the Cox model",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-19 vaccination in pregnancy was not associated with SGA at birth (aHR = 0.95; 95% CI = 0.87–1.03)."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "unvaccinated pregnant women",
+  "across": [
+   "COVID-19 vaccination status",
+   "mRNA vaccine dose number",
+   "trimester of first dose"
+  ],
+  "ev": [
+   {
+    "loc": "table 3",
+    "q": "among women receiving COVID-19 vaccine during pregnancy compared with unvaccinated pregnant women"
+   },
+   {
+    "loc": "table 3",
+    "q": "Ref = referent group."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Associations are reported based on aHRs and 95% CIs. Statistical significance was defined as a p-value <0.05 with a two-sided test."
+   },
+   {
+    "loc": "text",
+    "q": "not significantly associated with increased risk for preterm birth overall (aHR = 0.91; 95% CI = 0.82–1.01; p = 0.06)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "aHR",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "aHR § (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "prevalence (events per 100 live births)",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Prevalence (events per 100 live births)"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Vaccination status, no. (%)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Time-dependent COVID-19 vaccine and COVID-19 diagnosis Cox models with standardized inverse probability weighting were used to estimate the aHR"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "calendar week of pregnancy start, maternal age, race/ethnicity, prenatal care adequacy, maternal comorbidities, state-level COVID-19 test positivity, neighborhood poverty, VSD site (via weights); COVID-19 diagnosis as time-dependent covariate",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "with calendar week of pregnancy start date, maternal age, race/ethnicity, prenatal care adequacy, maternal comorbidities, state level COVID-19 average test positivity"
+    },
+    {
+     "loc": "table 3",
+     "q": "neighborhood poverty, and Vaccine Safety Datalink site as covariates."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Is COVID-19 vaccination during pregnancy associated with preterm birth or small-for-gestational-age at birth, compared with no vaccination?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Risks for preterm and SGA at birth among vaccinated and unvaccinated pregnant women were compared"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Receipt of COVID-19 Vaccine During Pregnancy and Preterm or Small-for-Gestational-Age at Birth"
+    }
+   ]
+  },
+  {
+   "v": "preterm birth",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Primary outcomes were preterm birth, defined as birth <37 weeks’ gestation, and SGA at birth"
+    }
+   ]
+  },
+  {
+   "v": "small-for-gestational-age at birth",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Primary outcomes were preterm birth, defined as birth <37 weeks’ gestation, and SGA at birth"
+    }
+   ]
+  },
+  {
+   "v": "pregnancy",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In a retrospective cohort of >40,000 pregnant women"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "retrospective cohort",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In this retrospective cohort study of live births from eight Vaccine Safety Datalink (VSD) health care organizations"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "electronic health records",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Receipt of COVID-19 vaccines was identified from standardized VSD files, incorporating electronic health record, claims, and state and regional immunization information system data."
+    }
+   ]
+  },
+  {
+   "v": "administrative/claims",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Covariates were obtained from ICD-10-CM codes and administrative and electronic health record data."
+    }
+   ]
+  },
+  {
+   "v": "vaccination registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Receipt of COVID-19 vaccines was identified from standardized VSD files, incorporating electronic health record, claims, and state and regional immunization information system data."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Vaccine Safety Datalink (VSD)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VSD is a collaboration between CDC and nine health care organizations representing approximately 3% of the U.S. population."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "included singleton live births from eight VSD sites in California, Colorado, Minnesota, Oregon, Washington, and Wisconsin"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "safety",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "These data support the safety of COVID-19 vaccination during pregnancy."
+   }
+  ]
+ },
+ "equity": {
+  "level": 1,
+  "level_reason": "Race/ethnicity and neighborhood poverty enter only the propensity model and Table 1 descriptors; no group-specific outcome results or disparity framing.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 2,
+   "reason": "The text states vaccination varied by race/ethnicity, citing Table 1 group distributions, which could be read as group-specific results."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "table 3",
+      "q": "maternal age, race/ethnicity, prenatal care adequacy"
+     },
+     {
+      "loc": "table 1",
+      "q": "Race/ethnicity came from electronic health data, based on self-report."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "COVID-19 vaccination during pregnancy varied by maternal age, race/ethnicity, and selected maternal comorbidities"
+     },
+     {
+      "loc": "table 1",
+      "q": "Race/Ethnicity ¶ › Black, non-Hispanic"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "neighborhood poverty"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "neighborhood poverty, state-level percentage of positive COVID-19 test results during the second trimester, and VSD site"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "percentage living in poverty by neighborhood"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Percentage living in poverty by neighborhood (i.e., U.S. Census tract) from the American Community Survey 5-year summary for 2019."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Females aged 16–49 years with estimated pregnancy start during May 17–October 24, 2020"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 3",
+      "q": "maternal age, race/ethnicity, prenatal care adequacy"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Females aged 16–49 years with estimated pregnancy start during May 17–October 24, 2020"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Neighborhood poverty is a census-tract area measure from the ACS, used in the propensity model; race/ethnicity is self-reported, with other and unknown collapsed."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "procedures",
+  "regression_fields"
+ ],
+ "confidence": "high",
+ "notes": "Adjustment is through standardized IPT weights from a propensity GAM, recorded as adjusted_results true. P-values are for Cox model terms, not separate tests. Dose and trimester analyses are exposure strata, not sensitivity analyses.",
+ "view_issues": "Summary says no association when stratified by dose or trimester, but Table 3 shows aHRs with CIs excluding 1 (1 mRNA dose 0.78, 0.66–0.93; third trimester 0.82, 0.72–0.94); the limitations attribute these to residual immortal time bias."
+}

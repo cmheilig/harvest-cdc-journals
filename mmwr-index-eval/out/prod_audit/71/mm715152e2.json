@@ -1,0 +1,361 @@
+{
+ "id": "mm715152e2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8N1s37TvV91LhK125qv",
+  "batch_id": "msgbatch_01THxcVjCM9oj7vRLBXSzDjL"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "a bivalent booster dose provided 73% additional protection against COVID-19 hospitalization compared with past monovalent mRNA vaccination only."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Absolute VE against COVID-19–associated hospitalization was estimated by comparing the odds of bivalent booster dose receipt with no COVID-19 vaccination"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "When compared with unvaccinated patients, VE of a bivalent booster dose in preventing COVID-19–associated hospitalization was 84%."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Using multivariable logistic regression models, VE was estimated as (1 − adjusted odds ratio [aOR]) x 100)."
+    },
+    {
+     "loc": "text",
+     "q": "Relative VE was stratified by number of months (i.e., 2–5, 6–11, or ≥12) between the last monovalent vaccine dose and illness onset."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multivariable logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'multivariable logistic regression models' giving aORs, VE = (1 − aOR) × 100 → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Using multivariable logistic regression models, VE was estimated as (1 − adjusted odds ratio [aOR]) x 100)."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based 95% CIs from the logistic regression; VE CIs exclude 0 and the article concludes protection",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted VE, % (95% CI) §"
+    },
+    {
+     "loc": "text",
+     "q": "These early findings show that a bivalent booster dose provided strong protection against COVID-19–associated hospitalization in older adults"
+    }
+   ]
+  },
+  {
+   "name": "suppression of imprecise VE estimates (CI width >50 percentage points)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "estimates withheld under a CI-width rule",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "VE estimates with 95% CIs >50 percentage points were not reported because of lack of precision."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "unvaccinated (absolute VE); ≥2 monovalent-only mRNA doses (relative VE)",
+  "across": [
+   "vaccination status",
+   "interval since last monovalent dose"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "a bivalent booster dose provided 73% additional protection against COVID-19 hospitalization compared with past monovalent mRNA vaccination only."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "ci_overlap": false,
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "Adjusted VE, % (95% CI) §"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "adjusted VE, %",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted VE, % (95% CI) §"
+    }
+   ]
+  },
+  {
+   "v": "relative VE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "relative VE of a bivalent booster dose was 73%."
+    }
+   ]
+  },
+  {
+   "v": "aOR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VE was estimated as (1 − adjusted odds ratio [aOR]) x 100)."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusted for U.S. Department of Health and Human Services region, admission date in 2-week intervals, continuous age, sex, race"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "HHS region, admission date in 2-week intervals, continuous age, sex, race and ethnicity",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusted for U.S. Department of Health and Human Services region, admission date in 2-week intervals, continuous age, sex, race"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How effective is a bivalent mRNA booster dose against COVID-19–associated hospitalization among immunocompetent adults aged ≥65 years, versus no vaccination and monovalent-only vaccination?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "assessed effectiveness of a bivalent booster dose received after ≥2 doses of monovalent mRNA vaccine against COVID-19–associated hospitalization"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Bivalent mRNA Vaccine Effectiveness in Preventing COVID-19–Associated Hospitalization"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Early Estimates of Bivalent mRNA Vaccine Effectiveness in Preventing COVID-19–Associated Hospitalization"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "test-negative",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were eligible for inclusion in this test-negative design, case-control analysis."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "to any of 22 hospitals in 18 states participating in the IVY Network"
+    }
+   ]
+  },
+  {
+   "v": "vaccination registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-19 mRNA vaccination status was verified from EMR, state-based registries, vaccination cards, or self-report."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Investigating Respiratory Viruses in the Acutely Ill (IVY) Network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the Investigating Respiratory Viruses in the Acutely Ill (IVY) Network"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "IVY Network, 18 States, September 8–November 30, 2022"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "effectiveness",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Early Estimates of Bivalent mRNA Vaccine Effectiveness in Preventing COVID-19–Associated Hospitalization"
+   }
+  ]
+ },
+ "equity": {
+  "level": 1,
+  "level_reason": "Race and ethnicity appear only as a model covariate and a Table 1 descriptor; age and sex define the population or are covariates.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 0,
+   "reason": "Race/ethnicity is only a routine confounder with no group results; one could read this as no equity content."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Among Immunocompetent Adults Aged ≥65 Years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "continuous age, sex, and race and ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "continuous age, sex, and race and ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "and race and ethnicity (non-Hispanic Black or African American, Hispanic of any race, non-Hispanic White, non-Hispanic other race, or other or unknown)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "118 (15%) were non-Hispanic Black or African American, 78 (10%) were Hispanic"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Asian, AI/AN and NH/OPI combined as other race because of small counts; unknown race grouped with other."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "procedures"
+ ],
+ "confidence": "high",
+ "notes": "The methods state a nonoverlapping-CI significance rule, but no reported claim compares estimates by overlap, so no CI overlap assertion is recorded. Relative VE by interval since last monovalent dose is a stratified estimate, not a sensitivity analysis.",
+ "view_issues": null
+}

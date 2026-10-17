@@ -1,0 +1,347 @@
+{
+ "id": "mm7130a4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8Gvjf8vzCzXLSRK7tZC",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "injection site and systemic reactions were less frequent after a second booster dose than after the first booster dose."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "local injection site reactions were reported by 67,521 (49.1%) BNT162b2 (Pfizer-BioNTech) and 92,472 (62.1%) mRNA-1273 (Moderna) vaccine recipients"
+    },
+    {
+     "loc": "summary",
+     "q": "Ninety-five percent of 8,515 events reported to the Vaccine Adverse Event Reporting System were nonserious."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Ninety-five percent of 8,515 events reported to the Vaccine Adverse Event Reporting System were nonserious."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "local injection site reactions were less frequently reported after the second booster dose than after any previous doses (p<0.001)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "accounted for the correlation between registrants and adjusted for demographic variables"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multivariable GEE model for odds of reporting (logistic)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'odds of reporting' a binary reaction compared with a multivariable generalized estimating equations model → GEE logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "compared using a multivariable generalized estimating equations model that accounted for demographic variables and repeated measures."
+    }
+   ]
+  },
+  {
+   "name": "small-cell suppression",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "Table 2 note suppresses cells with fewer than two reports",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Cells with fewer than two reports were suppressed."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": "first booster dose (and other previous doses)",
+  "across": [
+   "vaccine dose",
+   "vaccine product"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "injection site and systemic reactions were less frequent after a second booster dose than after the first booster dose."
+   },
+   {
+    "loc": "text",
+    "q": "systemic reactions were less frequently reported after the second booster than after either dose 2 or the first booster dose (p<0.001)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "figure 1",
+    "q": "all second booster and first booster dose comparisons were statistically significant."
+   },
+   {
+    "loc": "text",
+    "q": "p-values <0.05 were considered statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "% reporting reaction or health impact",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% Reporting reaction or health impact after receipt of second booster dose"
+    }
+   ]
+  },
+  {
+   "v": "No. (%) of VAERS reports",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "No. (%) reporting"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "GEE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "generalized estimating equations model that accounted for demographic variables and repeated measures."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "accounted for the correlation between registrants and adjusted for demographic variables"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "demographic variables (not specified)",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "adjusted for demographic variables"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "What adverse events are reported after a second mRNA COVID-19 booster dose among adults aged ≥50 years, and are reactions less frequent than after previous doses?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To characterize the safety of a second mRNA booster dose among persons aged ≥50 years, CDC reviewed adverse events and health impact assessments"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Safety Monitoring of COVID-19 mRNA Vaccine Second Booster Doses Among Adults Aged ≥50 Years"
+    }
+   ]
+  },
+  {
+   "v": "local and systemic reactions after vaccination",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "local and systemic reactions are expected after a second mRNA COVID-19 booster dose. Serious adverse events are uncommon."
+    }
+   ]
+  },
+  {
+   "v": "serious adverse events after vaccination",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "including 8,073 (94.8%) nonserious and 442 (5.1%) serious events."
+    }
+   ]
+  },
+  {
+   "v": "myocarditis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "12 were preliminary reports of myocarditis (six nonserious and six serious)"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "V-safe is a voluntary smartphone-based U.S. active surveillance system that monitors adverse events occurring after COVID-19 vaccination."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "reported to v-safe and the Vaccine Adverse Event Reporting System (VAERS)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "v-safe",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "V-safe is a voluntary smartphone-based U.S. active surveillance system"
+    }
+   ]
+  },
+  {
+   "v": "Vaccine Adverse Event Reporting System (VAERS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VAERS is a U.S. passive surveillance system for monitoring adverse events after vaccination, managed by CDC and FDA"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, March 29, 2022–July 10, 2022"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "safety",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To characterize the safety of a second mRNA booster dose among persons aged ≥50 years"
+   }
+  ]
+ },
+ "equity": {
+  "level": 0,
+  "level_reason": "Age (≥50 years) defines the population and sex appears only as a descriptor; no other social-position dimension is reported or framed.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Unspecified demographic variables adjusted in the GEE model could include race/ethnicity as a covariate."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Safety Monitoring of COVID-19 mRNA Vaccine Second Booster Doses Among Adults Aged ≥50 Years"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The median registrant age was 67 years; 173,525 (60.6%) were female."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "comparison"
+ ],
+ "confidence": "high",
+ "notes": "The GEE compares the second booster with dose 2, the first booster and other previous doses; the headline is second vs first booster, so framework is pair. No odds ratios are reported, only p-values, so scale is null. VE figures in the Discussion are cited from another report.",
+ "view_issues": "Serious VAERS reports are given as 5.1% in the text and 5.2% elsewhere; deaths are 52 in Results but 40 in the Discussion."
+}

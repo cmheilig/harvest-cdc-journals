@@ -1,0 +1,386 @@
+{
+ "id": "mm7104e4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8Gvjk6Kie8RYovCBKWT",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "disease severity indicators, including length of stay, ICU admission, and death, were lower than during previous pandemic peaks."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "For each period analyzed, ratios of ED visits, hospital admissions, and deaths per 1,000 COVID-19 cases were calculated."
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The percentage of hospitalized COVID-19 patients admitted to an ICU during Omicron (13.0%) was 28.8% lower than during the winter 2020–21 (18.2%)"
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Mean length of hospital stay during Omicron (5.5 days) was 31.0% lower than during the winter 2020–21 (8.0 days)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The maximum 7-day moving averages of the daily number of COVID-19 cases, ED visits, hospital admissions, and deaths during the Omicron period were compared"
+    },
+    {
+     "loc": "text",
+     "q": "Statistical differences between the Omicron and winter 2020–21 and Delta periods were assessed using z-tests for proportions"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "z-test for proportions",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods; applied to ICU, IMV and in-hospital death percentages, Omicron vs each earlier period",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Statistical differences between the Omicron and winter 2020–21 and Delta periods were assessed using z-tests for proportions"
+    }
+   ]
+  },
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods for mean length of stay, Omicron vs each earlier period",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "t-tests for mean length of stay; statistical significance criterion was p<0.05."
+    }
+   ]
+  },
+  {
+   "name": "7-day moving average",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "smoothing of daily counts; peak values compared between periods rest on it",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The daily 7-day moving average of COVID-19 cases, ED visits, and hospital admissions rapidly increased during the Omicron period"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "both",
+  "referent": "winter 2020–21 and Delta periods",
+  "across": [
+   "period",
+   "age group"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The maximum 7-day moving averages of the daily number of COVID-19 cases, ED visits, hospital admissions, and deaths during the Omicron period were compared"
+   },
+   {
+    "loc": "table 2",
+    "q": "Comparison of Omicron with winter 2020–21 period › Percentage point or mean difference"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Statistical differences between the Omicron and winter 2020–21 and Delta periods were assessed using z-tests for proportions"
+   },
+   {
+    "loc": "table 2",
+    "q": "† p<0.001. § p<0.05."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "7-day moving average",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Peak value (7-day moving average)"
+    }
+   ]
+  },
+  {
+   "v": "relative % difference",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Relative % difference**"
+    }
+   ]
+  },
+  {
+   "v": "number or percentage point difference",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Number or percentage point difference ¶"
+    }
+   ]
+  },
+  {
+   "v": "ratio per 1,000 cases",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "For each period analyzed, ratios of ED visits, hospital admissions, and deaths per 1,000 COVID-19 cases were calculated."
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "hospitalized COVID-19 patients represented 12.0%, 9.4%, and 12.9% of all admissions"
+    }
+   ]
+  },
+  {
+   "v": "mean length of stay",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Mean length of hospital stay during Omicron (5.5 days) was 31.0% lower"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did COVID-19 disease severity and health care utilization during the early Omicron period compare with earlier high-transmission periods in the United States?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To better understand the severity of disease and health care utilization associated with the emergence of the Omicron variant in the United States"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Trends in Disease Severity and Health Care Utilization During the Early Omicron Variant Period"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC used data from three surveillance systems to assess U.S. disease related to COVID-19"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "assess multiple indicators across three high–COVID-19 transmission periods"
+    }
+   ]
+  },
+  {
+   "v": "ecologic",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the findings reflect an ecologic analysis of event-based indicators"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-19 aggregate cases and deaths reported to CDC by state and territorial health departments"
+    },
+    {
+     "loc": "text",
+     "q": "ED visits with COVID-19 diagnosis codes were obtained from the National Syndromic Surveillance Program (NSSP)."
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were obtained from the Unified Hospital Data Surveillance System."
+    }
+   ]
+  },
+  {
+   "v": "electronic health records",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "includes patient-level electronically captured laboratory results; pharmacy orders; and admission, discharge, and transfer data from 267 hospitals."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Syndromic Surveillance Program (NSSP)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "National Syndromic Surveillance Program (NSSP)."
+    }
+   ]
+  },
+  {
+   "v": "Unified Hospital Data Surveillance System",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Unified Hospital Data Surveillance System."
+    }
+   ]
+  },
+  {
+   "v": "BD Insights Research Database",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC used the BD Insights Research Database (BD), a U.S. health care facility database"
+    }
+   ]
+  },
+  {
+   "v": "CDC COVID-19 case and death surveillance (COVID Data Tracker)",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "CDC official counts of COVID-19 cases and deaths, released daily"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, December 2020–January 2022"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Age is the only social-position dimension, used as a stratifier of period comparisons without social-position framing.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 2,
+   "reason": "Age-group-specific results are reported and described (children's large relative increases), if age stratification were counted despite the age-only rule."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "ED visits and hospital admissions were tabulated by admission date and stratified by the following age groups: 0–17, 18–49, and ≥50 years."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Age groups differ by source: 0–17, 18–49, ≥50 in surveillance data versus 0–17, 18–50, >50 in BD; pediatric IMV and death contrasts not calculated."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Disease severity among hospitalized COVID-19 patients was associated with increasing age"
+    },
+    {
+     "loc": "text",
+     "q": "The largest relative differences in ED visits and admissions were observed among children and adolescents aged 0–17 years during the Omicron period"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise",
+  "analytic_depth"
+ ],
+ "confidence": "high",
+ "notes": "Tests compare Omicron with each earlier period within each age group (a non-SPD contrast within SPD levels), so they make no groupwise entry; the age entry rests on side-by-side claims. Event-to-case ratios and relative % differences are arithmetic. Lower severity attributed to vaccination coverage cited from other sources.",
+ "view_issues": "Table 2 labels length of stay 'by age group, yrs' though values are days. Age bands differ between surveillance (18–49, ≥50) and BD (18–50, >50) data."
+}

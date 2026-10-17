@@ -1,0 +1,528 @@
+{
+ "id": "mm7201a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg7nFKvXZSAFc1r5TfQNb",
+  "batch_id": "msgbatch_01FaGSxRvLPM3Hp7zgHNqiVG"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "By August 31, 2022, 33.2%, 59.0%, and 68.6% of persons aged 5–11, 12–15, and 16–17 years, respectively, had received ≥1 COVID-19 vaccine dose"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "By August 31, 2022, 33.2%, 59.0%, and 68.6% of persons aged 5–11, 12–15, and 16–17 years, respectively, had received ≥1 COVID-19 vaccine dose"
+    },
+    {
+     "loc": "text",
+     "q": "Parents of White children and adolescents of all ages reported the highest level of reluctance"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Monovalent booster dose coverage was low overall (14.7%)"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Coverage in Black children aged 5–11 years was 4.0 to 33.6 percentage points lower than that among Asian, Hispanic, and other/multiple race children"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Differences in ≥1-dose coverage were assessed by race and ethnicity and stratified by sociodemographic subgroups."
+    },
+    {
+     "loc": "text",
+     "q": "Coverage among Asian and Hispanic children and adolescents was higher in most sociodemographic subgroups compared with coverage among White children and adolescents."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Kaplan-Meier estimation",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "cumulative ≥1-dose coverage estimated by Kaplan-Meier with censoring at interview date",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Kaplan-Meier estimation methods were used to calculate cumulative ≥1-dose COVID-19 vaccination coverage as of August 31, 2022."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "survey weights adjusting to the U.S. child population and calibrating to vaccine administration data; SUDAAN",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Survey weights were used to adjust to the noninstitutionalized U.S. population of children and adolescents and to calibrate to CDC vaccine administration data."
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "pairwise comparisons at p<0.05 with no test named; CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Pairwise comparisons were conducted to assess differences in ≥1-dose estimates for all races and ethnicities."
+    },
+    {
+     "loc": "text",
+     "q": "For all analyses, p-values <0.05 were considered statistically significant."
+    }
+   ]
+  },
+  {
+   "name": "hot deck imputation of first-dose month and year",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "missing vaccination dates imputed from donor pools; imputed values enter the Kaplan-Meier estimates",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "First-dose vaccination month and year were hot deck imputed"
+    }
+   ]
+  },
+  {
+   "name": "suppression of unreliable estimates",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "estimates withheld by CI-width, relative SE and sample-size rules",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimates were suppressed because they did not meet standards for data reliability (CI >20, relative SE >30, or sample size <30)."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "absolute",
+  "referent": "White children and adolescents",
+  "across": [
+   "race/ethnicity",
+   "age group",
+   "sex",
+   "mother's education",
+   "poverty status and household income",
+   "health insurance",
+   "urbanicity",
+   "region",
+   "SVI",
+   "mask-wearing",
+   "influenza vaccination",
+   "parental intent"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "≥1-dose COVID-19 vaccination coverage was low overall, but highest among Asian and Hispanic or Latino children and adolescents."
+   },
+   {
+    "loc": "table 1",
+    "q": "White persons were designated as the Ref for racial and ethnic comparisons"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": false,
+  "ci_overlap": false,
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "Statistically significant (p<0.05) difference compared with the indicated Ref (column) level (White)."
+   },
+   {
+    "loc": "table 2",
+    "q": "Weighted % (95% CI)"
+   }
+  ]
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "pairwise (all pairs)",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Pairwise comparisons were conducted to assess differences in ≥1-dose estimates for all races and ethnicities."
+    },
+    {
+     "loc": "text",
+     "q": "Coverage in Black children aged 5–11 years was 4.0 to 33.6 percentage points lower than that among Asian, Hispanic, and other/multiple race children"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Statistically significant (p<0.05) difference compared with White persons."
+    },
+    {
+     "loc": "text",
+     "q": "Parents of White children and adolescents of all ages reported the highest level of reluctance"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group, yrs › 5–11 (Ref)"
+    },
+    {
+     "loc": "table 1",
+     "q": "Statistically significant (p<0.05) difference compared with the indicated Ref (row) level."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Mother’s highest education level › College degree or higher (Ref)"
+    },
+    {
+     "loc": "text",
+     "q": "those whose mothers had obtained a college degree"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Poverty status and household income › Above poverty, ≥$75,000 (Ref)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Health insurance › Other insurance (Ref)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "SVI of county of residence ††† › Low (Ref)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Urbanicity ¶¶ › MSA, principal city (Ref)"
+    }
+   ]
+  }
+ ],
+ "primary_measures": [
+  {
+   "v": "weighted %",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Weighted % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "cumulative ≥1-dose coverage (Kaplan-Meier)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Cumulative percentage vaccinated with ≥1 dose was estimated using Kaplan Meier survival analysis techniques"
+    }
+   ]
+  },
+  {
+   "v": "percentage points",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was 4.0 to 33.6 percentage points lower"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How do COVID-19 vaccination coverage, parental intent to vaccinate and behavioral and social drivers of vaccination differ by race and ethnicity among U.S. children aged 5–17 years?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to describe racial and ethnic differences in vaccination status, parental intent to vaccinate their child, and behavioral and social drivers of vaccination"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Racial and Ethnic Differences in COVID-19 Vaccination Coverage Among Children and Adolescents Aged 5–17 Years"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NIS-CCM is a nationally representative random-digit–dialed mobile telephone survey of households with children and adolescents aged 6 months–17 years."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the National Immunization Survey–Child COVID Module (NIS-CCM)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Immunization Survey–Child COVID Module (NIS-CCM)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the National Immunization Survey–Child COVID Module (NIS-CCM)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "NIS-CCM is a nationally representative random-digit–dialed mobile telephone survey"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "≥1-dose COVID-19 vaccination coverage was low overall, but highest among Asian and Hispanic or Latino children and adolescents."
+   }
+  ]
+ },
+ "equity": {
+  "level": 3,
+  "level_reason": "Racial and ethnic coverage disparities are framed (title, Summary), quantified (Black children 4.0–33.6 percentage points lower) and interpreted; explanations for the coverage gap are trust, confidence and provider recommendation, with structural inequities named only for COVID-19 risk.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "Income, education, insurance and SVI are measured and analyzed within race groups, and systemic and structural inequities are named for these groups' outcomes."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Racial and Ethnic Differences in COVID-19 Vaccination Coverage Among Children and Adolescents Aged 5–17 Years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Among Children and Adolescents Aged 5–17 Years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Parental intent to vaccinate their child varied by the child’s age, race, and ethnicity."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Male (Ref)"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "mother's highest education level",
+     "poverty status and household income",
+     "health insurance"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "those whose mothers had obtained a college degree, who lived in a household with yearly income ≥$75,000"
+     },
+     {
+      "loc": "table 1",
+      "q": "Health insurance › Any Medicaid"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Urbanicity ¶¶ › Non-MSA"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "systemic and structural inequities",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Some racial and ethnic groups are at increased risk for COVID-19–associated morbidity and mortality because of systemic and structural inequities."
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "White children are the referent for racial and ethnic comparisons; AI/AN and NHOPI children are aggregated into other/multiple race; race is parent-reported; county SVI is used as an area-level stratifier."
+ },
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "outcome_types"
+ ],
+ "confidence": "medium",
+ "notes": "Kaplan-Meier cumulative coverage is reported as percentages, so the outcome is recorded as binary/categorical rather than event-time. Pairwise race contrasts beyond White as referent are in supplementary tables not included in the packet. Design is inferred as cross-sectional from the survey description.",
+ "view_issues": "Table 1 labels SVI as 'of county of residence' but its footnote says SVI level was based on reported zip code of residence."
+}

@@ -1,0 +1,392 @@
+{
+ "id": "mm7140a4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GvihbMHoXC6iuw4UFT",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The firearm homicide rate in 2021 was 8.3% higher than it was in 2020"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The firearm homicide rate in 2021 was 8.3% higher than it was in 2020"
+    },
+    {
+     "loc": "table 1",
+     "q": "Homicide rates are per 100,000 persons."
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the percentage of homicides and suicides attributed to firearm injuries increased from 79% to 81% and from 53% to 55%, respectively"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "An estimated 20,966 firearm homicides and 26,320 firearm suicides occurred in the United States during 2021"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The firearm suicide rate among persons aged ≥10 years also increased 8.3% from 2020 to 2021"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Rates are age-adjusted to the year 2000 U.S. standard population."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization (2000 U.S. standard population)",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "'age-adjusted to the year 2000 U.S. standard population' is direct standardization",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Rates are age-adjusted to the year 2000 U.S. standard population."
+    }
+   ]
+  },
+  {
+   "name": "small-count suppression of rates",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "rates withheld for groups with small counts (suppression)",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "rates for some population groups could not be reported because of small counts."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "2020",
+  "across": [
+   "year",
+   "sex",
+   "age",
+   "race/ethnicity"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The firearm homicide rate in 2021 was 8.3% higher than it was in 2020"
+   },
+   {
+    "loc": "table 1",
+    "q": "% Change in rate from 2020 to 2021"
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted rate per 100,000",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Homicide rates are per 100,000 persons."
+    }
+   ]
+  },
+  {
+   "v": "% by firearm",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% By firearm"
+    }
+   ]
+  },
+  {
+   "v": "% change in rate",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% Change in rate from 2020 to 2021"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Did U.S. firearm homicide and suicide rates, overall and by sex, age and race/ethnicity, increase from 2020 to 2021?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess potential increases from 2020 to 2021, final 2020 and provisional 2021, National Vital Statistics System mortality data"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "firearm homicide",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Increases in Firearm Homicide and Suicide Rates — United States, 2020–2021"
+    }
+   ]
+  },
+  {
+   "v": "firearm suicide",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Increases in Firearm Homicide and Suicide Rates — United States, 2020–2021"
+    }
+   ]
+  },
+  {
+   "v": "homicide",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "All-cause homicides"
+    }
+   ]
+  },
+  {
+   "v": "suicide",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "All-cause suicides"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "National Vital Statistics System mortality data and U.S. Census Bureau population estimates were used"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% Change in rate from 2020 to 2021"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "National Vital Statistics System mortality data and U.S. Census Bureau population estimates were used"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System (NVSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "National Vital Statistics System mortality data and U.S. Census Bureau population estimates were used"
+    }
+   ]
+  },
+  {
+   "v": "CDC WONDER",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Sources: CDC WONDER; CDC Web-based Injury Statistics Query and Reporting System (WISQARS); U.S. Census Bureau."
+    }
+   ]
+  },
+  {
+   "v": "WISQARS",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Web-based Injury Statistics Query and Reporting System (WISQARS)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Increases in Firearm Homicide and Suicide Rates — United States, 2020–2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Racial/ethnic and age-group rates are reported (supplement) and described as highest among Black and AI/AN persons, with disparities said to widen, but no race contrast is computed or stated as a multiple; side-by-side values cap at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "Disparities are framed as widening and explained by systemic inequities and structural racism; a reader treating 'substantially higher' as quantified would reach level 4."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Non-Hispanic Black or African American persons continued to experience the highest firearm homicide rates in every age group."
+     },
+     {
+      "loc": "text",
+      "q": "Some racial and ethnic groups experienced substantially higher rates in 2021, and among some groups, disparities continued to widen."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The highest rates were generally among persons aged 25–44 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "Children aged <10 years were excluded from analysis of suicides"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "increases occurred among both males and females"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "systemic inequities (economic, educational, housing, employment opportunities); structural racism",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Systemic inequities (e.g., in economic, educational, housing, and employment opportunities) and structural racism have contributed to disparities in outcomes"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity × age rates are only in a Supplementary Table; some groups suppressed for small counts; AI/AN deaths may be undercounted by misclassification."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": null,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Non-Hispanic Black or African American persons continued to experience the highest firearm homicide rates in every age group."
+    },
+    {
+     "loc": "text",
+     "q": "The highest firearm suicide rates for persons aged <45 years were among non-Hispanic American Indian or Alaska Native (AI/AN) persons"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": null,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The highest rates were generally among persons aged 25–44 years"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Design not named; surveillance/descriptive with a two-year comparison is inferred. Race/ethnicity and age-group rates are in an online Supplementary Table not in the packet, so group counts are unknown. Census population estimates serve only as denominators.",
+ "view_issues": null
+}

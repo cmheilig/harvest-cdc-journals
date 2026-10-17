@@ -1,0 +1,219 @@
+{
+ "id": "mm7129a5",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GvkoqnyJxJioDUW2Kg",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "In 2020, the age-adjusted drug overdose death rate among workers with paid, civilian usual occupations was 42.1 deaths per 100,000."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Age-adjusted death rates are per 100,000 standard population."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2020, the age-adjusted drug overdose death rate among workers with paid, civilian usual occupations was 42.1 deaths per 100,000."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Drug overdose death rates were highest among workers in the following occupations: construction and extraction (162.6); food preparation and serving related (117.9)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Age-adjusted death rates are per 100,000 standard population."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "'age-adjusted' rates 'per 100,000 standard population' imply direct standardization to a standard population",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Age-adjusted death rates are per 100,000 standard population."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "usual occupation group"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Drug overdose death rates were highest among workers in the following occupations: construction and extraction (162.6); food preparation and serving related (117.9)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "groupwise": [],
+ "primary_measures": [
+  {
+   "v": "age-adjusted death rate per 100,000",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Age-adjusted death rates are per 100,000 standard population."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Which usual occupation groups of U.S. workers aged 16–64 years had the highest age-adjusted drug overdose death rates in 2020?",
+  "ev": [
+   {
+    "loc": "figure 1",
+    "q": "2020 age-adjusted drug overdose death rates among U.S. workers aged 16–64 years in usual occupation groups with the highest drug overdose death rates"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "drug overdose death",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Age-Adjusted Drug Overdose Death Rates* Among Workers Aged 16–64 Years"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Source: National Vital Statistics System, Mortality Data."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Source: National Vital Statistics System, Mortality Data."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System (NVSS), Mortality Data",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Source: National Vital Statistics System, Mortality Data."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "note",
+    "q": "Occupation data for deaths among 46 states and New York City"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Age only defines the population and is standardized; occupation groups are framed as occupational exposure categories, not social position, so no SPD comparison.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 2,
+   "reason": "Occupation groups could be read as SES, giving group-specific rates set side by side, capped at 2."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Among Workers Aged 16–64 Years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "Age-adjusted death rates are per 100,000 standard population."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Usual occupation from death certificates, collapsed into 22 broad groups; only the highest-rate groups are shown; unpaid and military occupations excluded; CPS denominators."
+ },
+ "uncertain_fields": [
+  "equity.level"
+ ],
+ "confidence": "high",
+ "notes": "Design inferred (no design named). The CPS is used only for denominators and is not listed as a data source. Occupation is not treated as SES because it is not framed as social position.",
+ "view_issues": null
+}

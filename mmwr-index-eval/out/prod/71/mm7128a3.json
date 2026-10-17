@@ -1,0 +1,337 @@
+{
+ "id": "mm7128a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GviLGAwaqh2YRbjnny",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Local injection site reactions were less frequently reported after dose 4 (70.1%) than after dose 3 (81.7%) (p<0.001)"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "systemic reactions also were less frequently reported after dose 4 (65.4%) than after dose 3 (76.8%) (p<0.001)"
+    },
+    {
+     "loc": "text",
+     "q": "Most reports were for nonserious events (128; 88.3%)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Only 17 serious adverse events were reported to VAERS."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Local injection site reactions were less frequently reported after dose 4 (70.1%) than after dose 3 (81.7%) (p<0.001)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "This model adjusted for demographic variables and vaccine manufacturer and accounted for repeated measures among doses reported by each registrant"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multivariable GEE model of the odds of reporting (dose 4 vs dose 3)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "GEE comparing 'the odds of reporting' a binary event → logistic link implied by odds; p-values from the dose term",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "compared using a multivariable generalized estimated equations model that accounted for demographic variables, vaccine manufacturer, and repeated measures"
+    },
+    {
+     "loc": "figure 1",
+     "q": "All dose 3 and booster dose differences were statistically significant (p<0.001) except “needed medical care.”"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": "dose 3 of the primary series",
+  "across": [
+   "vaccine dose",
+   "vaccine manufacturer"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "local and systemic reactions were less frequently reported to v-safe after mRNA booster (dose 4) than after primary series dose 3."
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "p-values <0.05 were considered statistically significant."
+   },
+   {
+    "loc": "text",
+    "q": "Receipt of medical care was rarely and similarly reported after receipt of either dose 4 (1.8%) or dose 3 (1.9%) (p = 0.70)."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. (%) reporting reaction or health impact after receipt of presumed booster dose"
+    }
+   ]
+  },
+  {
+   "v": "p-value",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "inability to perform daily activities was less frequently reported after dose 4 (23.4%) than after dose 3 (34.5%) (p<0.001)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "GEE",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "accounted for repeated measures among doses reported by each registrant"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "“unable to go to work or school” and “needed medical care” were not adjusted because of small numbers"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "This model adjusted for demographic variables and vaccine manufacturer"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "demographic variables and vaccine manufacturer",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "This model adjusted for demographic variables and vaccine manufacturer"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How safe are first mRNA COVID-19 booster doses (dose 4) among presumed immunocompromised persons aged ≥12 years, and do reactions differ from dose 3?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To characterize the safety of first booster doses among immunocompromised persons aged ≥12 years during January 12, 2022–March 28, 2022"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Safety Monitoring of COVID-19 mRNA Vaccine First Booster Doses Among Persons Aged ≥12 Years with Presumed Immunocompromise Status"
+    }
+   ]
+  },
+  {
+   "v": "local and systemic reactions after vaccination",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "local and systemic reactions were less frequently reported to v-safe after mRNA booster (dose 4) than after primary series dose 3."
+    }
+   ]
+  },
+  {
+   "v": "serious adverse events after vaccination",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Only 17 serious adverse events were reported to VAERS."
+    }
+   ]
+  },
+  {
+   "v": "immunocompromise",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Among Persons Aged ≥12 Years with Presumed Immunocompromise Status"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC reviewed adverse events and health impact assessments reported to v-safe and the Vaccine Adverse Event Reporting System (VAERS)"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "V-safe is a voluntary smartphone-based safety surveillance system for adverse events after COVID-19 vaccination."
+    },
+    {
+     "loc": "text",
+     "q": "VAERS is a U.S. national passive safety surveillance system that monitors adverse events after vaccination"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "v-safe",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "V-safe is a voluntary smartphone-based safety surveillance system for adverse events after COVID-19 vaccination."
+    }
+   ]
+  },
+  {
+   "v": "Vaccine Adverse Event Reporting System (VAERS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the Vaccine Adverse Event Reporting System (VAERS)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, January 12, 2022–March 28, 2022"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "safety",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Serious adverse events after mRNA booster (dose 4) are rare."
+   }
+  ]
+ },
+ "equity": {
+  "level": 0,
+  "level_reason": "Age only defines the population (≥12 years) and sex appears only as a descriptor; unspecified demographic covariates; no SPD results or equity framing.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Among Persons Aged ≥12 Years with Presumed Immunocompromise Status"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The median registrant age was 62 years (range = 12–94 years); 2,489 (62.0%) were female."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "groupwise": [],
+ "uncertain_fields": [],
+ "confidence": "high",
+ "notes": "GEE family is inferred from 'odds of reporting'; no ORs are reported, only percentages with p-values, so comparison scale is null. The 'demographic variables' adjusted for are not named, so no SPD covariate is recorded. Moderna vs Pfizer-BioNTech percentages are set side by side without tests.",
+ "view_issues": "Methods text says 'generalized estimated equations' while the figure note says 'generalized estimating equations'. Dose 3 percentages appear only in the text and figure, not in a table. Table 2 lists 'Conditional aggravated', likely 'Condition aggravated'."
+}

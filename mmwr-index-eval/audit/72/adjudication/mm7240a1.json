@@ -1,0 +1,9 @@
+{"id": "mm7240a1",
+ "fields": [
+  {"field": "groupwise_any", "verdict": true, "correct": ["A"], "category": "no error", "why": "Median age is compared for White patients against each of four other race/ethnicity groups (p<0.01), and a tested race-by-age association is reported."},
+  {"field": "groupwise_dims", "verdict": ["age", "race/ethnicity"], "correct": ["A"], "category": "no error", "why": "Race/ethnicity (5 groups) and age (3+ groups) are the SPDs; under rule 2 both are margins of the chi-square on race share by age group. Sex is two groups; LTCF residence and codetection are not SPDs."},
+  {"field": "groupwise_assessments", "verdict": ["omnibus test", "per-group vs referent only", "side by side"], "correct": ["A"], "category": "no error", "why": "White vs each other group gives per-group vs referent only; 'Hispanic or Black share decreased with increasing age (p<0.01)' under the stated chi-square gives omnibus test; severe outcomes by 3 age groups appear only in the Table with no test, so side by side. The flag is a false alarm because the chi-square is not applied to the age-by-outcome rows."}
+ ],
+ "justification": {"A": "good", "B": "n/a"},
+ "agreed_errors": [],
+ "brief_issues": "The race-by-age chi-square has two SPD margins; the brief does not say whether that is one entry listing both dimensions (as A did) or one entry per dimension. It does not change the set values here."}

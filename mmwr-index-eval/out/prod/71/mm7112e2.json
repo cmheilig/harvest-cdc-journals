@@ -1,0 +1,491 @@
+{
+ "id": "mm7112e2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8HKbKUfhrzMjE7yDHBJ",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "weekly COVID-19–associated hospitalization rates (hospitalizations per 100,000 adults) peaked at 38.4, compared with 15.5 during Delta predominance"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among 829 adults hospitalized during the Omicron-predominant period, 49.4% were unvaccinated, compared with 69.5% during the Delta-predominant period (p<0.01)."
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "median length of stay was shorter (4 versus 5 days, p<0.01) during the Omicron-predominant period"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During the Omicron-predominant period, overall weekly adult hospitalization rates peaked at 38.4 per 100,000"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "among unvaccinated adults (528.2) was 12 times the rates among those who had received a booster or additional dose (45.0)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-adjusted hospitalization rates among Black adults peaked at 94.7 (January 8, 2022)"
+    },
+    {
+     "loc": "text",
+     "q": "3.8 times the rate among White adults (24.8) for the same week"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "age standardization of rates",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "'age-adjusted rates' by race/ethnicity and vaccination status; direct or indirect method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-adjusted rates were calculated by dividing the number of hospitalized COVID-19 patients by population estimates for race/ethnicity"
+    }
+   ]
+  },
+  {
+   "name": "sampling weights for selection probability",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated weighted percentages from a stratified sample of charts; SAS survey procedures",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Percentages presented were weighted to account for the probability of selection for sampled cases"
+    }
+   ]
+  },
+  {
+   "name": "chi-square test (survey, Bonferroni-adjusted)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated chi-square tests with Taylor series linearization variances in SAS survey procedures, Bonferroni correction",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Chi-square tests were used to compare differences between the Delta- and Omicron-predominant periods; p-values <0.05 were considered statistically significant."
+    },
+    {
+     "loc": "table 1",
+     "q": "adjusted for multiple comparisons using the Bonferroni correction method"
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "p-values for medians (length of stay, age) with no named test for medians",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "median length of stay was shorter (4 versus 5 days, p<0.01)"
+    }
+   ]
+  },
+  {
+   "name": "capping vaccination coverage in denominators at 95%",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "censoring of observed coverage values in rate denominators ('continuity correction')",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "A continuity correction has been applied to the denominators by capping the percent population vaccination coverage at 95%"
+    }
+   ]
+  },
+  {
+   "name": "suppression of early unstable rates by vaccination status",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "rates withheld until booster coverage reached 5% for stability",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "To ensure stability and reliability of rates by vaccination status, data are presented beginning 14 days after at least 5%"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "adults who received a primary series plus booster or additional dose",
+  "across": [
+   "vaccination status",
+   "variant period",
+   "race/ethnicity"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "were 12 and three times as likely to be hospitalized, respectively, as were adults who received booster or additional doses"
+   },
+   {
+    "loc": "text",
+    "q": "3.8 times the rate among White adults (24.8) for the same week"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Variances were estimated using Taylor series linearization method."
+   },
+   {
+    "loc": "note",
+    "q": "An additional 172 (3.4%, 95% CI = 2.7%–4.2%) adults were partially vaccinated"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "hospitalization rate per 100,000",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "weekly COVID-19–associated hospitalization rates (hospitalizations per 100,000 adults) peaked at 38.4"
+    }
+   ]
+  },
+  {
+   "v": "age-adjusted hospitalization rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-adjusted hospitalization rates among Black adults peaked at 94.7 (January 8, 2022)"
+    }
+   ]
+  },
+  {
+   "v": "weighted percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Sample sizes presented are unweighted with weighted percentages."
+    }
+   ]
+  },
+  {
+   "v": "median length of stay",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "median length of stay was shorter (4 versus 5 days, p<0.01)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did COVID-19–associated hospitalization rates and characteristics among adults differ between Delta and Omicron predominance, by race/ethnicity and vaccination status?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "compare COVID-19–associated hospitalization rates among adults aged ≥18 years during B.1.617.2 (Delta; July 1–December 18, 2021) and Omicron"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "COVID-19–Associated Hospitalizations Among Adults During SARS-CoV-2 Delta and Omicron Variant Predominance"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "All adults should stay up to date with COVID-19 vaccination to reduce their risk for COVID-19–associated hospitalization."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-NET conducts population-based surveillance for laboratory-confirmed COVID-19–associated hospitalizations in 99 counties across 14 states."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This analysis describes weekly hospitalization rates during Delta- and Omicron-predominant periods."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-NET conducts population-based surveillance for laboratory-confirmed COVID-19–associated hospitalizations"
+    }
+   ]
+  },
+  {
+   "v": "vaccination registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "for the catchment population using state immunization information systems data"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "COVID-19–Associated Hospitalization Surveillance Network (COVID-NET)",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "COVID-NET, 14 States, July 2021–January 2022"
+    }
+   ]
+  },
+  {
+   "v": "state immunization information systems",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "for the catchment population using state immunization information systems data"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "in 99 counties across 14 states."
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "effectiveness",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Information on the impact that booster or additional doses of COVID-19 vaccines have on preventing hospitalizations during Omicron predominance is limited."
+   }
+  ]
+ },
+ "equity": {
+  "level": 4,
+  "level_reason": "Black adults' age-adjusted peak rate is quantified as 3.8 times White adults' and framed as disproportionate; community-level exposure and poor access to health care are offered as explanations.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The determinants are cited from a previous study and stated tentatively; lower vaccination uptake, the main explanation, is excluded as unequal uptake of a preventive service."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Age-adjusted hospitalization rates among Black adults peaked at 94.7 (January 8, 2022), higher than that among all other racial and ethnic groups"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "cross-classifier",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Black adults accounted for 25.2% of all unvaccinated persons hospitalized during the Delta-predominant period"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "weekly COVID-19–associated hospitalization rates among adults aged ≥18 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "figure 1",
+      "q": "rates presented by racial and ethnic group are age-adjusted."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group, yrs › ≥65"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Women"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "community-level exposure to COVID-19; poor access to health care",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "increased community-level exposure to and incidence of COVID-19, and poor access to health care in these groups"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "White adults are the referent for the Black rate ratio; persons with multiple, unknown or missing race (6.9%) are excluded from race proportions; unknown ethnicity assumed non-Hispanic."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": null,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Weekly COVID-19–associated hospitalization rates* among adults aged ≥18 years, by race and ethnicity"
+    },
+    {
+     "loc": "text",
+     "q": "3.8 times the rate among White adults (24.8) for the same week"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Black adults accounted for a higher percentage of hospitalizations during the Omicron-predominant period (26.7%) than during the Delta-predominant period (22.2%, p = 0.05)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group, yrs › ≥65"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "inference"
+ ],
+ "confidence": "medium",
+ "notes": "Rate ratios (12, 4, 3, 3.8 times) are hand-computed arithmetic. Chi-square p-values in the table are shared across categories, read as omnibus tests on period by race and by age. CIs appear only in a footnote on excluded groups, with no conclusion drawn.",
+ "view_issues": "Table footnote says chi-square compared 'pre-Delta and Delta' periods, but the text and columns compare Delta vs Omicron. The age-adjustment method is described only as dividing counts by population. p = 0.05 is presented as a difference although the threshold is <0.05."
+}

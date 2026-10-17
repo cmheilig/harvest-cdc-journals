@@ -1,0 +1,423 @@
+{
+ "id": "mm7134a1",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "increased, on average, 4.0% quarterly during January 2018–March 2022, from 98.1 to 179.1 per 10,000 EMS encounters"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This report describes trends in rates of EMS encounters for nonfatal opioid-involved overdoses per 10,000 total EMS encounters (rates)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "increased, on average, 4.0% quarterly during January 2018–March 2022, from 98.1 to 179.1 per 10,000 EMS encounters"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates increased, on average, 3.4% quarterly among White persons, whereas increases were substantially higher among Black (7.4%) and Hispanic persons (5.7%)."
+    },
+    {
+     "loc": "text",
+     "q": "Rates were higher in urban than in rural counties, and the disparity increased over time (AQPC for urban counties, 4.2%; for rural counties, 2.8%)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "joinpoint regression",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "joinpoint regression estimating average and segment quarterly percent changes; percent change per quarter implies a model of log rates over time → loglinear; CIs and P<0.05 are model-based from the joinpoint model",
+   "role": "primary",
+   "alternative_reading": "linear (least squares on log rates, the Joinpoint program default)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Joinpoint regression (version 4.9; National Cancer Institute) was used to measure the average quarterly percent change (AQPC) for the entire study period"
+    },
+    {
+     "loc": "text",
+     "q": "the permutation model selection method was used, and the maximum number of joinpoints allowed was three."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": null,
+  "across": [
+   "quarter",
+   "age group",
+   "sex",
+   "race/ethnicity",
+   "disposition",
+   "county unemployment quartile",
+   "county education quartile",
+   "county uninsured quartile",
+   "urbanicity"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Rates increased across most sociodemographic and county characteristics."
+   },
+   {
+    "loc": "text",
+    "q": "Rates were higher in males than in females, and the disparity widened over time (AQPC for males, 4.7%; for females, 3.1%)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "Average quarterly % change (95% CI)"
+   },
+   {
+    "loc": "text",
+    "q": "P<0.05 was considered statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "rate per 10,000 EMS encounters",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "from 98.1 to 179.1 per 10,000 EMS encounters"
+    }
+   ]
+  },
+  {
+   "v": "average quarterly percent change (AQPC)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "to measure the average quarterly percent change (AQPC) for the entire study period"
+    }
+   ]
+  },
+  {
+   "v": "quarterly % change",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Trend segments, quarterly % change (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Joinpoint regression (version 4.9; National Cancer Institute) was used to measure the average quarterly percent change (AQPC) for the entire study period"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the permutation model selection method was used, and the maximum number of joinpoints allowed was three."
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did rates of nonfatal opioid-involved overdose EMS encounters change during January 2018–March 2022, overall and by patient- and county-level characteristics?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This report describes trends in rates of EMS encounters for nonfatal opioid-involved overdoses per 10,000 total EMS encounters (rates)"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "nonfatal opioid-involved overdose",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Patient-Level and County-Level Trends in Nonfatal Opioid-Involved Overdose Emergency Medical Services Encounters"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "EMS data collected by biospatial, Inc. from 491 counties in 21 states"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "increased, on average, 4.0% quarterly during January 2018–March 2022, from 98.1 to 179.1 per 10,000 EMS encounters"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "EMS data collected by biospatial, Inc. from 491 counties in 21 states"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "biospatial, Inc. EMS data",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "EMS data collected by biospatial, Inc. from 491 counties in 21 states"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "analyses are not nationally representative; therefore, the results cannot be generalized."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Rates and AQPCs by race/ethnicity, county SES quartiles and urbanicity are reported and called disparities, but group AQPCs are only set side by side with no computed difference or ratio, so the side-by-side cap holds.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "If side-by-side AQPCs with 'disparity widened' count as quantified, the named structural barriers, mistrust and unemployment-driven stress would make it level 4."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Rates increased, on average, 3.4% quarterly among White persons, whereas increases were substantially higher among Black (7.4%) and Hispanic persons (5.7%)."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "county unemployment",
+     "high school graduate or higher",
+     "uninsured"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "ranging from 2.1% in counties in the lowest quartile of unemployment to 5.9% in counties in the highest quartile"
+     },
+     {
+      "loc": "text",
+      "q": "AQPCs were positive (range = 3.3%–5.5%) for all quartiles of uninsured except the lowest quartile"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Rates were higher in urban than in rural counties, and the disparity increased over time (AQPC for urban counties, 4.2%; for rural counties, 2.8%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Nonfatal opioid-involved overdose rates were highest among adults aged 25–34 years and lowest among children and adolescents aged 0–14 years"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Rates were higher in males than in females, and the disparity widened over time (AQPC for males, 4.7%; for females, 3.1%)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "structural barriers; mistrust in the health care system; unemployment and recessions increasing psychological stress",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Structural barriers, mistrust in the health care system, and other disparities that contribute to overdose risk underscore the need to address inequities"
+    },
+    {
+     "loc": "text",
+     "q": "recessions and unemployment increased psychological stress and subsequent illegal drug use"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "County-level ACS unemployment, education and uninsured percentages serve as area SES proxies, in quartiles; persons with other, unknown or missing race/ethnicity are excluded."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates were highest among White and NH/OPI persons and lowest among non-Hispanic Asian (Asian) persons"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Nonfatal opioid-involved overdose rates were highest among adults aged 25–34 years and lowest among children and adolescents aged 0–14 years"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "ranging from 2.1% in counties in the lowest quartile of unemployment to 5.9% in counties in the highest quartile"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates were lowest in counties with the smallest proportion of high school graduates and highest among counties with the next smallest proportion"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "AQPCs were positive (range = 3.3%–5.5%) for all quartiles of uninsured except the lowest quartile"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "outcome_types",
+  "procedures",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "The 'rate' is overdose encounters per total EMS encounters, which is unitless, so it is coded binary/categorical; AQPCs are growth rates from the joinpoint model. Significance marks are joinpoint model-term p-values, not separate tests. Design is inferred, since none is named.",
+ "view_issues": "The text calls AQPCs 'positive' for groups only when significant (e.g. 15–24 years AQPC 3.0 is called not positive)."
+}

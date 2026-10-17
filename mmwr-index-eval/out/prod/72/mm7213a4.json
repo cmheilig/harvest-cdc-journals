@@ -1,0 +1,358 @@
+{
+ "id": "mm7213a4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg7nHWekiLQ97DEqQgUbj",
+  "batch_id": "msgbatch_01FaGSxRvLPM3Hp7zgHNqiVG"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "National first and second dose JYNNEOS coverage among persons at increased risk for mpox were estimated to be 36.7% and 22.7%, respectively."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "National first and second dose JYNNEOS coverage among persons at increased risk for mpox were estimated to be 36.7% and 22.7%, respectively."
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The highest number of both first and second doses were administered to persons living in the West U.S. Census Bureau region"
+    },
+    {
+     "loc": "figure 1",
+     "q": "Route of administration of first and second JYNNEOS vaccine doses, by week of vaccination"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "National first and second dose JYNNEOS coverage among persons at increased risk for mpox were estimated to be 36.7% and 22.7%, respectively."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Coverage estimates varied by jurisdiction, ranging from 7.4% (West Virginia) to 94.8% (DC) for first dose coverage"
+    },
+    {
+     "loc": "text",
+     "q": "The change from predominantly subcutaneous to predominantly intradermal administration occurred after the week of August 20, 2022"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "estimation of jurisdiction at-risk population denominators",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "denominator built from MSM with PrEP indications plus MSM with HIV, inflated by 25%; no model or test",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was estimated as the number of MSM who were indicated to receive HIV preexposure prophylaxis (PrEP) (among those aged ≥16 years)"
+    },
+    {
+     "loc": "text",
+     "q": "The estimated population was then increased by 25% for each jurisdiction to account for additional persons eligible for vaccination"
+    }
+   ]
+  },
+  {
+   "name": "small-cell suppression (weeks with n<30 not shown)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "figure note withholds weeks with fewer than 30 doses",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Weeks in which n<30 are not shown."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": "≥50% first-dose coverage",
+  "across": [
+   "jurisdiction",
+   "dose number",
+   "administration route by week",
+   "race/ethnicity"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "U.S. 1- and 2-dose vaccination coverage reached an estimated 37% and 23%, respectively, among persons at risk, with wide variation among jurisdictions."
+   },
+   {
+    "loc": "text",
+    "q": "Jurisdictions estimated to have achieved ≥50% coverage for first dose (partial vaccination) were DC (94.8%), New York City (88.8%)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "primary_measures": [
+  {
+   "v": "estimated coverage of persons at risk, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimated coverage of persons at risk, % ¶¶"
+    }
+   ]
+  },
+  {
+   "v": "No. (%) of doses",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. (%) †"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What was the impact of the intradermal EUA on administration route, and what JYNNEOS coverage was reached among U.S. persons at risk for mpox?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to assess the impact of the EUA and to estimate vaccination coverage among the population at risk for mpox"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "mpox",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "JYNNEOS Vaccination Coverage Among Persons at Risk for Mpox"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed JYNNEOS vaccine administration data submitted to CDC from jurisdictional immunization information systems (IIS)"
+    }
+   ]
+  },
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "to assess the impact of the EUA and to estimate vaccination coverage among the population at risk for mpox"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "vaccination registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed JYNNEOS vaccine administration data submitted to CDC from jurisdictional immunization information systems (IIS)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "CDC Immunization Data Lake",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Sources : CDC Immunization Data Lake and AtlasPlus."
+    }
+   ]
+  },
+  {
+   "v": "jurisdictional immunization information systems (IIS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed JYNNEOS vaccine administration data submitted to CDC from jurisdictional immunization information systems (IIS)"
+    }
+   ]
+  },
+  {
+   "v": "CDC AtlasPlus",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Sources : CDC Immunization Data Lake and AtlasPlus."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Coverage estimates varied by jurisdiction, ranging from 7.4% (West Virginia) to 94.8% (DC) for first dose coverage"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "National first and second dose JYNNEOS coverage among persons at increased risk for mpox were estimated to be 36.7% and 22.7%, respectively."
+   }
+  ]
+ },
+ "equity": {
+  "level": 2,
+  "level_reason": "Black persons' share of first-dose recipients (about one in eight) is set beside their share of cases (about one in three) with an equity framing, but no difference or ratio is computed, so the side-by-side cap of 2 applies.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Race/ethnicity otherwise appears only as recipient composition, and the case share is cited from another source."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race and ethnicity ¶ › Black or African American, non-Hispanic"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Although approximately one in eight first dose recipients were reported to be Black, this group accounts for approximately one in three mpox cases"
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "population",
+    "basis": "behavior",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "was estimated as the number of MSM who were indicated to receive HIV preexposure prophylaxis (PrEP) (among those aged ≥16 years)"
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "information on sexual orientation and gender identity are not routinely collected during vaccine administration"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "all persons aged ≥13 years with valid residence information in each jurisdiction who have been partially or fully vaccinated"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The majority of the 734,510 persons who received ≥1 dose of vaccine were male (91.4%) and aged 25–49 years (64.2%)."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The majority of the 734,510 persons who received ≥1 dose of vaccine were male (91.4%) and aged 25–49 years (64.2%)."
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": ">80% of all vaccine recipients reported living in counties categorized as urban."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity, age, sex and urbanicity describe recipient composition only; coverage is not computed by SPD. The Black case share is cited from a CDC web page; race/ethnicity is missing for 9.1% of first-dose recipients."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "equity.level",
+  "study_design",
+  "outcome_types"
+ ],
+ "confidence": "medium",
+ "notes": "Coverage is a hand-computed proportion, by jurisdiction, against an estimated at-risk denominator; no tests or CIs are reported. The 7–14 times higher incidence among unvaccinated persons is cited from earlier studies. Reasons for low jurisdiction coverage (accessibility, stigma) are speculative and not tied to social position.",
+ "view_issues": "The Table note gives 69,441 recipients with unknown county, but the Table's urbanicity Unknown row shows 49,808 first-dose recipients. The note gives 6,246 territory recipients for region but 6,264 for urbanicity."
+}

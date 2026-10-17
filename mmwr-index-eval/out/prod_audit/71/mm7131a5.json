@@ -1,0 +1,245 @@
+{
+ "id": "mm7131a5",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8N1spjunoPWvX4aGMdT",
+  "batch_id": "msgbatch_01THxcVjCM9oj7vRLBXSzDjL"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "the age-adjusted death rate from diabetes mellitus as the underlying or contributing cause of death for adults aged ≥65 years was 553.4 per 100,000 population"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Deaths per 100,000 population, age-adjusted to the 2000 U.S. standard population."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "for adults aged ≥65 years was 553.4 per 100,000 population."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The rates were higher for non-Hispanic American Indian or Alaska Native (913.6), non-Hispanic Black (884.1)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Deaths per 100,000 population, age-adjusted to the 2000 U.S. standard population."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "rates 'age-adjusted to the 2000 U.S. standard population' → direct standardization",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Deaths per 100,000 population, age-adjusted to the 2000 U.S. standard population."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "race/ethnicity"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Hispanic adults (778.5) compared with non-Hispanic White (493.3) and non-Hispanic Asian adults (457.7)."
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted death rate per 100,000 population",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Deaths per 100,000 population, age-adjusted to the 2000 U.S. standard population."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did age-adjusted diabetes death rates among U.S. adults aged ≥65 years differ by race and Hispanic origin in 2020?",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Age-Adjusted Death Rates* from Diabetes Mellitus † Among Adults Aged ≥65 Years, by Single Race and Hispanic Origin"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "diabetes mellitus",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Age-Adjusted Death Rates* from Diabetes Mellitus † Among Adults Aged ≥65 Years"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "National Vital Statistics System, United States, 2020"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Source: National Vital Statistics System, 2020."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System (NVSS)",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Source: National Vital Statistics System, 2020."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "National Vital Statistics System, United States, 2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Race/ethnicity-specific death rates are reported and described as higher or lower, but no difference or ratio is computed and there is no disparity framing, so values set side by side cap the level at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The explicit higher/lower contrasts across racial groups could be read as a framed disparity, though unquantified."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "by Single Race and Hispanic Origin"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Among Adults Aged ≥65 Years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "age-adjusted to the 2000 U.S. standard population."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Six single-race/Hispanic-origin groups; rates age-adjusted within the ≥65 population; no referent group or computed contrasts."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The rates were higher for non-Hispanic American Indian or Alaska Native (913.6), non-Hispanic Black (884.1)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level"
+ ],
+ "confidence": "high",
+ "notes": "Rates are directly age-standardized within the ≥65 age band; no CIs, tests or significance criteria are reported.",
+ "view_issues": "The text states higher/lower contrasts between groups (e.g., Hispanic vs AI/AN and Black) without any stated test or significance criterion."
+}

@@ -1,0 +1,452 @@
+{
+ "id": "mm7129e1",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The VISION network examined 214,487 emergency department/urgent care (ED/UC) visits and 58,782 hospitalizations with a COVID-19–like illness"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VE was estimated using a test-negative case-control design, comparing the odds of being vaccinated"
+    },
+    {
+     "loc": "table 2",
+     "q": "VE was calculated as ([1−odds ratio] x 100%), estimated using a test-negative design"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "VE during the BA.2/BA.2.12.2 period was lower than that during the BA.1 period."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using multivariable logistic regression, weighted for inverse propensity to be vaccinated, and adjusted for age, calendar time of index date"
+    },
+    {
+     "loc": "table 2",
+     "q": "by Omicron–predominant period, age group, number and timing of vaccine doses"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multivariable logistic regression (test-negative design)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'multivariable logistic regression' giving odds ratios; VE = 100 × (1 − OR) → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "between persons with positive and negative SARS-CoV-2 test results, using multivariable logistic regression"
+    }
+   ]
+  },
+  {
+   "name": "inverse propensity weighting (IPTW)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated weighting for inverse propensity to be vaccinated, applied to every VE estimate",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "weighted for inverse propensity to be vaccinated or unvaccinated"
+    }
+   ]
+  },
+  {
+   "name": "generalized boosted regression trees for propensity scores",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "machine-learning propensity model used only to build the weights",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Generalized boosted regression trees were used to estimate the propensity to be vaccinated based on sociodemographic characteristics, underlying medical conditions, and facility characteristics."
+    }
+   ]
+  },
+  {
+   "name": "CI overlap assertion",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated nonoverlap rule as the only significance criterion; CI method not stated beyond the logistic model",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Nonoverlapping 95% CIs were considered statistically significant."
+    },
+    {
+     "loc": "text",
+     "q": "VE was higher during the BA.1 period than the BA.2/BA.2.12.1 period"
+    }
+   ]
+  },
+  {
+   "name": "suppression of imprecise VE estimates (CI width >50 points)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "CI-width rule withholding estimates",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "VE estimates with 95% CIs >50 percentage points are not shown because of imprecision."
+    }
+   ]
+  },
+  {
+   "name": "standardized mean or proportion difference (balance check)",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "SMD ≥0.20 rule describing covariate imbalance in Tables 1 and 3",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "An absolute SMD ≥0.20 indicates a nonnegligible difference in variable distributions between medical events for vaccinated versus unvaccinated patients"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "unvaccinated",
+  "across": [
+   "Omicron-predominant period",
+   "number and timing of vaccine doses",
+   "age group"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "VE during the BA.2/BA.2.12.2 period was lower than that during the BA.1 period."
+   },
+   {
+    "loc": "table 2",
+    "q": "Unvaccinated (Ref)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "ci_overlap": true,
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Nonoverlapping 95% CIs were considered statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "VE % (95% CI)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "VE %* (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "40,801 (32.9%) patients had a positive SARS-CoV-2 test result"
+    }
+   ]
+  },
+  {
+   "v": "median interval since last dose, days (IQR)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Median interval since last dose, days (IQR)"
+    }
+   ]
+  },
+  {
+   "v": "SMD",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "SMD = standardized mean or proportion difference"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusted for age, calendar time of index date (days since January 1, 2021), study site, and local virus circulation"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age, calendar time, study site (geographic region in Table 2 note), local virus circulation; propensity weights on sociodemographic, medical and facility characteristics",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusted for age, calendar time of index date (days since January 1, 2021), study site, and local virus circulation"
+    },
+    {
+     "loc": "table 2",
+     "q": "adjusted for age, geographic region, calendar time (days since January 1, 2021), and local virus circulation"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How effective were 2, 3 and 4 mRNA COVID-19 vaccine doses against COVID-19 ED/UC visits and hospitalizations among immunocompetent adults during the BA.1 and BA.2/BA.2.12.1 periods?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to evaluate VE of 2, 3, and 4 doses of mRNA COVID-19 vaccines"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VE against COVID-19–associated hospitalization 7–119 days and ≥120 days after receipt of dose 3 was 92%"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Effectiveness of 2, 3, and 4 COVID-19 mRNA Vaccine Doses Among Immunocompetent Adults"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "test-negative",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VE was estimated using a test-negative case-control design"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VISION methods have been described previously"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "VISION Network",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "VISION Network, 10 States, December 2021–June 2022"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "VISION Network, 10 States, December 2021–June 2022"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "effectiveness",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "VE during the BA.2/BA.2.12.2 period was lower than that during the BA.1 period."
+   }
+  ]
+ },
+ "equity": {
+  "level": 1,
+  "level_reason": "Race/ethnicity appears only as a Table 1/3 descriptor (row % and SMD) and implicitly among sociodemographic propensity-score variables; age and sex are strata or descriptors without social-position framing.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 2,
+   "reason": "Tables 1 and 3 show test positivity by race/ethnicity group, which could be read as group-specific results set side by side."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race or ethnicity › Black, NH"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "estimate the propensity to be vaccinated based on sociodemographic characteristics"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "hospitalizations among adults aged ≥18 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "by Omicron–predominant period, age group, number and timing of vaccine doses"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "adjusted for age, calendar time of index date"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity reported only descriptively; Asian, NH/PI, AI/AN and multiple races collapsed into Other."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race or ethnicity › Black, NH"
+    },
+    {
+     "loc": "table 1",
+     "q": "Positive test result* › No. (row %)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group, yrs › ≥85"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "VE comparisons across periods, doses and the fourth dose rest on the stated CI-nonoverlap rule. Tables 1 and 3 give row % positivity and SMDs by race and age, which are balance descriptors rather than tests; they are recorded as side-by-side groupwise entries.",
+ "view_issues": "Summary says BA.2.12.2; text says BA.2.12.1 (also 'BA.12.1'). BA.2 hospitalizations 23,383 given as 17.9% (should be 39.8%). Adjustment lists study site in text vs geographic region in Table 2 note. Table 2 note gives Baylor BA.2 start Mar 6 vs Mar 26 elsewhere."
+}

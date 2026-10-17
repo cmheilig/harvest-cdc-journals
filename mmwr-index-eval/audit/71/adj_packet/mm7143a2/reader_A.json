@@ -1,0 +1,311 @@
+{
+ "id": "mm7143a2",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "During April–July 2022, Paxlovid treatment among adults aged ≥20 years was 35.8% lower among Black patients (20.5% treated)"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "treated with Paxlovid was 36% and 30% lower among Black and Hispanic patients than among White and non-Hispanic patients"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, 11.7% of COVID-19 patients were treated with Paxlovid, 2.7% with mAbs, 1.0% with Lagevrio, and 0.7% with Veklury."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Paxlovid treatment was 24.9%, 23.1%, and 19.4% lower among multiple or other race, AIAN/NHOPI, and Asian patients, respectively, than among White patients"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Disparities for Black, multiple or other race, and Hispanic patients were present across all age strata"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Pearson chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods and Table 2 note: each minority group vs majority referent",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "quantified using Pearson’s chi-square tests comparing patients in the minority groups with those in the majority group"
+    },
+    {
+     "loc": "table 2",
+     "q": "Pearson’s chi-square tests comparing percentage treated in the minority racial and ethnic groups with percentage treated in the majority or referent group"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "both",
+  "referent": "White race and non-Hispanic ethnicity",
+  "across": [
+   "race/ethnicity",
+   "age group",
+   "immunocompromise",
+   "month"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Disparities were assessed using absolute differences"
+   },
+   {
+    "loc": "text",
+    "q": "and relative differences (absolute difference divided by the percentage treated in the majority group)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "P-values <0.05 were considered statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage treated",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "No. (%) treated"
+    }
+   ]
+  },
+  {
+   "v": "absolute difference in % treated",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Absolute difference in % treated"
+    }
+   ]
+  },
+  {
+   "v": "relative difference in % treated",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Relative difference in % treated"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Did outpatient COVID-19 treatment, especially Paxlovid, differ by race and ethnicity among adult COVID-19 patients seeking care in January–July 2022?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "treatment with Paxlovid, Lagevrio, Veklury, and mAbs was assessed by race and ethnicity, overall and among high-risk patient groups"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Racial and Ethnic Disparities in Outpatient Treatment of COVID-19"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Using electronic health record (EHR) data from 692,570 COVID-19 patients aged ≥20 years who sought medical care during January–July 2022"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "electronic health records",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This study used EHR data from 30 sites (each representing one or more health care systems) participating in PCORnet"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "PCORnet, the National Patient-Centered Clinical Research Network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "participating in PCORnet, the National Patient-Centered Clinical Research Network (PCORnet)."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "PCORnet, the National Patient-Centered Clinical Research Network, 30 U.S. sites, April–July 2022"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Racial and ethnic disparities in Paxlovid treatment are framed, quantified as absolute and relative differences (35.8% lower for Black patients) and interpreted; access to treatment facilities, racism, implicit bias, transportation and language barriers are named as explanations.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Determinants are offered as possible explanations in the Discussion, not measured or analyzed."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Racial and ethnic disparities persisted in outpatient COVID-19 treatment through July 2022."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Disparities for Black, multiple or other race, and Hispanic patients were present across all age strata"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "COVID-19 patients were persons aged ≥20 years who sought medical care"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "access to COVID-19 treatment facilities in high-poverty majority-minority counties; previous negative health care experiences; racism and implicit provider bias; internet access, transportation, language barriers",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "high-poverty areas and majority Black, Hispanic, or American Indian or Alaska Native are less likely to have access to COVID-19 treatment facilities"
+    },
+    {
+     "loc": "text",
+     "q": "racism and implicit biases among health care providers might have contributed to treatment disparities"
+    },
+    {
+     "loc": "text",
+     "q": "lack of internet access for telemedicine services ( 6 ), limited transportation, and language barriers"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referents are White race and non-Hispanic ethnicity; race and ethnicity assessed separately (combined only for full period); AIAN and NHOPI collapsed; missing race/ethnicity excluded from contrasts; no adjustment possible with aggregate data."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Paxlovid treatment was 24.9%, 23.1%, and 19.4% lower among multiple or other race, AIAN/NHOPI, and Asian patients, respectively, than among White patients"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the percentage of patients aged 20–49, 50–64, 65–79, and ≥80 years who were prescribed Paxlovid was 20.9%, 34.3%, 39.9%, and 30.7%, respectively"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "comparison",
+  "study_design"
+ ],
+ "confidence": "high",
+ "notes": "Design not named; cross-sectional inferred from aggregate EHR query. Headline contrasts are pairwise per dimension, but five race groups are each compared with White, so framework recorded as group. Immunocompromise and other-medication results are in supplementary tables only.",
+ "view_issues": "July Paxlovid treatment is given as 34.3% in the introduction and 34.0% in Results."
+}

@@ -1,0 +1,431 @@
+{
+ "id": "mm7208a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg7nHercfJiK2QaiBCx3Q",
+  "batch_id": "msgbatch_01FaGSxRvLPM3Hp7zgHNqiVG"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "effectiveness of the 2022–23 influenza vaccine was 54% for preventing medically attended influenza A infection among persons aged <65 years"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among the 116 participants who received a positive influenza test result, 26 (22%) received the 2022–23 seasonal influenza vaccine"
+    }
+   ]
+  },
+  {
+   "v": "event-time",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Hazard ratios comparing the rate of influenza A virus infection among vaccinated and unvaccinated participants were estimated using Cox proportional hazards models"
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among 15,678 unvaccinated person-days, 28 influenza A virus infections occurred (incidence = 1.79 per 1,000 person-days)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among the 116 participants who received a positive influenza test result, 26 (22%) received the 2022–23 seasonal influenza vaccine"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates were adjusted for age, month of illness onset, and self-reported presence of one or more higher-risk condition"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "logistic regression (test-negative aOR)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'odds ratios were estimated using logistic regression' → logistic; VE = 100% x (1 − aOR)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "odds ratios were estimated using logistic regression with adjustment for age, month of illness onset, and presence of one or more higher-risk condition"
+    }
+   ]
+  },
+  {
+   "name": "Cox proportional hazards model with time-varying vaccination status",
+   "class": "regression",
+   "regression_family": "event-time",
+   "inferred_from": "'Cox proportional hazards models' → event-time; VE = 100% x (1 − adjusted hazard ratio)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Hazard ratios comparing the rate of influenza A virus infection among vaccinated and unvaccinated participants were estimated using Cox proportional hazards models"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "VE 95% CIs exclude 0 and protection is concluded; CIs model-based from the stated logistic and Cox models",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "A › Adjusted VE,* % (95% CI) › 54 (23–73)"
+    },
+    {
+     "loc": "text",
+     "q": "These interim analyses indicate that influenza vaccination substantially reduced the risk for medically attended influenza among persons aged <65 years"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "unvaccinated",
+  "across": [
+   "influenza vaccination status"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "VE against influenza A viruses and against influenza A(H3N2) viruses was estimated as 100% x (1 − adjusted odds ratio [aOR])."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "Adjusted VE,* % (95% CI)"
+   },
+   {
+    "loc": "summary",
+    "q": "The 2022–23 influenza vaccine provides substantial protection against circulating influenza A viruses"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "VE",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted VE,* % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "aOR",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "aOR = adjusted odds ratio"
+    }
+   ]
+  },
+  {
+   "v": "adjusted hazard ratio",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VE was estimated as 100% x (1 − adjusted hazard ratio)."
+    }
+   ]
+  },
+  {
+   "v": "incidence per 1,000 person-days",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among 15,678 unvaccinated person-days, 28 influenza A virus infections occurred (incidence = 1.79 per 1,000 person-days)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates were adjusted for age, month of illness onset, and self-reported presence of one or more higher-risk condition"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "test-negative: age, month of illness onset, higher-risk condition; cohort: age, higher-risk condition, COVID-19 vaccination status",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates were adjusted for age, month of illness onset, and self-reported presence of one or more higher-risk condition"
+    },
+    {
+     "loc": "text",
+     "q": "with time-varying influenza vaccination status, age, the presence of one or more higher-risk condition, and COVID-19 vaccination status."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How effective was the 2022–23 seasonal influenza vaccine against medically attended and symptomatic influenza A in Wisconsin?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This interim report used data from two concurrent studies conducted at Marshfield Clinic Health System (MCHS) in Wisconsin"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "influenza",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "71% for preventing symptomatic influenza A illness among children and adolescents aged <18 years."
+    }
+   ]
+  },
+  {
+   "v": "influenza",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Interim Estimates of 2022–23 Seasonal Influenza Vaccine Effectiveness"
+    }
+   ]
+  },
+  {
+   "v": "acute respiratory illness",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "actively recruited during or after outpatient medical care for ARI"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "test-negative",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VE against medically attended influenza was estimated using a test-negative case-control design."
+    }
+   ]
+  },
+  {
+   "v": "prospective cohort",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VE against symptomatic influenza in children and adolescents was estimated from an ongoing, prospective, community-cohort study in central Wisconsin"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "electronic health records",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Participants were considered vaccinated if MCHS health records indicated receipt of seasonal influenza vaccine"
+    }
+   ]
+  },
+  {
+   "v": "record abstraction or interview",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Participants completed a brief survey and provided a respiratory specimen for influenza and SARS-CoV-2 testing."
+    },
+    {
+     "loc": "text",
+     "q": "Each week, participants (or their guardians) reported the absence or presence of specific symptoms during the previous 7 days."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Marshfield Clinic Health System (MCHS) health records",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Participants were considered vaccinated if MCHS health records indicated receipt of seasonal influenza vaccine"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Wisconsin, October 2022–February 2023"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "effectiveness",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Interim Estimates of 2022–23 Seasonal Influenza Vaccine Effectiveness"
+   }
+  ]
+ },
+ "equity": {
+  "level": 1,
+  "level_reason": "Race/ethnicity appears only as a Table 1 descriptor; sex differences in vaccination are mentioned without framing, and rural coverage is cited from another report. Age defines the populations and is a covariate.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 2,
+   "reason": "Table 1 reports vaccination percentages per race/ethnicity group, which could be read as group-specific results."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "In a community cohort of children and adolescents aged <18 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "with time-varying influenza vaccination status, age, the presence of one or more higher-risk condition, and COVID-19 vaccination status."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "the percentage vaccinated differed by sex, higher-risk condition, and COVID-19 vaccination status."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race and ethnicity › White, non-Hispanic"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "particularly among children, pregnant women, and in rural areas"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity collapsed to Hispanic, White non-Hispanic and other races; the sample is overwhelmingly White non-Hispanic."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race and ethnicity › Other races, non-Hispanic"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "outcome_types"
+ ],
+ "confidence": "high",
+ "notes": "Two concurrent studies: a test-negative design (logistic aOR) and a community cohort (Cox aHR). Claims that vaccination percentage and influenza proportion 'differed' by sex, condition and month have no stated test and are not recorded as procedures.",
+ "view_issues": "Text says 'differed' for Table 1 characteristics with no test or p-values reported."
+}

@@ -1,0 +1,365 @@
+{
+ "id": "mm7228a4",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "A substantially higher percentage of pre-K specimens tested positive (40.0%) compared with staff member specimens (14.1%) (p<0.001)."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, 805 (24.9%) specimens tested positive for any virus (95% CI = 23.4%–26.4%)."
+    },
+    {
+     "loc": "text",
+     "q": "Pre-K students had the highest prevalence of reporting one or more symptoms (41.1%)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, 805 (24.9%) specimens tested positive for any virus (95% CI = 23.4%–26.4%)."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A substantially higher percentage of pre-K specimens tested positive (40.0%) compared with staff member specimens (14.1%) (p<0.001)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "logistic regression with cluster-robust SEs",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Logistic regression models were used to compare positivity across age groups' → logistic; p-values for school-level contrasts come from it",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Logistic regression models were used to compare positivity across age groups."
+    },
+    {
+     "loc": "text",
+     "q": "Regression models accounted for clustering within schools when calculating cluster-robust SEs."
+    }
+   ]
+  },
+  {
+   "name": "bootstrap",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "percentile-based bootstrapped CIs for the positivity and symptom percentages",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Percentile-based bootstrapped CIs were calculated using Stata 17 software"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "school level (age group)"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Logistic regression models were used to compare positivity across age groups."
+   },
+   {
+    "loc": "text",
+    "q": "Pre-K students had the highest prevalence of reporting one or more symptoms (41.1%) compared with high school students"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Percentile-based bootstrapped CIs were calculated using Stata 17 software"
+   },
+   {
+    "loc": "text",
+    "q": "compared with staff member specimens (14.1%) (p<0.001)."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage positive",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "prevalence of reported symptoms",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Pre-K students had the highest prevalence of reporting one or more symptoms (41.1%)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "clustered or robust SE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Regression models accounted for clustering within schools when calculating cluster-robust SEs."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Logistic regression models were used to compare positivity across age groups."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "What is the prevalence of respiratory viruses and symptoms among students and staff in a metropolitan school district, and does it differ by school level?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To determine the prevalence of respiratory viruses in school students and staff members, prospective surveillance was implemented"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "respiratory virus infections",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Multipathogen Respiratory Virus Testing Among Primary and Secondary School Students and Staff Members"
+    }
+   ]
+  },
+  {
+   "v": "respiratory symptoms",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "inquiring about respiratory virus infection symptoms during the preceding 7 days."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "prospective surveillance was implemented in a large metropolitan school district in Kansas City, Missouri"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Self-collected anterior nasal swabs were obtained monthly and tested using multiplex viral polymerase chain reaction."
+    }
+   ]
+  },
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Surveys were deployed using Research Electronic Data Capture via text message or email"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Research Electronic Data Capture (REDCap)",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Surveys were deployed using Research Electronic Data Capture via text message or email"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "a large metropolitan school district in Kansas City, Missouri with 33 pre-Kindergarten (pre-K)–grade 12 schools"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Results are compared by school level (age) only, without social-position framing. Race/ethnicity, sex, free or reduced meals and preferred language appear only as participant descriptors versus district figures.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 0,
+   "reason": "The race, SES and language figures only describe the sample's representativeness, so one could read the article as age-only."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Logistic regression models were used to compare positivity across age groups."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "406 (63.5%) were non-Hispanic White (White), 80 (12.5%) were Hispanic or Latino (Hispanic)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "the proportion of female participants was higher (60.7%) than that from districtwide estimates (51.1%)"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "free or reduced price meals"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "the proportion of students qualifying for free or reduced price meals was lower (31.3% versus 38.0%)"
+     }
+    ]
+   },
+   {
+    "v": "country of birth/language/nativity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "92.8% with English as their preferred language"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Age is represented by school level (pre-K, elementary, middle, high school, staff). Participant race, sex, SES and language are compared with district figures only for representativeness."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A substantially higher percentage of pre-K specimens tested positive (40.0%) compared with staff member specimens (14.1%) (p<0.001)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Pre-K students had the highest prevalence of reporting one or more symptoms (41.1%) compared with high school students"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "comparison",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Only selected pairs of school levels are tested (pre-K vs staff for positivity; pre-K vs high school for symptoms), and no omnibus or joint test is reported. Unit of analysis is the specimen (repeated monthly per participant), and clustering is handled at school level only.",
+ "view_issues": "The text gives the district female share as 51.1%, but the footnote gives 51.0%. Footnote ** (enrollment ongoing) is attached to the p-value. The methods say 'age groups', but the groups analyzed are school levels."
+}

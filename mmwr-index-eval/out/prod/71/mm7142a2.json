@@ -1,0 +1,460 @@
+{
+ "id": "mm7142a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GwMG25xQoY2USf8F3K",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Influenza vaccination coverage was 79.9% during the 2021–22 season"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "HCP influenza vaccination coverage was 79.9% during the 2021 – 22 season; 87.3% completed primary COVID-19 vaccination"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Coverage was higher among HCP who reported an employer requirement for influenza vaccination (96.8%) than among those who reported an employer recommendation (76.5%)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among HCP who reported employer vaccination requirements, influenza vaccination coverage ranged from 95.8% to 97.3%"
+    },
+    {
+     "loc": "text",
+     "q": "Among HCP who reported that their employer neither recommended nor required vaccinations, influenza vaccination coverage ranged from 40.1% to 64.2%"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "poststratification weighting (calibration, generalized exponential model)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "poststratification weights fitted by calibration equations produce every weighted estimate",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Responses were weighted to the distribution of the U.S. population of HCP"
+    },
+    {
+     "loc": "text",
+     "q": "A poststratification weight for each survey respondent was calculated by fitting a generalized exponential model"
+    }
+   ]
+  },
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "t-tests named for subgroup and season differences; significance marks in tables",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "T-tests were used to assess differences among subgroups; p<0.05 was considered statistically significant."
+    },
+    {
+     "loc": "table 1",
+     "q": "Statistically significant (p<0.05) when compared across seasons."
+    }
+   ]
+  },
+  {
+   "name": "NCHS reliability criteria for proportions (flagging imprecise estimates)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "reliability rule applied to estimates; unreliable estimates flagged",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC’s National Center for Health Statistics reliability criteria for proportions were applied to the estimates in the descriptive analyses of HCP characteristics"
+    },
+    {
+     "loc": "table 1",
+     "q": "These estimates are presented in this report for comparison purposes and should be interpreted with caution."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "absolute",
+  "referent": "referent groups (e.g., employer requirement, physicians, some college or less); 2020–21 season",
+  "across": [
+   "employer requirement status",
+   "work setting",
+   "occupation",
+   "education",
+   "age group",
+   "race/ethnicity",
+   "sex",
+   "rurality",
+   "Census region",
+   "influenza season",
+   "prior vaccination"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "coverage was higher among HCP who reported employer vaccination requirements for those vaccines; coverage was lowest among HCP working in long-term care settings."
+   },
+   {
+    "loc": "table 1",
+    "q": "Statistically significant (p<0.05) when compared with Ref in the same season."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The Korn-Graubard method was used to calculate CIs for proportions, assuming that the weighted estimates were approximately unbiased."
+   },
+   {
+    "loc": "text",
+    "q": "T-tests were used to assess differences among subgroups; p<0.05 was considered statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted % vaccinated",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Weighted % vaccinated (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "percentage point change",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percentage point change in weighted % vaccinated, 2020–21 to 2021–22 (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "percentage reporting employer requirement",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Employer requirements for receipt of influenza and COVID-19 primary series vaccination were reported by 43.9% and 59.9% of HCP"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What were influenza and COVID-19 (primary series and booster) vaccination coverage among U.S. health care personnel in 2021–22, and how did they vary by characteristics and employer requirements?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to estimate influenza vaccination coverage during the 2021–22 influenza season as well as receipt of the primary COVID-19 vaccination series and a booster dose"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "influenza",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Influenza and COVID-19 Vaccination Coverage Among Health Care Personnel — United States, 2021–22"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Influenza and COVID-19 Vaccination Coverage Among Health Care Personnel — United States, 2021–22"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC conducted an opt-in Internet panel survey of 3,618 U.S. HCP"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "not significantly different from the 75.9% reported during the 2020–21 season"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Respondents were recruited from two preexisting national opt-in Internet sources"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Medscape Internet panel",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a medical website managed by WebMD Health Professional Network"
+    }
+   ]
+  },
+  {
+   "v": "Dynata general population Internet panels",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "general population Internet panels operated by Dynata."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Influenza and COVID-19 Vaccination Coverage Among Health Care Personnel — United States, 2021–22"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "HCP influenza vaccination coverage was 79.9% during the 2021 – 22 season; 87.3% completed primary COVID-19 vaccination"
+   }
+  ]
+ },
+ "equity": {
+  "level": 2,
+  "level_reason": "Coverage is reported and described by education, age, sex, race/ethnicity and rurality, with contrasts shown via significance marks against referents; no disparity framing or computed SPD contrast.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Most SPD results (race, rurality) sit only in tables; the narrative focus is occupation, work setting and employer requirements."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Race and ethnicity › Other, non-Hispanic"
+     },
+     {
+      "loc": "table 2",
+      "q": "Race and ethnicity were self-reported."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "by occupation, ¶ age, sex, race and ethnicity, work setting, and U.S. Census Bureau region."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "with the addition of higher coverage among HCP aged 45–59 years (71.7%) and ≥60 years (87.0%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "by occupation, ¶ age, sex, race and ethnicity, work setting, and U.S. Census Bureau region."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "and lower coverage among female HCP (64.7%)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "by occupation, ¶ age, sex, race and ethnicity, work setting, and U.S. Census Bureau region."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "higher influenza vaccination coverage was reported among HCP with either a master’s, professional, or doctoral degree (92.3%)"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "and those working in hospitals (91.6%), nonrural areas (88.6%)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referents are the lowest-education, youngest, White, male and rural groups; race collapsed to White, Black, Hispanic and Other. Occupation is treated as job category, not SES."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "higher influenza vaccination coverage was reported among HCP with either a master’s, professional, or doctoral degree (92.3%)"
+    },
+    {
+     "loc": "table 1",
+     "q": "Statistically significant (p<0.05) when compared with Ref in the same season."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Age group, yrs › 18–29 (Ref)"
+    },
+    {
+     "loc": "table 2",
+     "q": "Statistically significant (p<0.05) when compared with Ref."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Race and ethnicity › White, non-Hispanic (Ref)"
+    },
+    {
+     "loc": "table 2",
+     "q": "Statistically significant (p<0.05) when compared with Ref."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "analytic_depth",
+  "study_design"
+ ],
+ "confidence": "high",
+ "notes": "Stratified/adjusted rests on Figure B: coverage by employer requirement status within each work setting. The generalized exponential model only builds calibration weights and is recorded under weighting, not regression. Season-change CIs are reported, but conclusions rest on the t-test significance marks.",
+ "view_issues": "Table 1 age bands (18–30, 30–45, 45–60) overlap and differ from Table 2 (18–29, 30–44, 45–59). The booster requirement analysis uses 2,256 HCP, whereas booster coverage uses 3,300, after a skip-pattern error."
+}

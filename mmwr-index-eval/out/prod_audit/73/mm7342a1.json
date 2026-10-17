@@ -1,0 +1,307 @@
+{
+ "id": "mm7342a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.1",
+  "prefix_sha": "f4030e441a8d",
+  "request_id": "msg_011Cg79p1donEt4z3tUGrXyH"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The prevalence of these lineage groups peaked at 21.2% for XBB.1.16-like lineages by July 8, 2023; 26.2% for EG.5-like lineages by September 16"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The prevalence of XEC, a recombinant of JN.1 lineages KS.1.1 and KP.3.3 (Table), increased from 0.4% on August 17 to 2.3% on September 14."
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Normalized frequencies of COVID-19 cases attributable to variants were estimated by multiplying counts of positive test results from NREVSS with variant proportions"
+    },
+    {
+     "loc": "text",
+     "q": "A relative increase in COVID-19 cases occurred in late summer and early fall 2023 as these lineages cocirculated (Figure 1)."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "JN.1, a descendant of BA.2.86 containing the L455S substitution, increased rapidly during late 2023 and was predominant nationally during January 6–April 27, 2024"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The rate of increase in prevalence of JN.1was similar to that of XBB.1.5 after reaching 1% prevalence"
+    },
+    {
+     "loc": "text",
+     "q": "Increases in prevalence were similar across HHS regions, although predominance was attained slightly earlier on December 23, 2023, in Region 2"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "complex survey design weighting of variant proportions (trimmed weights)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated survey weights based on estimated infections, laboratory PSUs, state-week strata, weights trimmed to 99th percentile; produce every proportion estimate",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates included weighting to account for the complex survey design and potential sampling biases."
+    },
+    {
+     "loc": "note",
+     "q": "with weights based on the weekly estimated number of infections represented by each SARS-CoV-2 sequence; weights are trimmed to the 99th percentile."
+    }
+   ]
+  },
+  {
+   "name": "suppression of regional estimates with fewer than 300 sequences",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "small-sample suppression rule for imprecise regional estimates",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "variant proportions from HHS regions with fewer than 300 sequences in a 2-week period are not reported on CDC’s COVID Data Tracker."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": ">50% prevalence (predominance); ≥10% prevalence threshold",
+  "across": [
+   "2-week period",
+   "lineage group",
+   "HHS region"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During May 2023–September 2024, SARS-CoV-2 lineages primarily comprised descendants of Omicron XBB and JN.1."
+   },
+   {
+    "loc": "text",
+    "q": "None of these XBB lineage groups attained predominance (>50% prevalence), but five groups reached a prevalence of ≥10%."
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "primary_measures": [
+  {
+   "v": "variant proportion (prevalence, %)",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "National estimates of biweekly proportions* of SARS-CoV-2 variants"
+    }
+   ]
+  },
+  {
+   "v": "normalized frequency of variant-attributed COVID-19 cases",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "estimated normalized frequency of variant-attributed COVID-19 cases"
+    }
+   ]
+  },
+  {
+   "v": "number of spike protein amino acid differences",
+   "ev": [
+    {
+     "loc": "figure 2",
+     "q": "number of spike protein amino acid differences (including substitutions, insertions, and deletions) relative to Wuhan-Hu-1 reference"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Which SARS-CoV-2 lineages circulated in the United States during May 2023–September 2024, and how did their proportions change over time?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This report summarizes the landscape of Omicron XBB and JN.1 lineage circulation and convergent evolution in the United States"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Genomic Surveillance for SARS-CoV-2 Variants: Circulation of Omicron XBB and JN.1 Lineages"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "CDC continues to track the evolution of SARS-CoV-2, including the Omicron variant and its descendants, using national genomic surveillance."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "This report summarizes U.S. trends in variant proportion estimates during May 2023–September 2024"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC integrates SARS-CoV-2 sequence data from 1) the National SARS-CoV-2 Strain Surveillance (NS3) program, ¶ 2) CDC-contracted commercial laboratories"
+    }
+   ]
+  },
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "NREVSS is a network of approximately 540 laboratories that passively report weekly aggregated numbers of tests performed and results that were positive"
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Public sequence data repositories included the Global Initiative on Sharing All Influenza Data and National Center for Biotechnology Information GenBank databases."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National SARS-CoV-2 Strain Surveillance (NS3)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the National SARS-CoV-2 Strain Surveillance (NS3) program"
+    }
+   ]
+  },
+  {
+   "v": "National Respiratory and Enteric Virus Surveillance System (NREVSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The National Respiratory and Enteric Virus Surveillance System (NREVSS) ††† was the primary data source for survey weights"
+    }
+   ]
+  },
+  {
+   "v": "GISAID",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Global Initiative on Sharing All Influenza Data"
+    }
+   ]
+  },
+  {
+   "v": "GenBank",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "National Center for Biotechnology Information GenBank databases"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19 electronic laboratory reporting (CELR)",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "the number of positive specimens by HHS region was obtained from COVID-19 electronic laboratory reporting (CELR)."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "A total of 208,357 SARS-CoV-2 sequences from 56 U.S. jurisdictions †††† were analyzed"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "No social-position dimension appears; the analysis is of viral lineages over time and HHS regions.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "outcome_types",
+  "study_design"
+ ],
+ "confidence": "high",
+ "notes": "Multinomial-regression Nowcast estimates are described but excluded from this analysis, so not recorded as a procedure. Normalized case frequencies are arithmetic rescaling; subsampling of 5,000 sequences for Figure 2 is a sampling step. Sensitivity analyses mentioned in Limitations are cited from an earlier report.",
+ "view_issues": "Figure 2 description says 'S1 domain substitutions' through August 2024, while title and notes say amino acid differences through September 14, 2024."
+}

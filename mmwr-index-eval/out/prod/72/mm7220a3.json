@@ -1,0 +1,557 @@
+{
+ "id": "mm7220a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg7nGKgRXWYdArPowMmWh",
+  "batch_id": "msgbatch_01FaGSxRvLPM3Hp7zgHNqiVG"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "adjusted VE was 75% for 1 dose and 86% for 2 doses of JYNNEOS vaccine"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Conditional logistic regression models were used to estimate crude and adjusted odds ratios evaluating the association between vaccination status and case- or control patient status."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Unadjusted VE was 75.7% for partial vaccination and 87.4% for full vaccination"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VE estimates were stratified a priori by immunocompromise status and route of vaccine administration"
+    },
+    {
+     "loc": "text",
+     "q": "After adjusting for age, race and ethnicity, immunocompromise status, and close contact with a person with known mpox"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "conditional logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'conditional logistic regression' giving crude and adjusted ORs on matched sets → logistic; VE = (1 − OR) × 100%",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Conditional logistic regression models were used to estimate crude and adjusted odds ratios"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based CIs from the conditional logistic regression; conclusions of effectiveness and imprecision drawn from whether VE CIs exclude 0",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusted VE was 51.0% for partial vaccination and 70.2% for full vaccination, both with negative lower 95% CI bounds."
+    },
+    {
+     "loc": "text",
+     "q": "JYNNEOS is effective at reducing the risk for mpox."
+    }
+   ]
+  },
+  {
+   "name": "CI overlap assertion",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "no-difference claims across routes and immunocompromise status rest on overlapping VE CIs",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overlapping CIs for these VE estimates suggest no difference by immunocompromise status"
+    },
+    {
+     "loc": "text",
+     "q": "Similar point estimates and overlapping CIs for estimates by route of administration suggest"
+    }
+   ]
+  },
+  {
+   "name": "Pearson chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "Table 1 note: Pearson's chi-square comparing case and control characteristics",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "P-values comparing the percentage of case-patients to control patients by sociodemographic and health categories were calculated using Pearson’s chi-square test."
+    }
+   ]
+  },
+  {
+   "name": "Kruskal-Wallis test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "Table 1 note names it for continuous variables",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "P-values for continuous variables were calculated using the Kruskal-Wallis test."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "unvaccinated",
+  "across": [
+   "vaccination status",
+   "route of administration",
+   "immunocompromise status"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "adjusted VE was 75% for 1 dose and 86% for 2 doses of JYNNEOS vaccine"
+   },
+   {
+    "loc": "text",
+    "q": "VE was calculated as (1 – odds ratio) x 100%."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "ci_overlap": true,
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Conditional logistic regression models were used to estimate crude and adjusted odds ratios"
+   },
+   {
+    "loc": "text",
+    "q": "Overlapping CIs for these VE estimates suggest no difference by immunocompromise status"
+   }
+  ]
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race and ethnicity †† › Other, non-Hispanic"
+    },
+    {
+     "loc": "table 1",
+     "q": "calculated using Pearson’s chi-square test."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group, yrs › 40–49"
+    },
+    {
+     "loc": "table 1",
+     "q": "calculated using Pearson’s chi-square test."
+    }
+   ]
+  },
+  {
+   "across": [
+    "sexual orientation and gender identity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Gender identity › Another gender identity"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Insurance status › Public"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Reported experiencing homelessness in previous 3 wks › Prefer not to answer"
+    }
+   ]
+  }
+ ],
+ "primary_measures": [
+  {
+   "v": "adjusted VE",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "VE (95% CI) › Adjusted †"
+    }
+   ]
+  },
+  {
+   "v": "unadjusted VE",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "VE (95% CI) › Unadjusted"
+    }
+   ]
+  },
+  {
+   "v": "crude and adjusted odds ratios",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "estimate crude and adjusted odds ratios"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A larger proportion of case- than control patients identified as non-Hispanic Black or African American (27.2% versus 16.9%)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "conditional (matched)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Conditional logistic regression models were used to estimate crude and adjusted odds ratios"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Unadjusted VE was 75.7% for partial vaccination and 87.4% for full vaccination"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The adjusted model accounted for covariates identified a priori, including age, race and ethnicity, immunocompromising conditions"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age, race and ethnicity, immunocompromising conditions, and close contact with a person with known mpox",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "adjusted for age, race and ethnicity, immunocompromising conditions, and close contact with a person with known mpox."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How effective is 1 or 2 doses of JYNNEOS vaccine against mpox among MSM and transgender adults, overall, by route and by immunocompromise status?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to evaluate VE against mpox among MSM and transgender adults aged 18–49 years."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "mpox",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Estimated Effectiveness of JYNNEOS Vaccine in Preventing Mpox"
+    }
+   ]
+  },
+  {
+   "v": "mpox",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Real-world vaccine effectiveness (VE) estimates for JYNNEOS vaccine against monkeypox (mpox) are limited."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "case-control",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A matched case-control study was conducted in 12 U.S. jurisdictions."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Eligible participants were invited to complete a survey administered online or by telephone in English or Spanish."
+    }
+   ]
+  },
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "they were identified or verified through jurisdiction health departments’ case registries."
+    }
+   ]
+  },
+  {
+   "v": "vaccination registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Participants’ vaccination status was verified using state vaccination registries, where available."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Emerging Infections Program",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "including nine Emerging Infections Program sites and three Epidemiology and Laboratory Capacity sites"
+    }
+   ]
+  },
+  {
+   "v": "REDCap",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Survey responses were recorded in REDCap (version 13.1.26; Vanderbilt University)."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "A Multijurisdictional Case-Control Study — United States"
+   },
+   {
+    "loc": "text",
+    "q": "A matched case-control study was conducted in 12 U.S. jurisdictions."
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "effectiveness",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "adjusted VE was 75% for 1 dose and 86% for 2 doses of JYNNEOS vaccine"
+   }
+  ]
+ },
+ "equity": {
+  "level": 1,
+  "level_reason": "MSM/transgender status and age define the population; race/ethnicity is a model covariate, and race, insurance and homelessness appear as Table 1 case-control descriptors with chi-square tests, not as group-specific VE results.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 2,
+   "reason": "The text describes larger proportions of Black and Hispanic persons and recent homelessness among case-patients, with Table 1 p-values, which could be read as group-specific results."
+  },
+  "dimensions": [
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "population",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Participation was restricted to sexually active †† persons aged 18–49 years who self-identified as MSM or transgender."
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "descriptor",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Gender identity › Transgender female"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "persons aged 18–49 years who self-identified as MSM or transgender."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The adjusted model accounted for covariates identified a priori, including age, race and ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The adjusted model accounted for covariates identified a priori, including age, race and ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "A larger proportion of case- than control patients identified as non-Hispanic Black or African American (27.2% versus 16.9%)"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "insurance status",
+     "homelessness"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Larger proportions of case- than control patients reported experiencing recent homelessness (7.9% versus 2.7%)"
+     },
+     {
+      "loc": "table 1",
+      "q": "Insurance status › None"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity collapses Asian, NH/OPI and AI/AN into Other; SPDs appear only in Table 1 case-control comparisons and as a covariate; VE is not stratified by any SPD."
+ },
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Matching on region and index date is a design step; VE = (1 − OR) × 100% is arithmetic. Models stratified by immunocompromise status drop that covariate. Comparison framework read as group across unvaccinated, partial and full vaccination with unvaccinated as referent.",
+ "view_issues": "Table 1 note names Kruskal-Wallis for continuous variables, but Table 1 shows only categorical variables. Homelessness group count includes a 'prefer not to answer' level."
+}

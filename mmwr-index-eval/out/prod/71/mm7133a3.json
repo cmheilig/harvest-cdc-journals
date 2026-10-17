@@ -1,0 +1,338 @@
+{
+ "id": "mm7133a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8Gw75jrnffJ4XQizMJD",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Local injection site reactions were reported with equal frequency after dose 3 (68.5%) and dose 2 (68.0%) (p = 0.65)."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Inability to attend school was reported less frequently after receipt of dose 3 (6.9%) than after dose 2 (10.0%) (p<0.001)."
+    },
+    {
+     "loc": "table 2",
+     "q": "Percentage of registrants who reported a reaction or health impact at least once during days 0–7 after vaccination."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The most frequently reported adverse reactions were injection site pain (2,166; 66.7%), fatigue (938; 28.9%), and headache (647; 19.9%)"
+    },
+    {
+     "loc": "text",
+     "q": "578 (99.5%) reports were considered nonserious, and the most common events reported were vaccine administration errors."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The prevalences of reported systemic reactions were similar after dose 3 (45.6%) and dose 2 (45.8%) (p = 0.91)."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "compared using multivariable generalized estimating equations models."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "GEE logistic regression (odds of reporting by dose, repeated measures)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'odds of reporting' compared with a 'multivariable generalized estimating equations' model → logistic link implied by odds; GEE for repeated doses per registrant; p-values for dose terms are part of the model",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The odds of reporting an adverse reaction or health impact after receipt of the third dose and previous doses were compared"
+    },
+    {
+     "loc": "note",
+     "q": "This model accounted for repeated measures among doses reported by each registrant. The threshold for statistical significance was p<0.05."
+    }
+   ]
+  },
+  {
+   "name": "small-cell suppression of fever statistics",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "statistics withheld for fever because few registrants met the definition",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Because few registrants reported a temperature that met the definition for fever, statistics were not estimated for this variable."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": "dose 2",
+  "across": [
+   "vaccine dose"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "local and systemic reactions were reported to v-safe with similar frequency after doses 2 and 3"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "compared using a multivariable generalized estimating equations model that accounted for repeated measures among doses reported by each registrant"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "% Reporting event"
+    }
+   ]
+  },
+  {
+   "v": "No. (%) of VAERS reports",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Reported events | No. (%)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "GEE",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "This model accounted for repeated measures among doses reported by each registrant."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "compared using multivariable generalized estimating equations models."
+    }
+   ]
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How safe are Pfizer-BioNTech third (booster) doses among U.S. children aged 5–11 years, and do reactions differ from earlier doses?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To further characterize the safety of booster vaccination in this age group, CDC reviewed adverse events and health impact assessments"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Safety Monitoring of Pfizer-BioNTech COVID-19 Vaccine Booster Doses Among Children Aged 5–11 Years"
+    }
+   ]
+  },
+  {
+   "v": "local and systemic reactions after vaccination",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "local and systemic reactions were reported to v-safe with similar frequency after doses 2 and 3"
+    }
+   ]
+  },
+  {
+   "v": "serious adverse events after vaccination",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "serious adverse events after dose 3 are rare."
+    }
+   ]
+  },
+  {
+   "v": "myocarditis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Selected MedDRA PTs were used to search for possible cases of myocarditis."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a voluntary smartphone-based safety surveillance system for adverse events occurring after COVID-19 vaccination"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adverse events reported to the Vaccine Adverse Event Reporting System (VAERS), a passive vaccine safety surveillance system comanaged by CDC and FDA"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "v-safe",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "V-safe is a voluntary smartphone-based U.S. active safety surveillance system"
+    }
+   ]
+  },
+  {
+   "v": "Vaccine Adverse Event Reporting System (VAERS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VAERS is a U.S. national passive vaccine safety surveillance system comanaged by CDC and FDA"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, May 17–July 31, 2022"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "safety",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Among children aged 5–11 years, serious adverse events after dose 3 are rare."
+   }
+  ]
+ },
+ "equity": {
+  "level": 0,
+  "level_reason": "Age only defines the population (5–11 years) and sex appears only as a descriptor of VAERS reports; no SPD comparison.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Among Children Aged 5–11 Years"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "recipients’ median age was 9 years, and 275 (47.3%) reports were for girls."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "analytic_depth",
+  "regression_fields"
+ ],
+ "confidence": "medium",
+ "notes": "The GEE model is called multivariable but no covariates are listed, so adjustment is taken from that word alone. Myocarditis reporting rates by sex and age are cited from an earlier report, not computed here. Dose 3 is also compared with dose 1 in table notes.",
+ "view_issues": "Table 1 lists fever at 5.1% after dose 3 while Table 2 lists 16.9%; Table 1 restricts fever to measured temperatures on days 0–3."
+}

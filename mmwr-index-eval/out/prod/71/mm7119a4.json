@@ -1,0 +1,301 @@
+{
+ "id": "mm7119a4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GviDZsnWLwMBn7T6sP",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "drug overdose deaths among all races and ethnicities in Nevada increased 54.5% (from 510 to 788)"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "increased 54.5% (from 510 to 788), compared with 119.7% (from 66 to 145) among Hispanic persons"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "increased significantly overall (115.6%) and among Hispanic persons (134.5%)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Chi-square pairwise comparisons with Bonferroni adjustment were used to assess differences between 2019 and 2020 in characteristics and circumstances"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "chi-square pairwise comparisons with Bonferroni adjustment",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in text: chi-square pairwise comparisons, Bonferroni-adjusted; table asterisks mark p<0.01",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Chi-square pairwise comparisons with Bonferroni adjustment were used to assess differences between 2019 and 2020 in characteristics and circumstances"
+    },
+    {
+     "loc": "table 1",
+     "q": "* Indicates statistically significant change from previous year (p<0.01)."
+    }
+   ]
+  },
+  {
+   "name": "small-cell suppression",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "table note: counts or percentage changes suppressed when sample size <10",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "§ Indicates count or percentage change suppressed because of sample size <10."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "2019",
+  "across": [
+   "year (2019 vs 2020)",
+   "ethnicity (Hispanic or Latino vs all decedents)",
+   "age group",
+   "sex"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "increased 54.5% (from 510 to 788), compared with 119.7% (from 66 to 145) among Hispanic persons"
+   },
+   {
+    "loc": "table 1",
+    "q": "% Change in proportion from 2019 to 2020"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Chi-square pairwise comparisons with Bonferroni adjustment were used to assess differences between 2019 and 2020"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "No. (%)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "2020 (n = 788) No. (%)"
+    }
+   ]
+  },
+  {
+   "v": "% change in proportion",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% Change in proportion from 2019 to 2020"
+    }
+   ]
+  },
+  {
+   "v": "percentage increase in deaths",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "drug overdose deaths among all races and ethnicities in Nevada increased 54.5% (from 510 to 788)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did the number and characteristics of drug overdose deaths among Hispanic or Latino persons in Nevada change from 2019 to 2020, compared with all decedents?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To better understand this increase, investigators analyzed 2019–2020 State Unintentional Drug Overdose Reporting System (SUDORS) data."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "drug overdose",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Increase in Drug Overdose Deaths Among Hispanic or Latino Persons — Nevada, 2019–2020"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "SUDORS is a CDC surveillance system containing detailed information on death scene investigations, toxicology, and other risk factors"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "to assess differences between 2019 and 2020 in characteristics and circumstances for all overdose deaths and for those among Hispanic persons"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "SUDORS is a CDC surveillance system containing detailed information on death scene investigations, toxicology, and other risk factors"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "State Unintentional Drug Overdose Reporting System (SUDORS)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Source: Nevada State Unintentional Drug Overdose Reporting System 2019–2020."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Increase in Drug Overdose Deaths Among Hispanic or Latino Persons — Nevada, 2019–2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Hispanic decedents' increase (119.7%) and characteristics are set beside all decedents' (54.5%), with no computed difference or ratio between groups and no population rates, so the contrast is side by side and capped at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The headline contrasts a 119.7% increase among Hispanic persons with 54.5% overall and calls for targeted prevention, which could be read as a quantified, interpreted disparity."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Increase in Drug Overdose Deaths Among Hispanic or Latino Persons — Nevada, 2019–2020"
+     },
+     {
+      "loc": "text",
+      "q": "Hispanic persons were identified through the SUDORS ethnicity variable"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group, yrs › <25"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Male"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Hispanic decedents are compared with all decedents, which include them; there are no population denominators, so only counts, shares and percent changes are compared."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the highest percentage increases occurred among males (overall = 6.9%; Hispanic persons = 6.2%) and those aged <25 years"
+    },
+    {
+     "loc": "table 1",
+     "q": "Age group, yrs › <25"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "Percent changes are hand arithmetic. Year-to-year tests are run per table row (age-share changes by year), read as per-category tests across the five age groups. Hispanic deaths are included in the all-deaths group.",
+ "view_issues": "Text says the highest percentage increases were among males (6.9%), though <25 years rose 77.6%. 'Higher among Hispanic persons' for naloxone rests on no reported test."
+}

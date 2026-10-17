@@ -1,0 +1,253 @@
+{
+ "id": "mm7106a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GvjaRVP1Nvhe18SLrD",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The highest 10% of antibiotic prescribers prescribed 41% of total antibiotic prescriptions for Medicare Part D beneficiaries in 2019."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the median antibiotic prescribing rate among higher-volume prescribers was 60% higher than that of lower-volume prescribers (680 versus 426 prescriptions per 1,000 beneficiaries)"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The highest 10% of antibiotic prescribers prescribed 41% of total antibiotic prescriptions for Medicare Part D beneficiaries in 2019."
+    },
+    {
+     "loc": "text",
+     "q": "Higher-volume prescribers prescribed antibiotics to a median of 38% of their patient panel"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The highest 10% of antibiotic prescribers prescribed 41% of total antibiotic prescriptions for Medicare Part D beneficiaries in 2019."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The antibiotic prescribing rate of these higher-volume prescribers was 60% higher than that of lower-volume prescribers."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Higher-volume prescribers, as expected, had higher antibiotic prescribing rates within each specialty, with the highest rate among dentists."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Wilcoxon rank-sum test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named test comparing median prescribing rates between prescriber groups; p<0.001 reported",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The Wilcoxon rank-sum test was used to compare median prescribing rates among prescribers."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "lower-volume prescribers (lower 90%)",
+  "across": [
+   "prescriber antibiotic volume group",
+   "U.S. Census Bureau region",
+   "specialty"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The antibiotic prescribing rate of these higher-volume prescribers was 60% higher than that of lower-volume prescribers."
+   },
+   {
+    "loc": "text",
+    "q": "Higher-volume prescribers in the South also had the highest median antibiotic prescribing rate (696 antibiotic prescriptions per 1,000 beneficiaries)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The Wilcoxon rank-sum test was used to compare median prescribing rates among prescribers."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The highest 10% of antibiotic prescribers prescribed 41% of total antibiotic prescriptions"
+    }
+   ]
+  },
+  {
+   "v": "prescriptions per 1,000 beneficiaries, median (IQR)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Prescriptions per 1,000 beneficiaries › Median (IQR)"
+    }
+   ]
+  },
+  {
+   "v": "cumulative percentage of antibiotics prescribed",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Cumulative percentage of antibiotics prescribed by Medicare Part D* prescribers, by prescribing volume and rate"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How much outpatient antibiotic prescribing in Medicare Part D is attributable to higher-volume prescribers, and how do their prescribing rates compare with lower-volume prescribers by region and specialty?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to describe higher-volume antibiotic prescribers in outpatient settings compared with lower-volume prescribers"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "outpatient antibiotic prescribing",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Identifying Higher-Volume Antibiotic Outpatient Prescribers Using Publicly Available Medicare Part D Data"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the 2019 Medicare Part D Prescribers by Provider data set was used to assess prescriber-level antibiotic prescriptions"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "administrative/claims",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This study analyzed data from the Centers for Medicare & Medicaid Services (CMS) Part D Prescriber Public Use Files (PUFs)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "CMS Medicare Part D Prescribers by Provider data set (Part D Prescriber Public Use Files)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CMS Medicare Part D Prescribers by Provider is a publicly available data set"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, 2019"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Social position is not analyzed; results are by prescriber volume, region and specialty. Inequities in social determinants of health are raised only as a recommendation for further evaluation of higher prescribing in the South.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 0,
+   "reason": "The only SPD is age defining the Medicare population, and the SDOH mention names no dimension."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Medicare Part D, the prescription drug benefit program for adults aged ≥65 years"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Units are prescribers, not patients; region is geography, not an SPD. SDOH named only as a direction for further evaluation."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "equity.level",
+  "outcome_types",
+  "study_design"
+ ],
+ "confidence": "medium",
+ "notes": "Design is not named; cross-sectional inferred from a single year of claims-based prescriber data. Imputing 10 beneficiaries for suppressed counts is a single fixed fill-in (data cleaning), and the top-10% cutoff is quantization; neither is recorded as a procedure. Medians of prescriber-level rates compared by Wilcoxon could also support a continuous outcome reading.",
+ "view_issues": "Text says South higher-volume prescribers prescribed 49% of regional antibiotics, while the table gives 50.3% of higher-volume prescriptions; the region p-value comparison (South vs others) has no stated test across four regions."
+}

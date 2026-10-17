@@ -1,0 +1,495 @@
+{
+ "id": "mm7348a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.1",
+  "prefix_sha": "f4030e441a8d",
+  "request_id": "msg_011Cg6gFPC2X7eXZb4EkCV58",
+  "batch_id": "msgbatch_01Pnk7KDZXhJ3DshXVpkoE1T"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During 2016–2022, among women with a live birth in nine jurisdictions, 5.4% experienced IPV during pregnancy."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, 5.4% of women reported any type of IPV during pregnancy: emotional (5.2%), physical (1.5%), and sexual (1.0%)"
+    },
+    {
+     "loc": "table 1",
+     "q": "aPR ††† (95% CI)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, 5.4% of women reported any type of IPV during pregnancy: emotional (5.2%), physical (1.5%), and sexual (1.0%)"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The prevalence of pregnancy-related hypertension among women who reported physical IPV during pregnancy was 1.30 times as high as that among those who did not"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All models were adjusted for respondent’s age, race and ethnicity, education, health insurance at delivery, and number of previous live births."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multivariable logistic regression (adjusted prevalence ratios)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Multivariable logistic regression was used to calculate adjusted prevalence ratios' → logistic; PRs presumably via SUDAAN predicted marginals",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Multivariable logistic regression was used to calculate adjusted prevalence ratios and 95% CIs"
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (PRAMS weights for sample design, nonresponse, noncoverage)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated weights and SUDAAN complex-survey analysis produce all prevalence and aPR estimates",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "PRAMS data are weighted annually by jurisdiction to adjust for sample design, nonresponse, and noncoverage."
+    },
+    {
+     "loc": "text",
+     "q": "Weighted prevalence was estimated for each IPV type."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based CIs from the survey logistic regression (SUDAAN) judged against the null of 1.0",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Statistical significance was determined by whether CIs overlapped the null of 1.0."
+    },
+    {
+     "loc": "table 1",
+     "q": "Statistically significant; 95% CIs do not cross the null of 1.0."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "women who did not report the respective IPV type",
+  "across": [
+   "IPV type during pregnancy (yes vs no)"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The prevalence of pregnancy-related hypertension among women who reported physical IPV during pregnancy was 1.30 times as high as that among those who did not"
+   },
+   {
+    "loc": "table 1",
+    "q": "Physical IPV during pregnancy †††† › No"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Statistical significance was determined by whether CIs overlapped the null of 1.0."
+   },
+   {
+    "loc": "text",
+    "q": "Multivariable logistic regression was used to calculate adjusted prevalence ratios and 95% CIs"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted prevalence (%)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Weighted prevalence was estimated for each IPV type."
+    }
+   ]
+  },
+  {
+   "v": "aPR",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Abbreviations: aPR = adjusted prevalence ratio"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Analyses were conducted using SAS-callable SUDAAN (version 11.0.4; RTI International) to account for complex survey design."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All models were adjusted for respondent’s age, race and ethnicity, education, health insurance at delivery, and number of previous live births."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age, race and ethnicity, education, health insurance at delivery, number of previous live births; plus prepregnancy BMI for gestational diabetes, hypertension and birth outcomes",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All models were adjusted for respondent’s age, race and ethnicity, education, health insurance at delivery, and number of previous live births."
+    },
+    {
+     "loc": "text",
+     "q": "models examining gestational diabetes, pregnancy-related hypertension, and birth outcomes were adjusted for prepregnancy body mass index."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Among women with a recent live birth, how prevalent are emotional, physical and sexual IPV during pregnancy, and are they associated with prenatal care, pregnancy conditions, substance use and infant birth outcomes?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This report examines associations between emotional, physical, sexual, or any IPV type during pregnancy and initiation of prenatal care"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "intimate partner violence",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Intimate Partner Violence and Pregnancy and Infant Health Outcomes"
+    }
+   ]
+  },
+  {
+   "v": "intimate partner violence",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "5.4% experienced IPV during pregnancy."
+    }
+   ]
+  },
+  {
+   "v": "pregnancy",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "among women with a recent live birth"
+    }
+   ]
+  },
+  {
+   "v": "depression",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "All IPV types were associated with delayed or no prenatal care, depression and substance use during pregnancy, and low infant birth weight."
+    }
+   ]
+  },
+  {
+   "v": "gestational diabetes",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Gestational diabetes ¶"
+    }
+   ]
+  },
+  {
+   "v": "pregnancy-related hypertension",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Physical IPV was associated with pregnancy-related hypertension."
+    }
+   ]
+  },
+  {
+   "v": "cigarette smoking during pregnancy",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Cigarette smoking during the last 3 months of pregnancy §§"
+    }
+   ]
+  },
+  {
+   "v": "alcohol use during pregnancy",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Any alcohol use during the last 3 months of pregnancy ¶¶"
+    }
+   ]
+  },
+  {
+   "v": "marijuana or illicit substance use during pregnancy",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Marijuana or illicit substance use during pregnancy***"
+    }
+   ]
+  },
+  {
+   "v": "low birth weight",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Low birth weight §"
+    }
+   ]
+  },
+  {
+   "v": "preterm birth",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Physical, sexual, and any IPV were associated with having a preterm birth."
+    }
+   ]
+  },
+  {
+   "v": "small for gestational age",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Small for gestational age**"
+    }
+   ]
+  },
+  {
+   "v": "large for gestational age",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Large for gestational age ††"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "to conduct jurisdiction-specific, population-based surveillance on experiences before, during, and after pregnancy among women with a recent live birth."
+    }
+   ]
+  },
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Participants are surveyed by mail or telephone 2–6 months postpartum"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The Pregnancy Risk Assessment Monitoring System (PRAMS) is a collaboration between CDC and 50 participating U.S. jurisdictions"
+    }
+   ]
+  },
+  {
+   "v": "registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were obtained from linked birth certificate data."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Pregnancy Risk Assessment Monitoring System (PRAMS)",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Pregnancy Risk Assessment Monitoring System, Nine U.S. Jurisdictions, 2016–2022"
+    }
+   ]
+  },
+  {
+   "v": "linked birth certificate data",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were obtained from linked birth certificate data."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Nine U.S. Jurisdictions, 2016–2022"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Race and ethnicity, education and health insurance appear only as model covariates; no results are reported by any SPD. Racial and age disparities in IPV are cited from earlier work in the Introduction only.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 0,
+   "reason": "If cited background disparities and covariate-only adjustment were set aside, only sex and age defining the population would remain."
+  },
+  "dimensions": [
+   {
+    "v": "sex",
+    "role": "population",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "among women with a recent live birth"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "All models were adjusted for respondent’s age, race and ethnicity, education, health insurance at delivery, and number of previous live births."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "education",
+     "health insurance at delivery"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "All models were adjusted for respondent’s age, race and ethnicity, education, health insurance at delivery, and number of previous live births."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Adjusted for respondent age, race and ethnicity, education, health insurance at delivery, and number of previous live births."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "SPDs enter only as adjustment covariates; Introduction cites disproportionate IPV among Black, AI/AN, multiracial and younger women from prior studies."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "study_design"
+ ],
+ "confidence": "high",
+ "notes": "Each IPV type is compared with its own absence; reference groups differ by type. IPV itself is treated as the exposure, not recorded as a social determinant of an SPD group's outcome. Design inferred from 'population-based surveillance' via a postpartum survey.",
+ "view_issues": "Text says gestational diabetes prevalence was '0.39 times lower' with physical IPV; Table 1 aPR is 0.61 (i.e., 39% lower). Methods say significance by whether CIs 'overlapped' the null, meaning included 1.0."
+}

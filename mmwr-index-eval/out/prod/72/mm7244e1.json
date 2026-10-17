@@ -1,0 +1,449 @@
+{
+ "id": "mm7244e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg7nGLPqJ4Bf1wZ5Q2Tko",
+  "batch_id": "msgbatch_01FaGSxRvLPM3Hp7zgHNqiVG"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "From 2018 to 2022, health workers reported an increase of 1.2 days of poor mental health during the previous 30 days"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the percentage of health workers who reported feeling burnout very often increased from 11.6% to 19.0%"
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Binary logistic regression, ordinal logistic regression, and zero-inflated Poisson regression were used for dichotomous outcomes, ordinal outcomes, and count outcomes with zero-inflation, respectively."
+    },
+    {
+     "loc": "text",
+     "q": "reported a significant increase in poor mental health days in the previous 30 days from 2018 (3.3 days) to 2022 (4.5 days)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, 45.6% of health workers reported feeling burnout often or very often in 2022."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Health workers’ reports of being harassed at work more than doubled, from 6.4% in 2018 to 13.4% in 2022."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey-weighted binary logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'bivariate logistic regressions ... GLM with a logit-link and a binomial distribution' giving ORs → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Separate bivariate logistic regressions were conducted (using GLM with a logit-link and a binomial distribution) to evaluate the association between working conditions"
+    }
+   ]
+  },
+  {
+   "name": "survey-weighted ordinal logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'ordinal logistic regression' for ordinal outcomes in the worker group × year models → logistic (ordinal)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Binary logistic regression, ordinal logistic regression, and zero-inflated Poisson regression were used for dichotomous outcomes, ordinal outcomes"
+    }
+   ]
+  },
+  {
+   "name": "survey-weighted zero-inflated Poisson regression",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'zero-inflated Poisson regression' for count outcomes (poor mental health days) → loglinear",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Binary logistic regression, ordinal logistic regression, and zero-inflated Poisson regression were used for dichotomous outcomes, ordinal outcomes, and count outcomes with zero-inflation, respectively."
+    }
+   ]
+  },
+  {
+   "name": "likelihood ratio test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated LRT of model fit for main effects of year, worker group and their interaction, and for each working condition vs null model",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Fit comparisons were made with a likelihood ratio test; Wald chi-square tests with p<0.05 indicated better model fit."
+    },
+    {
+     "loc": "table 2",
+     "q": "Significant interaction between worker group and year per likelihood ratio test (p<0.05)."
+    }
+   ]
+  },
+  {
+   "name": "CI overlap assertion",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated rule: nonoverlapping Wald CIs indicate significant differences after a significant interaction; year-to-year claims rest on it",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CIs were inspected when the interaction was significant; nonoverlapping CIs indicated statistically significant differences at p<0.05."
+    }
+   ]
+  },
+  {
+   "name": "survey weights and complex sampling design",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "GSS survey and nonresponse weights applied to all estimates via svyVGAM",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using the svyVGAM package (version 1.2; Thomas Lumley [developer]) to account for the complex sampling design and weighting of GSS"
+    },
+    {
+     "loc": "note",
+     "q": "Nonresponse weights were used in the analyses."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "both",
+  "referent": null,
+  "across": [
+   "survey year",
+   "worker group",
+   "working conditions"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "reported more days of poor mental health and were more likely to report burnout in 2022 than in 2018."
+   },
+   {
+    "loc": "summary",
+    "q": "Harassment at work was associated with increased odds of anxiety (OR = 5.01), depression (OR = 3.38), and burnout (OR = 5.83)."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "ci_overlap": true,
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Odds ratios, Wald 95% CIs, and weighted percentages of responses were estimated from these models."
+   },
+   {
+    "loc": "text",
+    "q": "Fit comparisons were made with a likelihood ratio test; Wald chi-square tests with p<0.05 indicated better model fit."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Weighted percentages of responses and Wald 95% CIs were estimated from these models."
+    }
+   ]
+  },
+  {
+   "v": "OR",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Anxiety symptoms › OR (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "mean days of poor mental health",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Mean days of poor mental health (previous 30 days)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using the svyVGAM package (version 1.2; Thomas Lumley [developer]) to account for the complex sampling design and weighting of GSS"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Control variables were not used in these analyses because the weighting and complex sampling design of GSS/QWL accurately approximates the U.S. population."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Differences between worker groups and survey year (i.e., a three by two interaction) for the selected outcomes were analyzed using generalized linear modeling (GLM)."
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Did U.S. health workers experience greater mental health declines than other workers from 2018 to 2022, and which working conditions were associated with anxiety, depression and burnout among health workers?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The purpose of this analysis was to ascertain whether U.S. health workers experienced more mental health declines than did other workers"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "burnout",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "were more likely to report burnout in 2022 than in 2018."
+    }
+   ]
+  },
+  {
+   "v": "anxiety",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Harassment at work was associated with increased odds of anxiety (OR = 5.01), depression (OR = 3.38), and burnout (OR = 5.83)."
+    }
+   ]
+  },
+  {
+   "v": "depression",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Harassment at work was associated with increased odds of anxiety (OR = 5.01), depression (OR = 3.38), and burnout (OR = 5.83)."
+    }
+   ]
+  },
+  {
+   "v": "poor mental health",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "reported more days of poor mental health and were more likely to report burnout in 2022 than in 2018."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using cross-sectional data from the Quality of Worklife (QWL) module of the nationally representative General Social Survey (GSS)"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "reported more days of poor mental health and were more likely to report burnout in 2022 than in 2018."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using cross-sectional data from the Quality of Worklife (QWL) module of the nationally representative General Social Survey (GSS)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "General Social Survey Quality of Worklife Module (GSS/QWL)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using cross-sectional data from the Quality of Worklife (QWL) module of the nationally representative General Social Survey (GSS)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Quality of Worklife Survey, United States, 2018–2022"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Race/ethnicity, education and income appear only as Table 1 descriptors of the worker groups; the comparisons are by occupation group (not framed as social position), year and working conditions.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 0,
+   "reason": "The SPD rows are single Table-1 composition counts with no outcome by SPD, which could be read as not raising the level."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "is administered to respondents aged ≥18 years within GSS who report having been employed during the preceding 2 weeks"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group, yrs › <30"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "health workers and other essential workers were more likely to be women than were respondents in the other worker group."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race and ethnicity › Black or African American, NH"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "education",
+     "income"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The proportion of persons earning <$35,000 per year decreased in 2022 from 2018 for each worker group"
+     },
+     {
+      "loc": "table 1",
+      "q": "Education › Bachelor’s degree"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Worker groups are occupational (health, other essential, all other), not social position; SPDs are shown only as Table 1 composition; weights are not adjusted for industry or occupation."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "outcome_types",
+  "procedures",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "Working conditions are analyzed exposures but are occupational, not tied to social position, so not recorded as determinants. Poor mental health days are reported as means but modelled with zero-inflated Poisson, hence count/rate. The LRT tests model terms; recorded as a test because it carries the Table 2 significance claims.",
+ "view_issues": "Methods say 'All differences reported were statistically significant' yet the text also reports a non-significant change in happiness. Results phrase the psychosocial-climate ORs with the referent inverted (poor is the referent in Table 3)."
+}

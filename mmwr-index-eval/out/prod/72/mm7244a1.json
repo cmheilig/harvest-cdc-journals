@@ -1,0 +1,362 @@
+{
+ "id": "mm7244a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg7nNAnYw7REPeQsxQyuk",
+  "batch_id": "msgbatch_01FaGSxRvLPM3Hp7zgHNqiVG"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "In 2023, 10.0% of middle and high school students reported current tobacco product use."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In 2023, 10.0% of middle and high school students reported current tobacco product use."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In 2023, 10.0% of middle and high school students reported current tobacco product use."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "From 2022 to 2023, current e-cigarette use among high school students declined from 14.1% to 10.0%."
+    },
+    {
+     "loc": "text",
+     "q": "current use of any tobacco product was reported by 11.2% of female, 8.9% of male, 12.6% of non-Hispanic multiracial (multiracial)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "methods state t-tests for 2022 to 2023 changes in current-use prevalence, p<0.05",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Changes in current-use prevalence since 2022 were estimated using t-tests"
+    },
+    {
+     "loc": "text",
+     "q": "P-values <0.05 were considered statistically significant."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (complex design and nonresponse adjustment)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weighted prevalence estimates and totals from SUDAAN; weights adjusted for nonresponse",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Data were weighted to account for complex survey design and to adjust for nonresponse."
+    },
+    {
+     "loc": "text",
+     "q": "National weighted prevalence estimates, 95% CIs, and population totals"
+    }
+   ]
+  },
+  {
+   "name": "suppression of unreliable estimates (denominator <50 or relative SE >30%)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "small-cell and relative-SE suppression rule",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates with an unweighted denominator <50 or a relative SE >30% were suppressed."
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'did not differ significantly' across racial and ethnic groups; no method named for this comparison",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "ever use of any tobacco product was lowest among non-Hispanic Asian students and did not differ significantly across most racial and ethnic groups"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "absolute",
+  "referent": "2022",
+  "across": [
+   "survey year",
+   "school level",
+   "tobacco product",
+   "sex",
+   "race/ethnicity"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "From 2022 to 2023, among high school students, statistically significant declines (p<0.05) occurred in current use of any tobacco product (from 16.5% to 12.6%)"
+   },
+   {
+    "loc": "summary",
+    "q": "declined by an estimated 540,000, from 2.51 million in 2022 to 1.97 million in 2023"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "ci_overlap": false,
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Changes in current-use prevalence since 2022 were estimated using t-tests"
+   },
+   {
+    "loc": "text",
+    "q": "National weighted prevalence estimates, 95% CIs, and population totals"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Percentage of middle and high school students who reported current (past 30-day) tobacco product use"
+    }
+   ]
+  },
+  {
+   "v": "estimated weighted no.",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Total estimated weighted no."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What was the prevalence of ever and current use of tobacco products, and of e-cigarette use behaviors, among U.S. middle and high school students in 2023, and how did it change from 2022?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "describes the prevalence of ever use (i.e., ever having used, even once or twice) and current use of nine tobacco product types"
+   },
+   {
+    "loc": "text",
+    "q": "In addition, 2023 NYTS results are compared with those reported for 2022 NYTS data"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "tobacco product use",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Tobacco Product Use Among U.S. Middle and High School Students"
+    }
+   ]
+  },
+  {
+   "v": "e-cigarette use",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "E-cigarettes remained the most commonly used tobacco product among youths."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The NYTS is a cross-sectional, school-based, self-administered web-based survey of U.S. middle and high school students."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "From 2022 to 2023, current e-cigarette use among high school students declined from 14.1% to 10.0%."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "analyzed data from the 2023 National Youth Tobacco Survey"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Youth Tobacco Survey (NYTS)",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "analyzed data from the 2023 National Youth Tobacco Survey"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "nationally representative sample of U.S. students attending private or public middle (grades 6–8) and high (grades 9–12) schools"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Current-use percentages by race and ethnicity are reported and described in the text (e.g., multiracial 12.6%, AI/AN 8.0%) but not framed or quantified as a disparity.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Race-specific values are largely confined to tables and listed without interpretation, so they could be read as descriptors."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Current use of any combustible tobacco product was reported by 4.7% of Black, 3.9% of Hispanic, 3.7% of multiracial"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "current use of any tobacco product was reported by 11.2% of female, 8.9% of male, 12.6% of non-Hispanic multiracial (multiracial)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Tobacco Product Use Among U.S. Middle and High School Students"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "School level was determined by reported grade level: high school (grades 9–12; n = 10,879) and middle school (grades 6–8; n = 11,067)."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Asian and NHPI current-use estimates suppressed as unreliable; Hispanic of any race; school level used as age proxy."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "current use of any tobacco product was reported by 11.2% of female, 8.9% of male, 12.6% of non-Hispanic multiracial (multiracial)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "ever use of any tobacco product was lowest among non-Hispanic Asian students and did not differ significantly across most racial and ethnic groups"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise"
+ ],
+ "confidence": "high",
+ "notes": "The 2022 comparison values come from a previously published NYTS report, but the t-tests of change are the article's own. The test behind the racial/ethnic ever-use claim is not named; its assessment type is a guess.",
+ "view_issues": "Table 2 CSV shows '_' instead of a dash for high school Hispanic pipe tobacco; Tables 1-2 CSVs contain an empty column after Hispanic or Latino."
+}

@@ -1,0 +1,436 @@
+{
+ "id": "mm7216a4",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2019, age-adjusted stroke death rates (AASDRs) (stroke deaths per 100,000 population) were 101.6 among Black adults"
+    },
+    {
+     "loc": "summary",
+     "q": "The percentage of excess stroke deaths during the pandemic was higher among Black (9.4%) than among White (6.9%) adults."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During the COVID-19 pandemic, age-adjusted stroke mortality rates increased among both Black and White adults"
+    },
+    {
+     "loc": "text",
+     "q": "The absolute difference in AASDR between Black and White adults increased 21.7% (from 31.3 to 38.0)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Annual AASDRs (calculated using 2000 U.S. Census Bureau standard population) and 95% CIs for Black and White adults aged ≥35 years were calculated"
+    },
+    {
+     "loc": "text",
+     "q": "Analyses were stratified by sex and age group (35–64, 65–84, and ≥85 years)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "age-adjusted rates standardized to the 2000 U.S. standard population",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Per 100,000 persons, standardized to the 2000 U.S. Census Bureau population by age group"
+    }
+   ]
+  },
+  {
+   "name": "CI overlap assertion",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "methods state nonoverlapping 95% CIs as the only significance criterion; difference claims (larger increase, widened disparity) rest on it",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Nonoverlapping 95% CIs for rates, absolute differences, or relative differences between two periods or two groups (e.g., women versus men) were considered statistically significant."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "Monte Carlo simulation CIs for percent change in absolute difference (21.7%, 18.0–25.3) exclude 0; 'widened' conclusion drawn",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% Change in absolute differences between Black and White adults › 2020–2021 vs. 2015–2019"
+    },
+    {
+     "loc": "summary",
+     "q": "the absolute difference between Black and White adults was 21.7% higher than during the prepandemic period"
+    }
+   ]
+  },
+  {
+   "name": "Monte Carlo simulation CIs",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "CIs for differences taken as 2.5 and 97.5 percentiles of 5,000 simulated normal draws; resampling-type inference",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "95% CIs are estimated by the Monte Carlo simulation–based approach by sampling 5,000 normal distributions based on the AASDRs and SEs"
+    }
+   ]
+  },
+  {
+   "name": "joinpoint regression (APC projection of expected deaths)",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "joinpoint estimating annual percent changes implies a log-linear segmented model of rates; used only to set expected deaths for excess estimates",
+   "role": "ancillary",
+   "alternative_reading": "linear (least squares on log rates)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "would continue through 2021 at the annual rate of 2015–2019 as identified by joinpoint analysis"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "both",
+  "referent": "White adults; prepandemic period 2015–2019",
+  "across": [
+   "race/ethnicity",
+   "period",
+   "sex",
+   "age group"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Disparities between Black and White adults were measured using absolute and relative differences."
+   },
+   {
+    "loc": "text",
+    "q": "Compared with that during the prepandemic period, the absolute difference in AASDR between Black and White adults during the pandemic was 21.7% higher"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "ci_overlap": true,
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "For AASDRs, 95% CIs are calculated using Anderson-Rosenberg methods with the normal approximations of the 95% CIs"
+   },
+   {
+    "loc": "text",
+    "q": "Nonoverlapping 95% CIs for rates, absolute differences, or relative differences between two periods or two groups (e.g., women versus men) were considered statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted stroke death rate per 100,000",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age-adjusted stroke death rates per 100,000 † (95% CI) §"
+    }
+   ]
+  },
+  {
+   "v": "absolute difference",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Absolute difference, BNH vs. WNH"
+    }
+   ]
+  },
+  {
+   "v": "relative difference (rate ratio)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The relative difference was measured by rate ratios calculated as AASDR among Black adults divided by AASDR among White adults."
+    }
+   ]
+  },
+  {
+   "v": "% change in absolute differences",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% Change in absolute differences between Black and White adults"
+    }
+   ]
+  },
+  {
+   "v": "excess stroke deaths, no. (%)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Excess, § no. (%)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "annual percent changes (APC) in the sex-, age-, and race and ethnicity–specific stroke death rates during 2015–2019 were estimated"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Did disparities in stroke mortality between Black and White adults aged ≥35 years change from before to during the COVID-19 pandemic?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The current study examined disparities in stroke mortality between Black and White adults before and during the COVID-19 pandemic."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "stroke",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Stroke Mortality Among Black and White Adults Aged ≥35 Years Before and During the COVID-19 Pandemic"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Analysts used National Vital Statistics System (NVSS) mortality data accessed via CDC WONDER"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "to calculate AASDRs among Black and White adults aged ≥35 years prepandemic (2015–2019) and during the pandemic (2020–2021)"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Analysts used National Vital Statistics System (NVSS) mortality data accessed via CDC WONDER"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System (NVSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Analysts used National Vital Statistics System (NVSS) mortality data accessed via CDC WONDER"
+    }
+   ]
+  },
+  {
+   "v": "CDC WONDER",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Analysts used National Vital Statistics System (NVSS) mortality data accessed via CDC WONDER"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "death certificates filed in the 50 U.S. states and the District of Columbia"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "The Black–White stroke mortality disparity is framed, quantified (absolute differences, rate ratios, 21.7% widening, excess deaths) and interpreted; inequities in hypertension treatment, economic strain and social determinants are named as possible contributors.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The determinants are tentative and partly generic (social determinants of health, framed as needing further study), which could be read as causes absent or generic."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Disparities between Black and White adults were measured using absolute and relative differences."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Stroke Mortality Among Black and White Adults Aged ≥35 Years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Analyses were stratified by sex and age group (35–64, 65–84, and ≥85 years)."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Analyses were stratified by sex and age group (35–64, 65–84, and ≥85 years)."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "inequities in high blood pressure treatment and control; economic strain; social determinants of health; racial disparities in health care",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "might have exacerbated existing inequities in high blood pressure treatment and control among persons of color"
+    },
+    {
+     "loc": "text",
+     "q": "stress-related factors such as economic strain, poor mental health, and social determinants of health that might have contributed to the widened disparity"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Compared with that during the prepandemic period, the absolute difference in AASDR between Black and White adults during the pandemic was 21.7% higher"
+    }
+   ]
+  },
+  "equity_measurement": "Referent is non-Hispanic White adults; only non-Hispanic single-race Black and White persons included (other races excluded); bridged-race data for 2015–2020 combined with single-race data for 2021."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The relative differences in stroke mortality between Black and White adults were higher among men than women, and decreased with increasing age"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The estimated percentage of excess stroke deaths among both Black and White adults was higher among women and decreased with increasing age"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "procedures"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred (not named): repeated national death-certificate cross-sections compared across two periods. Excess deaths are observed minus joinpoint-projected expected deaths; the regression only sets the baseline, so it is ancillary. Equity_action set true because the headline measures an explicit change in the Black–White gap.",
+ "view_issues": "Table 1 ≥85 rows have implausible CIs (e.g., −59.5 (−89.0 to 30.5); 1.0 (30.6 to 32.4)), likely lost minus signs, and a missing parenthesis (997.2). Discussion cites ages 35–54 where results use 35–64. Prepass p_value cue is a false hit."
+}

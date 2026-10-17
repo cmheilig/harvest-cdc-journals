@@ -1,0 +1,289 @@
+{
+ "id": "mm7202a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg7nFKDcYkqGEozqN2BVa",
+  "batch_id": "msgbatch_01FaGSxRvLPM3Hp7zgHNqiVG"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The peak in suspected cases occurred on November 8, after which case counts have steadily declined."
+   },
+   {
+    "loc": "figure 2",
+    "q": "Rolling 14-day cholera incidence (cases per 100,000 population), by department — Haiti, October 2022–January 2023"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "As of January 3, 2023, >20,000 suspected cholera cases had been reported throughout the country, and 79% of patients have been hospitalized."
+    },
+    {
+     "loc": "text",
+     "q": "The moving 14-day case fatality ratio (CFR) was 3.0%."
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "figure 2",
+     "q": "Rolling 14-day cholera incidence (cases per 100,000 population), by department — Haiti, October 2022–January 2023"
+    },
+    {
+     "loc": "figure 1",
+     "q": "Date of notification of suspected cholera cases* and 14-day case fatality ratio"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The moving 14-day case fatality ratio (CFR) was 3.0%."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The peak in suspected cases occurred on November 8, after which case counts have steadily declined."
+    },
+    {
+     "loc": "figure 2",
+     "q": "Rolling 14-day cholera incidence (cases per 100,000 population), by department — Haiti, October 2022–January 2023"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "rolling 14-day window (moving CFR and incidence)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "'moving 14-day' CFR and 'rolling 14-day' incidence: moving-window smoothing of daily counts",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the moving 14-day CFR was 3.0%"
+    },
+    {
+     "loc": "figure 2",
+     "q": "Rolling 14-day cholera incidence (cases per 100,000 population), by department"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "date of notification",
+   "department"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The peak in suspected cases occurred on November 8, after which case counts have steadily declined."
+   },
+   {
+    "loc": "figure 2",
+    "q": "Rolling 14-day cholera incidence (cases per 100,000 population), by department — Haiti, October 2022–January 2023"
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "primary_measures": [
+  {
+   "v": "number of suspected cases",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Haiti’s case-based surveillance system"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. (%)"
+    }
+   ]
+  },
+  {
+   "v": "14-day case fatality ratio",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The moving 14-day case fatality ratio (CFR) was 3.0%."
+    }
+   ]
+  },
+  {
+   "v": "rolling 14-day incidence per 100,000",
+   "ev": [
+    {
+     "loc": "figure 2",
+     "q": "Rolling 14-day cholera incidence (cases per 100,000 population), by department"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What are the extent, distribution and course of the cholera resurgence in Haiti since September 2022, and what is the public health response?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This report describes the initial investigation, ongoing outbreak, and public health response to cholera in Haiti."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "cholera",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Cholera Outbreak — Haiti, September 2022–January 2023"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "outbreak investigation",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "an outbreak investigation began immediately"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "international surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "As of January 3, Haiti’s case-based surveillance system"
+    },
+    {
+     "loc": "text",
+     "q": "through the daily alert-based reporting system"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Haiti case-based surveillance system (MSPP)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "As of January 3, Haiti’s case-based surveillance system"
+    }
+   ]
+  },
+  {
+   "v": "daily alert-based reporting system (MSPP)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "through the daily alert-based reporting system"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "international",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Cholera Outbreak — Haiti, September 2022–January 2023"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Age and sex appear only as case-composition descriptors in the Table; social unrest and displacement explain the overall resurgence, not any social-position group's outcome.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Gang violence, displacement and social unrest are named as drivers and could be read as equity context, though not tied to any SPD group."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Approximately one third (36%) of patients with suspected cholera are aged <10 years"
+     },
+     {
+      "loc": "table 1",
+      "q": "Age group, yrs › 1–4"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Among reported patients with suspected cholera, 11,580 (57%) are males"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Department is geography, not an SPD; age and sex shares are composition only, with no per-group rates."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "procedures",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Age and sex distributions of cases and deaths are composition (no per-group rates), so no groupwise entry. The CFR goal of <1% is cited only in the Discussion and is not used as a referent. The OCV campaign is mentioned but not quantified.",
+ "view_issues": "Death totals differ by system: alert-based reporting gives 457 deaths (280 institutional, 177 community) while the case-based Table totals 285 deaths."
+}

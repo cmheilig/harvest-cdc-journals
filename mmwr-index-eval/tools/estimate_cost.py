@@ -8,11 +8,12 @@ pilot batch before committing a budget. Thinking tokens at effort medium are a g
 """
 import collections, csv, glob, json, os, re, statistics, sys
 
-CHARS_PER_TOKEN = 3.3      # English prose and JSON on the Opus 4.7+ tokenizer; calibrate with count_tokens
+CHARS_PER_TOKEN = 2.3      # count_tokens on 5 vol 73 packets (prod_calibration.tsv): 2.0-3.0, 2.28 pooled; tables are dense
+PREFIX_TOKENS = 22940      # count_tokens on the API prefix f4030e441a8d (preamble, brief, two examples)
 PRICE_IN, PRICE_OUT = 4.00, 20.00        # $ per 1M tokens, claude-opus-5-5, standard
-CACHE_READ, CACHE_WRITE_1H = 0.20, 8.00  # $ per 1M; 1-hour write assumed at 2x input
+CACHE_READ, CACHE_WRITE_1H = 0.20, 8.00  # $ per 1M; 1-hour write at 2x input
 BATCH = 0.5                              # Message Batches discount on every token class
-THINKING = 6000            # assumed thinking tokens per read at effort medium
+THINKING = 1500            # thinking per read at effort medium: the 3-read slice gave 2.7K-5.5K output tokens in all
 FIXUP = 0.15               # assumed share of reads needing one validator fix-up turn
 CORPUS = '../csv-output/cdc_corpus_df.csv'
 
@@ -43,7 +44,7 @@ def sizes():
 
 def cost(vols):
     fixed, packets, records = sizes()
-    t_fixed, t_pkt, t_rec = tokens(fixed), tokens(statistics.mean(packets)), tokens(statistics.mean(records))
+    t_fixed, t_pkt, t_rec = PREFIX_TOKENS, tokens(statistics.mean(packets)), tokens(statistics.mean(records))
     t_out = t_rec + THINKING
     # first request writes the cache; the rest read it. A fix-up turn resends the packet and record as input.
     per = (t_fixed * CACHE_READ + t_pkt * PRICE_IN + t_out * PRICE_OUT

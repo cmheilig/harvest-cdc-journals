@@ -1,0 +1,441 @@
+{
+ "id": "mm7102a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg8GwFPZ9qvjc2LRRh9Nr",
+  "batch_id": "msgbatch_015fHue8JNNLQe3JYoMaCeST"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "breast cancer incidence among women aged ≥20 years decreased an average of 0.3% per year"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Trends in breast cancer incidence per 100,000 U.S. 2000 standard population were examined for women aged ≥20 years"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "breast cancer incidence among women aged ≥20 years decreased an average of 0.3% per year"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Incidence trends varied by racial and ethnic group ( Figure 1 )."
+    },
+    {
+     "loc": "summary",
+     "q": "decreasing 2.1% per year during 1999–2004 and increasing 0.3% per year during 2004–2018."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "overall rates were age-adjusted to the 2000 U.S. standard population."
+    },
+    {
+     "loc": "figure 1",
+     "q": "Data displayed are the modeled age-adjusted rates."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "joinpoint regression",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "article calls the segments 'linear regressions' fitted in Joinpoint software; APC/AAPC estimates imply a log-linear fit to rates",
+   "role": "primary",
+   "alternative_reading": "loglinear: APC from joinpoint is conventionally the slope of a linear fit to log rates",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Annual percent change (APC) and average annual percent change (AAPC) in incidence were estimated using joinpoint regression"
+    }
+   ]
+  },
+  {
+   "name": "t-test and z-test of APC/AAPC vs zero",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named t-test (zero joinpoints) and z-test (≥1 joinpoint) of whether APC and AAPC differ from zero, p<0.05",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Two-sided statistically significant differences from zero were determined using a t -test for APCs and AAPCs"
+    },
+    {
+     "loc": "text",
+     "q": "APC and AAPC were considered to be >0 or <0 if p<0.05, otherwise, rates were considered stable."
+    }
+   ]
+  },
+  {
+   "name": "direct age standardization (2000 U.S. standard population)",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "rates age-adjusted to the 2000 U.S. standard population",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "overall rates were age-adjusted to the 2000 U.S. standard population."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "APC/AAPC of zero (stable)",
+  "across": [
+   "race/ethnicity",
+   "age group",
+   "period (joinpoint segments)"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Incidence increased among non-Hispanic Asian or Pacific Islander women and women aged 20–39 years"
+   },
+   {
+    "loc": "text",
+    "q": "Incidence trends varied by racial and ethnic group ( Figure 1 )."
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "a z-test for AAPCs from linear regressions with one or more joinpoints."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "rate per 100,000",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Per 100,000 population; overall rates were age-adjusted to the 2000 U.S. standard population."
+    }
+   ]
+  },
+  {
+   "v": "APC",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "APC = annual percent change"
+    }
+   ]
+  },
+  {
+   "v": "AAPC",
+   "ev": [
+    {
+     "loc": "figure 2",
+     "q": "AAPC is the weighted average of the annual percent change during 1999–2018."
+    }
+   ]
+  },
+  {
+   "v": "absolute change in rate",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Absolute change in rate"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Data displayed are the modeled age-adjusted rates."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age (rates age-standardized to the 2000 U.S. standard population)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "overall rates were age-adjusted to the 2000 U.S. standard population."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did breast cancer incidence among U.S. women aged ≥20 years change during 1999–2018, overall and by race/ethnicity and age group?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To examine trends in breast cancer incidence among women aged ≥20 years by race/ethnicity and age"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "breast cancer",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Trends in Breast Cancer Incidence, by Race, Ethnicity, and Age Among Women Aged ≥20 Years"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from U.S. Cancer Statistics (USCS) during 1999–2018."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "decreasing 2.1% per year during 1999–2004 and increasing 0.3% per year during 2004–2018."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "USCS includes incidence data from central cancer registries reporting to CDC’s National Program of Cancer Registries"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "U.S. Cancer Statistics (USCS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from U.S. Cancer Statistics (USCS) during 1999–2018."
+    }
+   ]
+  },
+  {
+   "v": "National Program of Cancer Registries (NPCR)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "central cancer registries reporting to CDC’s National Program of Cancer Registries"
+    }
+   ]
+  },
+  {
+   "v": "Surveillance, Epidemiology, and End Results (SEER) Program",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "National Cancer Institute’s Surveillance, Epidemiology, and End Results (SEER) Program."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "selected from registries with high quality data covering 97% of the U.S. population."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Incidence rates and trends are reported and described for five racial/ethnic groups, but no between-group contrast is computed or framed as a disparity; disparities appear only in a closing recommendation.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Trends 'varied by racial and ethnic group' and the conclusion invokes preventing health disparities, though no difference or ratio between groups is computed."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "were examined for women aged ≥20 years by race/ethnicity for five mutually exclusive groups"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "and age group (20–39, 40–49, 50–64, 65–74, and ≥75 years)."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Among Women Aged ≥20 Years — United States, 1999–2018"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "overall rates were age-adjusted to the 2000 U.S. standard population."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Among Women Aged ≥20 Years — United States, 1999–2018"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Five mutually exclusive race/ethnicity groups; unknown or other race/ethnicity (n = 25,329) excluded; no referent group, each group's trend is tested against zero."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Incidence trends varied by racial and ethnic group ( Figure 1 )."
+    },
+    {
+     "loc": "text",
+     "q": "Incidence among non-Hispanic White women, among whom rates were highest, decreased an average of 0.3% per year"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "decreased among non-Hispanic White women and women aged 50–64 and ≥75 years."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity",
+    "age"
+   ],
+   "n_groups": 25,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Incidence among non-Hispanic White women aged 50–64 years decreased an average of 0.8% per year, the largest decrease"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "procedures",
+  "regression_fields",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred (registry-based trend analysis; none named). The t-test of APC is a test of a model slope and could be read as part of the joinpoint model; the AAPC z-test tests a derived quantity. Comparisons across race and age rest on each group's APC tested against zero; no test compares trends between groups. 'Weighted average' for AAPC is arithmetic, not survey weighting.",
+ "view_issues": "Table note says only overall rates were age-adjusted, while Figure 1 shows modeled age-adjusted rates by race, so it is unclear whether race-specific rates are age-adjusted. Footnote §§ mentions death rates, which are not analyzed. Article was corrected after publication (erratum 2022-01-28)."
+}

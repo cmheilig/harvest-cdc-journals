@@ -196,6 +196,16 @@ Decision: **owner: accept** (2026-10-16).
 No schema change.
 Decision: ~~**owner: requested** (2026-10-16).~~ Accept.
 
+### V21. Brief v5.2 (groupwise clarifications from the vol 73 audit)
+**Issue.** The vol 73 audit (`reports/VOL73_REPORT.md`) found 5 wrong groupwise fields in 3 records, and adjudicators logged 11 brief notes. Three notes are tied to those errors, or to most of the mechanical check's false flags. The owner accepted a v5.2 limited to them (G2, 2026-10-17); the other notes stay open for the audit to watch.
+**Change.** `READER_BRIEF.md` v5.2, section F:
+- `per-group vs referent only` also covers a CI-overlap rule stated once under "highest", "higher" or "differed" claims across the groups, which also gives a `CI overlap assertion` procedure (mm7309a3, mm7324a1: recorded as side by side);
+- rule 6: rule 2 governs only when the SPD is a margin of the test; a non-SPD contrast tested within each SPD level makes no entry by itself (mm7324a3, and most false flags);
+- rule 7: program target groups that mix age bands with a clinical group are not SPD groups, unless 3 or more age groups are compared within one clinical level (mm7339a1).
+
+`API_PREAMBLE.md` names version 5.2. No schema or validator change. Applies from vol 72; vol 73 stays on v5.1 (its prefix is pinned).
+Decision: **owner: accept** (2026-10-17).
+
 ---
 
 ## Tooling fixes (no decision needed unless you object)
