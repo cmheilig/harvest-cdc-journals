@@ -1,0 +1,520 @@
+{
+ "id": "mm7226a5",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg7nH1mSTTKSB7UjxywZg",
+  "batch_id": "msgbatch_01FaGSxRvLPM3Hp7zgHNqiVG"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The aIRR between communities in the lowest and highest median income deciles was 6.6 (95% CI = 2.8–15.3) in July 2020"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "COVID-19 incidence during two surges before vaccine availability (July 2020 and January 2021) was higher in lower-income communities compared with higher-income communities."
+    },
+    {
+     "loc": "figure 1",
+     "q": "Cases per 100,000 population."
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "median vaccination coverage of 59.4% (95% CI = 57.6%–61.2%) for the lowest- and 71.5% (95% CI = 68.5%–74.4%) for the highest-income communities"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The aIRRs during the peak month of each surge were compared across income strata using the Wald’s test with p-values adjusted using Tukey’s method"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Adjusted incidence rate ratios (aIRRs) during the peak month of each surge were compared across communities grouped by median household income percentile."
+    },
+    {
+     "loc": "text",
+     "q": "Within each income stratum, vaccination coverage was inversely associated with COVID-19 incidence; however, the effect was largest in the lowest-income communities."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "generalized linear mixed effects Poisson regression",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'generalized linear mixed effects model with a Poisson distribution' giving IRRs → loglinear; random effects for communities",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A generalized linear mixed effects model with a Poisson distribution was used to estimate COVID-19 incidence and, separately, vaccination coverage"
+    }
+   ]
+  },
+  {
+   "name": "Wald test with Tukey adjustment for multiple comparisons",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated: Wald's test on model contrasts across income strata, p-values adjusted using Tukey's method",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The aIRRs during the peak month of each surge were compared across income strata using the Wald’s test with p-values adjusted using Tukey’s method"
+    },
+    {
+     "loc": "table 2",
+     "q": "p<0.001 for pairwise comparisons versus the 90th percentile median community income using the Wald’s test adjusted for multiple comparisons."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "September 2021 aIRR CI includes 1, read as no disparity; CIs model-based from the Poisson mixed model",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In September 2021, however, incidence was not significantly different across communities irrespective of median household income (aIRR = 0.8; 95% CI = 0.35–1.86)."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "both",
+  "referent": "highest-income (90th percentile) communities",
+  "across": [
+   "median community household income percentile",
+   "surge month",
+   "vaccination coverage"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The aIRR between communities in the lowest and highest median income deciles was 6.6 (95% CI = 2.8–15.3) in July 2020"
+   },
+   {
+    "loc": "text",
+    "q": "A 20% increase in community vaccination coverage was predicted to result in an additional 8.1% (95% CI = 7.7%–8.4%) reduction in COVID-19 incidence"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The aIRRs during the peak month of each surge were compared across income strata using the Wald’s test with p-values adjusted using Tukey’s method"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "aIRR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Adjusted incidence rate ratios (aIRRs) during the peak month of each surge were compared across communities grouped by median household income percentile."
+    }
+   ]
+  },
+  {
+   "v": "IRR",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "IRR = incidence rate ratio."
+    }
+   ]
+  },
+  {
+   "v": "median vaccination coverage, %",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "median vaccination coverage of 59.4% (95% CI = 57.6%–61.2%) for the lowest- and 71.5% (95% CI = 68.5%–74.4%) for the highest-income communities"
+    }
+   ]
+  },
+  {
+   "v": "absolute reduction in COVID-19 incidence, %",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Absolute reduction in COVID-19 incidence, §,¶ % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "cases per 100,000 population",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Cases per 100,000 population."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "mixed effects",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A generalized linear mixed effects model with a Poisson distribution was used"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Univariable (unadjusted) models included time in months since data collection began in March 2020, income, and the interaction of income by time."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Multivariable (adjusted) models included community-level median vaccination coverage, age, sex, non–U.S.-born status, race, ethnicity, education level, number of persons per household, insurance status"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "community-level median vaccination coverage, age, sex, non–U.S.-born status, race, ethnicity, education level, number of persons per household, insurance status; time and vaccination as polynomial splines",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Multivariable (adjusted) models included community-level median vaccination coverage, age, sex, non–U.S.-born status, race, ethnicity, education level, number of persons per household, insurance status"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A significant interaction was observed between median household income and vaccination coverage on COVID-19 incidence (p<0.001)."
+    },
+    {
+     "loc": "note",
+     "q": "A significant interaction was identified between income and time (p<0.001) in the mixed effects model predicting COVID-19 incidence"
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Did COVID-19 incidence differ by community income in Los Angeles before and after vaccine availability, and did the effect of vaccination on incidence differ by income?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Disparities in COVID-19 incidence and the impact of vaccination on incidence disparities by community income were assessed among 81 communities in Los Angeles, California."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Disparities in COVID-19 Disease Incidence by Income and Vaccination Coverage"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "median vaccination coverage of 59.4% (95% CI = 57.6%–61.2%) for the lowest- and 71.5% (95% CI = 68.5%–74.4%) for the highest-income communities"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "ecologic",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Eighty-one communities in Los Angeles with available vaccination and incidence data (total population = 5,083,093; median = 47,450) were included in the analysis"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Community-level COVID-19 vaccination coverage and incidence data from March 2020 through September 2021 were obtained from the Los Angeles Times COVID-19 data repository"
+    },
+    {
+     "loc": "text",
+     "q": "which is populated with California Department of Public Health data."
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "sociodemographic data from the U.S. Census Bureau"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Los Angeles Times COVID-19 data repository",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were obtained from the Los Angeles Times COVID-19 data repository"
+    }
+   ]
+  },
+  {
+   "v": "California Department of Public Health data",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "which is populated with California Department of Public Health data."
+    }
+   ]
+  },
+  {
+   "v": "U.S. Census Bureau",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "sociodemographic data from the U.S. Census Bureau"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "81 Communities, Los Angeles, California, July 2020–September 2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "effectiveness",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The impact of vaccination on COVID-19 incidence was highest in the lowest-income communities despite their lower vaccination coverage."
+   }
+  ]
+ },
+ "equity": {
+  "level": 4,
+  "level_reason": "Income disparities in incidence are framed, quantified (aIRR 6.6, 4.3; additional 8.1% reduction) and interpreted; specific determinants (population density, public transit, service-industry work) and an HPI-based vaccine allocation policy are named as explanations.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The named determinants are offered as possible explanations in the Discussion rather than measured or analyzed."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "primary comparison",
+    "ses_components": [
+     "median household income"
+    ],
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Disparities in COVID-19 Disease Incidence by Income and Vaccination Coverage"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "education",
+     "no health insurance"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "who had completed at least high school; and 6) who had no health insurance"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "non-Hispanic White, non-Hispanic Black or African American, or Hispanic or Latino"
+     }
+    ]
+   },
+   {
+    "v": "country of birth/language/nativity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "non–U.S.-born status"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "percentage of persons who were 1) aged ≥65 years"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "2) male or female"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "higher population density; use of public transportation; working in service industries without remote work; vaccine allocation to low-HPI communities; barriers to vaccination access",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "potentially related to higher population density, more use of public transportation, and increased likelihood of working in service industries"
+    },
+    {
+     "loc": "text",
+     "q": "Efforts in California included allocating 40% of vaccination appointments to communities in the lowest quartile of the California Healthy Places Index (HPI)"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Disparities in COVID-19 incidence and the impact of vaccination on incidence disparities by community income were assessed among 81 communities in Los Angeles, California."
+    }
+   ]
+  },
+  "equity_measurement": "Income is ecologic: community median household income, compared at 10th, 25th, 50th, 75th and 90th percentiles; the 10th is the index group in Table 1 and the 90th the referent in Table 2. HPI is cited as context only."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "pairwise (all pairs)",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "p<0.001 for all comparisons of COVID-19 incidence between median community income strata in July 2020 and January 2021 (independently)"
+    },
+    {
+     "loc": "text",
+     "q": "The aIRRs during the peak month of each surge were compared across income strata using the Wald’s test with p-values adjusted using Tukey’s method"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "p<0.001 for pairwise comparisons versus the 90th percentile median community income using the Wald’s test adjusted for multiple comparisons."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": null,
+   "ordered": true,
+   "assessment": "interaction",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "note",
+     "q": "A significant interaction was identified between income and time (p<0.001) in the mixed effects model predicting COVID-19 incidence"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise",
+  "study_design",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Design is not named; ecologic is inferred from community-level units. Polynomial splines for time and vaccination coverage are model terms, not a transformation. The vaccination-coverage comparison across income strata (Tukey pairwise contrasts) is reported mainly in supplementary material.",
+ "view_issues": "Figure note says p<0.05 for all September 2021 comparisons between income strata, contradicting the text (not significantly different) and Table 1 CIs that include 1. Table 2 caption calls the values reductions in incidence rate ratios, but the column gives % reductions in incidence. Typos: 'availabile', 'occured', 'disaparities'."
+}

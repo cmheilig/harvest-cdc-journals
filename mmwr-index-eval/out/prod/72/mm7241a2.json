@@ -1,0 +1,378 @@
+{
+ "id": "mm7241a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg7nGJGqsKgFJt9LRENab",
+  "batch_id": "msgbatch_01FaGSxRvLPM3Hp7zgHNqiVG"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Children aged <5 years had the second highest rates of influenza-associated medical visits (11,443 per 100,000) and hospitalization (119 per 100,000)"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among hospitalized children and adolescents in 2022–23, 18.3% had received an influenza vaccine, compared with 35.8%–41.8% in 2016–17 through 2021–22."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Most (95.4%) infections were with influenza A virus; 80.2% of those subtyped were A(H3N2) and 19.6% were A(H1N1)pdm09."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "2022–23 was a high severity influenza season compared with thresholds based on previous seasons’ data"
+    },
+    {
+     "loc": "summary",
+     "q": "incidences of influenza-associated outpatient visits and hospitalization for the 2022–23 season were similar for children aged <5 years"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "percentile intensity thresholds from previous seasons' peaks (severity classification)",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "thresholds are percentiles of a distribution built on the geometric mean of prior peak weekly values; current peaks are classified against them",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "50th, 90th, and 98th percentile intensity thresholds (ITs) are calculated from a distribution based on the geometric mean of peak weekly values"
+    },
+    {
+     "loc": "text",
+     "q": "Seasonal severity is classified as low if at least two of the three indicators peak below IT 50"
+    }
+   ]
+  },
+  {
+   "name": "multiplier-based burden estimation adjusted for underdetection",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "FluSurv-NET rates adjusted for testing probability and test sensitivity, scaled to the US population, with outpatient and death ratios applied; credible intervals imply a probabilistic model whose form is not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Influenza-associated hospitalizations are estimated by applying the FluSurv-NET hospitalization rates, after adjustment for possible underdetection based on the probability of being tested"
+    },
+    {
+     "loc": "text",
+     "q": "To estimate influenza-associated deaths, the ratio of hospitalizations to deaths is applied to the hospitalization estimates"
+    }
+   ]
+  },
+  {
+   "name": "sampling weights for 2022–23 hospitalization characteristics",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "the 2022–23 season used an age-stratified sample and the table reports weighted percentages",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "for an age-stratified sample during the 2022–23 season. Weighted proportions are reported overall and by age group"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "fixed referent",
+  "scale": null,
+  "referent": "intensity thresholds (IT50, IT90, IT98) based on previous seasons",
+  "across": [
+   "season",
+   "age group",
+   "severity indicator"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "all peaking between IT 90 and IT 98"
+   },
+   {
+    "loc": "text",
+    "q": "comparisons of rates of influenza-associated outpatients visits, hospitalizations, and deaths across seasons based on point estimates are descriptive"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "figure 2",
+    "q": "With 95% credible intervals indicated by error bars."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage of outpatient visits for ILI",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Percentage of outpatient visits for influenza-like illness (A)"
+    }
+   ]
+  },
+  {
+   "v": "hospitalization rate",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "influenza-associated hospitalization rates (B)"
+    }
+   ]
+  },
+  {
+   "v": "percentage of all-cause deaths due to influenza",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "percentage of all-cause deaths due to influenza (C)"
+    }
+   ]
+  },
+  {
+   "v": "events per 100,000 population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "is presented in this report as events per 100,000 population."
+    }
+   ]
+  },
+  {
+   "v": "weighted %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Weighted %, 2022–23"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How severe was the 2022–23 influenza season among US children and adolescents, and how did incidence and hospitalized patients' characteristics compare with previous seasons?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This report describes the 2022–23 influenza season among children and adolescents, including seasonal severity, estimated incidence, and characteristics of hospitalized patients."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "influenza",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "High Influenza Incidence and Disease Severity Among Children and Adolescents Aged <18 Years"
+    }
+   ]
+  },
+  {
+   "v": "influenza",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among hospitalized children and adolescents in 2022–23, 18.3% had received an influenza vaccine"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Each year, CDC assesses seasonal severity by comparing current season’s influenza activity with thresholds based on peak influenza activity in previous seasons"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This analysis focuses on the 2022–23 influenza season compared with 2016–17 through 2021–22, excluding 2020–21"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "obtained from the U.S. Outpatient Influenza-like Illness Surveillance Network (ILINet)"
+    },
+    {
+     "loc": "text",
+     "q": "abstracted from medical charts by trained FluSurv-NET surveillance staff members using a standard case report form."
+    }
+   ]
+  },
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "calculated from National Vital Statistics System death registry data"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "ILINet",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "U.S. Outpatient Influenza-like Illness Surveillance Network (ILINet)"
+    }
+   ]
+  },
+  {
+   "v": "FluSurv-NET",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "estimated through the Influenza Hospitalization Surveillance Network (FluSurv-NET)"
+    }
+   ]
+  },
+  {
+   "v": "National Vital Statistics System (NCHS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "calculated from National Vital Statistics System death registry data"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, 2022–23 Season"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "a lower proportion were vaccinated (18.3%) compared with previous seasons (35.8%–41.8%)."
+   }
+  ]
+ },
+ "equity": {
+  "level": 1,
+  "level_reason": "Age defines the population and splits rates into <5 and 5–17 years without social-position framing. Race/ethnicity appears only as composition rows of the Table, a descriptor.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 0,
+   "reason": "Race/ethnicity is an undiscussed table composition row; with age and sex only, the level would be 0."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Among Children and Adolescents Aged <18 Years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Pediatric rates are estimated for children aged <5 years and for children and adolescents aged 5–17 years."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race and ethnicity › Black or African American, non-Hispanic"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The median age was 5 years (IQR = 2–9 years), 57.4% were male"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity is reported only as the composition of hospitalized cases, beside prior-season ranges; no group-specific outcomes."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "study_design",
+  "procedures"
+ ],
+ "confidence": "medium",
+ "notes": "The authors state that threshold classifications and cross-season comparisons are descriptive, not statistical, so no tests are recorded. The credible intervals in Figure 2 carry no conclusions. NIS coverage and the 68% VE are cited from other sources, not analyzed.",
+ "view_issues": "The Abstract says 2022–23 incidence for children <5 years was similar to previous seasons, while the Discussion says it was higher than most previous seasons."
+}

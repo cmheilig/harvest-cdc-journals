@@ -1,0 +1,388 @@
+{
+ "id": "mm7222a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg7pcSF6wmCdZH7FCChTB",
+  "batch_id": "msgbatch_01LxLyQJ181xcMKqCrLYmEPG"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "By the third quarter of 2022, an estimated 96.4% of persons aged ≥16 years in a longitudinal blood donor cohort had SARS-CoV-2 antibodies"
+    },
+    {
+     "loc": "text",
+     "q": "the incidence of first SARS-CoV-2 infections among unvaccinated persons was 67.0%, compared with 26.3% among vaccinated persons (p<0.05)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During July–September 2022, 96.4% (95% CI = 96.1%–96.7%) of persons had antibodies from previous infection or vaccination"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence of hybrid immunity was lowest among persons aged ≥65 years (36.9%)"
+    },
+    {
+     "loc": "text",
+     "q": "the incidence of first SARS-CoV-2 infections among unvaccinated persons was 67.0%, compared with 26.3% among vaccinated persons (p<0.05)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting (nonresponse adjustment cells, stratification and raking)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weights stated to adjust for cohort selection, nonresponse and demographic differences from the U.S. population; every estimate is weighted",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The weights were obtained through a combination of stratification and raking, an iterative weighting adjustment procedure"
+    },
+    {
+     "loc": "note",
+     "q": "Weights were adjusted for nonresponse using adjustment cells created by age category, vaccination and previous infection status, and blood collection organization"
+    }
+   ]
+  },
+  {
+   "name": "two-sided t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named 'two-sided t-tests' at α = 0.05 comparing weighted means by demographic group and vaccination status",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Seroprevalence and infection rates were estimated as weighted means and compared by demographic group and vaccination status using two-sided t-tests"
+    }
+   ]
+  },
+  {
+   "name": "jackknife replicate-weight variance estimation",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "jackknife replication used to compute replicate weights, presumably for SEs and CIs",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Jackknife replication was used to compute replicate weights."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "age group",
+   "race/ethnicity",
+   "vaccination status",
+   "period"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Hybrid immunity prevalence was lowest among adults aged ≥65 years."
+   },
+   {
+    "loc": "text",
+    "q": "the incidence of first SARS-CoV-2 infections among unvaccinated persons was 67.0%, compared with 26.3% among vaccinated persons (p<0.05)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Seroprevalence and infection rates were estimated as weighted means and compared by demographic group and vaccination status using two-sided t-tests"
+   },
+   {
+    "loc": "note",
+    "q": "Jackknife replication was used to compute replicate weights."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "seroprevalence, % (95% CI)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During July–September 2022, 96.4% (95% CI = 96.1%–96.7%) of persons had antibodies from previous infection or vaccination"
+    }
+   ]
+  },
+  {
+   "v": "estimated percentage infected for the first time (incidence)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percentage of uninfected persons (anti-nucleocapsid–negative in the previous 3-month period) seroconverting to anti-nucleocapsid–positive."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What were SARS-CoV-2 infection-induced, vaccine-induced and hybrid seroprevalence and the incidence of first infections among U.S. blood donors, by vaccination status, age and race/ethnicity?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To estimate the incidence of infection and the prevalence of infection- or vaccination-induced antibodies (or both)"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Estimates of SARS-CoV-2 Seroprevalence and Incidence of Primary SARS-CoV-2 Infections Among Blood Donors, by COVID-19 Vaccination Status"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "than did vaccinated persons, indicating that vaccination provides some protection against infection"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "prospective cohort",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "established a nationwide cohort of 142,758 blood donors in July 2021"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Both infection-induced and hybrid immunity increased during the study period."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Since July 2020, SARS-CoV-2 seroprevalence in the United States has been estimated by testing blood donations"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "nationwide blood donor cohort (Vitalant, American Red Cross, Creative Testing Solutions, Westat)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC, in collaboration with Vitalant, American Red Cross, Creative Testing Solutions, and Westat, established a nationwide cohort of 142,758 blood donors"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, April 2021–September 2022"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "effectiveness",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "than did vaccinated persons, indicating that vaccination provides some protection against infection"
+   }
+  ]
+ },
+ "equity": {
+  "level": 2,
+  "level_reason": "Hybrid immunity and incidence are reported by race/ethnicity and described (higher among Black and Hispanic persons; lower incidence among Asian persons) but not framed as a disparity. Age differences are framed by clinical risk, not social position.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Race/ethnicity results are mainly in a supplementary figure and a table and receive a single descriptive sentence; race otherwise serves as a raking variable."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Estimates were stratified by age group (16–29, 30–49, 50–64, and ≥65 years) and race and ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "and race and ethnicity (Asian, Black, White, Hispanic, and other)."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Prevalence of hybrid immunity was lowest among persons aged ≥65 years (36.9%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "The demographic variables used for raking were sex (female and male), age group"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "By the third quarter of 2022, an estimated 96.4% of persons aged ≥16 years in a longitudinal blood donor cohort had SARS-CoV-2 antibodies"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "The demographic variables used for raking were sex (female and male), age group"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity in five groups, with American Indian/Alaska Native collapsed into other; race comparisons of hybrid immunity appear only in a supplementary figure. Sex, age and race are raking variables."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the lowest prevalence of hybrid immunity, 36.9% (95% CI = 35.8%–38.1%), was observed in persons aged ≥65 years"
+    },
+    {
+     "loc": "text",
+     "q": "Incidence of first SARS-CoV-2 infections was higher among younger than among older persons"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "higher prevalences of hybrid immunity were observed among Black and Hispanic populations than among White and Asian populations"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was lower among Asian persons than among other racial and ethnic populations, but the differences among groups narrowed over time"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "analytic_depth",
+  "groupwise",
+  "study_design",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "Cohort design inferred as prospective (cohort established July 2021, sampled quarterly). The table shows vaccinated vs unvaccinated incidence within age and race strata side by side, without stratum contrasts or tests, so stratified/adjusted was not given. A table-note reanalysis excluding donors moving from no antibodies to hybrid immunity is a sensitivity check with no field outside regression.",
+ "view_issues": "Text calls quarter-to-quarter seroconversion proportions 'rates' and 'incidence'; they are cumulative proportions. p-values are given for periods 1 and 3 only. The † on unvaccinated rows appears in all three periods, though the note applies to the first."
+}

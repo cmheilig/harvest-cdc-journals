@@ -1,0 +1,396 @@
+{
+ "id": "mm7230a4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg7nFM7iMYUXcvSwezQNi",
+  "batch_id": "msgbatch_01FaGSxRvLPM3Hp7zgHNqiVG"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "had comparable 2-dose series completion rates (60.2% and 58.8%, respectively)"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a total of 71,317 (59.8%) completed the 2-dose series"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a total of 71,317 (59.8%) completed the 2-dose series"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Persons who were assigned female sex at birth (42.8%) had lower odds of returning for a second dose"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "by route of administration of the first dose ¶ stratified by race and ethnicity, age group, community health conditions"
+    },
+    {
+     "loc": "text",
+     "q": "This finding was consistent among Asian, Black, White, Hispanic, and multiracial or other race persons; persons aged 18–64 years"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "logistic regression (odds ratios with 99% Wald CIs)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'logistic regression' giving ORs → logistic; CIs stated as 99% Wald",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Odds ratios (ORs) and 99% Wald CIs were estimated using logistic regression"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "99% Wald CIs for ORs judged against 1 ('lower', 'similar', 'higher'); Wald CI method stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "but were similar among those aged 55–64 years (70.0%)."
+    },
+    {
+     "loc": "table 1",
+     "q": "0.96 (0.92–1.01)"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "intradermal first dose; within demographic groups White, NH; aged ≥65 years; male sex at birth; HPI quartile 4",
+  "across": [
+   "route of administration of first dose",
+   "sex",
+   "race/ethnicity",
+   "age group",
+   "Healthy Places Index quartile",
+   "month of first dose"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "had comparable 2-dose series completion rates (60.2% and 58.8%, respectively)"
+   },
+   {
+    "loc": "text",
+    "q": "Compared with the odds of completing the series among non-Hispanic White (White) persons (64.1%), the odds were lower among those who were non-Hispanic Black"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Odds ratios (ORs) and 99% Wald CIs were estimated using logistic regression"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage completing series",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Completed series, route of first dose administration, no. (%)*"
+    }
+   ]
+  },
+  {
+   "v": "odds ratio (99% CI)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Odds ratio (99% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Odds of returning for a second dose, irrespective of route of administration."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Among California adults receiving JYNNEOS after intradermal authorization, did demographic disparities in 2-dose series completion vary by route of the first dose?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "investigated whether demographic disparities in vaccination series completion varied by route of administration of the recipient’s first dose"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "mpox",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Demographic Disparities in Mpox Vaccination Series Completion, by Route of Vaccine Administration"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "retrospective cohort",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "reported to the California Immunization Registry during August 9, 2022–March 31, 2023, were included"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "vaccination registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "reported to the California Immunization Registry during August 9, 2022–March 31, 2023, were included"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "California Immunization Registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "analysis of California Immunization Registry data found comparable series completion rates"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "California, August 9, 2022–March 31, 2023"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Among California residents who received their first dose during August 9, 2022–March 31, 2023, a total of 59.8% received a second dose."
+   }
+  ]
+ },
+ "equity": {
+  "level": 3,
+  "level_reason": "Demographic disparities in series completion are framed (title), quantified as ORs against referent groups by race/ethnicity, age, sex and HPI quartile, and interpreted in the Discussion; no determinants are offered as explanations.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 2,
+   "reason": "Interpretation of the group contrasts is thin; the report's focus is route of administration, with disparities mainly reported in the table."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Compared with the odds of completing the series among non-Hispanic White (White) persons (64.1%), the odds were lower among those who were non-Hispanic Black"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "the odds of completing the 2-dose series were lower among those aged 45–54 years (64.5%), 35–44 years (58.9%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Persons aged ≥18 years with documentation of receipt of ≥1 dose of JYNNEOS vaccine"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "basis": "assigned or observed",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Persons who were assigned female sex at birth (42.8%) had lower odds of returning for a second dose"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "Healthy Places Index quartiles"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The odds of receiving a second dose, when compared to persons in HPI quartile 4 (58.8%), were similar among persons living in quartile 1"
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "Data submitted to the California Immunization Registry do not currently include sexual orientation or gender identity information"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referents: White NH, aged ≥65, male sex at birth, HPI quartile 4 (area index linked by county/zip). Unknown categories excluded from ORs; route-specific ORs by group are only in a supplementary table."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race and ethnicity › White, NH"
+    },
+    {
+     "loc": "text",
+     "q": "Compared with the odds of completing the series among non-Hispanic White (White) persons (64.1%), the odds were lower among those who were non-Hispanic Black"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the odds of completing the 2-dose series were lower among those aged 45–54 years (64.5%), 35–44 years (58.9%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The odds of receiving a second dose, when compared to persons in HPI quartile 4 (58.8%), were similar among persons living in quartile 1"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "study_design"
+ ],
+ "confidence": "medium",
+ "notes": "No design is named; retrospective cohort is inferred from registry records followed to a second dose. Route-by-group ORs are reported only in a supplementary table; the article's table gives group ORs irrespective of route. No covariates are stated, so ORs are treated as unadjusted.",
+ "view_issues": "Text gives SC vs ID September–March completion as 47.1% vs 58.9%, while the Figure 2 note gives 51% and 59% for September; text says 'completed' where 'received first dose' seems meant. Claims for ≥65 and female route differences show no estimates in the article."
+}

@@ -1,0 +1,295 @@
+{
+ "id": "mm7225a7",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg7nHQm3UJAYwMwMJUQwD",
+  "batch_id": "msgbatch_01FaGSxRvLPM3Hp7zgHNqiVG"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "In 2021, 71.6% of adults aged 50–75 years reported they received the recommended colorectal cancer screening"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2021, 71.6% of adults aged 50–75 years reported they received the recommended colorectal cancer screening"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2021, 71.6% of adults aged 50–75 years reported they received the recommended colorectal cancer screening"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "with the percentage increasing with income from 56.7% for those with family incomes <100% of FPL"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Age-adjusted percentages are based on the 2000 U.S. Census Bureau standard population using age groups 50–64 and 65–75 years"
+    },
+    {
+     "loc": "text",
+     "q": "the percentage was higher among women than men with family incomes 100% to <200% of FPL (68.1% versus 57.2%)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "age-adjusted percentages using the 2000 U.S. standard population → direct standardization",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Age-adjusted percentages are based on the 2000 U.S. Census Bureau standard population using age groups 50–64 and 65–75 years"
+    }
+   ]
+  },
+  {
+   "name": "imputation of missing family income",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "imputed income enters the income-group estimates; imputation method not stated",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Family income was imputed when missing."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "family income (SES)",
+   "sex"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "with the percentage increasing with income from 56.7% for those with family incomes <100% of FPL"
+   },
+   {
+    "loc": "text",
+    "q": "the percentage was higher among women than men with family incomes 100% to <200% of FPL (68.1% versus 57.2%)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "note",
+    "q": "with 95% CIs indicated by error bars."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted percentage",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Age-Adjusted Percentage* of Adults Aged 50–75 Years Who Received the Recommended Colorectal Cancer Screening"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did receipt of recommended colorectal cancer screening among U.S. adults aged 50–75 years vary by sex and family income in 2021?",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Who Received the Recommended Colorectal Cancer Screening, † by Sex and Family Income"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "colorectal cancer screening",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Who Received the Recommended Colorectal Cancer Screening, † by Sex and Family Income"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Estimates are based on household interviews of a sample of the civilian, noninstitutionalized U.S. population."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "National Center for Health Statistics, National Health Interview Survey, 2021."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Health Interview Survey (NHIS)",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "National Center for Health Statistics, National Health Interview Survey, 2021."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "National Health Interview Survey, United States, 2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Screening percentages are reported and described by family income (and sex within income), with an income gradient noted, but values are only set side by side with no computed difference or ratio and no disparity framing.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The income gradient ('increasing with income') and a quoted women-vs-men gap could be read as a described disparity, though no contrast is computed."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "primary comparison",
+    "ses_components": [
+     "family income",
+     "federal poverty level"
+    ],
+    "ev": [
+     {
+      "loc": "note",
+      "q": "As a percentage of FPL, which is based on family income and family size, using the U.S. Census Bureau’s poverty thresholds."
+     },
+     {
+      "loc": "text",
+      "q": "with the percentage increasing with income from 56.7% for those with family incomes <100% of FPL"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "the percentage was higher among women than men with family incomes 100% to <200% of FPL (68.1% versus 57.2%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Age-Adjusted Percentage* of Adults Aged 50–75 Years Who Received the Recommended Colorectal Cancer Screening"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "Age-adjusted percentages are based on the 2000 U.S. Census Bureau standard population using age groups 50–64 and 65–75 years"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Family income as percentage of FPL in three groups (<100%, 100% to <200%, ≥200%); missing income imputed."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "with the percentage increasing with income from 56.7% for those with family incomes <100% of FPL"
+    },
+    {
+     "loc": "text",
+     "q": "Among men, the percentage was similar for those with family incomes <100% of FPL (58.7%)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "inference",
+  "procedures"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred as cross-sectional from the NHIS household-interview sample; not named. Survey weighting is not stated, so it is not recorded.",
+ "view_issues": "Claims of 'higher', 'similar' and 'increasing' are made with no stated test or comparison rule; 95% CIs are shown only as figure error bars."
+}

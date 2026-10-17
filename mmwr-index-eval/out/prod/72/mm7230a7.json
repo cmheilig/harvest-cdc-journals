@@ -1,0 +1,299 @@
+{
+ "id": "mm7230a7",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg7nFKyWAMkkM7q3GpEeW",
+  "batch_id": "msgbatch_01FaGSxRvLPM3Hp7zgHNqiVG"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "non-Hispanic Asian (Asian) adults aged ≥18 years were the most likely to receive an influenza vaccination in the past 12 months (57.1%)"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Hispanic or Latino (Hispanic) and non-Hispanic Black or African American (Black) adults were the least likely to receive an influenza vaccination"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "non-Hispanic Asian (Asian) adults aged ≥18 years were the most likely to receive an influenza vaccination in the past 12 months (57.1%)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Hispanic and Black adults were significantly less likely than Asian and White adults were to receive an influenza vaccination."
+    },
+    {
+     "loc": "text",
+     "q": "the differences among Hispanic, Black, and White adults were not statistically significant"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'significantly' and 'not statistically significant' with 95% CIs shown; no test named",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Hispanic and Black adults were significantly less likely than Asian and White adults were to receive an influenza vaccination."
+    },
+    {
+     "loc": "text",
+     "q": "Vaccination coverage increased significantly with each increasing level of family income for White adults only."
+    }
+   ]
+  },
+  {
+   "name": "imputation of missing family income",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "imputed income values enter the income-stratified estimates; imputation method not stated",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Family income was imputed when missing."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "race/ethnicity",
+   "family income"
+  ],
+  "ev": [
+   {
+    "loc": "title",
+    "q": "by Race and Ethnicity § and Family Income ¶ — National Health Interview Survey, United States, 2021"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "figure 1",
+    "q": "* With 95% CIs indicated by error bars."
+   },
+   {
+    "loc": "text",
+    "q": "the differences among Hispanic, Black, and White adults were not statistically significant"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Percentage* of Adults Aged ≥18 Years who Received an Influenza Vaccination in the Past 12 Months"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did past-12-month influenza vaccination among U.S. adults in 2021 vary by race and ethnicity within family income levels?",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "by Race and Ethnicity § and Family Income ¶ — National Health Interview Survey, United States, 2021"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "influenza",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Percentage* of Adults Aged ≥18 Years who Received an Influenza Vaccination in the Past 12 Months"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Estimates are based on a sample of the civilian, noninstitutionalized U.S. population"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "National Center for Health Statistics, National Health Interview Survey, 2021 data."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Health Interview Survey (NHIS)",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "National Center for Health Statistics, National Health Interview Survey, 2021 data."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "National Health Interview Survey, United States, 2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Vaccination coverage increased significantly with each increasing level of family income for White adults only."
+   }
+  ]
+ },
+ "equity": {
+  "level": 2,
+  "level_reason": "Vaccination percentages by race/ethnicity within income levels are reported and contrasted only by significance statements, with no computed difference or ratio and no disparity framing, so the level is capped at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Race and income are the explicit cross-classification and 'least likely' groups are identified, which could be read as a framed disparity."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "indicated one race only; respondents had the option to select more than one racial group."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "cross-classifier",
+    "ses_components": [
+     "family income as percentage of federal poverty level"
+    ],
+    "ev": [
+     {
+      "loc": "note",
+      "q": "As a percentage of the FPL, which is based on family income and family size"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Percentage* of Adults Aged ≥18 Years who Received an Influenza Vaccination in the Past 12 Months"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Four race/ethnicity groups (Hispanic, NH White, NH Asian, NH Black) by three FPL levels (<100%, 100%–199%, ≥200%); other races omitted; missing income imputed."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Hispanic and Black adults were significantly less likely than Asian and White adults were to receive an influenza vaccination."
+    },
+    {
+     "loc": "text",
+     "q": "the differences among Hispanic, Black, and White adults were not statistically significant"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Vaccination coverage increased significantly with each increasing level of family income for White adults only."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "Cross-sectional design inferred from the NHIS sample; not named. Survey weighting is not stated, so it is not recorded. Income contrasts appear to be adjacent-level tests within each race group, possibly a trend test.",
+ "view_issues": "The figure description mentions only race and ethnicity, though the figure is also stratified by family income."
+}

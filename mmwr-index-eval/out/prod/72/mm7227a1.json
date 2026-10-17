@@ -1,0 +1,369 @@
+{
+ "id": "mm7227a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg7nFYCiN3D91KEsUq2G1",
+  "batch_id": "msgbatch_01FaGSxRvLPM3Hp7zgHNqiVG"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The total estimated cost of birth defect–associated hospitalizations was $22.2 billion."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Mean, median, and total costs were calculated by patient demographic and birth defect code characteristics."
+    },
+    {
+     "loc": "text",
+     "q": "were associated with the highest mean ($61,881) and median ($15,708) costs per hospitalization among all age groups"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "4.1% of all hospitalizations and 7.7% of related inpatient medical costs were associated with birth defects."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The total estimated cost of birth defect–associated hospitalizations was $22.2 billion."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were associated with the highest mean ($61,881) and median ($15,708) costs per hospitalization among all age groups"
+    },
+    {
+     "loc": "summary",
+     "q": "Birth defect–associated hospitalizations bore disproportionately high costs, constituting 4.1% of all hospitalizations"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey sampling weights (NIS design)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weights applied to produce all national estimates; SAS survey procedures incorporating sampling design",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Sampling weights were applied to calculate national estimates of hospitalization frequency and cost."
+    },
+    {
+     "loc": "text",
+     "q": "Statistical analyses were performed using SAS software (version 9.4; SAS Institute) with survey procedures incorporating sampling design."
+    }
+   ]
+  },
+  {
+   "name": "small-cell suppression",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "cells of 10 or fewer withheld in Table 2",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Cell sizes ≤10 were suppressed. Sums across all ages exclude suppressed cells."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "birth defect status",
+   "age group",
+   "birth defect category",
+   "race/ethnicity",
+   "primary payer"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Birth defect–associated hospitalizations bore disproportionately high costs, constituting 4.1% of all hospitalizations"
+   },
+   {
+    "loc": "table 2",
+    "q": "No defect"
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "primary_measures": [
+  {
+   "v": "total cost, USD",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Total cost, USD (%)"
+    }
+   ]
+  },
+  {
+   "v": "mean cost, USD",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Mean cost, USD"
+    }
+   ]
+  },
+  {
+   "v": "median cost, USD",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Median cost, USD"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "4.1% of all hospitalizations and 7.7% of related inpatient medical costs were associated with birth defects."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What were the national inpatient hospitalization costs associated with birth defects among persons aged <65 years in 2019, by age group and defect?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The 2019 National Inpatient Sample was used to estimate the service delivery costs of hospitalizations among patients aged <65 years"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "birth defects",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Inpatient Hospitalization Costs Associated with Birth Defects Among Persons Aged <65 Years — United States, 2019"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cost/economic",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Cost estimates were calculated as the product of the amount billed for a hospitalization and the corresponding hospital-level cost-to-charge ratios."
+    }
+   ]
+  },
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "only patients aged <65 years discharged during January 1–December 31, 2019 were included."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "administrative/claims",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the National Inpatient Sample (NIS) is the largest publicly available, all-payor inpatient care database in the United States"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Inpatient Sample (NIS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the National Inpatient Sample (NIS) is the largest publicly available, all-payor inpatient care database in the United States"
+    }
+   ]
+  },
+  {
+   "v": "Healthcare Cost and Utilization Project (HCUP)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Developed for the Healthcare Cost and Utilization Project (HCUP)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Inpatient Hospitalization Costs Associated with Birth Defects Among Persons Aged <65 Years — United States, 2019"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Table 1 reports costs by race/ethnicity and primary payer side by side, but the text never describes or frames them; age results are discussed but age is not framed as social position. Side-by-side values cap the level at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Race and payer appear only as undiscussed table rows, which could be read as descriptors."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "only patients aged <65 years discharged during January 1–December 31, 2019 were included."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Mean hospitalization costs were stratified by age group for selected individual birth defects and birth defect categories."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race or ethnicity › Black or African American, non-Hispanic"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "primary payer"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Primary payer › Medicare/Medicaid"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity is collapsed to four groups plus missing (6.1%); payer is Medicare/Medicaid combined, private, self-pay and other. The unit is the hospitalization, not the patient."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were associated with the highest mean ($61,881) and median ($15,708) costs per hospitalization among all age groups"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race or ethnicity › Black or African American, non-Hispanic"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Primary payer › Medicare/Medicaid"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "analytic_depth",
+  "comparison",
+  "equity.dimensions"
+ ],
+ "confidence": "medium",
+ "notes": "The design is not named; cost/economic and cross-sectional are inferred. The cost-to-charge conversion, the professional-fee adjustment and the price-index adjustment of the cited 2013 estimate are arithmetic, not procedures. The age-by-defect cross-tab (Table 2) is read as comparison, not stratified/adjusted, because no contrast is computed within defects.",
+ "view_issues": "The Discussion gives the birth defect share of hospitalization expenditures as 5.5% in 2019 'among all age groups', beside 7.7% for persons aged <65 years, without explaining the difference."
+}

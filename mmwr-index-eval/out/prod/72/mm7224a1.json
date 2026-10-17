@@ -1,0 +1,499 @@
+{
+ "id": "mm7224a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg7nHiQSDQXsmxNcUADSS",
+  "batch_id": "msgbatch_01FaGSxRvLPM3Hp7zgHNqiVG"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The age-standardized prevalence of depression among U.S. adults was 18.5% (crude = 18.4%)"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During 2020, 18.4% of U.S. adults reported having ever been diagnosed with depression"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The age-standardized prevalence of depression among U.S. adults was 18.5% (crude = 18.4%)"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "state-level age-standardized estimates ranged from 12.7% in Hawaii to 27.5% in West Virginia."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The age-standardized prevalence of depression was higher among women (24.0%) compared with men (13.3%)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting (BRFSS weights, complex design in SUDAAN)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weighted means and SUDAAN accounting for complex sample design and weighting",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "to account for the BRFSS complex sample design and weighting"
+    },
+    {
+     "loc": "table 1",
+     "q": "Weighted using the statistical weights provided in the Behavioral Risk Factor Surveillance System data set."
+    }
+   ]
+  },
+  {
+   "name": "direct age standardization to 2000 U.S. population",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "age standardized to the 2000 projected U.S. Census population using four age groups",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All prevalence estimates were age standardized to the 2000 U.S. Census Bureau population."
+    }
+   ]
+  },
+  {
+   "name": "pairwise t-tests vs reference category",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated pairwise t-tests compared with a reference category, p<0.05",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Point estimates from survey data were estimated as weighted means and pairwise t-tests were used to determine differences (compared with a reference category)"
+    }
+   ]
+  },
+  {
+   "name": "multilevel logistic regression with poststratification (small-area estimation)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'multilevel logistic regression' with binary depression outcome and random effects → logistic (mixed)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "county-level estimates were obtained for all 3,143 U.S. counties using multilevel logistic regression and post-stratification."
+    }
+   ]
+  },
+  {
+   "name": "Monte Carlo simulation for county CIs",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "simulation-based CIs for model-based estimates",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A Monte Carlo simulation was used to generate 95% CIs for county-level estimates."
+    }
+   ]
+  },
+  {
+   "name": "Pearson correlation (model validation)",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "correlation coefficient comparing model-based with direct county estimates",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "validated by comparing them with the weighted direct survey estimates from counties with sample size ≥500 (183) in BRFSS"
+    },
+    {
+     "loc": "text",
+     "q": "(Pearson correlation coefficient = 0.88)"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": "reference categories (aged 18–24 years, men, White non-Hispanic, less than high school)",
+  "across": [
+   "state",
+   "county",
+   "age group",
+   "sex",
+   "race/ethnicity",
+   "education"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "state-level age-standardized estimates ranged from 12.7% in Hawaii to 27.5% in West Virginia."
+   },
+   {
+    "loc": "table 1",
+    "q": "Statistically significant (p<0.05) difference compared with the indicated Ref category."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Point estimates from survey data were estimated as weighted means and pairwise t-tests were used to determine differences (compared with a reference category)"
+   },
+   {
+    "loc": "text",
+    "q": "A Monte Carlo simulation was used to generate 95% CIs for county-level estimates."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-standardized prevalence, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age-standardized prevalence ¶ % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "prevalence, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Prevalence § % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "model-based county prevalence",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Model-based age-standardized* county estimates of the percentage † of adults aged ≥18 years self-reporting a lifetime diagnosis of depression"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "mixed effects",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "and random effects for state and county."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The model’s independent variables included each respondent’s age group, sex, race and ethnicity, and education level from BRFSS 2020 data"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age group, sex, race and ethnicity, education level, county-level poverty (<150% of poverty level)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The model’s independent variables included each respondent’s age group, sex, race and ethnicity, and education level from BRFSS 2020 data"
+    },
+    {
+     "loc": "text",
+     "q": "county-level poverty data (<150% of the poverty level) from the 2016–2020 American Community Survey"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "What is the national, state-level, and county-level prevalence of self-reported lifetime depression diagnosis among U.S. adults in 2020, and how does it vary by demographic group and geography?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC analyzed 2020 Behavioral Risk Factor Surveillance System (BRFSS) data to estimate the national, state-level, and county-level prevalence of U.S. adults"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "depression",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Prevalence Estimates of Adults Aged ≥18 Years Self-Reporting a Lifetime Diagnosis of Depression"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "BRFSS is an ongoing, state-based, random-digit–dialed landline and cell phone survey of the U.S. adult population aged ≥18 years"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed 2020 Behavioral Risk Factor Surveillance System (BRFSS) data"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed 2020 Behavioral Risk Factor Surveillance System (BRFSS) data"
+    }
+   ]
+  },
+  {
+   "v": "American Community Survey 2016–2020",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "county-level poverty data (<150% of the poverty level) from the 2016–2020 American Community Survey"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "National, State-Level, and County-Level Prevalence Estimates"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Prevalence by race/ethnicity and education (and age, sex) is reported and described, but contrasts are shown only with significance marks against referents, with no computed difference or ratio; social determinants are invoked for geographic, not SPD, variation.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Discussion frames higher prevalence among adults with lower education and names SES determinants (poverty, education, access), which could be read as an interpreted disparity."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "higher among non-Hispanic White adults (21.9%) compared with non-Hispanic Black or African-American (16.2%)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The model’s independent variables included each respondent’s age group, sex, race and ethnicity, and education level from BRFSS 2020 data"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "educational attainment"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "higher among adults who had attained less than a high school education (21.2%) compared with adults with a high school education or equivalent (18.5%)"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "education level",
+     "county-level poverty (<150% of the poverty level)"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "county-level poverty data (<150% of the poverty level) from the 2016–2020 American Community Survey"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Age-specific prevalence of depression was highest among those aged 18–24 years (21.5%) and lowest among those aged ≥65 years (14.2%)."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Prevalence Estimates of Adults Aged ≥18 Years Self-Reporting a Lifetime Diagnosis of Depression"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The age-standardized prevalence of depression was higher among women (24.0%) compared with men (13.3%)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "social determinants of health; economic status; access to health care; lower incomes, higher poverty rates, lower education levels (Appalachia)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "might also reflect the influence of social determinants of health"
+    },
+    {
+     "loc": "text",
+     "q": "adults in the Appalachian region tend to have lower incomes, higher poverty rates, and lower education levels"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referents: White non-Hispanic, less than high school, men, aged 18–24 years; county poverty from ACS enters only as a model covariate; determinants explain geographic variation."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 8,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race and ethnicity › White, non-Hispanic (Ref)"
+    },
+    {
+     "loc": "table 1",
+     "q": "Statistically significant (p<0.05) difference compared with the indicated Ref category."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Educational attainment › Less than high school (Ref)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group, yrs › 18–24 (Ref)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "regression_fields",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Design not named; cross-sectional inferred from a single BRFSS survey year. The multilevel model is used for small-area prediction, so its covariates are predictors rather than confounders; the validation against direct county estimates is recorded as a Pearson correlation, not a sensitivity analysis.",
+ "view_issues": "Summary gives crude national 18.4% while text leads with age-standardized 18.5%. Figure note lists age groups '50–54, 50–59', apparently a typo for 55–59. Text omits AI/AN and multiracial groups when listing race contrasts."
+}

@@ -1,0 +1,305 @@
+{
+ "id": "mm7225a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg7nFL4DQjvPbzVvqSXYb",
+  "batch_id": "msgbatch_01FaGSxRvLPM3Hp7zgHNqiVG"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "During January 2020–December 2022, total U.S. e-cigarette unit sales increased by 46.6%, from 15.5 million to 22.7 million units per 4-week period"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During January 2020–December 2022, total U.S. e-cigarette unit sales increased by 46.6%, from 15.5 million to 22.7 million units per 4-week period"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "unit shares of prefilled cartridges decreased from 75.2% to 48.0%, and disposable e-cigarette unit share increased from 24.7% to 51.8% of total unit sales"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the percentage of increase in sales slowed from 36.5% (15.5 million to 21.2 million; APPC = 6.9) during January 2020–June 2020"
+    },
+    {
+     "loc": "text",
+     "q": "unit shares of prefilled cartridges decreased from 75.2% to 48.0%, and disposable e-cigarette unit share increased from 24.7% to 51.8% of total unit sales"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Joinpoint regression (APPC)",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "Joinpoint (NCI) segmented regression with percentage-change slopes (APPC) implies least squares on log sales → linear; p-values for APPCs and joinpoints are model tests",
+   "role": "primary",
+   "alternative_reading": "loglinear: percentage-change slopes correspond to a log-linear model of counts",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Trends during the analysis period were analyzed using Joinpoint regression (version 4.9.1.0; National Cancer Institute)"
+    },
+    {
+     "loc": "text",
+     "q": "The average 4-week period percentage change (APPC) was calculated as the average of the slope coefficients of the Joinpoint regression line."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": null,
+  "across": [
+   "4-week period",
+   "flavor",
+   "product type"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "the percentage of increase in sales slowed from 36.5% (15.5 million to 21.2 million; APPC = 6.9) during January 2020–June 2020"
+   },
+   {
+    "loc": "summary",
+    "q": "E-cigarette unit sales increased by 46.6% during January 2020–December 2022."
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "which detects points in time when changes in trend (or slope changes) are statistically significant"
+   },
+   {
+    "loc": "text",
+    "q": "P-values <0.05 were considered statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "unit sales per 4-week period",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "E-cigarette unit sales were standardized and summed during 4-week periods during January 26, 2020–December 25, 2022"
+    }
+   ]
+  },
+  {
+   "v": "unit share (%)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the proportion of total unit sales (unit share) by flavor and product type"
+    }
+   ]
+  },
+  {
+   "v": "APPC",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The average 4-week period percentage change (APPC) was calculated as the average of the slope coefficients of the Joinpoint regression line."
+    }
+   ]
+  },
+  {
+   "v": "percent change",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "E-cigarette unit sales increased by 46.6% during January 2020–December 2022."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Trends during the analysis period were analyzed using Joinpoint regression (version 4.9.1.0; National Cancer Institute)"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "which detects points in time when changes in trend (or slope changes) are statistically significant"
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did U.S. retail e-cigarette unit sales, by product and flavor type, and top-selling brands change during 2020–2022?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess trends in unit sales of e-cigarettes in the United States, by product and flavor, and top-selling brands"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "e-cigarette use",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "E-cigarette Unit Sales by Product and Flavor Type, and Top-Selling Brands, United States, 2020–2022"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "analyzed retail scanner data during January 26, 2020–December 25, 2022, from Information Resources, Inc. (IRI)"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Trends during the analysis period were analyzed using Joinpoint regression (version 4.9.1.0; National Cancer Institute)"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "analyzed retail scanner data during January 26, 2020–December 25, 2022, from Information Resources, Inc. (IRI)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Information Resources, Inc. (IRI) retail scanner data",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "U.S. e-cigarette sales data were licensed from IRI"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Top-Selling Brands, United States, 2020–2022"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "No results by social position; race/ethnicity appears only in a cited Discussion remark about menthol use, purchaser age is a limitation, and disparities appear only in a recommendation.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 0,
+   "reason": "The race mention is cited background and the disparity mention a recommendation, which may not raise the level."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "which are disproportionately used by certain groups such as non-Hispanic Black or African American youths"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Finally, purchaser age is not available from IRI."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Sales data carry no purchaser characteristics; no SPD analyzed."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "equity.level"
+ ],
+ "confidence": "high",
+ "notes": "Design inferred (not named): retail sales monitoring as surveillance with trends. Unit 'standardization' to package size is rescaling, not epidemiologic standardization; flavor back-coding is data cleaning. Brand lists and brand counts are descriptive.",
+ "view_issues": "Discussion says disposable sales surpassed 'refillable' sales, though the category is prefilled cartridges. Footnote links (§§, ¶¶, ***) appear mismatched with their in-text references."
+}

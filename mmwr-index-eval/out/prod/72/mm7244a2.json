@@ -1,0 +1,388 @@
+{
+ "id": "mm7244a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg7nFMu6PhzyKQ7BJcE2Q",
+  "batch_id": "msgbatch_01FaGSxRvLPM3Hp7zgHNqiVG"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Pearson’s chi-square and Fisher’s exact tests were performed to examine associations between demographic characteristics and responses to TB questions."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Approximately one half (53.3%) of HCPs reported routinely testing non–U.S.-born patients for TB"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "One third (33.0%) of HCPs reported prescribing recommended short-course LTBI treatment regimens"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The groups with the highest proportion reporting that they routinely test non–U.S.-born patients for TB were pediatricians (63.1%), providers aged >55 years (60.3%)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Pearson chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated: Pearson’s chi-square tests of provider characteristics by TB practice responses, Bonferroni-corrected p-values",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Pearson’s chi-square and Fisher’s exact tests were performed to examine associations between demographic characteristics and responses to TB questions."
+    },
+    {
+     "loc": "text",
+     "q": "Bonferroni corrections were applied to chi-square p-values and adjusted standardized residual critical values to reduce the likelihood of type I error"
+    }
+   ]
+  },
+  {
+   "name": "post hoc adjusted standardized residuals (Bonferroni-corrected critical value ±3.6)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated post-hoc cell residual tests; table marks identify cells significantly above or below expected, behind 'highest' claims",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "For significant chi-square associations, post-hoc calculations of adjusted standardized residuals were performed."
+    },
+    {
+     "loc": "table 1",
+     "q": "Adjusted standardized residual ≥3.6, indicating significantly greater than expected cell value."
+    }
+   ]
+  },
+  {
+   "name": "Fisher's exact test (Monte Carlo approximation)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated for small cells (gender rows), 10,000 sampled tables",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Because of small cell sizes, significance was calculated using the Monte Carlo approximation for Fisher’s exact test"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "specialty",
+   "gender",
+   "age group",
+   "years in practice",
+   "U.S. Census Bureau region",
+   "urban-rural status",
+   "work setting",
+   "approximate patient household income"
+  ],
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "Type of tuberculosis testing practices* for non–U.S.-born patients, by health care provider characteristics (N = 3,647)"
+   },
+   {
+    "loc": "text",
+    "q": "highest percentage reporting referring non–U.S.-born patients to a health department for TB testing were nurse practitioners (14.1%) and those working in rural settings (12.8%)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Associations were considered statistically significant if p-values were <0.05."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage (row %)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Testing practice, no. (row %)"
+    }
+   ]
+  },
+  {
+   "v": "adjusted standardized residual",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Adjusted standardized residual ≤−3.6, indicating significantly less than expected cell value."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What TB testing and LTBI treatment practices do U.S. health care providers report for non–U.S.-born patients, and do they differ by provider characteristics?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "To assess TB-related practices among health care providers (HCPs) in the United States, CDC analyzed data from the 2020–2022 Porter Novelli DocStyles surveys."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "tuberculosis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Tuberculosis Testing and Latent Tuberculosis Infection Treatment Practices Among Health Care Providers"
+    }
+   ]
+  },
+  {
+   "v": "latent tuberculosis infection",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "4.0% reported doing none of the treatment practices available for patients with LTBI"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Porter Novelli conducts online surveys of U.S. HCPs."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "CDC analyzed data from the 2020–2022 Porter Novelli DocStyles surveys."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Porter Novelli DocStyles survey",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "CDC analyzed data from the 2020–2022 Porter Novelli DocStyles surveys."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Respondents must practice in the United States; actively see patients"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Practices are reported by provider age, gender, urban-rural status and patient household income with chi-square tests, and rural differences are described, but nothing is framed as a disparity or quantified as one.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "The SPDs describe providers and their practice community, not patients' social position, so the group results could be read as descriptors only."
+  },
+  "dimensions": [
+   {
+    "v": "country of birth/language/nativity",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Do you routinely test non–U.S.-born patients for tuberculosis (TB)?"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "this practice was more prevalent among those who worked in rural settings (59.6% of respondents practicing in rural settings)."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "approximate patient household income"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Approximate patient household income › <$25,000"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group, yrs › >55"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Gender › Other"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "SPDs are provider characteristics (age, gender, practice community) and patients' approximate household income as reported by providers; nativity defines the patients asked about."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group, yrs › >55"
+    },
+    {
+     "loc": "text",
+     "q": "For significant chi-square associations, post-hoc calculations of adjusted standardized residuals were performed."
+    }
+   ]
+  },
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Urban-rural status †† › Rural"
+    },
+    {
+     "loc": "text",
+     "q": "this practice was more prevalent among those who worked in rural settings (59.6% of respondents practicing in rural settings)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "sex"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Gender › Other"
+    },
+    {
+     "loc": "table 1",
+     "q": "Because of small cell sizes, significance was calculated using the Monte Carlo approximation for Fisher’s exact test"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Approximate patient household income › ≥$250,000"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "equity.dimensions",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Cross-sectional design inferred from the online survey; none is named. The 99% CI refers to the Monte Carlo p-value approximation, not to estimates. Gender (female, male, other) is recorded as sex with basis not stated; it may be SOGI.",
+ "view_issues": "Table 1 marks '>25 yrs, do not regularly test 206 (32.8)' with ¶ (significance mark) where a residual mark would be expected. Gender rows use Fisher Monte Carlo yet some Table 3 gender cells carry residual marks."
+}

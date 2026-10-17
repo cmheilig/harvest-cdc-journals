@@ -1,0 +1,212 @@
+{
+ "id": "mm7211a7",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg7nHXsg4vRKjTTTAx8kq",
+  "batch_id": "msgbatch_01FaGSxRvLPM3Hp7zgHNqiVG"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "In 2021, the U.S. age-adjusted drug overdose death rate was 32.4 per 100,000 population."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Deaths per 100,000 standard population."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2021, the U.S. age-adjusted drug overdose death rate was 32.4 per 100,000 population."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The highest rates were in West Virginia (90.9) and the District of Columbia (63.6); the lowest rates were in the Upper Midwest and Texas."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Age-adjusted drug overdose death rates were calculated using the direct method and the 2000 U.S. Census Bureau standard population."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "'calculated using the direct method and the 2000 U.S. Census Bureau standard population'",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Age-adjusted drug overdose death rates were calculated using the direct method and the 2000 U.S. Census Bureau standard population."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "state"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The highest rates were in West Virginia (90.9) and the District of Columbia (63.6); the lowest rates were in the Upper Midwest and Texas."
+   },
+   {
+    "loc": "text",
+    "q": "The lowest state rates were those in Nebraska (11.4), South Dakota (12.6), and Iowa (15.3)."
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted drug overdose death rate per 100,000 standard population",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Deaths per 100,000 standard population."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did age-adjusted drug overdose death rates vary by state in the United States in 2021?",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Age-Adjusted Drug Overdose Death Rates,* , † by State — National Vital Statistics System, United States, 2021"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "drug overdose",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Age-Adjusted Drug Overdose Death Rates,* , † by State — National Vital Statistics System, United States, 2021"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Source : National Center for Health Statistics, National Vital Statistics System, Mortality Data."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Source : National Center for Health Statistics, National Vital Statistics System, Mortality Data."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System, Mortality Data",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Source : National Center for Health Statistics, National Vital Statistics System, Mortality Data."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "In 2021, the U.S. age-adjusted drug overdose death rate was 32.4 per 100,000 population."
+   },
+   {
+    "loc": "title",
+    "q": "Age-Adjusted Drug Overdose Death Rates,* , † by State"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Age enters only through direct age standardization; the comparison is across states, which is geography and not an SPD.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "Age-adjusted drug overdose death rates were calculated using the direct method and the 2000 U.S. Census Bureau standard population."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Comparison is by state (geography), not a social-position dimension."
+ },
+ "groupwise": [],
+ "uncertain_fields": [],
+ "confidence": "high",
+ "notes": "National rate with state-level age-adjusted rates shown on a map and ranked; no tests or CIs. Overdose deaths defined by ICD-10 underlying-cause codes (case definition, not a procedure).",
+ "view_issues": "The figure description names the 'National Health Statistics System', whereas the title and source name the National Vital Statistics System."
+}

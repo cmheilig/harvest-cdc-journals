@@ -1,0 +1,432 @@
+{
+ "id": "mm7213a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg7nFKidC8AkdjTPdu42E",
+  "batch_id": "msgbatch_01FaGSxRvLPM3Hp7zgHNqiVG"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Multinomial logistic regression was used to calculate adjusted odds ratios (aORs), 95% CIs, and p-values."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "More than one half of respondents (54.1%) agreed that sound levels should be limited at venues or events to reduce risk of hearing loss"
+    },
+    {
+     "loc": "text",
+     "q": "Answers were combined into three categories"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "More than one half of respondents (54.1%) agreed that sound levels should be limited at venues or events to reduce risk of hearing loss"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Compared with White adults, non-Hispanic Black or African American (Black) adults agreed significantly less often (0.8) with limiting sound levels."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "After adjusting for multiple covariates, women agreed significantly more often than did men that sound levels should be limited"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multinomial logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Multinomial logistic regression' giving aORs, 95% CIs and p-values → logistic (multinomial; agree vs neither agree nor disagree)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Multinomial logistic regression was used to calculate adjusted odds ratios (aORs), 95% CIs, and p-values."
+    },
+    {
+     "loc": "table 2",
+     "q": "aORs and 95% CIs calculated using multinomial logistic regression."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting to Current Population Survey proportions",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "results stated to be weighted on eight demographic variables; Table 1 gives weighted numbers and percentages",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Results were weighted to the March 2021 supplement of the U.S. Current Population Survey proportions on eight selected demographic variables"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "male; aged 18–32 years; White; no high school diploma; income <$25,000; Northeast; nonmetropolitan",
+  "across": [
+   "sex",
+   "age group",
+   "race/ethnicity",
+   "education",
+   "household income",
+   "U.S. Census Bureau region",
+   "metropolitan residency status"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Agreement with both limiting sound levels and wearing hearing protection progressively increased with the respondent’s level of educational attainment."
+   },
+   {
+    "loc": "table 2",
+    "q": "Statistical difference at p<0.05 compared with Ref."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This analysis was conducted using SAS statistical software (version 9.4; SAS Institute); p-values <0.05 were considered statistically significant."
+   },
+   {
+    "loc": "table 2",
+    "q": "aORs and 95% CIs calculated using multinomial logistic regression."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "75.4% agreed that warning signs should be posted if sound at a venue or event could exceed safe levels"
+    }
+   ]
+  },
+  {
+   "v": "aOR",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted odds ratios comparing characteristics of adults who agree with event and venue noise level reduction actions"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "After adjusting for multiple covariates, women agreed significantly more often than did men that sound levels should be limited"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "sex, age, race and ethnicity, educational attainment, household income, U.S. Census Bureau region, metropolitan residency status",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The following covariates were all included in the model: sex (male or female), age, race and ethnicity, educational attainment, household income"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How do U.S. adults perceive protective actions against hearing loss from amplified music at venues and events, and does agreement differ by demographic characteristics?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "on U.S. adult perceptions regarding preventing hearing loss from amplified music at venues or events."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "noise-induced hearing loss",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "are open to actions being taken at events and venues with amplified music to protect their hearing"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The 2022 FallStyles survey, conducted during September 1–24, is a nationally representative internet panel comprising 4,514 noninstitutionalized adults aged ≥18 years."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2022 FallStyles survey (conducted by Porter Novelli via the Ipsos’ KnowledgePanel)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Porter Novelli FallStyles survey",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Porter Novelli FallStyles survey, United States, 2022"
+    }
+   ]
+  },
+  {
+   "v": "Ipsos KnowledgePanel",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "conducted by Porter Novelli via the Ipsos’ KnowledgePanel"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "is a nationally representative internet panel comprising 4,514 noninstitutionalized adults aged ≥18 years."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Adjusted ORs by race/ethnicity, education, income and metropolitan status are reported and described, and the Discussion suggests targeting groups, but differences are not framed as disparities.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Group contrasts are quantified as aORs (e.g. education gradient 1.5–3.1) and interpreted with a recommendation to target Black and Hispanic persons."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Compared with White adults, non-Hispanic Black or African American (Black) adults agreed significantly less often (0.8) with limiting sound levels."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The following covariates were all included in the model: sex (male or female), age, race and ethnicity, educational attainment, household income"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "educational attainment",
+     "household income"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Agreement with both limiting sound levels and wearing hearing protection progressively increased with the respondent’s level of educational attainment."
+     },
+     {
+      "loc": "text",
+      "q": "Compared with respondents who reported an annual household income of <$25,000, those with an income of >$150,000 agreed significantly more often (aOR = 1.4)"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "with the exception of adults in metropolitan areas who agreed significantly that warning signs should be posted (1.5)."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Respondents aged ≥63 years agreed significantly more often than did younger adults that sound levels should be limited (2.3)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "comprising 4,514 noninstitutionalized adults aged ≥18 years."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "After adjusting for multiple covariates, women agreed significantly more often than did men that sound levels should be limited"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Each SPD is contrasted with a single reference level (White; no high school diploma; income <$25,000; aged 18–32); race collapsed to four groups with 'other or multiple races'."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Age group, yrs, quartiles › 18–32"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Compared with White adults, non-Hispanic Black or African American (Black) adults agreed significantly less often (0.8) with limiting sound levels."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Agreement with both limiting sound levels and wearing hearing protection progressively increased with the respondent’s level of educational attainment."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Compared with respondents who reported an annual household income of <$25,000, those with an income of >$150,000 agreed significantly more often (aOR = 1.4)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred as cross-sectional from a single survey wave; none is named. The education 'progressive increase' rests on per-level aORs vs the lowest level, with no trend test. Model p-values (†† marks) are part of the regression, not a separate test.",
+ "view_issues": "Discussion recommends raising awareness among Hispanic persons about warning signs, though Hispanic adults agreed more often (aOR 1.3). Table 1 unweighted counts sum to 3,526, not the 4,514 stated. 'Most respondents were female (50.9%)' overstates a near-even split."
+}

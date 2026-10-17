@@ -1,0 +1,223 @@
+{
+ "id": "mm7235a7",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg7nFKrowYXyN9dfENT8Q",
+  "batch_id": "msgbatch_01FaGSxRvLPM3Hp7zgHNqiVG"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Arizona recorded 426 deaths and had the highest rate (5.2 per 100,000), followed by Nevada (4.6), Oregon (2.4)"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The 2021 age-adjusted heat-related death rate for the United States was 0.4 deaths per 100,000 population."
+    },
+    {
+     "loc": "note",
+     "q": "the nine states with the highest number of deaths were Arizona (426), Washington (171), Nevada (166)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The 2021 age-adjusted heat-related death rate for the United States was 0.4 deaths per 100,000 population."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Arizona recorded 426 deaths and had the highest rate (5.2 per 100,000), followed by Nevada (4.6), Oregon (2.4)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Age-Adjusted Rates of Death Involving Exposure to Excessive Heat* Among States with the Highest Numbers of Deaths"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "'age-adjusted' rates compared across states; the standardization method (presumably direct, NCHS standard) is not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Age-Adjusted Rates of Death Involving Exposure to Excessive Heat* Among States with the Highest Numbers of Deaths"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "state"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Rates for the remaining states ranged from 0.1 (Florida) to 0.3 (California and Texas)."
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted death rate per 100,000 population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The 2021 age-adjusted heat-related death rate for the United States was 0.4 deaths per 100,000 population."
+    }
+   ]
+  },
+  {
+   "v": "number of deaths",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A total of 1,600 deaths were reported, and nine states accounted for >75% (1,226) of those deaths."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Which U.S. states had the highest age-adjusted rates of heat-related death in 2021?",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Age-Adjusted Rates of Death Involving Exposure to Excessive Heat* Among States with the Highest Numbers of Deaths"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "heat-related death",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Deaths attributed to exposure to excessive natural heat as the underlying or contributing cause of death were identified"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Source: National Center for Health Statistics, National Vital Statistics System, Multiple Cause of Death File, 2021."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Source: National Center for Health Statistics, National Vital Statistics System, Multiple Cause of Death File, 2021."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System, Multiple Cause of Death File",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "National Vital Statistics System, Multiple Cause of Death File, 2021."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The 2021 age-adjusted heat-related death rate for the United States was 0.4 deaths per 100,000 population."
+   },
+   {
+    "loc": "text",
+    "q": "Arizona recorded 426 deaths and had the highest rate (5.2 per 100,000)"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Age enters only through age adjustment; states are geography, not a social-position dimension.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Age-Adjusted Rates of Death Involving Exposure to Excessive Heat*"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Comparison is across states (geography only); states limited to the nine with the most deaths among those with 20 or more deaths."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "analytic_depth"
+ ],
+ "confidence": "high",
+ "notes": "Design inferred as surveillance/descriptive (none named). Age standardization method and standard population are not stated. Footnote attributes state variation to weather patterns, an environmental explanation, not a social determinant.",
+ "view_issues": null
+}

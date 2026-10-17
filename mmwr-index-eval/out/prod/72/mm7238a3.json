@@ -1,0 +1,356 @@
+{
+ "id": "mm7238a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg7nFJgs21NXmHzWBFJDC",
+  "batch_id": "msgbatch_01FaGSxRvLPM3Hp7zgHNqiVG"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "ED visits were up to twice as high during school semesters compared with the summer period."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "ED visit ratios and 95% CIs were used to measure relative change in the proportion of visits."
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Absolute differences and percent changes were used to measure the difference in mean weekly ED visit numbers"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Each was compared with the immediately preceding summer period (calendar weeks 24–36; June–September)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Results were stratified by age group: 5–9, 10–14, and 15–17 years."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "visit-ratio CIs excluding 1 judged significant; CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CIs that excluded 1 were considered statistically significant."
+    }
+   ]
+  },
+  {
+   "name": "relative SE <30% rule for retaining condition categories",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "withholding imprecise estimates by a relative-SE rule (suppression)",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "eight (30%) had enough data for reliable visit estimates (relative SE <30%) for all age groups"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "both",
+  "referent": "immediately preceding summer period",
+  "across": [
+   "period (school semester vs summer)",
+   "age group"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Each was compared with the immediately preceding summer period (calendar weeks 24–36; June–September)"
+   },
+   {
+    "loc": "text",
+    "q": "Absolute differences and percent changes were used to measure the difference in mean weekly ED visit numbers"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "ED visit ratios and 95% CIs were used to measure relative change in the proportion of visits."
+   },
+   {
+    "loc": "text",
+    "q": "CIs that excluded 1 were considered statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "visit ratio",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Visit ratio (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "mean weekly no. of visits",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Mean weekly no. of visits"
+    }
+   ]
+  },
+  {
+   "v": "change in mean weekly no. of visits (% change)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Change in mean weekly no. of visits (% Change)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Do ED visits for mental and behavioral health conditions among children and adolescents aged 5–17 years rise during school semesters compared with summer?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Timely data on seasonal patterns in child and adolescent conditions can guide optimal timing of prevention and intervention strategies."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "mental and behavioral health conditions",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Seasonal Trends in Emergency Department Visits for Mental and Behavioral Health Conditions Among Children and Adolescents Aged 5–17 Years"
+    }
+   ]
+  },
+  {
+   "v": "depressive disorders",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "displayed seasonal patterns for depressive disorders, suicidal ideation or self-harm, trauma- and stressor-related disorders, cannabis-related disorders"
+    }
+   ]
+  },
+  {
+   "v": "suicidal ideation or self-harm",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "displayed seasonal patterns for depressive disorders, suicidal ideation or self-harm, trauma- and stressor-related disorders, cannabis-related disorders"
+    }
+   ]
+  },
+  {
+   "v": "trauma- and stressor-related disorders",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "displayed seasonal patterns for depressive disorders, suicidal ideation or self-harm, trauma- and stressor-related disorders, cannabis-related disorders"
+    }
+   ]
+  },
+  {
+   "v": "cannabis-related disorders",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "displayed seasonal patterns for depressive disorders, suicidal ideation or self-harm, trauma- and stressor-related disorders, cannabis-related disorders"
+    }
+   ]
+  },
+  {
+   "v": "mood disorders",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "lifestyle or life management factors, mood disorders, poisoning by drugs, and symptoms of mental and substance use conditions"
+    }
+   ]
+  },
+  {
+   "v": "poisoning by drugs",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "lifestyle or life management factors, mood disorders, poisoning by drugs, and symptoms of mental and substance use conditions"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC examined emergency department (ED) visit data from the National Syndromic Surveillance Program (NSSP) during January 2018–June 2023"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Each was compared with the immediately preceding summer period (calendar weeks 24–36; June–September)"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC examined emergency department (ED) visit data from the National Syndromic Surveillance Program (NSSP) during January 2018–June 2023"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Syndromic Surveillance Program (NSSP)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC examined emergency department (ED) visit data from the National Syndromic Surveillance Program (NSSP) during January 2018–June 2023"
+    }
+   ]
+  },
+  {
+   "v": "HCUP Clinical Classifications Software Refined",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Healthcare Cost and Utilization Project (HCUP) Clinical Classifications Software Refined"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "visits from 1,919 facilities in 46 states were included."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Age is the only SPD: it defines the population (5–17 years) and stratifies results, with no social-position framing.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Seasonal Trends in Emergency Department Visits for Mental and Behavioral Health Conditions Among Children and Adolescents Aged 5–17 Years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Results were stratified by age group: 5–9, 10–14, and 15–17 years."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Age groups 5–9, 10–14 and 15–17 years only; no other SPD reported."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Results were stratified by age group: 5–9, 10–14, and 15–17 years."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "analytic_depth",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Facility restriction (coefficient of variation ≤40, ≥75% complete diagnoses) is an exclusion rule, not a procedure. Results are reported only for categories with consistent significant increases (selection). Age-specific semester-vs-summer contrasts are set side by side across age groups without a test across ages.",
+ "view_issues": "Table 1 CSV has an empty column before 2022–2023; suicidal ideation 2022–2023 values sit in that empty column. Methods say 27 conditions, abstract says 25. Sentence on ratios <1 is garbled; Discussion calls a proportion ratio an increase in incidence."
+}

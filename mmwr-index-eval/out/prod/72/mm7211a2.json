@@ -1,0 +1,443 @@
+{
+ "id": "mm7211a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg7nH1VpEHtfNtX2jEj4G",
+  "batch_id": "msgbatch_01FaGSxRvLPM3Hp7zgHNqiVG"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Ratio of proportions (RPs) with 95% CIs were calculated to compare ED visits by incarcerated and nonincarcerated adults."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The proportion of visits due to assault and self-harm was about five times as high among incarcerated adults (34.6% and 9.1%, respectively)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2010–2019, an estimated 733,547 ED visits by incarcerated adults occurred in the United States."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The proportion of visits due to assault and self-harm was about five times as high among incarcerated adults (34.6% and 9.1%, respectively)"
+    },
+    {
+     "loc": "text",
+     "q": "The proportion of ED visits attributable to assault by incarcerated women (20.0%) was lower than that by incarcerated men (37.4%)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting (inverse probability of selection)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated inverse-probability weights producing national estimates, analyzed in SUDAAN",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data are weighted by the inverse probability of selection to provide annual national estimates."
+    }
+   ]
+  },
+  {
+   "name": "Rao-Scott chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named survey-adjusted chi-square giving Table 1 p-values, incarcerated vs nonincarcerated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rao-Scott chi-square tests were used to calculate p-values, and p-values <0.05 were considered statistically significant."
+    }
+   ]
+  },
+  {
+   "name": "SUDAAN Rlogist (logistic regression) for ratios of proportions",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "SUDAAN Rlogist is a logistic regression procedure, used to estimate RPs with 95% CIs by sex and age group",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "SUDAAN Rlogist procedure was used to estimate RPs with 95% CIs by sex and age group among incarcerated adults."
+    }
+   ]
+  },
+  {
+   "name": "suppression of imprecise or small-cell estimates",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "table notes: suppression for <20 cases, weighted estimate <1,200, or CV >30%",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "values were suppressed because of one of the following criteria: small sample size (<20 cases), a weighted estimate <1,200"
+    },
+    {
+     "loc": "table 2",
+     "q": "or a coefficient of variation >30%."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "nonincarcerated adults (Table 1); aged ≥65 years (Table 2); men (Table 3)",
+  "across": [
+   "incarceration status",
+   "age group",
+   "sex"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "visits by incarcerated adults resulting from assault or self-harm was five times as high as those among nonincarcerated adults"
+   },
+   {
+    "loc": "table 1",
+    "q": "The nonincarcerated sample was used as the referent group for this analysis."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Rao-Scott chi-square tests were used to calculate p-values, and p-values <0.05 were considered statistically significant."
+   },
+   {
+    "loc": "text",
+    "q": "SUDAAN Rlogist procedure was used to estimate RPs with 95% CIs by sex and age group among incarcerated adults."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "ratio of proportions (RP)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Ratio of proportions (RPs) with 95% CIs were calculated to compare ED visits by incarcerated and nonincarcerated adults."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "from a nationally representative, stratified probability sample of hospitals."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "SUDAAN Rlogist procedure was used to estimate RPs with 95% CIs by sex and age group among incarcerated adults."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How do nonfatal injury-related ED visits by incarcerated adults differ from those by nonincarcerated adults, and by age and sex among incarcerated adults?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To examine nonfatal injury-related ED visits among incarcerated adults, CDC analyzed 2010–2019 National Electronic Injury Surveillance System–All Injury Program (NEISS-AIP) data."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "nonfatal injuries",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Emergency Department Visits by Incarcerated Adults for Nonfatal Injuries — United States, 2010–2019"
+    }
+   ]
+  },
+  {
+   "v": "assault-related injury",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "men and persons aged <65 years had the highest proportions of assault-related ED visits."
+    }
+   ]
+  },
+  {
+   "v": "self-harm",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "visits by incarcerated adults resulting from assault or self-harm was five times as high as those among nonincarcerated adults"
+    }
+   ]
+  },
+  {
+   "v": "falls",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Falls accounted for the most ED visits among incarcerated adults aged ≥65 years."
+    }
+   ]
+  },
+  {
+   "v": "overdose or poisoning",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "A higher proportion of ED visits by incarcerated women than incarcerated men was for overdose or poisoning."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NEISS-AIP collects data on patients treated in EDs for nonfatal injuries from a nationally representative, stratified probability sample of hospitals."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed 2010–2019 National Electronic Injury Surveillance System–All Injury Program (NEISS-AIP) data."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Electronic Injury Surveillance System–All Injury Program (NEISS-AIP)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed 2010–2019 National Electronic Injury Surveillance System–All Injury Program (NEISS-AIP) data."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Emergency Department Visits by Incarcerated Adults for Nonfatal Injuries — United States, 2010–2019"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Incarceration (SES) is the analyzed exposure, framed as a disproportionate burden and quantified (assault and self-harm RPs about five) and interpreted; incarceration is itself a structural determinant, and health care access and conditions of incarceration are offered as explanations.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The access explanation appears only as a limitation, and structural racism explains overrepresentation in prisons rather than the injury contrast."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "primary comparison",
+    "ses_components": [
+     "incarceration"
+    ],
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Incarcerated adults experience disproportionate negative health outcomes compared with the general adult population"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Among incarcerated adults, the mechanism of injury for ED visits differed by age group"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "defined as an ED visit by a person aged ≥18 years who was transported to an ED from a jail or prison"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Reasons for ED visits by incarcerated adults also differed by sex"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "data on race and ethnicity were not presented because these data in NEISS-AIP are incomplete"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "incarceration; health care access for incarcerated persons; conditions experienced while incarcerated; structural racism",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "there are differences in health care access for incarcerated persons, which might partially explain the observed differences."
+    },
+    {
+     "loc": "text",
+     "q": "setting-appropriate risk-prevention strategies that account for the conditions experienced while incarcerated could help prevent injuries among incarcerated persons."
+    },
+    {
+     "loc": "text",
+     "q": "stemming from upstream factors, particularly structural racism"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Incarceration status is identified from ED narrative text terms; referent is nonincarcerated adults' ED visits. Contrasts are proportions of visits, not population rates. Race/ethnicity is not analyzed because of incompleteness."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "When compared with ED visits by incarcerated adults aged ≥65 years, a higher proportion of ED visits by those aged 18–24 years"
+    },
+    {
+     "loc": "table 2",
+     "q": "Statistically significant at p<0.05."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group, yrs › 25–34"
+    },
+    {
+     "loc": "text",
+     "q": "Rao-Scott chi-square tests were used to calculate p-values, and p-values <0.05 were considered statistically significant."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "procedures"
+ ],
+ "confidence": "medium",
+ "notes": "Design not named; surveillance/descriptive inferred. Table 1 p-values test each age category (vs the rest) between incarcerated and nonincarcerated visits, recorded as a per-level groupwise entry. Rlogist RPs have no covariates beyond the single sex or age variable.",
+ "view_issues": "Text says 'aged <45 years' in results but '≤45 years' in Discussion; Discussion rounds 733,547 to 'an estimated 750,000'. Table 2 ≥65 unintentional cell has a missing parenthesis."
+}

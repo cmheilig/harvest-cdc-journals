@@ -1,0 +1,452 @@
+{
+ "id": "mm7235a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg7nFqzY1gfWd3SxHNtnm",
+  "batch_id": "msgbatch_01FaGSxRvLPM3Hp7zgHNqiVG"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "In 2020, 14 million (27.6%) older adults reported falling during the previous year."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The percentage of women who reported falling (28.9%) was higher than that among men (26.1%)."
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The unintentional fall-related death rate was higher among men (91.4 per 100,000) than among women (68.3)."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In 2021, 38,742 (78.0 per 100,000 population) older adults died as the result of unintentional falls."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were significantly higher than the national estimate (78.0) in 26 states (Table 2)."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-adjusted percentages and death rates were calculated using the direct method and 2000 U.S. Census Bureau standard population."
+    },
+    {
+     "loc": "text",
+     "q": "Age-adjusted death rates were significantly higher among men than among women in 34 states (Table 2)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "'direct method and 2000 U.S. Census Bureau standard population' for all percentages and rates",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-adjusted percentages and death rates were calculated using the direct method and 2000 U.S. Census Bureau standard population."
+    }
+   ]
+  },
+  {
+   "name": "complex survey weighting (BRFSS, SUDAAN)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "estimates computed accounting for complex survey design in SUDAAN; weighted numbers reported",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Accounting for complex survey design, age-adjusted percentages and 95% CIs were estimated using SAS-callable SUDAAN"
+    },
+    {
+     "loc": "table 1",
+     "q": "Nationally representative weighted number of adults aged ≥65 years reporting at least one fall in the previous year."
+    }
+   ]
+  },
+  {
+   "name": "two-sample t-test (survey design)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods for comparisons between percentages",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Statistical comparisons between percentages were made using two sample t-tests as appropriate for complex survey designs such as BRFSS."
+    }
+   ]
+  },
+  {
+   "name": "z-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods for death-rate comparisons when counts >100",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Death rates were compared using a z-test when counts were >100."
+    }
+   ]
+  },
+  {
+   "name": "CI overlap assertion",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "methods state CI overlap was used for death-rate comparisons with counts <100 (e.g. small states, NHPI, multiple races)",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In addition, for counts <100, CIs were compared for overlap"
+    }
+   ]
+  },
+  {
+   "name": "Monte Carlo simulation",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "used as a tie-breaker when z-test and CI overlap disagreed",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Monte Carlo simulation was employed as a third method of assessing rate differences."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": "national estimate",
+  "across": [
+   "state",
+   "sex",
+   "race/ethnicity",
+   "urban-rural status",
+   "U.S. Census region"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "the percentage of older adults who reported falling during the previous year ranged from 19.9% in Illinois to 38.0% in Alaska."
+   },
+   {
+    "loc": "table 2",
+    "q": "Statistically higher than the national estimate at p<0.05."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "ci_overlap": true,
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Statistical comparisons between percentages were made using two sample t-tests as appropriate for complex survey designs such as BRFSS."
+   },
+   {
+    "loc": "text",
+    "q": "In addition, for counts <100, CIs were compared for overlap"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted percentage reporting ≥1 fall",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age-adjusted % reporting ≥1 fall (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "age-adjusted fall-related death rate per 100,000",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In 2021, 38,742 (78.0 per 100,000 population) older adults died as the result of unintentional falls."
+    }
+   ]
+  },
+  {
+   "v": "crude death rate",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "The 2021 death rates by urban-rural continuum were crude rates"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How do the prevalence of self-reported falls and fall-related death rates among U.S. adults aged ≥65 years differ by sex, demographic characteristics and state?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This report aims to identify the differences in nonfatal and fatal falls estimates by sex and state."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "unintentional falls",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Nonfatal and Fatal Falls Among Adults Aged ≥65 Years — United States, 2020–2021"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This report used 2020 Behavioral Risk Factor Surveillance System (BRFSS) data and 2021 National Vital Statistics System (NVSS) data"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "BRFSS is a landline/mobile telephone survey"
+    }
+   ]
+  },
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NVSS extracts data from death certificates filed in the 50 states and DC."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This report used 2020 Behavioral Risk Factor Surveillance System (BRFSS) data"
+    }
+   ]
+  },
+  {
+   "v": "National Vital Statistics System (NVSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "2021 National Vital Statistics System (NVSS) data"
+    }
+   ]
+  },
+  {
+   "v": "CDC WONDER",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC WONDER was used to access 2021 NVSS data to produce age-adjusted death rates and 95% CIs."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Measures were stratified by demographic characteristics, U.S. Census Bureau region, and state."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Race/ethnicity and urban-rural results are reported with tests and described (higher among White and AI/AN persons; higher in noncore counties) but not framed as disparities. Sex and age differences are not framed as social position.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Race and rurality results get one descriptive sentence each in Results and are not discussed, close to the interpretive-table-only case."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Nonfatal and Fatal Falls Among Adults Aged ≥65 Years — United States, 2020–2021"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group, yrs › ≥85"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "This report aims to identify the differences in nonfatal and fatal falls estimates by sex and state."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Death rates were higher among non-Hispanic White and non-Hispanic American Indian or Alaska Native persons than among other racial and ethnic groups."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "mortality data might be subject to misclassifications of race or ethnicity of the decedent"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "the percentage of older adults reporting falls was higher in noncore counties than in all other counties except small metros."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Death rates by urban-rural status are crude, not age-adjusted; racial groups are non-Hispanic with multiple/other race combined. Social determinants and access are mentioned only for state (geographic) differences."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 7,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Death rates were higher among non-Hispanic White and non-Hispanic American Indian or Alaska Native persons than among other racial and ethnic groups."
+    }
+   ]
+  },
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the percentage of older adults reporting falls was higher in noncore counties than in all other counties except small metros."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group, yrs › ≥85"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Design is not named; surveillance/descriptive inferred from BRFSS and NVSS analyses. State-vs-national tests remove the state's estimate from the national one to account for nonindependence. Figure tertile categories are quantization only.",
+ "view_issues": "Limitations say BRFSS is weighted for nonresponse; weighting procedure is inferred from the complex-design statement and the weighted counts."
+}

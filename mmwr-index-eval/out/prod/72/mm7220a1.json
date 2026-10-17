@@ -1,0 +1,505 @@
+{
+ "id": "mm7220a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg7nMDv3eefpzZQx89MMh",
+  "batch_id": "msgbatch_01FaGSxRvLPM3Hp7zgHNqiVG"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During 2016–2020, 14.8% of currently employed U.S. adults aged 18–64 years from 35 states and Guam reported having a disability."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, 14.8% of currently employed U.S. adults aged 18–64 years reported having a disability"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During 2016–2020, 14.8% of currently employed U.S. adults aged 18–64 years from 35 states and Guam reported having a disability."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Among 22 major occupation groups, the prevalence of any disability was highest for food preparation and serving-related professions (19.9%)."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence of disability status and types were calculated for the 22 major occupation groups with and without adjustment for these sociodemographic variables"
+    },
+    {
+     "loc": "table 3",
+     "q": "Adjusted for age, sex, race and ethnicity, and education."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "log-linear regression with robust variance (adjusted prevalences)",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'log-linear regression analyses with a robust variance estimator' giving adjusted prevalences → loglinear",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Adjusted prevalence estimates were obtained using log-linear regression analyses with a robust variance estimator while adjusting for sociodemographic variables."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (BRFSS complex survey design)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weighted prevalence estimates computed in SUDAAN to account for the complex survey design",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Unadjusted, weighted prevalence estimates of any disability and disability type*"
+    },
+    {
+     "loc": "text",
+     "q": "Analyses were conducted with SAS-callable SUDAAN (version 11.0.3; RTI International) to account for the complex survey design."
+    }
+   ]
+  },
+  {
+   "name": "suppression of estimates with relative SE >30%",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "relative-SE rule withholding imprecise estimates",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Estimates suppressed because the relative SE is >30%."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "occupation group",
+   "disability status",
+   "age group",
+   "sex",
+   "race/ethnicity",
+   "education level",
+   "household income",
+   "health care coverage",
+   "veteran status"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The highest adjusted disability prevalences were among workers in three of the 22 major occupation groups"
+   },
+   {
+    "loc": "table 2",
+    "q": "rankings not indicative of statistical significance."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "Disability type, ¶ % (95% CI) › Any"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted prevalence, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Unadjusted, weighted prevalence estimates of any disability and disability type*"
+    }
+   ]
+  },
+  {
+   "v": "adjusted prevalence, %",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Adjusted,* weighted prevalence estimates of any disability and disability type"
+    }
+   ]
+  },
+  {
+   "v": "rank",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Occupation groups ranked in order of descending prevalence of disability type or any disability"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Analyses were conducted with SAS-callable SUDAAN (version 11.0.3; RTI International) to account for the complex survey design."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Unadjusted, weighted prevalence estimates of any disability and disability type*"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Adjusted for age, sex, race and ethnicity, and education."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age group, sex, race and ethnicity, education level",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Adjusted for age, sex, race and ethnicity, and education."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "What is the prevalence of disability, by type, across major occupation groups among currently employed U.S. adults aged 18–64 years?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to estimate disability prevalences, by type and occupation group, among currently employed U.S. adults aged 18–64 years"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "disability",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Prevalence of Disability by Occupation Group — United States, 2016–2020"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Second, BRFSS data are cross-sectional, so temporality and causality cannot be inferred"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed 2016–2020 Behavioral Risk Factor Surveillance System (BRFSS) data from 35 states and Guam"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS), industry and occupation module",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Thirty-five states and Guam † administered the optional industry and occupation module at least 1 year during 2016–2020."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Finally, the results are not nationally representative; data were available from 35 states and Guam."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Disability is framed as a social position facing employment disparities, and prevalences by occupation and by age, race/ethnicity, education and income are reported, but only side by side and ranked, with no computed difference or ratio; the cap at 2 applies.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Disability is framed as an employment disparity with barriers named; a reader could treat the occupation distribution of disability as an interpreted disparity, though no contrast is computed."
+  },
+  "dimensions": [
+   {
+    "v": "disability",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Persons with disability face employment disparities, a multidimensional issue involving barriers to finding and keeping jobs"
+     },
+     {
+      "loc": "text",
+      "q": "The distributions of persons with and without disability differ across occupations."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "currently employed U.S. adults aged 18–64 years from 35 states and Guam"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Prevalence of the following types of disability were highest among workers aged 18–24 years: vision (3.6%), cognitive (13.9%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 3",
+      "q": "Adjusted for age, sex, race and ethnicity, and education."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Prevalences were slightly higher among women than among men for any disability (15.5% versus 14.1%)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 3",
+      "q": "Adjusted for age, sex, race and ethnicity, and education."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race and ethnicity › Hispanic or Latino"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 3",
+      "q": "Adjusted for age, sex, race and ethnicity, and education."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education level",
+     "household income",
+     "access to health care coverage"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Prevalences of all disability types were elevated among workers who had <a high school education, were Hispanic, were veterans"
+     },
+     {
+      "loc": "text",
+      "q": "lacked access to health care coverage, or had a household income <$25,000 per year."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "education level"
+    ],
+    "ev": [
+     {
+      "loc": "table 3",
+      "q": "Adjusted for age, sex, race and ethnicity, and education."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "lower training or education levels; discrimination; limited transportation options; non-inclusive recruitment and hiring practices; lack of workplace support",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "might encounter barriers (e.g., lower average training or education levels, discrimination, or limited transportation options) that affect the types of jobs they hold"
+    },
+    {
+     "loc": "text",
+     "q": "including non-inclusive recruitment and hiring practices, lack of workplace communication and support, discrimination, and reduced workplace opportunities"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Disability (any of six self-reported functional items) is the outcome, compared across 22 occupation groups by ranks with no referent; employment gap by disability (75.8% vs 38.4%) is cited from another source. Race/ethnicity collapsed to four groups."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence of the following types of disability were highest among workers aged 18–24 years: vision (3.6%), cognitive (13.9%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalences of all disability types were elevated among workers who had <a high school education, were Hispanic, were veterans"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Education level › Less than high school"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "lacked access to health care coverage, or had a household income <$25,000 per year."
+    },
+    {
+     "loc": "table 1",
+     "q": "Household income › <$25,000"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "equity.dimensions",
+  "inference"
+ ],
+ "confidence": "medium",
+ "notes": "Occupation group is treated as a non-SPD grouping (occupation not framed as social position, though lower wages are mentioned), so the 22-group ranking is in comparison only. Prepass 'linear' cue is a false hit from 'log-linear'. The employment gap by disability in the introduction is cited, not computed.",
+ "view_issues": "Table 3 footnote markers appear swapped: 'No. of respondents**' points to the non-independence note and '††' to 'Unweighted'. Table 2 flags a self-care value with §§ (suppressed) while showing an estimate."
+}

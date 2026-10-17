@@ -1,0 +1,365 @@
+{
+ "id": "mm7207a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg7nFa3qpxb252bEd6LQg",
+  "batch_id": "msgbatch_01FaGSxRvLPM3Hp7zgHNqiVG"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "32.1% of children aged 1–5 years did not eat a daily fruit"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "57.1% drank a sugar-sweetened beverage at least once during the preceding week"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "32.1% of children aged 1–5 years did not eat a daily fruit"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In Vermont, 30.4% of children did not eat a daily vegetable during the preceding week, compared with 64.3% in Louisiana."
+    },
+    {
+     "loc": "text",
+     "q": "differed by age, race and ethnicity, and household food sufficiency"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Pearson chi-square test of independence",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods and Table 1 note; one test per outcome and sociodemographic characteristic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Pearson Chi-square tests of independence were used to identify differences within each outcome by sociodemographic characteristics."
+    }
+   ]
+  },
+  {
+   "name": "complex survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weighted percentages computed with SPSS Complex Samples; every estimate is weighted",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using SPSS Complex Samples (version 1.0.0.1401; IBM) to account for the sampling procedures."
+    },
+    {
+     "loc": "table 1",
+     "q": "Percentages are weighted to account for complex survey design and adjusted for the probability of selection, nonresponse, and demographic factors"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "fixed referent",
+  "scale": null,
+  "referent": "one half of children (50%)",
+  "across": [
+   "state",
+   "age",
+   "race/ethnicity",
+   "household food sufficiency"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "In 20 states, more than one half of children did not eat a vegetable daily during the preceding week."
+   },
+   {
+    "loc": "text",
+    "q": "differed by age, race and ethnicity, and household food sufficiency"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ci_overlap": false,
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "p<0.05 was considered statistically significant."
+   },
+   {
+    "loc": "table 1",
+    "q": "% (95% CI)"
+   }
+  ]
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Children aged 1 year were more likely than were older children to eat either a daily fruit or a daily vegetable"
+    },
+    {
+     "loc": "table 1",
+     "q": "For each outcome, a Pearson’s chi-square test of independence was done to identify differences by sociodemographic characteristics"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "did not eat a daily fruit or vegetable was highest among non-Hispanic Black (Black) children"
+    },
+    {
+     "loc": "text",
+     "q": "differed by age, race and ethnicity, and household food sufficiency"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "households with marginal or low food sufficiency were less likely to eat either a daily fruit or vegetable"
+    },
+    {
+     "loc": "text",
+     "q": "differed by age, race and ethnicity, and household food sufficiency"
+    }
+   ]
+  }
+ ],
+ "primary_measures": [
+  {
+   "v": "weighted percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Weighted percentages are presented overall"
+    }
+   ]
+  },
+  {
+   "v": "95% CI",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How often do U.S. children aged 1–5 years consume fruits, vegetables, and sugar-sweetened beverages, nationally, by sociodemographic group, and by state?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to describe how frequently, according to parent report, children aged 1–5 years (18,386) consumed fruits, vegetables, and sugar-sweetened beverages, nationally and by state"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "fruit and vegetable intake",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Fruit, Vegetable, and Sugar-Sweetened Beverage Intake Among Young Children, by State"
+    }
+   ]
+  },
+  {
+   "v": "sugar-sweetened beverage intake",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Fruit, Vegetable, and Sugar-Sweetened Beverage Intake Among Young Children, by State"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2021 National Survey of Children’s Health"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2021 National Survey of Children’s Health"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Survey of Children’s Health (NSCH)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2021 National Survey of Children’s Health"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "consumed fruits, vegetables, and sugar-sweetened beverages, nationally and by state"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Results by race/ethnicity and household food sufficiency are reported and described (highest among Black children; less likely with low food sufficiency), but only as side-by-side values with chi-square significance, no computed difference or ratio and no disparity framing.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Food sufficiency is an HRSN measure used as stratifier, so contrasts across it could meet level 3 without the word disparity if 'less likely/more likely' were read as quantified."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Among Young Children, by State"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Children aged 1 year were more likely than were older children to eat either a daily fruit or a daily vegetable"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "did not eat a daily fruit or vegetable was highest among non-Hispanic Black (Black) children"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "household food sufficiency",
+     "ability to afford the food you need"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "households with marginal or low food sufficiency were less likely to eat either a daily fruit or vegetable"
+     }
+    ]
+   },
+   {
+    "v": "country of birth/language/nativity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "information collection occurred in English or Spanish and might not represent families who speak other languages"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "household food sufficiency (ability to afford food)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "households with marginal or low food sufficiency were less likely to eat either a daily fruit or vegetable"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Food sufficiency (affordability of food) serves as the SES proxy; AI/AN and NH/OPI children are collapsed into the multiracial group; survey only in English or Spanish."
+ },
+ "uncertain_fields": [
+  "equity.level",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred as cross-sectional (one survey year; not named). A CI-width/relative-SE rule flags unreliable estimates (low food sufficiency, DC) but does not suppress them, so it is not recorded as a procedure. Recoding of intake frequency to daily/less than daily is quantization.",
+ "view_issues": "Maine's SSB minimum is 38.6% in the introduction and Table 2 but 38.8% in Results. The figure description says 'number' though the map shows percentages."
+}

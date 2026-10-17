@@ -1,0 +1,228 @@
+{
+ "id": "mm7229a6",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cg7nGN72dyPgeNqbbfMzg",
+  "batch_id": "msgbatch_01FaGSxRvLPM3Hp7zgHNqiVG"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Attendance during the first week of camp, however, was significantly associated with illness (odds ratio = 13.1; 95% CI = 2.59–66.57)."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The case-control analysis included 12 ill camp attendees as case-patients and 58 healthy children identified from the camp attendee list as controls."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Attendance during the first week of camp, however, was significantly associated with illness (odds ratio = 13.1; 95% CI = 2.59–66.57)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'Chi-square analysis was used to calculate odds ratios' for case vs control by exposure",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Chi-square analysis was used to calculate odds ratios; 95% CIs that excluded 1 were considered statistically significant."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated rule that 95% CIs excluding 1 are significant; significance claim for first-week attendance rests on it; CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "95% CIs that excluded 1 were considered statistically significant."
+    },
+    {
+     "loc": "text",
+     "q": "was significantly associated with illness (odds ratio = 13.1; 95% CI = 2.59–66.57)."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "attendance in later camp weeks",
+  "across": [
+   "camp week attended (first week vs other)"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Attendance during the first week of camp, however, was significantly associated with illness (odds ratio = 13.1; 95% CI = 2.59–66.57)."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Chi-square analysis was used to calculate odds ratios; 95% CIs that excluded 1 were considered statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "odds ratio",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(odds ratio = 13.1; 95% CI = 2.59–66.57)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What was the source of and which exposures were associated with an STEC O157:H7 outbreak among children attending a Tennessee farming camp?",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "An Outbreak of Shiga Toxin–Producing Escherichia coli O157:H7 Associated with a Farming Camp — Tennessee, 2022"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "Shiga toxin–producing Escherichia coli O157:H7 infection",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "An Outbreak of Shiga Toxin–Producing Escherichia coli O157:H7 Associated with a Farming Camp — Tennessee, 2022"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "outbreak investigation",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "prompting an investigation"
+    }
+   ]
+  },
+  {
+   "v": "case-control",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Survey responses facilitated conduct of a case-control analysis."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "record abstraction or interview",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "collected camp attendee registration and goat assignment records and conducted environmental sampling"
+    }
+   ]
+  },
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "TDH also sent an online survey to the parents and guardians of all 82 children who had attended camp"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Associated with a Farming Camp — Tennessee, 2022"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Age only defines the camp population (children aged 6–10 years) and describes cases; no SPD comparison or social-position framing.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "teaching animal husbandry to children aged 6–10 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "(patient age range = 2–38 years)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "procedures"
+ ],
+ "confidence": "high",
+ "notes": "Environmental sampling with cgMLST/WGS linked farm isolates to patient isolates; these are case-linkage lab steps, not procedures. No food or activity was associated with illness; the single reported OR is first-week attendance.",
+ "view_issues": "Text defines confirmed cases by PCR/EIA Shiga toxin test, but the figure note says positive stool culture. Probable secondary definition says exposure to a 'secondary case' in text but 'primary case' in the figure note. 12 cases + 58 controls exceeds the 53 survey responses."
+}
