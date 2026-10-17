@@ -1,0 +1,396 @@
+{
+ "id": "mm7309a2",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The mean age for the entire study period, 63.5 years ( Table ), decreased from 64.7 during 2014–2015 to 62.7 during 2020–2021 (p<0.001)."
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "YPLL per 100,000 adult population per biennial cycle increased from 2,450 during 2014–2015 to 4,136 during 2020–2021."
+    },
+    {
+     "loc": "text",
+     "q": "overall YPLL increased from 52,044 during 2014–2015 to 88,788 during 2020–2021 (p = 0.002)."
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The percentage of OHCAs increased over time among adults aged 26–45 and 56–65 years, and decreased among those aged >75 years."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Approximately 14% of OHCAs had an initial shockable rhythm, and 84.7% had a presumed cardiac etiology (Table)."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "among women, the mean age decreased from 67.6 to 66.1 years with a biennial change of −0.5 years (p = 0.002)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "linear regression of mean age on biennial cycle (t-test of slope)",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "'linear regression models' with the slope tested by a t-test → linear; slope reported as biennial change",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Trends in mean age were calculated using linear regression models"
+    },
+    {
+     "loc": "text",
+     "q": "p-value of the slope (i.e., p-value corresponding to the t-test for whether slope is significantly different from zero) was reported."
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "p-values for YPLL trends with no method stated (methods name a model only for mean age)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "YPLL among Black adults increased from 29,956 during 2014–2015 to 52,477 during 2020–2021 (p = 0.003)"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "absolute",
+  "referent": null,
+  "across": [
+   "biennial cycle",
+   "sex",
+   "race/ethnicity",
+   "presumed cardiac etiology",
+   "shockable rhythm"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Annual data were combined to create 2-year cycles."
+   },
+   {
+    "loc": "text",
+    "q": "The mean age at which OHCA occurred among men decreased from 62.5 to 60.6 years, with a biennial change of −0.6 years (p<0.001)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "p-value corresponding to the t-test for whether slope is significantly different from zero) was reported."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "mean age",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Mean age, yrs"
+    }
+   ]
+  },
+  {
+   "v": "YPLL",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "YPLL was calculated using a standard age of 75 years"
+    }
+   ]
+  },
+  {
+   "v": "YPLL per 100,000 adult population per biennial cycle",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates were expressed per 100,000 adult population per biennial cycle."
+    }
+   ]
+  },
+  {
+   "v": "biennial change",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "biennial change of −0.6 years; p<0.001"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. (%)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Trends in mean age were calculated using linear regression models"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did YPLL from, and mean age at, nontraumatic adult out-of-hospital cardiac arrest change in Chicago during 2014–2021, overall and by subgroup?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This study describes changes in YPLL from OHCA and mean age at OHCA among nontraumatic cases in adults in Chicago during 2014–2021."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "out-of-hospital cardiac arrest",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Years of Potential Life Lost and Mean Age of Adults Experiencing Nontraumatic, Out-of-Hospital Cardiac Arrests — Chicago, 2014–2021"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a total of 22,158 OHCAs were reported to Chicago’s Cardiac Arrest Registry to Enhance Survival (CARES) and served by Chicago EMS."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Trends in mean age were calculated using linear regression models"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "reported to Chicago’s Cardiac Arrest Registry to Enhance Survival (CARES) and served by Chicago EMS."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Cardiac Arrest Registry to Enhance Survival (CARES)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "reported to Chicago’s Cardiac Arrest Registry to Enhance Survival (CARES)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Chicago, 2014–2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Mean-age trends are reported by race/ethnicity and sex, and the Discussion says larger decreases among men and Black adults increased disparities, but group values are only set side by side with no computed between-group difference or ratio.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Disparity is explicitly framed and group-specific biennial changes are quantified (Black −1.9 vs White −1.4 years), which could be read as a quantified disparity."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Among Black adults, the mean age decreased from 64.2 years during 2014–2015 to 62.3 years during 2020–2021 (p<0.001)"
+     },
+     {
+      "loc": "text",
+      "q": "among men and among Black adults increased disparities that already existed on the basis of race and sex."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The mean age at which OHCA occurred among men decreased from 62.5 to 60.6 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The following cases were excluded: pediatric cases (among persons aged <18 years; 588)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group, yrs › 26–35"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "socioeconomic data"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "cross-linkage of socioeconomic, comorbidity, substance use, and medication use data) could help elucidate the factors"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity groups other than Asian, Black, White and Hispanic collapsed into other; Asian omitted from YPLL figure for small numbers; no between-group contrast computed."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Mean age was consistently lowest among Hispanic adults and highest among Asian adults ( Figure 2 )."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity",
+    "sex"
+   ],
+   "n_groups": null,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "When race and ethnicity and sex are considered together, the largest decrease in mean age occurred among Black men"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "outcome_types",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "YPLL (75 minus age, summed) and YPLL rates are arithmetic, not procedures. Design is not named; surveillance/descriptive with trend inferred. The YPLL trend p-values have no stated method, possibly the same linear-slope test.",
+ "view_issues": "Figure 2 description describes a photo of chest compressions, not the mean-age trend graph. Overall mean-age p<0.001 is given without a stated slope."
+}

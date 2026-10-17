@@ -1,0 +1,398 @@
+{
+ "id": "mm7339a2",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During October 2023–April 2024, cumulative rates were highest among adults aged ≥75 years (936.4), approaching one COVID-19–associated hospitalization for every 100 persons."
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Only 12% had received the recommended COVID-19 2023–2024 formula vaccine."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Among adults hospitalized with COVID-19, 88.1% had not received the 2023–2024 formula COVID-19 vaccine before hospitalization"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "cumulative rates among adults aged 50–64, 65–74, and ≥75 years during October 2023–April 2024 were 2.9, 7.3, and 24.1 times as high, respectively"
+    },
+    {
+     "loc": "text",
+     "q": "among each adult age group were the lowest experienced during the months of October–April since the 2020–2021 surveillance season"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "cumulative, age-adjusted COVID-19–associated hospitalization rates were highest among non-Hispanic American Indian or Alaska Native (AI/AN) (205.9)"
+    },
+    {
+     "loc": "note",
+     "q": "Age-adjusted rates were calculated using the direct method using the U.S. Census Bureau Vintage 2022 population estimates."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "footnote states age-adjusted rates by the direct method with Census 2022 standard population",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Age-adjusted rates were calculated using the direct method using the U.S. Census Bureau Vintage 2022 population estimates."
+    }
+   ]
+  },
+  {
+   "name": "sampling weights for age- and site-stratified random sample",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weighted percentages from a stratified monthly random sample; Taylor series variance",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "For sampled data, unweighted case counts and weighted percentages that better represent the hospitalized population of the catchment area are presented"
+    },
+    {
+     "loc": "text",
+     "q": "an age- and site-stratified monthly random sample of patients hospitalized during October 2023–April 2024"
+    }
+   ]
+  },
+  {
+   "name": "small-cell suppression (n<10)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "table note withholds cells with sample size <10",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Data are not presented for cells with sample size <10."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "adults aged 18–49 years",
+  "across": [
+   "age group",
+   "race/ethnicity",
+   "surveillance period"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "their COVID-19–associated hospitalization rates were higher than those among younger adult age groups."
+   },
+   {
+    "loc": "text",
+    "q": "rates among both groups were 1.4 times as high as rates among Hispanic or Latino (Hispanic) adults (149.5)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "variances were estimated using the Taylor series linearization method."
+   },
+   {
+    "loc": "text",
+    "q": "representing 52.5% (95% CI = 46.7%–58.2%) of adults aged ≥65 years."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "cumulative hospitalization rate per 100,000 population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "cumulative COVID-19–associated hospitalization rates (hospitalizations per 100,000 population)"
+    }
+   ]
+  },
+  {
+   "v": "age-adjusted rate",
+   "ev": [
+    {
+     "loc": "figure 2",
+     "q": "Cumulative* age-adjusted COVID-19–associated hospitalization † rates among adults aged ≥18 years, by race and ethnicity"
+    }
+   ]
+  },
+  {
+   "v": "rate ratio (times as high)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The peak weekly rate among adults aged ≥75 years (58.9) was 24.5 times as high as that among adults aged 18–49 years (2.4)."
+    }
+   ]
+  },
+  {
+   "v": "weighted %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Weighted % (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What were COVID-19–associated hospitalization rates among U.S. adults during October 2023–April 2024, and what were the demographic and clinical characteristics of hospitalized adults?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "analyzed to estimate COVID-19–associated hospitalization rates during October 2023–April 2024 and identify demographic and clinical characteristics of adults aged ≥18 years hospitalized"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "COVID-19–Associated Hospitalizations Among U.S. Adults Aged ≥18 Years — COVID-NET, 12 States, October 2023–April 2024"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Only 12% had received the recommended COVID-19 2023–2024 formula vaccine."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-NET conducts population-based surveillance for laboratory-confirmed COVID-19–associated hospitalization* among residents of predefined surveillance catchment areas."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the COVID-19–Associated Hospitalization Surveillance Network (COVID-NET) were analyzed"
+    }
+   ]
+  },
+  {
+   "v": "vaccination registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data on receipt of the most recent patient COVID-19 vaccination** was obtained from state immunization information systems."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "COVID-19–Associated Hospitalization Surveillance Network (COVID-NET)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the COVID-19–Associated Hospitalization Surveillance Network (COVID-NET) were analyzed"
+    }
+   ]
+  },
+  {
+   "v": "state immunization information systems",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was obtained from state immunization information systems."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Demographic data were collected on all COVID-19–associated hospitalizations in 90 counties across 12 states"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Among a sample of 1,320 hospitalized adults, ¶¶ 88.1% had not received the 2023–2024 formula COVID-19 vaccine dose"
+   }
+  ]
+ },
+ "equity": {
+  "level": 3,
+  "level_reason": "Racial and ethnic disparities in age-adjusted hospitalization rates are framed as disparities, quantified (1.3–1.4 times as high; 30%–40% higher) and interpreted as persisting but possibly decreasing. The only explanation offered is unequal vaccination coverage, which the brief excludes as a determinant.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "The vaccination-coverage disparity offered as a contributor could be read as a structural determinant, though it is not framed as access."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Disparities in COVID-19–associated hospitalization among adults by race and ethnicity persisted during the study period."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race and ethnicity § › Black or African American"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "their COVID-19–associated hospitalization rates were higher than those among younger adult age groups."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "COVID-19–Associated Hospitalizations Among U.S. Adults Aged ≥18 Years"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity rates are age-adjusted (direct method); ratios use Hispanic and White adults as referents. Other non-Hispanic races are not presented because of small samples; NIS vaccination disparities are cited, not analyzed."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "cumulative rates among adults aged 50–64, 65–74, and ≥75 years during October 2023–April 2024 were 2.9, 7.3, and 24.1 times as high, respectively"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": null,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "rates among both groups were 1.4 times as high as rates among Hispanic or Latino (Hispanic) adults (149.5)"
+    },
+    {
+     "loc": "text",
+     "q": "and 1.3 times as high as rates among non-Hispanic White (White) adults (151.4)."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "CIs accompany weighted percentages but no conclusion rests on them against a null, so no test is recorded. The number of race groups in Figure 2 is not stated in text (four named; A/PI likely also plotted). The Discussion's comparison with July 2021–August 2022 ratios is cited from a prior report.",
+ "view_issues": "Summary says adults ≥65 accounted for 70% of hospitalizations; Discussion says approximately two thirds."
+}

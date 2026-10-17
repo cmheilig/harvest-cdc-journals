@@ -1,0 +1,403 @@
+{
+ "id": "mm7338a3",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Coverage with nearly all vaccines was lower among children born in 2020 and 2021 than it was among those born in 2018 and 2019"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The lowest estimated coverage was with ≥2 doses of HepA by 24 months (46.0%), and ≥2 doses of influenza vaccine (55.6%)."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Despite the decreases, coverage with several vaccines remained above 90%, including poliovirus vaccine (91.9%)"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Coverage with nearly all vaccines was lower among children born in 2020 and 2021 than it was among those born in 2018 and 2019"
+    },
+    {
+     "loc": "text",
+     "q": "Compared with coverage among White children, coverage with ≥2 doses of influenza vaccine was lower among Black and Hispanic children"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "z-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "z-tests named in Methods for differences between cohorts and versus referent subgroups",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Differences in coverage estimates were evaluated using z-tests at an α-level of 0.05."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weighted data analyzed in SUDAAN; produces every coverage estimate",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Analyses used weighted data and were performed using SAS software (version 9.4; SAS Institute) and SUDAAN software (version 11; RTI International)."
+    }
+   ]
+  },
+  {
+   "name": "Kaplan-Meier estimation of coverage by age 24 months",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "Kaplan-Meier stated as the coverage estimator for most vaccines",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "for most vaccines, Kaplan-Meier techniques were used to estimate coverage by age 24 months."
+    }
+   ]
+  },
+  {
+   "name": "suppression of unreliable estimates",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "estimates withheld by sample-size and CI half-width rules",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Estimate not available because the unweighted sample size for the denominator was <30, or 95% CI half width / estimate >0.588"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "absolute",
+  "referent": "2018–2019 birth cohort; White children and other designated referent groups; Healthy People 2030 targets",
+  "across": [
+   "birth cohort",
+   "race/ethnicity",
+   "health insurance status",
+   "poverty status",
+   "urbanicity (MSA status)",
+   "jurisdiction"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "estimated coverage among children born in 2020 and 2021 was compared with estimated coverage among children born in 2018 and 2019."
+   },
+   {
+    "loc": "text",
+    "q": "but the objectives for ≥1 dose of MMR (≥90.8%) and ≥4 doses of DTaP (≥90.0%) have not."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Differences in coverage estimates were evaluated using z-tests at an α-level of 0.05."
+   },
+   {
+    "loc": "table 1",
+    "q": "Statistically significantly different (p<0.05) from zero."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "vaccination coverage, % (95% CI)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "difference in coverage, percentage points",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Difference (2018–2019 to 2020–2021)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Did vaccination coverage by age 24 months decline among U.S. children born in 2020–2021 compared with 2018–2019, and how does coverage differ by sociodemographic characteristics and jurisdiction?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This report assesses trends in vaccination coverage by year of birth and disparities in coverage by sociodemographic characteristics."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "vaccine-preventable diseases",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The Advisory Committee on Immunization Practices currently recommends routine vaccination against 15 potentially serious illnesses for children by age 24 months."
+    }
+   ]
+  },
+  {
+   "v": "influenza",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "with a larger (7.8 percentage point) drop in coverage with ≥2 doses of influenza vaccine."
+    }
+   ]
+  },
+  {
+   "v": "measles",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "≥1 dose of measles, mumps, and rubella vaccine (MMR) (90.3%)"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NIS-Child uses random-digit–dialing to identify U.S. households that include a child aged 19–35 months"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Coverage with nearly all vaccines was lower among children born in 2020 and 2021 than it was among those born in 2018 and 2019"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Data from the National Immunization Survey-Child (NIS-Child) were analyzed to estimate coverage with childhood vaccines"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Immunization Survey-Child (NIS-Child)",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Data from the National Immunization Survey-Child (NIS-Child) were analyzed"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "NIS-Child data are used to calculate annual vaccination coverage estimates at the national and state levels"
+   },
+   {
+    "loc": "table 3",
+    "q": "by U.S. Department of Health and Human Services region, state, selected local area, and territory"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Data from the National Immunization Survey-Child (NIS-Child) were analyzed to estimate coverage with childhood vaccines"
+   }
+  ]
+ },
+ "equity": {
+  "level": 3,
+  "level_reason": "Disparities by race/ethnicity, insurance, poverty and urbanicity are framed, quantified (poverty differences of 2.7–19.9 percentage points, tested contrasts vs referents) and interpreted as persistent. Financial barriers and access appear mainly as things to address (recommendations).",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "Financial barriers and access issues are named as needing to be overcome to eliminate disparities, which could be read as structural explanations of the disparities."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Disparities in coverage by race and ethnicity were observed among children born during 2020–2021"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "health insurance status",
+     "poverty status"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "with percentage point differences ranging from 2.7 (≥1 dose of MMR) to 19.9 (≥2 doses of influenza vaccine)"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "coverage was lower among children living in a non-MSA compared with an MSA principal city for all vaccines"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "NIS-Child uses random-digit–dialing to identify U.S. households that include a child aged 19–35 months"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "financial barriers; access issues",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Financial barriers, access issues, vaccine hesitancy, and vaccine-related misinformation all need to be overcome to increase coverage"
+    },
+    {
+     "loc": "text",
+     "q": "Addressing financial barriers and other access issues along with vaccine hesitancy and misinformation concerns is important to increasing vaccination coverage and reducing disparities."
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Each subgroup is compared with a designated referent (White; private insurance; at/above poverty; MSA principal city); race reported by parent; NH/PI and several AI/AN estimates suppressed; Healthy People targets are general-population targets."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 7,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "subgroup estimates were compared with those for a designated referent group."
+    },
+    {
+     "loc": "table 2",
+     "q": "Race and ethnicity › White (referent) n = 16,656"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "lower among children who were covered by Medicaid or other nonprivate insurance, and those who were uninsured, than among those covered solely by private insurance"
+    }
+   ]
+  },
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "No differences in coverage were observed between children living in a metropolitan statistical area (MSA)"
+    },
+    {
+     "loc": "text",
+     "q": "coverage was lower among children living in a non-MSA compared with an MSA principal city for all vaccines"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "outcome_types"
+ ],
+ "confidence": "high",
+ "notes": "Design inferred as repeated cross-sectional survey with a birth-cohort trend; no design is named. Kaplan-Meier is used only to estimate coverage by age 24 months, so outcomes are recorded as proportions. Insurance, poverty and MSA results are in supplementary tables not in the packet.",
+ "view_issues": "Table 1 rows nest Rotavirus under HepA in article.txt; the CSV lists it separately. Table 3 national No. (28,668) differs from Methods (28,688)."
+}

@@ -1,0 +1,393 @@
+{
+ "id": "mm7338a1",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Cumulative hospitalization rates among young infants were lower during October 2023–April 2024 (319.8) than during October 2022–April 2023 (413.6)"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The percentage of hospitalized infants whose mothers were vaccinated significantly decreased from 17.6% (132 of 745) during 2022–23 to 4.3% (12 of 320) during 2023–24"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A total of 260 (22.1%) infants were admitted to an intensive care unit (ICU), and nine (0.8%) died in hospital"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "hospitalization rates were higher only among adults aged ≥75 years (940.1) (RR = 0.34; 95% CI = 0.31–0.37)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Fisher's exact test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'Fisher's exact chi-square tests' to compare proportions; p<0.001 for the maternal vaccination decrease by season",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Wilcoxon rank-sum tests and Fisher’s exact chi-square tests were used to compare medians and proportions, respectively"
+    },
+    {
+     "loc": "text",
+     "q": "decreased from 17.6% (132 of 745) during 2022–23 to 4.3% (12 of 320) during 2023–24 (p<0.001)"
+    }
+   ]
+  },
+  {
+   "name": "Wilcoxon rank-sum test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated test for comparing medians, e.g. infant age by maternal vaccination status (details in supplementary table)",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Wilcoxon rank-sum tests and Fisher’s exact chi-square tests were used to compare medians and proportions, respectively"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "Rate-ratio CIs judged against 1 to claim 'lower', 'higher' and 'comparable' rates; CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were comparable to hospitalization rates among adults aged 65–74 years (284.2) (RR = 1.1; 95% CI = 1.0–1.2)"
+    }
+   ]
+  },
+  {
+   "name": "sampling and nonresponse weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "percentages weighted for probability of selection and adjusted for nonresponse; Taylor series variances",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Percentages were weighted to account for the probability of selection for sampled cases, and further adjusted to account for nonresponse"
+    },
+    {
+     "loc": "text",
+     "q": "Variances were estimated using Taylor series linearization method."
+    }
+   ]
+  },
+  {
+   "name": "3-week moving average",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "weekly rates smoothed as a 3-week moving average in Figure 1",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Weekly COVID-19–associated hospitalization rates (3-week moving average) among children and adolescents aged <18 years"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "infants aged <6 months (age-group RRs); October 2022–April 2023 (season RR)",
+  "across": [
+   "age group",
+   "season",
+   "maternal vaccination status"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "COVID-19–associated hospitalization rates among infants aged <6 months remain higher than those among any other age group except adults aged ≥75 years"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Wilcoxon rank-sum tests and Fisher’s exact chi-square tests were used to compare medians and proportions, respectively; p-values <0.05 were considered statistically significant."
+   },
+   {
+    "loc": "text",
+    "q": "Variances were estimated using Taylor series linearization method."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "hospitalizations per 100,000 population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Unadjusted weekly COVID-19–associated hospitalization rates (hospitalizations per 100,000 population)"
+    }
+   ]
+  },
+  {
+   "v": "RR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(RR = 0.77; 95% CI = 0.69–0.86)"
+    }
+   ]
+  },
+  {
+   "v": "weighted %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Weighted % § (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "median (IQR)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Median age, days (IQR)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What are COVID-19–associated hospitalization rates, clinical outcomes and maternal vaccination status among hospitalized infants aged <6 months?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "analyzed to describe hospitalization rates, maternal vaccination status, clinical outcomes, and codetections of other viruses among infants aged <6 months"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "COVID-19–Associated Hospitalizations and Maternal Vaccination Among Infants Aged <6 Months"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The percentage of hospitalized infants whose mothers had been vaccinated during pregnancy was 18% during October 2022–September 2023"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-NET conducts population-based surveillance for laboratory-confirmed COVID-19–associated hospitalization"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-19–Associated Hospitalization Surveillance Network (COVID-NET) during October 2022–April 2024 were analyzed"
+    }
+   ]
+  },
+  {
+   "v": "vaccination registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was obtained through state immunization information systems"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "COVID-19–Associated Hospitalization Surveillance Network (COVID-NET)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-19–Associated Hospitalization Surveillance Network (COVID-NET)"
+    }
+   ]
+  },
+  {
+   "v": "state immunization information systems",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was obtained through state immunization information systems"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Demographic data were collected for all COVID-19–associated hospitalizations in 90 counties across 12 states"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The percentage of hospitalized infants whose mothers had been vaccinated during pregnancy was 18% during October 2022–September 2023 and decreased to <5%"
+   }
+  ]
+ },
+ "equity": {
+  "level": 1,
+  "level_reason": "Age defines the population and age-group rate comparisons are not framed as social position; race/ethnicity and sex appear only as Table composition descriptors.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 0,
+   "reason": "Race/ethnicity appears only as single Table counts, which could be read as no meaningful SPD use beyond age and sex."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Maternal Vaccination Among Infants Aged <6 Months"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "hospitalization rates were higher only among adults aged ≥75 years (940.1) (RR = 0.34; 95% CI = 0.31–0.37)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race and ethnicity ¶ › Black or African American"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Infants <6 months are the referent for age-group RRs; denominators are 50% of the <1-year population. Race groups collapsed (Asian/NHPI combined; AI/AN in other)."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": null,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "compared with rates among young infants (319.8), hospitalization rates were higher only among adults aged ≥75 years (940.1)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "figure 2",
+     "q": "Maternal vaccination status among infants aged <6 months hospitalized with laboratory-confirmed SARS-CoV-2 infection,* , † by age group and season"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "outcome_types",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Median infant age by maternal vaccination status (Wilcoxon) treated as a case characteristic, so continuous is not listed. All-age RRs are in a supplementary figure; the number of age groups compared is not stated in the text.",
+ "view_issues": "The RR for adults ≥75 years (0.34) is expressed as infants vs older adults, opposite to the direction of the sentence's comparison."
+}

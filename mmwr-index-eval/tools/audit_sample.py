@@ -1,6 +1,6 @@
 """Per-volume quality assurance for production reads (PRODUCTION_PLAN.md §5, V19). Prints counts and ids only.
 
-    python3 tools/audit_sample.py groupwise VOL   # mechanical check of groupwise entries -> audit/<VOL>/groupwise_check.tsv
+    python3 tools/audit_sample.py groupwise VOL [OUT.tsv]   # mechanical check -> audit/<VOL>/groupwise_check.tsv (or OUT)
     python3 tools/audit_sample.py draw VOL        # runs the check, then draws the audit -> audit/<VOL>/sample.tsv
     #   then: python3 tools/api_read.py submit VOL-audit; poll; collect VOL-audit   (second reads, same environment and effort)
     python3 tools/audit_sample.py compare VOL     # blinded A/B packets -> audit/<VOL>/adj_packet/, audit/<VOL>/mapping.json
@@ -25,7 +25,8 @@ MODEL = 'claude-opus-5-5'
 SHARE, MIN_N, GROUPWISE_SHARE = 0.05, 10, 0.10
 GATE = 0.015                    # field error of the confirmation run's baseline (PRODUCTION_PLAN.md §4.2)
 GROUPWISE_FIELDS = ('groupwise_any', 'groupwise_dims', 'groupwise_assessments')
-TESTED = {'omnibus test', 'trend test', 'model joint test', 'interaction', 'pairwise (all pairs)', 'per-group vs referent only'}
+# per-group vs referent only can rest on ratios against a referent, without a test (vol 73 looks)
+TESTED = {'omnibus test', 'trend test', 'model joint test', 'interaction', 'pairwise (all pairs)'}
 FINER = {'pairwise (all pairs)', 'per-group vs referent only'}
 COMPARED_ROLES = {'stratifier', 'primary comparison', 'cross-classifier'}
 OMNIBUS_WORDS = re.compile(r'chi|rao.scott|wald|kruskal|anova|analysis of variance|trend|fisher', re.I)
@@ -60,12 +61,16 @@ def haystack(vol, i):
     parts = [open(f'{d}/article.txt', encoding='utf-8').read()]
     for t in glob.glob(f'{d}/tables/*.csv'):
         parts += [c for row in csv.reader(open(t, encoding='utf-8')) for c in row]
-    return _norm_text('\n'.join(parts))
+    return _norm_text(FOOTNOTE.sub('', '\n'.join(parts)))
+
+
+FOOTNOTE = re.compile(r'[*†‡§¶]+')
 
 
 def quote_found(q, hay):
+    """Every piece of the quote (split at ›, … and ...) is in the packet, ignoring footnote symbols."""
     pieces = [p for p in re.split(r'\s*(?:›|…|\.\.\.)\s*', q) if p.strip()]
-    return all(_norm_text(p) in hay for p in pieces)
+    return all(_norm_text(FOOTNOTE.sub('', p)) in hay for p in pieces)
 
 
 def check_record(vol, i, rec):
@@ -81,8 +86,11 @@ def check_record(vol, i, rec):
         if a in TESTED and not has_test and not (a in ('model joint test', 'interaction') and
                                                  any(p['class'] == 'regression' for p in procs)):
             flags.append((k, 'assessment needs a test', a))
-        if a == 'side by side' and tests:
-            flags.append((k, 'side by side but the record has tests (rule 2?)', ','.join(p['name'] for p in tests)[:80]))
+        # vol 73 looks: tests of periods, exposures or two groups made this fire 32 times for 2 errors, both a CI overlap
+        # assertion stated once under claims across the groups; keep that case and omnibus-type tests
+        across = [p for p in tests if p['name'] == 'CI overlap assertion' or OMNIBUS_WORDS.search(p['name'])]
+        if a == 'side by side' and across:
+            flags.append((k, 'side by side but the record has a CI-overlap or omnibus-type test', ','.join(p['name'] for p in across)[:80]))
         if a in FINER and not g['resolves_to_finer']:
             flags.append((k, 'resolves_to_finer must be true', a))
         if a == 'trend test' and not g['ordered']:
@@ -100,13 +108,13 @@ def check_record(vol, i, rec):
     return flags
 
 
-def cmd_groupwise(vol):
+def cmd_groupwise(vol, out=None):
     recs = records(vol)
     rows, n_flag = [], collections.Counter()
     for i, rec in recs.items():
         for k, chk, det in check_record(vol, i, rec):
             rows.append({'id': i, 'entry': k, 'check': chk, 'detail': det}); n_flag[chk] += 1
-    write_tsv(f'audit/{vol}/groupwise_check.tsv', rows, ['id', 'entry', 'check', 'detail'])
+    write_tsv(out or f'audit/{vol}/groupwise_check.tsv', rows, ['id', 'entry', 'check', 'detail'])
     with_gw = sum(bool(r['groupwise']) for r in recs.values())
     flagged = {r['id'] for r in rows}
     print(f'vol {vol}: {len(recs)} records, {with_gw} with groupwise entries; {len(flagged)} records flagged')
@@ -256,6 +264,6 @@ def cmd_score(vol):
 
 if __name__ == '__main__':
     cmds = {'groupwise': cmd_groupwise, 'draw': cmd_draw, 'compare': cmd_compare, 'score': cmd_score}
-    if len(sys.argv) != 3 or sys.argv[1] not in cmds:
+    if len(sys.argv) not in (3, 4) or sys.argv[1] not in cmds or (len(sys.argv) == 4 and sys.argv[1] != 'groupwise'):
         sys.exit(__doc__)
-    cmds[sys.argv[1]](sys.argv[2])
+    cmds[sys.argv[1]](*sys.argv[2:])
