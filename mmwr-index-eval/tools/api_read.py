@@ -25,7 +25,7 @@ import csv, datetime, hashlib, json, os, re, subprocess, sys
 from validate import check, _values
 
 MODEL, EFFORT, MAX_TOKENS, RETRY_MAX_TOKENS = 'claude-opus-5-5', 'medium', 32000, 64000
-BRIEF_TAG = 'brief-v5.1'
+BRIEF_TAG = 'brief-v5.2'
 TAG = BRIEF_TAG                # the tag of the prefix in use: a pinned volume keeps its own (fixed_prefix)
 READER_ID, ROLE = 'prod', 'judgment'
 FALLBACK_BETA = 'server-side-fallback-2026-07-01'

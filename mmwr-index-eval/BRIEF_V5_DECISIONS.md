@@ -204,7 +204,7 @@ Decision: ~~**owner: requested** (2026-10-16).~~ Accept.
 - rule 7: program target groups that mix age bands with a clinical group are not SPD groups, unless 3 or more age groups are compared within one clinical level (mm7339a1).
 
 `API_PREAMBLE.md` names version 5.2. No schema or validator change. Applies from vol 72; vol 73 stays on v5.1 (its prefix is pinned).
-Decision:
+Decision: **owner: accept** (2026-10-17).
 
 ---
 

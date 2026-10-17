@@ -6,10 +6,10 @@ An evaluation of LLM readers for indexing *MMWR* reports by **how they make clai
 
 | Path | What it is |
 |---|---|
-| `READER_BRIEF.md` | the readers' contract (version 5.1) |
+| `READER_BRIEF.md` | the readers' contract (version 5.2, from vol 72; vol 73 was read with 5.1) |
 | `SCHEMA.md` | the index schema (v2.1, with v2.2 additions in §9); the brief governs |
 | `BRIEF_V4_DECISIONS.md` | the instructor's decisions behind brief v4 (D1–D20) |
-| `BRIEF_V5_DECISIONS.md` | the instructor's decisions behind brief v5 (V1–V20), from pilot 2 and the confirmation run |
+| `BRIEF_V5_DECISIONS.md` | the instructor's decisions behind brief v5 (V1–V21), from pilot 2, the confirmation run and the vol 73 audit |
 | `RUN_ARMB_AUDIT.md`, `reports/AUDIT_REPORT.md` | the arm-B audit and its result |
 | `RUN_PILOT2.md`, `tools/pilot2.py`, `p2_sample.tsv`, `reports/PILOT2_REPORT.md` | pilot 2 on brief v4: effort low vs medium, routing, condition grouping |
 | `RUN_CONFIRM_V5.md`, `tools/confirm_v5.py`, `cv5_sample.tsv` | the brief v5 confirmation run; result in `reports/CONFIRM_V5_REPORT.md` |
