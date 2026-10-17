@@ -1,0 +1,11 @@
+- mm7202a3: evaluation or monitoring: the brief does not say how much target comparison makes a routine coverage report 'monitoring against targets' (one target sentence here).
+- mm7203a6: No study_design value or rule for qualitative interview components (semistructured interviews) alongside a survey.
+- mm7207a5: Equity dimension roles: no definition separating 'primary comparison' from 'stratifier' when an SPD is one of many stratifiers but is headlined in the Summary.
+- mm7228a4: The brief does not say how to lead the comparison framework when a table shows 3+ groups side by side but only one or two pairs are tested.
+- mm7230a5: The brief does not say whether a surveillance system's notification or activation threshold counts as a fixed referent; a rule treating it like a case-finding rule (not a comparison) would decide this.
+- mm7234a1: The brief does not say whether a historical baseline (median or average of prior years of the same series) is a fixed referent or the other period of a pair.
+- mm7245a2: The common-cases list does not cover CDC's annual kindergarten school vaccination assessment (SchoolVaxView); a rule mapping it to CDC surveillance system would decide this.
+- mm7228a1: Rule 6 does not say whether contrasting the size of a within-level non-SPD effect across 3+ SPD levels (here: larger increases in some age groups) earns a side-by-side entry; A's reading follows the ranking pattern, but no entry is also arguable.
+- mm7230a7: Rule 7 counts SPD groups within one level of a cross-classifier, but the brief does not say how to record one groupwise entry when strata differ in pair coverage (all pairs at one income level, some pairs at others), nor whether 'lower' following a significance clause counts as a stated pair.
+- mm7240a1: The race-by-age chi-square has two SPD margins; the brief does not say whether that is one entry listing both dimensions (as A did) or one entry per dimension. It does not change the set values here.
+- mm7245a5: SVI here is attached to facilities' counties; the brief excludes rurality of non-human units but says nothing about an area index of a workplace. A's reading (SES, as HCP characteristics) is the more defensible one.
