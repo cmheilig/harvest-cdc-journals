@@ -3,7 +3,7 @@
     python3 tools/api_read.py prefix                        # sizes and SHA-256 of the fixed prefix (no API call)
     python3 tools/api_read.py calibrate [N] [--vol VOL]     # count_tokens on the prefix and N packets (default 5)
     python3 tools/api_read.py slice ID [ID ...]             # synchronous reads of out/v5 articles, compared with compare.norm
-    python3 tools/api_read.py submit VOL [--dry-run]        # one batch for prod_packets/<VOL>/ (cache warmed, budget checked);
+    python3 tools/api_read.py submit VOL [--dry-run]        # one batch for prod_packets/<VOL>/ (budget checked);
                                                             # VOL-audit: the second reads drawn by tools/audit_sample.py
     python3 tools/api_read.py poll                          # status of open batches
     python3 tools/api_read.py collect VOL                   # results of ended batches -> out/prod/<VOL>/<id>.json, ledger
@@ -33,7 +33,10 @@ PRICE = {'input': 4.00, 'output': 20.00, 'cache_read': 0.20, 'write_1h': 8.00, '
 BATCH_DISCOUNT = 0.5
 # estimate defaults until calibrate and the ledger have figures (tools/estimate_cost.py)
 # OUT_TOKENS: the 3-read slice gave 2,659-5,515 output tokens (thinking included); 4,500 leans to full reports
-CHARS_PER_TOKEN, OUT_TOKENS, FIXUP_SHARE = 2.3, 4500, 0.15
+CHARS_PER_TOKEN, OUT_TOKENS, FIXUP_SHARE = 2.3, 4500, 0.30      # vol 73: 61 of 202 reads needed a fix-up
+# Batch caching is best effort. Vol 73: 43 of 202 batch reads hit the cache and 159 wrote it again at the 1-hour price
+# (2x input), which cost more than sending the prefix uncached. So batch requests carry no cache marker; sync ones do.
+CACHE_IN_BATCH = False
 
 PREAMBLE, BRIEF, EXAMPLES = 'API_PREAMBLE.md', 'READER_BRIEF.md', ('examples/mm6925a1.json', 'examples/mm7223a3.json')
 PACKETS, LEDGER, BATCHES, CALIB = 'prod_packets', 'prod_ledger.tsv', 'prod_batches.tsv', 'prod_calibration.tsv'
@@ -126,7 +129,9 @@ def packet_text(vol, i):
     return '\n\n'.join(parts)
 
 
-def params(system, messages, max_tokens=MAX_TOKENS):
+def params(system, messages, max_tokens=MAX_TOKENS, cache=True):
+    if not cache:                                  # same text, no breakpoint
+        system = [{k: v for k, v in b.items() if k != 'cache_control'} for b in system]
     return {'model': MODEL, 'max_tokens': max_tokens, 'system': system, 'messages': messages,
             'output_config': {'effort': EFFORT}}
 
@@ -257,8 +262,9 @@ def estimate(packet_chars, n_prefix_chars):
     for ch in packet_chars:
         t_pkt = ch / cpt
         pkt_out = t_pkt * PRICE['input'] + t_out * PRICE['output']
-        fix = FIXUP_SHARE * (t_prefix * PRICE['cache_read'] + (t_pkt + t_out) * PRICE['input'] + t_out * PRICE['output'])
-        cached += (t_prefix * PRICE['cache_read'] + pkt_out + fix) / 1e6
+        p_prefix = PRICE['cache_read'] if CACHE_IN_BATCH else PRICE['input']
+        fix = FIXUP_SHARE * (t_prefix * p_prefix + (t_pkt + t_out) * PRICE['input'] + t_out * PRICE['output'])
+        cached += (t_prefix * p_prefix + pkt_out + fix) / 1e6
         uncached += (t_prefix * PRICE['input'] + pkt_out + fix) / 1e6
     return cached * BATCH_DISCOUNT, uncached * BATCH_DISCOUNT
 
@@ -338,29 +344,34 @@ def cmd_submit(vol, dry, budget):
         sys.exit(f'vol {vol}: every packet already has a read')
     texts = {i: packet_text(vol, i) for i in ids}
     cached, uncached = estimate([len(t) for t in texts.values()], sum(len(b['text']) for b in system))
-    reqs = [{'custom_id': i, 'params': params(system, [{'role': 'user', 'content': texts[i]}])} for i in ids]
+    reqs = [{'custom_id': i, 'params': params(system, [{'role': 'user', 'content': texts[i]}], cache=CACHE_IN_BATCH)}
+            for i in ids]
     mb = len(json.dumps(reqs).encode()) / 1e6
-    print(f'vol {vol}: {len(ids)} requests, {mb:.1f} MB; estimate ~${cached:.2f} with cache hits, ~${uncached:.2f} without')
+    print(f'vol {vol}: {len(ids)} requests, {mb:.1f} MB; estimate ~${cached:.2f}'
+          + (f' with cache hits, ~${uncached:.2f} without' if CACHE_IN_BATCH else ' (no batch caching)'))
     guard(uncached, budget)
     if dry:
         return
     c = client()
-    warm = c.messages.create(model=MODEL, max_tokens=0, system=system, messages=[{'role': 'user', 'content': 'warmup'}],
-                             output_config={'effort': EFFORT})
-    us = usage_of(warm.usage)
-    ledger('-', vol, 'warm', 'api-sync', warm.model, sha, '', warm.id, us, cost_of(us, False), 'ok')
+    warmed = 'no cache warm-up (batch caching off)'
+    if CACHE_IN_BATCH:
+        warm = c.messages.create(model=MODEL, max_tokens=0, system=system, messages=[{'role': 'user', 'content': 'warmup'}],
+                                 output_config={'effort': EFFORT})
+        us = usage_of(warm.usage)
+        ledger('-', vol, 'warm', 'api-sync', warm.model, sha, '', warm.id, us, cost_of(us, False), 'ok')
+        warmed = f'cache warmed ({us["write_1h"]:,} tokens written)'
     batch = c.messages.batches.create(requests=reqs)
     append_tsv(BATCHES, BATCH_COLS, {'batch_id': batch.id, 'volume': vol, 'kind': 'read', 'n': len(ids),
                                      'est_usd': f'{uncached:.2f}', 'prefix_sha': sha, 'submitted': now(),
                                      'status': batch.processing_status})
     os.makedirs(outdir(vol), exist_ok=True)
     if vol.endswith('-audit'):                     # second reads: the articles are already logged
-        print(f'cache warmed ({us["write_1h"]:,} tokens written); batch {batch.id} submitted: {len(ids)} requests')
+        print(f'{warmed}; batch {batch.id} submitted: {len(ids)} requests')
         return
     with open(f'{outdir(vol)}/exposure_rows.tsv', 'a') as o:   # for the owner to append to the extraction's exposure_log.tsv
         o.writelines(f'{i}\t{now()[:10]}\tClaude API batch (production)\tmmwr-index-eval production read, vol {vol}; '
                      f'records public on GitHub\n' for i in ids)
-    print(f'cache warmed ({us["write_1h"]:,} tokens written); batch {batch.id} submitted: {len(ids)} requests')
+    print(f'{warmed}; batch {batch.id} submitted: {len(ids)} requests')
 
 
 def cmd_poll():
@@ -427,7 +438,8 @@ def cmd_fixup(vol, sync, dry, budget):
             n[st] = n.get(st, 0) + 1
         print(', '.join(f'{k} {v}' for k, v in sorted(n.items())))
         return
-    batch = c.messages.batches.create(requests=[{'custom_id': i, 'params': params(system, msgs[i])} for i in ids])
+    batch = c.messages.batches.create(requests=[{'custom_id': i, 'params': params(system, msgs[i], cache=CACHE_IN_BATCH)}
+                                                for i in ids])
     append_tsv(BATCHES, BATCH_COLS, {'batch_id': batch.id, 'volume': vol, 'kind': 'fixup', 'n': len(ids),
                                      'est_usd': f'{uncached:.2f}', 'prefix_sha': sha, 'submitted': now(),
                                      'status': batch.processing_status})

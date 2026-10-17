@@ -1,0 +1,393 @@
+{
+ "id": "mm7338a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.1",
+  "prefix_sha": "f4030e441a8d",
+  "request_id": "msg_011Cg6gFRSU2ngAoSfWrbFh8",
+  "batch_id": "msgbatch_01Pnk7KDZXhJ3DshXVpkoE1T"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Among 678 women at 32–36 weeks’ gestation during September 2023–January 2024, 32.6% reported receipt of an RSV vaccine any time during pregnancy."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Overall, 55.8% of infants were protected by maternal RSV vaccine, nirsevimab, or both."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was significantly higher among those with private or military insurance (38.9%) than among those with public insurance (28.0%)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated: differences among groups determined using t-tests, p<0.05; each level tested against a Ref group (§§ marks)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Differences among groups were determined using t -tests, with p-values <0.05 considered statistically significant."
+    },
+    {
+     "loc": "table 1",
+     "q": "Statistically significant difference compared with Ref."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated weighting to the U.S. population of pregnant women; all estimates are weighted proportions computed in SUDAAN",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted to reflect pregnancy status and outcome at the time of survey completion, age, race and ethnicity, and geographic distribution"
+    },
+    {
+     "loc": "text",
+     "q": "Weighted proportions and corresponding 95% CIs for maternal and infant RSV immunization coverage were estimated overall and by selected demographic characteristics."
+    }
+   ]
+  },
+  {
+   "name": "suppression of unreliable estimates (NCHS reliability standards)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "estimates not meeting NCHS reliability standards withheld (no-insurance row)",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimates do not meet the National Center for Health Statistics’ standards of reliability."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": "Ref levels (e.g., provider recommendation; private or military insurance; at or above poverty; employed)",
+  "across": [
+   "provider recommendation",
+   "prenatal insurance",
+   "poverty status",
+   "maternal education",
+   "employment status",
+   "maternal age",
+   "race/ethnicity",
+   "rurality",
+   "region"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Provider recommendation for immunization was associated with higher coverage."
+   },
+   {
+    "loc": "text",
+    "q": "those who received a provider recommendation for either maternal or infant RSV immunization (56.7%) than among those who received no recommendation (1.9%)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "Modified Clopper-Pearson 95% CI according to the approach of Korn and Graubard."
+   },
+   {
+    "loc": "text",
+    "q": "Differences among groups were determined using t -tests, with p-values <0.05 considered statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted % vaccinated",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Weighted % vaccinated (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "weighted %",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Weighted % (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What were maternal RSV vaccination and infant nirsevimab coverage in the 2023–24 season, overall and by characteristics, and why did women not receive them?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "To determine maternal and infant RSV immunization coverage for the 2023–24 RSV season, CDC conducted an Internet panel survey"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "respiratory syncytial virus (RSV) disease",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Maternal Respiratory Syncytial Virus Vaccination and Receipt of Respiratory Syncytial Virus Antibody (Nirsevimab) by Infants Aged <8 Months"
+    }
+   ]
+  },
+  {
+   "v": "pregnancy",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Women aged 18–49 years who reported being pregnant at any time since August 1, 2023, were eligible for the survey."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC conducted an Internet panel* survey during March 26–April 11, 2024"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Pregnant women were recruited from a large, preexisting, opt-in Internet panel of the general population, operated by Dynata."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "CDC Internet panel survey of pregnant women (Dynata panel)",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Pregnant women were recruited from a large, preexisting, opt-in Internet panel of the general population, operated by Dynata."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, April 2024"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "In a CDC survey, 33% of eligible pregnant women reported receiving an RSV vaccination."
+   }
+  ]
+ },
+ "equity": {
+  "level": 2,
+  "level_reason": "Coverage is reported by insurance, poverty, education, employment, race/ethnicity, age and rurality, with significance against Ref groups, but the differences are not framed or interpreted as disparities and no difference or ratio is computed.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Significantly lower coverage among women with public insurance, below poverty or less education could be read as a quantified SES disparity; access and cost barriers are mentioned only for overall coverage."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "prenatal insurance coverage",
+     "poverty status",
+     "maternal education"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "those living at or above poverty (35.0%) compared with those living below poverty (26.4%)"
+     },
+     {
+      "loc": "text",
+      "q": "significantly higher among infants whose mothers were employed (48.5%) than among those whose mothers were unemployed (38.7%)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race and ethnicity were self-reported."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Data were weighted to reflect pregnancy status and outcome at the time of survey completion, age, race and ethnicity, and geographic distribution"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Area of residence › Rural"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Maternal age group, yrs › 18–24"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Women aged 18–49 years who reported being pregnant at any time since August 1, 2023, were eligible for the survey."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Women aged 18–49 years who reported being pregnant at any time since August 1, 2023, were eligible for the survey."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Each SPD level is compared with a Ref level; Asian, AI/AN, NH/PI and multiracial women are collapsed into Other because of small samples; the no-insurance estimate is suppressed."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "those with higher than a college degree (50.1%) than among those with a college degree or less (28.7%–32.7%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race and ethnicity †† › White (Ref)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Maternal age group, yrs › 35–49 (Ref)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level"
+ ],
+ "confidence": "high",
+ "notes": "The prepass chi-square cue is a false hit; the only stated test is the t-test against Ref groups. Reasons for nonvaccination and product preference (Figure, Table 2) are weighted descriptive proportions.",
+ "view_issues": "Authors note that probability-based tests were applied to a nonprobability opt-in sample. The employment contrast for maternal vaccination (35.7% vs 28.2%) is not marked significant, while infant and combined contrasts are."
+}

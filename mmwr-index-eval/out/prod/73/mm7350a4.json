@@ -1,0 +1,291 @@
+{
+ "id": "mm7350a4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.1",
+  "prefix_sha": "f4030e441a8d",
+  "request_id": "msg_011Cg6gFSgd4zp5YLE5x92Zw",
+  "batch_id": "msgbatch_01Pnk7KDZXhJ3DshXVpkoE1T"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The percentage of persons reporting each administration route was calculated for 6-month periods by U.S. Census Bureau region."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Injection decreased from 75.2% during January–June 2020 to 41.2% during January–June 2023 in the Midwest U.S. Census Bureau region"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "the percentage of persons injecting IMF sharply declined across all U.S. Census Bureau regions, with region-specific differences in magnitude"
+    },
+    {
+     "loc": "text",
+     "q": "Injection decreased from 75.2% during January–June 2020 to 41.2% during January–June 2023 in the Midwest U.S. Census Bureau region"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "joinpoint regression",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'Joinpoint (Joinpoint version 5.1.0; National Cancer Institute)' for trends in 6-month percentages; the software's default model is log-linear, but the article does not state the model",
+   "role": "primary",
+   "alternative_reading": "linear (Joinpoint also fits linear models on untransformed percentages)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Significant (p-value <0.05) trends by administration route were identified using Joinpoint (Joinpoint version 5.1.0; National Cancer Institute) and Pearson correlations."
+    }
+   ]
+  },
+  {
+   "name": "Pearson correlation coefficient",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "r between percentages smoking or snorting and percentages injecting across 6-month periods, by region",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were strongly negatively correlated with decreases in injection (Pearson correlation coefficient [r] = −0.96; p<0.001 [Midwest]"
+    }
+   ]
+  },
+  {
+   "name": "test of Pearson correlation",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "p-values reported for each r under a p<0.05 significance rule; the test statistic is not named",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were strongly negatively correlated (r = −0.89; p<0.001) with a decrease in injection"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "6-month period",
+   "U.S. Census Bureau region",
+   "administration route"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "the percentage of persons injecting IMF sharply declined across all U.S. Census Bureau regions, with region-specific differences in magnitude"
+   },
+   {
+    "loc": "text",
+    "q": "but timing of changes across each census region varied"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Significant (p-value <0.05) trends by administration route were identified using Joinpoint (Joinpoint version 5.1.0; National Cancer Institute) and Pearson correlations."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The percentage of persons reporting each administration route was calculated for 6-month periods by U.S. Census Bureau region."
+    }
+   ]
+  },
+  {
+   "v": "Pearson correlation coefficient (r)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Pearson correlation coefficient [r] = −0.96; p<0.001 [Midwest]"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Significant (p-value <0.05) trends by administration route were identified using Joinpoint"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did routes of IMF administration change during 2017–2023 among adults assessed for substance-use treatment, by U.S. Census Bureau region?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "IMF administration routes were examined among adults assessed for substance use treatment who used IMF during the past 30 days."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "illegally manufactured fentanyl use",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Among Adults Reporting Use of Illegally Manufactured Fentanyl When Assessed for Substance-Use Treatment"
+    }
+   ]
+  },
+  {
+   "v": "fentanyl administration routes (injection, smoking, snorting or sniffing, swallowing)",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "stratified by administration routes (swallowed, snorted or sniffed, smoked, and injected"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed treatment assessments conducted between July 1, 2017, and June 30, 2023"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "the percentage of persons injecting IMF sharply declined across all U.S. Census Bureau regions, with region-specific differences in magnitude"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The National Addictions Vigilance Intervention and Prevention Program’s Addiction Severity Index-Multimedia Version (ASI-MV) tool"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "NAVIPPRO Addiction Severity Index-Multimedia Version (ASI-MV)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The National Addictions Vigilance Intervention and Prevention Program’s Addiction Severity Index-Multimedia Version (ASI-MV) tool"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "When Assessed for Substance-Use Treatment — 14 U.S. States, 2017–2023"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Age (adults ≥18 years) only defines the population; census regions are geography, not a social-position dimension.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Only if the treatment-seeking convenience sample were read as an access framing, which the article does not make."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "includes a convenience sample of adults aged ≥18 years assessed for substance-use treatment"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Region (14 selected states; the Northeast is Massachusetts only) is geography, not an SPD."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "procedures"
+ ],
+ "confidence": "medium",
+ "notes": "No design is named; surveillance/descriptive is inferred from the convenience sample of treatment assessments. The joinpoint family is inferred from the software default. The prepass chi-square cue is a false hit on 'Pearson correlations'.",
+ "view_issues": "Joinpoint is named as a method, but no APCs, joinpoints or trend p-values are reported; only Pearson r and its p-values appear."
+}

@@ -1,0 +1,386 @@
+{
+ "id": "mm7308a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.1",
+  "prefix_sha": "f4030e441a8d",
+  "request_id": "msg_011Cg6gFQNitT7KzQ2soNpBb",
+  "batch_id": "msgbatch_01Pnk7KDZXhJ3DshXVpkoE1T"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Average annual number of deaths from excessive alcohol use increased 29.3%, from 137,927 during 2016–2017 to 178,307 during 2020–2021"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "age-standardized alcohol-related death rates increased from 38.1 to 47.6 per 100,000 population."
+    },
+    {
+     "loc": "text",
+     "q": "Average annual deaths from excessive alcohol use in the United States increased 5.3%, from 137,927 during 2016–2017 to 145,253 during 2018–2019"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This increase translates to an average of approximately 488 deaths each day from excessive drinking during 2020–2021."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the percentage increase in the number of deaths during this time was larger for females (approximately 35% increase) than for males (approximately 27%)."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Death rates (deaths per 100,000 population) were calculated based on midyear postcensal population estimates and age-standardized to the 2000 U.S. Census Bureau standard population."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "rates age-standardized to the 2000 U.S. standard population → direct standardization",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Death rates (deaths per 100,000 population) were calculated based on midyear postcensal population estimates and age-standardized to the 2000 U.S. Census Bureau standard population."
+    }
+   ]
+  },
+  {
+   "name": "CI overlap assertion",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated rule: nonoverlapping 95% CIs considered significantly different; table marks flag period differences in rates; CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Nonoverlapping 95% CIs were considered significantly different."
+    },
+    {
+     "loc": "table 1",
+     "q": "Nonoverlapping 95% CIs of age-standardized death rates compared with 2016–2017."
+    }
+   ]
+  },
+  {
+   "name": "alcohol-attributable fraction estimation (ARDI population-attributable fractions)",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "cause-specific attributable fractions computed from published relative risks and BRFSS prevalence adjusted for per capita sales; they produce every death estimate",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "For each cause of death, alcohol-attributable fractions were used, reflecting the cause-specific proportion that is due to excessive alcohol use."
+    },
+    {
+     "loc": "text",
+     "q": "population-attributable fractions were estimated using relative risks from published meta-analyses and adjusted prevalence estimates of low, medium, and high average daily alcohol use"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "both",
+  "referent": "2016–2017",
+  "across": [
+   "period",
+   "sex",
+   "cause of death category"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Average annual number of deaths from excessive alcohol use increased 29.3%, from 137,927 during 2016–2017 to 178,307 during 2020–2021"
+   },
+   {
+    "loc": "text",
+    "q": "The average annual number of deaths from excessive alcohol use among males increased by 25,244 (26.8%), from 94,362 deaths during 2016–2017"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "ci_overlap": true,
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Nonoverlapping 95% CIs were considered significantly different."
+   },
+   {
+    "loc": "table 2",
+    "q": "Nonoverlapping 95% CIs of age-standardized death rates compared with 2018–2019."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "average annual no. of deaths",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Average annual no. of deaths from excessive alcohol use"
+    }
+   ]
+  },
+  {
+   "v": "% change",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% Change in average annual no. of deaths from excessive alcohol use"
+    }
+   ]
+  },
+  {
+   "v": "age-standardized deaths per 100,000 population",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age-standardized deaths per 100,000 population (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did the number and age-standardized rate of deaths from excessive alcohol use, including partially attributable causes, change in the United States from 2016–2017 to 2020–2021, overall and by sex and cause?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "CDC’s Alcohol-Related Disease Impact application was used to estimate the average annual number and age-standardized rate of deaths from excessive alcohol use"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "deaths from excessive alcohol use",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Deaths from Excessive Alcohol Use — United States, 2016–2021"
+    }
+   ]
+  },
+  {
+   "v": "excessive alcohol use",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "For each cause of death, alcohol-attributable fractions were used, reflecting the cause-specific proportion that is due to excessive alcohol use."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Total U.S. deaths from alcohol-related conditions during 2016–2021 identified from the National Vital Statistics System were grouped into three periods"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Average annual deaths from excessive alcohol use in the United States increased 5.3%, from 137,927 during 2016–2017 to 145,253 during 2018–2019"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Total U.S. deaths from alcohol-related conditions during 2016–2021 identified from the National Vital Statistics System were grouped into three periods"
+    }
+   ]
+  },
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence estimates were obtained from the Behavioral Risk Factor Surveillance System"
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Alcohol-attributable fractions for motor vehicle crashes and other road vehicle crash deaths were obtained from the Fatality Analysis Reporting System"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "identified from the National Vital Statistics System"
+    }
+   ]
+  },
+  {
+   "v": "Alcohol-Related Disease Impact (ARDI) application",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC’s Alcohol-Related Disease Impact (ARDI) application and estimated using ARDI methods."
+    }
+   ]
+  },
+  {
+   "v": "Behavioral Risk Factor Surveillance System",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence estimates were obtained from the Behavioral Risk Factor Surveillance System"
+    }
+   ]
+  },
+  {
+   "v": "Fatality Analysis Reporting System",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were obtained from the Fatality Analysis Reporting System"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Deaths from Excessive Alcohol Use — United States, 2016–2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Only sex and age appear: sex-specific counts and rates and age-group counts, with no social-position framing; policy explanations address the overall trend, not a group.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 2,
+   "reason": "Sex-specific results are reported and compared (larger percentage increase among females), if sex were read as framed beyond a demographic stratifier."
+  },
+  "dimensions": [
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "the percentage increase in the number of deaths during this time was larger for females (approximately 35% increase) than for males (approximately 27%)."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The average number of sex-specific alcohol-attributable deaths increased among all age groups from 2016–2017 to 2020–2021"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "deaths from chronic conditions were calculated among decedents aged ≥20 years, and deaths from acute causes were calculated among decedents aged ≥15 years."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Only sex and age groups reported; alcohol availability policies are offered as explanations of the overall pandemic-era increase, not of a group difference."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": null,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Average annual number of deaths from excessive alcohol use, by age group and period among males (A) and females (B)"
+    },
+    {
+     "loc": "text",
+     "q": "The average number of sex-specific alcohol-attributable deaths increased among all age groups from 2016–2017 to 2020–2021"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "procedures",
+  "inference"
+ ],
+ "confidence": "high",
+ "notes": "Design not named; surveillance/descriptive with trend inferred. Attributable fractions use relative risks cited from meta-analyses, while the fraction computation and BRFSS prevalence adjustment for per capita sales are the article's own. Percent change is arithmetic, not a procedure.",
+ "view_issues": "Table 2 rate header reads 'Deaths per 100,000 population' without 'age-standardized', though its footnotes and the text call them age-standardized. Number of age groups in the Figure is not given in text."
+}

@@ -1,0 +1,208 @@
+{
+ "id": "mm7332a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.1",
+  "prefix_sha": "f4030e441a8d",
+  "request_id": "msg_011Cg6gFbCqtwjWckpo86y7m",
+  "batch_id": "msgbatch_01Pnk7KDZXhJ3DshXVpkoE1T"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Either CDC or the dog’s destination state confirmed revaccination for 116 dogs (94%)"
+   },
+   {
+    "loc": "table 1",
+    "q": "Public health follow-up and revaccination rates for imported dogs with a history of receiving Canvac R rabies vaccine* before importation"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "For the remaining 124, importers of 102 (82%) dogs provided CDC proof of revaccination."
+    },
+    {
+     "loc": "text",
+     "q": "Either CDC or the dog’s destination state confirmed revaccination for 116 dogs (94%)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Either CDC or the dog’s destination state confirmed revaccination for 116 dogs (94%)"
+    },
+    {
+     "loc": "text",
+     "q": "Among 63,618 approved permits, CDC identified 132 (0.2%) permits issued during August 2021–April 2024 for dogs vaccinated with Canvac R."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Country of origin › United Arab Emirates"
+    },
+    {
+     "loc": "table 1",
+     "q": "Total no. (%) ¶ with proof of revaccination provided"
+    }
+   ]
+  }
+ ],
+ "procedures": [],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "country of origin"
+  ],
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "Public health follow-up and revaccination rates for imported dogs with a history of receiving Canvac R rabies vaccine* before importation"
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percentage of dogs vaccinated with Canvac R that traveled to the United States."
+    }
+   ]
+  },
+  {
+   "v": "No. of CDC dog import permits issued",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. of CDC dog import permits issued"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Did dogs imported into the United States after vaccination abroad with the potentially ineffective Canvac R rabies vaccine receive confirmed revaccination?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "In January 2022, CDC implemented retrospective and prospective monitoring of rabies revaccination among dogs who received Canvac R before importation."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "rabies",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Heightened Precautions for Imported Dogs Vaccinated with Potentially Ineffective Rabies Vaccine"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In January 2022, CDC implemented retrospective and prospective monitoring of rabies revaccination among dogs who received Canvac R before importation."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC’s dog import permit collected administered rabies vaccine product information."
+    }
+   ]
+  },
+  {
+   "v": "record abstraction or interview",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC emailed 132 applicants who had filed permit requests for dogs vaccinated with Canvac R prior to importation to obtain confirmation of revaccination"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "CDC dog import permit",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC’s dog import permit collected administered rabies vaccine product information."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "These dogs originated in 17 high-risk countries and had final destinations in 28 U.S. states."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "The study units are imported dogs; country of origin of dogs is not a social-position dimension and no human SPD is analyzed.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "comparison",
+  "analytic_depth",
+  "study_design"
+ ],
+ "confidence": "medium",
+ "notes": "Program follow-up measures (proportion revaccinated) are computed from CDC permit data; the country breakdown is shown only in the table and not discussed, so the group comparison is side by side. Design inferred from the stated monitoring of revaccination compliance with permit conditions. Animal vaccine, so vaccine_outcome_type is null.",
+ "view_issues": "Summary says August 2021–May 2024 while title and text say April 2024. Table shows Nepal as 0 (—) although one dog traveled (0%). Table title calls proportions 'rates'."
+}

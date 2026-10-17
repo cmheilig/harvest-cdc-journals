@@ -1,0 +1,415 @@
+{
+ "id": "mm7325a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.1",
+  "prefix_sha": "f4030e441a8d",
+  "request_id": "msg_011Cg6gFRzxFPFVRUW1ocFGe",
+  "batch_id": "msgbatch_01Pnk7KDZXhJ3DshXVpkoE1T"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "In 2022, among the 4% of U.S. adults who needed OUD treatment, only 25% received recommended medications."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2022, an estimated 3.7% of U.S. adults (9,367,000) needed OUD treatment"
+    },
+    {
+     "loc": "text",
+     "q": "The percentage who received medications for OUD was higher for men (51.0%) than for women (39.5%)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In 2022, among the 4% of U.S. adults who needed OUD treatment, only 25% received recommended medications."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The percentage who received medications for OUD was higher for men (51.0%) than for women (39.5%)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting (complex design, SUDAAN)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weighted prevalence estimates and SUDAAN analysis accounting for NSDUH complex design and sampling weights",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Analyses were conducted using SAS-callable SUDAAN (version 11.0; RTI International) to account for NSDUH’s complex design and sampling weights."
+    }
+   ]
+  },
+  {
+   "name": "log-linear chi-square test of independence",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated as a chi-square test of independence for overall subgroup differences; SUDAAN log-linear chi-square, a test rather than a fitted regression with reported estimates",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Log-linear chi-square tests of independence assessed overall differences between subgroups, followed by pairwise comparisons using t -tests."
+    }
+   ]
+  },
+  {
+   "name": "pairwise t-tests",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated: pairwise comparisons using t-tests after the omnibus chi-square",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Log-linear chi-square tests of independence assessed overall differences between subgroups, followed by pairwise comparisons using t -tests."
+    },
+    {
+     "loc": "table 1",
+     "q": "Statistical tests indicate differences for this group relative to other groups at the 0.05 significance level."
+    }
+   ]
+  },
+  {
+   "name": "suppression of low-precision estimates",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "estimates withheld (NR) for low precision",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimate was not reported because of low precision."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "race/ethnicity",
+   "age group",
+   "sex",
+   "education",
+   "employment status",
+   "ever arrested and booked",
+   "poverty level",
+   "urbanicity (core-based statistical area)",
+   "census region",
+   "self-rated health",
+   "mental illness",
+   "substance use",
+   "OUD severity"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Higher percentages of White than Black or African American or Hispanic or Latino adults received any treatment."
+   },
+   {
+    "loc": "summary",
+    "q": "Higher percentages of men than women and of adults aged 35–49 years than other adults received medications."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Weighted prevalence estimates and 95% CIs were calculated overall and by sociodemographic-, health-, and substance-related characteristics."
+   },
+   {
+    "loc": "text",
+    "q": "Log-linear chi-square tests of independence assessed overall differences between subgroups, followed by pairwise comparisons using t -tests."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted percentage (95% CI)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Needed OUD treatment † › % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "estimated weighted number",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimated weighted no.* (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What share of U.S. adults need OUD treatment, and how many of them receive any treatment and medications for OUD, overall and by subgroup?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "NSDUH data were used to estimate and characterize U.S. adult populations who 1) need OUD treatment, 2) perceive a need for OUD treatment"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "opioid use disorder",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2022, an estimated 3.7% of U.S. adults (9,367,000) needed OUD treatment"
+    }
+   ]
+  },
+  {
+   "v": "opioid use disorder",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Treatment for Opioid Use Disorder: Population Estimates — United States, 2022"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Fourth, cross-sectional survey responses were insufficient to ascertain the presence of OUD symptoms before the preceding year."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from 56,610 adults aged ≥18 years (weighted interview response rate = 48.0%) participating in the 2022 NSDUH were analyzed"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Survey on Drug Use and Health (NSDUH)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "National Survey on Drug Use and Health (NSDUH) data were used to estimate and characterize U.S. adult populations"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "among a nationally representative sample of civilian, noninstitutionalized persons aged ≥12 years in the United States."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Treatment receipt is reported by race/ethnicity, SES, rurality, age and sex, and the Discussion calls the racial gaps disparities, but the contrasts are percentages set side by side with significance marks; no difference, ratio or multiple is computed, so the cap at 2 applies.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The White vs Black/Hispanic treatment gap is framed as a disparity, given with percentages (60.3% vs 43.8%, 45.7%) and interpreted in the implications section."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Higher percentages of White than Black or African American or Hispanic or Latino adults received any treatment."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education",
+     "employment status",
+     "poverty level"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Groups in which a high percentage of persons needed OUD treatment included those who did not attend college (4.9%), were not employed (5.2%)"
+     },
+     {
+      "loc": "text",
+      "q": "Need for OUD treatment increased with poverty level: it was lowest (2.5%) among those with income ≥200% of the federal poverty level [FPL]"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Core-based statistical area › Micropolitan statistical area or outside core-based statistical area"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "for those aged 35–49 years (68.4%) than for those in other age groups (18–25 = 19.9%; 26–34 = 44.1%; ≥50 = 32.3%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Data from 56,610 adults aged ≥18 years"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The percentage who received medications for OUD was higher for men (51.0%) than for women (39.5%)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "contact with systems linking persons to OUD treatment (among those ever arrested and booked)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "these findings might reflect greater awareness of treatment need or contact with systems linking persons to OUD treatment"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity has four groups; medication estimates for Black, Hispanic and other adults are suppressed for low precision, and insurance comparisons were not possible. Ever arrested and booked (incarceration history) is also a stratifier; region is geography only."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The percentage of adults who received treatment was higher among non-Hispanic White (White) adults (60.3%) than among non-Hispanic Black or African American (Black) (43.8%)"
+    },
+    {
+     "loc": "text",
+     "q": "Log-linear chi-square tests of independence assessed overall differences between subgroups, followed by pairwise comparisons using t -tests."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "for those aged 35–49 years (68.4%) than for those in other age groups (18–25 = 19.9%; 26–34 = 44.1%; ≥50 = 32.3%)"
+    },
+    {
+     "loc": "table 1",
+     "q": "Statistical tests indicate differences between those aged 18–25 and 26–34 years at the 0.05 significance level."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Need for OUD treatment increased with poverty level: it was lowest (2.5%) among those with income ≥200% of the federal poverty level [FPL]"
+    },
+    {
+     "loc": "table 1",
+     "q": "Statistical tests indicate differences between all groups at the 0.05 significance level."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "procedures",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "The prepass loglinear regression cue is the SUDAAN log-linear chi-square test of independence; it is recorded as a test, not a regression, since no model estimates are reported. Race/ethnicity need-for-treatment values (4 groups) are shown without significance marks. Discussion barriers (OTP availability, payor restrictions, clinician beliefs) explain overall underuse, not group differences.",
+ "view_issues": "Table CSV gives a 95% CI upper bound below the point estimate for 'Used but did not misuse' needed-treatment count (5,850; 5,671–7,014), likely a typo."
+}

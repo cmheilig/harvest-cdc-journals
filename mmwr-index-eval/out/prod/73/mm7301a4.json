@@ -1,0 +1,486 @@
+{
+ "id": "mm7301a4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.1",
+  "prefix_sha": "f4030e441a8d",
+  "request_id": "msg_011Cg6gFd8Rwj2SjaKf89qPr",
+  "batch_id": "msgbatch_01Pnk7KDZXhJ3DshXVpkoE1T"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "event-time",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "A marginal structural Cox model estimated the hazard ratio and 95% CIs among the bivalent cohort versus the original cohort"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "5,683,208 (44.7%) received a bivalent dose"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "5,683,208 (44.7%) received a bivalent dose"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "receipt of bivalent mRNA COVID-19 vaccine was 47% effective in preventing thromboembolic events among immunocompetent persons aged ≥65 years"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "inverse probability of treatment weights was estimated using a proportional hazards model to estimate the propensity for receiving a bivalent dose based on covariates."
+    },
+    {
+     "loc": "text",
+     "q": "with lower VE estimates ≥60 days after bivalent vaccine receipt (42%) compared with VE estimates 7–59 days after bivalent vaccine receipt (54%)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "marginal structural Cox model (doubly robust)",
+   "class": "regression",
+   "regression_family": "event-time",
+   "inferred_from": "'marginal structural Cox model' estimating hazard ratios → event-time; VE = (1 − HR) × 100%",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A marginal structural Cox model*** was used to estimate relative VE"
+    },
+    {
+     "loc": "note",
+     "q": "A marginal structural Cox model estimated the hazard ratio and 95% CIs among the bivalent cohort versus the original cohort"
+    }
+   ]
+  },
+  {
+   "name": "inverse probability of treatment weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "IPTW stated; propensity estimated with a proportional hazards model, weights enter every aVE",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "inverse probability of treatment weights was estimated using a proportional hazards model to estimate the propensity for receiving a bivalent dose based on covariates."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based CIs from the marginal structural Cox model; CI excluding zero VE judged significant, supporting protection claims",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Two-sided 95% CIs were calculated for each VE estimate, with 95% CIs that excluded zero considered statistically significant."
+    }
+   ]
+  },
+  {
+   "name": "CI overlap assertion",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated rule: nonoverlapping CIs = significantly different; used for waning by time since dose",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Nonoverlapping CIs were interpreted as statistically significantly different effectiveness estimates."
+    },
+    {
+     "loc": "text",
+     "q": "however, these differences were not statistically significant (i.e., the 95% CIs overlapped)."
+    }
+   ]
+  },
+  {
+   "name": "standardized mean difference (covariate balance)",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "SMD column in Table 1 comparing bivalent vs original-only cohorts",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "A standardized mean difference of ≤0.1 indicates a negligible difference in means or proportions between groups."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "original monovalent vaccine only",
+  "across": [
+   "vaccination status (bivalent vs original monovalent only)",
+   "time since vaccination",
+   "immunocompromise status",
+   "age group"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "receipt of bivalent mRNA COVID-19 vaccine was 47% effective in preventing thromboembolic events among immunocompetent persons aged ≥65 years"
+   },
+   {
+    "loc": "table 3",
+    "q": "Original vaccine only (Ref)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "ci_overlap": true,
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "note",
+    "q": "A marginal structural Cox model estimated the hazard ratio and 95% CIs among the bivalent cohort versus the original cohort"
+   },
+   {
+    "loc": "text",
+    "q": "however, these differences were not statistically significant (i.e., the 95% CIs overlapped)."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "aVE",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "aVE = adjusted vaccine effectiveness"
+    }
+   ]
+  },
+  {
+   "v": "hazard ratio",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Vaccine effectiveness was calculated as (1 – hazard ratio) × 100%"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "5,683,208 (44.7%) received a bivalent dose"
+    }
+   ]
+  },
+  {
+   "v": "SMD",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "SMD = standardized mean or proportion difference."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "note",
+     "q": "adjusting for influenza vaccination status, receipt of original monovalent booster, whether time since original monovalent vaccine was >150 days, and urban/rural residence"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "IPTW on age, sex, race, SVI, state, rural/urban, underlying conditions and time-varying covariates; plus influenza vaccination, monovalent booster, time since vaccine >150 days, urban/rural (≥65 cohort) or age, race, booster, time >150 days (ESRD cohort)",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Covariates included demographics (age, sex, race, Social Vulnerability Index, and state and rural/urban classification) and underlying medical conditions."
+    },
+    {
+     "loc": "note",
+     "q": "adjusting for age, race, receipt of original monovalent booster, and time since original monovalent vaccine >150 days (ESRD cohort)"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A supplementary analysis estimating VE against all-cause thromboembolic events also indicated a protective effect of bivalent vaccination"
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "How effective was a bivalent mRNA COVID-19 vaccine dose, relative to original monovalent doses only, against COVID-19–related thromboembolic events among Medicare beneficiaries aged ≥65 years and those with ESRD receiving dialysis?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This analysis aimed to assess relative effectiveness of bivalent COVID-19 mRNA vaccines compared with original monovalent COVID-19 vaccines alone against COVID-19–related thromboembolic events"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19–related thromboembolic events",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Effectiveness of Bivalent mRNA COVID-19 Vaccines in Preventing COVID-19–Related Thromboembolic Events"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Effectiveness of Bivalent mRNA COVID-19 Vaccines"
+    }
+   ]
+  },
+  {
+   "v": "end stage renal disease",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Among Medicare Enrollees Aged ≥65 Years and Those with End Stage Renal Disease"
+    }
+   ]
+  },
+  {
+   "v": "immunocompromise",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "VE was similar among Medicare beneficiaries with immunocompromise"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "retrospective cohort",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "two retrospective cohort studies were conducted among Medicare fee-for-service enrollees during September 4, 2022–March 4, 2023."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "administrative/claims",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Medicare Parts A and B enrollment and claims records were used to obtain information on study participation eligibility"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Medicare Parts A and B enrollment and claims (fee-for-service)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Medicare Parts A and B enrollment and claims records were used to obtain information on study participation eligibility"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, September 2022–March 2023"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "effectiveness",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "receipt of bivalent mRNA COVID-19 vaccine was 47% effective in preventing thromboembolic events among immunocompetent persons aged ≥65 years"
+   }
+  ]
+ },
+ "equity": {
+  "level": 1,
+  "level_reason": "Race, SVI and rurality enter only as IPTW or model covariates and as Table 1 descriptors of vaccinated vs unvaccinated cohorts; age defines the populations and stratifies VE without social-position framing.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 2,
+   "reason": "The text describes higher shares of non-Hispanic White and urban residents among bivalent recipients, which could be read as group-specific uptake results."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Among Medicare Enrollees Aged ≥65 Years and Those with End Stage Renal Disease"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 3",
+      "q": "18–64 yrs › Bivalent vaccine overall"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "adjusting for age, race, receipt of original monovalent booster, and time since original monovalent vaccine >150 days (ESRD cohort)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "adjusting for age, race, receipt of original monovalent booster, and time since original monovalent vaccine >150 days (ESRD cohort)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "a higher percentage of bivalent COVID-19–vaccinated ESRD beneficiaries were older (69% were aged ≥65 years) and non-Hispanic White (53%)"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "Social Vulnerability Index"
+    ],
+    "ev": [
+     {
+      "loc": "note",
+      "q": "Covariates included demographics (age, sex, race, Social Vulnerability Index, and state and rural/urban classification) and underlying medical conditions."
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "adjusting for influenza vaccination status, receipt of original monovalent booster, whether time since original monovalent vaccine was >150 days, and urban/rural residence"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "higher percentages of bivalent vaccine recipients than nonrecipients resided in an urban area (83% versus 78%)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "Covariates included demographics (age, sex, race, Social Vulnerability Index, and state and rural/urban classification) and underlying medical conditions."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "SVI is a linked area index used as an IPTW covariate and Table 1 descriptor; race collapsed to five groups; HHS region is geography only. Table 1 disability row is unframed and not recorded."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "equity.level"
+ ],
+ "confidence": "high",
+ "notes": "The proportional hazards propensity model is recorded as part of IPTW rather than a separate regression. Immunocompromised-cohort and all-cause results are in supplementary tables not in the packet. Nonindependence of repeated person-time is not addressed in the text.",
+ "view_issues": "Introduction misspells ESRD as 'ERSD'. Table 1 CSV has '10,540, 003' with a stray space. Table 2 gives 15,042 (67.18) for ESRD immunocompromised ≥65 'Total no. of persons' where other cells use 100."
+}

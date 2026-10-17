@@ -1,0 +1,425 @@
+{
+ "id": "mm7303a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.1",
+  "prefix_sha": "f4030e441a8d",
+  "request_id": "msg_011Cg6gFZ66E1NDc2X1mHJNM",
+  "batch_id": "msgbatch_01Pnk7KDZXhJ3DshXVpkoE1T"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Diabetes prevalence among U.S. Asian subgroups ranged from 6.3% among Vietnamese adults to 15.2% among Filipino adults."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The overall prevalence of diabetes was 10.9% ( Table 2 )"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The overall prevalence of diabetes was 10.9% ( Table 2 )"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "among disaggregated Asian subgroups, prevalence ranged from 6.3% for Vietnamese adults to 15.2% for Filipino adults."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence of each cardiometabolic disease was estimated from multivariable logistic models adjusted for age, sex, and survey year."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multivariable logistic regression (adjusted prevalence)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'multivariable logistic models adjusted for age, sex, and survey year' produce the adjusted prevalences → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence of each cardiometabolic disease was estimated from multivariable logistic models adjusted for age, sex, and survey year."
+    }
+   ]
+  },
+  {
+   "name": "survey sample weights and design variables",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated use of sample weights and design variables (SUDAAN) for all estimates",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Sample weights and design variables were used to account for the complex survey design."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": null,
+  "across": [
+   "race/ethnicity"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "prevalence of diagnosed cardiometabolic diseases varied up to twofold among disaggregated racial and ethnic subgroups."
+   },
+   {
+    "loc": "text",
+    "q": "prevalence of angina or CHD was approximately twice as high among Puerto Rican adults."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "% (95% CI)*"
+   },
+   {
+    "loc": "text",
+    "q": "Sample weights and design variables were used to account for the complex survey design."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "adjusted prevalence, %",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted prevalence of cardiometabolic diseases among adults aged ≥18 years, by race and ethnicity"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The proportion of adults with obesity ranged from 12.0% among Chinese adults to 51.2% among Samoan adults."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Sample weights and design variables were used to account for the complex survey design."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Prevalence is adjusted for age, sex, and survey year."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age, sex, and survey year",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "multivariable logistic models adjusted for age, sex, and survey year."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How does the prevalence of diagnosed diabetes, MI, angina/CHD and stroke vary across disaggregated racial and ethnic subgroups of U.S. adults?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC evaluated the prevalence of cardiometabolic diseases among selected racial and ethnic subgroups among approximately 4 million adult respondents"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "diabetes",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Diabetes prevalence among all subgroups was highest among Samoan adults (20.3%)."
+    }
+   ]
+  },
+  {
+   "v": "angina or coronary heart disease",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The overall prevalence of angina or CHD was 4.1%"
+    }
+   ]
+  },
+  {
+   "v": "myocardial infarction",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall prevalence of MI was 4.3%"
+    }
+   ]
+  },
+  {
+   "v": "stroke",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence of stroke was 3.2% overall"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In this survey of nearly 4 million U.S. adults"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "BRFSS is an annual random-digit–dialed landline and cellular telephone-based survey representative of noninstitutionalized adults aged ≥18 years"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS)",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Behavioral Risk Factor Surveillance System, United States, 2013–2021"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "from all 50 states, the District of Columbia, and three U.S. territories."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 3,
+  "level_reason": "Disparities among disaggregated racial and ethnic subgroups are framed, quantified (up to twofold; Puerto Rican vs Mexican angina/CHD approximately twice as high) and interpreted; causes are generic (social determinants) or clinical risk factors.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "Social determinants of health and acculturation are named as possible drivers of subgroup differences, though generically and from cited work."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "prevalence of diagnosed cardiometabolic diseases varied up to twofold among disaggregated racial and ethnic subgroups."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Adjusted prevalence of cardiometabolic diseases among adults aged ≥18 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "multivariable logistic models adjusted for age, sex, and survey year."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "multivariable logistic models adjusted for age, sex, and survey year."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "educational attainment"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "the proportion of adults reporting less than a high school education varied from 2.7% among Korean adults to 41.5% among Mexican adults."
+     }
+    ]
+   },
+   {
+    "v": "country of birth/language/nativity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "information was not available on other relevant factors related to disaggregated race and ethnicity, such as country of birth or English language proficiency."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "social determinants of health and other drivers of health inequities; acculturation",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "differences in disease prevalence among disaggregated subgroups that might result from differences in social determinants of health and other drivers of health inequities."
+    },
+    {
+     "loc": "text",
+     "q": "Increased acculturation was also associated with a higher prevalence of cardiovascular disease risk factors"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "No referent group or computed contrasts; subgroups compared by ranges of adjusted prevalence. AI/AN, Black and White adults not disaggregated; Pacific Islander estimates imprecise; 1.5% excluded for missing age, sex or race."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 8,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the range among aggregated race and ethnicity groups was from 9.1% among White adults to 16%–17% among AI/AN, Black, and Pacific Islander adults."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 7,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "among disaggregated Asian subgroups, prevalence ranged from 6.3% for Vietnamese adults to 15.2% for Filipino adults."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The prevalence for the aggregated Hispanic category was 3.8% and ranged from 3.1% among Cuban adults to 6.3% among Puerto Rican adults."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "inference",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "A significance rule (p<0.05) is stated but no tests or p-values are reported, so no test is recorded. Estimates with relative SE ≥0.30 are flagged as unreliable but not suppressed, so no transformation is recorded. CIs are model-based from survey-weighted logistic models in SUDAAN.",
+ "view_issues": "Methods state a p-value significance criterion that no reported result uses."
+}

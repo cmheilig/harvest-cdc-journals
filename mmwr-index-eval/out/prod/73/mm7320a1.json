@@ -1,0 +1,534 @@
+{
+ "id": "mm7320a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.1",
+  "prefix_sha": "f4030e441a8d",
+  "request_id": "msg_011Cg6gFe4jpbAaYgk7dz9sS",
+  "batch_id": "msgbatch_01Pnk7KDZXhJ3DshXVpkoE1T"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "From 2011–2013 to 2020–2022, U.S. stroke prevalence increased by 7.8%."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The age-standardized prevalence of self-reported stroke increased from 2.7% during 2011–2013, to 2.9% during 2020–2022, a 7.8% increase"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The age-standardized prevalence of self-reported stroke increased from 2.7% during 2011–2013, to 2.9% during 2020–2022"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among Black, White, and Hispanic adults, stroke prevalence increased by 7.8%, 7.2%, and 16.1%, respectively."
+    },
+    {
+     "loc": "text",
+     "q": "Stroke prevalence among adults with less than a high school diploma was approximately three times that of adults who had graduated college."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence estimates were age-standardized to the 2000 U.S. Census Bureau standard population"
+    },
+    {
+     "loc": "text",
+     "q": "P-values were obtained through survey weighted logistic regression that included age group, sex, race and ethnicity, and education level."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "age-standardized to the 2000 US standard population using three age groups (direct method)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence estimates were age-standardized to the 2000 U.S. Census Bureau standard population"
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (BRFSS complex sampling design)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated complex sampling design, sampling weights and SUDAAN",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "analyses accounted for BRFSS complex sampling design."
+    },
+    {
+     "loc": "table 1",
+     "q": "Sampling weights were adjusted to reflect 3-year increments (divided by 3)."
+    }
+   ]
+  },
+  {
+   "name": "survey-weighted logistic regression with Wald chi-square tests",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'survey weighted logistic regression' → logistic; Wald chi-square p-values for each characteristic are joint tests of model terms",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "P-values were obtained through survey weighted logistic regression that included age group, sex, race and ethnicity, and education level."
+    },
+    {
+     "loc": "text",
+     "q": "Wald chi-square tests were used to assess statistical significance of the adjusted associations between each sociodemographic characteristic and stroke prevalence during 2020–2022."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "significance of changes judged by 95% CIs of change excluding 0; CIs built by Monte Carlo sampling of normal distributions (stated)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "DC had a statistically significant decrease in stroke prevalence (19.2%)."
+    },
+    {
+     "loc": "table 2",
+     "q": "Statistically significant percentage change from 2011–2013 to 2020–2022."
+    }
+   ]
+  },
+  {
+   "name": "Monte Carlo simulation CIs for changes",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "5,000 draws from normal distributions of prevalence and SE; 2.5 and 97.5 percentiles as CI",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "used to calculate 95% CIs by sampling normal distributions 5,000 times based on the age-standardized stroke prevalence and their SEs"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "both",
+  "referent": "2011–2013",
+  "across": [
+   "period",
+   "age group",
+   "sex",
+   "race/ethnicity",
+   "education",
+   "jurisdiction"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "From 2011–2013 to 2020–2022, U.S. stroke prevalence increased by 7.8%."
+   },
+   {
+    "loc": "text",
+    "q": "Both absolute (percentage point) and relative (percent) changes from 2011–2013 to 2020–2022, with 95% CIs, were calculated"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "p-values calculated from Wald chi-square tests."
+   },
+   {
+    "loc": "text",
+    "q": "used to calculate 95% CIs by sampling normal distributions 5,000 times"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-standardized prevalence, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age-standardized prevalence* of stroke among noninstitutionalized adults aged ≥18 years"
+    }
+   ]
+  },
+  {
+   "v": "percentage point change",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Change from 2011–2013 to 2020–2022 › Percentage point (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "percent change",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Change from 2011–2013 to 2020–2022 › % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "p-value",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "p-value of differences across sociodemographic categories for 2020–2022"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "SAS-callable SUDAAN (version 9.4; RTI International) was used to account for complex sampling design."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "P-values were obtained through survey weighted logistic regression that included age group, sex, race and ethnicity, and education level."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age group, sex, race and ethnicity, education level",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "survey weighted logistic regression that included age group, sex, race and ethnicity, and education level."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did self-reported stroke prevalence among US adults change from 2011–2013 to 2020–2022, overall, by sociodemographic characteristics and by jurisdiction?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The current report used BRFSS data to assess stroke prevalence trends during 2011–2022 by sociodemographic characteristics and place of residence."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "stroke",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Prevalence of Stroke — Behavioral Risk Factor Surveillance System, United States, 2011–2022"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "health departments conduct a cross-sectional, random-digit–dialed landline and cellular telephone survey"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "From 2011–2013 to 2020–2022, U.S. stroke prevalence increased by 7.8%."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "BRFSS is a state-based surveillance system of noninstitutionalized U.S. civilian adults aged ≥18 years"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS)",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Prevalence of Stroke — Behavioral Risk Factor Surveillance System, United States, 2011–2022"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The analysis includes 5,225,987 respondents from the 50 states and DC during 2011–2022."
+   },
+   {
+    "loc": "text",
+    "q": "Stroke prevalence decreased in DC and had a statistically significant increase in 10 states."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Education and racial/ethnic differences are framed as disparities, quantified (less than HS ≈ three times college graduates) and interpreted; lower income, unequal access to care and structural factors such as discrimination are named as explanations.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Determinants are offered speculatively and cited, and race contrasts are only side-by-side values with omnibus p-values; only the education contrast is quantified."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "By race and ethnicity, stroke prevalence was highest among AI/AN (5.3%), NH/PI (4.4%), and Black (4.3%) adults"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "survey weighted logistic regression that included age group, sex, race and ethnicity, and education level."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education level"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Stroke prevalence among adults with less than a high school diploma was approximately three times that of adults who had graduated college."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "education level"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "survey weighted logistic regression that included age group, sex, race and ethnicity, and education level."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "among adults aged ≥18 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "stroke prevalence was highest among adults aged ≥65 years (7.7%) and lowest among those aged 18–44 years (0.9%)."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "survey weighted logistic regression that included age group, sex, race and ethnicity, and education level."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "9.3% among women, and 6.2% among men."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "survey weighted logistic regression that included age group, sex, race and ethnicity, and education level."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "lower income; unequal access to health care; structural factors such as discrimination",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "including comorbid conditions, lower income, and unequal access to health care"
+    },
+    {
+     "loc": "text",
+     "q": "socioeconomic status disparities within the context of larger structural factors, such as discrimination"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Group prevalences are age-standardized; adjusted Wald chi-square p-values across categories, no referent group; education is the SES proxy; respondents with missing demographics excluded."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "model joint test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "p-value of differences across sociodemographic categories for 2020–2022"
+    },
+    {
+     "loc": "text",
+     "q": "stroke prevalence was highest among adults aged ≥65 years (7.7%) and lowest among those aged 18–44 years (0.9%)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "model joint test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "p-values calculated from Wald chi-square tests."
+    },
+    {
+     "loc": "text",
+     "q": "By race and ethnicity, stroke prevalence was highest among AI/AN (5.3%), NH/PI (4.4%), and Black (4.3%) adults"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "model joint test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "p-values calculated from Wald chi-square tests."
+    },
+    {
+     "loc": "text",
+     "q": "Stroke prevalence among adults with less than a high school diploma was approximately three times that of adults who had graduated college."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "procedures",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Wald chi-square p-values are treated as joint tests of the logistic model's terms, not a separate procedure. A pre- vs during-pandemic comparison is cited as unpublished data and not recorded. Changes by group are also ranked side by side (largest increase among less than HS).",
+ "view_issues": "Table 2: Mississippi flagged significant but percentage-point CI (−0.2 to 0.9) includes 0 while % CI excludes it, likely a typo; Utah CI '−9.' truncated. Table notes word the question 'doctor, nurse, or other health professional', methods omit 'nurse'."
+}

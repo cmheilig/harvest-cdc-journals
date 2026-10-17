@@ -1,0 +1,514 @@
+{
+ "id": "mm7315a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.1",
+  "prefix_sha": "f4030e441a8d",
+  "request_id": "msg_011Cg6gFP17o3guVsthchdmh",
+  "batch_id": "msgbatch_01Pnk7KDZXhJ3DshXVpkoE1T"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "calculated as (1 − adjusted odds ratio) × 100% by time between last vaccine dose and hospitalization and by age"
+    },
+    {
+     "loc": "table 3",
+     "q": "No. vaccinated/Total no. (%)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Most case-patients (persons with a positive SARS-CoV-2 test result) were unvaccinated"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The presence of at least one underlying health condition was more common among case-patients (82%) than among control patients (73%) (p-value <0.001)."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using multivariable logistic regression"
+    },
+    {
+     "loc": "table 3",
+     "q": "Models examining VE by age were stratified by age group (5–11 years and 12–18 years)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multivariable logistic regression with GEE (hospital site as repeated effect)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'multivariable logistic regression' giving adjusted ORs, VE = (1 − aOR) × 100% → logistic; GEE for site clustering; CIs model-based",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using multivariable logistic regression"
+    },
+    {
+     "loc": "text",
+     "q": "including hospital site as a repeated effect using generalized estimating equations"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "VE 95% CI including 0 read as 'not significant'; CIs model-based from the stated GEE logistic regression",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "not significant when it was received 120–364 days before hospitalization"
+    },
+    {
+     "loc": "table 3",
+     "q": "25 (–9 to 49) §§"
+    }
+   ]
+  },
+  {
+   "name": "chi-square test of independence",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods and table notes for categorical characteristics by case status and vaccination status",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Bivariate associations between sociodemographic factors and both case or control status and vaccination status among case- and control patients were assessed using chi-square tests"
+    }
+   ]
+  },
+  {
+   "name": "Wilcoxon rank-sum test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods and table notes for continuous characteristics (age, SVI, hospital days)",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "continuous variables were compared using Wilcoxon rank-sum tests."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "unvaccinated patients",
+  "across": [
+   "time since last original monovalent dose (unvaccinated, 7–119, 120–364 days)",
+   "case vs control status",
+   "age group",
+   "immunocompromising conditions (subset)",
+   "social vulnerability index",
+   "race/ethnicity"
+  ],
+  "ev": [
+   {
+    "loc": "table 3",
+    "q": "incorporated a three-level categorical predictor variable (unvaccinated, last monovalent dose 7–119 days before hospitalization, and last original monovalent dose 120 –364 days"
+   },
+   {
+    "loc": "summary",
+    "q": "when the last dose was received within the 4 months preceding hospitalization, but protection decreased over time."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "VE of original monovalent mRNA COVID-19 vaccines against COVID-19–related hospitalization was 52% (95% CI = 33–66)"
+   },
+   {
+    "loc": "table 1",
+    "q": "Binomial or categorical variables were compared using chi-square tests of independence"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "VE, % (95% CI)",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "VE against COVID-19 hospitalization, % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "adjusted odds ratio",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "calculated as (1 − adjusted odds ratio) × 100%"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. (%)"
+    }
+   ]
+  },
+  {
+   "v": "median interval from last dose (IQR)",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Interval from last vaccine dose to hospitalization, days, median (IQR)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "GEE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "including hospital site as a repeated effect using generalized estimating equations"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "COVID-19 vaccination status › Unvaccinated"
+    },
+    {
+     "loc": "table 1",
+     "q": "Binomial or categorical variables were compared using chi-square tests of independence"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "All models controlled for underlying medical condition, continuous age (in years), month and year of hospital admission, U.S. Census Bureau region"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "at least one underlying medical condition, age (years), month and year of admission, Census region, SVI (continuous), race and ethnicity",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Multivariable models controlled for the presence of at least one underlying medical condition, continuous age in years, month and year of hospital admission"
+    },
+    {
+     "loc": "note",
+     "q": "continuous SVI ranging between 0 and 1, and race and ethnicity"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates were similar after excluding children and adolescents with documented immunocompromising conditions"
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "How effective and how durable is ≥2 doses of original monovalent mRNA COVID-19 vaccine against Omicron-associated hospitalization and critical illness among U.S. children and adolescents aged 5–18 years?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This analysis evaluated durability of effectiveness of original monovalent vaccines"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Durability of Original Monovalent mRNA Vaccine Effectiveness Against COVID-19 Omicron–Associated Hospitalization in Children and Adolescents"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "52% effective against pediatric COVID-19 hospitalization and 57% effective against critical illness related to COVID-19"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "case-control",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was evaluated using a case-control design according to previously described methods"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "across 34 Overcoming COVID-19 Network sites"
+    }
+   ]
+  },
+  {
+   "v": "vaccination registry",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "verified through source documentation (such as state immunization information systems, electronic medical records, or pediatrician records)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Overcoming COVID-19 Network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "across 34 Overcoming COVID-19 Network sites"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "note",
+    "q": "Children and adolescents were enrolled from 34 hospitals in 26 states across all four U.S. Census Bureau regions."
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "effectiveness",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "receipt of ≥2 doses of an original monovalent mRNA COVID-19 vaccine was 52% effective against pediatric COVID-19 hospitalization"
+   }
+  ]
+ },
+ "equity": {
+  "level": 2,
+  "level_reason": "Vaccination by SVI is reported as medians with Wilcoxon p-values (0.55 vs 0.60) and race by vaccination status with chi-square p-values; the Discussion frames a disparity and names access barriers, but no difference or ratio is computed, so the cap at 2 applies.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "The Discussion calls the SVI gradient a disparity and names access barriers and hesitancy; if the median SVI contrast counted as quantified, levels 3–4 would follow."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "in Children and Adolescents"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 3",
+      "q": "Models examining VE by age were stratified by age group (5–11 years and 12–18 years)."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "continuous age in years"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "social vulnerability index"
+    ],
+    "ev": [
+     {
+      "loc": "note",
+      "q": "continuous SVI ranging between 0 and 1, and race and ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "social vulnerability index"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Patients living in lower SVI areas were more frequently vaccinated"
+     },
+     {
+      "loc": "text",
+      "q": "Vaccination frequency declined with increasing social vulnerability, highlighting disparities in vaccination coverage"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "continuous SVI ranging between 0 and 1, and race and ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Race and ethnicity › Black or African American, non-Hispanic"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Female sex"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "vaccine hesitancy; barriers to accessing vaccines among more vulnerable populations",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "might be driven by factors including vaccine hesitancy or barriers to accessing vaccines among more vulnerable populations"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "SVI is an area index used continuously (covariate; medians compared by vaccination status). Race/ethnicity collapsed to four categories in models; six categories, including unknown, in tables."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race and ethnicity › Asian, non-Hispanic"
+    },
+    {
+     "loc": "table 1",
+     "q": "Binomial or categorical variables were compared using chi-square tests of independence"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Race and ethnicity › Hispanic or Latino, any race"
+    },
+    {
+     "loc": "table 2",
+     "q": "Binomial or categorical variables were compared using chi-square tests of independence"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Controls are test-negative COVID-like-illness patients matched by site, age group and date; the report names a case-control design. Table 3 flags imprecise estimates (CI width >50%) without suppressing them. The groupwise race entry for Table 2 covers both case and control strata.",
+ "view_issues": "Abstract gives '<120 days' where the text has 7–119 days. Table 2 note dates the updated vaccine authorization to September 11, 2022 (2023 elsewhere). The Table 1 note ends the BA.2+ period October 29, 2022, but Table 3 ends it in 2023."
+}

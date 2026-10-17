@@ -1,0 +1,294 @@
+{
+ "id": "mm7343a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.1",
+  "prefix_sha": "f4030e441a8d",
+  "request_id": "msg_011Cg6gFQwhZWk8PXUSTLUnJ",
+  "batch_id": "msgbatch_01Pnk7KDZXhJ3DshXVpkoE1T"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During the 2023–24 respiratory virus season, influenza vaccination coverage was 80.7% among acute care hospital personnel and 45.4% among nursing home personnel."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Pooled mean vaccination coverage with influenza and COVID-19 was calculated as the number of health care personnel who reported receipt of each recommended vaccine"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Coverage with 2023–2024 COVID-19 vaccination was 15.3% among acute care hospital personnel and 10.5% among nursing home personnel."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Coverage with influenza and 2023–2024 COVID-19 vaccination was higher among health care personnel in acute care hospitals than among those in nursing homes."
+    },
+    {
+     "loc": "text",
+     "q": "Vaccination coverage was highest in the Northeast region (58.6%) and lowest in the South region (38.1%)."
+    }
+   ]
+  }
+ ],
+ "procedures": [],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "facility type",
+   "staff member type",
+   "facility size",
+   "urbanicity",
+   "social vulnerability index",
+   "region",
+   "state"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Coverage with influenza and 2023–2024 COVID-19 vaccination was higher among health care personnel in acute care hospitals than among those in nursing homes."
+   },
+   {
+    "loc": "text",
+    "q": "Results were further stratified by employment category"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "95% CIs were calculated using the mid-P method."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "pooled mean vaccination coverage, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Coverage % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "95% CI",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "95% CIs were calculated using the mid-P method."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What were influenza and 2023–2024 COVID-19 vaccination coverage among health care personnel in acute care hospitals and nursing homes during the 2023–24 season, and how did they vary by personnel and facility characteristics?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This study examined influenza and 2023–2024 COVID-19 vaccination coverage among health care personnel working in acute care hospitals and nursing homes"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "influenza",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Influenza and COVID-19 Vaccination Coverage Among Health Care Personnel"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Influenza and COVID-19 Vaccination Coverage Among Health Care Personnel"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Acute care hospitals and nursing homes report data to NHSN according to surveillance protocols for influenza and COVID-19 vaccination."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "report influenza* and COVID-19 † vaccination coverage among health care personnel § to CDC’s National Healthcare Safety Network (NHSN)."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Healthcare Safety Network (NHSN)",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "National Healthcare Safety Network, United States, 2023–24 Respiratory Virus Season"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "reported to NHSN from acute care hospitals and nursing homes in all 50 U.S. states."
+   },
+   {
+    "loc": "text",
+    "q": "Vaccination coverage for each vaccine type in each facility type was calculated for each U.S. state"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Coverage with 2023–2024 COVID-19 vaccination was 15.3% among acute care hospital personnel and 10.5% among nursing home personnel."
+   }
+  ]
+ },
+ "equity": {
+  "level": 2,
+  "level_reason": "Coverage is reported and described by county SVI tertile and urban-rural classification (e.g. higher in urban than rural areas), but values are only set side by side, not framed or quantified as disparities.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "SVI and rurality describe facility counties rather than personnel's social position and are reported as routine table strata."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "county-level social vulnerability index"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "county-level social vulnerability index (SVI) tertile"
+     },
+     {
+      "loc": "text",
+      "q": "Vaccination coverage was highest in large-sized facilities (16.1%) and in urban (15.6%) and high SVI (19.9%) areas."
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "coverage was generally higher in urban than in rural areas and lower in the South."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "enable an assessment of differences in coverage by factors such as age, race and ethnicity, or job category."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "enable an assessment of differences in coverage by factors such as age, race and ethnicity, or job category."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "SES is proxied by county-level SVI tertile of the facility, and rurality by NCHS urban-rural classification of the facility; no person-level SPDs are available because data are aggregated by facility."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Social vulnerability index** › High"
+    },
+    {
+     "loc": "text",
+     "q": "Vaccination coverage was highest in large-sized facilities (16.1%) and in urban (15.6%) and high SVI (19.9%) areas."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "analytic_depth",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred (not named): facility-reported NHSN surveillance data. Mid-P CIs are reported for every coverage estimate but no conclusion is drawn from them, so no test is recorded; prior-season coverages (22.8%, 17.8%, 91%) are cited from earlier reports. State quintile categories and subtraction of contraindicated personnel from denominators are quantization and arithmetic, not procedures.",
+ "view_issues": "The first table footnote is identical in Tables 1 and 2 and describes both influenza and COVID-19 reporting in each. The South region footnote includes Arizona and New Mexico."
+}

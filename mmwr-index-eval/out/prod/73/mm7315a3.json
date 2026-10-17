@@ -1,0 +1,307 @@
+{
+ "id": "mm7315a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.1",
+  "prefix_sha": "f4030e441a8d",
+  "request_id": "msg_011Cg6gFQknudnfSQykMWebH",
+  "batch_id": "msgbatch_01Pnk7KDZXhJ3DshXVpkoE1T"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Weekly rates of SARS-CoV-2 infection ranged from 61.4 to 133.8 per 10,000 nursing home residents."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Weekly rates of SARS-CoV-2 infection ranged from 61.4 to 133.8 per 10,000 nursing home residents."
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "By February 11, 2024, 40.5% of nursing home residents had received a dose of the updated 2023–2024 COVID-19 vaccine"
+    },
+    {
+     "loc": "summary",
+     "q": "The weekly percentage of facilities reporting one or more incident SARS-CoV-2 infections ranged from 14.9% to 26.1%."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The cumulative weekly SARS-CoV-2 infection rate was 109.3 per 10,000 residents"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Vaccination coverage as of February 11, 2024, was highest in the Northeast (47.3%) and lowest in the South (32.4%)"
+    },
+    {
+     "loc": "text",
+     "q": "Up-to-date COVID-19 vaccination coverage increased from 16.7% to 40.5% over the study period"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Poisson regression for vaccination coverage CIs",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'Poisson regression models' used only to compute coverage CIs → loglinear, ancillary",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "95% CIs for vaccination coverage were calculated using Poisson regression models."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "week",
+   "U.S. region",
+   "respiratory virus season"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "was highest in the Midwest region (130.1) and lowest in the South (93.1)"
+   },
+   {
+    "loc": "text",
+    "q": "Up-to-date COVID-19 vaccination coverage increased from 16.7% to 40.5% over the study period"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "note",
+    "q": "95% CIs for rates of SARS-CoV-2 infection and COVID-19-associated hospitalization were calculated using mid-p exact tests for incidence density rate."
+   },
+   {
+    "loc": "note",
+    "q": "95% CIs for vaccination coverage were calculated using Poisson regression models."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "rate per 10,000 residents",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Weekly rates of COVID-19–associated hospitalization ranged from 3.8 to 7.1 per 10,000 nursing home residents."
+    }
+   ]
+  },
+  {
+   "v": "cumulative weekly rate per 10,000 residents",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Cumulative weekly rate of SARS-CoV-2 infection (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "percentage of nursing homes reporting ≥1 infection",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. of nursing homes with ≥1, ≥2, and ≥5 incident SARS-CoV-2 infections (%)"
+    }
+   ]
+  },
+  {
+   "v": "% of residents up to date with COVID-19 vaccination",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% of residents up to date with COVID-19 vaccination (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "crude rates included in this analysis could not account for potential person-level confounding factors"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "What were weekly rates of SARS-CoV-2 infection and COVID-19–associated hospitalization, and up-to-date COVID-19 vaccination coverage, among U.S. nursing home residents during October 2023–February 2024?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This analysis used NHSN data to describe rates of incident SARS-CoV-2 infection, rates of incident COVID-19–associated hospitalization, and COVID-19 vaccination coverage"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Rates of SARS-CoV-2 Infection and COVID-19–Associated Hospitalization Among Residents in Nursing Homes"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "COVID-19 Vaccination Coverage"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CMS-certified nursing homes report weekly, facility-level data on incident resident SARS-CoV-2 infections"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This analysis used NHSN data"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Healthcare Safety Network (NHSN)",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "National Healthcare Safety Network, United States, October 2023–February 2024"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "National Healthcare Safety Network, United States, October 2023–February 2024"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "By February 11, 2024, only 40.5% of residents had received an updated 2023–2024 COVID-19 vaccine."
+   }
+  ]
+ },
+ "equity": {
+  "level": 0,
+  "level_reason": "No social-position dimension is analyzed; comparisons are by week and U.S. region (geography). Age appears only implicitly through an external comparison with adults aged ≥70 years.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Nursing home residence (congregate living of older adults) could be read as a social-position descriptor, though it is not framed as such."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "more than eight times the peak weekly rate of 0.87 per 10,000 among all U.S. adults aged ≥70 years"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Only facility-level aggregate data; region is geography, not an SPD; no person-level demographics."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "comparison"
+ ],
+ "confidence": "high",
+ "notes": "Comparisons with earlier seasons' peaks and with U.S. adults aged ≥70 years use cited external figures (the 'more than eight times' ratio); main results are side-by-side weekly and regional values, so scale is null. Mid-p exact CIs are a CI method, not a test used for conclusions.",
+ "view_issues": "Discussion gives the peak infection rate as 133.8 'per 100,000' though results use per 10,000, and states coverage 'reached 41.5% overall' while results and tables give 40.5%."
+}

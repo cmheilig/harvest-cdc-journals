@@ -1,0 +1,522 @@
+{
+ "id": "mm7309a4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.1",
+  "prefix_sha": "f4030e441a8d",
+  "request_id": "msg_011Cg6gFTAtoe1QvE3bSXcco",
+  "batch_id": "msgbatch_01Pnk7KDZXhJ3DshXVpkoE1T"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Nirsevimab effectiveness was 90% (95% CI = 75–96) against RSV-associated hospitalization."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, six (1%) case-patients and 53 (18%) control patients received nirsevimab"
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Median time from receipt of nirsevimab to symptom onset was 45 days (IQR = 19–76)."
+    },
+    {
+     "loc": "text",
+     "q": "receipt of nirsevimab was 90% effective against RSV-associated hospitalization at a median of 45 days from receipt of nirsevimab to ARI symptom onset."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Time since receipt of nirsevimab to ARI symptom onset ranged from 7 to 127 days with a median of 45 days (IQR = 19–76 days)"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Receipt of nirsevimab was more frequent among infants with high-risk medical conditions than those without these conditions (46% versus 6%, p<0.001)."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Regression models controlled for age at enrollment in months, month of illness, enrollment site, and presence of one or more high-risk medical conditions"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multivariable logistic regression (test-negative VE = (1 − aOR) × 100%)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'multivariable logistic regression models' giving adjusted odds ratio → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Effectiveness was estimated using multivariable logistic regression models, comparing the odds of receipt of nirsevimab among case-patients and control patients."
+    },
+    {
+     "loc": "text",
+     "q": "Effectiveness was calculated as (1− adjusted odds ratio) × 100%."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "VE 95% CI 75–96 excludes 0, supporting the conclusion of protection; CI presumably model-based from the logistic regression, construction not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Nirsevimab effectiveness was 90% (95% CI = 75–96) against RSV-associated hospitalization."
+    },
+    {
+     "loc": "text",
+     "q": "Receipt of a single dose of nirsevimab was highly effective against RSV-associated hospitalization"
+    }
+   ]
+  },
+  {
+   "name": "Pearson chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods and Table note; compares characteristics by RSV result and by nirsevimab receipt",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Pearson’s chi-square tests were used to compare demographic characteristics among case-patients and control patients and by nirsevimab status."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": null,
+  "across": [
+   "nirsevimab receipt",
+   "RSV test result (case vs control)",
+   "age group",
+   "race/ethnicity",
+   "insurance status",
+   "high-risk medical condition",
+   "site"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "comparing the odds of receipt of nirsevimab among case-patients and control patients."
+   },
+   {
+    "loc": "summary",
+    "q": "Nirsevimab effectiveness was 90% against RSV-associated hospitalization in infants in their first RSV season."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Pearson’s chi-square tests were used to compare demographic characteristics among case-patients and control patients and by nirsevimab status."
+   },
+   {
+    "loc": "text",
+    "q": "Nirsevimab effectiveness was 90% (95% CI = 75–96) against RSV-associated hospitalization."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "VE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Effectiveness was calculated as (1− adjusted odds ratio) × 100%."
+    }
+   ]
+  },
+  {
+   "v": "adjusted odds ratio",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Effectiveness was calculated as (1− adjusted odds ratio) × 100%."
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, six (1%) case-patients and 53 (18%) control patients received nirsevimab"
+    }
+   ]
+  },
+  {
+   "v": "median (IQR)",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Median time from receipt of nirsevimab to symptom onset was 45 days (IQR = 19–76)."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "RSV test result › Positive"
+    },
+    {
+     "loc": "text",
+     "q": "Overall, six (1%) case-patients and 53 (18%) control patients received nirsevimab"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Regression models controlled for age at enrollment in months, month of illness, enrollment site, and presence of one or more high-risk medical conditions"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age at enrollment in months, month of illness, enrollment site, presence of ≥1 high-risk medical condition",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Regression models controlled for age at enrollment in months, month of illness, enrollment site, and presence of one or more high-risk medical conditions"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How effective was nirsevimab against RSV-associated hospitalization among U.S. infants in their first RSV season after its introduction?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This analysis provides the first U.S. estimate for post-introduction nirsevimab effectiveness among U.S. infants during their first RSV season."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "respiratory syncytial virus infection",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Early Estimate of Nirsevimab Effectiveness for Prevention of Respiratory Syncytial Virus–Associated Hospitalization Among Infants"
+    }
+   ]
+  },
+  {
+   "v": "respiratory syncytial virus infection",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "CDC recommended nirsevimab, a long-acting monoclonal antibody, to protect infants aged <8 months against RSV-associated lower respiratory tract infection"
+    }
+   ]
+  },
+  {
+   "v": "acute respiratory illness",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among 1,036 eligible infants, 699 infants at four sites met inclusion criteria"
+    },
+    {
+     "loc": "text",
+     "q": "were hospitalized with ARI** during October 1, 2023–February 29, 2024"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "test-negative",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Nirsevimab effectiveness against RSV-associated hospitalization was estimated using a test-negative, case-control design."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The New Vaccine Surveillance Network (NVSN) is a population-based, prospective surveillance platform for acute respiratory illness (ARI)"
+    }
+   ]
+  },
+  {
+   "v": "vaccination registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Receipt of nirsevimab was ascertained through parent report and verified through state immunization information systems, birth hospital, or primary care provider records."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "New Vaccine Surveillance Network (NVSN)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The New Vaccine Surveillance Network (NVSN) is a population-based, prospective surveillance platform"
+    }
+   ]
+  },
+  {
+   "v": "state immunization information systems",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "verified through state immunization information systems, birth hospital, or primary care provider records."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Among 1,036 eligible infants, 699 infants at four sites met inclusion criteria"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "effectiveness",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Nirsevimab effectiveness was 90% against RSV-associated hospitalization in infants in their first RSV season."
+   }
+  ]
+ },
+ "equity": {
+  "level": 1,
+  "level_reason": "Race/ethnicity and insurance appear only in a Table-1 characteristics table with chi-square tests and insurance was evaluated as a potential confounder; no group-specific outcome is discussed or framed as a disparity.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 2,
+   "reason": "The text states no difference in nirsevimab receipt by insurance type, which could count as a described group-specific result."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Infants were eligible for this analysis if they were aged <8 months as of October 1, 2023, or born after October 1, 2023"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Regression models controlled for age at enrollment in months"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group at admission, mos › <1"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race and ethnicity †† › Black or African American"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "insurance type"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Preterm status (birth at <28, 28–31, 32–33, 34–36, and ≥37 weeks’ gestation) and insurance type were evaluated as potential confounders"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "insurance status"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "There was no difference in the frequency of receipt of nirsevimab by preterm status or insurance type."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity (8 categories incl. unknown) and insurance (5 categories incl. unknown) appear only in Table 1 with chi-square tests by case status and by nirsevimab receipt."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 8,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race and ethnicity †† › Black or African American"
+    },
+    {
+     "loc": "table 1",
+     "q": "Pearson’s chi-square tests were used to compare demographic characteristics among case-patients and control patients and by receipt of nirsevimab."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 7,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group at admission, mos › <1"
+    },
+    {
+     "loc": "table 1",
+     "q": "Pearson’s chi-square tests were used to compare demographic characteristics among case-patients and control patients and by receipt of nirsevimab."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Insurance status › Public"
+    },
+    {
+     "loc": "text",
+     "q": "There was no difference in the frequency of receipt of nirsevimab by preterm status or insurance type."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "procedures",
+  "outcome_types",
+  "equity.level"
+ ],
+ "confidence": "high",
+ "notes": "Phase 3 trial efficacy (81%) is cited, not computed here. Preterm status and insurance were screened as confounders and dropped (covariate-selection rule, not sensitivity analysis). Groupwise category counts include 'Unknown' rows as tested in the table.",
+ "view_issues": "Table race/ethnicity rows look mislabeled: Native Hawaiian/Pacific Islander 225 (32%), White 30 (4%), Hispanic 8 (1%), Multiple/other 280 (40%) are implausible and likely shifted labels. Exclusion counts in the high-risk-condition footnote differ between text (11) and table (12)."
+}

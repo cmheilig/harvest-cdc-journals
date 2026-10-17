@@ -1,0 +1,298 @@
+{
+ "id": "mm7321a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.1",
+  "prefix_sha": "f4030e441a8d",
+  "request_id": "msg_011Cg6gFfmRsaii1BFKQFDfd",
+  "batch_id": "msgbatch_01Pnk7KDZXhJ3DshXVpkoE1T"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Estimated VAERS GBS reporting rates after RSV vaccination were 4.4 and 1.8 reports per million administered doses of Pfizer and GSK vaccines, respectively."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During the week after vaccination, 6,328 (39.0%) participants reported symptoms they considered possibly related to RSV vaccination."
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimated VAERS GBS reporting rates after RSV vaccination were 4.4 and 1.8 reports per million administered doses of Pfizer and GSK vaccines, respectively."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "39.0% reported at least one symptom after vaccination; 0.4% of participants reported receiving medical care."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Injection site symptoms were reported by 2,808 (43.9%) participants who received GSK vaccine and 787 (20.3%) who received Pfizer vaccine."
+    },
+    {
+     "loc": "text",
+     "q": "using the reporting rate for mRNA COVID-19 vaccines as an estimate of background rate, reports of GBS after RSV vaccination were more common than expected."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "suppression of percentages for small numbers of serious reports",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "Table 3 note withholds percentages for serious-report events because of small numbers: small-cell suppression",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Because of the small number of serious reports, percentages are not provided for serious report events."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "fixed referent",
+  "scale": null,
+  "referent": "expected background GBS reporting rate (VAERS rates after mRNA COVID-19 vaccination, 0.43 and 0.54 per million doses)",
+  "across": [
+   "vaccine manufacturer"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "using the reporting rate for mRNA COVID-19 vaccines as an estimate of background rate, reports of GBS after RSV vaccination were more common than expected."
+   },
+   {
+    "loc": "text",
+    "q": "injection site and systemic reactions were more frequently reported among those who received GSK than among those who received Pfizer vaccine"
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% Reporting symptoms or health impact after vaccination* (no.)"
+    }
+   ]
+  },
+  {
+   "v": "reporting rate per 1 million doses administered",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "13 (46.4%) were after GSK vaccine ( 1.8 reports per 1 million doses administered)"
+    }
+   ]
+  },
+  {
+   "v": "no. reporting",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Vaccine, no. reporting (%)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What adverse events and reactions were reported to V-safe and VAERS after RSV vaccination among U.S. adults aged ≥60 years, and how do GBS reporting rates compare with expected background rates?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To characterize early post-marketing vaccine safety findings in adults aged ≥60 years after RSV vaccination"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "respiratory syncytial virus lower respiratory tract disease",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "for prevention of respiratory syncytial virus (RSV) lower respiratory tract disease in adults aged ≥60 years."
+    }
+   ]
+  },
+  {
+   "v": "Guillain-Barré syndrome",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In trials, Guillain-Barré syndrome (GBS) was identified as a potential safety concern."
+    }
+   ]
+  },
+  {
+   "v": "immune thrombocytopenia",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a search was performed to identify outcomes of interest, including GBS and immune thrombocytopenia (ITP)"
+    }
+   ]
+  },
+  {
+   "v": "adverse events after RSV vaccination (reactogenicity)",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Daily surveys include questions about local injection site and systemic reactions and health impacts experienced."
+    },
+    {
+     "loc": "text",
+     "q": "VAERS received 3,200 reports of adverse events after RSV vaccination among persons aged ≥60 years"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "CDC reviewed data reported after RSV vaccination to V-safe, an active U.S. surveillance system"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the Vaccine Adverse Event Reporting System (VAERS), a passive, voluntary surveillance system that monitors adverse events after vaccination"
+    },
+    {
+     "loc": "text",
+     "q": "V-safe ( https://vsafe.cdc.gov ) is a voluntary, active U.S. surveillance system"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Vaccine Adverse Event Reporting System (VAERS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the Vaccine Adverse Event Reporting System (VAERS), a passive, voluntary surveillance system that monitors adverse events after vaccination"
+    }
+   ]
+  },
+  {
+   "v": "V-safe",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "V-safe ( https://vsafe.cdc.gov ) is a voluntary, active U.S. surveillance system"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, May 3, 2023–April 14, 2024"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "safety",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Early Safety Findings Among Persons Aged ≥60 Years Who Received a Respiratory Syncytial Virus Vaccine"
+   }
+  ]
+ },
+ "equity": {
+  "level": 0,
+  "level_reason": "Age (≥60 years) only defines the population and sex appears only as a descriptor (59.7% women); no other SPD and no equity framing.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Persons Aged ≥60 Years Who Received a Respiratory Syncytial Virus Vaccine"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "9,684 (59.7%) were women"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "procedures",
+  "comparison"
+ ],
+ "confidence": "high",
+ "notes": "Dose denominators come from IQVIA projected doses administered (a denominator, not listed as a data source). The background GBS reporting rate is cited from a previous report of VAERS rates after mRNA COVID-19 vaccination and treated as a fixed referent; no ratio or test is computed. Manufacturer comparisons are side by side only.",
+ "view_issues": "Table 3 CSV totals are inconsistent with group counts for several nonserious events (e.g., Erythema total 384 vs 247 summed; Injection site swelling 376 vs 240), apparently shifted rows; Table 2 shows '1,1130'; deaths are 35 in Table 3 vs 34 in text. Article was corrected after publication."
+}

@@ -1,0 +1,381 @@
+{
+ "id": "mm7336a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.1",
+  "prefix_sha": "f4030e441a8d",
+  "request_id": "msg_011Cg6gT3wV1uTcQL9h6rxgz",
+  "batch_id": "msgbatch_01Pnk7KDZXhJ3DshXVpkoE1T"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Unemployment declined from 11.7% (95% CI = 9.7%–13.6%) in 2017 to 8.0% (95% CI = 6.6%–9.5%) in 2022"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "65.0% (95% CI = 62.7%–67.2%) reported this in 2022."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The 2025 goal is 46.2% higher than the 2022 estimate."
+    },
+    {
+     "loc": "text",
+     "q": "Over time, unemployment was lower among those aged ≥65 years than those aged 50–64 years."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting (selection probabilities, nonresponse adjustment, poststratification)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated weighting and poststratification to NHSS totals; all estimates are weighted percentages",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted for unequal selection probabilities, adjusted for nonresponse, and poststratified to NHSS population totals."
+    }
+   ]
+  },
+  {
+   "name": "Poisson regression for estimated annual percentage change",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'Poisson regression models were used to calculate' EAPC → loglinear; EAPC CIs model-based",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Poisson regression models were used to calculate the recent estimated annual percentage change (EAPC) from baseline (2017 or 2018 cycle"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "fixed referent",
+  "scale": "relative",
+  "referent": "NHAS 2025 quality-of-life goals",
+  "across": [
+   "survey cycle (year)",
+   "age group (50–64 vs ≥65 years)"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "By 2022, no 2025 goal was met for PWH aged ≥50 years."
+   },
+   {
+    "loc": "text",
+    "q": "The percentage difference between the 2025 NHAS goal and the 2022 estimate, expressed as a percentage of the 2022 estimate, was also calculated"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "weighted prevalence estimates and 95% CIs were calculated for each QoL indicator and theoretically related factors"
+   },
+   {
+    "loc": "table 1",
+    "q": "EAPC 2017 to 2022 cycles"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Weighted % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "EAPC",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "EAPC measures the average percentage change per year over the period for which it is calculated."
+    }
+   ]
+  },
+  {
+   "v": "percentage difference from 2025 goal",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(i.e., [2025 goal − 2022 estimate] / 2022 estimate)."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "the Medical Monitoring Project, an annual complex sample survey of U.S. adults with diagnosed HIV"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Poisson regression models were used to calculate the recent estimated annual percentage change (EAPC)"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Are recent trends in NHAS quality-of-life indicators among persons aged ≥50 years with diagnosed HIV sufficient to meet the 2025 goals, overall and by age group?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "assessed whether recent trends are sufficient to meet NHAS 2025 QoL goals"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "HIV",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Quality of Life Among Persons Aged ≥50 Years with Diagnosed HIV"
+    }
+   ]
+  },
+  {
+   "v": "self-rated health",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The 2025 NHAS goal for PWH aged ≥50 years to self-report good or better health is 95%."
+    }
+   ]
+  },
+  {
+   "v": "depression",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Symptoms of major or other depression among those with any mental health service need"
+    }
+   ]
+  },
+  {
+   "v": "generalized anxiety disorder",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Symptoms of generalized anxiety disorder among those with any mental health service need"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Progress Toward Achieving National HIV/AIDS Strategy Goals for Quality of Life"
+    }
+   ]
+  },
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "QoL indicators are monitored using data from the Medical Monitoring Project (MMP) ( 6 ), a CDC-funded HIV surveillance system."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This analysis examined recent trends in QoL indicators among PWH aged ≥50 years"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Medical Monitoring Project (MMP) ( 6 ), a CDC-funded HIV surveillance system."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Medical Monitoring Project (MMP)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Medical Monitoring Project (MMP) ( 6 ), a CDC-funded HIV surveillance system."
+    }
+   ]
+  },
+  {
+   "v": "National HIV Surveillance System (NHSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "simple random samples of adult PWH were selected annually within participating jurisdictions from the National HIV Surveillance System (NHSS)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Medical Monitoring Project, United States, 2017–2023"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Outcomes are social determinants (unemployment, food insecurity, housing) reported by age group (50–64 vs ≥65), but the age contrasts are set side by side without a computed difference; NHAS goals are general program targets, so the cap at 2 applies.",
+  "level_confidence": "low",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Quantified shortfalls from 2025 goals on SDOH outcomes for older PWH, with age-related discrimination named, could count as a target for an SPD-defined population; named determinants could then lift it to 4."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Quality of Life Among Persons Aged ≥50 Years with Diagnosed HIV"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "overall and stratified by age (50–64 versus ≥65 years)"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "unemployment",
+     "household income at or below poverty threshold",
+     "unstable housing or homelessness"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Factors related to unemployment †† › Household income at or below poverty threshold"
+     },
+     {
+      "loc": "text",
+      "q": "Unstable housing or homelessness was 14.7% (95% CI = 13.0%–16.4%) in 2018"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "adverse social determinants of health; unemployment, hunger or food insecurity, unstable housing (analyzed outcomes); age-related disability and discrimination; food assistance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "PWH are disproportionately affected by adverse social determinants of health, which affect their HIV-related health"
+    },
+    {
+     "loc": "text",
+     "q": "who might face barriers to employment because of age-related disability and discrimination"
+    },
+    {
+     "loc": "text",
+     "q": "Reductions in unmet need for food assistance might have contributed to meeting the NHAS goal for hunger or food insecurity among PWH aged ≥65 years."
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Age stratified only as 50–64 vs ≥65 years; SES measures (unemployment, poverty, education, housing) are indicators and factors, not stratifiers; referent is NHAS 2025 goals for all PWH."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "equity.level",
+  "regression_fields",
+  "inference",
+  "study_design"
+ ],
+ "confidence": "medium",
+ "notes": "Goal comparisons are of point estimates against fixed goals; no CI is used to judge goal attainment or change, so no inversion test is recorded. The Poisson models have time as the only term; whether they account for the survey design is not stated.",
+ "view_issues": "Figure notes define CV (coefficient of variation), suggesting estimates were flagged or suppressed by CV, but no rule is stated. Text calls EAPCs such as −2.1 (CI −2.2 to −2.1) 'minimal change' despite CIs excluding 0."
+}

@@ -1,0 +1,222 @@
+{
+ "id": "mm7332a4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.1",
+  "prefix_sha": "f4030e441a8d",
+  "request_id": "msg_011Cg6gFXjUu1dcRyYqPSHqS",
+  "batch_id": "msgbatch_01Pnk7KDZXhJ3DshXVpkoE1T"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "21 states and the District of Columbia had drug overdose death rates that were higher than the national age-adjusted rate of 32.6 deaths"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the national age-adjusted rate of 32.6 deaths per 100,000 standard population"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the national age-adjusted rate of 32.6 deaths per 100,000 standard population"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "21 states and the District of Columbia had drug overdose death rates that were higher than the national age-adjusted rate of 32.6 deaths"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Age-adjusted drug overdose death rates were calculated using the direct method and the 2000 U.S. standard population."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "'direct method and the 2000 U.S. standard population' → direct standardization",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Age-adjusted drug overdose death rates were calculated using the direct method and the 2000 U.S. standard population."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "fixed referent",
+  "scale": null,
+  "referent": "national age-adjusted rate (32.6 per 100,000)",
+  "across": [
+   "state"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "21 states and the District of Columbia had drug overdose death rates that were higher than the national age-adjusted rate of 32.6 deaths"
+   },
+   {
+    "loc": "text",
+    "q": "Rates were generally higher among eastern jurisdictions, including the two jurisdictions with the highest rates, West Virginia (80.9) and the District of Columbia (64.3)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted death rate per 100,000 standard population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the national age-adjusted rate of 32.6 deaths per 100,000 standard population"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did age-adjusted drug overdose death rates vary by state in the United States in 2022, relative to the national rate?",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "QuickStats: Age-Adjusted Drug Overdose Death* Rates, † by State — United States, 2022"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "drug overdose death",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "QuickStats: Age-Adjusted Drug Overdose Death* Rates, † by State — United States, 2022"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Source : National Center for Health Statistics, National Vital Statistics System, Mortality Data, 2022."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Source : National Center for Health Statistics, National Vital Statistics System, Mortality Data, 2022."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System, Mortality Data",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "National Center for Health Statistics, National Vital Statistics System, Mortality Data, 2022."
+    }
+   ]
+  },
+  {
+   "v": "CDC WONDER",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "https://wonder.cdc.gov/ucd-icd10-expanded.html"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "21 states and the District of Columbia had drug overdose death rates that were higher than the national age-adjusted rate of 32.6 deaths"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Age enters only through direct age standardization; the comparison is across states, which is geography and not a social-position dimension.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Age standardization could be read as adjustment by an SPD, though the brief treats age-only adjustment as level 0."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "Age-adjusted drug overdose death rates were calculated using the direct method and the 2000 U.S. standard population."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Geography only (states, eastern jurisdictions); rates are age-standardized to the 2000 U.S. standard population."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "analytic_depth"
+ ],
+ "confidence": "high",
+ "notes": "State rates are shown in a map and a supplementary table not included in the packet; comparisons with the national rate are side by side with no tests or CIs.",
+ "view_issues": null
+}

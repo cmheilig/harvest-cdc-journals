@@ -1,0 +1,272 @@
+{
+ "id": "mm7309a5",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.1",
+  "prefix_sha": "f4030e441a8d",
+  "request_id": "msg_011Cg6gFNhGANeWNJDutxFnG",
+  "batch_id": "msgbatch_01Pnk7KDZXhJ3DshXVpkoE1T"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Based on 295 cases, an estimated 10,930 ED visits (95% CI = 7,609–14,251) occurred for unsupervised melatonin ingestion by infants and children aged ≤5 years"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Based on 295 cases, an estimated 10,930 ED visits (95% CI = 7,609–14,251) occurred for unsupervised melatonin ingestion"
+    },
+    {
+     "loc": "table 1",
+     "q": "Year › 2022"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "accounting for 7.1% of all ED visits for unsupervised medication exposures by persons in this age group."
+    },
+    {
+     "loc": "text",
+     "q": "Access to ≥10 units (e.g., gummies or tablets) was documented in more than one third (35.8%; 95% CI = 28.6%–43.0%) of visits"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "melatonin was implicated in approximately 11,000 (7%) emergency department visits among infants and young children for unsupervised medication ingestions."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting with complex sample design (SAS SURVEYMEANS)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "cases weighted to national estimates; SURVEYMEANS accounts for sample weights and complex design",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Cases were weighted to allow calculation of national estimates and corresponding 95% CIs."
+    },
+    {
+     "loc": "text",
+     "q": "SURVEYMEANS was used to account for sample weights and complex sample design."
+    }
+   ]
+  },
+  {
+   "name": "suppression of unreliable estimates (<20 cases or <1,200 visits)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "small-cell suppression rule in table note; CV >30% flagged as unstable",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimates based on <20 cases and total estimates of <1,200 emergency department visits are considered statistically unreliable and are not shown."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "none",
+  "scale": null,
+  "referent": null,
+  "across": [],
+  "ev": []
+ },
+ "inference": {
+  "v": "CIs",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "SAS software (version 9.4; SAS Institute) SURVEYMEANS was used to account for sample weights and complex sample design."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "national estimate of ED visits, No.",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "National estimates of emergency department visits › No."
+    }
+   ]
+  },
+  {
+   "v": "% (95% CI)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "National estimates of emergency department visits › % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "percentage of all ED visits for unsupervised medication exposures",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "accounting for 7.1% of all ED visits for unsupervised medication exposures by persons in this age group."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How many ED visits for unsupervised melatonin ingestion occurred among U.S. children aged ≤5 years during 2019–2022, and what circumstances and products were involved?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC analyzed public health surveillance data to describe circumstances involved in these ingestions to help guide development of interventions."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "unsupervised pediatric melatonin ingestion",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Emergency Department Visits for Unsupervised Pediatric Melatonin Ingestion — United States, 2019–2022"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed public health surveillance data to describe circumstances involved in these ingestions"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the National Electronic Injury Surveillance System – Cooperative Adverse Drug Event Surveillance Project were used"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Electronic Injury Surveillance System – Cooperative Adverse Drug Event Surveillance Project (NEISS-CADES)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the National Electronic Injury Surveillance System – Cooperative Adverse Drug Event Surveillance Project were used"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "by infants and children aged ≤5 years in the United States during 2019–2022"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Race appears only as a descriptor row in the Table (Black, White, other) with no discussion or comparison; age and sex define the population or describe composition.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 0,
+   "reason": "Race appears only in a single Table composition breakdown with no text mention, so it could be read as no equity content beyond age and sex."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "unsupervised melatonin ingestion by infants and children aged ≤5 years during 2019–2022"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Approximately one half (52.4%) of all estimated ED visits for melatonin ingestion by infants and children aged ≤5 years involved children aged 3–5 years"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race › Black or African American"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race is shown only as case composition (Black, White, other or not specified; 29.9% other/unspecified); ethnicity not reported."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "analytic_depth",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "All results are weighted distributions of visit characteristics; the age-distribution contrast with overall unsupervised medication exposures (mostly aged 1–2 years) is cited from an earlier report, so no comparison is recorded. Year breakdown in the Table is not discussed in the text.",
+ "view_issues": null
+}
