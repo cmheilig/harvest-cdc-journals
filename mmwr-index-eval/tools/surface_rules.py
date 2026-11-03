@@ -9,6 +9,10 @@
     python3 tools/surface_rules.py sample [--out DIR]                # draw the older-volume slice (seeded) and stage its
                                                                      # packets in prod_packets/older-slice/ for tools/api_read.py
     python3 tools/surface_rules.py score-slice [--out DIR]           # rules vs the slice's reads, per stratum
+    python3 tools/surface_rules.py stage-tier --start 2016 --end 2021 [--out DIR]
+                                                                     # the full-read tier (equity 3-4 candidate or 2+ method
+                                                                     # families), less articles already read in full, staged in
+                                                                     # prod_packets/tier-<start>-<end>/ for tools/api_read.py
 
 Labels come from out/prod/<vol>/mm*.json (brief v5.1/v5.2), text from prod_packets/<vol>/<id>/article.txt.
 Splits: dev = vols 72 and 73 (rules are tuned here); test = vol 71 (scored once, not tuned on); all = both.
@@ -726,15 +730,51 @@ def truth_band(lab, L):
     return f'eqband:{b}' in L
 
 
+def stage_tier(start, end, out):
+    """Stage the full-read tier for start..end (years): articles the rules put in the tier, less those with a full read."""
+    import shutil
+    key = f'tier-{start}-{end}'
+    light = 'out/light/claude-haiku-5-5-light-1.1'
+    rows, staged, skipped = load_packets(range(end - 1951, start - 1952, -1)), [], 0
+    for i, v, at, text in rows:
+        pr, f = predict(text, at), declared(text)
+        fam = [k for k, g in FAMILIES.items() if g(pr, f)]
+        if not (pr['eqband:3+'] or len(fam) >= 2):
+            continue
+        if any(os.path.exists(f'out/prod/{k}/{i}.json') for k in (v, SLICE_KEY)):
+            skipped += 1                            # already read in full (the slice, or a production volume)
+            continue
+        lp = next((p for p in (f'{light}/{v}/{i}.json', f'{light}/{SLICE_KEY}/{i}.json') if os.path.exists(p)), None)
+        df = (json.load(open(lp)).get('data_focus') or {}).get('v') if lp else ''
+        why_ = '; '.join((['equity 3-4 candidate'] if pr['eqband:3+'] else []) + ([f"families: {', '.join(fam)}"] if len(fam) >= 2 else []))
+        staged.append((i, v, at, why_, df or ''))
+    dest = f'prod_packets/{key}'
+    os.makedirs(dest, exist_ok=True)
+    for i, v, *_ in staged:
+        if not os.path.isdir(f'{dest}/{i}'):
+            shutil.copytree(f'prod_packets/{v}/{i}', f'{dest}/{i}')
+    with open(f'{dest}/frame.tsv', 'w') as o:
+        o.write('id\tstatus\tarticle_type\n')
+        o.writelines(f'{i}\tpacket\t{at}\n' for i, v, at, *_ in staged)
+    with open(f'{out}/{key}.tsv', 'w') as o:
+        o.write('id\tvolume\tyear\tarticle_type\treason\tlight_data_focus\n')
+        o.writelines(f'{i}\t{v}\t{v + 1951}\t{at}\t{w}\t{df}\n' for i, v, at, w, df in staged)
+    print(f'{key}: {len(staged)} articles staged ({skipped} in the tier already read in full) -> {out}/{key}.tsv, {dest}/')
+
+
 if __name__ == '__main__':
     ap = argparse.ArgumentParser()
-    ap.add_argument('cmd', choices=('mine', 'score', 'why', 'findings', 'size', 'sample', 'score-slice'))
+    ap.add_argument('cmd', choices=('mine', 'score', 'why', 'findings', 'size', 'sample', 'score-slice', 'stage-tier'))
     ap.add_argument('--split', default='dev', choices=tuple(SPLITS))
     ap.add_argument('--out', default='reports')
     ap.add_argument('--label')
+    ap.add_argument('--start', type=int)
+    ap.add_argument('--end', type=int)
     a = ap.parse_args()
     os.makedirs(a.out, exist_ok=True)
-    if a.cmd == 'why':
+    if a.cmd == 'stage-tier':
+        stage_tier(a.start, a.end, a.out)
+    elif a.cmd == 'why':
         if a.split == 'test':
             raise SystemExit('why reads misses for tuning: dev split only')
         why(a.split, a.out, a.label)
