@@ -258,6 +258,38 @@ A retest on the same 761 articles costs about $1. Adding the 120 slice articles 
 - **Ecologic now departs from Opus by design.** The 1.1 sentence settles a gray zone the vol 71 report noted: rates side by side by place are surveillance. Haiku now calls 19 articles ecologic where Opus called 13; 9 agree, 10 are Haiku's alone, and Haiku did not call 4 of Opus's ecologic. Surveillance precision fell from 0.84 to 0.77 accordingly. Opus followed brief v5.2, which leaves the case open; if the owner keeps the 1.1 reading, these disagreements are Opus's, not Haiku's.
 - **Before/after or trend is still over-called** (precision about 0.70). The brief's own rule ("a title word such as 'Trends' alone does not name a design") is there; the full run can carry the flag, and a selected article gets the full reading anyway.
 
+### The full light read, vols 48–70 (1999–2021), with fix-ups (2026-11-03)
+
+**The run.** One batch of 5,419 requests: the 5,539 packets of vols 48–70, less the 120 slice articles that already had 1.1 reads. Results: 5,029 ok, 389 invalid, 1 unparsed; **$6.07**.
+
+**Fix-ups** (`light_read.py fixup`, one turn each, as in production). Each turn resent the original turn, the reply as returned and the driver's errors.
+
+| Fix-up batch | Requests | Fixed | Failed | Cost |
+|---|---|---|---|---|
+| retest (vols 71–73 and the slice) | 89 | 89 | 0 | $0.11 |
+| vols 48–70 | 390 | 381 | 9 | $0.38 |
+
+**Where light-1.1 stands, across all 6,300 articles:**
+- 5,821 passed on the first read and 470 after a fix-up;
+- **9 failed**, and keep their first record with its errors listed;
+- re-running the checks on every record agrees with the ledger.
+
+Every article in vols 48–73 has a light-1.1 record. Total light-read spend is $8.70 ($0.95 for 1.0, $7.75 for 1.1). Platform spend in both ledgers is **$132.36** of the $150 line.
+
+**Agreement with Opus after fix-ups** (exact match per field):
+- data focus: 0.97 on vols 71–73, 0.93 on the slice;
+- depth: 0.76 and 0.74;
+- outcome types: 0.85 and 0.83;
+- design: 0.67 and 0.68.
+
+These are within 0.01 of the figures before fix-ups: the fixes repaired evidence, not values.
+
+**Files.**
+- Records: `out/light/claude-haiku-5-5-light-1.1/<vol>/<id>.json`, with the slice under `older-slice/`.
+- Raw responses: `raw/<id>.json`, and `raw/<id>.fixup.json` for fix-ups.
+- Ledger: `light_ledger.tsv`; batches: `light_batches.tsv`.
+- Exposure rows, for the owner to append to the extraction's log: `out/light/exposure_rows.tsv`.
+
 ## Limits
 
 - **Vocabulary from 2022–2024 only.** Reports from 1999–2010 phrase methods differently, often lack a Summary box, and have fewer CIs. The rules are untested there; the plan's §4.4 calibration slice would test them.
