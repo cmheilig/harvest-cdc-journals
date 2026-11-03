@@ -1,0 +1,427 @@
+{
+ "id": "mm6231a4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cgg9oySy13DbzDouy2idC",
+  "batch_id": "msgbatch_01GKCs8ucZ2a3sKaBJ8ZMocc"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2011, the prevalence of obesity among states/territories in the study ranged from 9.2% to 17.9%"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "where there was a decrease in the prevalence of obesity from 13.6% in 2008 to 11.0% in 2011, an absolute decrease of 2.6 percentage points"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Logistic regression models adjusted for age, sex, and race/ethnicity were used to examine trends in the state-specific obesity prevalence."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "logistic regression (annual change in odds of obesity)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'logistic regression models' giving crude ORs and AORs per year → logistic; p<0.05 for AORs is part of the model",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Estimated annual change in odds of obesity, calculated from logistic regression models controlling for age, sex, and race/ethnicity."
+    }
+   ]
+  },
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in Table 1 note; compares demographic distributions 2008 vs 2011",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "p-value of chi-square test for the difference in the distribution of the demographic characteristics from 2008 to 2011."
+    }
+   ]
+  },
+  {
+   "name": "BMI-for-age percentiles (2000 CDC growth charts)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "BMI converted to age- and sex-specific percentiles before the obesity cutpoint",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Obesity was defined as having an age- and sex-specific BMI ≥95th percentile according to the 2000 CDC growth charts"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "both",
+  "referent": null,
+  "across": [
+   "year (2008–2011)",
+   "state/territory"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During 2008–2011, statistically significant downward trends in obesity prevalence were observed in 18 states and the U.S. Virgin Islands."
+   },
+   {
+    "loc": "summary",
+    "q": "had the largest absolute decreases in obesity prevalence, each with a decrease of ≥1 percentage point."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "AORs were considered statistically significant at p<0.05."
+   },
+   {
+    "loc": "table 1",
+    "q": "p-value of chi-square test for the difference in the distribution of the demographic characteristics from 2008 to 2011."
+   }
+  ]
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "p-value of chi-square test for the difference in the distribution of the demographic characteristics from 2008 to 2011."
+    },
+    {
+     "loc": "table 1",
+     "q": "Age (yrs) › 3"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "p-value of chi-square test for the difference in the distribution of the demographic characteristics from 2008 to 2011."
+    },
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity › Asian/Pacific Islander"
+    }
+   ]
+  }
+ ],
+ "primary_measures": [
+  {
+   "v": "obesity prevalence, %",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Ten states/territories had an obesity prevalence ≥15%"
+    }
+   ]
+  },
+  {
+   "v": "AOR (annual change in odds)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Adjusted odds ratios (AORs) were calculated to determine the estimated annual change in odds of obesity."
+    }
+   ]
+  },
+  {
+   "v": "crude OR",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Crude OR"
+    }
+   ]
+  },
+  {
+   "v": "absolute and relative decrease in prevalence",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The relative decreases in obesity prevalence among the 19 states/territories ranged from 1.8% to 19.1%."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Crude OR"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "logistic regression models were used, adjusted for age, sex, and race/ethnicity."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age, sex, race/ethnicity (household income in secondary analysis)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "logistic regression models were used, adjusted for age, sex, and race/ethnicity."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In a secondary analysis of the 34 states/territories that had complete data on household income, household income was added to the logistic regression model."
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "How did state-specific obesity prevalence among low-income children aged 2–4 years change during 2008–2011?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This report extends earlier PedNSS analyses by examining the state-specific prevalence and trends of obesity during 2008–2011."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "obesity",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Vital Signs: Obesity Among Low-Income, Preschool-Aged Children — United States, 2008–2011"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "PedNSS is a state-based public health surveillance system that monitors the nutritional status of low-income children"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Logistic regression models adjusted for age, sex, and race/ethnicity were used to examine trends in the state-specific obesity prevalence."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "have used data from CDC's Pediatric Nutrition Surveillance System (PedNSS)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Pediatric Nutrition Surveillance System (PedNSS)",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "who participated in the Pediatric Nutrition Surveillance System during 2008–2011"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "from 40 states, the District of Columbia, and two U.S. territories"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Low income defines the population; race/ethnicity and household income enter only as model covariates, and race appears in a Table 1 composition test. No results by SPD group are reported.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 0,
+   "reason": "Low income only defines the population, and race/ethnicity as covariate plus composition could be read as not raising the level."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "population",
+    "ses_components": [
+     "low income"
+    ],
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Obesity Among Low-Income, Preschool-Aged Children"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "household income"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "a secondary analysis was conducted that included household income as part of the adjusted model."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "low-income children aged 2–4 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "logistic regression models were used, adjusted for age, sex, and race/ethnicity."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "logistic regression models were used, adjusted for age, sex, and race/ethnicity."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "logistic regression models were used, adjusted for age, sex, and race/ethnicity."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "the 2011 study population was older and included a slightly smaller proportion of non-Hispanic whites and a slightly larger proportion of non-Hispanic blacks"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "federal policy: alignment of the WIC food package with the Dietary Guidelines",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Federal policy changes such as the alignment of the WIC package of nutritious foods with the Dietary Guidelines for Americans"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Population restricted to low-income children in federal nutrition programs; contrasts are by state and year, not by SPD group. Household income complete in only 34 states/territories."
+ },
+ "uncertain_fields": [
+  "equity.level",
+  "analytic_depth"
+ ],
+ "confidence": "high",
+ "notes": "Prepass weighting cue is a false hit (heights and weights). Biologically implausible values were excluded (exclusion rule, not a procedure). Overall 14.4% PedNSS prevalence is cited from national tables.",
+ "view_issues": "Text reports 21 states/territories with no significant trend, but the Abstract says 20 states and Puerto Rico (consistent). Table 2 note says some significant CIs include 1.00 because of rounding."
+}

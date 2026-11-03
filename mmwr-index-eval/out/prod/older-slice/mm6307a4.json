@@ -1,0 +1,437 @@
+{
+ "id": "mm6307a4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cgg9p4CU1HUnyHosmvUL7",
+  "batch_id": "msgbatch_01GKCs8ucZ2a3sKaBJ8ZMocc"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "obesity prevalence in King County showed a statistically significant decrease, from 9.5% in 2004 to 7.9% in 2012"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "obesity prevalence in King County showed a statistically significant decrease, from 9.5% in 2004 to 7.9% in 2012"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "obesity trends adjusted for race/ethnicity were similar (<10% change) to crude trends"
+    },
+    {
+     "loc": "text",
+     "q": "the 2010 to 2012 change in obesity was significantly different (CPPW districts saw greater reduction; p=0.045 for interaction term)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "logistic regression with group × year interaction",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'logistic regression analysis' giving ORs for change over time; interaction term tests difference in trends → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "logistic regression analysis was used to assess the significance of obesity trends from 2004 to 2012"
+    },
+    {
+     "loc": "text",
+     "q": "the statistical interaction of group and year was used to test for a significant difference in the change in the odds"
+    }
+   ]
+  },
+  {
+   "name": "survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated weighting to school enrollment by year, grade and sex; all prevalences weighted",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted to be representative of school enrollment by year, grade, and sex."
+    }
+   ]
+  },
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named chi-squared test used to screen potential confounders",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "assessing associations with year and obesity (chi-squared test; p<0.05 identifies potential confounder)"
+    }
+   ]
+  },
+  {
+   "name": "BMI-for-age percentiles",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "BMI converted to age- and sex-specific percentiles before classifying obesity",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "then used standard BMI-for-age charts to classify each respondent as obese or not obese"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "2004 baseline (King County); rest of Washington; non-CPPW districts",
+  "across": [
+   "survey year",
+   "geography (King County vs rest of state)",
+   "school district CPPW participation (low-income districts)"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "saw a statistically significant decrease from its 2004 baseline prevalence, from 9.5% in 2004 to 7.9% in 2012"
+   },
+   {
+    "loc": "text",
+    "q": "the 2010 to 2012 change in obesity was significantly different (CPPW districts saw greater reduction; p=0.045 for interaction term)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "(odds ratio [OR] = 0.90; 95% confidence interval [CI] = 0.82-0.98)"
+   },
+   {
+    "loc": "text",
+    "q": "Two-tailed p-values <0.05 were considered to indicate significance in all statistical tests."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "prevalence (%)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Prevalence (%)"
+    }
+   ]
+  },
+  {
+   "v": "OR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(odds ratio [OR] = 0.90; 95% confidence interval [CI] = 0.82-0.98)"
+    }
+   ]
+  },
+  {
+   "v": "p-value for interaction",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "King County students saw greater reduction; p-value for interaction = 0.02"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "obesity trends adjusted for race/ethnicity were similar (<10% change) to crude trends"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "obesity trends adjusted for race/ethnicity were similar (<10% change) to crude trends"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "race/ethnicity (evaluated: race/ethnicity, maternal education, sex)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "race/ethnicity, maternal education, and sex were evaluated as potential confounders"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the statistical interaction of geography and year was used to test for a significant difference in trends"
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Did youth obesity prevalence decline in King County, and in its CPPW school districts, after a CPPW obesity prevention initiative?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "For comparison of CPPW with non-CPPW school districts, the aim was to assess the impact of the intervention."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "obesity",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Declines in Student Obesity Prevalence Associated with a Prevention Initiative"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "For comparison of CPPW with non-CPPW school districts, the aim was to assess the impact of the intervention."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "comparing CPPW and non-CPPW school districts before and after the intervention (2010 versus 2012)"
+    }
+   ]
+  },
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a school-based survey analogous to the Youth Risk Behavior Survey, conducted each even-numbered year during 2004-2012"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "biennially administered Washington State Healthy Youth Survey (HYS)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Washington State Healthy Youth Survey (HYS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "biennially administered Washington State Healthy Youth Survey (HYS)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "King County, Washington, 2012"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "CPPW targeted low-income districts (free/reduced lunch 44% vs 17%) to address inequities, and results are reported by district group, but baseline higher prevalence is only side by side and the income disparity is cited, not quantified here.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The interaction test quantifies a greater decline in low-income CPPW districts, which could be read as a quantified, interpreted narrowing of an SES gap."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "primary comparison",
+    "ses_components": [
+     "low-income school districts",
+     "free and reduced price lunch eligibility"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Within King County, CPPW was implemented only in low-income school districts to address geographic inequities in obesity rates."
+     },
+     {
+      "loc": "text",
+      "q": "were more likely than non-CPPW students to be eligible for free and reduced price lunch (44% versus 17%)"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "maternal education"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "race/ethnicity, maternal education, and sex were evaluated as potential confounders"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "obesity trends adjusted for race/ethnicity were similar (<10% change) to crude trends"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Data were weighted to be representative of school enrollment by year, grade, and sex."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "asked only of respondents in grades 8, 10, and 12"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "school-based policy, systems, and environment changes",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "School-based policy, systems, and environment changes might be important elements of a comprehensive obesity prevention strategy."
+    }
+   ]
+  },
+  "equity_action": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Within King County, CPPW was implemented only in low-income school districts to address geographic inequities in obesity rates."
+    }
+   ]
+  },
+  "equity_measurement": "SES is an area-level proxy: CPPW districts were chosen as low-income; free/reduced lunch eligibility describes them. The income disparity in obesity is cited from community health assessment data."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": null,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "assessing associations with year and obesity (chi-squared test; p<0.05 identifies potential confounder)"
+    },
+    {
+     "loc": "text",
+     "q": "although race/ethnicity distributions did change over time"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": null,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "neither maternal education nor sex distributions changed over time in these populations"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "study_design",
+  "procedures"
+ ],
+ "confidence": "medium",
+ "notes": "Design is inferred (evaluation with repeated cross-sectional survey); the article calls itself an observational study. The ≥10% change-in-estimate rule is a covariate-selection rule, not a procedure. Number of race/ethnicity and maternal-education categories in the confounder chi-square tests is not stated.",
+ "view_issues": "Table 2 caption says 'Washington state' though the districts are within King County."
+}

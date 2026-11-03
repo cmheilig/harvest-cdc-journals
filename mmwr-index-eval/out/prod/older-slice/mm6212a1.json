@@ -1,0 +1,361 @@
+{
+ "id": "mm6212a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cgg9oz7u2f9voqT3BeUzQ",
+  "batch_id": "msgbatch_01GKCs8ucZ2a3sKaBJ8ZMocc"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The age-adjusted incidence was 5.3 cases per 100,000 population in the endemic area in 1998 and 42.6 per 100,000 in 2011."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the number of cases increased from 2,265 in 1998 (aIR: 5.3 per 100,000 population) to 8,806 in 2006 (18.0 per 100,000)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Among persons aged 60–79 years in the endemic area, incidence was 69.1 cases per 100,000 in 2011."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "2011 incidence among California males (20.5 per 100,000) was more than double that among females (9.7 per 100,000)."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates were age adjusted using the 2000 U.S. standard population."
+    },
+    {
+     "loc": "text",
+     "q": "This model adjusts for changes in population size and age and sex distribution over time."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "age-adjusted incidence rates using the 2000 U.S. standard population → direct standardization",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates were age adjusted using the 2000 U.S. standard population."
+    }
+   ]
+  },
+  {
+   "name": "negative binomial regression",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'Negative binomial regression' for incidence trends, giving average annual percent increase and p-values → loglinear",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Negative binomial regression was performed to assess statistical significance of incidence trends during 1998–2011."
+    },
+    {
+     "loc": "text",
+     "q": "this corresponds to an increase in coccidioidomycosis incidence of approximately 16% each year during the study period."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": null,
+  "across": [
+   "year",
+   "state/region",
+   "age group",
+   "sex"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The age-adjusted incidence was 5.3 cases per 100,000 population in the endemic area in 1998 and 42.6 per 100,000 in 2011."
+   },
+   {
+    "loc": "text",
+    "q": "this corresponds to an increase in coccidioidomycosis incidence of approximately 16% each year during the study period."
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "was statistically significant by negative binomial regression (aIR: 30.5 per 100,000 in 1998; 247.7 per 100,000 in 2011, p<0.001)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted incidence rate (aIR) per 100,000",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Number and age-adjusted incidence per 100,000 population of coccidioidomycosis cases, by region"
+    }
+   ]
+  },
+  {
+   "v": "incidence per 100,000",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Number and incidence per 100,000 population of coccidioidomycosis cases, by region, age group, and sex"
+    }
+   ]
+  },
+  {
+   "v": "average annual increase, %",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(average annual increase of 13%, p<0.001)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This model adjusts for changes in population size and age and sex distribution over time."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "population size, age and sex distribution",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This model adjusts for changes in population size and age and sex distribution over time."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did reported coccidioidomycosis incidence change in the United States, particularly in endemic states, during 1998–2011?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To characterize long-term national trends, CDC analyzed data from the National Notifiable Diseases Surveillance System (NNDSS) for the period 1998–2011."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "coccidioidomycosis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Increase in Reported Coccidioidomycosis — United States, 1998–2011"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "To characterize long-term national trends, CDC analyzed data from the National Notifiable Diseases Surveillance System (NNDSS) for the period 1998–2011."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Negative binomial regression was performed to assess statistical significance of incidence trends during 1998–2011."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the National Notifiable Diseases Surveillance System (NNDSS)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Notifiable Diseases Surveillance System (NNDSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the National Notifiable Diseases Surveillance System (NNDSS)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "a total of 111,717 coccidioidomycosis cases were reported to CDC from 28 states and the District of Columbia"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Only age and sex results are reported, without social-position framing; race/ethnicity appears only in a limitation (rates not calculated because of missing data).",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 0,
+   "reason": "A dimension named only in a limitation does not raise the level, which leaves age and sex only."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "incidence typically was highest among the 40–59 year age group in California but was consistently highest among persons aged ≥60 years in Arizona"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "This model adjusts for changes in population size and age and sex distribution over time."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "2011 incidence among California males (20.5 per 100,000) was more than double that among females (9.7 per 100,000)."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "This model adjusts for changes in population size and age and sex distribution over time."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "because nearly 70% of cases were missing race/ethnicity data, incidence rates by race and ethnicity were not calculated."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity is missing for nearly 70% of cases, so no race-specific rates; geography (endemic states) is not an SPD."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": null,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "incidence typically was highest among the 40–59 year age group in California but was consistently highest among persons aged ≥60 years in Arizona"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Trend p-values come from the negative binomial model term, so no separate test is recorded. Environmental factors and surveillance changes offered for the overall increase are not social determinants.",
+ "view_issues": "Table 2 total endemic area 60–79: female incidence 90.2 and male 73.4 exceed the total 69.1, which looks inconsistent. The text has a typo '286.9 per 100,00 0'. 2010 counts appear although the disease was not notifiable that year."
+}

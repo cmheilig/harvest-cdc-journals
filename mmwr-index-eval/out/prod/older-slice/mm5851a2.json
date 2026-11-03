@@ -1,0 +1,362 @@
+{
+ "id": "mm5851a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cgg9ovhXe3Dd5jJgM4rMy",
+  "batch_id": "msgbatch_01GKCs8ucZ2a3sKaBJ8ZMocc"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "a difference of 1 day for median length of hospitalization was observed for children compared with adults"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were observed in 73 patients (74%), including 37 children (64%) and 36 adults (88%)"
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Wilcoxon ranked-sum tests were conducted to compare median lengths of hospitalization among surviving patients"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were observed in 73 patients (74%), including 37 children (64%) and 36 adults (88%)"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Patients treated with oseltamivir within 2 days of symptom onset had shorter median hospitalizations than those who did not"
+    },
+    {
+     "loc": "text",
+     "q": "These proportions differed from the proportions for the same age groups in the general population (2007 census projections for New York City)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "obesity was more common among H1N1 patients (56% of adults [age adjusted] where information was available) than NYC residents"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Wilcoxon rank-sum test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated 'Wilcoxon ranked-sum tests' comparing median length of hospitalization (children vs adults; early vs late oseltamivir)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Wilcoxon ranked-sum tests were conducted to compare median lengths of hospitalization among surviving patients"
+    }
+   ]
+  },
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "Table 1 column 'Unadjusted chi-square p-value' comparing each category's share among patients with the NYC population",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Unadjusted chi-square p-value"
+    },
+    {
+     "loc": "text",
+     "q": "Of the hospitalized patients, non-Hispanic Asians and whites were underrepresented compared with the NYC general population, and Hispanics were overrepresented"
+    }
+   ]
+  },
+  {
+   "name": "age adjustment of asthma and obesity percentages",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "'(age adjusted)' percentages compared with Community Health Survey values; method not described",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "observed for 50% of patients aged <18 years and 49% of adult patients (age adjusted)"
+    }
+   ]
+  },
+  {
+   "name": "BMI-for-age percentiles",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "CDC growth charts used to classify children's weight status",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "BMI percentile-for-age for patients aged 2--17 years was determined by using CDC growth charts"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "absolute",
+  "referent": "NYC general population (2007 estimates; 2003/2007 Community Health Survey)",
+  "across": [
+   "timing of antiviral treatment",
+   "age group",
+   "race/ethnicity",
+   "sex"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Patients treated with oseltamivir within 2 days of symptom onset had shorter median hospitalizations than those who did not"
+   },
+   {
+    "loc": "text",
+    "q": "a difference of 1 day for median length of hospitalization was observed for children compared with adults"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Wilcoxon ranked-sum tests were conducted to compare median lengths of hospitalization among surviving patients"
+   },
+   {
+    "loc": "table 1",
+    "q": "Unadjusted chi-square p-value"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were observed in 73 patients (74%), including 37 children (64%) and 36 adults (88%)"
+    }
+   ]
+  },
+  {
+   "v": "median length of hospitalization",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Wilcoxon ranked-sum tests were conducted to compare median lengths of hospitalization among surviving patients"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Among the first patients hospitalized with 2009 H1N1 influenza in New York City, what were their characteristics, underlying conditions, illness severity and antiviral use?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "rapidly assess the severity of influenza illness and identify persons at highest risk for severe infection"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "2009 pandemic influenza A (H1N1)",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Patients Hospitalized with 2009 Pandemic Influenza A (H1N1) --- New York City, May 2009"
+    }
+   ]
+  },
+  {
+   "v": "asthma",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The most commonly documented underlying condition was asthma"
+    }
+   ]
+  },
+  {
+   "v": "obesity",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "56% of adult patients hospitalized for H1N1 were obese"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "case report/series",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "reviewed the medical charts of the first 99 patients with laboratory confirmed H1N1 admitted to any NYC hospital"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "record abstraction or interview",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "used a modified abstraction form based on one developed by CDC to collect clinical and laboratory data from paper and electronic medical charts"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "New York City, May 2009"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Race/ethnicity shares of hospitalized patients are set beside NYC population shares with chi-square p-values and called under- or overrepresented, but no difference or ratio is stated and no disparity is framed, so level 2 applies.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "The race/ethnicity breakdown is case-series composition, so it could be read as a descriptor only."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Of the hospitalized patients, non-Hispanic Asians and whites were underrepresented compared with the NYC general population, and Hispanics were overrepresented"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "indicating that hospitalized patients were generally younger than the general population"
+     },
+     {
+      "loc": "text",
+      "q": "a difference of 1 day for median length of hospitalization was observed for children compared with adults"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Gender › Female"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Patient race/ethnicity and age shares are compared with 2007 NYC population estimates, with a chi-square test for each category. Unknown race (18%) is excluded from the comparison."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age (yrs) › 0--4"
+    },
+    {
+     "loc": "text",
+     "q": "indicating that hospitalized patients were generally younger than the general population"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Of the hospitalized patients, non-Hispanic Asians and whites were underrepresented compared with the NYC general population, and Hispanics were overrepresented"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "study_design",
+  "analytic_depth",
+  "groupwise",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "No design is named; I inferred a chart-review case series, though it could be read as an outbreak investigation. The comparisons of asthma and obesity with the Community Health Survey are untested and use an age adjustment that is not described. The ICU vs non-ICU length of stay is a comparison with no reported test.",
+ "view_issues": "The text gives asthma in 29 children (50%) and 19 adults (46%), and 49% in the Editorial Note, but Table 2 shows 23 (40%) and 13 (32%), 36 in total. The age row is labeled '> 65' in the table but '≥65' in the text."
+}

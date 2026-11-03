@@ -1,0 +1,495 @@
+{
+ "id": "mm6929a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cgg9oxuyhLH3w96j52Y87",
+  "batch_id": "msgbatch_01GKCs8ucZ2a3sKaBJ8ZMocc"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The nationwide prevalence of any of the five underlying medical conditions among adults aged ≥18 years was 40.7%"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The nationwide prevalence of any of the five underlying medical conditions among adults aged ≥18 years was 40.7%"
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the estimated median number of persons with any underlying condition ranged from 4,300 in noncore counties to 301,744 in large central metro counties"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The median prevalence of any underlying medical condition in residents among 3,142 counties"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The estimated median prevalence of any condition generally increased with increasing rurality"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multilevel regression and poststratification (small area estimation)",
+   "class": "regression",
+   "regression_family": "other",
+   "inferred_from": "'multilevel regression and poststratification' with predicted probabilities; link function not named, so other (multilevel regression not otherwise named)",
+   "role": "primary",
+   "alternative_reading": "logistic: MRP for a binary outcome giving predicted probabilities is usually multilevel logistic",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "estimates of each and of any condition were generated using a multilevel regression and poststratification approach"
+    },
+    {
+     "loc": "text",
+     "q": "The model parameters were applied to 2018 Census county-level population estimates by age, gender, and race/ethnicity"
+    }
+   ]
+  },
+  {
+   "name": "survey weighting for nationwide direct estimates",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated weighting for survey design; SUDAAN",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Nationwide estimates of underlying medical conditions were weighted to adjust for survey design."
+    }
+   ]
+  },
+  {
+   "name": "bootstrap imputation of county education distribution",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "bootstrapping used to impute missing Census education cells that enter poststratification",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Because the U.S. Census Bureau does not provide county-level population data for education level by age, sex, and race/ethnicity"
+    },
+    {
+     "loc": "text",
+     "q": "was used to impute it"
+    }
+   ]
+  },
+  {
+   "name": "Pearson correlation coefficient (model validation)",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "correlation of model-based vs direct estimates in 213 counties; no test",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Model-based estimates for any condition were validated by comparing them with the weighted direct survey estimates"
+    },
+    {
+     "loc": "text",
+     "q": "the Pearson correlation coefficient was 0.89"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "urban/rural county classification",
+   "county/region"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "prevalence was higher in more rural counties"
+   },
+   {
+    "loc": "text",
+    "q": "The estimated median prevalence of any condition generally increased with increasing rurality"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "40.7% (95% confidence interval [CI] = 40.4%–41.0%)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "median county prevalence %",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Median county prevalence % (range)"
+    }
+   ]
+  },
+  {
+   "v": "nationwide prevalence % (95% CI)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Nationwide prevalence † % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "median county no. of adults",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Median county no. of adults † (range)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "mixed effects",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a multilevel regression model was constructed for each outcome"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The model parameters were applied to 2018 Census county-level population estimates by age, gender, and race/ethnicity"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age, gender, race/ethnicity, education, county percentage living <150% of poverty level (model predictors for poststratification)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "data on county-level percentage of the adult population living at <150% of the poverty level from the 2014–2018 American Community Survey (ACS)"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "What is the county-level prevalence and number of U.S. adults with underlying medical conditions associated with severe COVID-19 illness, and how does it vary by urban/rural classification?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "A small area estimation approach was used to estimate county-level prevalence of selected conditions associated with severe COVID-19 disease among U.S. adults"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "underlying medical conditions associated with severe COVID-19 illness",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Estimated County-Level Prevalence of Selected Underlying Medical Conditions Associated with Increased Risk for Severe COVID-19 Illness"
+    }
+   ]
+  },
+  {
+   "v": "obesity",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The overall weighted prevalences of these conditions were 30.9% (obesity), 11.4% (diabetes), 6.9% (COPD), 6.8% (heart disease), and 3.1% (CKD)."
+    }
+   ]
+  },
+  {
+   "v": "diabetes",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The overall weighted prevalences of these conditions were 30.9% (obesity), 11.4% (diabetes), 6.9% (COPD), 6.8% (heart disease), and 3.1% (CKD)."
+    }
+   ]
+  },
+  {
+   "v": "chronic obstructive pulmonary disease",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The overall weighted prevalences of these conditions were 30.9% (obesity), 11.4% (diabetes), 6.9% (COPD), 6.8% (heart disease), and 3.1% (CKD)."
+    }
+   ]
+  },
+  {
+   "v": "heart disease",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The overall weighted prevalences of these conditions were 30.9% (obesity), 11.4% (diabetes), 6.9% (COPD), 6.8% (heart disease), and 3.1% (CKD)."
+    }
+   ]
+  },
+  {
+   "v": "chronic kidney disease",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The overall weighted prevalences of these conditions were 30.9% (obesity), 11.4% (diabetes), 6.9% (COPD), 6.8% (heart disease), and 3.1% (CKD)."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "BRFSS is an annual, random-digit–dialed landline and mobile telephone survey of noninstitutionalized U.S. adults aged ≥18 years"
+    }
+   ]
+  },
+  {
+   "v": "ecologic",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The county-level estimates of having any underlying medical condition were categorized into six county urban/rural classifications"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using self-reported data from the 2018 Behavioral Risk Factor Surveillance System (BRFSS) and U.S. Census population data"
+    },
+    {
+     "loc": "text",
+     "q": "data on county-level percentage of the adult population living at <150% of the poverty level from the 2014–2018 American Community Survey (ACS)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using self-reported data from the 2018 Behavioral Risk Factor Surveillance System (BRFSS)"
+    }
+   ]
+  },
+  {
+   "v": "American Community Survey (ACS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "from the 2014–2018 American Community Survey (ACS)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "for 3,142 counties in all 50 states and DC"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Median prevalence is reported by six urban/rural county classes and described as rising with rurality, with rural underresourcing and access named, but values are only set side by side with no computed difference or ratio, so the cap at 2 holds.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The 39.4% vs 48.8% range across rurality could be read as a quantified, interpreted rural disparity, with access named as a determinant (possibly 4)."
+  },
+  "dimensions": [
+   {
+    "v": "rurality",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "prevalence was higher in more rural counties"
+     },
+     {
+      "loc": "table 2",
+      "q": "Nonmetropolitan › Noncore"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "selected conditions associated with severe COVID-19 disease among U.S. adults aged ≥18 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "Age was categorized into 13 age groups at 5-year intervals for ages ≥18 years."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The model parameters were applied to 2018 Census county-level population estimates by age, gender, and race/ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "Race/ethnicity was categorized as non-Hispanic white, non-Hispanic African American"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "education",
+     "county poverty <150%"
+    ],
+    "ev": [
+     {
+      "loc": "note",
+      "q": "Education was categorized as less than high school, high school graduate, some college or technical school, or college graduate."
+     },
+     {
+      "loc": "text",
+      "q": "county-level percentage of the adult population living at <150% of the poverty level"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "underresourced rural health care; limited access to adequate care",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Health care in rural counties is often underresourced"
+    },
+    {
+     "loc": "text",
+     "q": "rural communities might have limited access to adequate care, which could further increase risk for poor COVID-19–associated outcomes"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Rurality is the NCHS 2013 six-level county classification; group values are medians of county model-based estimates, not person-level prevalences."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The estimated median prevalence of any condition generally increased with increasing rurality"
+    },
+    {
+     "loc": "table 2",
+     "q": "by urban/rural county classification"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "regression_fields",
+  "study_design",
+  "outcome_types"
+ ],
+ "confidence": "medium",
+ "notes": "Design not named; cross-sectional (BRFSS) and ecologic (county estimates) inferred. MRP covariates are prediction variables for poststratification rather than confounders of a contrast. Prepass chi-square cue is a false hit on 'Pearson correlation'.",
+ "view_issues": "Table 1 CSV has stray spaces inside numbers (e.g. '434, 075', '1, 811')."
+}

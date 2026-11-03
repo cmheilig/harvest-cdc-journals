@@ -1,0 +1,557 @@
+{
+ "id": "mm6434a6",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggDK2onubagoaVNJK7iB",
+  "batch_id": "msgbatch_01MhhduP5LecjSWWtu72hMjw"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Overall, average predicted heart age for adult men and women was 7.8 and 5.4 years older than their chronological age, respectively."
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence of excess heart age ≥5 years was 48.8% among men and 38.5% among women"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, approximately 69.1 million (43.7%) U.S. adults aged 30–74 years had excess heart age ≥5 years"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among men, blacks had the highest predicted heart age (58.7 years) followed by Hispanics (55.7 years), whites (55.3 years) and others (54.7 years)."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among men, the adjusted difference in excess heart age between blacks and whites was 2.7 years"
+    },
+    {
+     "loc": "table 2",
+     "q": "included an interaction term of age-by-race/ethnicity to estimate racial difference in excess heart age by age group."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multivariable linear regression",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "'Multivariable linear regression models' on excess heart age (years), giving adjusted differences → linear",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Multivariable linear regression models were used to estimate racial disparities in the difference of excess heart age among racial/ethnic groups"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "CI method not stated; adjusted race differences with CIs excluding 0 underpin 'significantly higher' claims",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "with blacks having significantly higher predicted heart age compared with that of other groups."
+    }
+   ]
+  },
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "table notes: t-tests across age groups and pairwise t-tests across education and income levels of the racial differences",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "p-value based on t-tests across the age group."
+    },
+    {
+     "loc": "table 2",
+     "q": "p-value based on pairwise t-tests."
+    }
+   ]
+  },
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "table note: direct method to the U.S. 2010 census population",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age-standardized by the direct method to the U.S. 2010 census population"
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (complex sampling design)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weighted BRFSS data and software accounting for complex sampling design",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were analyzed using statistical software that accounted for each surveys' complex sampling design."
+    }
+   ]
+  },
+  {
+   "name": "model-based prediction of systolic blood pressure (NHANES linear regression)",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "NHANES-derived linear regression parameters impute each BRFSS participant's systolic blood pressure, which enters heart age",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "four sex- and hypertension-status–specific multivariable linear regression models were developed to predict systolic blood pressure."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "absolute",
+  "referent": "non-Hispanic white",
+  "across": [
+   "race/ethnicity",
+   "age group",
+   "education",
+   "household income",
+   "state",
+   "sex"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Statistically significant (p<0.05) racial/ethnic, sociodemographic, and regional differences in heart age were observed"
+   },
+   {
+    "loc": "table 2",
+    "q": "Adjusted difference in excess heart age comparing different race/ethnicity groups"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "p-value based on pairwise t-tests."
+   },
+   {
+    "loc": "text",
+    "q": "Age-standardized and weighted means and prevalence and 95% confidence intervals (CIs) were calculated"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "mean heart age (yrs)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Heart age › Yrs"
+    }
+   ]
+  },
+  {
+   "v": "excess heart age (yrs)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Excess heart age = predicted heart age - chronological age."
+    }
+   ]
+  },
+  {
+   "v": "prevalence of excess heart age ≥5 yrs (%)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Prevalence of excess heart age ≥5 yrs › %"
+    }
+   ]
+  },
+  {
+   "v": "adjusted difference in excess heart age",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Difference in heart age (yrs)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were analyzed using statistical software that accounted for each surveys' complex sampling design."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted for age (30–39, 40–49, 50–59, and 60–74 years), education (<high school, high school, and >high school), and annual household income"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age group, education, annual household income (<$35,000, ≥$35,000, unknown)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted for age (30–39, 40–49, 50–59, and 60–74 years), education (<high school, high school, and >high school), and annual household income"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "included an interaction term of education-by-race/ethnicity to estimate racial difference in excess heart age by educational attainment group."
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "What are predicted heart age and excess heart age among U.S. adults aged 30–74 years, and how do they differ by race/ethnicity, sociodemographics and state?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "examines racial, sociodemographic, and regional disparities in heart age among U.S. adults aged 30–74 years."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "cardiovascular disease",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Heart age (the predicted age of a person's vascular system based on their cardiovascular risk factor profile)"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "BRFSS is a state-based, random-digit–dialed telephone survey that uses a multistage sampling design"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Weighted 2011 and 2013 BRFSS data collected from all 50 states and the District of Columbia were combined"
+    },
+    {
+     "loc": "text",
+     "q": "using National Health and Nutrition Examination Survey (NHANES) 2007–2012 data"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using 2011 and 2013 Behavioral Risk Factor Surveillance System (BRFSS) data."
+    }
+   ]
+  },
+  {
+   "v": "National Health and Nutrition Examination Survey (NHANES)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using National Health and Nutrition Examination Survey (NHANES) 2007–2012 data"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "table 3",
+    "q": "Mean excess heart age and prevalence of excess heart age ≥5 years, by sex and state"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 3,
+  "level_reason": "Black–White and Black–Hispanic disparities in excess heart age are framed as disparities, quantified as adjusted differences (e.g. 2.7 and 5.3 years) and interpreted; the explanation offered is clinical (hypertension prevalence), not structural.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "Education and income gradients are analyzed and community programs and policies are mentioned, which could be read as determinants analyzed."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "heart age among non-Hispanic black men (58.7 years) and women (58.9 years) was greater than other racial/ethnic groups"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education",
+     "annual household income"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Excess heart age increased with age and decreased as education and household income increased."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "education",
+     "annual household income"
+    ],
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "education (<high school, high school, and >high school), and annual household income"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "among U.S. adults aged 30–74 years."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Excess heart age increased with age"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Adjusted for age (30–39, 40–49, 50–59, and 60–74 years)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Among younger adults, predicted excess heart age was higher among men compared with women."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "White is the referent for adjusted race differences; 'other' race is collapsed and excluded from Table 2; income dichotomized at $35,000 with 55,566 missing."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "pairwise (all pairs)",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "-1.2 years between Hispanics and whites, and 3.8 years between blacks and Hispanics"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among men, blacks had the highest predicted heart age (58.7 years) followed by Hispanics (55.7 years), whites (55.3 years) and others (54.7 years)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age",
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "interaction",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "p-value based on t-tests across the age group."
+    },
+    {
+     "loc": "text",
+     "q": "The racial differences in predicted excess heart age tended to increase with greater age, education, and household income"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES",
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Education § › p-value (1) vs. (3) ††"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Excess heart age increased with age and decreased as education and household income increased."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Excess heart age increased with age and decreased as education and household income increased."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "procedures",
+  "groupwise",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "Heart age is derived by applying the non-laboratory Framingham risk score (a measurement step, not recorded as a procedure). Cross-sectional design inferred from the BRFSS survey; none is named. The SES groupwise entries are education levels (3 groups); the Abstract's 'statistically significant' claims on Table 1 groups do not name their test.",
+ "view_issues": "Table 2 CIs drop minus signs on upper bounds (e.g. -1.6 with (-2.0–1.3)) and one CI reads (4.2.4–4.9). Abstract 'p<0.05' differences cite no test for Table 1 comparisons."
+}

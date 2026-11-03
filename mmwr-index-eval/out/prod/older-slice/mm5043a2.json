@@ -1,0 +1,483 @@
+{
+ "id": "mm5043a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cgg9oympBCiiH3VUaaeMs",
+  "batch_id": "msgbatch_01GKCs8ucZ2a3sKaBJ8ZMocc"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The age-adjusted prevalence of major CVD among women with diabetes was twice that of women without diabetes (p<0.0001)"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 1997--1999, 72% (95% confidence interval [CI]= + 1.8%) of all women with diabetes self-reported having major CVD"
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The age-adjusted major CVD hospital discharge rate for women with diabetes was 3.8 times that of women without diabetes"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 1997--1999, 72% (95% confidence interval [CI]= + 1.8%) of all women with diabetes self-reported having major CVD"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The age-adjusted prevalence of major CVD among women with diabetes was twice that of women without diabetes (p<0.0001)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Major CVD rates were age-adjusted to the 2000 U.S. standard population"
+    },
+    {
+     "loc": "text",
+     "q": "The rate ratio comparing major CVD hospital discharges in women with diabetes with those without diabetes decreased with age"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "age-adjusted to the 2000 U.S. standard population: direct standardization",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Major CVD rates were age-adjusted to the 2000 U.S. standard population"
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (complex sample design, SUDAAN)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "NIS sample weighted to national discharges; SUDAAN used for complex sample designs of NIS and NHIS",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Sample data were weighted using the American Hospital Association Annual Survey of Hospitals"
+    },
+    {
+     "loc": "text",
+     "q": "SUDAAN was used to calculate all estimates and their standard errors because of the complex sample designs of NIS and NHIS."
+    }
+   ]
+  },
+  {
+   "name": "z-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "z-tests named for diabetes vs no diabetes differences",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The difference between age-adjusted major CVD prevalence and hospital discharge rates by diabetes status across all racial/ethnic categories was assessed using z-tests"
+    }
+   ]
+  },
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "t-test in SUDAAN named for race/ethnicity comparisons",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a t-test in SUDAAN was used to assess the difference in age-adjusted major CVD prevalence and hospital discharge rates by race/ethnicity"
+    }
+   ]
+  },
+  {
+   "name": "t-test for trend",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "table note 't-test for trend' for rates across age groups",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "ocr",
+     "q": "p<0.0001; t-test for trend."
+    },
+    {
+     "loc": "text",
+     "q": "Trends were assessed by age for major CVD prevalence and for hospital discharge rates, rate ratios, and rate differences."
+    }
+   ]
+  },
+  {
+   "name": "linear regression test for trend",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "'linear regression test for trend' → linear; used only to test trends in rate ratios and differences across age",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "ocr",
+     "q": "p=0.2742; linear regression test for trend."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "both",
+  "referent": "women without diabetes",
+  "across": [
+   "diabetes status",
+   "age group",
+   "race/ethnicity"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Rate ratios and rate differences were calculated for both major CVD prevalence and hospital discharge rates"
+   },
+   {
+    "loc": "text",
+    "q": "The age-adjusted prevalence of major CVD among women with diabetes was twice that of women without diabetes (p<0.0001)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The difference between age-adjusted major CVD prevalence and hospital discharge rates by diabetes status across all racial/ethnic categories was assessed using z-tests"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "prevalence per 100 women",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 1997--1999, 72% (95% confidence interval [CI]= + 1.8%) of all women with diabetes self-reported having major CVD"
+    }
+   ]
+  },
+  {
+   "v": "hospital discharge rate per 1,000",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Hospital discharge rates for major CVD among women with diabetes increased from 22.9 per 1,000"
+    }
+   ]
+  },
+  {
+   "v": "rate ratio",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rate ratios and rate differences were calculated for both major CVD prevalence and hospital discharge rates"
+    }
+   ]
+  },
+  {
+   "v": "rate difference",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rate ratios and rate differences were calculated for both major CVD prevalence and hospital discharge rates"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "SUDAAN was used to calculate all estimates and their standard errors because of the complex sample designs of NIS and NHIS."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "ocr",
+     "q": "p=0.2742; linear regression test for trend."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The rate ratio comparing major CVD hospital discharges in women with diabetes with those without diabetes decreased with age"
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "What are the national prevalence of major CVD and the major CVD hospital discharge rates among U.S. women with diabetes compared with women without diabetes?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To estimate national CVD prevalence and CVD hospital use among women with diabetes"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "cardiovascular disease",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Major Cardiovascular Disease (CVD) During 1997--1999 and Major CVD Hospital Discharge Rates in 1997 Among Women with Diabetes"
+    }
+   ]
+  },
+  {
+   "v": "diabetes",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Major CVD was defined as one or more positive responses to the six CVD condition questions, and diabetes was defined as a positive response"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "an ongoing nationally representative survey providing information on the health of the noninstitutionalized U.S. civilian population"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "analyzed data from the 1997--1999 National Health Interview Survey (NHIS) and the 1997 Nationwide Inpatient Sample (NIS)"
+    }
+   ]
+  },
+  {
+   "v": "administrative/claims",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The number of major CVD hospital discharges was estimated from the 1997 NIS, a stratified probability sample of hospitals in 22 states."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Health Interview Survey (NHIS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "analyzed data from the 1997--1999 National Health Interview Survey (NHIS) and the 1997 Nationwide Inpatient Sample (NIS)"
+    }
+   ]
+  },
+  {
+   "v": "Nationwide Inpatient Sample (NIS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "analyzed data from the 1997--1999 National Health Interview Survey (NHIS) and the 1997 Nationwide Inpatient Sample (NIS)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "an ongoing nationally representative survey providing information on the health of the noninstitutionalized U.S. civilian population"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Race/ethnicity-specific CVD prevalence and discharge rates are reported and compared with t-tests (Black higher than White), but the race contrast is shown only with p-values and not framed or quantified as a disparity.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The Black–White prevalence difference is reported with values and p-values and the Editorial Note mentions REACH 2010 to eliminate racial/ethnic disparities."
+  },
+  "dimensions": [
+   {
+    "v": "sex",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Major Cardiovascular Disease (CVD) During 1997--1999 and Major CVD Hospital Discharge Rates in 1997 Among Women with Diabetes"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The prevalence of CVD among women aged > 18 years by diabetes status"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Trends were assessed by age for major CVD prevalence and for hospital discharge rates, rate ratios, and rate differences."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Age-adjusted major CVD prevalence for women with diabetes was higher for non-Hispanic blacks (65.2%; 95% CI= + 5.3%) than for non-Hispanic whites"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Only non-Hispanic White, non-Hispanic Black and Hispanic women are compared; other groups excluded for small samples; race/ethnicity missing for about 20% of NIS discharges."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "trend test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "ocr",
+     "q": "p<0.0001; t-test for trend."
+    },
+    {
+     "loc": "text",
+     "q": "Hospital discharge rates for major CVD among women with diabetes increased from 22.9 per 1,000"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-adjusted major CVD prevalence for women with diabetes was higher for non-Hispanic blacks (65.2%; 95% CI= + 5.3%) than for non-Hispanic whites"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "pairwise (all pairs)",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "No significant difference was found among racial/ethnic groups for major CVD hospital discharge rates among women with diabetes."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "regression_fields"
+ ],
+ "confidence": "medium",
+ "notes": "Cross-sectional design inferred from NHIS survey; NIS discharge counts divided by NHIS-based population estimates. The linear regression trend test on rate ratios and differences across age is treated as an ancillary regression and as a test of effect modification by age.",
+ "view_issues": "Text gives rate ratios 'per 1,000' though ratios are unitless; text p=0.09 vs table p=0.0848. CIs printed as '+' instead of '±'. OCR footnote symbols are garbled, so which trend test applies to which row is uncertain."
+}

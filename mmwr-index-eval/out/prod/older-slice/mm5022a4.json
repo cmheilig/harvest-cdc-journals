@@ -1,0 +1,352 @@
+{
+ "id": "mm5022a4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cgg9ovTsiceeQfCscTtyw",
+  "batch_id": "msgbatch_01GKCs8ucZ2a3sKaBJ8ZMocc"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "tested 88,598 respiratory specimens for influenza during October 1, 2000--May 19, 2001; 9962 (11%) were positive"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Of the 2127 subtyped influenza A viruses, 2061 (97%) were type A (H1N1) and 66 (3%) were A (H3N2)."
+    },
+    {
+     "loc": "text",
+     "q": "During each of the 4 weeks, 4% of patient visits were for ILI."
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The peak number of states reporting regional or widespread activity during the previous 3 years ranged from 43 to 46."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "9962 (11%) were positive"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was lower than that seen during the previous three seasons when the peak ranged from 28% to 32%."
+    },
+    {
+     "loc": "text",
+     "q": "the percentage of deaths in the United States associated with pneumonia and influenza (P&I) did not exceed the epidemic threshold"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "robust periodic (Serfling-type) regression baseline for P&I epidemic threshold",
+   "class": "regression",
+   "regression_family": "other",
+   "inferred_from": "'robust regression procedure in which a periodic regression model is applied' → robust/periodic Serfling-type → other; used only to set the threshold, so ancillary",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "The expected seasonal baseline is projected using a robust regression procedure in which a periodic regression model is applied"
+    },
+    {
+     "loc": "note",
+     "q": "The epidemic threshold is 1.645 standard deviations above the seasonal baseline."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": "ILI baseline (0–3%); P&I epidemic threshold; previous three seasons",
+  "across": [
+   "influenza season",
+   "virus type",
+   "surveillance region"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The 2000--01 influenza season was mild in the United States and was the first season since 1995--96 that was not predominated by A (H3N2)"
+   },
+   {
+    "loc": "text",
+    "q": "During the previous three influenza seasons, the peak percentage of patient visits for ILI ranged from 5% to 7%."
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "primary_measures": [
+  {
+   "v": "percentage of specimens positive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The proportion of specimens testing positive for influenza first increased to > 10% during the week ending December 23, 2000"
+    }
+   ]
+  },
+  {
+   "v": "percentage of patient visits for ILI",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the percentage of patient visits for influenza-like illness (ILI) exceeded baseline levels (0--3%) for 4 consecutive weeks"
+    }
+   ]
+  },
+  {
+   "v": "number of states reporting regional or widespread activity",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "when 38 states reported regional or widespread influenza activity"
+    }
+   ]
+  },
+  {
+   "v": "percentage of deaths associated with P&I",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the percentage of deaths in the United States associated with pneumonia and influenza (P&I) did not exceed the epidemic threshold"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "What was the level and viral composition of influenza activity in the United States and worldwide in 2000–01, and what should the 2001–02 vaccine contain?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This report summarizes U.S. and worldwide influenza activity during the 2000--01 influenza season and describes the composition of the 2001--02 influenza vaccine."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "influenza",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Update: Influenza Activity --- United States and Worldwide, 2000--01 Season"
+    }
+   ]
+  },
+  {
+   "v": "influenza",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Composition of the 2001--02 Influenza Vaccine"
+    }
+   ]
+  },
+  {
+   "v": "pneumonia and influenza deaths",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the percentage of deaths in the United States associated with pneumonia and influenza (P&I) did not exceed the epidemic threshold"
+    }
+   ]
+  },
+  {
+   "v": "influenza-like illness",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the percentage of patient visits for influenza-like illness (ILI) exceeded baseline levels (0--3%) for 4 consecutive weeks"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "The four components of the influenza surveillance system have been described"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "World Health Organization and National Respiratory and Enteric Virus Surveillance System collaborating laboratories in the United States"
+    },
+    {
+     "loc": "text",
+     "q": "U.S. influenza sentinel physicians reported"
+    }
+   ]
+  },
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "As reported through the 122 Cities Mortality Reporting System"
+    }
+   ]
+  },
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "On the basis of data from state and territorial epidemiologists' reports"
+    }
+   ]
+  },
+  {
+   "v": "international surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Influenza A (H1N1) viruses predominated in most European countries"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Respiratory and Enteric Virus Surveillance System",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "National Respiratory and Enteric Virus Surveillance System collaborating laboratories"
+    }
+   ]
+  },
+  {
+   "v": "U.S. influenza sentinel physicians",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "U.S. influenza sentinel physicians reported"
+    }
+   ]
+  },
+  {
+   "v": "122 Cities Mortality Reporting System",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "As reported through the 122 Cities Mortality Reporting System"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Update: Influenza Activity --- United States and Worldwide, 2000--01 Season"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "other",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "335 (95%) of the 354 influenza A (H1N1) viruses were similar to A/New Caledonia/20/99, the H1N1 component of the 2000--01 influenza vaccine"
+   }
+  ]
+ },
+ "equity": {
+  "level": 0,
+  "level_reason": "No social-position dimension is analyzed; groups compared are seasons, virus types and regions.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Headline (mild season) rests on comparing 2000–01 indicators with ranges from the previous three seasons and with ILI baseline and P&I epidemic threshold; no tests or CIs. Antigenic characterization proportions bear on vaccine-strain match, recorded as vaccine outcome 'other'. The 0.8% case-definition baseline adjustment is a cited CDC estimate.",
+ "view_issues": "Figure 1 is shown only as an image with no OCR or description."
+}

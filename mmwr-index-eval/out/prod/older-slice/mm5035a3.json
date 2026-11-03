@@ -1,0 +1,508 @@
+{
+ "id": "mm5035a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cgg9oy3R2QgHrq6CAHTD1",
+  "batch_id": "msgbatch_01GKCs8ucZ2a3sKaBJ8ZMocc"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "An estimated 37.9% (95% confidence interval [CI]=36.3%--39.5%) of Michigan adults had a healthy body weight"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "3.0% (95% CI=2.5%--3.5%) in all four."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "An estimated 37.9% (95% confidence interval [CI]=36.3%--39.5%) of Michigan adults had a healthy body weight"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The prevalence of engaging in all four HLCs was significantly different by sex, education, and health status (p<0.05)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "ocr",
+     "q": "Based on results of a multiple logistic regression model containing age, sex, education, household income, and health status."
+    },
+    {
+     "loc": "text",
+     "q": "Data were standardized by age to the projected 2000 U.S. population."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multiple logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'multiple logistic regression model' giving adjusted odds ratios → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were identified using a multiple logistic regression model that contained all independent variables."
+    }
+   ]
+  },
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "prevalences age-adjusted to the projected 2000 U.S. standard population",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were standardized by age to the projected 2000 U.S. population."
+    }
+   ]
+  },
+  {
+   "name": "BRFSS survey weighting (SUDAAN)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "data weighted for selection probability and poststratified by age, race/ethnicity and sex; SUDAAN",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted to adjust for the probability of selection and the distribution of the state's population by age, race/ethnicity, and sex."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "women; high school education or less; excellent health; aged 18–34 years; white; income <$35,000",
+  "across": [
+   "sex",
+   "education",
+   "health status",
+   "age group",
+   "race",
+   "household income"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The prevalence of engaging in all four HLCs was significantly different by sex, education, and health status (p<0.05)"
+   },
+   {
+    "loc": "text",
+    "q": "The prevalence in college graduates was more than three times higher than in those with a high school education or less (AOR=3.2; 95% CI=1.7--6.1)."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "ocr",
+    "q": "HLC significantly different by education after adjusting for all variables (p<0.0001)."
+   },
+   {
+    "loc": "text",
+    "q": "were identified using a multiple logistic regression model that contained all independent variables."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted prevalence",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The prevalence of engaging in all four HLCs was lower in men (age-adjusted prevalence=1.6%) than in women (age-adjusted prevalence=4.5%; AOR=0.3; 95% CI=0.2--0.5)."
+    }
+   ]
+  },
+  {
+   "v": "AOR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The prevalence in college graduates was more than three times higher than in those with a high school education or less (AOR=3.2; 95% CI=1.7--6.1)."
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "3.0% (95% CI=2.5%--3.5%) in all four."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "data were analyzed from Michigan's Behavioral Risk Factor Surveillance System (BRFSS) for 1998 and 2000."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "ocr",
+     "q": "Based on results of a multiple logistic regression model containing age, sex, education, household income, and health status."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age, sex, education, household income, and health status",
+   "ev": [
+    {
+     "loc": "ocr",
+     "q": "Based on results of a multiple logistic regression model containing age, sex, education, household income, and health status."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "What is the prevalence of four healthy lifestyle characteristics among Michigan adults, and how does engaging in all four vary by demographic characteristics and health status?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To characterize the prevalence of four healthy lifestyle characteristics (HLCs)"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "healthy lifestyle characteristics",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Prevalence of Healthy Lifestyle Characteristics --- Michigan, 1998 and 2000"
+    }
+   ]
+  },
+  {
+   "v": "healthy weight",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Healthy weight was defined as having a body mass index between 18.5 and 25.0."
+    }
+   ]
+  },
+  {
+   "v": "fruit and vegetable consumption",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Adequate fruit and vegetable consumption was defined as eating five or more fruits and vegetables daily."
+    }
+   ]
+  },
+  {
+   "v": "leisure-time physical activity",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Regular LTPA was defined as at least 30 minutes of physical activity five or more times per week."
+    }
+   ]
+  },
+  {
+   "v": "smoking",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Not smoking was defined according to self-reported absence of current cigarette use"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "BRFSS is a random-digit--dialed telephone survey of the noninstitutionalized U.S. population"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "data were analyzed from Michigan's Behavioral Risk Factor Surveillance System (BRFSS) for 1998 and 2000."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS), Michigan",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "data were analyzed from Michigan's Behavioral Risk Factor Surveillance System (BRFSS) for 1998 and 2000."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Prevalence of Healthy Lifestyle Characteristics --- Michigan, 1998 and 2000"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Prevalence of all four HLCs is reported by education and income (and sex, age, race) with AORs; the education gradient is quantified ('more than three times higher') but not framed or interpreted as a disparity.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The education contrast is quantified (AOR 3.2, 'more than three times') and named in the summary as an influence on prevalence, which could be read as a framed disparity."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education",
+     "household income"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The prevalence of engaging in all four HLCs increased with education."
+     },
+     {
+      "loc": "ocr",
+      "q": "$35,000-$50,000 738 (2.6) (1.4-3.8) 0.7 ( 0.4-1.4)"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "education",
+     "household income"
+    ],
+    "ev": [
+     {
+      "loc": "ocr",
+      "q": "Based on results of a multiple logistic regression model containing age, sex, education, household income, and health status."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "ocr",
+      "q": "Black 500 (1.7) (0.6-2.8) 0.9 ( 0.4-1.9)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "the distribution of the state's population by age, race/ethnicity, and sex."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Fourth, the number of black respondents in this study was too small for meaningful analysis."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The prevalence of engaging in all four HLCs was lower in men (age-adjusted prevalence=1.6%) than in women (age-adjusted prevalence=4.5%; AOR=0.3; 95% CI=0.2--0.5)."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "ocr",
+      "q": "Based on results of a multiple logistic regression model containing age, sex, education, household income, and health status."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "ocr",
+      "q": "adjusted prevalence odds ratios’ among persons aged 18-74 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "ocr",
+      "q": "35-54 1996 (2.7) (2.0-3.4) 0.8 ( 0.5-1.3)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Data were standardized by age to the projected 2000 U.S. population."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referents: women, lowest education, lowest income, white, ages 18–34. Race limited to white and black; black respondents called too few for meaningful analysis. Social determinants mentioned only in a prevention recommendation."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "model joint test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "ocr",
+     "q": "HLC significantly different by education after adjusting for all variables (p<0.0001)."
+    },
+    {
+     "loc": "text",
+     "q": "The prevalence in college graduates was more than three times higher than in those with a high school education or less (AOR=3.2; 95% CI=1.7--6.1)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "ocr",
+     "q": "$35,000-$50,000 738 (2.6) (1.4-3.8) 0.7 ( 0.4-1.4)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "ocr",
+     "q": "35-54 1996 (2.7) (2.0-3.4) 0.8 ( 0.5-1.3)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "The p<0.0001 footnotes for sex, education and health status are model term tests, recorded under the logistic model rather than as separate tests. Health status (4 levels) is compared by a model joint test but is not an SPD. Cross-sectional design inferred from the telephone survey.",
+ "view_issues": "Text says adults aged ≥18 years; table caption says 18–74. Table OCR labels lowest education '<High school' while text says 'high school education or less'. Table lists 500 black respondents with an AOR despite the limitation calling them too few; the model footnote omits race."
+}

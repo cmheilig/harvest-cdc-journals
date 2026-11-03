@@ -22,6 +22,8 @@ An evaluation of LLM readers for indexing *MMWR* reports by **how they make clai
 | `tools/api_read.py`, `API_PREAMBLE.md` | the API driver (calibrate, slice, submit, poll, collect, fixup, retry, status) and the preamble that replaces the brief's tool instructions; writes `out/prod/<vol>/`, `prod_ledger.tsv`, `prod_batches.tsv` |
 | `tools/cost_report.py` | cost per article joined to report characteristics -> `reports/cost_by_article.tsv`, with summaries by type |
 | `RUN_PRODUCTION.md`, `tools/audit_sample.py` | one volume end to end: read, fix up, audit (draw, second reads, blinded packets, score), groupwise check, condition grouping; writes `audit/<vol>/` |
+| `tools/surface_rules.py`, `reports/SURFACE_RULES_REPORT.md` | surface rules for a first-pass index: cue phrases mined from the production records' evidence, regex rules tuned on vols 72–73 and scored on vol 71, and a declared-procedures layer (tests, CI methods, estimation, measures; Poisson by context; joinpoint by declared scale) for the finding aid, and `size` (counts per volume and period over built packets; vols 73–48 sized 11-03) (`reports/surface_*.tsv`) |
+| `LIGHT_BRIEF.md`, `tools/light_read.py` | the light read (light-1.1, Claude Haiku 5.5): data focus, outcome types, depth, design and methods sentences for vols 48–73, with one fix-up turn; records in `out/light/`, ledger `light_ledger.tsv`, batches `light_batches.tsv` |
 | `CONDITION_RUBRIC.md`, `conditions_map.tsv`, `tools/group_conditions.py` | grouping readers' free-text conditions |
 | `CONDITION_RUBRIC.md` | groups for the later condition-grouping pass (readers do not classify conditions) |
 | `ADJUDICATOR_BRIEF.md` | how disagreements between the two readers are judged |

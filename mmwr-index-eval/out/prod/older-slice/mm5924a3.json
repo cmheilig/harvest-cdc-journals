@@ -1,0 +1,322 @@
+{
+ "id": "mm5924a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cgg9oyPFjKd4H6K17XQmo",
+  "batch_id": "msgbatch_01GKCs8ucZ2a3sKaBJ8ZMocc"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Of the 169, a total of 72 (43%) were released within 7 days after incarceration"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "at least 72 would not have been tested before their release if the testing had been delayed for 7 days"
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a statistically significant decreasing trend (from 33 to 13) was observed in the number of newly identified HIV infections"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "routine jail testing within 24 hours of admission resulted in newly identified HIV infections in 169 detainees"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "From 2000 to 2007, a statistically significant decreasing trend (from 33 to 13) was observed"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "linear regression of annual counts on year",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "'using linear regression' for the trend in annual counts of new HIV infections → linear",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "observed in the number of newly identified HIV infections at RIDOC, using linear regression (p = 0.001)."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "year",
+   "duration of incarceration"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "From 2000 to 2007, a statistically significant decreasing trend (from 33 to 13) was observed"
+   },
+   {
+    "loc": "text",
+    "q": "72 (43%) were released within 7 days after incarceration, including 49 who were released within 48 hours"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "observed in the number of newly identified HIV infections at RIDOC, using linear regression (p = 0.001)."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "number of newly identified HIV infections",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a total of 169 detainees had a newly identified HIV infection that had not been reported previously to RIDOH"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the RIDOC jail had 140,739 admissions and conducted 102,229 (73%) HIV tests"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "observed in the number of newly identified HIV infections at RIDOC, using linear regression (p = 0.001)."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How many new HIV infections did routine jail-based testing within 24 hours identify, and how many would be missed if testing were delayed?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to assess HIV case identification, characterize HIV risk factors, and estimate the proportion of detainees who might not have been tested"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "HIV infection",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Routine Jail-Based HIV Testing --- Rhode Island, 2000--2007"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the Rhode Island Department of Corrections (RIDOC) reviewed its HIV testing program to assess HIV case identification"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "administrative/claims",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "this report was based solely on a retrospective review of administrative and surveillance data"
+    }
+   ]
+  },
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "who had no record of a previous positive HIV test result according to RIDOH HIV surveillance data"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "RIDOC jail incarceration and HIV testing records",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "RIDOC examined jail incarceration and HIV testing data from 2000--2007"
+    }
+   ]
+  },
+  {
+   "v": "RIDOH HIV surveillance data",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "according to RIDOH HIV surveillance data"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Routine Jail-Based HIV Testing --- Rhode Island, 2000--2007"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Incarceration defines the population; race/ethnicity, sex, age and MSM appear only as descriptors of cases in Table 2, with no group-specific outcomes discussed or framed as disparities.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 2,
+   "reason": "Table 2 sets race-specific shares of new cases beside shares of all detainees, which could be read as group-specific results."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "population",
+    "ses_components": [
+     "incarceration"
+    ],
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "all jail detainees should be offered voluntary HIV testing early in their incarceration"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "By race/ethnicity, 62 (37%) were Hispanic, 58 (35%) were non-Hispanic black, and 46 (27%) were non-Hispanic white."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "151 (90%) were men, and 133 (79%) were aged 30--49 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "151 (90%) were men, and 133 (79%) were aged 30--49 years"
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "descriptor",
+    "basis": "behavior",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "44 (26%) were injection-drug users (IDUs), and 27 (16%) were men who have sex with men (MSM)."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Case composition by race, sex and age is shown beside detainee composition (Table 2) without computed rates or ratios; units are admissions, not unique persons."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "groupwise",
+  "equity.level",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Linear regression on 8 annual counts is the only formal analysis; the p-value is for the model's trend term. The 'delayed testing' estimate is arithmetic from length-of-stay categories. The 4-fold prevalence contrast with community settings is cited, not computed.",
+ "view_issues": "Table 2 caption says 2004--2007 and detainee totals (71,697) fit that span, but its 168 cases match the 2000--2007 total (169 minus one missing). Summary misspells 'immodeficiency'."
+}

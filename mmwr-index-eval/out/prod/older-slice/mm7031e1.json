@@ -1,0 +1,336 @@
+{
+ "id": "mm7031e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cgg9p4KAY85emEgHT9XCD",
+  "batch_id": "msgbatch_01GKCs8ucZ2a3sKaBJ8ZMocc"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "systemic reactions were more common after dose 2 (63.4%) than dose 1 (48.9%)."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, 8,383 (90.7%) VAERS reports were for nonserious events, and 863 (9.3%) for serious events, including death"
+    },
+    {
+     "loc": "table 3",
+     "q": "Percentage of enrollees who reported a reaction or health impact at least once during days 0–7 post-vaccination."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Myocarditis was listed among 4.3% (397) of all VAERS reports."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "systemic reactions were more common after dose 2 (63.4%) than dose 1 (48.9%)."
+    },
+    {
+     "loc": "text",
+     "q": "Reporting trends were similar for adolescents aged 16–17 years: systemic reactions were reported among 55.7% after dose 1 and 69.9% after dose 2."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Multi-Item Gamma Poisson Shrinker (empirical Bayesian data mining)",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "empirical Bayes disproportionality screening of vaccine-event pairs; not a regression (prepass 'Poisson' is the algorithm name)",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "FDA used empirical Bayesian data mining to monitor for disproportional reporting of adverse events by vaccine"
+    },
+    {
+     "loc": "note",
+     "q": "FDA used the Multi-Item Gamma Poisson Shrinker algorithm to calculate the Empirical Bayes Geometric Mean and its associated 90% confidence interval"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "lower 90% bound EB05 from MGPS judged against threshold 2; model-based interval",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "An EB05 ≥2 (more than twice expected) was considered the threshold for defining a vaccine-event pair reported disproportionately."
+    },
+    {
+     "loc": "text",
+     "q": "No adverse events were reported disproportionately to VAERS in association with Pfizer-BioNTech vaccination."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": "EB05 ≥2 disproportionality threshold",
+  "across": [
+   "dose",
+   "age group",
+   "severity"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Local and systemic reactions after vaccination with Pfizer-BioNTech vaccine were commonly reported by adolescents aged 12–17 years"
+   },
+   {
+    "loc": "text",
+    "q": "systemic reactions were more common after dose 2 (63.4%) than dose 1 (48.9%)."
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "note",
+    "q": "An EB05 ≥2 (more than twice expected) was considered the threshold for defining a vaccine-event pair reported disproportionately."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "% of v-safe enrollees reporting reaction or health impact"
+    }
+   ]
+  },
+  {
+   "v": "EB05",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Empirical Bayes Geometric Mean and its associated 90% confidence interval (EB05, EB95)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What adverse events and reactions were reported after Pfizer-BioNTech COVID-19 vaccination among U.S. adolescents aged 12–17 years?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To further characterize safety of the vaccine, adverse events after receipt of Pfizer-BioNTech vaccine reported to the Vaccine Adverse Event Reporting System (VAERS)"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "COVID-19 Vaccine Safety in Adolescents Aged 12–17 Years"
+    }
+   ]
+  },
+  {
+   "v": "vaccine adverse events (local and systemic reactions)",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Local and systemic reactions after vaccination with Pfizer-BioNTech vaccine were commonly reported by adolescents aged 12–17 years"
+    }
+   ]
+  },
+  {
+   "v": "myocarditis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Myocarditis was listed among 4.3% (397) of all VAERS reports."
+    }
+   ]
+  },
+  {
+   "v": "syncope",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among the 1,228 reports of syncope, 901 met a standard case definition"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC established v-safe, a voluntary smartphone-based active safety surveillance system, to monitor adverse events after COVID-19 vaccination."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VAERS is a passive vaccine safety surveillance system comanaged by CDC and FDA that monitors adverse events after vaccination"
+    },
+    {
+     "loc": "text",
+     "q": "CDC established v-safe, a voluntary smartphone-based active safety surveillance system"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Vaccine Adverse Event Reporting System (VAERS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VAERS is a passive vaccine safety surveillance system comanaged by CDC and FDA"
+    }
+   ]
+  },
+  {
+   "v": "v-safe",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "v-safe (a smartphone-based safety surveillance system)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, December 14, 2020–July 16, 2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "safety",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "COVID-19 Vaccine Safety in Adolescents Aged 12–17 Years"
+   }
+  ]
+ },
+ "equity": {
+  "level": 1,
+  "level_reason": "Race/ethnicity appears only as a descriptor of VAERS report composition (Table 1), with no outcome per group and no discussion; age and sex are population bounds, strata and descriptors without social-position framing.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 0,
+   "reason": "Race/ethnicity shares are only report composition; apart from them only age and sex appear."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "COVID-19 Vaccine Safety in Adolescents Aged 12–17 Years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 3",
+      "q": "Age 16–17 yrs, dose (no.)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "609 (70.6%) reports of serious events were among males, and median age was 15 years."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "VAERS and v-safe data were assessed by sex, age group, and race/ethnicity"
+     },
+     {
+      "loc": "table 1",
+      "q": "Race › Black"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity is shown only as column shares of VAERS reports by severity; race unknown for 30% and ethnicity for 46%. v-safe results are not shown by race or sex despite the methods statement."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "procedures",
+  "inference",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "The MGPS disproportionality screen is recorded as the article's own analysis because its null result is reported here; EB05 vs 2 is treated as a CI-vs-fixed-value judgment. Comparisons of dose 1 vs dose 2 and between age groups are side by side, with no test. The 'one per 1,000 vaccinees' reporting proportion is a single summary.",
+ "view_issues": "The Summary gives local reactions as 63.4%, but the text and Table 3 give 63.9% for dose 1 among ages 12–15 years; 63.4% is the dose-2 systemic figure. The methods say v-safe data were assessed by sex and race/ethnicity, but no such results are shown."
+}

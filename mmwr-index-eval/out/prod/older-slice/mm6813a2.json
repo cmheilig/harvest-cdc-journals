@@ -1,0 +1,386 @@
+{
+ "id": "mm6813a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cgg9oyJ3cuMSNqGZ8mjE4",
+  "batch_id": "msgbatch_01GKCs8ucZ2a3sKaBJ8ZMocc"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During 2013–2017, an estimated 2.4 million (2.2%) U.S. working adults aged ≥18 years who never smoked had COPD."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The highest COPD prevalences among persons who never smoked were in the information (3.3%) and mining (3.1%) industries"
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "those with COPD missed an average of 14.9 work days (15.6 days for women and 13.6 days for men)"
+    },
+    {
+     "loc": "text",
+     "q": "who did not have COPD, who missed an average of 5.4 work days"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among an estimated 106 million workers who had never smoked, 2.2% (2.4 million) have COPD."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Women had higher COPD prevalences than did men."
+    },
+    {
+     "loc": "text",
+     "q": "COPD prevalences exceeded 3.0% among those in the information (3.3%) and mining (3.1%) industries"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Women who had never smoked had higher COPD prevalences than did men regardless of their sociodemographic characteristics."
+    },
+    {
+     "loc": "text",
+     "q": "Sex differences in COPD prevalence were observed by industry and occupation."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting with design-based variance (NHIS)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "estimates adjusted for nonresponse, weighted to be nationally representative, variance for clustered design",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were adjusted for nonresponse and weighted to be nationally representative, and variance estimates were calculated to account for the clustered survey design."
+    }
+   ]
+  },
+  {
+   "name": "two-sided t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated t-tests between point estimates; CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Two-sided t-tests were used to determine statistically significant (p<0.05) differences between point estimates."
+    }
+   ]
+  },
+  {
+   "name": "suppression of estimates with relative SE ≥30%",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "withholding imprecise estimates by a relative-SE rule",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence estimates with relative standard error (standard error of the estimate divided by the estimate) ≥30% were not reported."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "industry",
+   "occupation",
+   "sex",
+   "age group",
+   "race/ethnicity",
+   "smoking status",
+   "self-rated health",
+   "COPD status (lost work days)"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The highest COPD prevalences among persons who never smoked were in the information (3.3%) and mining (3.1%) industries"
+   },
+   {
+    "loc": "text",
+    "q": "By sex, race, and ethnicity, COPD prevalences were highest among non-Hispanic white men (1.7%) and non-Hispanic black women (3.7%)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Two-sided t-tests were used to determine statistically significant (p<0.05) differences between point estimates."
+   },
+   {
+    "loc": "table 1",
+    "q": "% (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "prevalence, % (95% CI)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Prevalence of chronic obstructive pulmonary disease (COPD)* among employed persons who never smoked by sex, industry, and occupation"
+    }
+   ]
+  },
+  {
+   "v": "average lost work days",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "those with COPD missed an average of 14.9 work days"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What is the industry- and occupation-specific prevalence of COPD among employed U.S. adults who have never smoked?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess industry-specific and occupation-specific COPD prevalence among adults aged ≥18 years who have never smoked"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "chronic obstructive pulmonary disease",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Chronic Obstructive Pulmonary Disease Prevalence Among Adults Who Have Never Smoked, by Industry and Occupation"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NHIS data are collected annually from a nationally representative sample of the civilian noninstitutionalized U.S. population through a personal interview."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed 2013–2017 National Health Interview Survey (NHIS) data."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Health Interview Survey (NHIS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed 2013–2017 National Health Interview Survey (NHIS) data."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, 2013–2017"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Prevalences by race/ethnicity, poverty, education and insurance are reported, and race-by-sex results are described (highest among non-Hispanic black women), but no disparity is framed or quantified.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Race/ethnicity and SES rows are mainly Table 1 descriptors; the race remark is a 'within-group variation' aside."
+  },
+  "dimensions": [
+   {
+    "v": "sex",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Women had higher COPD prevalences than did men."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Highest prevalences were among workers aged ≥65 years (4.6%), women (3.0%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "among adults aged ≥18 years who have never smoked and who were employed any time during the past 12 months"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Within-group variations were observed among sex, race, and ethnicity, with the highest prevalences among non-Hispanic black women and non-Hispanic white men."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education",
+     "poverty status",
+     "health insurance status"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Poverty status ¶ › Poor"
+     },
+     {
+      "loc": "table 1",
+      "q": "Education › ≤High school/GED"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity collapsed to four groups (Other); SES rows (poverty, education, insurance) shown side by side by sex with no text discussion; industry/occupation treated as exposure route, not SES."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "By sex, race, and ethnicity, COPD prevalences were highest among non-Hispanic white men (1.7%) and non-Hispanic black women (3.7%)"
+    },
+    {
+     "loc": "text",
+     "q": "Two-sided t-tests were used to determine statistically significant (p<0.05) differences between point estimates."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among workers who never smoked, the highest COPD prevalences were among women (3.0%), adults aged ≥65 years (4.6%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Poverty status ¶ › Near poor"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise",
+  "analytic_depth",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "Design not named; cross-sectional inferred from pooled NHIS survey years. Which text claims rest on the stated t-tests is not shown; 'highest' claims read as resting on them.",
+ "view_issues": "Table 1: ED visits 'None' all-workers 4.1% is inconsistent with men 1.2% and women 2.4%; Lost work days >7 women 2.0 (1.8–2.3) repeats the 'None' row and conflicts with all-workers 6.6%. Smoking definitions leave exactly 100 cigarettes unclassified."
+}

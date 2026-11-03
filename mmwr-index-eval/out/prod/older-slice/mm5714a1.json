@@ -1,0 +1,418 @@
+{
+ "id": "mm5714a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggDK2iqHVyVBh6aZPBC7",
+  "batch_id": "msgbatch_01MhhduP5LecjSWWtu72hMjw"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "overall prevalence of self-reported PDS ranged from 11.7% (Maine) to 20.4% (New Mexico)"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "overall prevalence of self-reported PDS ranged from 11.7% (Maine) to 20.4% (New Mexico)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "overall prevalence of self-reported PDS ranged from 11.7% (Maine) to 20.4% (New Mexico)"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Younger women, those with lower educational attainment, and women who received Medicaid benefits for their delivery were more likely to report PDS."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "by demographic characteristics and other possible risk factors for PDS within each of the 17 states"
+    },
+    {
+     "loc": "text",
+     "q": "the median difference across all states in the proportion of women reporting PDS between two levels of each covariate was calculated."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods and table notes; run within each state",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Chi-square tests were used to test for significant differences (p<0.05) in the proportion of women reporting PDS by demographic characteristics"
+    },
+    {
+     "loc": "table 1",
+     "q": "§ p<0.05 by chi-square test."
+    }
+   ]
+  },
+  {
+   "name": "complex survey design weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "survey software adjusting for the complex design to produce statewide estimates",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The analysis was conducted using statistical software to adjust for the complex survey design and produce statewide estimates."
+    }
+   ]
+  },
+  {
+   "name": "suppression of estimates with fewer than 30 respondents",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "small-sample suppression rule; cells shown as insufficient sample size",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates based on small sample sizes (fewer than 30 respondents) were considered to be unreliable."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "absolute",
+  "referent": null,
+  "across": [
+   "age",
+   "race/ethnicity",
+   "education",
+   "marital status",
+   "Medicaid receipt",
+   "risk factors (tobacco, abuse, stressors, low birth weight, NICU, parity)",
+   "state"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Among the 17 states, the median percentage point difference in PDS prevalence was 13.4 percentage points between the youngest and oldest mothers"
+   },
+   {
+    "loc": "text",
+    "q": "13.6 between the lowest and highest education groups, 9.7 by marital status, and 11.0 by Medicaid receipt."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "approximate 95% confidence intervals for these proportions were calculated."
+   },
+   {
+    "loc": "note",
+    "q": "when adjusting for the clustered survey design, the confidence intervals computed were close to but not equal to ±1.96 × standard error"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "prevalence (%)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "overall prevalence of self-reported PDS ranged from 11.7% (Maine) to 20.4% (New Mexico)"
+    }
+   ]
+  },
+  {
+   "v": "median percentage point difference",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among the 17 states, the median percentage point difference in PDS prevalence was 13.4 percentage points between the youngest and oldest mothers"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What is the prevalence of self-reported postpartum depressive symptoms in 17 states, and which maternal characteristics and risk factors are associated with it?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "assess the prevalence of self-reported postpartum depressive symptoms (PDS) among mothers by selected demographic characteristics and other possible risk factors for PDS"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "postpartum depressive symptoms",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Prevalence of Self-Reported Postpartum Depressive Symptoms --- 17 States, 2004--2005"
+    }
+   ]
+  },
+  {
+   "v": "intimate partner physical abuse",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "physical abuse before or during pregnancy (17 states; median difference: 22.4)"
+    }
+   ]
+  },
+  {
+   "v": "tobacco use during pregnancy",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using tobacco during the last 3 months of pregnancy (16 states; median difference: 10.7)"
+    }
+   ]
+  },
+  {
+   "v": "low birth weight",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 14 states, PDS was significantly associated with delivering a low birth weight infant"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "PRAMS is an ongoing, state-specific, population-based surveillance project that collects self-reported information on maternal attitudes and experiences"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the Pregnancy Risk Assessment Monitoring System (PRAMS) for 2004--2005"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Pregnancy Risk Assessment Monitoring System (PRAMS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the Pregnancy Risk Assessment Monitoring System (PRAMS) for 2004--2005"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Prevalence of Self-Reported Postpartum Depressive Symptoms --- 17 States, 2004--2005"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 3,
+  "level_reason": "PDS differences by education and Medicaid receipt (SES) and age are quantified as median percentage-point differences and interpreted as identifying higher-risk groups for targeted services; no disparity wording or explicit structural explanation.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 2,
+   "reason": "Framed as risk factors for targeting, not as a disparity; could be read as group-specific results described without disparity framing."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education",
+     "Medicaid for delivery"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "13.6 between the lowest and highest education groups, 9.7 by marital status, and 11.0 by Medicaid receipt."
+     },
+     {
+      "loc": "text",
+      "q": "Adolescent mothers or women who received Medicaid for their delivery are examples of subsets of the population at increased risk for developing PPD"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Among the 17 states, the median percentage point difference in PDS prevalence was 13.4 percentage points between the youngest and oldest mothers"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "In 13 of the 16 states for which data were available, a significant association was observed between race/ethnicity and PDS"
+     }
+    ]
+   },
+   {
+    "v": "other",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "13.6 between the lowest and highest education groups, 9.7 by marital status, and 11.0 by Medicaid receipt."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "assess the prevalence of self-reported postpartum depressive symptoms (PDS) among mothers"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "financial stress (job loss, unpaid bills); traumatic stress including homelessness and incarceration, analyzed as exposures",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "her husband/partner lost his job, she lost her job, or she had a lot of bills she could not pay"
+    },
+    {
+     "loc": "note",
+     "q": "the respondent was homeless, she was involved in a physical fight, she or her husband/partner went to jail"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Contrasts are state-median percentage-point differences between extreme levels (youngest vs oldest, lowest vs highest education); race 'Other' collapses API, AI/AN and multiple race; Vermont lacks race data; small cells suppressed."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age (yrs) › <20"
+    },
+    {
+     "loc": "text",
+     "q": "Demographic characteristics significantly associated with PDS in all of the 17 states were maternal age, marital status, maternal education"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity › Black, non-Hispanic"
+    },
+    {
+     "loc": "text",
+     "q": "In 13 of the 16 states for which data were available, a significant association was observed between race/ethnicity and PDS"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Education (yrs) › <12"
+    },
+    {
+     "loc": "text",
+     "q": "13.6 between the lowest and highest education groups"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "analytic_depth",
+  "equity.level",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Chi-square tests are run separately within each state; state-specific differences are summarized by the median across states (arithmetic, not a procedure). The 96% sensitivity and 66% specificity of the screening questions are cited from earlier studies, not computed here.",
+ "view_issues": "Table 1 age label '>30' and Table 2 parity '>3' are probably ≥30 and ≥3 (image text)."
+}

@@ -1,0 +1,416 @@
+{
+ "id": "mm6336a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cgg9oyB6jU86LzqdEKsFy",
+  "batch_id": "msgbatch_01GKCs8ucZ2a3sKaBJ8ZMocc"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Mean daily sodium consumption was 3,279 mg, and mean sodium density was 1,638 mg sodium per 1,000 kcal."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "U.S. school-aged children consumed an estimated 3,279 mg of sodium daily"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Sodium density was highest among high school–aged children and varied by age group (p=0.01), but not by other examined variables (p≥0.05)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Wald F test (survey-adjusted)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'Wald F tests' of whether subgroup means differ, run in survey software",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Wald F tests were used to examine whether means differed among subgroups"
+    },
+    {
+     "loc": "table 1",
+     "q": "Statistically significant differences in mean sodium intake across subgroups, determined by the Wald F test (p<0.001)."
+    }
+   ]
+  },
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'t-tests' comparing age groups' proportions of sodium and sodium density by place obtained",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "t-tests were used to examine differences between age groups (e.g., ages 6–10 years compared with 14–18 years) in proportions of sodium consumed"
+    }
+   ]
+  },
+  {
+   "name": "survey sample weights (NHANES day-1 dietary weights, complex design)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "sample weights and survey-design software stated for all analyses",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Statistical software accounting for the complex survey design was used for all analyses."
+    },
+    {
+     "loc": "text",
+     "q": "The numerical sample weights for the (day 1) 24-hour dietary recall were used for all analyses."
+    }
+   ]
+  },
+  {
+   "name": "suppression of unreliable estimates (relative SE ≥30%)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "estimates withheld by a relative-SE rule",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Estimates not reported, data are statistically unreliable, relative standard error ≥30%."
+    }
+   ]
+  },
+  {
+   "name": "BMI-for-age-and-sex percentile",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "BMI percentiles against 2000 CDC growth charts define weight status",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "for age and sex percentile in reference to the 2000 CDC growth charts"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": "HP2020 target of 2,300 mg sodium daily",
+  "across": [
+   "age group",
+   "sex",
+   "race/ethnicity",
+   "family income",
+   "weight status",
+   "place obtained",
+   "eating occasion"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "16% of total sodium intake came from fast food/pizza restaurants versus 11% among those aged 6–10 years or 11–13 years"
+   },
+   {
+    "loc": "summary",
+    "q": "Sodium intake among school-aged children is much higher than recommended."
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Wald F tests were used to examine whether means differed among subgroups"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "mean daily sodium consumed (mg)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Mean daily sodium consumed › As measured in mg"
+    }
+   ]
+  },
+  {
+   "v": "mean sodium density (mg/1,000 kcal)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Mean daily sodium density › As measured in mg/1,000 kcal"
+    }
+   ]
+  },
+  {
+   "v": "proportion of sodium consumed (%)",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Proportion of sodium %"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What are mean sodium intake, sodium density and the food categories, places obtained and eating occasions contributing to sodium intake among U.S. children aged 6–18 years?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This report describes mean sodium intake, sodium density (defined as mg of sodium per 1,000 kcal), and the food categories"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "sodium intake",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Vital Signs: Sodium Intake Among U.S. School-Aged Children — 2009–2010"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The National Health and Nutrition Examination Survey is an ongoing, nationally representative, multistage, stratified survey of the U.S. noninstitutionalized population"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "the dietary intake component of the National Health and Nutrition Examination Survey, 2009–2010."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Health and Nutrition Examination Survey (NHANES) 2009–2010",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "the dietary intake component of the National Health and Nutrition Examination Survey, 2009–2010."
+    }
+   ]
+  },
+  {
+   "v": "What We Eat in America (WWEIA)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "completed an initial, in-person, 24-hour dietary recall as part of What We Eat in America (WWEIA)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "nationally representative, multistage, stratified survey of the U.S. noninstitutionalized population"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Mean sodium intake is reported and described by family income (lowest among reduced-price-meal eligible children) and race/ethnicity (no variation), with omnibus Wald F tests, but no disparity is framed.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Income and race results are mentioned briefly, mainly to show the excess is universal; little interpretation by social position."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Vital Signs: Sodium Intake Among U.S. School-Aged Children — 2009–2010"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Age groups correspond to enrollment in elementary (6–10 years), middle (11–13 years), and high school (14–18 years)."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Total sodium intake was highest among high school–aged children and among males"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Food categories contributing to sodium intake were examined by age, sex, race/ethnicity, family income, and weight status."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "family income relative to poverty",
+     "eligibility for free or reduced-price school meals"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Family income corresponds with eligibility to receive free (≤130% of poverty) or reduced-price (>130%–185%) school meals."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Income in three bands tied to school-meal eligibility; race/ethnicity shown as Hispanic, non-Hispanic Black and non-Hispanic White, other groups only in the overall estimate."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Statistically significant differences in mean sodium intake per 1,000 kcal across subgroups, determined by the Wald F test (p=0.01)."
+    },
+    {
+     "loc": "text",
+     "q": "Total sodium intake was highest among high school–aged children and among males"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Statistically significant difference in population proportions compared with children aged 6–10 years and 11–13 years, by t-tests, p<0.05."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "did not vary by race/ethnicity"
+    },
+    {
+     "loc": "text",
+     "q": "Wald F tests were used to examine whether means differed among subgroups"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Statistically significant differences in mean sodium intake across subgroups, determined by the Wald F test, p=0.01."
+    },
+    {
+     "loc": "text",
+     "q": "lowest among children (with family income ≤185% of the federal poverty level) who qualified for reduced-price school meals"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "outcome_types",
+  "equity.level",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Proportions of sodium are ratios of total sodium amounts, not proportions of persons, so only continuous is listed. The projected 75–150 mg reduction is arithmetic applied to cited 25%–50% school-meal targets. The 90.3% excess-intake figure in a footnote is a side computation from usual intakes.",
+ "view_issues": "Text says 7.4% of sodium came from other sources; Table 3 gives 7.8% for Other overall. Text says lowest intake among children with income ≤185% who qualified for reduced-price meals; Table 2 shows the >130%–185% band lowest."
+}

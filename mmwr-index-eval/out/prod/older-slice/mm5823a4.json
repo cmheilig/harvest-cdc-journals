@@ -1,0 +1,201 @@
+{
+ "id": "mm5823a4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cgg9ovXqx9S498cfcdjjk",
+  "batch_id": "msgbatch_01GKCs8ucZ2a3sKaBJ8ZMocc"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "the infant mortality rate decreased 86%, from 47.0 infant deaths per 1,000 live births in 1940 to 6.7 in 2006"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Deaths per 1,000 live births for each group: infant (aged <1 year), neonatal (aged <28 days), and postneonatal (aged 28 days to <1 year)."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the infant mortality rate decreased 86%, from 47.0 infant deaths per 1,000 live births in 1940 to 6.7 in 2006"
+    },
+    {
+     "loc": "text",
+     "q": "the neonatal rate decreased 85%, from 28.8 to 4.5 deaths per 1,000 live births"
+    }
+   ]
+  }
+ ],
+ "procedures": [],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "1940",
+  "across": [
+   "year",
+   "infant age period (neonatal, postneonatal)"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "the infant mortality rate decreased 86%, from 47.0 infant deaths per 1,000 live births in 1940 to 6.7 in 2006"
+   },
+   {
+    "loc": "text",
+    "q": "the postneonatal rate decreased 88%, from 18.3 to 2.2 deaths per 1,000 live births"
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "groupwise": [],
+ "primary_measures": [
+  {
+   "v": "deaths per 1,000 live births",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Deaths per 1,000 live births for each group"
+    }
+   ]
+  },
+  {
+   "v": "percent decrease",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the infant mortality rate decreased 86%"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did infant, neonatal, and postneonatal mortality rates in the United States change from 1940 to 2006?",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "QuickStats: Infant, Neonatal, and Postneonatal Mortality Rates* --- United States, 1940--2006"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "infant mortality",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Infant, Neonatal, and Postneonatal Mortality Rates* --- United States, 1940--2006"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Deaths: final data for 2006. Natl Vital Stat Rep 2009;57(14)."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the infant mortality rate decreased 86%, from 47.0 infant deaths per 1,000 live births in 1940 to 6.7 in 2006"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Deaths: final data for 2006. Natl Vital Stat Rep 2009;57(14)."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Deaths: final data for 2006 (National Vital Statistics Reports)",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Deaths: final data for 2006. Natl Vital Stat Rep 2009;57(14)."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "In the United States, the infant mortality rate decreased 86%"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Age bounds (infant, neonatal, postneonatal) define the population and rate groups only; no social-position framing.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "infant (aged <1 year), neonatal (aged <28 days), and postneonatal (aged 28 days to <1 year)."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "uncertain_fields": [
+  "data_focus"
+ ],
+ "confidence": "medium",
+ "notes": "Rates come from the NVSR final 2006 deaths report (NVSS vital statistics); the QuickStats computes the percent decreases itself, read as its own period comparison. Data source inferred as NVSS from the cited NVSR.",
+ "view_issues": "Figure description duplicates the body text."
+}
