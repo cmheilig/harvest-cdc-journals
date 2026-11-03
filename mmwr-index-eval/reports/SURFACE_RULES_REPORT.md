@@ -255,7 +255,7 @@ A retest on the same 761 articles costs about $1. Adding the 120 slice articles 
 
 - **Depth is fixed.** Listing every level that applies brought agreement on the exact depth list from 0.33 to 0.76.
 - **Haiku reads the older slice about as well as vols 71–73.** Outcome types and depth hold or improve; the slice is 120 articles, 40 per stratum.
-- **Ecologic now departs from Opus by design.** The 1.1 sentence settles a gray zone the vol 71 report noted: rates side by side by place are surveillance. Haiku now calls 19 articles ecologic where Opus called 13; 9 agree, 10 are Haiku's alone, and 4 of Opus's became surveillance. Surveillance precision fell from 0.84 to 0.77 accordingly. Opus followed brief v5.2, which leaves the case open; if the owner keeps the 1.1 reading, these disagreements are Opus's, not Haiku's.
+- **Ecologic now departs from Opus by design.** The 1.1 sentence settles a gray zone the vol 71 report noted: rates side by side by place are surveillance. Haiku now calls 19 articles ecologic where Opus called 13; 9 agree, 10 are Haiku's alone, and Haiku did not call 4 of Opus's ecologic. Surveillance precision fell from 0.84 to 0.77 accordingly. Opus followed brief v5.2, which leaves the case open; if the owner keeps the 1.1 reading, these disagreements are Opus's, not Haiku's.
 - **Before/after or trend is still over-called** (precision about 0.70). The brief's own rule ("a title word such as 'Trends' alone does not name a design") is there; the full run can carry the flag, and a selected article gets the full reading anyway.
 
 ## Limits
