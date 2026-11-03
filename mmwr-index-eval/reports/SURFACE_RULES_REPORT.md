@@ -146,7 +146,11 @@ The vol 71 scores above are unchanged by this layer.
 For 1999–2021, a light read of every article plus a full read of that tier comes to about $143. A full read of all 5,539 articles would be about $720.
 
 **Drift signs: where the rules, and any reader, see less.**
-- **No tables before 2009.** The extraction's views carry table files only from 2009, plus a few in 1999–2000. Tables from 2001–2008 were GIF images or `<pre>` text: a placeholder ("Table 1") survives, the content mostly does not (the extraction's `ACCOUNTING.md`, H4). Rules that lean on tables undercount there: equity level ≥ 2 falls from 20–26% of articles (vols 59–73) to 0–12% (vols 57–49). The same gap would limit a model reading these packets.
+- **Tables before 2009 are words without structure.** The extraction's table CSVs start in 2009. Tables from 2000–2009 were GIF images; the extraction OCR'd 1,784 of the 1,789 GIF tables and boxes (`PILOT_GIF.md`, `gif/PILOT_REPORT.md`, `DECISIONS.md` #4b). The views carry that text below each placeholder as "OCR text (tesseract or Apple Vision, unverified)". 1999 used `<pre>` tables in the text.
+  - **Words:** the pilot found label words reliable (median recall 0.97).
+  - **Structure and cells:** not reliable (median numeric-cell recall 0.82, and lower in 2005–2009).
+  - **Coverage in the packets:** 19–65% of articles in vols 49–57 carry OCR text. The rules now read those lines as table text (11-03); the vol 71–73 scores are unchanged.
+  - **The equity band barely moved** after that change, and after accepting plural race terms ("blacks", "whites"). Equity level ≥ 2 stays at 20–26% of articles in vols 59–73 and 0–12% in vols 57–49. That gap is either older practice or older phrasing the rules miss; the slice can tell which.
 - **No Summary box before 2009/2010.** It first appears in vol 58 (2009). Rules that read the Summary fall back to the body.
 - **No QuickStats in the frame before vol 54 (2005).**
 - **Fewer named tests in early volumes,** 4–7% of articles in vols 48–52 against 13–19% from 2009. That may be real practice, older wording, or both; only reference reads can say.

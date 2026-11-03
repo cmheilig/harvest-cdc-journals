@@ -134,12 +134,13 @@ def clean(text):
 
 
 def sections(text):
-    """(title, summary, body, tables): tables are the TABLE/FIGURE blocks' titles, columns and rows."""
+    """(title, summary, body, tables): tables are the TABLE/FIGURE blocks' titles, columns and rows, plus the extraction's
+    OCR text of GIF tables and boxes (2000-2009: words without structure, marked unverified in the views)."""
     body = clean(text)
     lines = body.split('\n')
     title = lines[0] if lines else ''
     summary = next((l for l in lines if l.startswith('Summary:')), '')
-    tab = '\n'.join(l for l in lines if re.match(r'(TABLE|FIGURE|Columns:|Rows:)', l))
+    tab = '\n'.join(l for l in lines if re.match(r'(TABLE|FIGURE|Columns:|Rows:|OCR text \()', l))
     return title, summary, body, tab
 
 
@@ -313,7 +314,8 @@ def _(t, su, b, tab, at):
     return hit([r'\bthe patient\b', r'\ba patient\b', r'case report', r'\bindex (patient|case)\b', r'\bpatient [A-F]\b'], b)
 
 
-RACE_WORDS = [r'\bblack\b', r'\bwhite\b', r'\bhispanic\b', r'\basian\b', r'american indian|\bai/an\b', r'pacific islander|\bnh/?opi\b', r'multiracial|multiple races']
+RACE_WORDS = [r'\bblacks?\b', r'\bwhites?\b', r'\bhispanics?\b', r'\basians?\b',  # plurals: older reports say "blacks", "whites"
+              r'american indian|\bai/an\b', r'pacific islander|\bnh/?opi\b', r'multiracial|multiple races']
 SES_WORDS = [r'\bincome\b', r'\bpoverty\b', r'\beducation(al)? (level|attainment)', r'high school', r'\binsurance\b', r'\bmedicaid\b', r'\brural', r'\burban',
              r'social vulnerability|\bSVI\b', r'\bdisabilit', r'\bnativity\b', r'\bforeign[- ]born\b', r'\blanguage\b', r'\bsexual (orientation|minority)',
              r'\bgay\b', r'\blesbian\b', r'\bbisexual\b', r'\btransgender\b']
