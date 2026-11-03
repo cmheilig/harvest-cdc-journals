@@ -1,0 +1,382 @@
+{
+ "id": "mm6612a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrZdquNjqA4V8KUrg",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The mean daily sodium intake from foods and beverages among the U.S. population aged ≥2 years was 3,409 mg"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Men had significantly higher sodium intake than did women (T-tests, p<0.001)"
+    },
+    {
+     "loc": "text",
+     "q": "the mean sodium density was 1,683 mg/1,000 kcal."
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, 44% of sodium consumed came from 10 food categories, with 70% from 25 food categories"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The mean daily sodium intake from foods and beverages among the U.S. population aged ≥2 years was 3,409 mg"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "non-Hispanic Asians consumed a more sodium-dense diet and fewer calories compared with non-Hispanic whites (T-tests, p<0.05)"
+    },
+    {
+     "loc": "text",
+     "q": "Among the total population and among children, food obtained from restaurants with waitstaff were the most sodium-dense"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'T-tests' named in text for sex and race/ethnicity contrasts of means",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Men had significantly higher sodium intake than did women (T-tests, p<0.001)"
+    },
+    {
+     "loc": "table 2",
+     "q": "Statistically significant difference (p<0.001) compared with non-Hispanic whites."
+    }
+   ]
+  },
+  {
+   "name": "survey weights (1-day dietary sample weights, complex survey design)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated use of sample weights and survey-design software for all estimates",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Analyses were conducted using statistical software that accounts for the complex survey design, and for all estimates, 1-day dietary sample weights were used."
+    }
+   ]
+  },
+  {
+   "name": "suppression of unreliable estimates (RSE >30%)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "estimates withheld by a relative-SE rule",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimates are statistically unreliable, relative standard error >30%."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": "Healthy People 2020 objective of 2,300 mg; non-Hispanic whites; males",
+  "across": [
+   "food source category",
+   "race/ethnicity",
+   "sex",
+   "age group",
+   "food category"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Food types contributing to intake differ by racial /ethnic group"
+   },
+   {
+    "loc": "text",
+    "q": "Average U.S. daily sodium intake continues to exceed the Healthy People 2020 objective of 2,300 mg"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Men had significantly higher sodium intake than did women (T-tests, p<0.001)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "mean sodium intake (mg)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Mean sodium intake (mg)"
+    }
+   ]
+  },
+  {
+   "v": "mean sodium density (mg/1,000 kcal)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Mean sodium density (mg/1,000 kcal)"
+    }
+   ]
+  },
+  {
+   "v": "% contribution",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "ranked percentage sodium contribution of selected food categories"
+    }
+   ]
+  },
+  {
+   "v": "mean energy intake (kcal)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Mean energy intake (kcal)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What is mean sodium intake among U.S. persons aged ≥2 years in 2013–2014, and which food categories and sources contribute to it, overall and by subgroup?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "were analyzed to determine the ranked percentage sodium contribution of selected food categories and sources of sodium intake from all reported foods and beverages"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "sodium intake",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Sodium Intake Among Persons Aged ≥2 Years — United States, 2013–2014"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NHANES is a nationally representative sample of the U.S. noninstitutionalized population"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from 2013–2014 What We Eat in America (WWEIA), the dietary intake portion of the National Health and Nutrition Examination Survey (NHANES)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Health and Nutrition Examination Survey (NHANES)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the dietary intake portion of the National Health and Nutrition Examination Survey (NHANES)"
+    }
+   ]
+  },
+  {
+   "v": "What We Eat in America (WWEIA)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from 2013–2014 What We Eat in America (WWEIA)"
+    }
+   ]
+  },
+  {
+   "v": "USDA Food and Nutrient Database for Dietary Studies (FNDDS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "assigned a food code from the USDA Food and Nutrient Database for Dietary Studies (FNDDS)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "NHANES is a nationally representative sample of the U.S. noninstitutionalized population"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Mean intake, density and food-category contributions are reported by race/ethnicity (and age, sex) and differences are described, with Asian vs white tested, but not framed as a disparity or tied to social causes.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Racial/ethnic differences concern dietary food sources rather than an outcome disparity; one could read race as only a descriptor of diet patterns."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Food types contributing to intake differ by racial /ethnic group"
+     },
+     {
+      "loc": "text",
+      "q": "non-Hispanic Asians consumed a more sodium-dense diet and fewer calories compared with non-Hispanic whites (T-tests, p<0.05)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "with oversampling of certain population subgroups, including non-Hispanic blacks, Hispanics, and since 2011–12, non-Hispanic Asians"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Men had significantly higher sodium intake than did women (T-tests, p<0.001)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Across age subgroups, sodium intake was highest among persons aged 20–50 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Sodium Intake Among Persons Aged ≥2 Years — United States, 2013–2014"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referent for race/ethnicity tests is non-Hispanic whites; only four racial/ethnic groups shown; non-Hispanic Asians newly estimated separately."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Statistically significant difference (p<0.001) compared with non-Hispanic whites."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Across age subgroups, sodium intake was highest among persons aged 20–50 years"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "outcome_types",
+  "comparison",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "Design not named; cross-sectional inferred from a single NHANES cycle. Percentage contribution is a share of total sodium, recorded as binary/categorical. The Healthy People 2,300 mg comparison appears in Summary and Discussion and is kept as a referent.",
+ "view_issues": "Text gives p<0.05 for Asian vs white comparisons while the Table 2 note says p<0.001. Table 2 note refers to 'an age subgroup' in a sex/race table; Table 1 note says '>2 years' for ≥2."
+}

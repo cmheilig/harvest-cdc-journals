@@ -1,0 +1,390 @@
+{
+ "id": "mm6736a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysYRMxp8yPt1FmtMu",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Sex-stratified logistic regression models produced adjusted prevalence ratios (APRs) comparing each sexual minority youth subgroup with heterosexual students"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Multiple-choice responses were dichotomized to create behavioral measures"
+    },
+    {
+     "loc": "table 1",
+     "q": "Unadjusted weighted prevalence of sexual risk behaviors among sexual minority youths by identity- and behavior-based subgroups"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Differences in risk behavior prevalence between sexual minority youth subgroups were tested using linear contrast t-tests."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Sex-stratified logistic regression models produced adjusted prevalence ratios (APRs)"
+    },
+    {
+     "loc": "text",
+     "q": "Models controlled for race/ethnicity and grade"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting with complex sample design",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weighted nationally representative estimates; software accounting for complex sampling design; Taylor series linearization for CIs",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted to yield nationally representative estimates."
+    },
+    {
+     "loc": "text",
+     "q": "Analyses used statistical software to account for the complex sampling design."
+    }
+   ]
+  },
+  {
+   "name": "logistic regression (adjusted prevalence ratios)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Logistic regression adjusted for race/ethnicity and grade' producing APRs → logistic (PRs presumably from predicted marginals)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Logistic regression adjusted for race/ethnicity and grade."
+    },
+    {
+     "loc": "text",
+     "q": "Sex-stratified logistic regression models produced adjusted prevalence ratios (APRs)"
+    }
+   ]
+  },
+  {
+   "name": "linear contrast t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named test for differences between sexual minority subgroups",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Differences in risk behavior prevalence between sexual minority youth subgroups were tested using linear contrast t-tests."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based CIs from the logistic regression; significance when 95% CI excludes 1.0",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Statistical tests were considered significant if p<0.05 or 95% CIs did not include 1.0."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "heterosexual students; students with only opposite-sex sexual contact",
+  "across": [
+   "sexual identity",
+   "sex of sexual contacts",
+   "sex"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "risk behaviors were more prevalent among bisexual females and males who were not sure than among their heterosexual peers"
+   },
+   {
+    "loc": "table 2",
+    "q": "using heterosexual students and students with only opposite-sex partners as the referents"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Unadjusted prevalence estimates with 95% confidence intervals (CIs) were calculated using Taylor series linearization."
+   },
+   {
+    "loc": "text",
+    "q": "Statistical tests were considered significant if p<0.05 or 95% CIs did not include 1.0."
+   }
+  ]
+ },
+ "groupwise": [
+  {
+   "across": [
+    "sexual orientation and gender identity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "pairwise (all pairs)",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Linear contrast t-tests reveal this sexual minority youth subgroup is significantly different from bisexual students."
+    },
+    {
+     "loc": "text",
+     "q": "Gay/lesbian students were more likely than were bisexual students to report not using pregnancy prevention"
+    }
+   ]
+  },
+  {
+   "across": [
+    "sexual orientation and gender identity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "pairwise (all pairs)",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Linear contrast t-tests reveal this sexual minority youth subgroup is significantly different from students who had sexual contact with both sexes."
+    },
+    {
+     "loc": "text",
+     "q": "A 3-level categorical variable was created to describe sex of sexual contacts (same-sex only; both sexes; opposite-sex only)."
+    }
+   ]
+  }
+ ],
+ "primary_measures": [
+  {
+   "v": "weighted prevalence, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Unadjusted weighted prevalence of sexual risk behaviors"
+    }
+   ]
+  },
+  {
+   "v": "APR",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted prevalence ratios* for sexual risk behaviors among sexual minority youths"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Analyses used statistical software to account for the complex sampling design."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Logistic regression adjusted for race/ethnicity and grade."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "race/ethnicity and grade",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Models controlled for race/ethnicity and grade"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Do sexual risk behaviors differ among identity- and behavior-based sexual minority subgroups of U.S. high school students and versus nonsexual minority students?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Analyses examined differences in eight sexual risk behaviors between subgroups of sexual minority youths and nonsexual minority youths, as well as within sexual minority youths."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "sexual risk behaviors",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Sexual Risk Behavior Differences Among Sexual Minority High School Students"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a cross-sectional, school-based survey assessing health behaviors among U.S. students in grades 9 – 12"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed pooled data from the 2015 and 2017 cycles of the national YRBS"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Youth Risk Behavior Survey (YRBS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using nationally representative Youth Risk Behavior Survey (YRBS) data"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, 2015 and 2017"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 3,
+  "level_reason": "Sexual minority subgroups (identity and behavior) are compared with heterosexual and opposite-sex-contact referents with APRs, framed as higher risk and interpreted for interventions; no structural determinants are named.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 2,
+   "reason": "Framed as risk behavior differences to tailor interventions rather than explicitly as disparities."
+  },
+  "dimensions": [
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "primary comparison",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Sexual minority youths were defined by self-reported sexual identity and behavioral characteristics."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Sex-stratified logistic regression models produced adjusted prevalence ratios (APRs)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Models controlled for race/ethnicity and grade"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "a nationally representative sample of students in grades 9–12 attending public and private schools"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "SOGI measured two ways: self-identified sexual identity (4 groups) and sex of sexual contacts (behavior, 3 groups); referents heterosexual and opposite-sex-only students; out-of-school youths not covered."
+ },
+ "uncertain_fields": [
+  "equity.level",
+  "comparison"
+ ],
+ "confidence": "high",
+ "notes": "Prevalence ratios are reported from logistic regression, presumably via predicted marginals. Behavior-based SOGI groups (basis behavior) are recorded within the single SOGI primary-comparison entry.",
+ "view_issues": "Table 1 note expands AIDS as 'acquired immunodeficiency virus'."
+}

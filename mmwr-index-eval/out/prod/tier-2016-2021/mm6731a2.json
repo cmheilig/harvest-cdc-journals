@@ -1,0 +1,347 @@
+{
+ "id": "mm6731a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysEaC3UdTaonW8rew",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "the rate of naloxone administrations increased 75.1%, from 573.6 to 1004.4 per 100,000 EMS events"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the rate of naloxone administration events overall increased 75.1%, from 573.6 to 1,004.4 administrations per 100,000 EMS events"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a larger proportion of naloxone administration events occurred among persons aged 45–54 years (19.8%, 18,049) than among persons aged 25–34 years (17.2%, 15,686, p<0.001)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "from 2012 to 2016, the rate of naloxone administrations increased 75.1%"
+    },
+    {
+     "loc": "text",
+     "q": "Chi-squared tests of linear trend were used to compare data across the 5 yearly time points (2012 to 2016)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a 79.7% increase in age-adjusted opioid mortality rate, from 7.4 deaths per 100,000 persons in 2012 to 13.3 in 2016"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "chi-square test for linear trend",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated in methods; Table 1 note calls it a 'nonparametric test of trend'",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Chi-squared tests of linear trend were used to compare data across the 5 yearly time points (2012 to 2016)"
+    },
+    {
+     "loc": "table 1",
+     "q": "Nonparametric test of trend."
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "p-values for 25–34 vs 45–54 year proportions within a year; test not named",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "than among persons aged 45–54 years (17.7%, 29,491, p<0.001)"
+    }
+   ]
+  },
+  {
+   "name": "age standardization of mortality rates",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "'age-adjusted mortality rate' from CDC WONDER; method not described",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "age-adjusted mortality rate expressed per 100,000 persons."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "2012",
+  "across": [
+   "year",
+   "age group",
+   "EMS naloxone rate vs opioid mortality rate"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "from 2012 to 2016, the rate of naloxone administrations increased 75.1%, from 573.6 to 1004.4 per 100,000 EMS events"
+   },
+   {
+    "loc": "table 2",
+    "q": "Percent change calculated from 2012 to 2016."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Chi-squared tests of linear trend were used to compare data across the 5 yearly time points"
+   },
+   {
+    "loc": "table 2",
+    "q": "EMS naloxone administration events rate (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "rate per 100,000 EMS events",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Naloxone administration event rate expressed as rate per 100,000 EMS events"
+    }
+   ]
+  },
+  {
+   "v": "age-adjusted mortality rate per 100,000 persons",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "age-adjusted mortality rate expressed per 100,000 persons."
+    }
+   ]
+  },
+  {
+   "v": "percent change",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Percent change calculated from 2012 to 2016."
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Year, no. (%)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did the national rate of EMS naloxone administration change during 2012–2016, and does it parallel opioid overdose mortality?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "the trend in rate of EMS naloxone administration events from 2012 to 2016 was compared with opioid overdose mortality rates"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "opioid overdose",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "rates of naloxone administration events as a proxy to opioid overdoses"
+    },
+    {
+     "loc": "summary",
+     "q": "mirroring a 79.7% increase in the age-adjusted opioid mortality rate"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This cross-sectional evaluation of the large NEMSIS Public Release Research data sets from 2012 to 2016"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "From 2012 to 2016, a stepwise increase occurred in the number of EMS events with naloxone administration"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NEMSIS Public Release Research data sets from 2012 through 2016 were used for this analysis."
+    }
+   ]
+  },
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "opioid overdose mortality rates from National Vital Statistics System multiple cause-of-death mortality files"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Emergency Medical Services Information System (NEMSIS) Public Release Research data sets",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NEMSIS Public Release Research data sets from 2012 through 2016 were used for this analysis."
+    }
+   ]
+  },
+  {
+   "v": "National Vital Statistics System Multiple Cause of Death Data",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Data from CDC’s National Vital Statistics System, Multiple Cause of Death Data, 2012–2016; CDC WONDER"
+    }
+   ]
+  },
+  {
+   "v": "CDC WONDER",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Data from CDC’s National Vital Statistics System, Multiple Cause of Death Data, 2012–2016; CDC WONDER"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Naloxone Administration Frequency During Emergency Medical Service Events — United States, 2012–2016"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Race appears only as a Table 1 descriptor of naloxone-event composition (shares by year with trend tests), not discussed; age and sex results are unframed.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 2,
+   "reason": "Table 1 reports race-specific shares by year with trend p-values, which could be read as group-specific results by an SPD."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "A bimodal distribution was observed in the age groups of patients who received naloxone during EMS events"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Male"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race › Black"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race collapsed to White, Black and Other (AI/AN, Asian, NHOPI, other/unknown); shares are composition of naloxone events, not group-specific rates."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "analytic_depth",
+  "comparison",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "Age and race distributions are composition of naloxone events; Table 1 trend tests are over years within each level, so no groupwise entry. Age-adjusted mortality rates come from CDC WONDER queries. The 'evaluation' of EMS data as an overdose proxy could also be read as evaluation or monitoring.",
+ "view_issues": "Methods name chi-squared tests of linear trend, while the Table 1 note says 'nonparametric test of trend'. The figure description appears twice."
+}

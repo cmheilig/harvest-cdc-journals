@@ -1,0 +1,595 @@
+{
+ "id": "mm7005a4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPytVUv4jy5VgoG2Ks5",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Approximately one half of students (44.3%) experienced at least one type of violence"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Students experiencing three or more types of violence reported high prevalences of health risks: 34.1% missed school because of safety concerns"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Approximately one half of students (44.3%) experienced at least one type of violence"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Female students (6.1%) were significantly more likely than were male students (3.4%) to experience three or more types of violence."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusting for sex, race/ethnicity, grade, and sexual identity. Associations are presented as adjusted prevalence ratios (aPRs)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "logistic regression with predicted marginals (adjusted prevalence ratios)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Logistic regression models with predicted marginals' yielding aPRs → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Logistic regression models with predicted marginals were used to quantify the associations between violence experiences (the exposure of interest) and each health risk"
+    }
+   ]
+  },
+  {
+   "name": "linear contrast analysis",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "Table 3 notes: aPR levels compared with zero, one and two types by linear contrasts; supports stepwise claims",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Significantly different from two types, based on linear contrast analysis (p<0.05)."
+    }
+   ]
+  },
+  {
+   "name": "pairwise t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated in Methods and Table 1 notes",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Pairwise comparisons were conducted using t-tests and considered significant if p<0.05."
+    },
+    {
+     "loc": "table 1",
+     "q": "Significantly different from females based on pairwise t-test p<0.05."
+    }
+   ]
+  },
+  {
+   "name": "test for trend",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "P-value column of Tables 1 and 2 labelled 'Test for trend'",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "and sexual identity (heterosexual, gay/lesbian/bisexual, and not sure) using a test for trend."
+    },
+    {
+     "loc": "table 2",
+     "q": "† Test for trend."
+    }
+   ]
+  },
+  {
+   "name": "complex survey weighting (SUDAAN)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "complex nationally representative survey analyzed with survey software SUDAAN",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "YRBS is a nationally representative, biennial, cross-sectional, complex school-based survey"
+    },
+    {
+     "loc": "text",
+     "q": "Analyses were conducted using SAS callable SUDAAN (version 11.0.3; RTI International)."
+    }
+   ]
+  },
+  {
+   "name": "BMI-for-age percentile",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "overweight/obesity defined from sex- and age-specific BMI percentiles",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Were ≥85th percentile for body mass index, based on sex- and age-specific reference data from the 2000 CDC growth charts."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "zero types of violence",
+  "across": [
+   "number of types of violence experiences",
+   "sex",
+   "race/ethnicity",
+   "grade",
+   "sexual identity"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Experiencing violence was significantly associated with higher prevalence of all examined health risks and conditions"
+   },
+   {
+    "loc": "table 3",
+    "q": "Reference for all models is zero types of violence."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Pairwise comparisons were conducted using t-tests and considered significant if p<0.05."
+   },
+   {
+    "loc": "table 3",
+    "q": "Abbreviations: aPR = adjusted prevalence ratio; CI = confidence interval."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "prevalence, % (95% CI)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Prevalence of health risk behaviors and conditions among high school students, by number of types of violence experiences"
+    }
+   ]
+  },
+  {
+   "v": "aPR",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Adjusted prevalence ratios for health risk behaviors and conditions among high school students, by number of violence experiences"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "YRBS is a nationally representative, biennial, cross-sectional, complex school-based survey"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Prevalence of health risk behaviors and conditions among high school students, by number of types of violence experiences"
+    },
+    {
+     "loc": "table 2",
+     "q": "† Test for trend."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusting for sex, race/ethnicity, grade, and sexual identity. Associations are presented as adjusted prevalence ratios (aPRs)."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "sex, race/ethnicity, grade, and sexual identity",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusting for sex, race/ethnicity, grade, and sexual identity."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How prevalent are multiple forms of violence among U.S. high school students, and are they associated with health risk behaviors and conditions?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "used to test the strength of associations between experiencing multiple forms of violence and 16 self-reported health risk behaviors and conditions."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "violence victimization",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Prevalence of Multiple Forms of Violence and Increased Health Risk Behaviors and Conditions Among Youths"
+    }
+   ]
+  },
+  {
+   "v": "violence victimization",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Sex and sexual identity were significantly associated with experiencing violence."
+    }
+   ]
+  },
+  {
+   "v": "substance use",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "30.1%–65.4% used substances"
+    }
+   ]
+  },
+  {
+   "v": "suicidal thoughts or behavior",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "71.4% reported suicidal thoughts or behaviors, and 78.4% felt sad or hopeless."
+    }
+   ]
+  },
+  {
+   "v": "persistent sadness or hopelessness",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "71.4% reported suicidal thoughts or behaviors, and 78.4% felt sad or hopeless."
+    }
+   ]
+  },
+  {
+   "v": "weapon carrying",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "13.4% carried a weapon on school property, 18.9% carried a gun"
+    }
+   ]
+  },
+  {
+   "v": "risky sexual behavior",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "21%–63.4% engaged in risky sexual behavior"
+    }
+   ]
+  },
+  {
+   "v": "overweight or obesity",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "39.1% were overweight or had obesity"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "YRBS is a nationally representative, biennial, cross-sectional, complex school-based survey"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This report includes results from CDC’s 2019 Youth Risk Behavior Survey (YRBS)."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Youth Risk Behavior Survey (YRBS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This report includes results from CDC’s 2019 Youth Risk Behavior Survey (YRBS)."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Among Youths — United States, 2019"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Violence prevalence by sex, sexual identity, race/ethnicity and grade is reported and sexual-minority and female excesses described, but contrasts are shown only as side-by-side percentages with significance marks, so the cap at 2 applies.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "The Discussion names poverty, education access, housing, bias and stigma as contributors to subgroup differences; if the side-by-side contrasts were read as quantified, level 4 would follow."
+  },
+  "dimensions": [
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "stratifier",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Experiencing multiple types of violence was significantly more prevalent among females than among males and among students identifying as gay, lesbian, or bisexual"
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "covariate",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "adjusting for sex, race/ethnicity, grade, and sexual identity."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Female students (6.1%) were significantly more likely than were male students (3.4%) to experience three or more types of violence."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "adjusting for sex, race/ethnicity, grade, and sexual identity."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "race/ethnicity (non-Hispanic white, non-Hispanic black, and Hispanic)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "adjusting for sex, race/ethnicity, grade, and sexual identity."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "measures prevalence of health-related behaviors among students in grades 9–12"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "grade in school (9–12)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "adjusting for sex, race/ethnicity, grade, and sexual identity."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "socioeconomic status"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "data were not available to control for other factors (e.g., socioeconomic status of students)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "poverty; limited access to high-quality education; unstable housing; bias; stigma",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Community factors (e.g., poverty, limited access to high-quality education, unstable housing, bias, and stigma) can contribute to increased risk for violence"
+    },
+    {
+     "loc": "text",
+     "q": "and the differences observed across population subgroups"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity limited to White, Black and Hispanic ('other' not presented); grade used as an age proxy; SES not measured."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "sexual orientation and gender identity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Significantly different from heterosexual based on pairwise t-test p<0.05."
+    },
+    {
+     "loc": "text",
+     "q": "and sexual identity (heterosexual, gay/lesbian/bisexual, and not sure) using a test for trend."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "race/ethnicity (non-Hispanic white, non-Hispanic black, and Hispanic)"
+    },
+    {
+     "loc": "table 1",
+     "q": "Significantly different from Hispanic based on pairwise t-test p<0.05."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "trend test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "grade in school (9–12)"
+    },
+    {
+     "loc": "table 1",
+     "q": "Significantly different from grade 9 based on pairwise t-test p<0.05."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise",
+  "equity.level",
+  "procedures"
+ ],
+ "confidence": "medium",
+ "notes": "Table 1's 'test for trend' is across the ordered number of violence types within each demographic variable; for unordered race and sexual identity it is read as an omnibus association test, for grade as a trend test. Linear contrasts between aPR levels support the stepwise claims.",
+ "view_issues": "The Abstract lists covariates as sex, grade and race/ethnicity, while Methods add sexual identity. Table 1 CSV gives some grade 11–12 CIs with commas instead of dashes."
+}

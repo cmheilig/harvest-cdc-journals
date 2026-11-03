@@ -1,0 +1,442 @@
+{
+ "id": "mm6608a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrZtCTgtBMVayHq1u",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "During 1999–2015, the mesothelioma age-adjusted death rate decreased 21.7% from 13.96 per million population (1999) to 10.93 (2015)"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the annual number of malignant mesothelioma deaths increased 4.8% overall, from 2,479 in 1999 to 2,579 in 2015"
+    },
+    {
+     "loc": "table 1",
+     "q": "Age-adjusted death rates per 1 million persons calculated using the 2000 Standard population."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During 1999–2015, a total of 45,221 malignant mesothelioma deaths were reported"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Malignant mesothelioma deaths decreased among persons aged 35–44, 45–54, and 55–64 years"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "The malignant mesothelioma PMRs were internally adjusted by five-year age groups, gender, and race."
+    },
+    {
+     "loc": "text",
+     "q": "Age-adjusted death rates per 1 million persons aged ≥25 years by demographics, neoplasm anatomical site, and year were calculated"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "first-order autoregressive linear regression (linear time trend)",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "'first-order autoregressive linear regression model' for linear time trend → linear; AR(1) errors for serial correlation",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "linear time trend was examined using a first-order autoregressive linear regression model to account for the serial correlation."
+    }
+   ]
+  },
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "age-specific rates applied to the 2000 U.S. standard population",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Age-adjusted death rates were calculated by applying age-specific death rates to the 2000 U.S. Census standard population age distribution."
+    }
+   ]
+  },
+  {
+   "name": "proportionate mortality ratio, internally adjusted (indirect standardization)",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "observed/expected deaths with internal adjustment by age group, sex and race, an SMR-type indirect standardization",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "PMR was defined as the observed number of deaths with malignant mesothelioma in a specified industry/occupation, divided by the expected number"
+    },
+    {
+     "loc": "note",
+     "q": "The malignant mesothelioma PMRs were internally adjusted by 5-year age groups, gender, and race."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'significantly elevated PMRs' rest on 95% CIs excluding 1; CIs calculated assuming Poisson distribution (exact Poisson)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "significantly elevated PMRs for malignant mesothelioma were found for 11 industries and 17 occupations."
+    },
+    {
+     "loc": "table 2",
+     "q": "CIs were calculated assuming Poisson distribution of the data."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": null,
+  "across": [
+   "year",
+   "age group",
+   "sex",
+   "race",
+   "ethnicity",
+   "anatomic site",
+   "industry",
+   "occupation",
+   "state"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Mesothelioma deaths increased for persons aged ≥85 years, for both sexes, persons of white, black and Asian or Pacific Islander race"
+   },
+   {
+    "loc": "text",
+    "q": "(p-value for linear time trend <0.001)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Confidence intervals (CIs) were calculated assuming Poisson distribution of the data."
+   },
+   {
+    "loc": "table 1",
+    "q": "linear time trend was examined using a first-order autoregressive linear regression model to account for the serial correlation."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "number of deaths",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. of deaths"
+    }
+   ]
+  },
+  {
+   "v": "age-adjusted death rate per 1 million",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age-adjusted death rates per 1 million persons calculated using the 2000 Standard population."
+    }
+   ]
+  },
+  {
+   "v": "age-specific death rate per 1 million",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age-specific death rates per 1 million persons."
+    }
+   ]
+  },
+  {
+   "v": "PMR",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "PMR † (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "serial correlation",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "first-order autoregressive linear regression model to account for the serial correlation."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "linear time trend was examined using a first-order autoregressive linear regression model"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did malignant mesothelioma deaths and death rates change in the United States during 1999–2015, and which industries and occupations had elevated mortality?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To update information on malignant mesothelioma mortality ( 5 ), CDC analyzed annual multiple cause-of-death records † for 1999–2015"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "malignant mesothelioma",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Malignant Mesothelioma Mortality — United States, 1999–2015"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed annual multiple cause-of-death records † for 1999–2015"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Contrary to past projections, the number of malignant mesothelioma deaths has been increasing."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were listed as either the underlying or contributing cause of death in the multiple cause-of-death mortality data."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "multiple cause-of-death mortality data (CDC WONDER)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed annual multiple cause-of-death records † for 1999–2015"
+    },
+    {
+     "loc": "note",
+     "q": "† CDC WONDER."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "the annualized state mesothelioma age-adjusted death rate exceeded 20 per million per year in two states"
+   },
+   {
+    "loc": "text",
+    "q": "Industry and occupation information was available from death certificates for decedents reported from 23 states"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Death counts, rates and trends are reported by race and ethnicity (and age and sex) and described, but no disparity is framed or quantified.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Race appears mainly as a tabulated descriptor and as a PMR adjustment variable; the trend statement by race is brief."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "basis": "assigned or observed",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The number of malignant mesothelioma deaths increased among persons aged ≥85 years, both sexes, white, black, and Asian or Pacific Islander race"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "The malignant mesothelioma PMRs were internally adjusted by five-year age groups, gender, and race."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The age-specific death rate decreased significantly among persons 45–54 (p<0.001), 55–64 (p<0.001), and 65–74 (p<0.001) years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The analysis was restricted to deaths of persons aged ≥25 years"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race and ethnicity from death certificates; race in four groups, ethnicity Hispanic vs non-Hispanic with 90 unknown. Occupation and industry are exposure routes, not social position."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 7,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group (yrs) § › ≥85"
+    },
+    {
+     "loc": "text",
+     "q": "The age-specific death rate decreased significantly among persons 45–54 (p<0.001), 55–64 (p<0.001), and 65–74 (p<0.001) years"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race › American Indian or Alaska Native"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "comparison",
+  "groupwise",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "Trend p-values by age group are taken as coming from the AR(1) linear model, so no separate test is recorded. The prepass 'weighted average' cue refers to the standardized rate and is not survey weighting.",
+ "view_issues": "The text gives 2,579 deaths in 2015 in one place, but the Summary, the other text and Table 1 give 2,597. Table 1 gives the count trend p-value as 0.001, while the text says <0.001."
+}

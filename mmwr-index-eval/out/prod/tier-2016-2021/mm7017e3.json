@@ -1,0 +1,386 @@
+{
+ "id": "mm7017e3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPytdAj24sPhLfK8NeE",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among 3,171 nonhospitalized adults who had COVID-19, 69% had one or more outpatient visits during the follow-up period of 28–180-days."
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-19–related visits declined from 24 per 10,000 person-days during the 28–59-day interval to fewer than two per 10,000 person-days during the 120–180-day interval."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Among 3,171 nonhospitalized adult COVID-19 patients, 69% had one or more outpatient visits 28–180 days after the diagnosis."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was significantly higher among adults aged ≥65 years (88%) than among those aged 18–49 years (66%)"
+    },
+    {
+     "loc": "summary",
+     "q": "Visits for these symptoms decreased after 60 days but for some patients continued through 120–180 days."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "chi-square or Fisher's exact test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named tests for proportions; Table 1 p-values compare patients with and without visits",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "proportions were compared using chi-square or Fisher’s exact tests, as required."
+    },
+    {
+     "loc": "table 1",
+     "q": "P-value for comparisons of column percentages of patient with and without ≥1 outpatient visits."
+    }
+   ]
+  },
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named test for means (Charlson comorbidity index in Table 1)",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "P-value for t-test for comparisons of means and chi-square or Fisher’s exact test for categorical variables as applicable."
+    }
+   ]
+  },
+  {
+   "name": "Wilcoxon signed-rank test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods for continuous variables; no result attributed to it",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Continuous variables were compared using t-tests or Wilcoxon signed-rank tests"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "time since COVID-19 diagnosis (28–59, 60–119, 120–180 days)",
+   "visit status (with vs without outpatient visit)",
+   "age group",
+   "sex",
+   "race/ethnicity",
+   "insurance",
+   "number of underlying health conditions"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "All health care utilization and clinical characteristics were described at 28–59, 60–119, and 120–180 days after COVID-19 diagnosis."
+   },
+   {
+    "loc": "text",
+    "q": "among non-Hispanic Black adults (71%) than among all others (68%) (p = 0.04)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "proportions were compared using chi-square or Fisher’s exact tests, as required."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. (%) of patients with ≥1 visit"
+    }
+   ]
+  },
+  {
+   "v": "visits per 10,000 person-days",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Diagnoses were described as diagnosis-specific visit rates*** (visits per 10,000 person-days)."
+    }
+   ]
+  },
+  {
+   "v": "median no. of visits (IQR)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Median no. of visits (IQR)*"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What health care use and new diagnoses occur 28–180 days after diagnosis among nonhospitalized adults with COVID-19, and how do they vary by patient characteristics and time?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To better understand longer-term health care utilization and clinical characteristics of nonhospitalized adults after COVID-19 diagnosis"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Health Care Utilization and Clinical Characteristics of Nonhospitalized Adults in an Integrated Health Care System 28–180 Days After COVID-19 Diagnosis"
+    }
+   ]
+  },
+  {
+   "v": "post-COVID conditions",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Clinicians and health care systems should be aware of the potential for post-COVID conditions."
+    },
+    {
+     "loc": "text",
+     "q": "Symptoms potentially related to COVID-19"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "retrospective cohort",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "analyzed electronic health record (EHR) data from health care visits in the 28–180 days after a diagnosis of COVID-19"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "electronic health records",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "for whom ≥180 days had elapsed since their testing date were identified in KPGA EHR data."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Kaiser Permanente Georgia (KPGA) electronic health records",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "for whom ≥180 days had elapsed since their testing date were identified in KPGA EHR data."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Georgia, May 2020–March 2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Visit proportions are reported by race/ethnicity, sex and age with p-values, and Black vs other adults is discussed, but values are only set side by side (71% vs 68%) with no computed difference or ratio, so the cap at 2 applies.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The Discussion frames higher visits among Black adults as possibly reflecting disproportionate COVID-19 impact, which could be read as a framed, interpreted disparity."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race/Ethnicity › Black, non-Hispanic"
+     },
+     {
+      "loc": "text",
+      "q": "A higher proportion of women and non-Hispanic Black adults had one or more outpatient visits than did men"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "among women (76%) than among men (59%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "was significantly higher among adults aged ≥65 years (88%) than among those aged 18–49 years (66%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Patients aged ≥18 years who received positive results for SARS-CoV-2"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "insurance (commercial, Medicare)"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Insurance › Medicare"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "uninsured or publicly insured"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "might differ from that of other U.S. populations, including uninsured or publicly insured adults."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity contrast in text collapses to Black vs all others; Medicaid patients excluded; insurance (commercial vs Medicare) largely tracks age."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group, yrs › ≥65"
+    },
+    {
+     "loc": "text",
+     "q": "was significantly higher among adults aged ≥65 years (88%) than among those aged 18–49 years (66%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity › Black, non-Hispanic"
+    },
+    {
+     "loc": "text",
+     "q": "among non-Hispanic Black adults (71%) than among all others (68%) (p = 0.04)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "study_design"
+ ],
+ "confidence": "medium",
+ "notes": "Design not named; retrospective cohort inferred from existing EHR records followed 28–180 days. Period trends in visit rates (Table 3) are side by side with no test. Follow-up truncation at 180 days is a design step, not a procedure.",
+ "view_issues": "Wilcoxon signed-rank (a paired test) is named for comparing independent groups. Table 1 gives race p<0.001 while text gives p = 0.04 for Black vs all others. Table 1 obesity row 391 (12.3) is inconsistent with 391/1,452 (~26.9%)."
+}

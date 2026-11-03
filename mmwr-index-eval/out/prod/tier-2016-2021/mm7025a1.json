@@ -1,0 +1,419 @@
+{
+ "id": "mm7025a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPytJ5AsRN6XvBocZJS",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Testing rates were higher among persons with Medicaid than those with commercial insurance"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "only 4.0% of persons with commercial insurance and 5.5% of persons with Medicaid received testing for HIV in 2019"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "only 4.0% of persons with commercial insurance and 5.5% of persons with Medicaid received testing for HIV in 2019"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the percentages of Black persons (8.5%) and Hispanic persons (5.9%) with HIV testing were higher than the percentages of White persons (3.9%)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "higher among those with Medicaid than among those with commercial insurance across all regions and all demographic groups except persons aged ≥65 years"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "generalized Poisson model for estimated annual percentage change",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'generalized Poisson model' giving EAPCs → loglinear",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "EAPCs were calculated using a generalized Poisson model."
+    }
+   ]
+  },
+  {
+   "name": "weighting of MarketScan data to national commercial-insurance population",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated weighting to generate nationally representative estimates for commercial insurance",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "is weighted using validated methods to be nationally representative of the 200 million U.S. persons with commercial insurance"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "EAPC 95% CIs excluding 0 underpin 'increased' claims; CIs model-based from the generalized Poisson model",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "6.0 (6.0–6.1)"
+    },
+    {
+     "loc": "summary",
+     "q": "who received testing for HIV increased from 2014 to 2019 but was less than 6%."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": null,
+  "across": [
+   "year",
+   "insurance type",
+   "race/ethnicity",
+   "sex",
+   "age group",
+   "urban/rural residence",
+   "U.S. Census region"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The estimated annual percentage change and 95% confidence intervals were calculated for each trend."
+   },
+   {
+    "loc": "text",
+    "q": "stratified by sex, age group, race/ethnicity (Medicaid only), urban versus rural residence, and U.S. Census region."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The estimated annual percentage change and 95% confidence intervals were calculated for each trend."
+   },
+   {
+    "loc": "table 1",
+    "q": "EAPCs were calculated using a generalized Poisson model."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage with HIV test",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Weighted % with HIV test"
+    }
+   ]
+  },
+  {
+   "v": "EAPC",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "EAPC = estimated annual percentage change"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The estimated annual percentage change and 95% confidence intervals were calculated for each trend."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did HIV testing change during 2014–2019 among persons with commercial insurance or Medicaid, and how did testing in 2019 vary by demographic characteristics?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The objective of the current study is to estimate temporal trends in HIV testing among persons with commercial insurance or Medicaid from 2014 through 2019"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "HIV",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "HIV Testing Trends Among Persons with Commercial Insurance or Medicaid — United States, 2014–2019"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The proportions of male and nonpregnant female persons aged ≥13 years with commercial insurance or Medicaid who received HIV testing each year were estimated."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "who received testing for HIV increased from 2014 to 2019 but was less than 6%."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "administrative/claims",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Weighted data from the IBM MarketScan Commercial Claims and Encounters database* (commercial insurance) and from the Centers for Medicare & Medicaid Services (CMS) claims database"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "IBM MarketScan Commercial Claims and Encounters database",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Weighted data from the IBM MarketScan Commercial Claims and Encounters database*"
+    }
+   ]
+  },
+  {
+   "v": "Centers for Medicare & Medicaid Services (CMS) claims database (Medicaid)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "from the Centers for Medicare & Medicaid Services (CMS) claims database † (Medicaid)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The CMS database includes information on persons with Medicaid in all 50 states and the District of Columbia."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Testing percentages by race/ethnicity (Medicaid) and by insurance type are reported and described as higher, but only set side by side with no computed difference or ratio; disparities named concern HIV diagnoses, cited.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The article frames racial/ethnic testing differences in relation to disparities in HIV diagnoses and interprets them, which some would read as a quantified framed disparity."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "among those with Medicaid, rates for Black/African Americans and Hispanic/Latino persons were higher than for White persons."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "primary comparison",
+    "ses_components": [
+     "Medicaid",
+     "commercial insurance"
+    ],
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Testing rates were higher among persons with Medicaid than those with commercial insurance"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Urban/Rural residence †† › Rural"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Eligibility criteria included persons who 1) were aged ≥13 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Age group, yrs › 19–29"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "basis": "assigned or observed",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Sex at birth › Female"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity available only for Medicaid; AI/AN and NH/OPI collapsed into Other; insurance type (Medicaid vs commercial) analyzed separately, not linked; persons ≥65 underrepresented."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the percentages of Black persons (8.5%) and Hispanic persons (5.9%) with HIV testing were higher than the percentages of White persons (3.9%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among persons with Medicaid, this trend was observed for all racial and ethnic groups except Hispanic persons"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Age group, yrs › 19–29"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "analytic_depth",
+  "groupwise",
+  "procedures"
+ ],
+ "confidence": "medium",
+ "notes": "Design not named; cross-sectional repeated annual estimates inferred. EHE ≥95% awareness goal and threefold increase come from cited modeling, not a referent of the article's own comparisons. Race-specific trend EAPCs are not shown numerically (figure only).",
+ "view_issues": "Figure data (race-specific trends) not available in packet; claim that Hispanic trend was not observed cannot be checked."
+}

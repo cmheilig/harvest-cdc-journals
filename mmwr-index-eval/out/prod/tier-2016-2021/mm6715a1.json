@@ -1,0 +1,445 @@
+{
+ "id": "mm6715a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysAMWH3YciWvQW1Cn",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Overall, an annual estimated 2.6 million (1.1%) U.S. adults self-reported having active epilepsy"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "less than half (44%) of those taking medications were seizure-free in the past year."
+    },
+    {
+     "loc": "table 1",
+     "q": "Adults with active epilepsy › Age-adjusted % (95% CI)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, an annual estimated 2.6 million (1.1%) U.S. adults self-reported having active epilepsy"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "among those with higher family incomes (≥200% of FPL; 55.3%) than among those from lower income households (<200% of FPL; 33.2%)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalences and percentages were age-standardized to the projected 2000 U.S. adult population by four age groups"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "two-tailed t-tests",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated as the test behind all reported subgroup differences",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All reported differences between subgroups were statistically significant (p<0.05 by two-tailed t-tests)."
+    }
+   ]
+  },
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "age-standardized to the projected 2000 U.S. adult population, four age groups",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalences and percentages were age-standardized to the projected 2000 U.S. adult population by four age groups"
+    }
+   ]
+  },
+  {
+   "name": "survey weighting with complex sample design",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "software accounting for respondent sampling weights and NHIS complex design produces every estimate",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Statistical software that accounted for the respondent sampling weights and the NHIS complex sample design was used for analysis."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "poverty status",
+   "employment",
+   "marital status",
+   "education",
+   "race/ethnicity",
+   "age group",
+   "sex",
+   "region",
+   "survey year",
+   "specialty care"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Seizures were more common among persons with lower household income, the unemployed, and the divorced, separated, or widowed."
+   },
+   {
+    "loc": "text",
+    "q": "among persons who were employed (54.3%) than among those who were unemployed (37.7%)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "All reported differences between subgroups were statistically significant (p<0.05 by two-tailed t-tests)."
+   },
+   {
+    "loc": "table 1",
+    "q": "Age-adjusted % (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted prevalence",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Adults with active epilepsy › Age-adjusted % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The percentage of respondents with active epilepsy who had seen a neurologist or an epilepsy specialist in the past year was 67%."
+    }
+   ]
+  },
+  {
+   "v": "weighted number",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Annualized and weighted number rounded to 1,000s."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What are the prevalence of active epilepsy, specialty care, medication use and seizure control among U.S. adults, and how do they vary by sociodemographic characteristics?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To obtain recent and reliable estimates of active epilepsy and seizure control status in the U.S. population"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "active epilepsy",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Active Epilepsy and Seizure Control in Adults — United States, 2013 and 2015"
+    }
+   ]
+  },
+  {
+   "v": "active epilepsy",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among those taking epilepsy medication, only 44% reported having their seizures controlled."
+    }
+   ]
+  },
+  {
+   "v": "seizures",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Seizures were more common among persons with lower household income, the unemployed, and the divorced, separated, or widowed."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NHIS is an annual, nationally representative household survey of the U.S. civilian, noninstitutionalized population."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed aggregated data from the 2013 and the 2015 National Health Interview Surveys (NHISs)."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Health Interview Survey (NHIS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed aggregated data from the 2013 and the 2015 National Health Interview Surveys (NHISs)."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Active Epilepsy and Seizure Control in Adults — United States, 2013 and 2015"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Results by income, employment, education, marital status and race are reported and framed as disparities with named access determinants, but contrasts are tested percentages set side by side with no computed difference or ratio, so the cap at 2 applies.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "Disparities are explicitly framed and interpreted, with cost, transportation barriers and social isolation named as explanations; stated percentage pairs could be read as quantified."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "primary comparison",
+    "ses_components": [
+     "family income (poverty status)",
+     "employment",
+     "education"
+    ],
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Seizures were more common among persons with lower household income, the unemployed, and the divorced, separated, or widowed."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The age-adjusted prevalence of active epilepsy was significantly higher among respondents who were non-Hispanic white (white) and non-Hispanic black (black)"
+     }
+    ]
+   },
+   {
+    "v": "other",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "among persons who were married/cohabiting (50.0%) than among those who were divorced, separated, or widowed (31.5%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The prevalence of seizure control was significantly higher among adults aged ≥65 years (62.7%) than among those aged 35–54 years (36.9%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Prevalences and percentages were age-standardized to the projected 2000 U.S. adult population by four age groups"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "includes one randomly selected adult aged ≥18 years from each randomly selected household"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Women"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "socioeconomic disadvantage limiting access to care (cost, transportation); social isolation; Medicare prescription drug coverage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "might preclude their accessing health care including specialty care (because of barriers such as cost and transportation)"
+    },
+    {
+     "loc": "text",
+     "q": "social isolation (e.g., lack of social support associated with being divorced, separated, or widowed)"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "SES measured as poverty status (<200% vs ≥200% FPL), current employment and education; race collapsed to White, Black and Other; marital status treated as social support proxy."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The age-adjusted prevalence of active epilepsy was significantly higher among respondents who were non-Hispanic white (white) and non-Hispanic black (black)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "other"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "never married, divorced, separated, or widowed; had less than high school diploma; were unemployed, or living in lower-income families"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "never married, divorced, separated, or widowed; had less than high school diploma; were unemployed, or living in lower-income families"
+    },
+    {
+     "loc": "table 1",
+     "q": "Education level › Less than HS"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This percentage was significantly higher among respondents aged 18–34 years"
+    },
+    {
+     "loc": "text",
+     "q": "than that among respondents aged ≥55 years"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred as cross-sectional from the NHIS household survey; none is named. The relative standard error statement (<30%) is not stated as a suppression rule, so no transformation is recorded. Medication use 'did not significantly differ by sociodemographic characteristics' implies untabulated tests across all groups.",
+ "view_issues": "Table row label '>65' conflicts with the text and note, which use ≥65 years."
+}

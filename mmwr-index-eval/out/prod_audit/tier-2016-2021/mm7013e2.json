@@ -1,0 +1,425 @@
+{
+ "id": "mm7013e2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggS4RjXKs5HWhy7YMBkZ",
+  "batch_id": "msgbatch_015VCMXVPf2jEMdvPXUCM23r"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "the percentage of adults with recent symptoms of an anxiety or a depressive disorder increased from 36.4% to 41.5%"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "the percentage of those reporting an unmet mental health care need increased from 9.2% to 11.7%"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During January 20, 2021–February 1, 2021, more than two in five adults aged ≥18 years experienced symptoms of an anxiety or a depressive disorder"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "symptoms of an anxiety or a depressive disorder increased significantly from 36.4% to 41.5%"
+    },
+    {
+     "loc": "text",
+     "q": "The largest increases (8.0 and 7.8 percentage points) were among those aged 18–29 years and those with less than a high school education"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "joinpoint regression",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "'Joinpoint regression characterizes trends as joined linear segments' on percentages, no log stated → linear segmented model",
+   "role": "primary",
+   "alternative_reading": "loglinear, if Joinpoint was fitted on log percentages (default in the software)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Trends were assessed using joinpoint regression."
+    },
+    {
+     "loc": "note",
+     "q": "Joinpoint regression characterizes trends as joined linear segments"
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'two-sided significance tests at the 0.05 level' comparing two time points, test not named; CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Significant difference between percentages at two time points (August 19–31, 2020, versus January 20–February 1, 2021) based on two-sided significance tests"
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (nonresponse adjustment and raking to Census population estimates)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated weights and SUDAAN; all estimates weighted",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates were weighted to adjust for nonresponse and number of adults in the household and to match U.S. Census Bureau estimates"
+    }
+   ]
+  },
+  {
+   "name": "suppression by NCHS Data Presentation Standards for Proportions",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "estimates shown only if they meet NCHS reliability standards",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "All estimates shown met the NCHS Data Presentation Standards for Proportions"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "absolute",
+  "referent": "August 19–31, 2020",
+  "across": [
+   "period",
+   "age",
+   "sex",
+   "race/ethnicity",
+   "education",
+   "symptom status"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "were compared between August 19–31, 2020, and January 20–February 1, 2021, according to selected respondent characteristics."
+   },
+   {
+    "loc": "text",
+    "q": "The largest increases in unmet mental health needs (7.2 percentage points and 4.3 percentage points) were among adults aged 18–29 years"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "based on two-sided significance tests at the 0.05 level."
+   },
+   {
+    "loc": "table 1",
+    "q": "% (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Weighted* percentage of adults aged ≥18 years with symptoms of anxiety or depressive disorder during past 7 days"
+    }
+   ]
+  },
+  {
+   "v": "percentage points",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The largest increases (8.0 and 7.8 percentage points) were among those aged 18–29 years"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Trends were assessed using joinpoint regression."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did the percentages of U.S. adults with anxiety or depressive disorder symptoms and with mental health care use or unmet need change during August 2020–February 2021, overall and by demographic group?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This report describes trends in the percentage of adults with symptoms of an anxiety disorder or a depressive disorder"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "symptoms of anxiety disorder",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Symptoms of Anxiety or Depressive Disorder and Use of Mental Health Care Among Adults During the COVID-19 Pandemic"
+    }
+   ]
+  },
+  {
+   "v": "symptoms of depressive disorder",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Symptoms of Anxiety or Depressive Disorder and Use of Mental Health Care Among Adults During the COVID-19 Pandemic"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "HPS is a rapid-response online survey using a probability-based sample design"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This report describes trends in the percentage of adults with symptoms of an anxiety disorder or a depressive disorder"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC partnered with the U.S. Census Bureau to conduct the Household Pulse Survey (HPS)."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Household Pulse Survey (HPS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC partnered with the U.S. Census Bureau to conduct the Household Pulse Survey (HPS)."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, August 2020–February 2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Changes are reported by age, sex, race/ethnicity and education, and the largest increases (18–29 years, less than high school) are named, but groups are only ranked side by side with no between-group contrast computed.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Group-specific increases are quantified in percentage points and the article calls for interventions for 'disproportionately affected' groups, which could be read as a quantified, framed disparity."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group, yrs › 18–29"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Analytic files include self-reported data from one adult aged ≥18 years at each address."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race/Ethnicity › Black, non-Hispanic"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "educational attainment"
+    ],
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Increases were largest among adults aged 18–29 years and those with less than a high school education."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "to match U.S. Census Bureau estimates of the population by age, sex, race/ethnicity, and educational attainment."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Changes between two periods are computed within each SPD group; groups are ranked by size of increase, with no between-group contrast. Race groups other than White, Black, Asian and Hispanic are collapsed into Other/Multiple."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 7,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The largest increases (8.0 and 7.8 percentage points) were among those aged 18–29 years and those with less than a high school education"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were among adults aged 18–29 years and those with less than a high school education, respectively."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity › Other/Multiple races, non-Hispanic"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "inference",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Design not named; cross-sectional survey inferred from repeated HPS cross-sections. The period-to-period tests within each subgroup are non-SPD contrasts; groupwise entries reflect only the ranking of increases across groups. PHQ-4 scoring cutpoints are quantization, not a procedure.",
+ "view_issues": null
+}

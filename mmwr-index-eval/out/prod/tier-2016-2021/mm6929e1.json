@@ -1,0 +1,445 @@
+{
+ "id": "mm6929e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyt79iPe3yfhXCrM5B",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "the estimated prevalence of current or previous SARS-CoV-2 infection in late April 2020 was 2.79%."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The overall prevalence was significantly higher among Hispanics (8.3%) than among non-Hispanics (2.3%) (p = 0.03)."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "the estimated prevalence of current or previous SARS-CoV-2 infection in late April 2020 was 2.79%."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The overall prevalence was significantly higher among Hispanics (8.3%) than among non-Hispanics (2.3%) (p = 0.03)."
+    },
+    {
+     "loc": "text",
+     "q": "9.6 times higher than the number of confirmed cases [17,792]"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "nonresponse weighting by iterative proportional fitting (raking)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "'adjusted for nonresponse ... using an iterative proportional fitting method' to Census proportions by stratum",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates were adjusted for nonresponse to reflect state demographics using an iterative proportional fitting method."
+    },
+    {
+     "loc": "text",
+     "q": "data were weighted for age, race (dichotomized as white or nonwhite), and Hispanic ethnicity."
+    }
+   ]
+  },
+  {
+   "name": "bootstrap",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "bootstrap used for point estimates, CIs and resampling tests (p-values) in the random sample",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "bootstrapping methods were used to obtain point estimates, p-values, and CIs."
+    },
+    {
+     "loc": "table 1",
+     "q": "** p<0.05 based on a resampling test using bootstrap methods."
+    }
+   ]
+  },
+  {
+   "name": "generalized estimating equations, binomial",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "GEE with binomial distribution for a binary outcome → logistic (link not stated); used for nonrandom-sample estimates accounting for household clustering",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "estimates were obtained using generalized estimating equations assuming a binomial distribution for the presence of current infection and antibodies."
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "Table 2 p-values for group differences in the nonrandom sample; test not named (possibly GEE-based)",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "P-values compare group differences for overall population prevalence."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "fixed referent",
+  "scale": "relative",
+  "referent": "reported confirmed COVID-19 cases (17,792)",
+  "across": [
+   "estimated infections vs reported cases",
+   "Hispanic origin",
+   "household member with COVID-19 diagnosis",
+   "sex",
+   "race",
+   "age group",
+   "urbanicity"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The number of reported cases represents an estimated one of 10 infections."
+   },
+   {
+    "loc": "text",
+    "q": "9.6 times higher than the number of confirmed cases [17,792]"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "bootstrapping methods were used to obtain point estimates, p-values, and CIs."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "point prevalence, % (95% CI)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimated point prevalence* of current or past infection with SARS-CoV-2, by demographic characteristics and urbanicity"
+    }
+   ]
+  },
+  {
+   "v": "infection-fatality ratio",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "1,099 residents died (infection-fatality ratio = 0.58%)."
+    }
+   ]
+  },
+  {
+   "v": "p value",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "P-values compare group differences for overall population prevalence."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "GEE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "To account for clustering effects resulting from members of the same household being tested"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Data are adjusted for clustering within home address."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "What was the statewide point prevalence of current or past SARS-CoV-2 infection among Indiana residents aged ≥12 years in late April 2020?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Indiana conducted statewide random sample testing of persons aged ≥12 years to assess prevalence of active infection and presence of antibodies"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Population Point Prevalence of SARS-CoV-2 Infection Based on a Statewide Random Sample"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among 3,658 noninstitutionalized participants in the random sample survey"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Stratified random sampling was conducted among all persons aged ≥12 years using Indiana’s 10 public health preparedness districts as sampling strata."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Based on a Statewide Random Sample — Indiana, April 25–29, 2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Prevalence by Hispanic origin and race is reported and discussed with social-condition explanations, but contrasts are only values side by side with p-values or significance marks; no difference or ratio is computed, so the cap at 2 applies.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "The Discussion frames higher minority prevalence as disproportionate and names essential-work social conditions; reading 8.3% vs 2.3% as quantified would give 3, plus determinants 4."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Racial minorities in the nonrandom sample and Hispanics in the random sample experienced higher prevalences than did whites and non-Hispanics"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "data were weighted for age, race (dichotomized as white or nonwhite), and Hispanic ethnicity."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Indiana conducted statewide random sample testing of persons aged ≥12 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group (yrs) › ≥60"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "data were weighted for age, race (dichotomized as white or nonwhite), and Hispanic ethnicity."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Male"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Urbanicity › Rural/Mixed"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "social conditions increasing transmission; overrepresentation of minorities among essential workers",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "might have been due in part to social conditions that increased transmission opportunities, including minorities being disproportionately represented among essential workers."
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Random sample collapses race to white vs nonwhite; minority communities sampled nonrandomly (Table 2, race 3 groups) and analyzed separately because of selection bias; education collected but not reported."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Race › Other (including multiracial)"
+    },
+    {
+     "loc": "table 2",
+     "q": "P-values compare group differences for overall population prevalence."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Age group (yrs) › ≥80"
+    },
+    {
+     "loc": "table 2",
+     "q": "P-values compare group differences for overall population prevalence."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group (yrs) › 40–59"
+    }
+   ]
+  },
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Urbanicity › Rural/Mixed"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "comparison",
+  "equity.level",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Positive percent agreement and antibody sensitivity/specificity are cited test characteristics in limitations, not the article's own analysis. Sample size calculation, stratified sampling and the tax-return roster are design steps. Table 1 bootstrap tests are flagged only for Hispanic origin and self/household diagnosis rows; other rows are read as side by side.",
+ "view_issues": "IgG prevalence is 1.09% in Summary/Table 1 but 1.01% in Results. Results call overall prevalence 'active or current infection' (should be current or previous). Asymptomatic male/female 60.3%/24.5% in text vs 60.2%/24.7% in Table 1. Table 2 footnote marks mismatch (†† vs †)."
+}

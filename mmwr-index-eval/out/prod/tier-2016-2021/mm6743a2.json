@@ -1,0 +1,467 @@
+{
+ "id": "mm6743a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysJ3BG2tMr22iBjBD",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In 2016, the national prevalences of preexisting and gestational diabetes were 0.9% and 6.0%, respectively."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In 2016, the national prevalences of preexisting and gestational diabetes were 0.9% and 6.0%, respectively."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "chi-square tests were used to evaluate differences by characteristic."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Among 40 jurisdictions, the age- and race/ethnicity-standardized preexisting diabetes prevalence was stable at 0.8%, and the gestational diabetes prevalence increased from 5.2% to 5.6%."
+    },
+    {
+     "loc": "text",
+     "q": "differences in standardized prevalences between 2012 and 2016 were calculated for each jurisdiction and for all jurisdictions combined"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "'directly standardizing' to the 2012 age and race/ethnicity distribution of mothers",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Jurisdiction-specific prevalences were calculated for each year after directly standardizing to the distribution of age and race/ethnicity"
+    }
+   ]
+  },
+  {
+   "name": "z-test for difference in standardized prevalences",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'evaluated using the z-statistic' for 2012 vs 2016 differences; CIs for the differences, CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "differences were assumed to be independent and were evaluated using the z-statistic."
+    }
+   ]
+  },
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'chi-square tests' of diabetes status distribution by each maternal characteristic, 2016",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "chi-square tests were used to evaluate differences by characteristic."
+    },
+    {
+     "loc": "table 1",
+     "q": "Statistically significant (p<0.05) differences in the distribution of preexisting diabetes, gestational diabetes (or no diabetic conditions) were observed by all maternal characteristics."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "absolute",
+  "referent": "2012",
+  "across": [
+   "year (2012 vs 2016)",
+   "jurisdiction",
+   "age group",
+   "race/ethnicity",
+   "nativity",
+   "education",
+   "payment source for delivery",
+   "trimester of prenatal care entry",
+   "parity",
+   "prepregnancy BMI"
+  ],
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "Percentage-point difference, 2012 to 2016 (95% CI)"
+   },
+   {
+    "loc": "text",
+    "q": "From 2012 to 2016, the standardized prevalence of gestational diabetes increased from 5.2% to 5.6%."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "differences were assumed to be independent and were evaluated using the z-statistic. P-values <0.05 were considered statistically significant."
+   },
+   {
+    "loc": "table 2",
+    "q": "Statistically significant (p<0.05) difference from 2012 to 2016."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "prevalence, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Unadjusted prevalences of preexisting diabetes and gestational diabetes among women with a live birth"
+    }
+   ]
+  },
+  {
+   "v": "standardized prevalence",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Standardized* prevalence of preexisting and gestational diabetes among women with a live birth, by jurisdiction, year, and percentage point change"
+    }
+   ]
+  },
+  {
+   "v": "percentage-point difference",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Percentage-point difference, 2012 to 2016 (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What were the 2016 prevalences of preexisting and gestational diabetes among women with a live birth, and how did standardized prevalences change by jurisdiction from 2012 to 2016?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Recent state-specific trends have not been reported; therefore, CDC analyzed 2012–2016 National Vital Statistics System (NVSS) birth data."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "preexisting diabetes",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Prevalence and Changes in Preexisting Diabetes and Gestational Diabetes Among Women Who Had a Live Birth"
+    }
+   ]
+  },
+  {
+   "v": "gestational diabetes",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Prevalence and Changes in Preexisting Diabetes and Gestational Diabetes Among Women Who Had a Live Birth"
+    }
+   ]
+  },
+  {
+   "v": "pregnancy (live birth)",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Among Women Who Had a Live Birth — United States, 2012–2016"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NVSS collects data for all live births in 50 states, New York City,* and District of Columbia (DC)."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "differences in standardized prevalences between 2012 and 2016 were calculated for each jurisdiction and for all jurisdictions combined"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed 2012–2016 National Vital Statistics System (NVSS) birth data."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System (NVSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed 2012–2016 National Vital Statistics System (NVSS) birth data."
+    }
+   ]
+  },
+  {
+   "v": "U.S. Standard Certificate of Live Birth (2003 revision)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The U.S. Standard Certificate of Live Birth (birth certificate) uniformly documents birth-related information across jurisdictions"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "Standardized* prevalence of preexisting and gestational diabetes among women with a live birth, by jurisdiction"
+   },
+   {
+    "loc": "summary",
+    "q": "In 2016, the national prevalences of preexisting and gestational diabetes were 0.9% and 6.0%, respectively."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Prevalences by race/ethnicity, education, payment source and nativity are reported and described (e.g. highest among AI/AN and Asian women) with chi-square tests, but not framed or quantified as disparities.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "SPD results are mainly Table 1 values with a blanket significance note; race/ethnicity otherwise only enters as a standardization variable."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "by race/ethnicity, the prevalence of preexisting diabetes was highest among American Indian/Alaska Native women (2.1%)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Standardized to the age and race/ethnicity distribution of U.S. resident mothers delivering in 2012."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group (yrs) › ≥40"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Standardized to the age and race/ethnicity distribution of U.S. resident mothers delivering in 2012."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Among Women Who Had a Live Birth — United States, 2012–2016"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education",
+     "payment source for delivery (Medicaid, private)"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Education › Less than high school"
+     },
+     {
+      "loc": "table 1",
+      "q": "Payment source for delivery › Medicaid"
+     }
+    ]
+   },
+   {
+    "v": "country of birth/language/nativity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Nativity › Not U.S.-born"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Single-race categories with Hispanic origin coded first; payment source (Medicaid/private/other) as SES proxy; standardization treats age and race/ethnicity as nonmodifiable determinants."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 7,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Statistically significant (p<0.05) differences in the distribution of preexisting diabetes, gestational diabetes (or no diabetic conditions) were observed by all maternal characteristics."
+    },
+    {
+     "loc": "table 1",
+     "q": "Race and Hispanic origin § › American Indian/Alaska Native"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "chi-square tests were used to evaluate differences by characteristic."
+    },
+    {
+     "loc": "table 1",
+     "q": "Age group (yrs) › ≥40"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "chi-square tests were used to evaluate differences by characteristic."
+    },
+    {
+     "loc": "table 1",
+     "q": "Education › More than college"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "chi-square tests were used to evaluate differences by characteristic."
+    },
+    {
+     "loc": "table 1",
+     "q": "Payment source for delivery › Medicaid"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred (not named): birth-certificate surveillance with a 2012 vs 2016 change. Birth-certificate sensitivity figures are cited from other studies and are not a procedure. CIs for percentage-point differences accompany the z-tests; CI method not stated.",
+ "view_issues": "Table 2: Illinois differences (preexisting 0.1 [0.0 to 0.1]; gestational 0.3 [0.2 to 0.5]) lack the significance mark, though the text counts Illinois among significant increases. Ohio 2014 shows '7.67' and Kentucky's CI reads 'to.6'."
+}

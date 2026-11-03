@@ -1,0 +1,425 @@
+{
+ "id": "mm6718a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggQdzqXVnA9uTvtmQmvy",
+  "batch_id": "msgbatch_018MUHrMCXUMTPYHxpo1b4G2"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The rate of deaths from falls among persons aged ≥65 years increased 31% from 2007 to 2016"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2016, a total of 29,668 U.S. residents aged ≥65 years died as the result of a fall"
+    },
+    {
+     "loc": "text",
+     "q": "The largest AAPC in mortality rates from falls (11.0% per year) occurred in Maine"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Nationwide, 29,668 (61.6 per 100,000) U.S. residents aged ≥65 years died from fall-related causes in 2016."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2016, death rates from falls were higher among adults aged ≥85 years (257.9), men (72.3), and whites (68.7) than among corresponding groups"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-standardized rates were produced using the 2000 U.S. standard population."
+    },
+    {
+     "loc": "text",
+     "q": "age-adjusted rates by sex, race/ethnicity (non-Hispanic white, non-Hispanic black, American Indian/Alaska Native, Asian/Pacific Islander, or Hispanic), and urban/rural status."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "age-specific rates applied to the 2000 U.S. standard population: direct standardization",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Age-adjusted death rates were calculated by applying age-specific death rates to the 2000 U.S standard population age distribution."
+    }
+   ]
+  },
+  {
+   "name": "joinpoint regression with Monte Carlo permutation tests",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "joinpoint software giving APCs and AAPCs: segments are log-linear in the rate, so loglinear; the log scale is not stated",
+   "role": "primary",
+   "alternative_reading": "linear (least squares on log rates, as fitted by joinpoint software)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "National and state-specific trends were evaluated using joinpoint software, †† which identifies statistically significant changes in a trend using Monte Carlo permutation"
+    },
+    {
+     "loc": "text",
+     "q": "An annual percentage change (APC) for each segment, an average APC (AAPC) for the 10 years"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": null,
+  "across": [
+   "year",
+   "state",
+   "sex",
+   "age group",
+   "race/ethnicity",
+   "urban/rural status"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "increased 31% from 2007 to 2016, increasing in 30 states and the District of Columbia, and among men and women."
+   },
+   {
+    "loc": "summary",
+    "q": "The fastest-growing rate was among persons aged ≥85 years (3.9% per year)."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "note",
+    "q": "For all analyses, a p-value of <0.05 was considered to be statistically significant."
+   },
+   {
+    "loc": "text",
+    "q": "A significant increase in the rate from 2007 to 2016 occurred in 30 states"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted rate per 100,000",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Deaths per 100,000 (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "APC",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "APC (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "AAPC",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "an average APC (AAPC) for the 10 years"
+    }
+   ]
+  },
+  {
+   "v": "number of deaths",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. of deaths"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "National and state-specific trends were evaluated using joinpoint software"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "which identifies statistically significant changes in a trend using Monte Carlo permutation, then fits them as a series of joined trend segments."
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did age-adjusted rates of deaths from falls among U.S. adults aged ≥65 years change during 2007–2016, nationally, by state and by demographic group?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC produced age-adjusted rates and trends for deaths from falls among persons aged ≥65 years, by selected characteristics"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "falls",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Deaths from Falls Among Persons Aged ≥65 Years — United States, 2007–2016"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Mortality data from death certificates filed in 50 states and DC were analyzed to determine the number of deaths from falls"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The years 2007–2016 were selected to produce 10-year age-adjusted trends for the United States, 49 U.S. states,** and DC."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Source: CDC, National Vital Statistics System, Mortality. CDC WONDER."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System, Mortality",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Source: CDC, National Vital Statistics System, Mortality. CDC WONDER."
+    }
+   ]
+  },
+  {
+   "v": "CDC WONDER",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Queries to CDC WONDER § were used to generate the 2007 and 2016 age-specific rates"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to produce 10-year age-adjusted trends for the United States, 49 U.S. states,** and DC."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Rates and APCs are reported by race/ethnicity, urban/rural status, age and sex, and the higher rate among whites is described, but no group difference is framed as a disparity.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Race and rurality results appear mainly in the table; race is discussed only as an explanation of state differences."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "All rates in this report are age-adjusted and restricted to adults aged ≥65 years."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The annual rate increase was larger among adults aged ≥85 years (3.9% per year) than among those aged 65–74 years"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "increasing in 30 states and the District of Columbia, and among men and women."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "basis": "assigned or observed",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "in 2016, the rate of deaths from falls was higher among older white adults than among other racial/ethnic groups."
+     },
+     {
+      "loc": "text",
+      "q": "information about race and Hispanic ethnicity is generally reported by the funeral director and might be based on observation"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Urban/Rural status ¶ › Non-core (non-metro)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity from death certificates, often recorded by funeral directors by observation; urban/rural follows the 2013 NCHS county classification (6 levels)."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "larger among adults aged ≥85 years (3.9% per year) than among those aged 65–74 years (1.8%) and 75–84 years (2.3%)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "in 2016, the rate of deaths from falls was higher among older white adults than among other racial/ethnic groups."
+    }
+   ]
+  },
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Urban/Rural status ¶ › Micropolitan (non-metro)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "regression_fields",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Joinpoint was fitted to age-standardized rates with no covariates, so adjusted_results is false: standardization precedes the model. Subgroup increases (all except AI/AN) rest on APC CIs and joinpoint significance; group contrasts in rates and APCs carry no stated test. The design is inferred; none is named.",
+ "view_issues": "The table row label '75–85' should read 75–84, as in the text. The Figure 2 description says 2007–2016 but shows 2007 and 2016."
+}

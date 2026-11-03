@@ -1,0 +1,364 @@
+{
+ "id": "mm6536e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrVvCxRwSNYTnGmmG",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Overall, 26.3% (4.9 million) of Medicare Part D beneficiaries using antihypertensives were nonadherent to their regimen."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Antihypertensive nonadherence, defined as a proportion of days a beneficiary was covered with antihypertensives of <80%"
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Total annual spending on antihypertensives differed by beneficiary characteristics (Table 1), medication class (Table 2), and beneficiary state of residence (Table 3)."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among the 18.5 million Medicare Part D beneficiaries who were prescribed antihypertensives, 4.9 million (26.3%) were nonadherent"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "low-income subsidy status (32.1% [low-income subsidy], 25.4% [no subsidy])"
+    },
+    {
+     "loc": "text",
+     "q": "Nonadherence was higher in the U.S. territories of Puerto Rico (39.6%) and the Virgin Islands (46.9%) than within the states"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "spatial empirical Bayesian smoothing",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "county estimates smoothed for the map to enhance stability",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "mapped by county of residence using a spatial empirical Bayesian smoothing technique to enhance estimate stability"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "race/ethnicity",
+   "low-income subsidy status",
+   "age group",
+   "sex",
+   "initial Medicare entitlement reason",
+   "medication class",
+   "treatment characteristics",
+   "plan type",
+   "state",
+   "U.S. Census region",
+   "county"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "24.3% of whites, 26.3% of Asian/Pacific Islanders, 33.8% of Hispanics, 35.7% of blacks, and 38.8% of American Indians or Alaska Natives"
+   },
+   {
+    "loc": "summary",
+    "q": "Analyses were stratified by antihypertensive class, beneficiaries’ state and county of residence, type of prescription drug plan, and treatment and demographic characteristics."
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "therefore, no statistical testing was needed to assess for differences among subgroups for the previously described variables."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percent nonadherent",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percent nonadherent*"
+    }
+   ]
+  },
+  {
+   "v": "proportion of days covered (PDC)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Nonadherence was measured using the proportion of days covered (PDC) metric"
+    }
+   ]
+  },
+  {
+   "v": "total spending per beneficiary ($)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Annual AHM spending › Total spending per beneficiary ($)"
+    }
+   ]
+  },
+  {
+   "v": "mean days’ supply per fill",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "AHM fills › Mean days’ supply per fill"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How does antihypertensive medication nonadherence among Medicare Part D beneficiaries aged ≥65 years vary by geography, race/ethnicity, income and treatment characteristics?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "analyzed geographic, racial-ethnic, and other disparities in nonadherence to antihypertensives among Medicare Part D beneficiaries in 2014."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "antihypertensive medication nonadherence",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Vital Signs: Disparities in Antihypertensive Medication Nonadherence Among Medicare Part D Beneficiaries"
+    }
+   ]
+  },
+  {
+   "v": "hypertension",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Medicare Part D beneficiaries aged ≥65 years using blood pressure medicine were considered nonadherent."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "was assessed using prescription drug claims data among Medicare Advantage or Medicare fee-for-service beneficiaries aged ≥65 years with Medicare Part D coverage during 2014"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "administrative/claims",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Administrative data and prescription drug event data for all Medicare Part D beneficiaries in 2014 were accessed via the CMS Chronic Conditions Data Warehouse."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "CMS Chronic Conditions Data Warehouse",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were accessed via the CMS Chronic Conditions Data Warehouse."
+    }
+   ]
+  },
+  {
+   "v": "Medicare Part D prescription drug event data",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Administrative data and prescription drug event data for all Medicare Part D beneficiaries in 2014"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "table 3",
+    "q": "Antihypertensive medication nonadherence among Medicare Part D beneficiaries aged ≥65 years, by state and territory, United States, 2014"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Nonadherence by race/ethnicity and low-income subsidy status is framed as disparities, but group percentages are only set side by side with no computed difference or ratio, so the cap at 2 applies.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The title and discussion frame racial and income differences as disparities with explicit 'compared with' contrasts and interpretation as contributing to persistent CVD disparities."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "race-ethnicity (24.3% for non-Hispanic whites, 26.3% for Asian/Pacific Islanders, 33.8% for Hispanics, 35.7% for blacks"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "low-income subsidy",
+     "Medicaid dual eligible"
+    ],
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "with 32.1% of persons with a low-income subsidy being classified as nonadherent, compared with 25.4% of persons with no subsidy."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Among Medicare Part D Beneficiaries"
+     },
+     {
+      "loc": "summary",
+      "q": "Medicare Part D beneficiaries aged ≥65 years using blood pressure medicine were considered nonadherent."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Nonadherence was slightly higher among older age groups"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "out-of-pocket medication spending as a barrier to adherence among certain groups",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "it represented almost one fifth of their total prescription medication spending and might be a barrier to adherence among certain groups."
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Whites are the implicit referent; Other and Unknown race categories are in Table 1 but not discussed. Disability as initial Medicare entitlement reason is treated as an eligibility category, not a social position. Geography (state, region, county) is not an SPD."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Nonadherence varied by race (24.3% [whites], 26.3% [Asian/Pacific Islanders], 33.8% [Hispanics], 35.7% [blacks], 38.8% [American Indians/Alaska Natives])"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Nonadherence was slightly higher among older age groups"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "study_design"
+ ],
+ "confidence": "high",
+ "notes": "The design is not named; cross-sectional is inferred from one year of claims. The authors state no testing was done because the data cover all eligible beneficiaries, and subgroup comparisons were not adjusted. The counterfactual that adopting the best states' rate would cut nonadherence by one third is arithmetic.",
+ "view_issues": "Figure title reads 'aged =65 years', an encoding error for ≥65. Article notes a 2017 erratum."
+}

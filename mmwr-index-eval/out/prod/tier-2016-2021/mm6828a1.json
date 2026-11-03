@@ -1,0 +1,393 @@
+{
+ "id": "mm6828a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrn3DW9Byzd5zWw5u",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "In that year, the prevalence of past-year quit attempts ranged from 58.6% (Wisconsin) to 72.3% (Guam), with a state/territory median of 65.4%."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In 2017, at least six in 10 adult smokers reported trying to quit in the past year in almost all states."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In that year, the prevalence of past-year quit attempts ranged from 58.6% (Wisconsin) to 72.3% (Guam), with a state/territory median of 65.4%."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The prevalence of past-year quit attempts was significantly higher in 2017 compared with 2011 in four states (Alabama, Hawaii, Kansas, Louisiana)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Logistic regression was used to assess overall changes in prevalence during 2011–2017, controlling for sex, age group, and race/ethnicity (p<0.05)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named chi-square tests comparing 2011 with 2017 within each state",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Chi-square tests were performed to examine differences in past-year quit attempts between the years 2011 and 2017 (p<0.05)."
+    },
+    {
+     "loc": "table 1",
+     "q": "Statistically significant difference (p<0.05) between 2011 and 2017."
+    }
+   ]
+  },
+  {
+   "name": "logistic regression for linear trend",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Logistic regression' assessing linear trend in prevalence over 2011–2017, adjusted for sex, age group, race/ethnicity → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Logistic regression was used to assess overall changes in prevalence during 2011–2017, controlling for sex, age group, and race/ethnicity (p<0.05)."
+    },
+    {
+     "loc": "table 1",
+     "q": "Statistically significant increasing linear trend during 2011–2017."
+    }
+   ]
+  },
+  {
+   "name": "complex survey design analysis (SUDAAN)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "SUDAAN used to account for the complex survey sampling design; all estimates are survey-based",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All analyses were conducted using SAS-callable SUDAAN software (version 11.0.3; RTI International) to account for the complex survey sampling design."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": "Healthy People 2020 objective 4.1 target of ≥80%",
+  "across": [
+   "year",
+   "state/territory",
+   "age group"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During 2011–2017, quit attempt prevalence increased in four states and decreased in two states"
+   },
+   {
+    "loc": "text",
+    "q": "However, no state or territory met the national Healthy People 2020 objective 4.1 target of 80%"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Chi-square tests were performed to examine differences in past-year quit attempts between the years 2011 and 2017 (p<0.05)."
+   },
+   {
+    "loc": "table 1",
+    "q": "% (95% CI) › 2017"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage (prevalence of past-year quit attempts)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percentage of current and former smokers aged ≥18 years who reported a past-year quit attempt"
+    }
+   ]
+  },
+  {
+   "v": "median",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "with a state/territory median of 65.4%."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "to account for the complex survey sampling design."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Chi-square tests were performed to examine differences in past-year quit attempts between the years 2011 and 2017 (p<0.05)."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "controlling for sex, age group, and race/ethnicity (p<0.05)."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "sex, age group, and race/ethnicity",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "controlling for sex, age group, and race/ethnicity (p<0.05)."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did the state-specific prevalence of past-year quit attempts among adult cigarette smokers change during 2011–2017, and how did it vary by age in 2017?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess state-specific trends in the prevalence of past-year quit attempts among adult cigarette smokers"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "cigarette smoking",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "State-Specific Prevalence of Quit Attempts Among Adult Cigarette Smokers — United States, 2011–2017"
+    }
+   ]
+  },
+  {
+   "v": "smoking quit attempts",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "State-Specific Prevalence of Quit Attempts Among Adult Cigarette Smokers"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "BRFSS is an annual state-based telephone (landline and cellular) survey of a randomly selected representative sample"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During 2011–2017, quit attempt prevalence increased in four states and decreased in two states"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2011–2017 Behavioral Risk Factor Surveillance System (BRFSS) surveys"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2011–2017 Behavioral Risk Factor Surveillance System (BRFSS) surveys"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "for all 50 states, the District of Columbia (DC), Guam, and Puerto Rico."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Race/ethnicity appears only as a covariate in the trend model; age-group results (Table 2) are reported without social-position framing, so age alone does not raise the level.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 0,
+   "reason": "Race/ethnicity is only a minor adjustment variable; the reported SPD results are age only, which alone would give level 0."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "a randomly selected representative sample of noninstitutionalized U.S. adults aged ≥18 years."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "In 2017, the prevalence of past-year quit attempts generally decreased with increasing age"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "controlling for sex, age group, and race/ethnicity (p<0.05)."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "controlling for sex, age group, and race/ethnicity (p<0.05)."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "controlling for sex, age group, and race/ethnicity (p<0.05)."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "State variation is geographic, not an SPD; the Healthy People 80% target is national, not set for an SPD-defined population. Age reported in four groups."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2017, the prevalence of past-year quit attempts generally decreased with increasing age"
+    },
+    {
+     "loc": "table 2",
+     "q": "% (95% CI) › 18–24 yrs"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "regression_fields",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Design not named; cross-sectional inferred from BRFSS survey. Quartile mapping by Census region is quantization, not a procedure. The Medicaid comparison is cited from a prior study, not computed here.",
+ "view_issues": "Table 1 marks Ohio with § (significant increasing trend), but the text and Summary list only Kansas, Louisiana, Virginia and West Virginia as increasing."
+}

@@ -1,0 +1,478 @@
+{
+ "id": "mm6545a4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggQe1JZBBhEVRUtfhofH",
+  "batch_id": "msgbatch_018MUHrMCXUMTPYHxpo1b4G2"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2011–2014, these absolute disparities had widened to 6.0 ppt and 5.5 ppt."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 1999–2002, the absolute disparities between the least and most educated groups and between the lowest and highest IPR groups were 4.2 ppt"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates were age-standardized by the direct method to the 2000 U.S. Census population."
+    },
+    {
+     "loc": "text",
+     "q": "measured in the overall population and within the three largest U.S. racial/ethnic populations (white, black, and Hispanic)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "'age-standardized by the direct method to the 2000 U.S. Census population'",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates were age-standardized by the direct method to the 2000 U.S. Census population."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (complex sampling design)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated weighting and survey software for the complex sampling design",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Statistical software was used to account for the complex sampling design. Data were weighted to provide representative population estimates."
+    }
+   ]
+  },
+  {
+   "name": "weighted least squares regression (Slope Index of Inequality)",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "'weighted least squares regression' fitting a straight line to prevalence across ordered SEP groups → linear",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "weighted least squares regression was used to estimate summary measures of percentage and percentage-point differences in socioeconomic position"
+    },
+    {
+     "loc": "table 2",
+     "q": "The summary measure of absolute difference was obtained by using regression to fit a straight line to the prevalence estimates"
+    }
+   ]
+  },
+  {
+   "name": "z-test / two-tailed t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated z-score and two-tailed t-test at p<0.05, for group-vs-referent differences and period changes",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Using the z-score and a two-tailed t-test, differences were considered significant at p<0.05."
+    },
+    {
+     "loc": "table 1",
+     "q": "Difference between the group estimate and the reference category significant at p<0.05."
+    }
+   ]
+  },
+  {
+   "name": "imputed income (NHIS imputed income files)",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "imputed income values enter IPR estimates; imputation method not stated",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "To avoid bias related to the high nonresponse to survey questions on income, NHIS datasets with imputed income were used."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "both",
+  "referent": "lowest-prevalence SEP category (college or higher; high income)",
+  "across": [
+   "educational attainment",
+   "income-to-poverty ratio",
+   "period",
+   "race/ethnicity"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The category of each socioeconomic position indicator with the lowest prevalence was designated as the referent category."
+   },
+   {
+    "loc": "text",
+    "q": "The relative difference (i.e., percentage difference) was calculated by dividing the absolute difference by the referent value."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Using the z-score and a two-tailed t-test, differences were considered significant at p<0.05."
+   },
+   {
+    "loc": "table 2",
+    "q": "Difference between the absolute differences during 1999–2002 and 2011–2014 significant at p<0.01."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-standardized %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age-standardized % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "absolute (percentage-point) difference",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Absolute (percentage-point) difference"
+    }
+   ]
+  },
+  {
+   "v": "relative (%) difference",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Relative (%) difference"
+    }
+   ]
+  },
+  {
+   "v": "Slope Index of Inequality",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "The regression-based summary measure of absolute difference, also known as the Slope Index of Inequality, is expressed in percentage points."
+    }
+   ]
+  },
+  {
+   "v": "Relative Index of Inequality",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "The regression-based summary relative difference, also known as the Relative Index of Inequality, is expressed as a percentage."
+    }
+   ]
+  },
+  {
+   "v": "% change",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "% change, 1999–2002 to 2011–2014"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Statistical software was used to account for the complex sampling design."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "using regression to fit a straight line to the prevalence estimates ordered from the lowest to the highest levels"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Difference between the absolute differences during 1999–2002 and 2011–2014 significant at p<0.01."
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How large were socioeconomic position disparities in age-standardized diagnosed diabetes prevalence in 1999–2002 and 2011–2014, overall and by race/ethnicity, and did they change?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to assess the magnitude of and change in socioeconomic position disparities in the age-standardized prevalence of diagnosed diabetes"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "diagnosed diabetes",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Disparities in the Prevalence of Diagnosed Diabetes — United States, 1999–2002 and 2011–2014"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NHIS is an ongoing, cross-sectional, household interview survey of a representative sample of the civilian, noninstitutionalized, U.S. population."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The report also provides evidence that socioeconomic position disparities widened over time."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC used data from the National Health Interview Survey (NHIS) for the periods 1999–2002 and 2011–2014"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Health Interview Survey (NHIS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC used data from the National Health Interview Survey (NHIS) for the periods 1999–2002 and 2011–2014"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "a representative sample of the civilian, noninstitutionalized, U.S. population."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 3,
+  "level_reason": "Socioeconomic (education, IPR) disparities are framed, quantified as absolute and relative differences and SII, and interpreted as widening; explanations (differential intervention impact, lifestyle factors tied to low socioeconomic circumstances) are fairly generic.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "The analyzed exposures (education, income) are social determinants, and differential intervention impact by SEP is offered as a cause of the widening gap."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "primary comparison",
+    "ses_components": [
+     "educational attainment",
+     "income-to-poverty ratio"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Socioeconomic position was defined by educational attainment (less than high school, high school diploma/General Education Diploma, some college, and college degree or higher)"
+     },
+     {
+      "loc": "text",
+      "q": "and the income-to-poverty ratio (IPR) (poor <100% federal poverty level [FPL]; near poor 100%–199% FPL"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "measured in the overall population and within the three largest U.S. racial/ethnic populations (white, black, and Hispanic)."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Prevalence was calculated for adults aged ≥18 years."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Estimates were age-standardized by the direct method to the 2000 U.S. Census population."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "socioeconomic circumstances of persons and places; differential impact of interventions by socioeconomic position",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "which increase with decreasing socioeconomic circumstances among persons and the places where they live"
+    },
+    {
+     "loc": "text",
+     "q": "interventions to reduce diabetes or its risk factors can have different impacts according to socioeconomic position"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "To assess progress toward eliminating socioeconomic position disparities in diabetes prevalence, CDC used NHIS data"
+    }
+   ]
+  },
+  "equity_measurement": "Referent is the lowest-prevalence SEP category (college or higher; high income); SII/RII summarize gradients across four ordered groups; race limited to white, black and Hispanic; income partly imputed."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "trend test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "The summary measure of absolute difference was obtained by using regression to fit a straight line to the prevalence estimates"
+    },
+    {
+     "loc": "table 1",
+     "q": "Difference between the group estimate and the reference category significant at p<0.05."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "trend test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the average difference across the IPR groups were -4.7 ppt."
+    },
+    {
+     "loc": "table 1",
+     "q": "Income-to-poverty ratio › All racial/ethnic populations combined › Poor"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity",
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "interaction",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 1999–2002, the summary measure of educational disparities in diabetes prevalence showed no significant racial/ethnic differences"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "regression_fields"
+ ],
+ "confidence": "medium",
+ "notes": "Two SES groupwise entries: education (first) and IPR (second), each 4 ordered groups. Adjusted_results false because age standardization is applied to inputs, not within the regression. The test behind 'no significant racial/ethnic differences' in SII is not stated.",
+ "view_issues": "Summary says 1992–2002 (text 1999–2002) and 6.1 ppt for education (Table 2 −6.7). Table 1 CIs exclude point estimates (White HS 5.2 (4.0–5.5); White near poor 8.7 (9.1–9.2)). Hispanic education change −89.1% is inconsistent with −3.4 to −6.4."
+}

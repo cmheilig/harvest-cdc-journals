@@ -1,0 +1,379 @@
+{
+ "id": "mm7018a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPytsJ7VNyjTTa2DxPr",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "In 2018, an estimated 2.4 million emergency department visits and >700,000 hospitalizations occurred among older adults"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was 41.7% higher than that among men (3,530 per 100,000)."
+    },
+    {
+     "loc": "table 1",
+     "q": "ED visits/hospitalizations per 100,000."
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Unintentional falls accounted for 91.8% of the selected injury-related ED visits, followed by unintentional crashes (7.8%)."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2018, an estimated 2.4 million ED visits among adults aged ≥65 years (4,744 per 100,000)"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates of ED visits for unintentional fall injuries per 100,000 persons increased with age"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Rates are age adjusted using the 2000 U.S. standard population except for the age group-specific rates."
+    },
+    {
+     "loc": "text",
+     "q": "was 41.7% higher than that among men (3,530 per 100,000)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting to national estimates",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weighted to represent the U.S. population using SAS survey procedures; produces every estimate",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "ED visits and hospitalizations were weighted to represent the U.S. population using survey procedures in SAS statistical software"
+    }
+   ]
+  },
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "age-adjusted to the 2000 U.S. standard population using the direct method",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates of ED visits and hospitalizations were age-adjusted to the 2000 U.S. standard population using the direct method."
+    }
+   ]
+  },
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "t-tests of each group's rate vs the reference group (male; 65–74 years); CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "T-tests were used for selected pairwise comparisons; p-values <0.05 were considered statistically significant."
+    },
+    {
+     "loc": "table 1",
+     "q": "P-value <0.05 when compared with reference group by t-test."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "male; aged 65–74 years (reference groups)",
+  "across": [
+   "sex",
+   "age group",
+   "injury mechanism",
+   "ED visit vs hospitalization"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Injuries were analyzed by sex and age group (65–74, 75–84, and ≥85 years)."
+   },
+   {
+    "loc": "text",
+    "q": "was 41.7% higher than that among men (3,530 per 100,000)."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "T-tests were used for selected pairwise comparisons; p-values <0.05 were considered statistically significant."
+   },
+   {
+    "loc": "table 1",
+    "q": "(95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted rate per 100,000",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "ED visits/hospitalizations per 100,000."
+    }
+   ]
+  },
+  {
+   "v": "weighted no.",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Weighted no."
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Unintentional falls accounted for 91.8% of the selected injury-related ED visits, followed by unintentional crashes (7.8%)."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How common were ED visits and hospitalizations for nonfatal falls, motor vehicle crashes, opioid overdoses and self-harm among U.S. adults aged ≥65 years in 2018, by sex and age?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to determine the prevalence of selected nonfatal injuries among older adults treated in emergency departments (EDs) and hospitals."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "unintentional falls",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Unintentional falls accounted for >90% of these visits."
+    }
+   ]
+  },
+  {
+   "v": "motor vehicle crash injuries",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "as a result of injuries from falls, motor vehicle crashes, opioid overdoses, and self-harm."
+    }
+   ]
+  },
+  {
+   "v": "opioid overdose",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "as a result of injuries from falls, motor vehicle crashes, opioid overdoses, and self-harm."
+    }
+   ]
+  },
+  {
+   "v": "self-harm",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "as a result of injuries from falls, motor vehicle crashes, opioid overdoses, and self-harm."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the 2018 HCUP Nationwide Emergency Department Sample (NEDS) and National Inpatient Sample (NIS) were analyzed"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "administrative/claims",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the 2018 HCUP Nationwide Emergency Department Sample (NEDS) and National Inpatient Sample (NIS) were analyzed"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "HCUP Nationwide Emergency Department Sample (NEDS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the 2018 HCUP Nationwide Emergency Department Sample (NEDS)"
+    }
+   ]
+  },
+  {
+   "v": "HCUP National Inpatient Sample (NIS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "and National Inpatient Sample (NIS) were analyzed"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Selected Nonfatal Injuries Among Adults Aged ≥65 Years — United States, 2018"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Only age and sex appear: age defines the population and is a stratifier and standardization variable, sex a stratifier, with no social-position framing.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 2,
+   "reason": "Sex- and age-specific rates are reported and tested against reference groups, if age and sex were read as framed social positions."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Selected Nonfatal Injuries Among Adults Aged ≥65 Years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Injuries were analyzed by sex and age group (65–74, 75–84, and ≥85 years)."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Rates of ED visits and hospitalizations were age-adjusted to the 2000 U.S. standard population using the direct method."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Injuries were analyzed by sex and age group (65–74, 75–84, and ≥85 years)."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referents are males and adults aged 65–74 years; records missing sex or age were excluded."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "P-value <0.05 when compared with reference group by t-test."
+    },
+    {
+     "loc": "text",
+     "q": "Rates of ED visits for unintentional fall injuries per 100,000 persons increased with age"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "comparison"
+ ],
+ "confidence": "high",
+ "notes": "Design not named; surveillance/descriptive inferred from analysis of national HCUP discharge samples. Age trends ('increased with age') rest on t-tests of each age group vs 65–74 years, not a trend test. The ED vs hospitalization contrast for opioid overdose and self-harm has no stated test.",
+ "view_issues": "The article notes it was corrected after publication (erratum 2021-07-16); the packet text is presumably the corrected version."
+}

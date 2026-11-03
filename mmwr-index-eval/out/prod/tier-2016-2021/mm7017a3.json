@@ -1,0 +1,300 @@
+{
+ "id": "mm7017a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPytopy4CkCM3E6oTy4",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "SARS-CoV-2 incidence was higher among those living in the community (12%) than among those living in congregate temporary housing (4%)."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Over a period of approximately 3 months, the cumulative incidence of SARS-CoV-2 infection in orchard employees was 6%."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Incidence was significantly higher among those residing in the community (12%) than among those residing in farmworker housing (4%) (p<0.001)."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "evaluate differences in relative risk for SARS-CoV-2 infection across job roles and housing locations, with adjustment for work site among warehouse employees."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'Chi-square tests' named in methods; p-values for housing contrasts in Table 1",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Chi-square tests and log-binomial regression models with robust error variance were used to evaluate differences in relative risk"
+    }
+   ]
+  },
+  {
+   "name": "log-binomial regression with robust error variance",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'log-binomial regression models' giving relative risks → loglinear; robust error variance",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Multivariate log-binomial regression models comparing risk for SARS-CoV-2 infection, by job role among employees at a fruit grower"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "farmworker housing; forklift operators; work site A",
+  "across": [
+   "housing location",
+   "job role",
+   "work site"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The relative risk for infection among those living in the community compared with those living in farmworker housing was 2.8 (p<0.001)."
+   },
+   {
+    "loc": "text",
+    "q": "with forklift operators and work site A as reference categories."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Chi-square tests and log-binomial regression models with robust error variance were used"
+   },
+   {
+    "loc": "table 3",
+    "q": "Relative risk (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "cumulative incidence (%)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Cumulative SARS-CoV-2 incidence during approximately 3 months among warehouse employees was 23%"
+    }
+   ]
+  },
+  {
+   "v": "point prevalence",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Point prevalence during screening testing of warehouse workers was 1%."
+    }
+   ]
+  },
+  {
+   "v": "relative risk",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The model identified a relative risk for infection of 2.7 for employees packing and sorting fruit (p = 0.002)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "clustered or robust SE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "log-binomial regression models with robust error variance"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Incidence was significantly higher among those residing in the community (12%) than among those residing in farmworker housing (4%) (p<0.001)."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "with adjustment for work site among warehouse employees."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "work site (warehouse model); job role and housing location mutually (all-employee model)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The second model examined SARS-CoV-2 infection in relation to job role and housing location for all employees."
+    },
+    {
+     "loc": "table 3",
+     "q": "Model for warehouse employees, assessing job role and work site"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "During a COVID-19 outbreak at a Washington fruit grower, did SARS-CoV-2 incidence among farmworkers differ by housing location and job role?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "initiated one-time, on-site screening testing ( 2 ) of all orchard and warehouse employees in August 2020 and assessed risk factors for SARS-CoV-2 infection."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "COVID-19 Outbreak Among Farmworkers — Okanogan County, Washington, May–August 2020"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "outbreak investigation",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "COVID-19 Outbreak Among Farmworkers — Okanogan County, Washington, May–August 2020"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "record abstraction or interview",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the available employee records from the grower did not include employees’ race, ethnicity, preferred language, or other demographic information."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Okanogan County, Washington, May–August 2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Race, ethnicity and language are named only in a limitation (not available in employer records). Housing location and job role are exposure settings, not social position.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Congregate farmworker housing vs community housing could be read as housing status (SES), with a quantified contrast (RR 2.8) interpreted."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "the available employee records from the grower did not include employees’ race, ethnicity, preferred language, or other demographic information."
+     }
+    ]
+   },
+   {
+    "v": "country of birth/language/nativity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "did not include employees’ race, ethnicity, preferred language, or other demographic information."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "No demographic data available; housing location (employer congregate vs community) and occupation treated as exposures, not SPDs."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "equity.level",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Headline Summary leads with the housing pair; job-role comparison across five roles is a group comparison resting on log-binomial RRs vs forklift operators. Study design is inferred as outbreak investigation from the title.",
+ "view_issues": null
+}

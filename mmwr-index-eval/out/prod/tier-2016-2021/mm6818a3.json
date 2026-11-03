@@ -1,0 +1,294 @@
+{
+ "id": "mm6818a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPys692VLrX3f6YtBFn",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC calculated the PAP disparity measure to assess trends in HIV infection disparities among black and white women"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the estimated incidence of HIV infection among black women and adolescent females decreased from 32.5 per 100,000 persons to 24.4"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "an estimated 3,900 of 4,200 (93%) incident HIV infections among black women would not have occurred"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The PAP disparity measure decreased from 0.75 in 2010 to 0.70 in 2016."
+    },
+    {
+     "loc": "text",
+     "q": "The hypothetical number of incident infections was obtained by dividing the HIV incidence rate in white females by 100,000"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "z-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'z-statistic ... to test for statistically significant differences' between 2010 and 2016 PAP; SE from simulated data",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a z-statistic was calculated to test for statistically significant differences between the 2010 and 2016 measures"
+    }
+   ]
+  },
+  {
+   "name": "Monte Carlo simulation of incidence rates for the SE",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "10,000 draws of incidence rates from a normal distribution using relative SEs; a parametric resampling that gives the SE for the z-statistic",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Simulations consisted of 10,000 calculations of the annual PAP measures, each using a random draw of the HIV incidence rate from a normal distribution"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "both",
+  "referent": "white women and adolescent females' HIV incidence rate",
+  "across": [
+   "race/ethnicity",
+   "year"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "would not have occurred if the incidence for black women were the same as that for white women."
+   },
+   {
+    "loc": "text",
+    "q": "The 7% decrease in the PAP disparity measure from 2010 to 2016 (p = 0.15)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "a z-statistic was calculated to test for statistically significant differences between the 2010 and 2016 measures"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "PAP disparity measure",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "PAP §"
+    }
+   ]
+  },
+  {
+   "v": "excess infections",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Excess infections among blacks"
+    }
+   ]
+  },
+  {
+   "v": "rate per 100,000",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Infections per 100,000 population."
+    }
+   ]
+  },
+  {
+   "v": "% change",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% Change 2010 to 2016 ¶"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How large was the black-white disparity in HIV incidence among women in the United States, and did it change during 2010–2016?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC calculated the PAP disparity measure to assess trends in HIV infection disparities among black and white women"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "HIV infection",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Disparities in Incidence of Human Immunodeficiency Virus Infection Among Black and White Women"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "HIV incidence and prevalence estimates for women and adolescent females aged ≥13 years from an HIV Supplemental Surveillance Report"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "To assess changes in the PAP disparity measure between the beginning and the end of the study period"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "HIV incidence and prevalence estimates for women and adolescent females aged ≥13 years from an HIV Supplemental Surveillance Report"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "HIV Supplemental Surveillance Report",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "from an HIV Supplemental Surveillance Report"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, 2010–2016"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "The black-white disparity is framed, quantified (PAP, excess infections, 93%) and interpreted; inequitable access to care, stigma and STI prevalence are named as social and structural determinants raising risk among black women.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Determinants appear in recommendations, and a limitation says the study gives no insight into structural changes needed."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Disparities in Incidence of Human Immunodeficiency Virus Infection Among Black and White Women"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "HIV incidence and prevalence estimates for women and adolescent females aged ≥13 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "HIV incidence and prevalence estimates for women and adolescent females aged ≥13 years"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "inequitable access to health care; HIV-related stigma; high background prevalence of STIs; social and structural determinants",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "should address social and structural determinants, including inequitable access to health care, HIV-related stigma, and comparatively high background prevalence of certain sexually transmitted infections"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "To assess changes in the PAP disparity measure between the beginning and the end of the study period"
+    }
+   ]
+  },
+  "equity_measurement": "Referent is the white female incidence rate; only black and white women are compared, and other racial/ethnic groups are omitted."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "equity.level",
+  "data_focus"
+ ],
+ "confidence": "medium",
+ "notes": "Incidence estimates are taken from a CDC surveillance report; the PAP, excess infections and the test are the report's own computations from them. The PAP and the excess infections are arithmetic, not procedures.",
+ "view_issues": "The 7% PAP decrease (p = 0.15) is described as a decrease despite nonsignificance. The 93% (excess among black women only) and the PAP of 0.70 (excess over black plus white infections) use different denominators."
+}

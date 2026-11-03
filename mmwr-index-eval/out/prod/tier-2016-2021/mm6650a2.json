@@ -1,0 +1,452 @@
+{
+ "id": "mm6650a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrdbu1ZFJF6enMcxG",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Prevalence of current tobacco product use was significantly higher among AI/ANs than among non-AI/ANs for any tobacco product (43.3% versus 27.7%)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "AI/AN adults (N = 3,655) › All"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Prevalence of current tobacco product use was significantly higher among AI/ANs than among non-AI/ANs for any tobacco product (43.3% versus 27.7%)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "current use of any tobacco product, cigarettes, and smokeless tobacco were all significantly higher among AI/ANs than their combined non-AI/AN counterparts within all subgroups."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated: 'Statistical comparisons were performed with Chi-square tests'",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Statistical comparisons were performed with Chi-square tests, with statistical significance defined as p<0.05."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (NSDUH weights, recalibrated for pooled years)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated weights adjusting for nonresponse; weights divided by 6 for pooling",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted to adjust for nonresponse and to yield nationally representative estimates."
+    },
+    {
+     "loc": "note",
+     "q": "The survey weights were recalibrated by dividing by 6 (number of years pooled)"
+    }
+   ]
+  },
+  {
+   "name": "regression for prevalence ratios (unnamed)",
+   "class": "regression",
+   "regression_family": "other",
+   "inferred_from": "'computed as regression coefficients' with no model named → other; PRs suggest a log-link model",
+   "role": "primary",
+   "alternative_reading": "loglinear (log-binomial or Poisson usually give PRs)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Prevalence ratios were computed as regression coefficients, with the group with the lowest prevalence of any tobacco use serving as the referent."
+    }
+   ]
+  },
+  {
+   "name": "suppression of estimates with RSE ≥30%",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "relative-SE suppression rule",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "prevalence estimates with relative standard errors ≥30% were suppressed."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "non-AI/AN adults combined; lowest-prevalence subgroup for PRs among AI/ANs",
+  "across": [
+   "race/ethnicity",
+   "sex",
+   "age",
+   "education",
+   "annual family income",
+   "poverty level",
+   "marital status"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Prevalence of current tobacco product use was significantly higher among AI/ANs than among non-AI/ANs for any tobacco product (43.3% versus 27.7%)"
+   },
+   {
+    "loc": "table 2",
+    "q": "Prevalence ratios were computed as regression coefficients, with the group with the lowest prevalence of any tobacco use serving as the referent."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Statistical comparisons were performed with Chi-square tests, with statistical significance defined as p<0.05."
+   },
+   {
+    "loc": "text",
+    "q": "calculated using prevalence ratios (PRs) with 95% confidence intervals"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "prevalence, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Any tobacco product* › % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "prevalence ratio",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Prevalence ratio † (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted to adjust for nonresponse and to yield nationally representative estimates."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Prevalence ratios were computed as regression coefficients, with the group with the lowest prevalence of any tobacco use serving as the referent."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How does current tobacco product use among AI/AN adults compare with other racial/ethnic groups, and how does it vary by sociodemographic characteristics among AI/ANs?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC analyzed self-reported current (past 30-day) use of five tobacco product types among AI/AN adults"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "tobacco product use",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Prevalence and Disparities in Tobacco Product Use Among American Indians/Alaska Natives"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NSDUH is an annual, national survey of the civilian, noninstitutionalized U.S. population aged ≥12 years"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "from the 2010–2015 National Survey on Drug Use and Health (NSDUH)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Survey on Drug Use and Health (NSDUH)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "from the 2010–2015 National Survey on Drug Use and Health (NSDUH)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, 2010–2015"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "AI/AN vs non-AI/AN and SES disparities are framed, quantified (43.3% vs 27.7%; PR 2.37 by education) and interpreted; poverty/education inequalities, cheaper tobacco on tribal lands and industry targeting are named as explanations.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Determinants are offered speculatively in the Discussion and not analyzed; social determinants appear largely as recommendations."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The AI/AN population included persons who identified AI/AN as their only race/ethnicity on the survey."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education",
+     "annual family income",
+     "poverty level"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Prevalence was calculated overall and by sex, age group"
+     },
+     {
+      "loc": "text",
+      "q": "Among AI/ANs, the greatest disparity was associated with level of education"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Compared with prevalence among persons aged ≥50 years, prevalence was higher among those aged 34–49 years (PR = 1.68); 26–34 years (PR = 1.79)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The analyses in this report were restricted to persons aged ≥18 years."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Among AI/ANs, the prevalence of current use of any tobacco product was 1.31 times higher among males than among females"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "inequalities in education and poverty; lower tobacco prices on tribal lands; tobacco industry targeting of AI/ANs; social determinants of health",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "addressing inequalities in education and poverty among AI/ANs might help reduce the high burden of tobacco product use"
+    },
+    {
+     "loc": "text",
+     "q": "tobacco products are less expensive on tribal lands, which might increase tobacco access and consumption"
+    },
+    {
+     "loc": "text",
+     "q": "The tobacco industry has also been shown to target AI/ANs by marketing of cigarette brands with cultural icons"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "AI/AN is single-race AI/AN only; referent is non-AI/AN combined (six groups) or each group; within AI/ANs the lowest-prevalence subgroup is the PR referent. Marital status is also stratified."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 7,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "AI/ANs had higher prevalence of any tobacco product use and cigarette smoking than any other individual racial/ethnic group"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Compared with prevalence among persons aged ≥50 years, prevalence was higher among those aged 34–49 years (PR = 1.68); 26–34 years (PR = 1.79)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "By education attainment, prevalence was higher among persons with some college (PR = 2.07)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Compared with prevalence among persons with annual family income ≥$75,000, prevalence was 1.55 times higher among those earning <$20,000."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "prevalence was higher among persons living at up to twice the federal poverty threshold (PR = 1.21) and in poverty (PR = 1.43)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "procedures",
+  "equity.level",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred as cross-sectional (pooled survey waves); not named. The PR regression is unnamed and apparently has no covariates. CDC programs (Good Health and Wellness in Indian Country, Tips campaign) are described, not evaluated.",
+ "view_issues": "Text says 'aged 34–49 years' where tables use 35–49. Table 1 CSV has garbled cells ('5 0.0(3.2–6.7)', '4.2 (4–4.5.0)'). Rows marked † for <High school roll-your-own lack the mark in the text's exceptions inconsistently."
+}

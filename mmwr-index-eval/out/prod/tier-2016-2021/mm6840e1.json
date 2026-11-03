@@ -1,0 +1,537 @@
+{
+ "id": "mm6840e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysM2HhBnS7ipkcG16",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Maternal influenza and Tdap vaccination coverage rates reported as of April 2019 were 53.7% and 54.9%, respectively."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Maternal influenza and Tdap vaccination coverage rates reported as of April 2019 were 53.7% and 54.9%, respectively."
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the average influenza-associated hospitalization rate per season among infants aged <6 months was 133.0 per 100,000"
+    },
+    {
+     "loc": "summary",
+     "q": "a total of 3,928 pertussis-related hospitalizations were reported among infants aged <2 months (annual range = 262–743)."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Maternal influenza and Tdap vaccination coverage rates reported as of April 2019 were 53.7% and 54.9%, respectively."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Influenza vaccination coverage was 28 percentage points lower among uninsured women than among privately insured women"
+    },
+    {
+     "loc": "table 1",
+     "q": "≥5 percentage-point difference compared with referent group."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "'Data were weighted' to the population of pregnant women; all coverage estimates are weighted percentages",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted to reflect age, race/ethnicity, and geographic distribution of the U.S. population of pregnant women"
+    }
+   ]
+  },
+  {
+   "name": "small-sample suppression (n<30)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "estimates with sample size <30 withheld in table notes",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimates with sample size <30 are not reported."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "absolute",
+  "referent": "referent group within each characteristic (e.g., non-Hispanic white, more than college degree, private/military insurance)",
+  "across": [
+   "race/ethnicity",
+   "age group",
+   "education",
+   "marital status",
+   "employment status",
+   "poverty status",
+   "rurality",
+   "region",
+   "insurance type",
+   "provider offer or referral",
+   "number of provider visits",
+   "high-risk condition"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Differences of ≥5 percentage points between proportions compared are noted."
+   },
+   {
+    "loc": "table 1",
+    "q": "Referent group for comparison within subgroups."
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Because the survey was conducted among a nonprobability sample, statistical significance cannot be inferred."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "% (weighted) vaccinated",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% (weighted) vaccinated"
+    }
+   ]
+  },
+  {
+   "v": "% (weighted) offered/referred for vaccination",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "% (weighted) offered/referred for vaccination"
+    }
+   ]
+  },
+  {
+   "v": "percentage-point difference",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Differences of ≥5 percentage points between proportions compared are noted."
+    }
+   ]
+  },
+  {
+   "v": "hospitalizations per 100,000",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Average number of influenza-associated hospitalizations per 100,000 children aged 0–23 months"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What is the influenza and pertussis burden among pregnant women and infants, and what is maternal influenza and Tdap vaccination coverage overall and by subgroup?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to assess disease burden* among pregnant women and infants and estimated maternal influenza and Tdap vaccination coverage using panel survey data."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "influenza",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "pregnant women accounted for 24%–34% of influenza-associated hospitalizations per season among females aged 15–44 years."
+    }
+   ]
+  },
+  {
+   "v": "pertussis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "a total of 3,928 pertussis-related hospitalizations were reported among infants aged <2 months"
+    }
+   ]
+  },
+  {
+   "v": "influenza",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Burden and Prevention of Influenza and Pertussis Among Pregnant Women and Infants"
+    }
+   ]
+  },
+  {
+   "v": "pertussis",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Among women whose health care providers offered vaccination or provided referrals, 65.7% received influenza vaccine and 70.5% received Tdap."
+    }
+   ]
+  },
+  {
+   "v": "pregnancy",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Burden and Prevention of Influenza and Pertussis Among Pregnant Women and Infants"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Surveillance data were analyzed to ascertain influenza-associated hospitalization among pregnant women"
+    }
+   ]
+  },
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "An Internet panel survey was conducted during March 27–April 8, 2019, among women aged 18–49 years"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the Influenza Hospitalization Surveillance Network (FluSurv-NET)"
+    }
+   ]
+  },
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the National Notifiable Diseases Surveillance System (NNDSS) § for 2010–17 were analyzed to obtain pertussis case counts"
+    },
+    {
+     "loc": "text",
+     "q": "the Influenza-Associated Pediatric Mortality Surveillance System"
+    }
+   ]
+  },
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "An Internet panel ¶ survey was conducted to estimate influenza and Tdap vaccination coverage among pregnant women"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Influenza Hospitalization Surveillance Network (FluSurv-NET)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the Influenza Hospitalization Surveillance Network (FluSurv-NET)"
+    }
+   ]
+  },
+  {
+   "v": "Influenza-Associated Pediatric Mortality Surveillance System",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the Influenza-Associated Pediatric Mortality Surveillance System"
+    }
+   ]
+  },
+  {
+   "v": "National Notifiable Diseases Surveillance System (NNDSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the National Notifiable Diseases Surveillance System (NNDSS)"
+    }
+   ]
+  },
+  {
+   "v": "Internet panel survey (Dynata)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "An Internet panel ¶ survey was conducted to estimate influenza and Tdap vaccination coverage among pregnant women"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Among Pregnant Women and Infants — United States"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Maternal influenza and Tdap vaccination coverage rates reported as of April 2019 were 53.7% and 54.9%, respectively."
+   }
+  ]
+ },
+ "equity": {
+  "level": 4,
+  "level_reason": "Lower coverage among Black women and lower-SES women is framed and quantified (>20 pp Black–white gap; 28 pp uninsured vs private) and explained by less patient-centered provider communication with Black patients and lower trust.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Trust and provider communication may be read as interpersonal or attitudinal factors rather than specific structural determinants."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "some of the largest gaps in coverage for either vaccine (>20 percentage points) identified between black and non-Hispanic white (white) women"
+     },
+     {
+      "loc": "table 1",
+      "q": "Race/ethnicity was self-reported."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Data were weighted to reflect age, race/ethnicity, and geographic distribution of the U.S. population of pregnant women"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education",
+     "poverty status",
+     "insurance type"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "vaccination coverage was lower among black pregnant women and those of lower socioeconomic status (i.e., less educated, living in poverty"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Area of residence §§ › Rural"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Hispanic women had lower coverage, and women aged 18–34 years had higher coverage than did referent groups."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "among women aged 18–49 years who reported being pregnant any time since August 1, 2018."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "female panel members aged 18–49 years living in the United States were invited via e-mail"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "less patient-centered provider communication with black patients; lower trust in vaccine, doctors and CDC; differential provider offers or referrals",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Differential effects of provider vaccination offers or referrals might also be explained by less patient-centered provider communication with black patients"
+    },
+    {
+     "loc": "text",
+     "q": "similar beliefs among black pregnant women might explain the lower vaccine acceptance found in this analysis."
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Each subgroup is compared with a referent group (e.g., white, more than college, private insurance) using a ≥5 pp rule, no inference; 'other' race collapses Asian, AI/AN, NH/PI and multiracial; uninsured Tdap estimate suppressed (n<30)."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity § › Black, non-Hispanic"
+    },
+    {
+     "loc": "table 1",
+     "q": "Referent group for comparison within subgroups."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "women aged 18–34 years had higher coverage than did referent groups."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Education › Less than high school diploma"
+    },
+    {
+     "loc": "text",
+     "q": "Offers or referrals for Tdap were less frequently reported among ... women with the highest or lowest education levels."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Influenza vaccination coverage was 28 percentage points lower among uninsured women than among privately insured women"
+    },
+    {
+     "loc": "table 1",
+     "q": "Prenatal insurance status*** › Public"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "analytic_depth",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Differences are flagged by a fixed ≥5 percentage-point rule against referent groups; the authors state no significance can be inferred, so no test is recorded. Effectiveness figures (40%, 72%, 77.7%) are cited from earlier studies. Table 2 restricts coverage to women offered or referred; read as a subgroup comparison, not stratification.",
+ "view_issues": "The text quote for the education Tdap offer claim was abridged with an ellipsis; Table 2 flags most education levels as differing from the referent. The Tdap uninsured estimate is suppressed."
+}

@@ -1,0 +1,358 @@
+{
+ "id": "mm6521a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrZtRsqPp71pQKP3Q",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Among 3,564 respondents, 93% were confident that a health care facility could treat suspected Ebola cases"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "69.8% believed that patients suspected of having Ebola would receive care"
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Confidence in the health care system was quantified by summarizing frequency, mean score, and standard deviation."
+    },
+    {
+     "loc": "text",
+     "q": "Ebola (mean Likert score = 4.40), malaria (3.92), diarrheal disease (3.74), tuberculosis (3.45), and pneumonia (3.43)."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among 3,564 respondents, 93% were confident that a health care facility could treat suspected Ebola cases"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Respondents who resided in active districts expressed more confidence in the health care system than did respondents in nonactive districts."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "ANOVA",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'analysis of variance (ANOVA) testing' of mean confidence scores across demographic groups; p-values in Table 2",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Results were stratified by demographics, and analysis of variance (ANOVA) testing was used to examine group differences."
+    }
+   ]
+  },
+  {
+   "name": "repeated measures ANOVA",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated repeated measure ANOVA across ratings of five health issues",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A repeated measure ANOVA identified significant differences among ranking the importance of health issues in Sierra Leone, (p<0.000)."
+    }
+   ]
+  },
+  {
+   "name": "least significant difference post hoc pairwise comparisons",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated LSD posthoc analysis used to rank health issues",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Least significant difference posthoc analysis was conducted to examine the pairwise differences and rank importance levels."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting for selection probability",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated weighting factor applied to each record for district-level selection probability",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A weighting factor was applied to each record to adjust for selection probability at the district level."
+    }
+   ]
+  },
+  {
+   "name": "normalization of skewed importance ratings",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "skewed Likert ratings 'normalized' before parametric analysis; method not stated",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the data were normalized before conducting parametric statistical analysis."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "district type (active vs nonactive)",
+   "province/area",
+   "education",
+   "health issue"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Respondents from areas with active Ebola transmission had higher confidence in the health care system, as did respondents with higher education levels."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "analysis of variance (ANOVA) testing was used to examine group differences."
+   },
+   {
+    "loc": "table 2",
+    "q": "Confidence level scores › p-value"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "% (95% CI)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Very confident › % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "mean confidence score (M/SD)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Confidence level scores › M/SD"
+    }
+   ]
+  },
+  {
+   "v": "mean Likert score",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Ebola (mean Likert score = 4.40)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How confident was the Sierra Leone public in the health care system about 15 months into the Ebola epidemic, and did confidence vary by area and education?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To better understand health care–seeking practices and perceptions of the health care system in Sierra Leone during the Ebola outbreak"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "Ebola virus disease",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Public Confidence in the Health Care System 1 Year After the Start of the Ebola Virus Disease Outbreak"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The national cross-sectional household survey used multistaged cluster sampling"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A national multistage cluster-sampled household survey to assess knowledge, attitudes, and practices (KAP)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Knowledge, Attitudes, and Practices Survey, Sierra Leone",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "National Knowledge, Attitudes, and Practices Survey, Sierra Leone, July 2015"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "international",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Sierra Leone, July 2015"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Confidence by education group is reported and described (higher among ≥secondary), with access to information offered as explanation, but contrasts are means side by side with ANOVA p-values, no computed difference or ratio, so capped at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The education gradient is interpreted with language/access explanations, which could be read as a framed disparity."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "primary comparison",
+    "ses_components": [
+     "education"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Respondents who had secondary or higher education also reported more confidence about Ebola treatment and child immunization (Table 2)"
+     },
+     {
+      "loc": "table 2",
+      "q": "Education › ≥Secondary"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The final survey included 1,774 (49.8%) males and 1,790 (50.2%) females"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "the participants’ average age was 35 years (standard deviation = 15)."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "either a woman of any age or any other person aged 15–24 years"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "access to health service information; radio health messages in English rather than local languages",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "radio discussions about health care messages are sometimes conducted in English rather than local languages, which might exclude persons with less education"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Education in three levels (none, primary, ≥secondary); province and active-district status are geography, not SPDs."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Results were stratified by demographics, and analysis of variance (ANOVA) testing was used to examine group differences."
+    },
+    {
+     "loc": "table 2",
+     "q": "Education › Primary"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Whether ANOVA used the survey weights is not stated. Province and district-type comparisons are geographic, not groupwise. Table 2 CIs are described but their construction is not stated.",
+ "view_issues": "Table 2 has implausible CIs (Northern 6.7 (3.0–5.9), Eastern 4.4 (8.4–12.7), Southern 10.5 (6.1–7.8); Nonactive 58.2 (60.2–35.3)), apparently misplaced. p-values reported as '<0.000'."
+}

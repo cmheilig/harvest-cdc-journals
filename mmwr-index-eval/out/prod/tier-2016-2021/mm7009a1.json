@@ -1,0 +1,420 @@
+{
+ "id": "mm7009a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPytWTyYDpZvoUJUgP5",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During 2017–2018, an estimated 5.3 million (3.4%) U.S. workers used e-cigarettes, one half of whom also smoked combustible tobacco products."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence was highest among workers who were male (4.1%), non-Hispanic White (4.0%), and aged 18–24 years (7.3%)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During 2017–2018, an estimated 5.3 million (3.4%) U.S. workers used e-cigarettes, one half of whom also smoked combustible tobacco products."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the prevalence of current e-cigarette use among U.S. workers (3.4%) was significantly higher than that among nonworkers (2.3%)."
+    },
+    {
+     "loc": "text",
+     "q": "Prevalence was highest among workers who were male (4.1%), non-Hispanic White (4.0%), and aged 18–24 years (7.3%)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting (NHIS sample weights, adjusted for pooled years)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated sample weights producing nationally representative estimates",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Sample weights were adjusted for pooled data to provide nationally representative estimates."
+    },
+    {
+     "loc": "table 2",
+     "q": "Data are weighted to provide national estimates using the survey sample weights for each participant."
+    }
+   ]
+  },
+  {
+   "name": "two-sided t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated t-tests between point estimates, p<0.05; CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Two-sided t-tests were used to determine statistically significant (p<0.05) differences between point estimates."
+    }
+   ]
+  },
+  {
+   "name": "suppression of estimates with relative standard error ≥30%",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "RSE-based suppression and combining of small industry/occupation groups",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates with a relative standard error ≥30% are not reported."
+    },
+    {
+     "loc": "table 2",
+     "q": "Industries with small sample size or ≥30% relative standard error, were combined to improve reliability."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "age group",
+   "sex",
+   "race/ethnicity",
+   "education",
+   "family income",
+   "health insurance status",
+   "U.S. Census region",
+   "tobacco use status",
+   "self-rated health",
+   "industry",
+   "occupation",
+   "employment status"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "E-cigarette use was highest among males, non-Hispanic Whites, persons aged 18–24 years, combustible tobacco product users,"
+   },
+   {
+    "loc": "text",
+    "q": "Prevalence of e-cigarette use was highest among workers in the accommodation and food services industry and in food preparation and serving-related occupations."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Prevalence estimates and 95% confidence intervals were calculated."
+   },
+   {
+    "loc": "text",
+    "q": "Two-sided t-tests were used to determine statistically significant (p<0.05) differences between point estimates."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "prevalence",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Prevalence (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "daily users, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Daily users, % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "using combustible tobacco, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Using combustible tobacco, ¶ % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "estimated no. of workers",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimated no. of workers † (x1,000)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What was the prevalence of current e-cigarette use among U.S. workers in 2017–2018, overall and by sociodemographic characteristics, industry and occupation?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To estimate recent national prevalence of e-cigarette use among U.S. workers, CDC analyzed 2017–2018 National Health Interview Survey (NHIS) data"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "e-cigarette use",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Prevalence of Electronic Cigarette Use Among Adult Workers — United States, 2017–2018"
+    }
+   ]
+  },
+  {
+   "v": "combustible tobacco product use",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among the estimated 5.3 million workers who were current e-cigarettes users, 2.3 million (43.1%) were daily e-cigarette users"
+    },
+    {
+     "loc": "text",
+     "q": "and 2.6 million (49.5%) also currently smoked combustible tobacco products."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NHIS is an annual, nationally representative, in-person survey of the noninstitutionalized U.S. civilian population."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed 2017–2018 National Health Interview Survey (NHIS) data for adults aged ≥18 years who were employed during the week before the interview."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Health Interview Survey (NHIS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed 2017–2018 National Health Interview Survey (NHIS) data for adults aged ≥18 years who were employed during the week before the interview."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Prevalence of Electronic Cigarette Use Among Adult Workers — United States, 2017–2018"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Prevalence is reported and described by race/ethnicity, education, income, insurance, age and sex ('highest among'), but no contrast is framed as a disparity or quantified as a difference or ratio.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 1,
+   "reason": "The SPD results could be read as descriptive table strata with no interpretation beyond ranking."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Prevalence was highest among workers who were male (4.1%), non-Hispanic White (4.0%), and aged 18–24 years (7.3%)"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education",
+     "family income",
+     "health insurance"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "with a high school education or less (4.7%), with family income <$35,000 (4.9%), with no health insurance (5.0%)"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "population",
+    "ses_components": [
+     "employment status"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "CDC analyzed 2017–2018 National Health Interview Survey (NHIS) data for adults aged ≥18 years who were employed during the week before the interview."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group, yrs › 18–24"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "CDC analyzed 2017–2018 National Health Interview Survey (NHIS) data for adults aged ≥18 years who were employed during the week before the interview."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity collapsed to four groups (Other combined); unknown education, income and insurance shown separately; occupation and industry treated as workplace exposure, not social position."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence was highest among workers who were male (4.1%), non-Hispanic White (4.0%), and aged 18–24 years (7.3%)"
+    },
+    {
+     "loc": "text",
+     "q": "Two-sided t-tests were used to determine statistically significant (p<0.05) differences between point estimates."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence was highest among workers who were male (4.1%), non-Hispanic White (4.0%), and aged 18–24 years (7.3%)"
+    },
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity › Black, non-Hispanic"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "with a high school education or less (4.7%), with family income <$35,000 (4.9%), with no health insurance (5.0%)"
+    },
+    {
+     "loc": "table 1",
+     "q": "Family income › <$35,000"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred as cross-sectional (NHIS survey); not named. A supplementary analysis by longest held job is mentioned without results. The 2014–2016 comparison (3.6%) is cited from a previous report.",
+ "view_issues": "Table 1 smokeless tobacco rows give 5.6% and 2.5% under 'Using combustible tobacco', implausible for that column. Text's '2 million former cigarette smokers' means former smokers who use e-cigarettes."
+}

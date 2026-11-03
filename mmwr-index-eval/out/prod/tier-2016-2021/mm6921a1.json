@@ -1,0 +1,432 @@
+{
+ "id": "mm6921a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyt3gcoAtnKKPGQCs8",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the prevalences of edentulism, severe tooth loss, and lacking functional dentition were 10.8%, 16.9%, and 31.8%, respectively"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the prevalences of edentulism, severe tooth loss, and lacking functional dentition were 10.8%, 16.9%, and 31.8%, respectively"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "those reporting selected chronic conditions were significantly more likely to have severe tooth loss than were persons without chronic conditions"
+    },
+    {
+     "loc": "text",
+     "q": "The overall prevalence of lack of functional dentition decreased 11.7 percentage points from 1999–2004 (43.5%) to 2011–2016 (31.8%)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimated prevalence of tooth loss and chronic conditions were standardized to the U.S. 2000 Census population by 5-year age increments and sex."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age-sex standardization to the U.S. 2000 Census population",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "'standardized to the U.S. 2000 Census population by 5-year age increments and sex' → direct standardization",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimated prevalence of tooth loss and chronic conditions were standardized to the U.S. 2000 Census population by 5-year age increments and sex."
+    }
+   ]
+  },
+  {
+   "name": "NHANES examination sample weights with complex survey design",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "SUDAAN 'accounted for the examination sample weights and the complex, clustered design'",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "which accounted for the examination sample weights and the complex, clustered design of NHANES"
+    }
+   ]
+  },
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated t-tests for condition vs no condition and for change between periods; significance marked p<0.05 in Table 2 and Figure",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "T-tests were used to determine whether prevalence of each category of tooth loss varied by chronic disease status"
+    },
+    {
+     "loc": "figure 1",
+     "q": "Change in prevalence is statistically significant (p<0.05) for all conditions except asthma, emphysema, heart disease, liver condition, and stroke."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "both",
+  "referent": "adults without the chronic condition",
+  "across": [
+   "chronic condition status",
+   "period (1999–2004 vs 2011–2016)"
+  ],
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "Prevalence in group with condition divided by prevalence in those without condition."
+   },
+   {
+    "loc": "text",
+    "q": "The overall prevalence of lack of functional dentition decreased 11.7 percentage points from 1999–2004 (43.5%) to 2011–2016 (31.8%)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "T-tests were used to determine whether prevalence of each category of tooth loss varied by chronic disease status"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "prevalence, %",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Edentate (zero teeth) › % (SE)"
+    }
+   ]
+  },
+  {
+   "v": "prevalence ratio",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Prevalence in group with condition divided by prevalence in those without condition."
+    }
+   ]
+  },
+  {
+   "v": "percentage-point change",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The most notable improvements were among persons reporting diabetes (16.6 percentage-point decrease)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Among U.S. adults aged ≥50 years, how prevalent is tooth loss among those with selected chronic conditions compared with those without, and how did it change from 1999–2004 to 2011–2016?",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Prevalence of and Changes in Tooth Loss Among Adults Aged ≥50 Years with Selected Chronic Conditions"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "tooth loss",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Prevalence of and Changes in Tooth Loss Among Adults Aged ≥50 Years with Selected Chronic Conditions"
+    }
+   ]
+  },
+  {
+   "v": "edentulism",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The three measures were 1) edentulism (having no teeth); 2) severe tooth loss (having eight or fewer teeth)"
+    }
+   ]
+  },
+  {
+   "v": "diabetes",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The most notable improvements were among persons reporting diabetes (16.6 percentage-point decrease)"
+    }
+   ]
+  },
+  {
+   "v": "rheumatoid arthritis",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence of lack of functional dentition increased by 11.2 percentage points among persons with rheumatoid arthritis during this period."
+    }
+   ]
+  },
+  {
+   "v": "arthritis",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Any arthritis › Yes"
+    }
+   ]
+  },
+  {
+   "v": "asthma",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Asthma › Yes"
+    }
+   ]
+  },
+  {
+   "v": "emphysema",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Emphysema › Yes"
+    }
+   ]
+  },
+  {
+   "v": "heart disease",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Heart disease › Yes"
+    }
+   ]
+  },
+  {
+   "v": "liver condition",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Liver condition › Yes"
+    }
+   ]
+  },
+  {
+   "v": "obesity",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Obesity › Yes"
+    }
+   ]
+  },
+  {
+   "v": "stroke",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Stroke › Yes"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data obtained from CDC’s NHANES, a multistage probability sample"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "whether lack of functional dentition differed from 1999–2004 to 2011–2016"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data obtained from CDC’s NHANES, a multistage probability sample"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Health and Nutrition Examination Survey (NHANES)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "comparing data from the National Health and Nutrition Examination Survey (NHANES) for each period among adults aged ≥50 years"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, 1999–2004 and 2011–2016"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Age bounds define the population and age and sex are standardization variables only; race/ethnicity and income appear only in a limitation as uncontrolled covariates. Insurance and income access barriers are discussed for the chronic-condition group, not as an SPD contrast.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 0,
+   "reason": "Race/ethnicity and income are only named as uncontrolled covariates; one could read the SPD content as age/sex only."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Adults Aged ≥50 Years with Selected Chronic Conditions"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "standardized to the U.S. 2000 Census population by 5-year age increments and sex."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "standardized to the U.S. 2000 Census population by 5-year age increments and sex."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "some covariates associated with chronic disease such as race/ethnicity and income were not controlled for"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "income",
+     "dental insurance"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "some covariates associated with chronic disease such as race/ethnicity and income were not controlled for"
+     },
+     {
+      "loc": "text",
+      "q": "Persons with low household income might also lack access because of the limited dental safety net"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "lack of dental insurance (traditional Medicare does not cover routine dental care); limited dental safety net under Medicaid",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "older adults with chronic conditions might have difficulty accessing clinical dental care because they lack dental insurance"
+    },
+    {
+     "loc": "text",
+     "q": "Persons with low household income might also lack access because of the limited dental safety net"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "No SPD comparison; estimates age-sex standardized; race/ethnicity and income not controlled (limitation)."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "equity.level"
+ ],
+ "confidence": "high",
+ "notes": "Prevalence ratios are computed by hand from standardized prevalences; significance comes from t-tests (Table 2 § marks). Period changes by condition are reported in a Supplementary Table and the Figure. Determinants explain the chronic-condition group's access, not an SPD disparity, so the level stays low.",
+ "view_issues": "Table 2 CSV repeats each prevalence ratio in both Yes and No rows (merged cells). Text sentence 'than among those with those adults without the chronic condition' is garbled."
+}

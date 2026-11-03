@@ -1,0 +1,428 @@
+{
+ "id": "mm6627a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyra8NEAxVvKRru4mx",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "national estimates for breastfeeding initiation, exclusivity through 6 months, and duration at 12 months were 79.2%, 20.0%, and 27.8%, respectively"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "breastfeeding initiation ranged from 37.0% in Kentucky to 90.8% in Minnesota among black infants"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "national estimates for breastfeeding initiation, exclusivity through 6 months, and duration at 12 months were 79.2%, 20.0%, and 27.8%, respectively"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the gap in breastfeeding initiation between black and white infants was 17.2 percentage points"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The state-specific percentage point differences (calculated as prevalence among white infants minus prevalence among black infants)"
+    },
+    {
+     "loc": "summary",
+     "q": "Breastfeeding initiation rates were significantly lower among black infants in 23 states"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in the methods: chi-square tests of black vs white estimates, overall and within each state",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Statistical analyses were conducted using chi-square tests to determine whether estimates for black infants were significantly different (p<0.05) from estimates for white infants."
+    }
+   ]
+  },
+  {
+   "name": "chi-square test (Table 1 demographic differences)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "Table 1 footnote names chi-square tests across demographic categories of the national sample",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Differences in initiation, exclusive through 6 months, and at 12 months duration by demographic variables are statistically significant (p<0.05, chi-square test)."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (complex sampling design)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "estimates stated as weighted and accounting for the NIS complex sampling design",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Breastfeeding estimates were weighted to adjust for multiple phone lines, mixed telephone use (landline and cellular), household nonresponse, and the exclusion of phoneless households"
+    },
+    {
+     "loc": "text",
+     "q": "and accounted for the complex sampling design of NIS"
+    }
+   ]
+  },
+  {
+   "name": "small-sample suppression (n<50)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "state estimates withheld when group sample size <50",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were suppressed when the group’s sample size was <50 for that state."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "absolute",
+  "referent": "non-Hispanic white infants",
+  "across": [
+   "race/ethnicity",
+   "state"
+  ],
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "Referent group is non-Hispanic whites."
+   },
+   {
+    "loc": "text",
+    "q": "calculated as prevalence among white infants minus prevalence among black infants"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Statistical analyses were conducted using chi-square tests to determine whether estimates for black infants were significantly different (p<0.05) from estimates for white infants."
+   },
+   {
+    "loc": "table 2",
+    "q": "Initiated breastfeeding % (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "White, non-Hispanic › Initiated breastfeeding % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "percentage point difference",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A percentage point difference of ≥10 between white and black infants for 6 months of exclusive breastfeeding was observed in 12 states"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How do breastfeeding initiation, exclusivity through 6 months and duration at 12 months differ between black and white infants, nationally and by state?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to describe breastfeeding initiation, exclusivity through 6 months and duration at 12 months among black and white infants"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "breastfeeding",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Racial and Geographic Differences in Breastfeeding — United States, 2011–2015"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NIS is a national ongoing, random-digit–dialed cellular and landline telephone survey conducted among households with children aged 19–35 months"
+    }
+   ]
+  },
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Questions on breastfeeding were added to the survey in 2001 and have since been used for national breastfeeding surveillance."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed 2011–2015 National Immunization Survey (NIS) data for children born during 2010–2013"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Immunization Survey (NIS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed 2011–2015 National Immunization Survey (NIS) data for children born during 2010–2013"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "were calculated among all infants and at the state level among black and white infants."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Black–white breastfeeding disparities are framed, quantified as percentage-point gaps nationally and by state, and interpreted; specific structural barriers (earlier return to work, provider information, access to professional support and supportive hospital practices) are named as explanations.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The determinants are cited from other studies as background rather than analyzed, which could be read as generic explanation."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Differences in breastfeeding rates between black and white infants vary by state, and rates are lower among blacks in most states."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "household percent of poverty level",
+     "mother's education",
+     "participation in WIC"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Breastfeeding estimates varied by race/ethnicity, mother’s age and education, participation in WIC, and ratio of family income to the federal poverty threshold."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "percentage of poverty level",
+     "participation in WIC"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "socioeconomic characteristics such as percentage of poverty level and participation in WIC"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "among children aged 19–35 months, by selected demographic characteristics"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Mother’s age (yrs) ¶ › <20"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "earlier return to work; inadequate receipt of breastfeeding information from providers; lack of access to professional breastfeeding support; less access to supportive maternity care practices in hospitals in areas with more black residents",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "including earlier return to work, inadequate receipt of breastfeeding information from providers, and lack of access to professional breastfeeding support"
+    },
+    {
+     "loc": "text",
+     "q": "black mothers might not have consistent access to these supportive practices."
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referent is non-Hispanic white infants; state comparisons limited to black vs white; 17 states suppressed for black sample size <50; race is parent-reported; no adjustment for SES."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Differences in initiation, exclusive through 6 months, and at 12 months duration by demographic variables are statistically significant (p<0.05, chi-square test)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% of poverty level †† › <100"
+    },
+    {
+     "loc": "text",
+     "q": "Breastfeeding estimates varied by race/ethnicity, mother’s age and education, participation in WIC, and ratio of family income to the federal poverty threshold."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Mother’s education › College graduate"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Recipient of WIC › No (but eligible)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race/ethnicity test of significance was limited to non-Hispanic blacks and non-Hispanic whites."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise",
+  "equity.level",
+  "analytic_depth"
+ ],
+ "confidence": "medium",
+ "notes": "Stratified depth rests on black–white contrasts tested within each state. Table 1's chi-square footnote is marked only on race and mother's age rows, though its wording covers all demographic variables; poverty, education and WIC are recorded as side by side. Design cross-sectional is inferred from the survey.",
+ "view_issues": "Table 2 Louisiana black initiation (38.7% vs 70.5% white) lacks the significance mark; with it, initiation marks total 23 as the text states, otherwise 22. Discussion's 2003–2006 comparisons are cited."
+}

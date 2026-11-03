@@ -1,0 +1,386 @@
+{
+ "id": "mm6712a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysDpYZYXDmTQWTm59",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Overall, age-adjusted DKA hospitalization rates decreased slightly from 2000 to 2009, then reversed direction, steadily increasing from 2009 to 2014"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2009–2014, however, the rate increased 54.9%, from 19.5 to 30.2 per 1,000 persons, at an average annual rate of 6.3%."
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In-hospital case-fatality rate was defined as the proportion of persons hospitalized for DKA who died in the hospital."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In-hospital case-fatality rates declined consistently during the study period from 1.1% to 0.4%."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates were highest in persons aged <45 years (44.3 per 1,000 in 2014) and lowest in persons aged ≥65 years (<2.0 per 1,000)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "DKA rates were age-adjusted using four age groups (<45, 45–64, 65–74, and ≥75 years) from the 2000 U.S. Census."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "joinpoint regression (APC)",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "joinpoint regression with segments described by annual percent change, which implies a log-linear model of rates; permutation tests and slope-vs-zero tests are part of the model",
+   "role": "primary",
+   "alternative_reading": "linear (joinpoint segments are piecewise linear, possibly on the log scale)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Joinpoint regression models, ¶ which use permutation tests to identify points where linear trends change significantly in direction or magnitude"
+    },
+    {
+     "loc": "text",
+     "q": "each trend segment was described by an annual percent change, and the trend for each period was tested"
+    }
+   ]
+  },
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "rates age adjusted to the 2000 U.S. Census using four age groups",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age adjusted to the 2000 U.S. Census using the four age groups listed in the table."
+    }
+   ]
+  },
+  {
+   "name": "complex survey design weighting (NIS, NHIS)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated that the analysis accounted for complex sampling designs; NIS yields national estimates",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The analysis accounted for the complex sampling designs of NIS and NHIS."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": null,
+  "across": [
+   "year/period",
+   "age group",
+   "sex"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "hospitalizations for DKA increased in the United States during 2009–2014 among all age groups and were highest among persons aged <45 years."
+   },
+   {
+    "loc": "text",
+    "q": "the DKA hospitalization rate among persons with diabetes aged <45 years was approximately 27 times the rate among persons aged ≥65 years."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "the trend for each period was tested to determine whether the slope was significantly different from zero."
+   },
+   {
+    "loc": "table 1",
+    "q": "APC (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "rate per 1,000 persons with diabetes (age-adjusted)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Diabetic ketoacidosis hospitalization rates per 1,000 persons with diabetes, overall and by age group and sex"
+    }
+   ]
+  },
+  {
+   "v": "in-hospital case-fatality rate (%)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Diabetic ketoacidosis in-hospital case-fatality rates, overall and by age group and sex"
+    }
+   ]
+  },
+  {
+   "v": "APC",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "APC = annual percent change"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The analysis accounted for the complex sampling designs of NIS and NHIS."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were used to analyze trends in DKA hospitalization and case-fatality rates, stratified by age group and sex"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age adjusted to the 2000 U.S. Census using the four age groups listed in the table."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age (by standardization of total and sex-specific rates)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "DKA rates were age-adjusted using four age groups (<45, 45–64, 65–74, and ≥75 years) from the 2000 U.S. Census."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did DKA hospitalization rates among persons with diabetes and in-hospital case-fatality rates change in the United States during 2000–2014?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "were assembled to calculate trends in DKA hospitalization rates and in-hospital case-fatality rates."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "diabetic ketoacidosis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Trends in Diabetic Ketoacidosis Hospitalizations and In-Hospital Mortality — United States, 2000–2014"
+    }
+   ]
+  },
+  {
+   "v": "diabetes",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Diabetic ketoacidosis hospitalization rates per 1,000 persons with diabetes"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NIS is a nationally representative sample of hospital discharges, corresponding to >35 million hospitalizations annually."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "After a slight decline during 2000–2009, hospitalizations for DKA increased in the United States during 2009–2014"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "administrative/claims",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "2000–2014 data from the Agency for Healthcare Research and Quality’s National Inpatient Sample (NIS)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Inpatient Sample (NIS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Agency for Healthcare Research and Quality’s National Inpatient Sample (NIS)"
+    }
+   ]
+  },
+  {
+   "v": "National Health Interview Survey (NHIS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the civilian, noninstitutionalized population with diabetes was estimated using corresponding years of data from CDC’s National Health Interview Survey (NHIS)."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, 2000–2014"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Only age and sex are used, as strata and for age adjustment; age differences are not framed as social position. Access to care and cost of treatment are raised only as possible factors to study.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Access to care and cost of treatment are raised for young adults, which could be read as an equity recommendation."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "stratified by age group and sex, allowing for a maximum of two joinpoints."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The reversal in trend was apparent across all age groups and both sexes."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Age and sex strata only; rates age-adjusted to the 2000 Census; no race/ethnicity or SES."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates were highest in persons aged <45 years (44.3 per 1,000 in 2014) and lowest in persons aged ≥65 years (<2.0 per 1,000)"
+    },
+    {
+     "loc": "text",
+     "q": "Although the highest case-fatality rates were observed among persons aged ≥75 years, this group experienced the largest absolute decrease"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "procedures",
+  "regression_fields"
+ ],
+ "confidence": "high",
+ "notes": "Design not named; surveillance/descriptive trend inferred. NHIS serves only for the denominator (population with diabetes), so it is not listed as an analyzed data source type. APC tests are within each age and sex group; no test compares APCs across groups.",
+ "view_issues": "Text says case-fatality declines were seen across all age groups, but Table 2 period-2 APC for 65–74 has a CI including zero (-6.8 to 2.3). The 'case-fatality rate' is a proportion."
+}

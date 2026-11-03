@@ -1,0 +1,399 @@
+{
+ "id": "mm6815a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrqFoaQXA9zCeQgLh",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the rate of CIN2+ per 100,000 women declined significantly in women aged 18–19 years and 20–24 years"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among the estimated 216,000 cases, 165,000 (76%) were attributable to 9-valent vaccine types"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "an estimated 216,000 (95% CI = 194,000–241,000) CIN2+ cases were diagnosed in the United States in 2008"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "From 2008 to 2016, the rate of CIN2+ per 100,000 women declined significantly in women aged 18–19 years and 20–24 years"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "joinpoint regression (AAPC)",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "joinpoint models in NCI Joinpoint software reporting AAPC/APC; percent-change estimates imply a fit on log rates → loglinear",
+   "role": "primary",
+   "alternative_reading": "linear (least squares on log rates, Joinpoint default)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "trends were evaluated using joinpoint models in Joinpoint software (version 4.6.0.0; National Cancer Institute)"
+    },
+    {
+     "loc": "text",
+     "q": "reported as average annual percentage change (AAPC) with 95% CIs"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "AAPC 95% CI judged against 0 to classify trends; CIs model-based from the joinpoint regression",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "were considered to increase (AAPC>0) or decrease (AAPC<0) if the 95% CI did not include 0; otherwise trends were considered stable."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "AAPC = 0",
+  "across": [
+   "year",
+   "age group"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During 2008–2016, CIN2+ rates in a population-based surveillance system declined in women aged 18–24 years."
+   },
+   {
+    "loc": "table 1",
+    "q": "Trends were measured with AAPC in age-stratified rates"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "note",
+    "q": "were considered to increase (AAPC>0) or decrease (AAPC<0) if the 95% CI did not include 0; otherwise trends were considered stable."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "CIN2+ rate per 100,000 women",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group–specific annual CIN2+ cases per 100,000 women"
+    }
+   ]
+  },
+  {
+   "v": "AAPC",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "AAPC* (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "APC",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "from 2012 to 2016, the APC indicated that rates were increasing (5.8 [95% CI = 0.7 to 11.1])"
+    }
+   ]
+  },
+  {
+   "v": "estimated number of CIN2+ cases",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The estimated numbers of U.S. CIN2+ cases were 216,000 (2008) and 196,000 (2016)"
+    }
+   ]
+  },
+  {
+   "v": "percentage attributable to 9-valent vaccine types",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "with an estimated 76% attributable to 9-valent HPV vaccine types"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-stratified CIN2+ incidence rates per 100,000 women were calculated for each year (2008–2016)"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "In women aged 30–34 years, a joinpoint was detected."
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did CIN2+ rates among U.S. women change during 2008–2016 by age, and how many CIN2+ cases, and vaccine-type-attributable cases, occurred nationally in 2008 and 2016?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to describe rates of CIN2+ among women aged ≥18 years during 2008–2016"
+   },
+   {
+    "loc": "text",
+    "q": "Age-specific rates were applied to U.S. population data to estimate the total number of CIN2+ cases"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "high-grade cervical lesions (CIN2+)",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Estimated Number of Cases of High-Grade Cervical Lesions Diagnosed Among Women — United States, 2008 and 2016"
+    }
+   ]
+  },
+  {
+   "v": "HPV infection",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "HPV vaccination was introduced in 2006 to prevent HPV-associated cancers and diseases"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a population-based CIN2+ surveillance system"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During 2008–2016, CIN2+ rates in a population-based surveillance system declined in women aged 18–24 years."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "HPV-IMPACT uses active surveillance of diagnostic pathology laboratories to collect all CIN2+ cases"
+    },
+    {
+     "loc": "note",
+     "q": "The HPV-IMPACT sites are located in five of the 10 Emerging Infections Programs (EIP) surveillance network locations"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Human Papillomavirus Vaccine Impact Monitoring Project (HPV-IMPACT)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the Human Papillomavirus Vaccine Impact Monitoring Project (HPV-IMPACT)"
+    }
+   ]
+  },
+  {
+   "v": "Emerging Infections Programs (EIP)",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "The HPV-IMPACT sites are located in five of the 10 Emerging Infections Programs (EIP) surveillance network locations"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "U.S. CIN2+ cases were extrapolated from population-based surveillance in five communities"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "other",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The reduction in CIN2+ attributable to vaccine types in young women demonstrates impact of the HPV vaccination program."
+   }
+  ]
+ },
+ "equity": {
+  "level": 0,
+  "level_reason": "Age is the only analyzed SPD (age-specific rates and trends) with no social-position framing; sex defines the population. Race appears only in a representativeness limitation.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Race distribution of catchment areas and lack of race adjustment are raised as a limitation."
+  },
+  "dimensions": [
+   {
+    "v": "sex",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Estimated Number of Cases of High-Grade Cervical Lesions Diagnosed Among Women — United States, 2008 and 2016"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "to describe rates of CIN2+ among women aged ≥18 years during 2008–2016"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Age-stratified CIN2+ incidence rates per 100,000 women were calculated for each year (2008–2016)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "this analysis did not adjust for race or other population characteristics, such as screening practices"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Age is the only stratifier; national counts extrapolated from five catchment areas without adjustment for race."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 11,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2008, HPV-IMPACT CIN2+ rates were highest in women aged 20–24 years (559 per 100,000 women [95% CI = 521–600])"
+    },
+    {
+     "loc": "text",
+     "q": "were lower in successively older age groups"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "regression_fields",
+  "comparison",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "National case counts come from multiplying age-specific rates (and CI limits) by U.S. population estimates, and vaccine-type attribution from applying typing proportions; treated as arithmetic, not procedures. A site-based high/low range analysis bounds the extrapolated estimates; it is not a re-analysis of the joinpoint model, so sensitivity_analysis is false. interaction_modeled is set true because joinpoint detection implies joinpoint selection tests, though none is named.",
+ "view_issues": null
+}

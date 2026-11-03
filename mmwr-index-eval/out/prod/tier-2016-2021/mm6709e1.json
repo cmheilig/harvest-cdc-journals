@@ -1,0 +1,413 @@
+{
+ "id": "mm6709e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPys882wCoHVGcvtmpZ",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Opioid overdose ED visits in NSSP increased 29.7% from third quarter 2016 (July–September) to third quarter 2017"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a total of 142,557 (15.7 per 10,000 visits) were suspected opioid overdoses"
+    },
+    {
+     "loc": "text",
+     "q": "quarterly trends for the percentage of ED visits involving suspected opioid overdoses"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a total of 142,557 (15.7 per 10,000 visits) were suspected opioid overdoses"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "with the largest in the Midwest (69.7%), followed by the West (40.3%), Northeast (21.3%), Southwest (20.2%), and Southeast (14.0%)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated: chi-square tests for the Q3 2016 vs Q3 2017 changes marked significant",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Significance testing was conducted using chi-square tests."
+    },
+    {
+     "loc": "table 2",
+     "q": "Statistically significant (p<0.05)."
+    }
+   ]
+  },
+  {
+   "name": "joinpoint regression (average linear quarterly percentage change)",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "'joinpoint regression program' giving average quarterly % change; Joinpoint fits least squares on the log rate by default → linear",
+   "alternative_reading": "loglinear: a percent-change parameterization equivalent to a log-linear trend",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Average linear quarterly percentage change was calculated for each strata using a joinpoint regression program."
+    },
+    {
+     "loc": "figure 2",
+     "q": "The average linear quarterly percentage change (QPC) was significant for large central metro"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "third quarter 2016",
+  "across": [
+   "quarter",
+   "U.S. region",
+   "state",
+   "sex",
+   "age group",
+   "county urbanization level"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "increased 29.7% overall and 34.5% in 16 states with high prevalence of overdose mortality."
+   },
+   {
+    "loc": "text",
+    "q": "Yearly change, controlling for seasonal effects, was estimated as the change from third quarter 2016 to third quarter 2017."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Significance testing was conducted using chi-square tests."
+   },
+   {
+    "loc": "table 1",
+    "q": "Average quarterly % change (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "rate per 10,000 ED visits",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Per 10,000 emergency department visits."
+    }
+   ]
+  },
+  {
+   "v": "% change",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percentage change in rates subtracted the prior quarter from the current quarter then divided by the prior quarter multiplied by 100%."
+    }
+   ]
+  },
+  {
+   "v": "average quarterly % change",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Average quarterly % change (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Average linear quarterly percentage change was calculated for each strata using a joinpoint regression program."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did ED visits for suspected opioid overdoses change during July 2016–September 2017 by region, state, sex, age and urbanization level?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This report examines changes in opioid overdoses seen in the ED according to regional, state, and urbanization levels"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "opioid overdose",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Vital Signs: Trends in Emergency Department Visits for Suspected Opioid Overdoses"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were analyzed to track trends in suspected unintentional or undetermined opioid overdoses (opioid overdoses) by quarter and U.S. region"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "estimated as the change from third quarter 2016 to third quarter 2017."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "ED visits from CDC’s National Syndromic Surveillance Program (NSSP)"
+    }
+   ]
+  },
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "ESOOS syndromic and hospital billing data were analyzed at the state and county level"
+    }
+   ]
+  },
+  {
+   "v": "administrative/claims",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "ESOOS syndromic and hospital billing data were analyzed at the state and county level"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Syndromic Surveillance Program (NSSP)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC’s National Syndromic Surveillance Program (NSSP)"
+    }
+   ]
+  },
+  {
+   "v": "Enhanced State Opioid Overdose Surveillance (ESOOS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Enhanced State Opioid Overdose Surveillance (ESOOS) program"
+    }
+   ]
+  },
+  {
+   "v": "ESSENCE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NSSP ED data were analyzed using the Electronic Surveillance System for the Early Notification of Community-based Epidemics (ESSENCE) software."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Temporal trends in opioid overdoses from 52 jurisdictions in 45 states were analyzed at the regional level"
+   },
+   {
+    "loc": "summary",
+    "q": "data from 16 states were analyzed by state and urbanization level."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Rate changes are reported by county urbanization level (and by age and sex) and the highest increases in large central metro areas are described, but no disparity is framed.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 0,
+   "reason": "County urbanization may be read as geography of non-human units, leaving only age and sex strata."
+  },
+  "dimensions": [
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Quarterly percentage change in rates are presented by state and county urbanization level"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "persons aged 25–34 years (30.7%), 35–54 years (36.3%), and ≥55 years (31.9%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Only visits involving patients aged ≥11 years were analyzed"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "including males (30.2%), females (24.0%)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Urbanization uses the six-level NCHS county classification for ESOOS states only; age and sex strata come from NSSP; no race/ethnicity or SES."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "including large central metropolitan (54.1%), medium metropolitan (42.6%), small metropolitan (36.9%), micropolitan (23.6%)"
+    },
+    {
+     "loc": "summary",
+     "q": "The highest rate increases occurred in large central metropolitan areas."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group (yrs) › 15–24"
+    },
+    {
+     "loc": "text",
+     "q": "persons aged 25–34 years (30.7%), 35–54 years (36.3%), and ≥55 years (31.9%)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "outcome_types",
+  "equity.level",
+  "groupwise",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "The rate is ED overdose visits per 10,000 ED visits, a unitless proportion, so binary/categorical. Chi-square tests and joinpoint p-values are each run within strata (a period contrast), not across SPD levels.",
+ "view_issues": "Methods call the per-10,000 rate a 'percentage'. Analysis covers ages ≥11 years, but Table 1's youngest age group is 15–24. Abstract says the largest increases were in the Southwest, Midwest and West, while the text ranks the Midwest first."
+}

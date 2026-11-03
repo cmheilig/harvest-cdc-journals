@@ -1,0 +1,417 @@
+{
+ "id": "mm6507a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrVRTSHGXoZggZCEP",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The overall age-adjusted prevalence of SSB intake ≥1 time per day was 30.1% and ranged from 18.0% in Vermont to 47.5% in Mississippi."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence estimates are presented as percentages with 95% confidence intervals."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2013, after direct age adjustment, 30.1% of respondents reported consuming SSBs at least once per day."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "adult SSB intake was highest in Mississippi (47.5%), followed by Louisiana (45.5%) and West Virginia (45.2%)."
+    },
+    {
+     "loc": "text",
+     "q": "among adults with less than a high school education was 2.7 times the prevalence among college graduates"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "both crude and age-adjusted prevalences (standardization according to 2000 U.S. projected population) were provided for each state"
+    },
+    {
+     "loc": "text",
+     "q": "the prevalence among blacks was 1.5 times the prevalence among whites (ranging from 0.9 in West Virginia to 4.9 in DC)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "'direct age adjustment' to the 2000 U.S. projected population; state rankings use age-adjusted prevalence",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2013, after direct age adjustment, 30.1% of respondents reported consuming SSBs at least once per day."
+    },
+    {
+     "loc": "table 1",
+     "q": "Age standardization according to 2000 U.S. projected population."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (complex survey design)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated sampling weights and complex survey design behind every estimate",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All analyses took complex survey design and sampling weight into account."
+    },
+    {
+     "loc": "table 1",
+     "q": "Weighted percentages might not sum to 100% because of rounding."
+    }
+   ]
+  },
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "chi-square tests of SSB intake across demographic groups within each state; CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Chi-square tests were used to examine whether state SSB intake varied by age, sex, race/ethnicity, employment status, or education (statistically significant at p<0.05)."
+    },
+    {
+     "loc": "table 2",
+     "q": "Values for all states were significantly different at p<0.05 by chi-square test"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "aged ≥55 years; women; non-Hispanic whites; college graduates (for prevalence ratios)",
+  "across": [
+   "state",
+   "age group",
+   "sex",
+   "race/ethnicity",
+   "employment status",
+   "education"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "adult SSB intake was highest in Mississippi (47.5%), followed by Louisiana (45.5%) and West Virginia (45.2%)."
+   },
+   {
+    "loc": "text",
+    "q": "The overall prevalence among men was approximately 1.4 times the prevalence among women"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Chi-square tests were used to examine whether state SSB intake varied by age, sex, race/ethnicity, employment status, or education (statistically significant at p<0.05)."
+   },
+   {
+    "loc": "text",
+    "q": "Prevalence estimates are presented as percentages with 95% confidence intervals."
+   }
+  ]
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Values for all states were significantly different at p<0.05 by chi-square test"
+    },
+    {
+     "loc": "text",
+     "q": "was 2.3 times the prevalence among the oldest age group (persons aged ≥55 years), ranging from 1.6-fold higher in New York"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Values for all states were significantly different at p<0.05 by chi-square test"
+    },
+    {
+     "loc": "text",
+     "q": "the prevalence among blacks was 1.5 times the prevalence among whites (ranging from 0.9 in West Virginia to 4.9 in DC)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Values for all states were different by chi-square test (p<0.05)."
+    },
+    {
+     "loc": "table 3",
+     "q": "Employment status › Retired"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Values for all states were different by chi-square test (p<0.05)."
+    },
+    {
+     "loc": "text",
+     "q": "among adults with less than a high school education was 2.7 times the prevalence among college graduates"
+    }
+   ]
+  }
+ ],
+ "primary_measures": [
+  {
+   "v": "age-adjusted prevalence, %",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The overall age-adjusted prevalence of SSB intake ≥1 time per day was 30.1% and ranged from 18.0% in Vermont to 47.5% in Mississippi."
+    }
+   ]
+  },
+  {
+   "v": "crude prevalence, % (95% CI)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Crude prevalence of sugar-sweetened beverage consumption ≥1 time/day, % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "prevalence ratio (times the prevalence)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The overall prevalence among men was approximately 1.4 times the prevalence among women"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How prevalent was at least once-daily sugar-sweetened beverage intake among adults in 23 states and DC in 2013, and how did it vary by state and sociodemographic group?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "self-reported SSB (i.e., regular soda, fruit drinks, sweet tea, and sports or energy drinks) intake among adults (aged ≥18 years) was assessed"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "sugar-sweetened beverage intake",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Prevalence of Sugar-Sweetened Beverage Intake Among Adults — 23 States and the District of Columbia, 2013"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "BRFSS is a state-based, random-digit–dialed telephone survey of U.S. adults aged ≥18 years"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Data from the SSB intake module in the 2013 Behavioral Risk Factor Surveillance System"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS), 2013 SSB optional module",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Data from the SSB intake module in the 2013 Behavioral Risk Factor Surveillance System"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "During 2013, 23 states and DC offered the SSB optional module, and 157,668 adults answered both SSB questions."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 3,
+  "level_reason": "Differences by race/ethnicity, education and employment are quantified as ratios (blacks 1.5 times whites; <high school 2.7 times college graduates) and the report refers to disparities for targeted interventions; explanations are generic (knowledge).",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 2,
+   "reason": "Disparity framing is a single sentence and interpretation is thin; the ratios may be read as described group results only."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "the prevalence among blacks was 1.5 times the prevalence among whites (ranging from 0.9 in West Virginia to 4.9 in DC)"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "primary comparison",
+    "ses_components": [
+     "education",
+     "employment status"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "among adults with less than a high school education was 2.7 times the prevalence among college graduates"
+     },
+     {
+      "loc": "summary",
+      "q": "persons who reported not being employed (34.4%), and persons with less than high school education (42.4%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "was 2.3 times the prevalence among the oldest age group (persons aged ≥55 years), ranging from 1.6-fold higher in New York"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "BRFSS is a state-based, random-digit–dialed telephone survey of U.S. adults aged ≥18 years"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The overall prevalence among men was approximately 1.4 times the prevalence among women"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Ratios use whites, college graduates, ≥55 years and women as referents; race/ethnicity collapsed to four groups with 'other, non-Hispanic'; crude (not age-adjusted) prevalences by SES and race."
+ },
+ "uncertain_fields": [
+  "equity.level",
+  "analytic_depth"
+ ],
+ "confidence": "high",
+ "notes": "Retail environment, access and advertising are offered for state differences (geography, not an SPD), so not recorded as determinants. Ratios are computed by hand from prevalences. Sex comparison is two-group and makes no groupwise entry.",
+ "view_issues": "Table 2 note names Virginia, which is not among the 23 states surveyed. Text calls the group 'unemployed' while Table 3 and Summary say 'not employed'."
+}

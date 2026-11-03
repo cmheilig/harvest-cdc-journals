@@ -1,0 +1,477 @@
+{
+ "id": "mm6707a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysDq7MQqMLakWDrtP",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "rural U.S. residents had higher age-adjusted prevalence of COPD, of Medicare hospitalizations, and deaths caused by COPD"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-adjusted prevalence of diagnosed COPD among adults aged ≥18 years increased with less urbanicity from 4.7% among populations living in large metropolitan centers"
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Medicare hospitalizations (per 1,000 enrollees) for COPD were 11.4 among enrollees aged ≥65 years living in large metropolitan centers and 13.8"
+    },
+    {
+     "loc": "text",
+     "q": "Age-adjusted death rates (per 100,000 population) for COPD as the underlying cause also increased with less urbanicity"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "approximately 15.5 million adults aged ≥18 years (unadjusted prevalence = 6.3% and age-adjusted prevalence = 5.9%) had self-reported diagnosed COPD"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "There was a consistent pattern for significantly higher estimates of COPD measures from all three independent data systems among adults living in rural areas"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age-adjusted to the 2000 U.S. projected population, aged ≥18 years, using five age groups"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "age-adjusted to the 2000 U.S. projected population using stated age groups → direct standardization",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age-adjusted to the 2000 U.S. projected population, aged ≥18 years, using five age groups"
+    }
+   ]
+  },
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named t-tests for rural vs each other urban-rural category (prevalence)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Differences in COPD prevalence among rural respondents compared with those of other urban-rural subgroups were determined by t-tests."
+    }
+   ]
+  },
+  {
+   "name": "Z-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named Z-test for urban-rural differences in hospitalization and death rates",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Urban-rural differences in Medicare hospitalizations and death rates were determined by the Z-test."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (complex sampling design)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "software accounting for BRFSS complex sampling design produces prevalence estimates",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "For BRFSS analyses, statistical software was used to account for the complex sampling design."
+    }
+   ]
+  },
+  {
+   "name": "multilevel regression and poststratification",
+   "class": "regression",
+   "regression_family": "other",
+   "inferred_from": "'multilevel regression' with poststratification; link function not stated (MRP is typically multilevel logistic) → other",
+   "alternative_reading": "logistic",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A multilevel regression and poststratification approach ( 4 ) was used to estimate model-predicted COPD prevalence for U.S. counties"
+    }
+   ]
+  },
+  {
+   "name": "Pearson correlation",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "correlation of modeled vs direct county estimates for validation",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "comparing modeled estimates with actual unweighted BRFSS survey estimates in 1,507 counties with ≥50 respondents (Pearson correlation coefficient = 0.68; p<0.001)"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": "noncore (rural)",
+  "across": [
+   "urban-rural status",
+   "state"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "rural U.S. residents had higher age-adjusted prevalence of COPD, of Medicare hospitalizations, and deaths caused by COPD"
+   },
+   {
+    "loc": "text",
+    "q": "Differences in COPD prevalence among rural respondents compared with those of other urban-rural subgroups were determined by t-tests."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Medicare hospitalization rate for persons aged ≥65 years, death rate for all ages, and 95% CI for each estimate were calculated"
+   },
+   {
+    "loc": "text",
+    "q": "Urban-rural differences in Medicare hospitalizations and death rates were determined by the Z-test."
+   }
+  ]
+ },
+ "groupwise": [
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Differences in COPD prevalence among rural respondents compared with those of other urban-rural subgroups were determined by t-tests."
+    },
+    {
+     "loc": "text",
+     "q": "Age-adjusted death rates (per 100,000 population) for COPD as the underlying cause also increased with less urbanicity"
+    }
+   ]
+  }
+ ],
+ "primary_measures": [
+  {
+   "v": "age-adjusted prevalence, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "rate per 1,000",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Medicare hospitalizations ¶ › Rate per 1,000 (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "rate per 100,000",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Deaths ** › Rate per 100,000 (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "model-predicted county prevalence",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was used to estimate model-predicted COPD prevalence for U.S. counties in 2015"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "mixed effects",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A multilevel regression and poststratification approach ( 4 ) was used"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": null,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Do COPD prevalence, Medicare hospitalizations and deaths differ by urban-rural county status and by state in the United States in 2015?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess urban-rural variations in COPD prevalence, hospitalizations, and mortality; obtain county-level estimates; and update state-level variations in COPD measures"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "chronic obstructive pulmonary disease",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Urban-Rural County and State Differences in Chronic Obstructive Pulmonary Disease — United States, 2015"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed 2015 data from the Behavioral Risk Factor Surveillance System (BRFSS), Medicare hospital records, and death certificate data"
+    }
+   ]
+  },
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence of diagnosed COPD was estimated using the 2015 BRFSS survey"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence of diagnosed COPD was estimated using the 2015 BRFSS survey"
+    }
+   ]
+  },
+  {
+   "v": "administrative/claims",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Medicare enrollment records and data from 100% of Part A (inpatient hospital) claims in 2015"
+    }
+   ]
+  },
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC WONDER mortality data from NVSS contain information from all resident death certificates filed in the 50 states and DC."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Behavioral Risk Factor Surveillance System (BRFSS)"
+    }
+   ]
+  },
+  {
+   "v": "Medicare Part A claims",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "data from 100% of Part A (inpatient hospital) claims in 2015"
+    }
+   ]
+  },
+  {
+   "v": "National Vital Statistics System (NVSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "death certificate data from the National Vital Statistics System (NVSS)"
+    }
+   ]
+  },
+  {
+   "v": "CDC WONDER",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Mortality data for all ages were analyzed using CDC WONDER"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "were calculated by urban-rural classification and state"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Rural vs metropolitan COPD measures are reported and tested, with values set side by side (4.7% vs 8.2%) but no computed difference or ratio, so the cap at 2 applies despite named access and SES determinants.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "Higher rural burden is framed and interpreted, the ordered rise could be read as quantified, and uninsurance, low SES and access barriers are named as explanations."
+  },
+  "dimensions": [
+   {
+    "v": "rurality",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Urban-Rural County and State Differences in Chronic Obstructive Pulmonary Disease"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Analyses were limited to 30,212,024 living Medicare Part A enrollees aged ≥65 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age-adjusted to the 2000 U.S. projected population, aged ≥18 years, using five age groups"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "uninsured",
+     "lower socioeconomic status"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "higher proportions of uninsured or lower socioeconomic residents, which might have limited access to early diagnosis, treatment, and management of COPD"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "uninsurance and lower socioeconomic status; limited access to care (travel distance, absence of services, financial burden); limited access to smoking cessation; lack of Internet access",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "higher proportions of uninsured or lower socioeconomic residents, which might have limited access to early diagnosis, treatment, and management of COPD"
+    },
+    {
+     "loc": "text",
+     "q": "Barriers to health care in rural areas include cultural perceptions about seeking care, travel distance, absence of services, and financial burden"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Six-level NCHS urban-rural county classification by county of residence; rural (noncore) tested against each other level. State-level % rural used only to rank states (geography)."
+ },
+ "uncertain_fields": [
+  "equity.level",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Design is not named; surveillance/descriptive and cross-sectional are inferred. MRP county estimates (Figure) are ancillary to the urban-rural and state comparisons; state quartile rankings are side by side without tests.",
+ "view_issues": "Table 2 lists Georgia Medicare hospitalizations as '9.425', likely 9,425. The Figure is titled 'unadjusted prevalence' although the text describes model-predicted MRP county estimates."
+}

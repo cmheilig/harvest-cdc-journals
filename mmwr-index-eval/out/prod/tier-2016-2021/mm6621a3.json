@@ -1,0 +1,347 @@
+{
+ "id": "mm6621a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrbP4MPNrYiUv5mCA",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "prevalence of advanced disease at ART initiation declined from 73% to 37% during 2004–2014 in Mozambique"
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "significant increases in median CD4 count at ART initiation were observed in Mozambique (from 128/ μ L to 261/ μ L; p<0.001)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "However, in 2015, approximately a third of new ART patients still initiated ART with advanced HIV disease."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In Mozambique (2004–2014), Namibia (2004–2012), and Haiti (2004–2015), prevalence of advanced disease at ART initiation declined from 73% to 37% (p<0.001)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey-design logistic regression for change in percentages over calendar years",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Bivariate logistic regression models accounting for survey design' → logistic; compares latest vs earliest year, or year as continuous where trend was linear",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Bivariate logistic regression models accounting for survey design were used to evaluate statistical significance of changes in percentages over calendar years"
+    },
+    {
+     "loc": "table 2",
+     "q": "Specified p-values were derived from logistic regression including calendar year of ART initiation as a continuous variable because of observed linear trend."
+    }
+   ]
+  },
+  {
+   "name": "likelihood ratio test for departure from linear trend",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named likelihood ratio test used to choose between linear-trend and earliest-vs-latest-year models",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "with the likelihood ratio test used to assess departure from linear trend over time"
+    }
+   ]
+  },
+  {
+   "name": "survey-design linear regression of median baseline CD4 on calendar year",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "'a linear regression model, accounting for survey design' → linear; gives p-values for median CD4 increases",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a linear regression model, accounting for survey design, was used to assess statistical significance of changes"
+    }
+   ]
+  },
+  {
+   "name": "survey-design estimation (PPS facility samples, SRS of records)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "percentages and CIs stated as 'accounting for survey design' in the sample-based countries",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "percentages and 95% confidence intervals accounting for survey design"
+    },
+    {
+     "loc": "text",
+     "q": "nationally representative samples of ART facilities were selected, with probability of selection proportional to facility size"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": "earliest calendar year with data available",
+  "across": [
+   "calendar year of ART initiation",
+   "country"
+  ],
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "comparing the percentage of enrollees below the specified CD4 threshold in the most recent calendar year with the corresponding percentage in the earliest"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "percentages and 95% confidence intervals accounting for survey design"
+   },
+   {
+    "loc": "table 2",
+    "q": "P-value derived from logistic regression, accounting for survey design"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Overall › % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "median baseline CD4",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Trends in median CD4+ T-cell count at antiretroviral therapy (ART) initiation"
+    }
+   ]
+  },
+  {
+   "v": "p-value",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "p-value*"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Bivariate logistic regression models accounting for survey design were used to evaluate statistical significance of changes in percentages over calendar years"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Bivariate logistic regression models accounting for survey design"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did the prevalence of advanced HIV disease (CD4 <200) at ART initiation change during 2004–2015 in 10 high-burden countries?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess trends in prevalence of advanced disease at ART initiation in 10 high-burden countries during 2004–2015"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "HIV",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Trends in Prevalence of Advanced HIV Disease at Antiretroviral Therapy Enrollment — 10 Countries, 2004–2015"
+    }
+   ]
+  },
+  {
+   "v": "advanced HIV disease",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Trends in Prevalence of Advanced HIV Disease at Antiretroviral Therapy Enrollment"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "retrospective cohort",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Because of variations in the timing of retrospective data collection for the 10 studies"
+    },
+    {
+     "loc": "text",
+     "q": "First, cohort data varied in size and generalizability"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "To assess trends in prevalence of advanced disease at ART initiation in 10 high-burden countries during 2004–2015"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "electronic health records",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Availability of national electronic medical record systems allowed up-to-date evaluation of trends in Haiti"
+    }
+   ]
+  },
+  {
+   "v": "record abstraction or interview",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were abstracted from ART records onto standardized abstraction forms by trained study personnel."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [],
+ "setting": {
+  "v": "international",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This analysis of 694,138 medical records from 10 low- and middle-income countries (LMIC)"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Age only defines the adult population; sex and key populations appear only in a recommendation. Countries are geography, not an SPD.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "The Discussion recommends comparing demographic and key population groups (sex workers, persons who inject drugs), which could count as equity raised only as a recommendation."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Eligibility criteria included initiation of ART ≥6 months before data abstraction, during 2004–2015, and at age ≥15 years."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Comparing prevalence of advanced disease at ART initiation among demographic groups (e.g., nonpregnant females, pregnant females, and males)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Results are by country (low- and middle-income countries), which is geography; no results by sex, age group or other SPD."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "comparison",
+  "study_design"
+ ],
+ "confidence": "medium",
+ "notes": "Headline p-values compare the latest with the earliest year (pair); where trends were linear, year entered as continuous, so the comparison could also be read as group over years. Design is inferred from 'retrospective data collection' and 'cohort data'; the studies are framed as ART program evaluations.",
+ "view_issues": "Table 1 gives Mozambique enrollment years 2004–2013, while the text and Table 2 report 2004–2014. Some Zimbabwe and Tanzania cells in the Table 2 CSV carry stray % signs."
+}

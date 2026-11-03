@@ -1,0 +1,645 @@
+{
+ "id": "mm6633a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrWAiK6ZBtiZBv3Gm",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The unadjusted prevalence of ever testing for HIV was 37.5% among transgender women, 36.6% among transgender men"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The unadjusted prevalence of ever testing for HIV was 37.5% among transgender women, 36.6% among transgender men"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "nearly two thirds of transgender women and men in the sample reported never testing for HIV"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Black transgender women (62.6%) and men (66.9%) had a higher prevalence of ever testing than their white counterparts"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Multivariable logistic regression models compared self-reported prevalence of ever and past year testing among transgender women and men"
+    },
+    {
+     "loc": "table 3",
+     "q": "Adjusted for: race/ethnicity, age, education, annual household income, health insurance, marital status, geographic region, metropolitan county of residence, ever diagnosed with depressive disorder."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multivariable logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Multivariable logistic regression models' stated; adjusted prevalences and aPRs reported from them → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Multivariable logistic regression models compared self-reported prevalence of ever and past year testing among transgender women and men"
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (complex multistage sampling design)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "all estimates stated as weighted for the BRFSS sampling design; weights averaged across years for 14 jurisdictions",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All estimates were weighted to account for the complex multistage sampling design"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "aPR CIs model-based from the stated logistic regression; unadjusted PR CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "transgender women and men self-reported a lower prevalence of HIV testing (both ever and in the past year)"
+    },
+    {
+     "loc": "text",
+     "q": "Black transgender women and men were more likely than their white counterparts to report ever testing"
+    }
+   ]
+  },
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "table 1 note names chi-square tests across gender identity categories",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Chi-square tests were conducted to assess differences in demographic characteristics and HIV testing behaviors between gender identity categories; all p ≤0.01"
+    }
+   ]
+  },
+  {
+   "name": "suppression of estimates with relative standard error ≥30%",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "RSE-based withholding of imprecise estimates",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates with relative standard error ≥30% were not reported."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "cisgender gay and bisexual men",
+  "across": [
+   "gender identity category",
+   "race/ethnicity",
+   "age group",
+   "education",
+   "annual household income",
+   "health insurance",
+   "marital status",
+   "geographic region",
+   "county of residence",
+   "depressive disorder diagnosis"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "transgender women and men self-reported a lower prevalence of HIV testing (both ever and in the past year)"
+   },
+   {
+    "loc": "text",
+    "q": "unadjusted prevalence ratios and 95% confidence intervals were estimated to identify characteristics associated with ever testing among transgender women and men"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "Chi-square tests were conducted to assess differences in demographic characteristics and HIV testing behaviors between gender identity categories; all p ≤0.01"
+   },
+   {
+    "loc": "text",
+    "q": "Multivariable logistic regression models compared self-reported prevalence of ever and past year testing among transgender women and men"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "prevalence (%)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The unadjusted prevalence of past year testing was 11.7% among transgender women, 12.4% among transgender men"
+    }
+   ]
+  },
+  {
+   "v": "PR",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "PR = prevalence ratio; Ref = reference category."
+    }
+   ]
+  },
+  {
+   "v": "adjusted prevalence",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Adjusted prevalence ¶ (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "aPR",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "aPR = adjusted prevalence ratio"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All estimates were weighted to account for the complex multistage sampling design"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The unadjusted prevalence of ever testing for HIV was 37.5% among transgender women, 36.6% among transgender men"
+    },
+    {
+     "loc": "table 1",
+     "q": "Chi-square tests were conducted to assess differences in demographic characteristics and HIV testing behaviors between gender identity categories; all p ≤0.01"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "After adjusting for demographic characteristics, transgender women and men had a lower prevalence of ever testing and past year testing"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "race/ethnicity, age, education, annual household income, health insurance, marital status, geographic region, metropolitan county of residence, ever diagnosed with depressive disorder",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Adjusted for: race/ethnicity, age, education, annual household income, health insurance, marital status, geographic region, metropolitan county of residence, ever diagnosed with depressive disorder."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How does the prevalence of ever and past-year HIV testing among transgender women and men compare with cisgender gay and bisexual men and cisgender heterosexual adults?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to describe HIV testing among transgender women and men and two cisgender comparison groups in 27 states and Guam"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "HIV infection",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "HIV Testing Among Transgender Women and Men — 27 States and Guam, 2014–2015"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "BRFSS is an annual, state-based, random-digit–dialed cellular and landline telephone survey of the noninstitutionalized U.S. adult population."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "This analysis of 2014 and 2015 Behavioral Risk Factor Surveillance System data"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS)",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "This analysis of 2014 and 2015 Behavioral Risk Factor Surveillance System data"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "HIV Testing Among Transgender Women and Men — 27 States and Guam, 2014–2015"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Testing among transgender adults is quantified as lower than among cisgender gay/bisexual men (aPR 0.6) and interpreted as inconsistent with risk; stigma in health care and socioeconomic marginalization are named as barriers.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The determinants appear as barriers that tailored measures should address, cited from other work, so they may read as recommendation context rather than explanations."
+  },
+  "dimensions": [
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "primary comparison",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Transgender respondents were defined as those who answered affirmative to the question if they considered themselves to be transgender."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "cross-classifier",
+    "basis": "assigned or observed",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "Persons assigned male sex at birth who identify as woman, transgender woman, or another transfeminine identity."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Black transgender women (62.6%) and men (66.9%) had a higher prevalence of ever testing than their white counterparts"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 3",
+      "q": "Adjusted for: race/ethnicity, age, education, annual household income"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "survey of the noninstitutionalized U.S. adult population."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Age group (yrs) › ≥65"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 3",
+      "q": "Adjusted for: race/ethnicity, age, education, annual household income"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education",
+     "annual household income",
+     "health insurance"
+    ],
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Annual household income › <$25,000"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "education",
+     "annual household income",
+     "health insurance"
+    ],
+    "ev": [
+     {
+      "loc": "table 3",
+      "q": "Adjusted for: race/ethnicity, age, education, annual household income, health insurance"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "County of residence › Nonmetropolitan"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 3",
+      "q": "geographic region, metropolitan county of residence"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "HIV stigma within the transgender community; gender identity stigma in health care settings; socioeconomic marginalization; expanded testing focused among black communities",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "gender identity stigma in health care settings ( 9 ), and socioeconomic marginalization ( 10 )"
+    },
+    {
+     "loc": "text",
+     "q": "might reflect success of expanded testing measures focused among black communities"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referent is cisgender gay/bisexual men; gender nonconforming respondents (n=272) excluded; sexual orientation splits only cisgender groups; race collapsed to 4 groups; many Table 2 estimates suppressed (RSE ≥30%)."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "sexual orientation and gender identity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Chi-square tests were conducted to assess differences in demographic characteristics and HIV testing behaviors between gender identity categories; all p ≤0.01"
+    }
+   ]
+  },
+  {
+   "across": [
+    "sexual orientation and gender identity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Ref = reference category."
+    },
+    {
+     "loc": "table 3",
+     "q": "Cisgender heterosexual men and women"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Chi-square tests were conducted to assess differences in demographic characteristics and HIV testing behaviors between gender identity categories; all p ≤0.01"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group (yrs) › ≥65"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Education › College or above"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Annual household income › Missing"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Race/Ethnicity › Black, non-Hispanic"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Age group (yrs) › 18–24"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Education › <High school"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Annual household income › ≥$50,000"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "equity.dimensions"
+ ],
+ "confidence": "medium",
+ "notes": "Design not named; cross-sectional inferred from the BRFSS survey. The 'comparable' claim versus cisgender heterosexual adults rests on adjusted prevalences set side by side; how aPRs and adjusted prevalences were derived from the logistic model is not stated. Covariates were selected by univariate p<0.10, a selection rule, not a procedure.",
+ "view_issues": "Table 2 CSV shifts transgender men's PR values into an extra sixth column from the health insurance rows onward. Table 1 chi-square income margin includes a Missing row, so its group count is uncertain."
+}

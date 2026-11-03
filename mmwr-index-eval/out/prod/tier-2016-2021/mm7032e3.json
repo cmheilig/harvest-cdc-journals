@@ -1,0 +1,399 @@
+{
+ "id": "mm7032e3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysnZ8PgVdfakGsSBA",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "the Poisson regression model uses case counts (both vaccinated and unvaccinated) as the outcome"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "full vaccination coverage from any of the three authorized vaccines ranged from 0.7% on February 1, 2021, to 72% on April 30, 2021."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "full vaccination coverage from any of the three authorized vaccines ranged from 0.7% on February 1, 2021, to 72% on April 30, 2021."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Population vaccine effectiveness is defined as the reduction in disease risk among vaccinated versus unvaccinated persons in the population."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were stratified by age group because of the potential for confounding by age, and adjusted for COVID-NET site, time"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Poisson regression with population-coverage offset (GEE, autoregressive correlation)",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'Poisson regression' on case counts with log coverage offsets → loglinear; VE = 1 − exp(β)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Poisson regression was used to compare case counts by vaccination status (outcome) and the proportion of the population vaccinated and unvaccinated (offset)."
+    }
+   ]
+  },
+  {
+   "name": "screening method",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "VE from proportion of cases vaccinated vs population coverage, implemented via the Poisson model",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "This analysis applied a variation of the screening method through a Poisson regression model"
+    }
+   ]
+  },
+  {
+   "name": "sampling weights with nonresponse adjustment, raking and trimming",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "footnote on sampling weights attached to the adjustment for sampling frequency",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "adjusted to population catchment totals based on combinations of surveillance site, time period of admission, age, sex, and race/ethnicity via raking procedures"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based CIs from the Poisson GEE model; VE CIs exclude 0 and protection is concluded",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "COVID-19 vaccines currently authorized in the United States are highly effective in preventing COVID-19–associated hospitalizations in older adults."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "unvaccinated persons",
+  "across": [
+   "vaccination status",
+   "vaccine product",
+   "age group"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Among adults aged 65–74 years, effectiveness of full vaccination for preventing hospitalization was 96% for Pfizer-BioNTech, 96% for Moderna, and 84% for Janssen"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To estimate vaccine effectiveness and corresponding 95% CIs, methods were adapted based on previously published literature"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "vaccine effectiveness",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Vaccine effectiveness was calculated as one minus the exponent of the estimated coefficient of the exposure (vaccination status) variable."
+    }
+   ]
+  },
+  {
+   "v": "full vaccination coverage, %",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "full vaccination coverage from any of the three authorized vaccines ranged from 0.7% on February 1, 2021, to 72% on April 30, 2021."
+    }
+   ]
+  },
+  {
+   "v": "No. of cases",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. of cases, by age group (yrs)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "GEE",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "A generalized estimating equation approach with autoregressive correlation structure accommodated daily variations of disease rates and vaccine coverage"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were stratified by age group because of the potential for confounding by age, and adjusted for COVID-NET site, time"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "COVID-NET site, time (weeks since study start, categorical), monthly site-specific sampling frequency; stratified by age group",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusted for COVID-NET site, time (number of weeks since the start of the study period as a categorical covariate), and monthly site-specific sampling frequency"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "sensitivity analyses were conducted using a reference date 1 week and 2 weeks before admission, rather than admission date"
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "How effective are the three authorized COVID-19 vaccines in preventing COVID-19–associated hospitalization among adults aged ≥65 years?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To determine the real-world effectiveness of the three currently authorized COVID-19 vaccines among persons aged ≥65 years during February 1–April 30, 2021"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Effectiveness of COVID-19 Vaccines in Preventing Hospitalization Among Adults Aged ≥65 Years"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-NET includes data on laboratory-confirmed COVID-19–associated hospitalizations in 99 U.S. counties in 14 states"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "screening method",
+   "ev": [
+    {
+     "loc": "figure 2",
+     "q": "by vaccine product and age group using the screening method"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "data on 7,280 patients from the COVID-19–Associated Hospitalization Surveillance Network (COVID-NET) were analyzed"
+    }
+   ]
+  },
+  {
+   "v": "vaccination registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "analyzed with vaccination coverage data from state immunization information systems (IISs) for the COVID-NET catchment area"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "COVID-19–Associated Hospitalization Surveillance Network (COVID-NET)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-19–Associated Hospitalization Surveillance Network (COVID-NET)"
+    }
+   ]
+  },
+  {
+   "v": "state immunization information systems (IISs)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "vaccination coverage data from state immunization information systems (IISs)"
+    }
+   ]
+  },
+  {
+   "v": "Vaccine Administration Management System",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "through the IISs,** Vaccine Administration Management System, †† or direct data submission."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "COVID-NET, 13 States, February–April 2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "effectiveness",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Effectiveness of COVID-19 Vaccines in Preventing Hospitalization Among Adults Aged ≥65 Years"
+   }
+  ]
+ },
+ "equity": {
+  "level": 1,
+  "level_reason": "Age defines the population and strata without social-position framing; race/ethnicity and sex enter only as raking variables for the COVID-NET sampling weights.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 0,
+   "reason": "The weights are COVID-NET's general sampling weights and it is unclear they enter the analysis, leaving age only."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The study was restricted to adults aged ≥65 years and included the period February 1–April 30, 2021."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Data were stratified by age group because of the potential for confounding by age"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "adjusted to population catchment totals based on combinations of surveillance site, time period of admission, age, sex, and race/ethnicity via raking procedures"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "adjusted to population catchment totals based on combinations of surveillance site, time period of admission, age, sex, and race/ethnicity via raking procedures"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Only two age strata (65–74, ≥75); race/ethnicity and sex appear only in the raking of sampling weights."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "procedures",
+  "inference",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "The log of population coverage enters as a model offset, not a separate transformation. Partial-vaccination VE differences between mRNA products are explicitly not interpreted as evidence of a difference.",
+ "view_issues": "Methods say the model adjusted for 'monthly site-specific sampling frequency' while the footnote describes sampling weights with raking; whether weights were applied to case counts is unclear. Text says 14 COVID-NET states but 13 were analyzed (Iowa excluded)."
+}

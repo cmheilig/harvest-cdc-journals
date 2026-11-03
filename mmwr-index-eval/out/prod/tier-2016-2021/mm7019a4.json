@@ -1,0 +1,376 @@
+{
+ "id": "mm7019a4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPytvGZQGCEe73kyTE2",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "with higher percentages of positive tests at CBT sites than in all other testing settings (11.1% versus 7.1%; p<0.001)"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "persons tested at CBT sites were more likely to live in areas that are economically marginalized (38.6% versus 32.0%; p<0.001)"
+    },
+    {
+     "loc": "text",
+     "q": "Overall, 11.1% of all SARS-CoV-2 test results at CBT sites were positive"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, 11.1% of all SARS-CoV-2 test results at CBT sites were positive"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Compared with persons tested in all other settings, those tested at CBT sites were more likely to be aged <40 years (66.9% versus 51.7%; p<0.001)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Pearson chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated Pearson's chi-square for pairwise setting comparisons; table note: global chi-square per characteristic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Pairwise comparisons between groups were assessed using Pearson’s chi-square test."
+    },
+    {
+     "loc": "table 1",
+     "q": "p-values are for a chi-square test for a global difference in a characteristic between all those tested at total CBT sites"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": "all other testing settings",
+  "across": [
+   "testing setting (CBT vs all other; mobile vs fixed CBT)",
+   "race/ethnicity",
+   "economic marginalization (IHI tertile)",
+   "age group",
+   "sex",
+   "test result"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Compared with persons in other testing settings, those tested at CBT sites were more likely to be Hispanic"
+   },
+   {
+    "loc": "summary",
+    "q": "The proportion of positive test results was larger at CBT sites."
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Pairwise comparisons between groups were assessed using Pearson’s chi-square test. P-values <0.05 were considered statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. (%)"
+    }
+   ]
+  },
+  {
+   "v": "percentage of positive test results",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The cumulative percentage of positive test results at the CBT sites was higher than that at all other testing settings"
+    }
+   ]
+  },
+  {
+   "v": "p-value",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "p-value ¶"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Did Chicago's community-based SARS-CoV-2 testing initiative reach Hispanic and economically marginalized persons, and with what test positivity, compared with other testing settings?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "compared demographic characteristics, economic marginalization, and test positivity between persons tested at CBT sites and persons tested in all other testing settings"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Community-Based Testing for SARS-CoV-2 — Chicago, Illinois, May–November 2020"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "To assess the CBT initiative, the Chicago Department of Public Health (CDPH) compared demographic characteristics, economic marginalization, and test positivity"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Characteristics of Chicago residents tested at all other settings were extracted from the Illinois National Electronic Disease Surveillance System."
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Demographic information was collected during online or on-site registration."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Illinois National Electronic Disease Surveillance System",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "extracted from the Illinois National Electronic Disease Surveillance System."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Community-Based Testing for SARS-CoV-2 — Chicago, Illinois, May–November 2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Shares of Hispanic and economically marginalized persons tested at CBT vs other sites are set side by side with p-values, framed as equitable reach, but no difference or ratio is computed, so the level is capped at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "The program is evaluated for equity, IHI is an area SES index as stratifier, and access to testing is named as the structural explanation."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "persons tested at CBT sites were more likely than were those tested in all other settings to be Hispanic (50.9% versus 20.7%; p<0.001)"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "primary comparison",
+    "ses_components": [
+     "unemployment",
+     "income level",
+     "poverty"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Economic marginalization was assessed according to the Intercity Hardship Index (IHI) of the person’s zip code of residence"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "those tested at CBT sites were more likely to be aged <40 years (66.9% versus 51.7%; p<0.001)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "less access to testing in other settings; economic marginalization",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "CBT initiatives led by public health departments can reach communities with less access to testing in other settings"
+    },
+    {
+     "loc": "text",
+     "q": "demographic groups and geographic areas that were underrepresented in testing by clinical providers"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The CBT initiative effectively reached communities disproportionately affected by COVID-19, including Black and Hispanic communities"
+    }
+   ]
+  },
+  "equity_measurement": "Economic marginalization is a zip-code proxy (IHI tertiles); race/ethnicity missing for 45.2% in other settings, percentages in text are among those with known race; groups compared are testing populations, not disparities in outcomes."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity › Hispanic"
+    },
+    {
+     "loc": "table 1",
+     "q": "p-values are for a chi-square test for a global difference in a characteristic"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Economic marginalization** › High"
+    },
+    {
+     "loc": "table 1",
+     "q": "p-values are for a chi-square test for a global difference in a characteristic"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 7,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group, yrs › 60–69"
+    },
+    {
+     "loc": "table 1",
+     "q": "p-values are for a chi-square test for a global difference in a characteristic"
+    }
+   ]
+  },
+  {
+   "across": [
+    "sex"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Sex › Other"
+    },
+    {
+     "loc": "table 1",
+     "q": "p-values are for a chi-square test for a global difference in a characteristic"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Global chi-square tests (CBT vs other setting) by each characteristic give Table-1-style omnibus groupwise entries; group counts exclude unknown categories, which the test may include. Race imputation was done in a separate unpublished study and does not enter these estimates.",
+ "view_issues": "Discussion claims CBT reached Black communities, but Black share was lower at CBT (14.3%) than other settings (16.5%). Mobile vs fixed p-value in text is not shown in the table, whose p-values are only CBT vs other."
+}

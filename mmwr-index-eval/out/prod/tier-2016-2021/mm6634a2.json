@@ -1,0 +1,324 @@
+{
+ "id": "mm6634a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrtjgkaCyjxdLd8uh",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Total deaths involving heroin increased more sharply during 2010–2015 than during 2006–2009 in all regions"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "unintentional or undetermined intent heroin and synthetic opioid death rates per 100,000 population"
+    },
+    {
+     "loc": "text",
+     "q": "Full-year estimates of fentanyl or heroin drug reports § per 100,000 population"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Total deaths involving heroin increased more sharply during 2010–2015 than during 2006–2009 in all regions"
+    },
+    {
+     "loc": "text",
+     "q": "Deaths involving use of both heroin and synthetic opioids had larger average yearly rate increases after 2013 than did deaths involving heroin without synthetic opioids"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "piecewise linear regression",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "'Piecewise linear regression' (segmented, breakpoints fixed at 2010 or 2013) on rates per 100,000 → linear; slopes tested vs zero and between periods",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Piecewise linear regression analyses were used to examine hypotheses that regional trends mirrored the national trends"
+    },
+    {
+     "loc": "table 1",
+     "q": "§ Slope for the later period is statistically significantly different from that of the earlier period (p<0.05)."
+    }
+   ]
+  },
+  {
+   "name": "NFLIS National Estimates Based on All Reports weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "note states drug report estimates incorporate weighting for nonsampled laboratories",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "calculated using the National Estimates Based on All Reports method, which incorporates weighting to account for nonsampled laboratories"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "absolute",
+  "referent": "earlier-period slope (2006–2009 or 2006–2012); zero slope",
+  "across": [
+   "period",
+   "census region",
+   "drug type"
+  ],
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "§ Slope for the later period is statistically significantly different from that of the earlier period (p<0.05)."
+   },
+   {
+    "loc": "summary",
+    "q": "Deaths involving both heroin and synthetic opioids increased sharply after 2013."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "† Slope estimates are statistically significantly different from zero (p<0.05)."
+   },
+   {
+    "loc": "table 1",
+    "q": "Rate change (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "deaths per 100,000 population",
+   "ev": [
+    {
+     "loc": "figure 2",
+     "q": "Number of deaths per 100,000 population involving heroin without synthetic opioids"
+    }
+   ]
+  },
+  {
+   "v": "drug reports per 100,000 population",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Number of law enforcement drug reports for heroin and fentanyl per 100,000 population"
+    }
+   ]
+  },
+  {
+   "v": "average yearly rate change",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Average yearly changes in rates of overdose deaths involving heroin and synthetic opioids excluding methadone"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Piecewise linear regression analyses were used to examine hypotheses that regional trends mirrored the national trends"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "§ Slope for the later period is statistically significantly different from that of the earlier period (p<0.05)."
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did rates of deaths involving heroin and synthetic opioids, and law enforcement heroin and fentanyl drug reports, change by Census region during 2006–2015?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC examined trends in unintentional and undetermined deaths involving heroin or synthetic opioids excluding methadone (i.e., synthetic opioids)* by the four U.S. Census regions"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "heroin overdose deaths",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Trends in Deaths Involving Heroin and Synthetic Opioids Excluding Methadone"
+    }
+   ]
+  },
+  {
+   "v": "synthetic opioid (fentanyl) overdose deaths",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Deaths involving synthetic opioids without heroin also increased sharply after 2013"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC examined trends in unintentional and undetermined deaths involving heroin or synthetic opioids excluding methadone"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "rate increases in deaths involving heroin without synthetic opioids were examined before and after 2013."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using the National Vital Statistics System multiple cause-of-death mortality files"
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "reported to the Drug Enforcement Administration’s (DEA’s) National Forensic Laboratory Information System (NFLIS)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System multiple cause-of-death mortality files",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using the National Vital Statistics System multiple cause-of-death mortality files"
+    }
+   ]
+  },
+  {
+   "v": "CDC WONDER",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Death data are from CDC WONDER"
+    }
+   ]
+  },
+  {
+   "v": "National Forensic Laboratory Information System (NFLIS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Drug Enforcement Administration’s (DEA’s) National Forensic Laboratory Information System (NFLIS)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "National › Rate change (95% CI)"
+   },
+   {
+    "loc": "text",
+    "q": "were stratified by the four U.S. Census regions for 2006–2015."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "No social-position dimension is analyzed; comparisons are by Census region, period and drug type, and geography alone is not an SPD.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Persons released from prison are named only in a recommendation, which could be read as equity raised only as a recommendation."
+  },
+  "dimensions": [],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Only geography (four Census regions) is compared; no demographic strata are reported."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "comparison",
+  "procedures"
+ ],
+ "confidence": "high",
+ "notes": "Headline claims rest on piecewise linear slopes before and after fixed breakpoints (2010 for heroin, 2013 for synthetic opioids/fentanyl), with tests of slope vs zero and later vs earlier slope. Regional comparisons are side by side. The NFLIS weighting is DEA's estimation method, recorded as ancillary.",
+ "view_issues": "The body's region footnote lists Rhode Island in the Midwest, whereas the table and figure notes list it in the Northeast."
+}

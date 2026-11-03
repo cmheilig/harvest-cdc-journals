@@ -1,0 +1,400 @@
+{
+ "id": "mm6914a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyt6QZnoYmoR57zG1K",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The overall (unadjusted) prevalence of self-reported hypertension was 32.4% (95% confidence interval [CI] = 32.1%–32.7%)."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The overall (unadjusted) prevalence of self-reported hypertension was 32.4% (95% confidence interval [CI] = 32.1%–32.7%)."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall age-standardized hypertension prevalence was higher among men (32.9%) than among women (27.0%), highest among blacks (40.0%)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence estimates were age-standardized to the 2000 U.S. standard population"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'tested using chi-squared tests' across sociodemographic subgroups, p<0.05; SUDAAN implies survey-adjusted chi-square",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Differences in prevalence across sociodemographic subgroups were tested using chi-squared tests"
+    }
+   ]
+  },
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "standardized to the 2000 U.S. projected population using three age groups",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence estimates were age-standardized to the 2000 U.S. standard population"
+    },
+    {
+     "loc": "table 2",
+     "q": "Age standardized to the 2000 U.S. projected population using three age groups: 18–44, 45–64, and ≥65 years."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (raking)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "BRFSS sampling weights derived by raking; complex survey design accounted for in SUDAAN",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Application of sampling weights accounted for nonresponse, noncoverage, and mobile telephone–only households, and were derived from an iterative proportional weighting (raking) procedure."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "state",
+   "age group",
+   "sex",
+   "race/ethnicity",
+   "education",
+   "household income"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The prevalence of these factors varied widely by state and was generally highest in the Southeastern and Appalachian states."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "differences reported were considered statistically significant for p-values <0.05."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "prevalence (%)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "% (95% CI) › Unadjusted"
+    }
+   ]
+  },
+  {
+   "v": "age-standardized prevalence",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "% (95% CI) › Age-standardized*"
+    }
+   ]
+  },
+  {
+   "v": "median state-specific prevalence",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The age-standardized median state-specific prevalence of hypertension was 29.7%"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What were the prevalences of self-reported hypertension and antihypertensive medication use among U.S. adults in 2017, overall, by state and by sociodemographic characteristics?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To update prevalence estimates for self-reported hypertension and use of antihypertensive medication, CDC analyzed data from the 2017 Behavioral Risk Factor Surveillance System"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "hypertension",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Prevalence of Self-Reported Hypertension and Antihypertensive Medication Use Among Adults"
+    }
+   ]
+  },
+  {
+   "v": "hypertension",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among persons reporting hypertension, the overall unadjusted prevalence of self-reported antihypertensive medication use was 76.0%"
+    }
+   ]
+  },
+  {
+   "v": "antihypertensive medication use",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Prevalence of Self-Reported Hypertension and Antihypertensive Medication Use Among Adults"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "BRFSS † is an annual, random-digit–dialed telephone survey (both landline and mobile phone)"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2017 Behavioral Risk Factor Surveillance System (BRFSS)."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2017 Behavioral Risk Factor Surveillance System (BRFSS)."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "were estimated overall, for each of the 50 states and DC, and by sociodemographic characteristics."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Prevalence by race/ethnicity, education and income is reported and described (highest among blacks, decreasing with education and income) but only as side-by-side values with significance testing; 'disparities' appears only in a recommendation.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The implications frame reducing disparities, and the Black–other and SES gradients could be read as framed disparities, though no difference or ratio is computed."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "highest among blacks (40.0%), and decreased with increasing levels of education and household income."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education level",
+     "household income"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "highest among blacks (40.0%), and decreased with increasing levels of education and household income."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "was higher among women (64.0%) than among men (56.7%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Age-specific hypertension prevalence increased with increasing age group"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "among adults aged ≥18 years, by selected characteristics"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Age-standardized prevalences across eight race/ethnicity groups, three education and five income levels; no referent group or computed contrast. Noninstitutionalized population only."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 8,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Differences in prevalence across sociodemographic subgroups were tested using chi-squared tests"
+    },
+    {
+     "loc": "table 2",
+     "q": "Race/Ethnicity* › Black, non-Hispanic"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Education level* › Less than high school"
+    },
+    {
+     "loc": "text",
+     "q": "did not vary by education or household income level."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Household income* › <$15,000"
+    },
+    {
+     "loc": "text",
+     "q": "decreased with increasing levels of education and household income."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-specific hypertension prevalence increased with increasing age group"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred as cross-sectional from the BRFSS survey; none is named. Chi-square tests are stated once for all sociodemographic subgroups; whether they were omnibus across all levels is assumed. State comparisons are side by side only.",
+ "view_issues": "Table 1: West Virginia unadjusted HTN 43.5 has CI 28.6–30.5 (copied from Washington); Maine medication CI reads '72(2–76.9'. Text calls medication use by race and sex 'age-specific' but cites age-standardized values (68.1%, 64.0%)."
+}

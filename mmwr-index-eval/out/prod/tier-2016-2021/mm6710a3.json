@@ -1,0 +1,424 @@
+{
+ "id": "mm6710a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysHoX2c6DxGy8i2vp",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "an estimated 4 in 5 (20.5 million) U.S. middle and high school students were exposed to e-cigarette advertisements"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2016, exposure was highest for retail stores (68.0%), followed by the Internet (40.6%), television (37.7%), and newspapers and magazines (23.9%)."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "an estimated 4 in 5 (20.5 million) U.S. middle and high school students were exposed to e-cigarette advertisements"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "exposure to e-cigarette advertising significantly increased for retail stores (from 54.8% to 68.0%), significantly decreased for newspapers and magazines"
+    },
+    {
+     "loc": "text",
+     "q": "In 2016, exposure to advertising from any source was more prevalent among females (79.9%) than males (76.5%)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "were assessed as model-adjusted risk differences from predicted marginals in logistic regression (t-test)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting for complex design and nonresponse",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated: data weighted to account for the complex survey design and adjusted for nonresponse; all prevalence estimates weighted",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted to account for the complex survey design and adjusted for nonresponse."
+    }
+   ]
+  },
+  {
+   "name": "Wald F test (ANOVA) across years",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated Wald F test of between-year differences in each exposure source",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "were assessed by the Wald F-Test (ANOVA); p-values <0.05 were considered statistically significant."
+    }
+   ]
+  },
+  {
+   "name": "logistic regression predicted marginals for posthoc between-year risk differences (t-test, multiplicity-corrected)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'predicted marginals in logistic regression' → logistic; risk differences tested by t-test at p<0.0167",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Posthoc comparisons for changes in e-cigarette advertisement exposures between years (2014–2015, 2015–2016, and 2014–2016) were assessed as model-adjusted risk differences"
+    },
+    {
+     "loc": "note",
+     "q": "A p-value <0.0167, adjusted for multiple comparisons, was considered statistically significant."
+    }
+   ]
+  },
+  {
+   "name": "t-test (each level vs referent group, within year)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated t-tests of each covariate level vs referent; table notes call them paired t-tests",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Within each year, t-tests were used to assess statistically significant differences between levels of each covariate relative to the referent group (p<0.05)."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "2014; referent groups (males, non-Hispanic white, 6th grade, middle school, nonusers)",
+  "across": [
+   "survey year",
+   "advertising source",
+   "sex",
+   "race/ethnicity",
+   "grade level",
+   "school level",
+   "current e-cigarette use",
+   "current other tobacco product use"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "a significant increase over 2014 and 2015"
+   },
+   {
+    "loc": "text",
+    "q": "a 13% increase over 2014"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Prevalence estimates and 95% confidence intervals of exposure to each source, and to any source, were computed."
+   },
+   {
+    "loc": "note",
+    "q": "were assessed by the Wald F-Test (ANOVA); p-values <0.05 were considered statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "prevalence, % (95% CI)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Prevalence of exposure to e-cigarette advertisements* among U.S. youths"
+    }
+   ]
+  },
+  {
+   "v": "population estimate (millions)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Overall population estimate (in millions) †"
+    }
+   ]
+  },
+  {
+   "v": "percent increase",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Exposure in retail stores increased 24% in 2016 compared with 2014"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted to account for the complex survey design and adjusted for nonresponse."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "note",
+     "q": "were assessed by the Wald F-Test (ANOVA); p-values <0.05 were considered statistically significant."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": null,
+   "ev": [
+    {
+     "loc": "note",
+     "q": "were assessed as model-adjusted risk differences from predicted marginals in logistic regression (t-test)."
+    }
+   ]
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did U.S. middle and high school students' exposure to e-cigarette advertising by source change during 2014–2016, and how did it differ by demographic and tobacco-use groups?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess patterns of self-reported exposure to four e-cigarette advertising sources (retail stores, the Internet, television, and newspapers and magazines)"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "e-cigarette use",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Exposure to each advertising source was higher among current e-cigarette users and other tobacco product users than nonusers during 2014, 2015, and 2016"
+    }
+   ]
+  },
+  {
+   "v": "tobacco product use",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "current users of e-cigarettes and other tobacco products reported higher prevalence of exposure to e-cigarette advertising than nonusers."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a cross-sectional, paper-and-pencil survey administered to U.S. students in grades 6–12."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, exposure to e-cigarette advertising from at least one source increased each year during 2014–2016"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2014, 2015, and 2016 National Youth Tobacco Surveys (NYTSs)."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Youth Tobacco Survey (NYTS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2014, 2015, and 2016 National Youth Tobacco Surveys (NYTSs)."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "NYTS utilizes a three-stage cluster sampling design to generate a nationally representative sample of public and private school students."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Exposure is reported by sex, race/ethnicity and grade with significance marks against referents and briefly described, but not framed as a disparity or interpreted.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Race/ethnicity group differences are only listed in one results sentence and the table; could be read as descriptive stratification only."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "non-Hispanic whites (79.6%) than Hispanics (77.0%) and students of other non-Hispanic races/ethnicities (73.6%)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "In 2016, exposure to advertising from any source was more prevalent among females (79.9%) than males (76.5%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "8th (78.5%), 10th (81.0%), 11th (79.3%), and 12th graders (79.0%) than 6th graders (75.0%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "a cross-sectional, paper-and-pencil survey administered to U.S. students in grades 6–12."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referents are non-Hispanic white, males and 6th grade; race/ethnicity collapsed to four groups (other non-Hispanic combined); grade used as an age proxy."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Significantly different from non-Hispanic white at p<0.05 based on paired t-test."
+    },
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity › Black, non-Hispanic"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 7,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Significantly different from 6th grade at p<0.05 based on paired t-test."
+    },
+    {
+     "loc": "text",
+     "q": "8th (78.5%), 10th (81.0%), 11th (79.3%), and 12th graders (79.0%) than 6th graders (75.0%)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "analytic_depth",
+  "regression_fields",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Covariates of the 'model-adjusted' logistic predicted marginals are not stated, so adjusted_results and confounders are null and stratified/adjusted depth is tentative. Percent increases (13%, 24%) appear only in the Discussion; within-year group contrasts are shown with significance marks only.",
+ "view_issues": "Table notes call the group tests 'paired t-test' though groups are independent. Body text implies Wald F tested at p<0.0167, whereas the footnote gives p<0.05 for Wald F and p<0.0167 for posthoc tests."
+}

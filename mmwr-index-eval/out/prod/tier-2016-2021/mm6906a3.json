@@ -1,0 +1,482 @@
+{
+ "id": "mm6906a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysukCSj2CodLuMGFG",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Among all youths, the incidence of type 1 diabetes increased from 19.5 per 100,000 in 2002–2003 to 22.3 in 2014–2015"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Incidence rates and 95% confidence intervals (CIs) are presented as 2-year moving averages and expressed per 100,000 person-years"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The overall APC adjusted for age, sex, and race/ethnicity in type 1 diabetes incidence was 1.9% per year over the entire period"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Comparisons were made between the periods 2002–2010 and 2011–2015 to determine whether the annual percentage change (APC) was constant"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates adjusted for age, sex, and race/ethnicity and estimation of the change in the annual incidence trends during 2002–2015 are reported."
+    },
+    {
+     "loc": "table 1",
+     "q": "results by race/ethnicity adjusted for age and sex."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "segmented negative binomial regression with change point at 2011 and GARMA serial correlation",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "segmented (joinpoint) regression 'assuming a negative binomial distribution with a logarithmic link' → loglinear; APCs from the log-rate slopes",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Incidence trends were modeled separately for type 1 and type 2 diabetes assuming a negative binomial distribution with a logarithmic link"
+    },
+    {
+     "loc": "text",
+     "q": "testing for interaction between each of these variables separately with the change point at year 2011 using segmented regression."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "significance judged by 95% CI of APC or change in APC excluding zero; CIs model-based from the negative binomial segmented regression",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A statistically significant change in incidence trends is indicated when the 95% CI excluded zero."
+    },
+    {
+     "loc": "table 1",
+     "q": "significantly different from zero (as indicated by 95% CI that does not include zero)."
+    }
+   ]
+  },
+  {
+   "name": "2-year moving averages",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "rates presented as 2-year moving averages (smoothing)",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Incidence rates and 95% confidence intervals (CIs) are presented as 2-year moving averages and expressed per 100,000 person-years"
+    }
+   ]
+  },
+  {
+   "name": "capture/recapture estimation of ascertainment completeness",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "capture/recapture used to estimate missed cases; qualifies the analyzed counts",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Completeness of case ascertainment for the four geographically based centers was assessed using capture/recapture"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "zero change (APC and change in APC); whites in text comparisons",
+  "across": [
+   "period (2002–2010 vs 2011–2015)",
+   "race/ethnicity",
+   "age group",
+   "sex",
+   "diabetes type"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "both type 1 and type 2 diabetes incidence continued to increase among youths at five U.S. sites"
+   },
+   {
+    "loc": "summary",
+    "q": "especially among racial and ethnic minority populations."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "A statistically significant change in incidence trends is indicated when the 95% CI excluded zero."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "incidence per 100,000 person-years",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Incidence of type 1 diabetes per 100,000 persons per year"
+    }
+   ]
+  },
+  {
+   "v": "annual percent change (APC)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(annual percent change [APC] = 1.9%)"
+    }
+   ]
+  },
+  {
+   "v": "change in APC from 2002–2010 to 2011–2015",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Change from 2002–2010 to 2011–2015 (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "serial correlation",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using a generalized autoregressive moving average to account for serial correlation"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "overall results adjusted by age, sex, and race/ethnicity; results by age adjusted for sex and race/ethnicity"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age, sex, race/ethnicity (each omitted when it is the stratifier)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates adjusted for age, sex, and race/ethnicity and estimation of the change in the annual incidence trends during 2002–2015 are reported."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Consistency of the incidence trends over time by age, sex, and race/ethnicity was evaluated by testing for interaction between each of these variables separately"
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did incidence of type 1 and type 2 diabetes among U.S. youths change during 2002–2015, overall and by age, sex and race/ethnicity?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess recent trends in incidence of diabetes in youths (defined for this report as persons aged <20 years)"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "type 1 diabetes",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Trends in Incidence of Type 1 and Type 2 Diabetes Among Youths"
+    }
+   ]
+  },
+  {
+   "v": "type 2 diabetes",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Trends in Incidence of Type 1 and Type 2 Diabetes Among Youths"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "SEARCH is a population-based registry of diabetes with surveillance of 69,457,475 youths (aged <20 years)"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Comparisons were made between the periods 2002–2010 and 2011–2015 to determine whether the annual percentage change (APC) was constant"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "SEARCH is a population-based registry of diabetes"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "SEARCH for Diabetes in Youth Study (SEARCH)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "data from the SEARCH for Diabetes in Youth Study (SEARCH), a U.S. population-based registry study"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "it is not designed to be nationally representative."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "APCs and incidence are reported by race/ethnicity and minority groups are said to have steeper increases than whites, but group APCs are only set side by side with no computed difference or ratio, and no disparity framing or social determinants.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "'Steeper increases ... than among whites' with group APCs and the Summary's 'especially among racial and ethnic minority populations' could be read as a quantified, interpreted disparity."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "For both type 1 and type 2 diabetes, the rates of increase were generally higher among racial/ethnic minority populations than those among whites."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "results by age adjusted for sex and race/ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "incident cases of type 2 diabetes are only included for persons aged 10–19 years at diagnosis."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group at diagnosis (yrs) › 0–4"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "results by sex adjusted for age and race/ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "results by race/ethnicity adjusted for age and sex."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity from self-report (82%), medical records (15%) or geocoding (3%); whites implicit referent; American Indians primarily from one southwestern tribe."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Steeper increases in age-adjusted and sex adjusted incidence of type 1 diabetes were seen among blacks (2.7% per year), Hispanics (4.0% per year)"
+    },
+    {
+     "loc": "text",
+     "q": "type 2 diabetes incidence differed by race/ethnicity, with lowest rates observed among whites (0.77) and higher rates among American Indians (3.69)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "interaction",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Consistency of the incidence trends over time by age, sex, and race/ethnicity was evaluated by testing for interaction between each of these variables separately"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Incidence of type 1 diabetes differed by age at diagnosis, sex, and race/ethnicity, with higher rates observed among persons aged 10–14 years"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "interaction",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Consistency of the incidence trends over time by age, sex, and race/ethnicity was evaluated by testing for interaction between each of these variables separately"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Interaction tests of each SPD with the 2011 change point are stated in methods; results appear only as per-group change estimates with CIs. The 2002–2012 APCs (1.4%, 7.1%) are cited from an earlier report. Change point chosen by an information criterion is part of the model.",
+ "view_issues": "Text gives 2014–2015 type 2 'rates' for whites (0.77), AI (3.69), blacks (5.97), Hispanics (6.45); these match Table 2's 2002–2015 APCs, not the 2014–2015 rates. Discussion says 'Since 2012' though the change point is 2011."
+}

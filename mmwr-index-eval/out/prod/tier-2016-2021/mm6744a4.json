@@ -1,0 +1,394 @@
+{
+ "id": "mm6744a4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysGoyUTmhUtnqXM9N",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The annualized unadjusted prevalence of arthritis among adults with prediabetes was 32.0% (CI = 29.7–34.5), or an estimated 26 million persons"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The annualized unadjusted prevalence of arthritis among adults with prediabetes was 32.0% (CI = 29.7–34.5), or an estimated 26 million persons"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The unadjusted prevalence of arthritis among adults with prediabetes was 32.0%."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was significantly higher than that for adults without prediabetes or arthritis (21.9%; CI = 20.1%–23.9%; p = 0.03)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "To compare group differences, estimates were age-standardized to the 2000 U.S. standard population aged ≥20 years"
+    },
+    {
+     "loc": "text",
+     "q": "Age-standardized arthritis prevalence was significantly higher among women (31.0%) and non-Hispanic whites (29.0%) than among men and other racial/ethnic groups"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "estimates age-standardized to the 2000 U.S. standard population → direct standardization",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "To compare group differences, estimates were age-standardized to the 2000 U.S. standard population aged ≥20 years"
+    },
+    {
+     "loc": "table 1",
+     "q": "Prevalence estimates were age-standardized to projected U.S. 2000 population."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (complex sampling design, poststratification)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated complex sampling design with poststratification weighting; weighted population counts in Table",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All analyses accounted for the complex sampling design including poststratification weighting"
+    },
+    {
+     "loc": "table 1",
+     "q": "Weighted number of U.S. adults with prediabetes who have arthritis."
+    }
+   ]
+  },
+  {
+   "name": "pairwise t-tests with Bonferroni correction",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named pairwise t-tests; variance by Taylor series linearization under the survey design; significance p<0.05",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Pairwise t-tests were used to evaluate group differences, and a Bonferroni correction was applied to address multiple comparisons."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "prediabetes/diabetes status",
+   "arthritis and prediabetes status",
+   "age group",
+   "sex",
+   "race/ethnicity"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "was significantly higher than that among adults with prediabetes only (41.6%; CI = 38.9–44.4), arthritis only (36.1%; CI = 32.0–40.4)"
+   },
+   {
+    "loc": "text",
+    "q": "The prevalence of arthritis was not significantly different from that among adults with diabetes (30.2%; CI = 26.5–34.2, p = 0.09)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "the use of Taylor series linearization for variance estimation with statistical significance set at p<0.05."
+   },
+   {
+    "loc": "text",
+    "q": "Pairwise t-tests were used to evaluate group differences"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "unadjusted prevalence %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Unadjusted prevalence % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "age-standardized prevalence %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age-standardized ¶ prevalence % (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What is the prevalence of arthritis among U.S. adults with prediabetes, and how common are physical inactivity and obesity among adults with both conditions?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To examine the relationships among arthritis, prediabetes, physical inactivity, and obesity, CDC analyzed combined data from the 2009–2016 National Health and Nutrition Examination Surveys"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "prediabetes",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Prevalence of Arthritis Among Adults with Prediabetes and Arthritis-Specific Barriers to Important Interventions for Prediabetes"
+    }
+   ]
+  },
+  {
+   "v": "arthritis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The unadjusted prevalence of arthritis among adults with prediabetes was 32.0%."
+    }
+   ]
+  },
+  {
+   "v": "physical inactivity",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The unadjusted prevalences of physical inactivity and obesity among adults with these conditions were 56.5% and 50.1%, respectively."
+    }
+   ]
+  },
+  {
+   "v": "obesity",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The unadjusted prevalences of physical inactivity and obesity among adults with these conditions were 56.5% and 50.1%, respectively."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NHANES is a cross-sectional study, and, therefore, temporal relationships cannot be established between prediabetes and arthritis."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NHANES** examines a sample of the U.S. noninstitutionalized adult population through both interview and examination components."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Health and Nutrition Examination Survey (NHANES)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed combined data from the 2009–2016 National Health and Nutrition Examination Surveys (NHANES)."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, 2009–2016"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Arthritis prevalence is reported by race/ethnicity and education, and whites are said to have significantly higher prevalence, but no difference or ratio is computed and it is not framed as a disparity.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The Discussion calls the comorbid burden substantial particularly among non-Hispanic whites, which could be read as an interpreted group contrast."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Age-standardized arthritis prevalence was significantly higher among women (31.0%) and non-Hispanic whites (29.0%) than among men and other racial/ethnic groups"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "highest attained education level"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Arthritis prevalence estimates were calculated by sociodemographic characteristics (age group, sex, race/ethnicity, and highest attained education level)."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "arthritis prevalence was significantly lower among adults aged 20–44 years (10.1%) and 45–64 years (34.8%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "included 10,179 adults aged ≥20 years with a fasting plasma glucose measurement and complete arthritis data"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Women"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Education is the only SES measure; race/ethnicity has four groups with an Other, non-Hispanic category; age-group rows have no age-standardized estimates."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "arthritis prevalence was significantly lower among adults aged 20–44 years (10.1%) and 45–64 years (34.8%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-standardized arthritis prevalence was significantly higher among women (31.0%) and non-Hispanic whites (29.0%) than among men and other racial/ethnic groups"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Highest education level › Less than high school"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "procedures",
+  "groupwise",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "Backward regression equations adjusting fasting plasma glucose (NHANES lab calibration) feed only the prediabetes case definition, so they are treated as measurement, not a procedure. Adults with diabetes were excluded from the inactivity and obesity comparisons.",
+ "view_issues": null
+}

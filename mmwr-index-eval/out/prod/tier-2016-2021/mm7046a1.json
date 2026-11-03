@@ -1,0 +1,320 @@
+{
+ "id": "mm7046a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyszTaJwznYJ611fX2",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "SCD was higher among caregivers (12.6%) than among noncaregivers (10.2%)."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "SCD was higher among caregivers (12.6%) than among noncaregivers (10.2%)."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among caregivers, the overall prevalence of SCD was 12.6% and varied by state, ranging from 9.8% (New Jersey) to 17.3% (Louisiana)"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In comparison, the prevalence of SCD among noncaregivers was 10.2% (p<0.001)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Compared with noncaregivers, SCD prevalence among caregivers was higher among persons aged 45–64 years, men, non-Hispanic White persons, employed persons"
+    },
+    {
+     "loc": "table 2",
+     "q": "for each level of selected characteristics at p<0.05."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting (complex survey design, SUDAAN)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weighted percentages and CIs from BRFSS complex survey methods in SUDAAN",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Complex survey data methods were used to estimate weighted percentages and corresponding 95% CIs using SAS-callable SUDAAN survey procedures"
+    }
+   ]
+  },
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named t-tests for caregiver vs noncaregiver SCD prevalence overall and within each characteristic level",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "T-tests were used to determine statistically significant differences between caregivers and noncaregivers with SCD"
+    }
+   ]
+  },
+  {
+   "name": "modified Rao-Scott chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named survey-adjusted chi-square comparing characteristic distributions of caregivers with vs without SCD (Table 3)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "modified Rao-Scott chi-square tests were used to estimate statistical differences between proportions of caregivers with and without SCD for each selected characteristic"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": "noncaregivers",
+  "across": [
+   "caregiver status",
+   "SCD status",
+   "age group",
+   "sex",
+   "race/ethnicity",
+   "education level",
+   "employment status",
+   "health-related characteristics",
+   "caregiving characteristics",
+   "state"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "SCD was higher among caregivers (12.6%) than among noncaregivers (10.2%)."
+   },
+   {
+    "loc": "summary",
+    "q": "Caregivers with SCD were more likely than those without SCD to report chronic health conditions, a history of depression"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "P-values <0.05 were considered statistically significant for both tests."
+   },
+   {
+    "loc": "text",
+    "q": "Complex survey data methods were used to estimate weighted percentages and corresponding 95% CIs using SAS-callable SUDAAN survey procedures"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted percentage",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Caregivers with SCD, weighted** % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "prevalence",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among caregivers, the overall prevalence of SCD was 12.6%"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What is the prevalence of subjective cognitive decline among unpaid caregivers aged ≥45 years compared with noncaregivers, and how do caregivers with SCD differ from those without?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC analyzed SCD among caregivers aged ≥45 years through a cross-sectional analysis of data from 22 states in the 2015−2019 Behavioral Risk Factor Surveillance System"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "subjective cognitive decline",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Prevalence and Characteristics of Subjective Cognitive Decline Among Unpaid Caregivers Aged ≥45 Years"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "through a cross-sectional analysis of data from 22 states in the 2015−2019 Behavioral Risk Factor Surveillance System (BRFSS)"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "BRFSS is a cross-sectional, random-digit–dialed, annual telephone survey of noninstitutionalized U.S. adults aged ≥18 years."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "data from 22 states in the 2015−2019 Behavioral Risk Factor Surveillance System (BRFSS)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "22 States, 2015–2019"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "SCD prevalence by age, sex, race/ethnicity, education and employment is reported and described with t-test p-values, but not framed as a disparity; SPD levels mainly stratify the caregiver vs noncaregiver contrast.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "SPDs serve only as strata for the caregiving contrast; no comparison across SPD groups is itself made."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Unpaid Caregivers Aged ≥45 Years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Age group, yrs › 45–64"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Sex › Men"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Race/Ethnicity › Black, non-Hispanic"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education level",
+     "employment status"
+    ],
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Education level › High school graduate or less"
+     },
+     {
+      "loc": "table 2",
+      "q": "Employment status › Unemployed"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Asian/Pacific Islander, AI/AN, other and multiracial persons combined into one group because of small samples; SPD strata are used only to compare caregivers with noncaregivers."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "analytic_depth"
+ ],
+ "confidence": "medium",
+ "notes": "Table 2 shows SCD prevalence for 4 race and 4 employment groups, but the only tests are caregiver vs noncaregiver within each level, so no groupwise entry. The methods state all estimates had relative SE <30%, so no suppression was applied.",
+ "view_issues": "Text and Summary read Table 2 prevalence contrasts as composition ('caregivers with SCD more likely to be employed, men'). Table 2 education rows look swapped (15.0 vs 7.9, p=0.06). The text says no difference by depression, but No-depression p=0.01. Table 3 CI typos (16.5–18.90; 30.8–87.0). Assistance-type percentages sum to >100%."
+}

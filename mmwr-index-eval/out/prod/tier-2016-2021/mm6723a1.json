@@ -1,0 +1,489 @@
+{
+ "id": "mm6723a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysUTZUu9RbwCnXMUW",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "34.2% among U.S. adults living in nonmetropolitan counties and 28.7% among those living in metropolitan counties (p<0.001)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2016, overall obesity prevalence was 29.6%"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "34.2% among U.S. adults living in nonmetropolitan counties and 28.7% among those living in metropolitan counties (p<0.001)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "controlling for age, sex, and race/ethnicity within levels of the sociodemographic characteristics, states, and Census regions and divisions"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multivariable logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'multivariable logistic regression' testing metro vs nonmetro differences, adjusted for age, sex, race/ethnicity → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Differences in obesity prevalence between adults living in metropolitan and nonmetropolitan counties were examined using multivariable logistic regression"
+    }
+   ]
+  },
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "Table 1 note: chi-square test across levels of each characteristic",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Significant difference in the prevalence of obesity across levels of the characteristic at the p<0.05 level using Chi-square test."
+    }
+   ]
+  },
+  {
+   "name": "survey weights and complex survey design",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated sampling weights produce every weighted prevalence",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All analyses accounted for complex survey design and sampling weights."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "absolute",
+  "referent": "metropolitan counties",
+  "across": [
+   "rurality (metropolitan vs nonmetropolitan)",
+   "age group",
+   "sex",
+   "race/ethnicity",
+   "education",
+   "income",
+   "employment status",
+   "Census region/division",
+   "state"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The greatest differences in obesity prevalence between nonmetropolitan and metropolitan residents were in the South (5.6 percentage points)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "Unadjusted adult obesity prevalence–weighted % (95% CI)*"
+   },
+   {
+    "loc": "text",
+    "q": "Differences in obesity prevalence between adults living in metropolitan and nonmetropolitan counties were examined using multivariable logistic regression"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Unadjusted adult obesity prevalence–weighted % (95% CI)*"
+    }
+   ]
+  },
+  {
+   "v": "percentage points",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The greatest differences in obesity prevalence between nonmetropolitan and metropolitan residents were in the South (5.6 percentage points)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All analyses accounted for complex survey design and sampling weights."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The greatest differences in obesity prevalence between nonmetropolitan and metropolitan residents were in the South (5.6 percentage points)"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Determined using multivariable logistic regression within levels of the sociodemographic and geographic characteristics to control for age, sex, and race/ethnicity."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age, sex, and race/ethnicity",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "controlling for age, sex, and race/ethnicity within levels of the sociodemographic characteristics, states, and Census regions and divisions"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Does adult obesity prevalence differ between nonmetropolitan and metropolitan county residents in the United States, overall and by region, state and sociodemographic group?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "However, this difference has not been examined by state."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "obesity",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Obesity Prevalence Among Adults Living in Metropolitan and Nonmetropolitan Counties — United States, 2016"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "BRFSS is a state-based, random-digit–dialed telephone survey of U.S. adults aged ≥18 years"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC examined state-level 2016 Behavioral Risk Factor Surveillance System (BRFSS) data"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC examined state-level 2016 Behavioral Risk Factor Surveillance System (BRFSS) data"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "leaving a final analytic sample of 438,479 adults from 50 states and DC"
+   },
+   {
+    "loc": "text",
+    "q": "In 24 (51%) of the 47 states with both metropolitan and nonmetropolitan counties"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "The nonmetropolitan–metropolitan obesity gap is framed as a health disparity, quantified in percentage points and interpreted; persistent poverty, food insecurity and access to healthier food are named as explanations.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The determinants are cited from other reports and offered as possible factors, not measured or analyzed here."
+  },
+  "dimensions": [
+   {
+    "v": "rurality",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Unadjusted obesity prevalence was stratified by metropolitan and nonmetropolitan status."
+     },
+     {
+      "loc": "text",
+      "q": "expand the understanding of this health disparity by highlighting differences across states and regions"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "BRFSS is a state-based, random-digit–dialed telephone survey of U.S. adults aged ≥18 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group (yrs) ¶ › 18–24"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "controlling for age, sex, and race/ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex** › Female"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "controlling for age, sex, and race/ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "for all sociodemographic categories except Hispanics and persons with less than a high school education"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "controlling for age, sex, and race/ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education",
+     "annual household income",
+     "employment status"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "by sociodemographic characteristics (age, sex, race/ethnicity, education, income, and employment status)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "persistent poverty; food insecurity; access to healthier food retailers",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "several social determinants of health that are risk factors for obesity, such as persistent poverty and food insecurity"
+    },
+    {
+     "loc": "text",
+     "q": "One possible contributing factor is the high rate of persistent poverty in the South"
+    },
+    {
+     "loc": "text",
+     "q": "adults living in rural areas were less likely to have access to healthier food retailers"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Six NCHS urban-rural county types collapsed to metropolitan vs nonmetropolitan; metropolitan is the referent. RI, NJ, DE and DC have no nonmetropolitan counties; income missing for 14%."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group (yrs) ¶ › 18–24"
+    },
+    {
+     "loc": "table 1",
+     "q": "Significant difference in the prevalence of obesity across levels of the characteristic at the p<0.05 level using Chi-square test."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity ¶, ** › Other, non-Hispanic"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Education ¶, ** › College graduate"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Annual household income ¶, ** › ≥$75,000"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Employment status ¶, ** › Unable to work"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "regression_fields",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred as cross-sectional from the BRFSS telephone survey; no design is named. Metro–nonmetro p-values come from the adjusted logistic model, while reported prevalences and percentage-point gaps are unadjusted. Chi-square tests across characteristic levels (Table 1 ¶) are recorded as omnibus groupwise entries.",
+ "view_issues": "Table 1 CSV and article.txt merge the first education row (presumably 'Less than high school', n=32,325) into one garbled cell."
+}

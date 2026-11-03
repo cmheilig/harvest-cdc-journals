@@ -1,0 +1,543 @@
+{
+ "id": "mm6722a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysGK5NiT4baP9atLV",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During 1999–2016, suicide rates increased in nearly every state, including >30% increases in 25 states."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rate estimates were age-adjusted to the U.S. 2000 standard population and expressed per 100,000 persons per year."
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "2015 data from 27 states indicate 54% of suicide decedents were not known to have mental health conditions."
+    },
+    {
+     "loc": "text",
+     "q": "Decedents without known mental health conditions had a significantly higher likelihood of any relationship problem/loss (45.1%) than did those with known mental health conditions (39.6%)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "2015 data from 27 states indicate 54% of suicide decedents were not known to have mental health conditions."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Percentage increases in rates ranged from 5.9% (Delaware) to 57.6% (North Dakota), with increases >30% observed in 25 states"
+    },
+    {
+     "loc": "text",
+     "q": "Decedents with and without known mental health conditions were compared using chi-square tests."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Logistic regression analyses were used to estimate adjusted odds ratios (aORs) with 95% confidence intervals (CIs), controlling for sex, age group, and race/ethnicity."
+    },
+    {
+     "loc": "text",
+     "q": "Rate estimates were age-adjusted to the U.S. 2000 standard population and expressed per 100,000 persons per year."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization to the 2000 U.S. standard population",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "'age-adjusted to the U.S. 2000 standard population' = direct standardization",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rate estimates were age-adjusted to the U.S. 2000 standard population and expressed per 100,000 persons per year."
+    }
+   ]
+  },
+  {
+   "name": "weighted least-squares regression of age-adjusted rates on period (inverse-variance weights)",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "'weighted least-squares regression' → linear; yields average annual percentage changes and significance of state trends",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "employing weighted least-squares regression with inverse-variance weighting"
+    },
+    {
+     "loc": "text",
+     "q": "Modeled rate trends are reported in terms of average annual percentage changes."
+    }
+   ]
+  },
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated: chi-square tests comparing decedents with and without known mental health conditions",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Decedents with and without known mental health conditions were compared using chi-square tests."
+    },
+    {
+     "loc": "table 1",
+     "q": "Chi-square p-value"
+    }
+   ]
+  },
+  {
+   "name": "logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Logistic regression ... adjusted odds ratios' → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Logistic regression analyses were used to estimate adjusted odds ratios (aORs) with 95% confidence intervals (CIs), controlling for sex, age group, and race/ethnicity."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based CIs from the stated logistic regression; 'remained significant in the adjusted models' rests on aOR CIs excluding 1",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "These differences remained significant in the adjusted models."
+    },
+    {
+     "loc": "text",
+     "q": "significantly higher odds of perpetrating homicide followed by suicide (aOR = 2.9, 95% CI = 2.2–3.8)"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "both",
+  "referent": "1999–2001 period; decedents with known mental health conditions",
+  "across": [
+   "3-year period",
+   "state",
+   "sex",
+   "known mental health condition status",
+   "race/ethnicity"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During 1999–2016, suicide rates increased in nearly every state, including >30% increases in 25 states."
+   },
+   {
+    "loc": "table 1",
+    "q": "Known mental health condition was used as the reference group."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Decedents with and without known mental health conditions were compared using chi-square tests."
+   },
+   {
+    "loc": "text",
+    "q": "Logistic regression analyses were used to estimate adjusted odds ratios (aORs) with 95% confidence intervals (CIs), controlling for sex, age group, and race/ethnicity."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted suicide rate per 100,000",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rate estimates were age-adjusted to the U.S. 2000 standard population and expressed per 100,000 persons per year."
+    }
+   ]
+  },
+  {
+   "v": "average annual percentage change",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Nationally, the model-estimated average annual percentage change for the overall suicide rate was an increase of 1.5%."
+    }
+   ]
+  },
+  {
+   "v": "percent change",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Percent change in annual suicide rate,* by state — United States, from 1999–2001 to 2014–2016"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "2015 data from 27 states indicate 54% of suicide decedents were not known to have mental health conditions."
+    }
+   ]
+  },
+  {
+   "v": "OR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "more likely to be male (83.6% versus 68.8%; odds ratio [OR] = 2.3, 95% CI = 2.2–2.5)"
+    }
+   ]
+  },
+  {
+   "v": "aOR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "significantly higher odds of perpetrating homicide followed by suicide (aOR = 2.9, 95% CI = 2.2–3.8)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "OR reflects the risk among those without known mental health condition relative to those with known mental health condition."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Logistic regression was used to estimate adjusted OR with 95% CIs after controlling for sex, age group, and race/ethnicity."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "sex, age group, and race/ethnicity",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Logistic regression was used to estimate adjusted OR with 95% CIs after controlling for sex, age group, and race/ethnicity."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did state suicide rates change during 1999–2016, and which circumstances contributed to suicides among decedents with and without known mental health conditions?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC analyzed state-specific trends in suicide rates and assessed the multiple contributing factors to suicide"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "suicide",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Vital Signs : Trends in State Suicide Rates — United States, 1999–2016 and Circumstances Contributing to Suicide — 27 States, 2015"
+    }
+   ]
+  },
+  {
+   "v": "mental health conditions",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "2015 data from 27 states indicate 54% of suicide decedents were not known to have mental health conditions."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "compared in the 27 states* with complete data participating in CDC’s National Violent Death Reporting System (NVDRS) in 2015"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Trends in age-adjusted suicide rates among persons aged ≥10 years, by state and sex, across six consecutive 3-year periods (1999–2016), were assessed"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "were assessed using data from the National Vital Statistics System for 50 states and the District of Columbia"
+    },
+    {
+     "loc": "summary",
+     "q": "Data from the National Violent Death Reporting System, covering 27 states in 2015"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System (NVSS)",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "were assessed using data from the National Vital Statistics System for 50 states and the District of Columbia"
+    }
+   ]
+  },
+  {
+   "v": "National Violent Death Reporting System (NVDRS)",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Data from the National Violent Death Reporting System, covering 27 states in 2015"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Trends in State Suicide Rates — United States, 1999–2016 and Circumstances Contributing to Suicide — 27 States, 2015"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Rates and trends are reported by sex, and race/ethnicity composition is contrasted between mental health groups with ORs, described in text but not framed as a disparity; race also adjusts the aORs.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Race/ethnicity is only a Table-1-type descriptor and model covariate; sex and age alone stay at level 0."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Logistic regression was used to estimate adjusted OR with 95% CIs after controlling for sex, age group, and race/ethnicity."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "and belong to a racial/ethnic minority (OR range = 1.2–2.0)"
+     },
+     {
+      "loc": "table 1",
+      "q": "Race/Ethnicity › Black, non-Hispanic"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "By sex, estimated national rate trends further indicated significant average annual percentage change increases for males (1.1%) and females (2.6%)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "after controlling for sex, age group, and race/ethnicity."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Suicide rates were analyzed for persons aged ≥10 years because determining suicidal intent in younger children can be difficult"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "after controlling for sex, age group, and race/ethnicity."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "homeless",
+     "eviction or loss of home",
+     "release from jail/prison/detention facility"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Extended demographics › Homeless"
+     },
+     {
+      "loc": "table 2",
+      "q": "Other life stressors › Eviction or loss of home"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "eviction or loss of home; job/financial problems; recent criminal legal problems (analyzed as circumstances)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "any life stressors (50.5% versus 47.2%) such as recent criminal legal problems (10.7% versus 6.2%) or eviction/loss of home (4.3% versus 3.4%)"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity contrasted between mental health groups with ORs per category vs the rest; housing and incarceration items appear as circumstances compared by mental health status, not across SPD groups."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity › Black, non-Hispanic"
+    },
+    {
+     "loc": "text",
+     "q": "and belong to a racial/ethnic minority (OR range = 1.2–2.0)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group (yrs)** › ≥65"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred (surveillance with trend); Table 1 gives chi-square p-values and crude ORs per category row, read as each level vs the rest. The 20% reduction goal by 2025 is only cited, not used as a referent.",
+ "view_issues": "Text says the OR range for racial/ethnic minorities is 1.2–2.0, but the Table 1 'Other' category OR is 1.8 and Hispanic CI is 1.0–1.3; per-row chi-square structure is not explained."
+}

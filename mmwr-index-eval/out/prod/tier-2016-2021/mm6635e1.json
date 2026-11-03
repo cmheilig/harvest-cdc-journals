@@ -1,0 +1,445 @@
+{
+ "id": "mm6635e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrWuY7TKYs8H7jZmy",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "age-standardized stroke death rates declined 38%, from 118.4 per 100,000 persons in 2000 to 73.3 per 100,000 persons in 2015"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "age-standardized stroke death rates declined 38%, from 118.4 per 100,000 persons in 2000 to 73.3 per 100,000 persons in 2015"
+    },
+    {
+     "loc": "text",
+     "q": "An estimated 32,593 excess stroke deaths might have occurred because of unfavorable changes in the rate of decline in stroke mortality during 2013–2015."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "age-standardized stroke death rates declined 38%, from 118.4 per 100,000 persons in 2000 to 73.3 per 100,000 persons in 2015"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Blacks experienced the highest stroke death rate compared with other racial/ethnic groups"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates were standardized to the 2000 U.S. standard population."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "joinpoint regression",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'joined straight lines on a logarithmic scale' gives APCs: a log-linear trend model",
+   "role": "primary",
+   "alternative_reading": "linear (least squares on log rates, as Joinpoint fits by default)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Joinpoint regression fits a series of joined straight lines on a logarithmic scale to the trend data."
+    }
+   ]
+  },
+  {
+   "name": "permutation test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated as the joinpoint model-selection test for the number of joinpoints",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "modeling was limited to a maximum of three joinpoints, and the permutation test was used for model selection."
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "APCs flagged 'Significant at p = 0.05'; test of APC vs 0 not named; slowed/stalled/reversed categories rest on it",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "† Significant at p = 0.05."
+    },
+    {
+     "loc": "summary",
+     "q": "The last trend segment indicated a reversal from a decrease to a statistically significant increase among Hispanics (APC = 5.8%)"
+    }
+   ]
+  },
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "rates standardized to the 2000 U.S. standard population",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates were standardized to the 2000 U.S. standard population."
+    }
+   ]
+  },
+  {
+   "name": "excess deaths by extrapolation of preceding APC",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "expected deaths from extrapolated joinpoint rates times population; excess = observed minus expected",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the difference between the observed and extrapolated stroke deaths were calculated by age, sex, and race/ethnicity over time"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "both",
+  "referent": "expected deaths extrapolated from the preceding APC",
+  "across": [
+   "period (trend segment)",
+   "race/ethnicity",
+   "census region",
+   "age group",
+   "sex",
+   "state"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Trends in stroke death rates reversed in 2013 among Hispanics and in the South Census Region"
+   },
+   {
+    "loc": "text",
+    "q": "the difference between the observed and extrapolated stroke deaths were calculated by age, sex, and race/ethnicity over time"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "modeling was limited to a maximum of three joinpoints, and the permutation test was used for model selection."
+   },
+   {
+    "loc": "table 1",
+    "q": "† Significant at p = 0.05."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-standardized rate per 100,000",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Per 100,000 persons, standardized to U.S. 2000 population"
+    }
+   ]
+  },
+  {
+   "v": "APC",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "For each trend segment in the selected model, the annual percent change (APC) was calculated"
+    }
+   ]
+  },
+  {
+   "v": "average APC",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the average APC for all years (2000–2015) was obtained as the weighted APC"
+    }
+   ]
+  },
+  {
+   "v": "excess stroke deaths",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Excess † (% of total)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Joinpoint regression fits a series of joined straight lines on a logarithmic scale to the trend data."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "These lines, or trend segments, start and end at years where the software detects a statistically significant change in trend."
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How have U.S. stroke death rates among adults aged ≥35 years trended during 2000–2015 by age, sex, race/ethnicity, census region and state, and how many excess deaths followed unfavorable changes?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "CDC examined trends and patterns in recent stroke death rates among U.S. adults aged ≥35 years by age, sex, race/ethnicity, state, and census region."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "stroke",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Vital Signs: Recent Trends in Stroke Death Rates — United States, 2000–2015"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "death data from the U.S. National Vital Statistics System during 2000–2015"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Trends in the rates of stroke as the underlying cause of death during 2000–2015 were analyzed"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "death data from the U.S. National Vital Statistics System during 2000–2015"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System (NVSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "death data from the U.S. National Vital Statistics System during 2000–2015"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "by age, sex, and race/ethnicity at the national level and by census region and state during 2000–2015"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Rates, APCs and excess deaths are reported by race/ethnicity (Blacks highest; Hispanic reversal) but group values are only set side by side; 'racial and regional disparities' appears only in discussion of other studies.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The article frames findings as disparities in vulnerable populations and offers treatment and care differences as an explanation."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Race/ethnicity was categorized into five mutually exclusive groups"
+     },
+     {
+      "loc": "text",
+      "q": "Blacks experienced the highest stroke death rate compared with other racial/ethnic groups"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Stroke death rates were examined among adults aged ≥35 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Age-specific stroke death rates per 100,000 persons by age group (35–54, 55–64, 65–74, 75–84, and ≥85 years)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Rates were standardized to the 2000 U.S. standard population."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Women"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "differences in stroke treatment and care among population subgroups",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "could be related to differences in stroke treatment and care among certain population subgroups, leading to disparate increases in stroke case fatality rates"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Five race/ethnicity groups by bridged-race population estimates; AI/AN excess deaths not calculated; ages 35–54 and 55–64 combined for excess deaths; census region and state are geography, not SPDs."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Blacks experienced the highest stroke death rate compared with other racial/ethnic groups"
+    },
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity ¶ › Hispanic"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-specific stroke death rates per 100,000 persons by age group (35–54, 55–64, 65–74, 75–84, and ≥85 years)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "regression_fields",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred (none named). The weighted average APC is arithmetic, not weighting; slowed/stalled/reversed is quantization of APC significance. Joinpoint fits age-standardized rates with no covariates, so adjusted_results is false although inputs are standardized.",
+ "view_issues": "Table 2: observed total 378,787 minus expected 364,194 is 14,593, not the stated 32,593 excess; Hispanic expected (2,858) equals the excess. Summary says ~30,000 excess. One Results sentence on ages 35–54 is garbled."
+}

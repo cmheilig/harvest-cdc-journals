@@ -1,0 +1,393 @@
+{
+ "id": "mm6841e2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPys5Q7NLEen7aBNt9f",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Coverage by age 24 months was ≥90% for ≥3 doses of poliovirus vaccine (92.7%), ≥1 dose of MMR (90.4%)"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Children were least likely to be up to date by age 24 months with ≥2 doses of influenza vaccine (56.6%)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Coverage by age 24 months was ≥90% for ≥3 doses of poliovirus vaccine (92.7%), ≥1 dose of MMR (90.4%)"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "coverage for children born during 2015–2016 increased for the HepB birth dose (3.2 percentage points)"
+    },
+    {
+     "loc": "text",
+     "q": "Compared with privately insured children, coverage disparities were largest among uninsured children, ranging from 7.8 percentage points for the HepB birth dose"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named: t-tests on weighted data for differences in coverage; CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Differences in coverage estimates were evaluated using t-tests on weighted data; p-values of <0.05 were considered statistically significant."
+    },
+    {
+     "loc": "table 2",
+     "q": "Statistically significant (p<0.05) difference compared with the referent group."
+    }
+   ]
+  },
+  {
+   "name": "Kaplan-Meier",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "named: Kaplan-Meier used to estimate coverage by age 24 months, accounting for children assessed before 24 months",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Vaccination coverage by age 24 months was estimated using Kaplan-Meier (time to event) analysis"
+    }
+   ]
+  },
+  {
+   "name": "survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weighting methods stated; tests on weighted data; SUDAAN",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Previous NIS-Child weighting methods were modified to optimize estimation by birth year"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "absolute",
+  "referent": "private insurance only; 90% coverage",
+  "across": [
+   "health insurance status",
+   "birth cohort",
+   "state",
+   "race/ethnicity",
+   "poverty level",
+   "MSA status"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "There were sociodemographic disparities in coverage, especially by health insurance status."
+   },
+   {
+    "loc": "text",
+    "q": "Coverage with ≥1 dose of MMR was <90% in 20 states; only six states had coverage of 94% or higher"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Differences in coverage estimates were evaluated using t-tests on weighted data; p-values of <0.05 were considered statistically significant."
+   },
+   {
+    "loc": "table 1",
+    "q": "Statistically significantly different from 0 at p<0.05."
+   }
+  ]
+ },
+ "groupwise": [
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Statistically significant (p<0.05) difference compared with the referent group."
+    },
+    {
+     "loc": "table 2",
+     "q": "Health insurance status, % (95% CI) › Uninsured (n = 774)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "note",
+     "q": "grouped into three categories: MSA principal city, MSA nonprincipal city, and non-MSA"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": null,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Disparities were also observed for race/ethnicity"
+    }
+   ]
+  }
+ ],
+ "primary_measures": [
+  {
+   "v": "% coverage (95% CI)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimated vaccination coverage by age 24 months* among children born during 2013–2016 for selected vaccines and doses"
+    }
+   ]
+  },
+  {
+   "v": "difference, percentage points",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "coverage for children born during 2015–2016 increased for the HepB birth dose (3.2 percentage points)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What was vaccination coverage by age 24 months among U.S. children born in 2015–2016, and how did it differ by birth cohort, insurance and other sociodemographic characteristics and state?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC used data from the National Immunization Survey-Child (NIS-Child) to assess vaccination coverage"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "vaccine-preventable diseases",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Actionable local level data are a priority for creating targeted interventions to prevent outbreaks of measles and other vaccine-preventable diseases."
+    }
+   ]
+  },
+  {
+   "v": "measles",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Coverage with ≥1 dose of MMR was <90% in 20 states; only six states had coverage of 94% or higher"
+    }
+   ]
+  },
+  {
+   "v": "influenza",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Children were least likely to be up to date by age 24 months with ≥2 doses of influenza vaccine (56.6%)"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The NIS-Child is a random-digit–dialed telephone survey"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Among children born in 2015 and 2016, coverage was high and stable for most vaccines."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC used data from the National Immunization Survey-Child (NIS-Child) to assess vaccination coverage"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Immunization Survey-Child (NIS-Child)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC used data from the National Immunization Survey-Child (NIS-Child) to assess vaccination coverage"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "at the national, state, territorial, and selected local levels"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Among children born in 2015 and 2016, coverage was high and stable for most vaccines."
+   }
+  ]
+ },
+ "equity": {
+  "level": 4,
+  "level_reason": "Insurance-status disparities are framed and quantified (7.8–33.8 percentage points for uninsured vs privately insured) and explained by access to affordable vaccination, VFC program reach and logistical barriers.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The access explanations are hedged and fairly generic, and partly recommendations rather than analyzed determinants."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "primary comparison",
+    "ses_components": [
+     "health insurance status",
+     "poverty level"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Compared with privately insured children, coverage disparities were largest among uninsured children, ranging from 7.8 percentage points for the HepB birth dose"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Disparities were also observed for race/ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "as well as those living below the poverty level and in more rural areas"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Vaccination Coverage by Age 24 Months Among Children Born in 2015 and 2016"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "access to affordable vaccinations or optimal vaccination services; VFC program promotion not reaching uninsured; logistical issues (office hours, transportation)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "suggests challenges with access to affordable vaccinations or optimal vaccination services"
+    },
+    {
+     "loc": "text",
+     "q": "efforts to promote the program might not be reaching this population"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referent is privately insured children; insurance is parent-reported. Race/ethnicity, poverty and MSA results are only in supplementary tables not in the packet."
+ },
+ "uncertain_fields": [
+  "groupwise",
+  "equity.level",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Groupwise entries for race/ethnicity and MSA rest on text claims and the blanket t-test statement; supplementary tables were unavailable, and poverty level was not entered because its group count is unknown. The per-year change in unvaccinated children (0.09 percentage points) has no stated method and is not recorded as a procedure.",
+ "view_issues": null
+}

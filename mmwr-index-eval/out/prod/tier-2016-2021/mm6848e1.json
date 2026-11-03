@@ -1,0 +1,419 @@
+{
+ "id": "mm6848e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysF4c47mxYDuu2uQP",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "In 2017, 85.8% of persons with HIV infection had received a diagnosis"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In 2018, PrEP had been prescribed to 18.1% of persons with indications."
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The annual number of new HIV infections remained stable from 2013 (38,500) to 2017 (37,500) (p = 0.448)."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In 2017, 85.8% of persons with HIV infection had received a diagnosis"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2018, PrEP coverage was three times as high among males (20.8%) as among females (6.6%)"
+    },
+    {
+     "loc": "text",
+     "q": "The annual number of new HIV infections remained stable from 2013 (38,500) to 2017 (37,500) (p = 0.448)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "CD4-depletion model",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "a named back-calculation model estimating incidence, prevalence and percentage diagnosed; not a regression family",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was applied to NHSS data to estimate 1) the annual number of new HIV infections (2013–2017)"
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "p-value for change in annual new infections 2013–2017; test not named",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The annual number of new HIV infections remained stable from 2013 (38,500) to 2017 (37,500) (p = 0.448)."
+    }
+   ]
+  },
+  {
+   "name": "suppression of estimates with high relative standard errors",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "estimates withheld by a relative-SE rule (censoring/suppression)",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Dash in this column indicates estimate not available for some populations because of high relative standard errors."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "fixed referent",
+  "scale": "relative",
+  "referent": "Ending the HIV Epidemic targets (95% diagnosed, 95% virally suppressed, 50% PrEP coverage)",
+  "across": [
+   "sex",
+   "age group",
+   "race/ethnicity",
+   "transmission category",
+   "jurisdiction",
+   "year"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The targets for the initiative are at least 95% for testing and treatment and 50% for PrEP."
+   },
+   {
+    "loc": "text",
+    "q": "PrEP coverage among whites was seven times as high as that among blacks and four times as high as that among Hispanics/Latinos"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "85.8% (95% confidence interval [CI] = 84.3–87.5) had received a laboratory-confirmed diagnosis of HIV infection."
+   },
+   {
+    "loc": "text",
+    "q": "remained stable from 2013 (38,500) to 2017 (37,500) (p = 0.448)."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage of diagnosed HIV infections",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Diagnosed HIV infection,* % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "viral suppression, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Viral suppression, †,§ %"
+    }
+   ]
+  },
+  {
+   "v": "PrEP coverage, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "PrEP coverage, ¶, ** ,†† %"
+    }
+   ]
+  },
+  {
+   "v": "annual number of new HIV infections",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The annual number of new HIV infections remained stable from 2013 (38,500) to 2017 (37,500)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What is the current US status of HIV diagnosis, viral suppression and PrEP coverage relative to the Ending the HIV Epidemic targets, overall and by group and jurisdiction?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Using surveillance, pharmacy, and other data, CDC determined the current status of these three initiative strategies."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "HIV infection",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Status of Human Immunodeficiency Virus Testing, Viral Suppression, and HIV Preexposure Prophylaxis"
+    }
+   ]
+  },
+  {
+   "v": "HIV infection",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2017, 62.7% of 854,206 persons with diagnosed HIV infections in 42 jurisdictions had a suppressed viral load"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data reported to the National HIV Surveillance System (NHSS)"
+    }
+   ]
+  },
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Using surveillance, pharmacy, and other data, CDC determined the current status of these three initiative strategies."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data reported to the National HIV Surveillance System (NHSS)"
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed national pharmacy data from the IQVIA Real World Data–Longitudinal Prescriptions database"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National HIV Surveillance System (NHSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data reported to the National HIV Surveillance System (NHSS)"
+    }
+   ]
+  },
+  {
+   "v": "IQVIA Real World Data–Longitudinal Prescriptions database",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed national pharmacy data from the IQVIA Real World Data–Longitudinal Prescriptions database"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The percentage of diagnosed infections ranged from 79.7% in Nevada to 94.4% in New Jersey"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Racial/ethnic PrEP disparity is quantified (whites seven and four times blacks and Hispanics) and framed as inequitable; stigma, access, health care coverage, homelessness and incarceration are named as explanations of group outcomes.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The determinants are cited from other studies as possible explanations rather than analyzed; the quantified disparity alone gives level 3."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "suggesting that PrEP delivery to persons in racial/ethnic minority populations has not been equitable."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The lowest percentages of diagnosed HIV infections were among persons aged 13–24 years (54.6%, 95% CI = 52.7–56.7)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "for persons aged ≥13 years with diagnosed HIV infection."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "In 2018, PrEP coverage was three times as high among males (20.8%) as among females (6.6%)"
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "stratifier",
+    "basis": "behavior",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Transmission category › Male-to-male sexual contact"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "HIV-related stigma; lack of access to HIV-related services; health care coverage; homelessness; incarceration; social and economic barriers to care",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "HIV-related stigma and lack of access to HIV-related services among American Indians/Alaska Natives"
+    },
+    {
+     "loc": "text",
+     "q": "for blacks, include health care coverage, homelessness, and incarceration"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "PrEP race/ethnicity coverage applies the known-race distribution to the 65% of prescriptions missing race; only Black, Hispanic and White PrEP estimates shown; whites are the implicit referent for ratios."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "PrEP coverage among whites was seven times as high as that among blacks and four times as high as that among Hispanics/Latinos"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 7,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The lowest percentages of persons with viral suppression were those aged 13–24 years (56.9%), blacks/African Americans (blacks) (57.4%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Compared with other age groups, the lowest PrEP coverage rate was among persons aged 16–24 years (11.4%)."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "comparison",
+  "equity.level",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Missing race/ethnicity in PrEP data was filled by applying the known distribution (treated as data handling, not a procedure). NHANES and Census data feed only the PrEP-indication denominator. Transmission categories mix sexual behavior with injection drug use; no groupwise entry made for them.",
+ "view_issues": "Discussion says lowest diagnosed percentages were among persons aged 13–34 years, while Results cite 13–24 years; figure quartiles and the 2010 comparison are cited."
+}

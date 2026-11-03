@@ -1,0 +1,504 @@
+{
+ "id": "mm7048e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysrXT2bULnJAa785r",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "infections significantly decreased from 7,500 to 5,100 among White MSM (p<0.01)"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among the estimated 692,900 MSM living with HIV infection in 2019, 85% had received an HIV diagnosis"
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Black MSM (33) and Hispanic/Latino MSM (32) had higher median scores than did White MSM (26)."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, 68% of MSM with diagnosed HIV infection were virally suppressed."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A lower percentage of Black MSM (83%) and Hispanic/Latino MSM (80%) with HIV had received a diagnosis than did White MSM (90%)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "z-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named z-test comparing estimated infections 2010 vs 2019, overall and by group",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "To assess changes in estimated HIV infections, the z-test was used to compare changes from 2010 to 2019"
+    }
+   ]
+  },
+  {
+   "name": "survey weighting of MMP estimates",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "MMP estimates stated as weighted to represent adults with diagnosed HIV",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates from MMP were weighted to represent the population of adults with diagnosed HIV infection in the United States."
+    }
+   ]
+  },
+  {
+   "name": "CI overlap assertion",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated nonoverlap rule for median stigma scores; 'higher' and 'highest' claims rest on it",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Median scores with nonoverlapping 95% CIs were considered to be meaningfully different."
+    },
+    {
+     "loc": "text",
+     "q": "Black MSM (33) and Hispanic/Latino MSM (32) had higher median scores than did White MSM (26)."
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'did not differ' claims for NHBS percentages with CIs reported; CI method not stated",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Neither HIV testing in the past 12 months nor having visited a provider without testing in the past 12 months differed by race/ethnicity."
+    }
+   ]
+  },
+  {
+   "name": "CD4 depletion model",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "model estimating new infections and percentage diagnosed from NHSS data; details in supplementary appendix",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percentages are estimated based on a CD4 depletion model."
+    }
+   ]
+  },
+  {
+   "name": "suppression of small-denominator and high-RSE estimates",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "estimates withheld for denominators <30 or high relative standard errors",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates with a denominator sample size <30 were not reported."
+    },
+    {
+     "loc": "table 1",
+     "q": "Estimates are not available because of high relative standard errors."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": "EHE targets (95% diagnosed, 95% virally suppressed, 50% PrEP coverage) and national stigma goal",
+  "across": [
+   "race/ethnicity",
+   "age group",
+   "year (2010 vs 2019)"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "infections decreased among White MSM but not among Black MSM or Hispanic/Latino MSM."
+   },
+   {
+    "loc": "text",
+    "q": "PrEP was used by only one third of MSM for whom it was likely indicated, well below the EHE target of 50% PrEP coverage"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "ci_overlap": true,
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "the z-test was used to compare changes from 2010 to 2019; p-values <0.05 indicated statistically significant change."
+   },
+   {
+    "loc": "table 3",
+    "q": "Median scores with nonoverlapping 95% CIs were considered to be meaningfully different."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "estimated number of new HIV infections",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the estimated number of new HIV infections among MSM was 25,100 in 2010 and 23,100 in 2019 (p = 0.05)"
+    }
+   ]
+  },
+  {
+   "v": "% (95% CI)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Diagnosed HIV infection (2019)* › % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "median HIV-related stigma score",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "HIV-related stigma score (2018) § › Median (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did new HIV infections and use of HIV testing, prevention and treatment services among MSM vary by race/ethnicity and age, relative to national goals?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC analyzed data from three national surveillance systems to assess HIV prevention and treatment outcomes among MSM"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "HIV infection",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "HIV Infection, Diagnosis, Treatment, and Prevention Among Gay, Bisexual, and Other Men Who Have Sex with Men"
+    }
+   ]
+  },
+  {
+   "v": "HIV infection",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Among gay, bisexual, and other men who have sex with men with diagnosed HIV infection"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "This analysis of national surveillance data found that the estimated number of new HIV infections among MSM did not change overall"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the z-test was used to compare changes from 2010 to 2019"
+    }
+   ]
+  },
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the progress needed to reach EHE and other national goals"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "National HIV Surveillance System (NHSS), National HIV Behavioral Surveillance (NHBS), and Medical Monitoring Project (MMP)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National HIV Surveillance System (NHSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "National HIV Surveillance System (NHSS)"
+    }
+   ]
+  },
+  {
+   "v": "National HIV Behavioral Surveillance (NHBS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "National HIV Behavioral Surveillance (NHBS)"
+    }
+   ]
+  },
+  {
+   "v": "Medical Monitoring Project (MMP)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Medical Monitoring Project (MMP)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Among the estimated 692,900 MSM living with HIV infection in 2019, 85% had received an HIV diagnosis"
+   },
+   {
+    "loc": "text",
+    "q": "MSM who attended venues where the majority of attending men were MSM in 23 U.S. urban areas"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Racial/ethnic and age differences are framed as disparities with root causes named, but contrasts are values set side by side or judged by CI overlap, with no computed difference, ratio or stated multiple, so the level is capped at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "If the framed Black/Hispanic vs White contrasts (e.g. 48% vs 64% adherence) count as quantified, the named structural causes (systemic racism, poverty) give level 4."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Most measures of use of HIV prevention and treatment services were lower among Black MSM and Hispanic/Latino MSM than White MSM"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "MSM aged 18–24 years had the highest median score (39)."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "table 3",
+      "q": "The Medical Monitoring Project did not collect data from persons aged 13–17 years."
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "population",
+    "basis": "behavior",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Among Gay, Bisexual, and Other Men Who Have Sex with Men"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "population",
+    "basis": "assigned or observed",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "NHSS data presented by transmission category (i.e., male-to-male sexual contact) are based on sex at birth."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "systemic racism; stigma; discrimination; homophobia; poverty; homelessness; unequal access to care and prevention services",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "must address their root causes, including systemic racism, stigma, discrimination, homophobia, poverty, homelessness, and unequal access to care and prevention services"
+    },
+    {
+     "loc": "text",
+     "q": "Longstanding inequities in access to and delivery of needed services among some racial/ethnic and age groups"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "White MSM are the implicit referent; AI/AN, Asian and NHPI estimates are often suppressed or collapsed; EHE targets are general, not gap targets."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Black MSM (33) and Hispanic/Latino MSM (32) had higher median scores than did White MSM (26)."
+    },
+    {
+     "loc": "table 3",
+     "q": "Median scores with nonoverlapping 95% CIs were considered to be meaningfully different."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "MSM aged 18–24 years had the highest median score (39)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "varied by race/ethnicity (Black MSM [47% and 27%], Hispanic/Latino MSM [45% and 31%], and White MSM [59% and 42%])"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The lowest percentages of diagnosed infection were among MSM aged 13–24 years (55%) and 25–34 years (71%)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "infections decreased among White MSM but not among Black MSM or Hispanic/Latino MSM."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "comparison",
+  "procedures"
+ ],
+ "confidence": "medium",
+ "notes": "Most methods are deferred to a supplementary appendix; the CD4 depletion model and z-test details are not given. Comparisons with EHE targets and the national stigma goal are side by side ('nearly double'), so scale is left null.",
+ "view_issues": "Overall change in infections (p = 0.05) is described as no change, at the significance boundary. Basis of 'lower' and 'did not differ' claims for NHBS and MMP percentages is not stated; the CI-overlap rule is given only for stigma medians."
+}

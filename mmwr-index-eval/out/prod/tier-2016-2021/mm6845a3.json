@@ -1,0 +1,321 @@
+{
+ "id": "mm6845a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPys7dDi7AshMhYWtwx",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Nationally, 54.1% of Medicare Part B fee-for-service beneficiaries with diabetes had an eye exam in 2017."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Nationally, 54.1% of beneficiaries with diabetes had an eye exam in 2017"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Nationally, 54.1% of Medicare Part B fee-for-service beneficiaries with diabetes had an eye exam in 2017."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The prevalence ranged from 43.9% in Puerto Rico to 64.8% in Rhode Island."
+    },
+    {
+     "loc": "text",
+     "q": "Prevalence was higher among beneficiaries aged ≥85 years (58.6%) and 65–84 years (56.9%) than among those aged 40–64 years (38.0%)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the prevalence of having an eye exam was lower among Hispanic (48.2%) and black (48.9%) beneficiaries"
+    },
+    {
+     "loc": "text",
+     "q": "This was also observed in 46 states and DC."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "'direct standardization' of age; used only as a check, estimates not presented",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-standardized estimates, using direct standardization, were similar, and these data are not presented."
+    }
+   ]
+  },
+  {
+   "name": "small-cell suppression",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "table note suppression rule for small denominators or numerators",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Data were suppressed because of small sample size, defined as either 1) a denominator <11 or 2) a numerator <3 and denominator <30."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": "non-Hispanic white beneficiaries (race/ethnicity); 50% threshold (states)",
+  "across": [
+   "state",
+   "race/ethnicity",
+   "age group"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Disparities by state and race/ethnicity were identified."
+   },
+   {
+    "loc": "text",
+    "q": "Fewer than 50% of beneficiaries received an eye exam in seven states"
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Statistical testing was not performed because these data represent 100% of Medicare beneficiaries who met the inclusion criteria."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percentage of Medicare Part B fee-for-service beneficiaries with diagnosed diabetes who had an eye exam in 2017"
+    }
+   ]
+  },
+  {
+   "v": "prevalence",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The outcome measure was the prevalence among Medicare Part B fee-for-service beneficiaries with diabetes of receiving an eye exam"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What proportion of Medicare Part B fee-for-service beneficiaries with diabetes received an eye exam in 2017, and did it differ by state and race/ethnicity?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This report also examines disparities, by state and race/ethnicity, in receipt of eye exams."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "diabetes",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Disparities in Receipt of Eye Exams Among Medicare Part B Fee-for-Service Beneficiaries with Diabetes"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Medicare claims from the 50 states, the District of Columbia (DC), Puerto Rico, and U.S. Virgin Islands (USVI) were examined"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "administrative/claims",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This analysis was performed using 100% of the Centers for Medicare & Medicaid Services research identifiable files"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Centers for Medicare & Medicaid Services research identifiable files (Medicare Part B fee-for-service claims)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This analysis was performed using 100% of the Centers for Medicare & Medicaid Services research identifiable files"
+    }
+   ]
+  },
+  {
+   "v": "Chronic Conditions Data Warehouse diabetes algorithm",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "defined in the Chronic Conditions Data Warehouse diabetes algorithm on at least one claim during 2016–2017"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Unadjusted percentages are presented nationally and by state and race/ethnicity"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Racial/ethnic eye-exam prevalences are reported and framed as disparities, but only set side by side (48.2%, 48.9% vs 55.6%) with no computed difference or ratio, so the cap at 2 applies.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The article explicitly frames racial/ethnic disparities in title, Summary and Discussion and repeats the contrast in 46 states; a reader could treat this as quantified."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "This report also examines disparities, by state and race/ethnicity, in receipt of eye exams."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Overall, 73.3% of these beneficiaries were white, 13.0% were black, 8.3% were Hispanic"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "This analysis includes Medicare beneficiaries aged ≥65 years, as well as those aged <65 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "figure 2",
+      "q": "Percentage of Medicare Part B fee-for-service beneficiaries with diabetes who had an eye exam, by age group"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Non-Hispanic whites are the implicit referent; AI/AN data exclude Indian Health Service care and are likely unrepresentative; small cells suppressed; managed care enrollees excluded. State is geography, not an SPD."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Unadjusted percentages are presented nationally and by state and race/ethnicity (white, black, Hispanic, Asian/Pacific Islander, American Indian/Alaska Native, and other)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence was higher among beneficiaries aged ≥85 years (58.6%) and 65–84 years (56.9%) than among those aged 40–64 years (38.0%)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "analytic_depth"
+ ],
+ "confidence": "high",
+ "notes": "Design inferred as cross-sectional (not named). Barriers to eye care (care coordination, health literacy, perceived need) explain low prevalence overall, not the racial disparity, so no determinant is recorded. Stratified/adjusted rests on the race contrast observed within 46 states and DC.",
+ "view_issues": "Eye-exam CPT codes list '92014' twice (likely 92012 intended). Prepass 'prevalence_ratio' cue is a false hit."
+}

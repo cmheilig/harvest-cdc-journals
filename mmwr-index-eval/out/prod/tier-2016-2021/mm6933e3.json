@@ -1,0 +1,359 @@
+{
+ "id": "mm6933e3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysu1pEvbyiAFmzhc9",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "73% (970 of 1,335) of workplace outbreak-associated COVID-19 cases were in persons who identified as Hispanic or nonwhite"
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The incidence among workplace outbreak-associated cases was highest in the Wholesale Trade (377 per 100,000 workers) and Manufacturing (339 per 100,000 workers) sectors."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Approximately 12% (1,389 of 11,448) of confirmed COVID-19 cases in Utah were associated with workplace outbreaks."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The proportion of patients hospitalized was significantly lower among persons with workplace outbreak-associated COVID-19 (6.1%) than among those with nonoutbreak–associated COVID-19 (7.6%)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This disparity was observed across all 15 industry sectors with the largest in Wholesale Trade"
+    },
+    {
+     "loc": "note",
+     "q": "Sectors are sorted on absolute disparity between the percentage of Hispanic/Latino and nonwhite workers among workplace outbreak cases"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "Table 2 note: p-values based on chi-squared tests comparing workplace outbreak-associated vs nonoutbreak cases",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "P-values based on chi-squared tests and excludes missing categories; level of significance = p<0.05."
+    },
+    {
+     "loc": "text",
+     "q": "Descriptive statistics and chi-squared tests were used to summarize and compare demographics and outcomes (e.g., hospitalization)"
+    }
+   ]
+  },
+  {
+   "name": "Mann-Whitney test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in text for median age comparison",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "persons with workplace outbreak-associated COVID-19 were older (median age = 41 years) (Mann-Whitney test, p = 0.01)"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "fixed referent",
+  "scale": "absolute",
+  "referent": "racial/ethnic composition of each sector's workforce (2019 Census Quarterly Workforce Indicators)",
+  "across": [
+   "race/ethnicity",
+   "industry sector",
+   "case status (workplace outbreak vs nonoutbreak)",
+   "age group",
+   "sex"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Despite representing 24% of Utah workers in all affected sectors, Hispanic and nonwhite workers accounted for 73% of workplace outbreak-associated COVID-19 cases."
+   },
+   {
+    "loc": "text",
+    "q": "the racial and ethnic composition of workplace outbreak-associated cases were compared with the overall racial and ethnic composition in each sector in Utah"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "All statistical analyses were done in R (version 3.6.1; The R Foundation); p-values <0.05 were considered statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "58% of workplace outbreak-associated COVID-19 cases were in three sectors: Manufacturing, Wholesale Trade, and Construction."
+    }
+   ]
+  },
+  {
+   "v": "cases per 100,000 workers",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Cases per 100,000 workers."
+    }
+   ]
+  },
+  {
+   "v": "percentage point difference",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Manufacturing (percentage point difference = 53) sectors"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How were workplace COVID-19 outbreaks and associated cases distributed across Utah industry sectors, and were Hispanic and nonwhite workers overrepresented among cases?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The Utah Department of Health (UDOH) analyzed COVID-19 surveillance data to describe workplace outbreaks by industry sectors."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Racial and Ethnic Disparities Among COVID-19 Cases in Workplace Outbreaks by Industry Sector"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The Utah Department of Health (UDOH) analyzed COVID-19 surveillance data to describe workplace outbreaks by industry sectors."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data on workplace COVID-19 outbreaks occurring during March 6–June 5, 2020, were collected from UDOH’s COVID-19 case surveillance system."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "UDOH COVID-19 case surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were collected from UDOH’s COVID-19 case surveillance system."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Utah, March 6–June 5, 2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Racial/ethnic overrepresentation among workplace outbreak cases is framed as a disparity, quantified (73% vs 24%; percentage point differences of 58 and 53 by sector) and explained by systemic inequities, frontline occupation, schedule inflexibility and sick leave policies.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Determinants are cited from other work as possible explanations, not measured or analyzed."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Despite representing 24% of Utah workers in all affected sectors, Hispanic and nonwhite workers accounted for 73% of workplace outbreak-associated COVID-19 cases."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Race/Ethnicity › American Indian or Alaska Native, non-Hispanic"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Characteristics of nonoutbreak–associated cases and workplace outbreak-associated cases of COVID-19 among persons aged ≥15 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Age group, yrs › ≥65"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "more likely to be male (61.4% versus 50.6%; p <0.001)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "longstanding health and social inequities; overrepresentation in frontline occupations; less flexible work schedules and fewer telework options; unpaid or punitive sick leave policies",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "These disparities might be driven, in part, by longstanding health and social inequities"
+    },
+    {
+     "loc": "text",
+     "q": "Hispanic and nonwhite workers have less flexible work schedules and fewer telework options compared with white and non-Hispanic workers"
+    },
+    {
+     "loc": "text",
+     "q": "unpaid or punitive sick leave policies might prevent workers from staying home and seeking care when ill"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referent is each sector's workforce racial/ethnic composition (2019 Census QWI); Hispanic and all nonwhite groups are collapsed into one group vs non-Hispanic white; race/ethnicity missing for 4% of workplace cases."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 7,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Race/Ethnicity › American Indian or Alaska Native, non-Hispanic"
+    },
+    {
+     "loc": "table 2",
+     "q": "P-values based on chi-squared tests and excludes missing categories; level of significance = p<0.05."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Age group, yrs › ≥65"
+    },
+    {
+     "loc": "table 2",
+     "q": "P-values based on chi-squared tests and excludes missing categories; level of significance = p<0.05."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "analytic_depth"
+ ],
+ "confidence": "high",
+ "notes": "Sector-specific percentage point differences (case share vs workforce share of Hispanic/nonwhite) are read as a contrast within levels of sector, hence stratified/adjusted. Median age compared by Mann-Whitney is a population characteristic, so continuous is not added. NAICS codes from a business directory classify workplaces only.",
+ "view_issues": "Text says 187 (19%) were nonwhite, but 187/1,335 is 14% (59+27+19 exceeds 100). Table 2 CSV repeats each variable's p-value in every category row (merged cells)."
+}

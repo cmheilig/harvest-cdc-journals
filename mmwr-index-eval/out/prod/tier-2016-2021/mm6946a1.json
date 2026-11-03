@@ -1,0 +1,457 @@
+{
+ "id": "mm6946a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyst1WuMRtyHF3enbT",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The age-adjusted rate per 1,000 PWDH of HIV-related deaths decreased 48% and non–HIV-related deaths decreased 9% during 2010–2017."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The age-adjusted rate per 1,000 PWDH of HIV-related deaths decreased 48% and non–HIV-related deaths decreased 9% during 2010–2017."
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the proportion of deaths that were HIV-related decreased with increasing age from 48.6% among PWDH aged 13–24 years"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During 2010–2018, rates of death decreased by 36.6% overall (from 19.4 to 12.3 per 1,000 PWDH)."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The HIV-related death rate was highest in the South (6.0) and lowest in the Northeast (3.2)."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-adjusted rates per 1,000 PWDH were calculated using the U.S. 2000 standard population."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "age-adjusted rates using the U.S. 2000 standard population → direct standardization",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-adjusted rates per 1,000 PWDH were calculated using the U.S. 2000 standard population."
+    }
+   ]
+  },
+  {
+   "name": "suppression of unstable rates and groups with incomplete cause-of-death reporting",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "rates based on <12 deaths or <85% known cause withheld from change and group comparisons",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "For all measures, only stable rates (calculated on the basis of ≥12 deaths)"
+    },
+    {
+     "loc": "text",
+     "q": "were assessed for temporal changes and for differences among groups."
+    }
+   ]
+  },
+  {
+   "name": "statistical adjustment for missing transmission category",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "imputation of missing transmission category; method not stated",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Data have been statistically adjusted to account for missing transmission category"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "both",
+  "referent": "2010 rates; 2020 national target of ≥33% reduction; White persons for disparity measures",
+  "across": [
+   "period",
+   "race/ethnicity",
+   "gender",
+   "age",
+   "transmission category",
+   "U.S. Census region",
+   "jurisdiction",
+   "cause of death"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "had decreased by 36.6% from what it was in 2010, surpassing the 2020 national target of ≥33%"
+   },
+   {
+    "loc": "text",
+    "q": "During 2010–2017, the absolute rate difference disparity measure between Black/African American (Black) persons and White persons decreased by 66.0%"
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted rate per 1,000 PWDH",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age-adjusted rate per 1,000 PWDH"
+    }
+   ]
+  },
+  {
+   "v": "percent decrease",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During 2010–2018, rates of death decreased by 36.6% overall (from 19.4 to 12.3 per 1,000 PWDH)."
+    }
+   ]
+  },
+  {
+   "v": "absolute rate difference disparity measure",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Absolute rate difference disparity measure: Difference between age-adjusted rate per 1,000 PWDH among selected race/ethnicity and White persons"
+    }
+   ]
+  },
+  {
+   "v": "relative rate ratio disparity measure",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The relative rate ratio disparity measure between Black persons and White persons decreased 23.2%"
+    }
+   ]
+  },
+  {
+   "v": "% of deaths with known cause related to HIV",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% of deaths with known cause related to HIV"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did death rates, especially HIV-related death rates, among persons with diagnosed HIV change during 2010–2018 overall and across populations, relative to a national target?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Using surveillance data, CDC assessed progress toward reducing deaths among persons with diagnosed HIV (PWDH)."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "HIV infection",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Vital Signs: Deaths Among Persons with Diagnosed HIV Infection, United States, 2010–2018"
+    }
+   ]
+  },
+  {
+   "v": "HIV-related death",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The age-adjusted rate per 1,000 PWDH of HIV-related deaths decreased 48% and non–HIV-related deaths decreased 9% during 2010–2017."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed NHSS data reported through December 2019 regarding deaths during 2010–2018 among persons aged ≥13 years with diagnosed HIV infection."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "For HIV-related deaths, CDC calculated an absolute and a relative disparity measure for race/ethnicity and assessed change from 2010 to 2017."
+    }
+   ]
+  },
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "had decreased by 36.6% from what it was in 2010, surpassing the 2020 national target of ≥33%"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed NHSS data reported through December 2019 regarding deaths during 2010–2018 among persons aged ≥13 years with diagnosed HIV infection."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National HIV Surveillance System (NHSS)",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "CDC analyzed National HIV Surveillance System data for persons aged ≥13 years"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Using NHSS data, CDC assessed such progress, with an emphasis on HIV-related deaths, at the national and state levels."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Racial/ethnic disparities in HIV-related death rates are framed and quantified (absolute differences and rate ratios vs White persons, and their change 2010–2017) and interpreted; poverty, unemployment, uninsurance, access barriers and stigma are named as explanations for Black persons and the South.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The structural determinants are offered as likely contributors drawn from cited literature, not analyzed in this report."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "For HIV-related deaths, CDC calculated an absolute and a relative disparity measure for race/ethnicity and assessed change from 2010 to 2017."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "CDC analyzed National HIV Surveillance System data for persons aged ≥13 years to determine age-adjusted death rates per 1,000 PWDH during 2010–2018."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The rates of HIV-related deaths increased with age, from 1.6 among PWDH aged 13–24 years to 8.4 among persons aged ≥55 years."
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "stratifier",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "“Transgender male-to-female” includes persons who were assigned “male” sex at birth but have ever identified as “female.”"
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "stratifier",
+    "basis": "behavior",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Male adult or adolescent ¶¶ › Male-to-male sexual contact"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "basis": "assigned or observed",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Data presented are based on sex at birth and include transgender persons."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "poverty",
+     "unemployment",
+     "uninsured"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Higher levels of poverty, unemployment, and persons uninsured, challenges associated with accessing care, and HIV-related stigma likely affect timely diagnosis and access to treatment"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "poverty; unemployment; lack of insurance; challenges accessing care; HIV-related stigma; structural barriers",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Higher levels of poverty, unemployment, and persons uninsured, challenges associated with accessing care, and HIV-related stigma likely affect timely diagnosis and access to treatment"
+    },
+    {
+     "loc": "text",
+     "q": "Expanded efforts to address these and other structural barriers are critical to improving health outcomes"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "For HIV-related deaths, CDC calculated an absolute and a relative disparity measure for race/ethnicity and assessed change from 2010 to 2017."
+    }
+   ]
+  },
+  "equity_measurement": "Referent for disparity measures is White persons (lowest 2010 rate among groups with complete cause reporting); Asian, NH/OPI and AI/AN not assessed (incomplete cause or unstable rates). Region and jurisdiction are geography, not SPD."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "highest among persons of multiple races (7.0) and Black/African American persons (5.6), followed by White persons (3.9)"
+    },
+    {
+     "loc": "text",
+     "q": "The relative rate ratio disparity measure between Black persons and White persons decreased 23.2%"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The rates of HIV-related deaths increased with age, from 1.6 among PWDH aged 13–24 years to 8.4 among persons aged ≥55 years."
+    }
+   ]
+  },
+  {
+   "across": [
+    "sexual orientation and gender identity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates of HIV-related deaths during 2017 were higher among females (5.4 per 1,000 PWDH) than males (4.5) and transgender females"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "comparison",
+  "groupwise",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "No CIs or tests; group differences are asserted from rates set side by side. Transmission categories (MSM, IDU, heterosexual) mix sexual behavior with exposure route and were not entered as groupwise. Percent changes and disparity measures are arithmetic, not procedures.",
+ "view_issues": "ICD-10 code is given as '098.7' in the text and Figure 2 note but 'O98.7' in the tables. Discussion says absolute differences for Hispanic persons decreased, but results report the absolute measure only reaching zero in 2017."
+}

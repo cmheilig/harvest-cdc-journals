@@ -1,0 +1,315 @@
+{
+ "id": "mm6934e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyt9e5Bfi6DqAoPmTe",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "3.5 (95% CI = 1.2–10.1) times that among white persons (169 per 100,000; 95% CI = 137–209)"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data on underlying health conditions were available for 762 (8.4%) AI/AN patients and 37,993 (27.3%) white patients"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "the cumulative incidence of laboratory-confirmed COVID-19 among AI/AN persons was 3.5 times that among non-Hispanic white persons."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "GEE Poisson regression",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'generalized estimating equations Poisson regression model' giving cumulative incidence and RRs → loglinear; GEE accounts for clustering by state",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A generalized estimating equations Poisson regression model was used to calculate cumulative incidence (cumulative cases per 100,000 population), RRs, and 95% CIs"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based CI from the GEE Poisson regression; RR CI 1.2–10.1 excludes 1 and the article concludes AI/AN persons are disproportionately affected",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "3.5 (95% CI = 1.2–10.1) times that among white persons (169 per 100,000; 95% CI = 137–209)"
+    },
+    {
+     "loc": "text",
+     "q": "these findings suggest that the AI/AN population in the 23 examined states, particularly AI/AN persons aged <65 years, has been disproportionately affected"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "non-Hispanic white persons",
+  "across": [
+   "race/ethnicity"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "White (non-Hispanic) was chosen as the comparator group"
+   },
+   {
+    "loc": "summary",
+    "q": "the cumulative incidence of laboratory-confirmed COVID-19 among AI/AN persons was 3.5 times that among non-Hispanic white persons."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "A generalized estimating equations Poisson regression model was used to calculate cumulative incidence (cumulative cases per 100,000 population), RRs, and 95% CIs"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "cumulative incidence per 100,000",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the cumulative incidence among AI/AN persons in these 23 states was 594 per 100,000 AI/AN population"
+    }
+   ]
+  },
+  {
+   "v": "rate ratio (RR)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(rate ratio [RR] = 3.5; 95% CI = 1.2–10.1)"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data on underlying health conditions were available for 762 (8.4%) AI/AN patients and 37,993 (27.3%) white patients"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "GEE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were used to account for nonindependence (i.e., clustering) by state"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "RRs, and 95% CIs for AI/AN and white race/ethnicity categories."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How does the cumulative incidence of laboratory-confirmed COVID-19 among AI/AN persons compare with that among non-Hispanic white persons in 23 states?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess the impact of COVID-19 among the AI/AN population, reports of laboratory-confirmed COVID-19 cases during January 22 † –July 3, 2020 were analyzed."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "COVID-19 Among American Indian and Alaska Native Persons — 23 States, January 31–July 3, 2020"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "data are presented as reported to CDC through a passive case surveillance system."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "submitted to CDC using the CDC COVID-19 case report form ¶ and through the National Notifiable Diseases Surveillance System**"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Notifiable Diseases Surveillance System (NNDSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "through the National Notifiable Diseases Surveillance System**"
+    }
+   ]
+  },
+  {
+   "v": "CDC COVID-19 case report form",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Individual COVID-19 case reports submitted to CDC using the CDC COVID-19 case report form"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The analysis was limited to 23 states § with >70% complete race/ethnicity information"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "The AI/AN vs white disparity is framed, quantified (RR 3.5) and interpreted, and specific structural determinants (historical trauma, racial inequity, shared transportation, access to running water, household size) are offered as explanations.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Determinants are cited from an external reference and hedged ('might'), not analyzed."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "White (non-Hispanic) was chosen as the comparator group"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "AI/AN persons with COVID-19 tended to be younger than white persons with COVID-19"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "historical trauma; persisting racial inequity; reliance on shared transportation; limited access to running water; household size",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Historical trauma and persisting racial inequity have contributed to disparities in health and socioeconomic factors between AI/AN and white populations"
+    },
+    {
+     "loc": "text",
+     "q": "might also reflect differences in reliance on shared transportation, limited access to running water, household size"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referent is non-Hispanic white; AI/AN includes multiracial persons; 20% of cases missing race/ethnicity; Arizona excluded; NCHS bridged-race denominators; misclassification of AI/AN noted."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "procedures",
+  "inference",
+  "analytic_depth"
+ ],
+ "confidence": "medium",
+ "notes": "A single state-specific RR (New Mexico, 14.9) is mentioned in passing; not treated as stratification. The CI-inversion test is recorded because the disparity conclusion rests on the RR CI excluding 1. Age distribution by race is composition, not a groupwise entry.",
+ "view_issues": "Study period is given as January 22 in the text but January 31 in the title and table; the Discussion cites 345,093 cases meeting inclusion criteria versus 340,059 in Results."
+}

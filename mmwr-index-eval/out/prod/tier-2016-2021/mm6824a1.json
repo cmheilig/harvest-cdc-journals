@@ -1,0 +1,431 @@
+{
+ "id": "mm6824a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysCLoCEhEiU2btH4G",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The age-adjusted prevalence of COPD was 15.2% among current cigarette smokers, 7.6% among former smokers, and 2.8% among adults who had never smoked."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall age-adjusted prevalence of COPD was 6.2% in 2017"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall age-adjusted prevalence of COPD was 6.2% in 2017"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall age-adjusted prevalence of COPD was 6.2% in 2017 and was higher among women, older adults, and American Indians/Alaska Natives."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Similar patterns were observed irrespective of smoking status."
+    },
+    {
+     "loc": "note",
+     "q": "Age-adjusted to the 2000 U.S. standard population aged ≥18 years."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "age-adjusted to the 2000 U.S. standard population: direct standardization",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Age-adjusted to the 2000 U.S. standard population aged ≥18 years."
+    }
+   ]
+  },
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated t-tests between groups, p<0.05; CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Comparisons were made between these groups using t-tests with statistical significance set at p<0.05."
+    }
+   ]
+  },
+  {
+   "name": "survey design weighting (SUDAAN)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "survey software used to account for the complex sampling design",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All analyses were conducted using SAS-callable SUDAAN (version 11.0.1; RTI International) to account for the stratified, complex cluster sampling design of the survey."
+    }
+   ]
+  },
+  {
+   "name": "Pearson correlation coefficient",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "state-level COPD prevalence correlated with state-level current smoking prevalence",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "State-level prevalence of COPD among current smokers was strongly correlated with state-level current smoking prevalence (Pearson correlation coefficient = 0.69, p<0.001)."
+    }
+   ]
+  },
+  {
+   "name": "test of Pearson correlation",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "p-values reported for each correlation coefficient",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "among adults who had never smoked (Pearson correlation coefficient = 0.64, p<0.001)"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "smoking status",
+   "sex",
+   "age group",
+   "race/ethnicity",
+   "education level",
+   "urban-rural status",
+   "state",
+   "asthma",
+   "BMI",
+   "leisure-time physical activity",
+   "number of chronic conditions"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Geographic and sociodemographic patterns of COPD prevalence were similar among current smokers, former smokers, and adults who had never smoked."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Comparisons were made between these groups using t-tests with statistical significance set at p<0.05."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted percentage",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Age-adjusted* percentage of adults aged ≥18 years with diagnosed COPD, by smoking status and state"
+    }
+   ]
+  },
+  {
+   "v": "age-specific percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age-specific and age-adjusted* percentage of adults aged ≥18 years with COPD"
+    }
+   ]
+  },
+  {
+   "v": "Pearson correlation coefficient",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(Pearson correlation coefficient = 0.69, p<0.001)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How does COPD prevalence among U.S. adults vary by smoking status, sociodemographic and health characteristics, and state, and does it track state smoking prevalence?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC analyzed state-specific Behavioral Risk Factor Surveillance System (BRFSS) data from 2017"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "chronic obstructive pulmonary disease (COPD)",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Chronic Obstructive Pulmonary Disease and Smoking Status — United States, 2017"
+    }
+   ]
+  },
+  {
+   "v": "cigarette smoking",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Cigarette smoking is the leading cause of chronic obstructive pulmonary disease (COPD) in the United States"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Fourth, because the data were cross-sectional, causality could not be examined."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from 418,378 adult respondents to the 2017 BRFSS survey in the 50 states and the District of Columbia (DC) were analyzed."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed state-specific Behavioral Risk Factor Surveillance System (BRFSS) data from 2017"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Among all adults, age-adjusted prevalence of COPD ranged from 3.4% in Hawaii to 13.8% in West Virginia"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Prevalence by race/ethnicity, education and rurality is reported and described as higher in some groups, but not framed as a disparity, no difference or ratio is computed, and the groups are only tested by t-tests.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The text states groups with higher prevalence (AI/AN, less education, rural) and Discussion interprets them, which a looser reading could treat as a framed disparity."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race/Ethnicity › American Indian/Alaska Native †"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education level"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Prevalence was also higher among those with less education"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "those who lived in more rural counties"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group (yrs) › ≥65"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "percentage of adults aged ≥18 years with COPD"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "was higher among women, older adults, and American Indians/Alaska Natives."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Seven race/ethnicity groups, four education levels and six NCHS urban-rural levels; NH/PI estimates flagged unreliable (RSE >0.3). Smoke-free laws and secondhand smoke explain state geography, not SPD groups."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 7,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Comparisons were made between these groups using t-tests with statistical significance set at p<0.05."
+    },
+    {
+     "loc": "text",
+     "q": "was higher among women, older adults, and American Indians/Alaska Natives."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence was also higher among those with less education"
+    }
+   ]
+  },
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "those who lived in more rural counties"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group (yrs) › 55–64"
+    },
+    {
+     "loc": "text",
+     "q": "was higher among women, older adults"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Prepass chi-square cue is a false hit from 'Pearson correlation'. Estimates with RSE >0.3 are flagged, not suppressed, so no suppression procedure is recorded. Smoke-free laws are discussed as an explanation of state geography among never-smokers, not of an SPD group difference.",
+ "view_issues": "The t-test referents and which pairs were tested are not stated; 'higher among' claims carry no p-values or significance marks in Table 1."
+}

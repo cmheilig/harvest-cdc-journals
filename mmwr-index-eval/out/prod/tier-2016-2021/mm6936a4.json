@@ -1,0 +1,482 @@
+{
+ "id": "mm6936a4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyt6fB34riztrE8Cxx",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "an estimated 41% of U.S. adults had delayed or avoided medical care including urgent or emergency care (12%) and routine care (32%)."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "40.9% reported having delayed or avoided any medical care, including urgent or emergency care (12.0%) and routine care (31.5%)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, an estimated 40.9% of U.S. adults have avoided medical care during the pandemic because of concerns about COVID-19"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Rao-Scott adjusted Pearson chi-squared test was used to test for differences in observed and expected frequencies among groups by characteristic"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "multivariable Poisson regression models §§§ with robust standard errors to estimate prevalence ratios adjusted for all covariates"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multivariable Poisson regression with robust standard errors (adjusted prevalence ratios)",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'multivariable Poisson regression models with robust standard errors' giving aPRs → loglinear (modified Poisson); Wald-type CIs and p-values from the model",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Comparisons within all these subgroups were evaluated using multivariable Poisson regression models §§§ with robust standard errors to estimate prevalence ratios"
+    }
+   ]
+  },
+  {
+   "name": "Rao-Scott adjusted Pearson chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in Table 1 note; survey-adjusted test across levels of each characteristic",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "The Rao-Scott adjusted Pearson chi-squared test was used to test for differences in observed and expected frequencies among groups by characteristic"
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (raking and weight trimming)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "raking to 2010 Census by gender, age, race/ethnicity; R survey package; weights produce all estimates",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Statistical raking and weight trimming were employed to improve the cross-sectional June cohort representativeness of the U.S. population"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "reference group per characteristic (e.g., White adults, adults aged 25–44 years, noncaregivers, uninsured)",
+  "across": [
+   "unpaid caregiver status",
+   "underlying medical conditions",
+   "health insurance status",
+   "race/ethnicity",
+   "age group",
+   "disability",
+   "gender",
+   "education",
+   "household income",
+   "employment status",
+   "essential worker status",
+   "census region",
+   "rural/urban",
+   "knowing someone with COVID-19",
+   "perceived high risk"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Avoidance of urgent or emergency care was more prevalent among unpaid caregivers for adults, persons with underlying medical conditions, Black adults, Hispanic adults"
+   },
+   {
+    "loc": "text",
+    "q": "Black adults (1.6; 1.3–2.1) and Hispanic adults (1.5; 1.2–2.0) versus White adults"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "95% confidence intervals, and p-values to evaluate statistical significance (α = 0.05) using the R survey package (version 3.29)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimated prevalence of delay or avoidance of medical care because of concerns related to COVID-19"
+    }
+   ]
+  },
+  {
+   "v": "aPR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "unpaid caregivers for adults* versus noncaregivers (adjusted prevalence ratio [aPR] = 2.9)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "clustered or robust SE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "multivariable Poisson regression models §§§ with robust standard errors"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "The Rao-Scott adjusted Pearson chi-squared test was used to test for differences in observed and expected frequencies among groups by characteristic"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Poisson regressions used to calculate a prevalence ratio adjusted for all characteristics listed"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "gender; age; race/ethnicity; disability; underlying medical conditions; education; essential worker status; unpaid caregiver status; census region; urban/rural; health insurance; knowing someone positive or who died; perceived high risk",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Covariates included gender; age; race/ethnicity; disability status; presence of one or more selected underlying medical conditions known to increase risk for severe COVID-19"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How prevalent was delay or avoidance of urgent, emergency and routine medical care because of COVID-19 concerns among U.S. adults, and which groups were most affected?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess delay or avoidance of urgent or emergency and routine medical care because of concerns about COVID-19, a web-based survey was administered"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Delay or Avoidance of Medical Care Because of COVID-19–Related Concerns — United States, June 2020"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a web-based survey was administered by Qualtrics, LLC, during June 24–30, 2020, to a nationwide representative sample of U.S. adults"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "completed web-based COVID-19 Outbreak Public Evaluation Initiative surveys administered by Qualtrics, LLC."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "COVID-19 Outbreak Public Evaluation (COPE) Initiative surveys",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "completed web-based COVID-19 Outbreak Public Evaluation Initiative surveys administered by Qualtrics, LLC."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to a nationwide representative sample of U.S. adults aged ≥18 years."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Black and Hispanic vs White and disability contrasts are quantified as aPRs and interpreted ('especially concerning'); the Discussion names structural inequities, health care access and inaccessible transportation and formats as explanations.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Structural inequities are offered for racial disparities in COVID-19 outcomes generally rather than for care avoidance; disability barriers are framed as access but speculatively."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Increased prevalences of reported urgent or emergency care avoidance among Black adults and Hispanic adults compared with White adults are especially concerning"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Covariates included gender; age; race/ethnicity; disability status"
+     }
+    ]
+   },
+   {
+    "v": "disability",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "For persons with disabilities, accessing medical services might be challenging because of disruptions in essential support services"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "nationwide representative sample of U.S. adults aged ≥18 years."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "young adults aged 18–24 years versus adults aged 25–44 years (1.5; 1.2–1.8)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Gender › Female"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education",
+     "2019 household income",
+     "health insurance status"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "persons with health insurance versus those without health insurance (1.8; 1.2–2.8)"
+     },
+     {
+      "loc": "table 1",
+      "q": "2019 household income, USD › <25,000"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "U.S. census region; urban/rural classification ††† ; health insurance status"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "long-standing structural inequities; health insurance status; health care access; work and living circumstances; disruptions in essential support services; reduced accessible transportation and communication",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "might include long-standing structural inequities that influence life expectancy, including prevalence and underlying medical conditions, health insurance status, and health care access"
+    },
+    {
+     "loc": "text",
+     "q": "reduced availability of accessible transportation, reduced communication in accessible formats"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referents: White adults, ages 25–44, no disability, uninsured; AI/AN and NH/PI collapsed into Other; weights rake on gender, age, race/ethnicity but authors note possible nonrepresentativeness by income, education and technology access."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity › Black, non-Hispanic"
+    },
+    {
+     "loc": "table 1",
+     "q": "Rao-Scott adjusted Pearson chi-squared test was used to test for differences in observed and expected frequencies among groups by characteristic"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group, yrs › 18–24"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Education › Less than high school diploma"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "2019 household income, USD › <25,000"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Employment status › Unemployed"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "comparison",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Rao-Scott chi-square covers Table 1 bivariate differences; aPR claims rest on the Poisson models. Employment status categories treated as SES; income appears only in Table 1 though a footnote describes an income reference group.",
+ "view_issues": "Footnote §§§ describes an income reference group, but income is not among the listed covariates and does not appear in Table 2."
+}

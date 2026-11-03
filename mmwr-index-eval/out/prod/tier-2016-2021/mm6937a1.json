@@ -1,0 +1,354 @@
+{
+ "id": "mm6937a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyszDEz8xthQEPKqXF",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Overall, during 2015–2017, the U.S. fetal mortality rate was 6.0 per 1,000 live births and fetal deaths"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Fetal mortality rates are expressed as the number of fetal deaths per 1,000 live births plus fetal deaths."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, during 2015–2017, the U.S. fetal mortality rate was 6.0 per 1,000 live births and fetal deaths"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "the fetal mortality rate among non-Hispanic Black women was more than twice that among non-Hispanic White women and Hispanic women"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Poisson model for rate CIs and crude rate ratios",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'Using a Poisson model' to compute CIs around rates and crude RRs → loglinear; used for CIs only, no covariates",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Using a Poisson model, 95% confidence intervals (CIs) around the fetal mortality rate and crude rate ratios (RRs) were calculated."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "Poisson model-based CIs for crude RRs judged against 1 ('significantly higher', 'no significant differences')",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was also significantly higher than that among mothers aged 20–39 years (RR = 1.8; 95% CI = 1.7–1.8)"
+    },
+    {
+     "loc": "text",
+     "q": "No significant racial/ethnic differences in fetal mortality attributable to congenital malformations were identified."
+    }
+   ]
+  },
+  {
+   "name": "small-count suppression of state rates",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "state rates withheld when fewer than 20 fetal deaths",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "figure 2",
+     "q": "Rates for states that reported fewer than 20 fetal deaths are not presented."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "non-Hispanic White women; mothers aged 20–39 years; singleton pregnancies",
+  "across": [
+   "race/ethnicity",
+   "maternal age",
+   "multiple gestation",
+   "state",
+   "cause of death category"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "the fetal mortality rate among non-Hispanic Black women was more than twice that among non-Hispanic White women and Hispanic women"
+   },
+   {
+    "loc": "summary",
+    "q": "The rate of fetal death attributable to maternal complications among non-Hispanic Black women was three times that among White women."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Using a Poisson model, 95% confidence intervals (CIs) around the fetal mortality rate and crude rate ratios (RRs) were calculated."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "fetal mortality rate per 1,000 live births plus fetal deaths",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Fetal mortality rates are expressed as the number of fetal deaths per 1,000 live births plus fetal deaths."
+    }
+   ]
+  },
+  {
+   "v": "crude rate ratio (RR)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Using a Poisson model, 95% confidence intervals (CIs) around the fetal mortality rate and crude rate ratios (RRs) were calculated."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "95% confidence intervals (CIs) around the fetal mortality rate and crude rate ratios (RRs) were calculated."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How do U.S. fetal mortality rates and causes of fetal death differ by maternal race/ethnicity, age, plurality and state during 2015–2017?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Rates were calculated nationally and by mothers’ state of residence, race and Hispanic origin, age, and multiple-gestation pregnancy."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "fetal death",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Racial and Ethnic Disparities in Fetal Deaths — United States, 2015–2017"
+    }
+   ]
+  },
+  {
+   "v": "pregnancy",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The spontaneous death or loss of a fetus during pregnancy is termed a fetal death."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC used the 2015–2017 fetal death data files and birth certificates available from the National Vital Statistics System."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC used the 2015–2017 fetal death data files and birth certificates available from the National Vital Statistics System."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System (fetal death data files, birth certificates)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC used the 2015–2017 fetal death data files and birth certificates available from the National Vital Statistics System."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Rates were calculated nationally and by mothers’ state of residence, race and Hispanic origin, age, and multiple-gestation pregnancy."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "The Black–White disparity is framed, quantified (more than twice; RR 3.1 for maternal complications) and interpreted; socioeconomic status, access to quality care, stress and racism including institutional bias are named as possible explanations.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The determinants are offered tentatively ('might contribute') and cited from a prior report, not analyzed."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Racial and Ethnic Disparities in Fetal Deaths — United States, 2015–2017"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The fetal mortality rate among mothers aged <20 years (7.4) was 30% higher than that among mothers aged 20–39 years"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The spontaneous death or loss of a fetus during pregnancy is termed a fetal death."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "socioeconomic status; access to quality health care; stress; racism, including institutional bias",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "socioeconomic status, access to quality health care, stress, and racism, including institutional bias"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referent is non-Hispanic White women; only Black, White and Hispanic groups reported; Rhode Island 2015 lacks race data; cause-of-death analysis limited to jurisdictions with >50% specified causes."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "the fetal mortality rate among non-Hispanic Black women was more than twice that among non-Hispanic White women and Hispanic women"
+    },
+    {
+     "loc": "text",
+     "q": "Compared with White mothers, Hispanic mothers had increased rates of fetal death attributable to maternal complications of pregnancy"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was also significantly higher than that among mothers aged 20–39 years (RR = 1.8; 95% CI = 1.7–1.8)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "outcome_types",
+  "equity.level",
+  "procedures"
+ ],
+ "confidence": "medium",
+ "notes": "Fetal mortality 'rate' has births plus fetal deaths as denominator, so it is read as a risk (binary/categorical). The Poisson model only yields CIs and crude RRs, so it is ancillary; claims rest on CI inversion.",
+ "view_issues": "Age groups are given as <20, 20–39 and >40 years, leaving age 40 unassigned."
+}

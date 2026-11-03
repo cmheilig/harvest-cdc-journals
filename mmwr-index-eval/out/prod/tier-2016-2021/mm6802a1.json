@@ -1,0 +1,403 @@
+{
+ "id": "mm6802a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPystWKXmDKnzkuLdDV",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "at least one opioid was prescribed during 8,810,237 (6.9%) of these patient-weeks, decreasing from 7.4% during period 1 to 6.4% during period 3"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "at least one opioid was prescribed during 8,810,237 (6.9%) of these patient-weeks, decreasing from 7.4% during period 1 to 6.4% during period 3"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Patients in noncore counties had an 87% higher chance of receiving an opioid prescription compared with persons in large central metropolitan counties"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a second logistic regression model estimated the seasonally adjusted annual percent change (APC) in the odds of receiving an opioid prescription"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "logistic regression with seasonal adjustment (period-specific percentages)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'using logistic regression' for seasonally adjusted period-specific percentages → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the period-specific percentage of patients with opioid prescriptions was estimated empirically and with seasonal adjustment using logistic regression"
+    }
+   ]
+  },
+  {
+   "name": "logistic regression for annual percent change in odds",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'a second logistic regression model' estimating APC in the odds → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a second logistic regression model estimated the seasonally adjusted annual percent change (APC) in the odds of receiving an opioid prescription"
+    }
+   ]
+  },
+  {
+   "name": "multiplicity-adjusted Wald tests",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in Table 2 note and text; simultaneous tests and CIs adjusted for multiple comparisons",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "p-values from multiplicity-adjusted Wald tests"
+    },
+    {
+     "loc": "text",
+     "q": "statistical tests and confidence intervals (CIs) are presented as simultaneous procedures adjusted for multiple comparisons"
+    }
+   ]
+  },
+  {
+   "name": "seasonal decomposition by locally weighted regression",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "smooth trends separated from seasonal components with locally weighted regression (LOESS/STL-type smoothing)",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "smooth temporal trends were statistically separated from annual seasonal components using locally weighted regression"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "large central metropolitan counties",
+  "across": [
+   "urban-rural category",
+   "period"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "found that the percentage of patients prescribed an opioid was higher in rural than in urban areas"
+   },
+   {
+    "loc": "text",
+    "q": "Patients in noncore counties had an 87% higher chance of receiving an opioid prescription compared with persons in large central metropolitan counties"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "95% multiplicity-adjusted Wald CI = 2.1–10.8"
+   },
+   {
+    "loc": "table 2",
+    "q": "p-values from multiplicity-adjusted Wald tests"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage of patient-weeks with an opioid prescription",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Number and percentage of patient-weeks with at least one opioid prescription"
+    }
+   ]
+  },
+  {
+   "v": "APC in odds",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Annual percent change (APC) in odds of receiving at least one opioid prescription"
+    }
+   ]
+  },
+  {
+   "v": "percent higher chance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Patients in noncore counties had an 87% higher chance of receiving an opioid prescription"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Period-specific percentages are based on raw counts rather than statistical models."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "estimated empirically and with seasonal adjustment using logistic regression"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "seasonality (annual seasonal components)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "estimated the seasonally adjusted annual percent change (APC) in the odds of receiving an opioid prescription"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In the other five urban-rural categories, the APC decreased in period 2 compared with period 1 (p<0.02)"
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did primary care opioid prescribing vary across six urban-rural county categories, and change before and after the March 2016 CDC Guideline?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This analysis assessed how prescribing practices varied among six urban-rural classification categories of counties, before and after the March 2016 release"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "opioid prescribing",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Opioid Prescribing Rates in Nonmetropolitan and Metropolitan Counties Among Primary Care Providers"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "retrospective cohort",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This retrospective study used deidentified Athenahealth EHR prescription data from 31,422 primary health care providers serving approximately 17 million patients."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the second cutpoint supports comparisons before and after the publication of the CDC Guideline"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "electronic health records",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Using deidentified data from the Athenahealth electronic health record (EHR) system"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Athenahealth EHR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Using deidentified data from the Athenahealth electronic health record (EHR) system"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Using an Electronic Health Record System — United States, 2014–2017"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Higher prescribing in rural counties is quantified (87% higher chance) and interpreted; limited rural access to treatment facilities and state laws/PDMP implementation are named as explanations.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Rural difference is not framed as a disparity of social position, and most explanations offered are clinical (chronic pain, older age); structural ones are speculative."
+  },
+  "dimensions": [
+   {
+    "v": "rurality",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "data were stratified by providers’ counties according to CDC’s National Center for Health Statistics urban-rural classification scheme"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "this analysis does not account for differing demographic profiles across counties, such as age distributions and payer types"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "payer types"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "this analysis does not account for differing demographic profiles across counties, such as age distributions and payer types"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "limited access to medication-assisted treatment facilities and alternative therapies in rural areas; variation in state prescription drug monitoring programs and state-based laws",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "access to medication-assisted treatment facilities and alternative therapies are limited in rural areas"
+    },
+    {
+     "loc": "text",
+     "q": "Variations in the implementation of state-run prescription drug monitoring programs and state-based laws"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Rurality is the provider's county NCHS urban-rural category (6 levels); referent large central metropolitan; patient demographics and payer are unavailable."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The lowest period-specific percentages of patient-weeks with an opioid prescription occurred in large central metropolitan counties (5.0%–5.4%) (p<0.001, multiplicity-adjusted Wald tests)"
+    },
+    {
+     "loc": "text",
+     "q": "the highest period-specific percentages (9.0%–10.3%) were in noncore counties (p<0.02)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Annual percent change (APC) in odds of receiving at least one opioid prescription"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "analytic_depth",
+  "groupwise",
+  "equity.level",
+  "study_design"
+ ],
+ "confidence": "medium",
+ "notes": "Seasonal adjustment in the logistic models is read as model adjustment (stratified/adjusted). Period-to-period APC tests within each county group are period contrasts, recorded as interaction; APCs across groups are only set side by side. Design named only as 'retrospective study'.",
+ "view_issues": "The 87% higher chance does not match either the ratio of percentages (9.6/5.2 ≈ 1.85) or the crude odds ratio (≈1.94); its derivation is not stated. Text says 'large metropolitan' where large central metro is meant."
+}

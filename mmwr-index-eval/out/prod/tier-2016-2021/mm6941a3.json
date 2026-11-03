@@ -1,0 +1,532 @@
+{
+ "id": "mm6941a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyss2A9zALk8pScFrA",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "85.2% reported frequent (always or often) use of at least one form of hand hygiene after contact with high-touch public surfaces"
+    },
+    {
+     "loc": "text",
+     "q": "Hand hygiene frequency was assessed on a five-item Likert scale from “Never” to “Always”"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "approximately 85% of 4,817 U.S. adults reported frequent hand hygiene after contact with public surfaces."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Frequent hand sanitizing was more prevalent among respondents with a 2019 household income ≥$100,000 (72.6%) compared with those with a household income <$25,000 (62.5%)."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusted odds ratios (aORs) and 95% confidence intervals (CIs) for hand hygiene frequency were estimated using weighted ordered logistic regressions"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "weighted ordered (proportional odds) logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'weighted ordered logistic regressions' / 'ordered logit model ... with a proportional odds assumption' on a 5-level Likert outcome → logistic (ordinal)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "estimated using weighted ordered logistic regressions with the following explanatory variables"
+    },
+    {
+     "loc": "figure 1",
+     "q": "Adjusted odds ratios were estimated using an ordered logit model of handwashing on the variables listed in the column"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based CIs from the weighted ordered logistic regression; 'significant differences' drawn from aOR CIs excluding 1",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The aORs and 95% CIs reflect significant differences in odds of more frequent handwashing associated with gender, age, race/ethnicity"
+    }
+   ]
+  },
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'Bivariate chi-squared test' on the full 5-level Likert scale, p-values in the Table",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Bivariate chi-squared test was used to test for differences in observed and expected frequencies among groups by characteristic"
+    }
+   ]
+  },
+  {
+   "name": "survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weights to 2010 Census by gender, age and race/ethnicity; weighted numbers and weighted models; R survey package",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Quota sampling and survey weighting were employed to improve sample representativeness of the adult U.S. population by gender, age, and race/ethnicity."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "female; aged 18–24 years; non-Hispanic White; household income <$25,000; not at all concerned; did not know someone with COVID-19",
+  "across": [
+   "gender",
+   "age group",
+   "race/ethnicity",
+   "2019 household income",
+   "U.S. Census region",
+   "rural/urban residence",
+   "knew someone with positive SARS-CoV-2 test",
+   "knew someone hospitalized or died from COVID-19",
+   "concern for personal risk of infection"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Males, young adults, respondents with lower concern about risk for SARS-CoV-2 infection, and respondents without personal COVID-19 experience reported less frequent hand hygiene."
+   },
+   {
+    "loc": "text",
+    "q": "Odds of more frequent handwashing were lower for males than for females (aOR = 0.65; 95% CI = 0.57–0.74)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "Bivariate chi-squared test was used to test for differences in observed and expected frequencies among groups by characteristic"
+   },
+   {
+    "loc": "text",
+    "q": "The aORs and 95% CIs reflect significant differences in odds of more frequent handwashing"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Weighted no. (%)"
+    }
+   ]
+  },
+  {
+   "v": "aOR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(aOR = 1.66; 95% CI = 1.34–2.06)"
+    }
+   ]
+  },
+  {
+   "v": "p-value",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Statistical significance for bivariate analyses was evaluated as p<0.05."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Statistical analyses were conducted in R (version 4.0.2; The R Foundation) with the R survey package (version 3.29)."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Bivariate chi-squared analyses identified covariates associated with frequency of hand hygiene."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusted odds ratios (aORs) and 95% confidence intervals (CIs) for hand hygiene frequency were estimated using weighted ordered logistic regressions"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "gender, age, race/ethnicity, 2019 household income, U.S. Census region, rural/urban residence, knowing someone with positive test or hospitalized/died from COVID-19, concern for personal risk of infection",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "gender, age, race/ethnicity, 2019 household income, U.S. Census region"
+    },
+    {
+     "loc": "text",
+     "q": "and concern for personal risk for infection with SARS-CoV-2 (from “Not at all” to “Extremely”)"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the estimates did not differ substantially from models that did not assume proportional odds."
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "Which demographic characteristics, COVID-19 experiences and beliefs are associated with frequent handwashing and hand sanitizing after contact with public surfaces among U.S. adults?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "demographic factors associated with hand sanitizing and experiences and beliefs associated with hand hygiene have not been well characterized."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "hand hygiene",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Demographic Characteristics, Experiences, and Beliefs Associated with Hand Hygiene Among Adults During the COVID-19 Pandemic"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "respondents without personal COVID-19 experience reported less frequent hand hygiene."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "to improve representativeness of the cross-sectional June cohort of the United States population"
+    },
+    {
+     "loc": "text",
+     "q": "an Internet-based survey was conducted among U.S. adults aged ≥18 years during June 24–30, 2020."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "completed Internet-based surveys administered by Qualtrics, LLC, as part of The COVID-19 Outbreak Public Evaluation (COPE) Initiative."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "The COVID-19 Outbreak Public Evaluation (COPE) Initiative",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "as part of The COVID-19 Outbreak Public Evaluation (COPE) Initiative."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, June 24–30, 2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Lower frequent hand sanitizing among lower-income respondents is quantified (aOR 1.30; 72.6% vs 62.5%), framed as disparities in access, and explained by lack of access to and cost of hand sanitizer.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The access and cost explanation is speculative ('could reflect'), and the disparity framing appears only in a recommendation."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "2019 household income"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Respondents with lower income reported less frequent hand sanitizing. This could reflect lack of access to hand sanitizer"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "2019 household income"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "gender, age, race/ethnicity, 2019 household income, U.S. Census region"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Odds of more frequent handwashing were lower for males than for females (aOR = 0.65; 95% CI = 0.57–0.74)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "gender, age, race/ethnicity, 2019 household income, U.S. Census region"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "frequency increased with age and was highest among persons aged ≥65 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "gender, age, race/ethnicity, 2019 household income, U.S. Census region"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "an Internet-based survey was conducted among U.S. adults aged ≥18 years during June 24–30, 2020."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Odds of more frequent handwashing were 66% higher among non-Hispanic Asian respondents than among non-Hispanic White (White) respondents"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "gender, age, race/ethnicity, 2019 household income, U.S. Census region"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Rural/Urban residence †† › Rural"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "rural/urban residence"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "lack of access to hand sanitizer; cost of hand sanitizer for persons with low income",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This could reflect lack of access to hand sanitizer"
+    },
+    {
+     "loc": "text",
+     "q": "purchasing hand sanitizer might be prohibitive for persons with low income, particularly given recent reported increases in cost."
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referents: female, 18–24 years, non-Hispanic White, income <$25,000; AI/AN and NH/PI collapsed into other or multiple races; weights to 2010 Census by gender, age, race/ethnicity; census region is geography, not an SPD."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Bivariate chi-squared test was used to test for differences in observed and expected frequencies among groups by characteristic"
+    },
+    {
+     "loc": "text",
+     "q": "aOR = 2.36; 95% CI = 1.85–3.01 for persons aged 45–64 years compared with those aged 18–24 years"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Bivariate chi-squared test was used to test for differences in observed and expected frequencies among groups by characteristic"
+    },
+    {
+     "loc": "text",
+     "q": "Odds of more frequent handwashing were 66% higher among non-Hispanic Asian respondents than among non-Hispanic White (White) respondents"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Bivariate chi-squared test was used to test for differences in observed and expected frequencies among groups by characteristic"
+    },
+    {
+     "loc": "text",
+     "q": "had 30% higher odds of more frequent hand sanitizing (aOR = 1.30, 95% CI = 1.04–1.64) than did those with household income <$25,000"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "regression_fields"
+ ],
+ "confidence": "high",
+ "notes": "Chi-square tests are on the full 5-level Likert outcome, while the Table shows dichotomized percentages. The nonindependence approach is read from the R survey package and survey weighting; the COPE sample is an opt-in quota panel, not a probability design.",
+ "view_issues": "Table 1 CSV repeats each characteristic's p-value in every row (merged cells). The Figure 2 note duplicates 'after touching high-touch surfaces in public'."
+}

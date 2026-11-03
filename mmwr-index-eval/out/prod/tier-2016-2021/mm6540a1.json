@@ -1,0 +1,415 @@
+{
+ "id": "mm6540a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyraPFuV4jX13eM4zV",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Breast cancer mortality was 41% higher among black women (29.2 deaths per 100,000 population) than white women (20.6 deaths per 100,000 population)."
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Black women had a lower percentage of breast cancers diagnosed at a localized stage (54%) than did white women (64%)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2010–2014, approximately 41,000 deaths from breast cancer occurred each year"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, breast cancer death rates decreased faster among white women (−1.9% per year) compared with black women (−1.5% per year)."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were age-adjusted by the direct method to the 2000 U.S. standard population (19 age groups)."
+    },
+    {
+     "loc": "text",
+     "q": "Compared with white women, breast cancer incidence was higher among black women aged <60 years, but lower among black women aged ≥60 years."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "'age-adjusted by the direct method to the 2000 U.S. standard population'",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were age-adjusted by the direct method to the 2000 U.S. standard population (19 age groups)."
+    }
+   ]
+  },
+  {
+   "name": "joinpoint regression (AAPC)",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "joinpoint regression yielding average annual percentage change implies log-linear segments on rates → loglinear",
+   "role": "primary",
+   "alternative_reading": "linear (least squares on log rates, as joinpoint software commonly fits)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was calculated using joinpoint regression, which allowed different slopes for three periods"
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "p<0.05 for black vs white rate comparisons; test not named; CIs as modified gamma intervals",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Rates among black women were significantly (p<0.05) different than among white women in all comparisons except overall incidence among women aged 40–49 years."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "white women",
+  "across": [
+   "race",
+   "age group",
+   "cancer stage",
+   "year"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Breast cancer mortality continues to be higher among black women compared with white women, with death rates decreasing faster among white women."
+   },
+   {
+    "loc": "text",
+    "q": "Breast cancer mortality was 41% higher among black women"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "95% CIs were calculated as modified gamma intervals."
+   },
+   {
+    "loc": "figure 1",
+    "q": "AAPC for white females was significantly different (p<0.05) than zero."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted rate per 100,000",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Rates are per 100,000 persons and age-adjusted to the 2000 U.S. Standard population"
+    }
+   ]
+  },
+  {
+   "v": "AAPC",
+   "ev": [
+    {
+     "loc": "figure 2",
+     "q": "Average annual percentage change* in female breast cancer death rates, by age group and race"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Cancer stage § › Localized › %"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "which allowed different slopes for three periods; the year at which slopes changed could vary by race and age."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Trend among black women was significantly different (p<0.05) than among white women."
+    },
+    {
+     "loc": "figure 2",
+     "q": "Trends among black women were significantly different (p<0.05) than among white women for the following age groups"
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How do age-specific black-white differences in breast cancer incidence and mortality and their trends compare in the United States, 1999–2014?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This report examines age-specific black-white disparities in breast cancer incidence during 1999–2013 and mortality during 2000–2014 in the United States"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "breast cancer",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Patterns and Trends in Age-Specific Black-White Differences in Breast Cancer Incidence and Mortality"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using data from United States Cancer Statistics (USCS)"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Breast cancer mortality continues to be higher among black women compared with white women, with death rates decreasing faster among white women."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were obtained from population-based cancer registries affiliated with NPCR or SEER programs in each state and the District of Columbia"
+    }
+   ]
+  },
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "compiled into a national file through the National Vital Statistics System"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "United States Cancer Statistics (USCS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using data from United States Cancer Statistics (USCS)"
+    }
+   ]
+  },
+  {
+   "v": "National Program of Cancer Registries (NPCR)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "USCS includes incidence data from CDC’s National Program of Cancer Registries (NPCR)"
+    }
+   ]
+  },
+  {
+   "v": "Surveillance, Epidemiology, and End Results (SEER) Program",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the National Cancer Institute’s Surveillance, Epidemiology, and End Results (SEER) Program"
+    }
+   ]
+  },
+  {
+   "v": "National Vital Statistics System",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "mortality data from the National Vital Statistics System"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, 1999–2014"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 3,
+  "level_reason": "Black-white disparities in breast cancer mortality are framed, quantified (41% higher; AAPC differences) and interpreted; explanations offered are molecular, screening and obesity, with access raised only as a recommendation.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "Access to quality care and treatment, and follow-up of abnormal screening, could be read as named structural determinants of the mortality disparity."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "assigned or observed",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Race and ethnicity were abstracted from medical records for cases and from death certificates for deaths"
+     },
+     {
+      "loc": "summary",
+      "q": "Breast cancer mortality continues to be higher among black women compared with white women"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Breast cancer incidence trends differed by race and age, particularly during 1999–2004 when rates decreased only among white women aged ≥50 years."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "were age-adjusted by the direct method to the 2000 U.S. standard population (19 age groups)."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Average annual number and rate* of female breast cancer deaths (2010–2014) and invasive cases (2009–2013) among women"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "White women are the referent; only black and white races (regardless of ethnicity) are compared; race from medical records and death certificates."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The largest difference by race was observed among women aged 60–69 years"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "regression_fields",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Joinpoint was fitted to age-adjusted rates; adjusted_results set false because standardization is outside the model. AAPC vs zero and black-white trend tests are treated as model terms (interaction_modeled).",
+ "view_issues": "Figure 2 note lists age group '79–79 years'; Figure 1 note says slopes vary 'by age and sex'; text says death rates decreased 'during 2010–2014' though trends cover 2000–2014; table CSV cell '1.2c(1.2–1.2)'."
+}

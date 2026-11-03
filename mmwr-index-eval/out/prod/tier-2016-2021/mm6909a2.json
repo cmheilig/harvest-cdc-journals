@@ -1,0 +1,406 @@
+{
+ "id": "mm6909a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysyDkUZVMGZQL9uBj",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The national age-adjusted rate of fall-related TBI deaths increased by 17% from 2008 to 2017"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Annual death rates and accompanying 95% confidence intervals (CIs) were calculated per 100,000 population"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "from 3.86 per 100,000 persons to 4.52 ( Table 1 ), representing 17,408 fall-related TBI deaths in 2017."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the rate among persons aged ≥75 years was approximately eight times higher than that among those aged 55–74 years (6.24)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "With the exception of age-group rates, death rates were age-adjusted to the U.S. year 2000 standard age distribution."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "rates age-adjusted to the 2000 U.S. standard population (direct method)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "With the exception of age-group rates, death rates were age-adjusted to the U.S. year 2000 standard age distribution."
+    }
+   ]
+  },
+  {
+   "name": "joinpoint regression (AAPC)",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "Joinpoint software estimating average annual percent changes, which are fitted as log-linear trends in rates; significance at α = 0.05 is part of the model",
+   "role": "primary",
+   "alternative_reading": "linear: Joinpoint fits least squares on the log rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "modeled using Joinpoint regression software (version 4.6.0.0; National Cancer Institute) to estimate average annual percent changes (AAPCs)"
+    },
+    {
+     "loc": "text",
+     "q": "AAPCs were considered statistically significant at α = 0.05."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": null,
+  "across": [
+   "year",
+   "state",
+   "sex",
+   "age group",
+   "race/ethnicity",
+   "level of urbanization"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "rates increased significantly in 29 states and among nearly all groups, most notably persons living in noncore nonmetropolitan counties and those aged ≥75 years."
+   },
+   {
+    "loc": "text",
+    "q": "The largest modeled rate increases occurred among persons living in noncore nonmetropolitan counties (AAPC = 2.9%) and those aged ≥75 years (AAPC = 2.6%)."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "AAPCs were considered statistically significant at α = 0.05."
+   },
+   {
+    "loc": "table 2",
+    "q": "2008–2017 rate trend AAPC (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted rate per 100,000",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Per 100,000 population, age-adjusted to the 2000 U.S. standard population"
+    }
+   ]
+  },
+  {
+   "v": "AAPC",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "2008–2017 rate trend AAPC (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "percent increase",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The national age-adjusted rate of fall-related TBI deaths increased by 17% from 2008 to 2017"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "National and state-specific rate trends of fall-related TBI deaths were modeled using Joinpoint regression software"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did rates of fall-related TBI deaths change nationally, by state and by decedent characteristics in the United States during 2008–2017?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC estimated national and state-specific rates and trends for TBI-related deaths (TBI deaths) caused by unintentional falls"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "fall-related traumatic brain injury death",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Deaths from Fall-Related Traumatic Brain Injury — United States, 2008–2017"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "National Vital Statistics System multiple-cause-of-death database on death certificates filed in 50 states and the District of Columbia (DC) were analyzed"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Study years 2008–2017 were selected to support estimation of 10-year national and state-specific trends."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "National Vital Statistics System multiple-cause-of-death database on death certificates"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System multiple-cause-of-death database",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "National Vital Statistics System multiple-cause-of-death database on death certificates"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC estimated national and state-specific rates and trends"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Rates and AAPCs by urbanization and race/ethnicity are reported and urbanization is discussed (noncore counties had the most rapid increase), but values are only set side by side with no computed contrast across SPD groups.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The Discussion links rural resource access to disparities in post-injury outcomes and highlights the noncore AAPC as the largest, which could be read as a framed, quantified rural disparity."
+  },
+  "dimensions": [
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Over the 10-year study period, noncore, nonmetropolitan counties experienced the most rapidly increasing rates."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Race/Ethnicity › Hispanic"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "misclassification of race and ethnicity on death certificates is a common occurrence"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "national rates of fall-related TBI death were highest among persons aged ≥75 years (54.08 per 100,000)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "death rates were age-adjusted to the U.S. year 2000 standard age distribution."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "the rate among males was nearly double that of females (3.17)."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "availability and accessibility of resources (access to high-level trauma centers and rehabilitative services) in rural regions",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "heterogeneity in the availability and accessibility of resources (e.g., access to high-level trauma centers and rehabilitative services) can result in disparities"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Six-level NCHS urban-rural classification; race/ethnicity has five groups plus 'not stated' (no rates); no referent group or computed contrasts across SPD groups."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The largest modeled rate increases occurred among persons living in noncore nonmetropolitan counties (AAPC = 2.9%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the rate among persons aged ≥75 years was approximately eight times higher than that among those aged 55–74 years (6.24)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Race/Ethnicity › AI/AN"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "outcome_types",
+  "comparison",
+  "regression_fields",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "Each group's AAPC is tested against zero within the joinpoint model; no test compares AAPCs across groups. Joinpoint is run on age-adjusted rates, so adjustment precedes the model rather than occurring within it. AAPC could also be read as a continuous model-derived parameter.",
+ "view_issues": "State-specific results rely on a Supplementary Table not included in the packet; the Figure omits Alaska and DC because counts were below 20."
+}

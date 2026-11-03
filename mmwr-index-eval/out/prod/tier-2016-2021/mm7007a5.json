@@ -1,0 +1,425 @@
+{
+ "id": "mm7007a5",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPytqZAuBZYUea4zXHd",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among 540 workers for whom use of hazard controls was voluntary, 28.9% used them"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Approximately one half (45.6%; 95% CI = 41.0%–50.3%) of non–health care workers reported use of occupational hazard controls"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Higher-income workers were more likely to report required use (27.7%; 95% CI = 22.4%–32.9%)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Models were adjusted for occupational group and proximity to others at work."
+    },
+    {
+     "loc": "text",
+     "q": "Stratum-specific aRDs were estimated to assess effect modification by income."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated: all analyses used survey weights matched to Current Population Survey proportions",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All further analyses were conducted using survey weights."
+    }
+   ]
+  },
+  {
+   "name": "survey-weighted regression with predictive marginal means (adjusted risk differences)",
+   "class": "regression",
+   "regression_family": "other",
+   "inferred_from": "'survey-weighted regression model' not otherwise named; risk differences from predictive marginal means → other",
+   "alternative_reading": "logistic: predictive marginal means are commonly derived from a logistic model",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A survey-weighted regression model was used to estimate the association between employer provision of hazard controls and voluntary use"
+    },
+    {
+     "loc": "table 2",
+     "q": "Adjusted hazard control use was estimated as a predictive marginal mean."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "CI method not stated; aRD 22.3 (11.8–32.7) excludes 0 and the article concludes provision is associated with greater use",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Employer provision of hazard controls was associated with greater use among all workers, particularly among lower-income workers."
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'nonsignificantly' for the difference between income-specific aRDs; no test named",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This effect was nonsignificantly larger among lower-income workers (aRD = 31.0%) than among higher-income workers (aRD = 16.3%)."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "both",
+  "referent": "employer did not provide hazard controls",
+  "across": [
+   "employer provision of hazard controls",
+   "household income"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Voluntary use was approximately double (22 percentage points higher) among workers whose employers provided hazard controls than among those whose employers did not."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "were described using percentages and 95% CIs"
+   },
+   {
+    "loc": "text",
+    "q": "This effect was nonsignificantly larger among lower-income workers"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "survey-weighted %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Survey-weighted % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "aRD",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "stratum-specific adjusted risk differences (aRDs)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "none",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "all analyses applied provided survey weights, treating the sample as a single stratum."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "unadjusted voluntary use among workers provided with hazard controls (44.9%;) was twice that among those for whom hazard controls were not provided"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted for occupational group and proximity to others at work."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "occupational group and proximity to others at work",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Models were adjusted for occupational group and proximity to others at work."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Stratum-specific aRDs were estimated to assess effect modification by income."
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How often do nonremote non–health care workers use COVID-19 hazard controls, and is employer provision associated with voluntary use, by income?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to characterize required and voluntary use of COVID-19–related occupational hazard controls among U.S. non–health care workers."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "occupational hazard control use for COVID-19 prevention",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Required and Voluntary Occupational Use of Hazard Controls for COVID-19 Prevention in Non–Health Care Workplaces"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "responses among this cross-sectional, English-language, opt-in panel sample might not be representative"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "used data from the June 2020 SummerStyles survey"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "SummerStyles (Porter Novelli)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Survey questions were administered by Porter Novelli Public Services through the SummerStyles survey"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "address-based probability sampling to represent the noninstitutionalized, adult U.S. population"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Income-specific results (prohibition, inability to obtain, aRDs) are reported and linked to disparities, but income contrasts are values set side by side with no computed difference or ratio, and the aRD difference is nonsignificant, so capped at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "Disparities are framed and income-specific aRDs (31.0 vs 16.3) quantified, with cost, job insecurity and access named as explanations."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "primary comparison",
+    "ses_components": [
+     "household income <250% of national poverty threshold"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Respondents were classified as lower-income if the lower bound of the reported categorical household income was <250% of the 2019 national poverty threshold"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "household income"
+    ],
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Respondent hazard control use,* % (95% CI) › Lower household income †"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race/Ethnicity › Black, non-Hispanic"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group, yrs › 18–29"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "to represent the noninstitutionalized, adult U.S. population"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "cost to employees; job insecurity; difficulty accessing masks or PPE; reduced ability to independently choose hazard controls",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Cost to employees might hinder hazard control use, especially use of disposable items requiring regular replacement."
+    },
+    {
+     "loc": "text",
+     "q": "Workers with lower incomes might also experience more job insecurity"
+    },
+    {
+     "loc": "text",
+     "q": "including difficulty accessing masks or other PPE and reduced ability to independently choose to use hazard controls"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Income dichotomized at 250% of the 2019 poverty threshold using the lower bound of categorical income; higher income is the implicit referent."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity › Hispanic"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group, yrs › ≥60"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "regression_fields",
+  "inference",
+  "procedures"
+ ],
+ "confidence": "medium",
+ "notes": "Regression type is not named; risk differences come from predictive marginal means. Effect modification by income is assessed by stratum-specific aRDs; the basis for 'nonsignificantly' is unstated.",
+ "view_issues": "Income contrasts in prohibition and obtaining hazard controls are called 'more likely' with overlapping CIs and no test stated. Sample design variables were unavailable, so variance may be underestimated."
+}

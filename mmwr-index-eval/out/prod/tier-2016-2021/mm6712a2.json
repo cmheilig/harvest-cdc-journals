@@ -1,0 +1,372 @@
+{
+ "id": "mm6712a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPys8NvgDTuUizW5Pvp",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2016, the overall crude prevalence of diagnosed diabetes among U.S. adults was 9.44% (95% CI = 9.01–9.88)."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "the prevalence of diagnosed type 1 diabetes was 0.55%, representing 1.3 million U.S. adults"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "higher among non-Hispanic whites (whites) (0.67%) than among Hispanics (0.22%) (p<0.01)"
+    },
+    {
+     "loc": "text",
+     "q": "The prevalence of type 2 diabetes decreased with higher levels of educational attainment (p<0.001)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "chi-square test (survey design)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'P values were calculated from chi-squared tests'; complex sampling design accounted for by statistical software",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "P values were calculated from chi-squared tests and were considered significant at <0.05."
+    }
+   ]
+  },
+  {
+   "name": "survey weights with complex sampling design",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "final survey weights applied; all estimates are weighted percentages",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Final survey weights were applied to the data to adjust for various probabilities of selection and household nonresponse."
+    },
+    {
+     "loc": "text",
+     "q": "Statistical software was used to account for NHIS’s complex sampling design."
+    }
+   ]
+  },
+  {
+   "name": "suppression of estimates with relative standard error >30%",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "table note withholds unreliable estimates by an RSE rule",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimate might be unreliable because of large relative standard error (>30%); data not shown."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "age group",
+   "sex",
+   "race/ethnicity",
+   "education level",
+   "diabetes type"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Non-Hispanic blacks had the highest prevalence of diagnosed type 2 diabetes."
+   },
+   {
+    "loc": "summary",
+    "q": "Diagnosed type 2 diabetes prevalence estimates increased with age and decreased with increasing levels of educational attainment."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "P values were calculated from chi-squared tests and were considered significant at <0.05."
+   },
+   {
+    "loc": "table 1",
+    "q": "CIs were based on a logit transformation and might be asymmetric about the point estimate."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "crude prevalence, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Crude prevalence* of diagnosed diabetes among adults by diabetes type"
+    }
+   ]
+  },
+  {
+   "v": "weighted percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimates are weighted percentages and 95% CIs."
+    }
+   ]
+  },
+  {
+   "v": "estimated number of adults",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the estimated numbers of adults with type 1, type 2, and other diabetes types were 1.3 million, 21.0 million, and 0.8 million"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What was the prevalence of diagnosed type 1 and type 2 diabetes among U.S. adults in 2016, overall and by sociodemographic characteristics?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This study used NHIS data from 2016 to estimate the prevalence of diagnosed diabetes among adults by primary type."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "type 1 diabetes",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "the prevalence of diagnosed type 1 diabetes was 0.55%, representing 1.3 million U.S. adults"
+    }
+   ]
+  },
+  {
+   "v": "type 2 diabetes",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "the prevalence of diagnosed type 2 diabetes was 8.6%, representing 21.0 million U.S. adults."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NHIS is an annual, cross-sectional household interview survey conducted by CDC"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2016, supplemental questions to help distinguish diabetes type were added to the National Health Interview Survey (NHIS)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Health Interview Survey (NHIS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2016, supplemental questions to help distinguish diabetes type were added to the National Health Interview Survey (NHIS)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "gathers health-related data in a nationally representative sample of the civilian, noninstitutionalized U.S. population"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Prevalence is reported and described by race/ethnicity and education with chi-square p-values, but no difference or ratio is computed and the results are not framed as disparities.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The Summary highlights Black adults' highest type 2 prevalence and the education gradient, which could be read as a framed disparity, though unquantified."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "was higher among non-Hispanic blacks (11.52%) than among non-Hispanic Asians (6.89%), whites (7.99%), and Hispanics (9.07%) (p<0.001)"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "educational attainment"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The prevalence of type 2 diabetes decreased with higher levels of educational attainment (p<0.001)."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "By age group, the prevalence of type 2 diabetes was highest among adults aged ≥65 years and lowest among adults aged 18–29 years (p<0.001)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The 2016 NHIS Sample Adult Core consisted of 33,028 adults aged ≥18 years, with a final response rate of 54.3%."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The prevalence of type 1 diabetes was higher among men (0.64%) than among women (0.46%) (p<0.05)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Four race/ethnicity groups; Asian type 1 and several Hispanic/Asian other-type estimates suppressed (RSE >30%). Education in three levels; the lowest level's label is missing in the table."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimated crude prevalence of type 1 diabetes among U.S. adults did not significantly vary by age group (p = 0.54)"
+    },
+    {
+     "loc": "text",
+     "q": "By age group, the prevalence of type 2 diabetes was highest among adults aged ≥65 years and lowest among adults aged 18–29 years (p<0.001)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was higher among non-Hispanic blacks (11.52%) than among non-Hispanic Asians (6.89%), whites (7.99%), and Hispanics (9.07%) (p<0.001)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The prevalence of type 2 diabetes decreased with higher levels of educational attainment (p<0.001)."
+    },
+    {
+     "loc": "text",
+     "q": "did not significantly vary by age group (p = 0.54) or education (p = 0.14)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise",
+  "equity.level"
+ ],
+ "confidence": "high",
+ "notes": "Chi-square tests are the only named test; whether the race p-values for type 2 (one p for Black vs three groups) and type 1 (White vs Hispanic) are omnibus or pairwise is not stated. The education gradient is tested by chi-square, not a named trend test.",
+ "view_issues": "The Table's first Education level row lacks its label (presumably <high school); in article.txt its values are fused into the row headings."
+}

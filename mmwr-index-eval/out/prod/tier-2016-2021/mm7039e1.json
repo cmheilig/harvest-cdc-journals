@@ -1,0 +1,404 @@
+{
+ "id": "mm7039e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyt3w8wWZ4wcJZ4Kjz",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the odds of a school-associated COVID-19 outbreak in schools with no mask requirement were 3.7 times higher"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During July 15–August 31, 2021, 191 school-associated outbreaks occurred"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In the crude analysis, the odds of a school-associated COVID-19 outbreak in schools with no mask requirement were 3.7 times higher"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "After adjusting for potential described confounders, the odds of a school-associated COVID-19 outbreak in schools without a mask requirement were 3.5 times higher"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "logistic regression (crude and adjusted)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Crude and adjusted logistic regression analyses' giving ORs → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Crude and adjusted logistic regression analyses with 95% confidence intervals (CIs) were performed in Stata"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "OR CIs from the logistic model exclude 1 and the article concludes higher odds of outbreak",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(OR = 3.5; 95% CI = 1.8–6.9)"
+    }
+   ]
+  },
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "table note names chi-square for p-values comparing early vs no mask schools",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Chi-square and Fisher’s exact tests were used to calculate p-values between schools with early mask requirements"
+    }
+   ]
+  },
+  {
+   "name": "Fisher's exact test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "table note names Fisher's exact test for table p-values",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Chi-square and Fisher’s exact tests were used to calculate p-values between schools with early mask requirements"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "schools with an early mask requirement",
+  "across": [
+   "school mask policy"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "odds of a school-associated COVID-19 outbreak were 3.5 times higher in schools with no mask requirement than in those with a mask requirement"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Crude and adjusted logistic regression analyses with 95% confidence intervals (CIs) were performed in Stata"
+   },
+   {
+    "loc": "table 1",
+    "q": "Chi-square and Fisher’s exact tests were used to calculate p-values"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "OR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(odds ratio [OR] = 3.7; 95% CI = 2.2–6.5)"
+    }
+   ]
+  },
+  {
+   "v": "adjusted OR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(OR = 3.5; 95% CI = 1.8–6.9)"
+    }
+   ]
+  },
+  {
+   "v": "no. (%)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "School mask requirements no. of schools (%)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In the crude analysis, the odds of a school-associated COVID-19 outbreak in schools with no mask requirement were 3.7 times higher"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "After adjusting for potential described confounders"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "school county, enrollment size, grade levels present, Title I status, and 7-day COVID-19 case rate in the school's zip code",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusted for school county, enrollment size, grade levels present, Title I status, and 7-day COVID-19 case rate in the school’s zip code"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Were K–12 school mask policies associated with school-associated COVID-19 outbreaks in Maricopa and Pima Counties, Arizona?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The association between school mask policies and school-associated COVID-19 outbreaks in K–12 public noncharter schools open for in-person learning"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Association Between K–12 School Mask Policies and School-Associated COVID-19 Outbreaks"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The association between school mask policies and school-associated COVID-19 outbreaks"
+    }
+   ]
+  },
+  {
+   "v": "ecologic",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among the 999 (96.0%) schools included in the analysis, 210 (21.0%) had an early mask requirement"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "data are stored in Arizona’s Medical Electronic Disease Surveillance Intelligence System"
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were obtained from the Arizona Department of Education"
+    }
+   ]
+  },
+  {
+   "v": "record abstraction or interview",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Mask policies were abstracted from publicly available school COVID-19 mitigation plans"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Arizona Medical Electronic Disease Surveillance Intelligence System",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "data are stored in Arizona’s Medical Electronic Disease Surveillance Intelligence System"
+    }
+   ]
+  },
+  {
+   "v": "Arizona Department of Education",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were obtained from the Arizona Department of Education"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Maricopa and Pima Counties, Arizona, July–August 2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Title I status, a school-level SES measure, appears only as a model covariate and a Table characteristic compared between mask-policy groups; no outcome is reported by SES.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 0,
+   "reason": "Title I is a school funding attribute and could be read as not a social position of persons."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "Title I status"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Title I status §§ (a measure of a school population’s socioeconomic status)"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "Title I status"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Title I status ** › Any Title I participation"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "K–12 School Mask Policies"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "The variable for grade levels present was included within the model as three separate indicator variables"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "SES is proxied by school Title I status (not Title I, eligible, any participation); no individual-level SPD data."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Title I status ** › Any Title I participation"
+    },
+    {
+     "loc": "table 1",
+     "q": "Chi-square and Fisher’s exact tests were used to calculate p-values between schools with early mask requirements"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "study_design",
+  "equity.level",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Design not named; inferred as policy evaluation with schools as the unit (ecologic). Schools with late mask requirements were excluded from regression; Table p-values compare only early vs no mask schools.",
+ "view_issues": "Table CSV misaligns the late-mask column for case-rate, Title I and enrollment rows (values shifted into the blank column). The 7-day case-rate rows are mis-nested under Grades present in article.txt."
+}

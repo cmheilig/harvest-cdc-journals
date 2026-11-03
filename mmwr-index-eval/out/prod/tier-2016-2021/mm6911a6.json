@@ -1,0 +1,497 @@
+{
+ "id": "mm6911a6",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyssGZmYPxKaJ1M5qW",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Overall, 222 (30.4%) infants identified as DHH had delayed identification."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, 222 (30.4%) infants identified as DHH had delayed identification."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, 222 (30.4%) infants identified as DHH had delayed identification."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Only 16% of infants born to a mother with a college degree were identified late"
+    },
+    {
+     "loc": "table 1",
+     "q": "Unadjusted PR (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Adjusted prevalence ratios were also estimated using a modified Poisson regression model"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "modified Poisson regression",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'modified Poisson regression' giving unadjusted and adjusted prevalence ratios → loglinear with robust variance; model-based CIs",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were estimated for each independent variable using a modified Poisson regression model"
+    },
+    {
+     "loc": "text",
+     "q": "Adjusted prevalence ratios were also estimated using a modified Poisson regression model"
+    }
+   ]
+  },
+  {
+   "name": "small-cell suppression",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "counts under 5 and their PRs withheld for privacy",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Number suppressed to protect data privacy."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "reference levels: metropolitan area, normal birthweight, English, White, U.S.-born mother, maternal age 25–34, college graduate, no public insurance",
+  "across": [
+   "residence location (metropolitan vs nonmetropolitan)",
+   "birthweight",
+   "primary home language",
+   "maternal race/ethnicity",
+   "mother born in the United States",
+   "maternal age",
+   "maternal education",
+   "public health insurance"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "infants whose mothers were Hmong were 60% more likely to have delayed identification compared with infants whose mothers were white"
+   },
+   {
+    "loc": "table 1",
+    "q": "Unadjusted PR (95% CI)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "note",
+    "q": "Statistically significant (p<0.05)."
+   },
+   {
+    "loc": "text",
+    "q": "Although not significant at the p<0.05 level, the APR for this group was among the largest (APR = 1.5; 1.0–2.3)."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage with delayed diagnosis",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. (%) with delayed diagnosis"
+    }
+   ]
+  },
+  {
+   "v": "unadjusted PR",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Unadjusted PR (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "APR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VLBW adjusted prevalence ratio [APR] = 2.6; 95% CI = 2.0–3.3)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "clustered or robust SE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Adjusted prevalence ratios were also estimated using a modified Poisson regression model"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Bivariate analyses showed increased likelihood of delayed identification associated with residence location, birthweight, home language, maternal race/ethnicity"
+    },
+    {
+     "loc": "table 1",
+     "q": "Unadjusted PR (95% CI)"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "note",
+     "q": "The multivariate model was adjusted for residence location at birth, maternal race/ethnicity, mother born in the United States"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "residence location at birth, maternal race/ethnicity, mother born in the United States, maternal age, maternal education level, public health insurance status",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "The multivariate model was adjusted for residence location at birth, maternal race/ethnicity, mother born in the United States"
+    },
+    {
+     "loc": "note",
+     "q": "maternal age, maternal education level, and public health insurance status."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Which infant and maternal characteristics are associated with delayed (>3 months) identification of hearing loss among Minnesota infants who are deaf or hard of hearing?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To determine characteristics associated with delayed diagnosis of hearing loss among Minnesota infants identified as DHH"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "congenital hearing loss",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Delayed Identification of Infants Who Are Deaf or Hard of Hearing — Minnesota, 2012–2016"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This study qualified as a public health program evaluation"
+    }
+   ]
+  },
+  {
+   "v": "retrospective cohort",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "within a cohort of infants identified as deaf or hard of hearing (DHH)"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "data were collected by the Minnesota Department of Health (MDH) EHDI information system (EHDI-IS)"
+    }
+   ]
+  },
+  {
+   "v": "registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "birth certificates via the Minnesota Office of Vital Records"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Minnesota EHDI information system (EHDI-IS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "data were collected by the Minnesota Department of Health (MDH) EHDI information system (EHDI-IS)"
+    }
+   ]
+  },
+  {
+   "v": "Minnesota Office of Vital Records birth certificates",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "birth certificates via the Minnesota Office of Vital Records"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "729 infants born in Minnesota during 2012–2016 who did not pass newborn hearing screening and were identified as DHH"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Disparities in timely identification are framed and quantified as APRs (education, insurance, Hmong, nonmetropolitan residence) and interpreted. Limited access to pediatric audiology in nonmetropolitan regions and socioeconomic barriers are named as explanations.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The determinants named (access, socioeconomic barriers) are speculative and generic rather than specific structural causes."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "infants whose mothers were Hmong were 60% more likely to have delayed identification compared with infants whose mothers were white"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "The multivariate model was adjusted for residence location at birth, maternal race/ethnicity, mother born in the United States"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "primary comparison",
+    "ses_components": [
+     "maternal education level",
+     "public health insurance"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Infants born to mothers who did not have a college degree were more likely to be identified late"
+     },
+     {
+      "loc": "text",
+      "q": "several socioeconomic indicators in this study were associated with delayed identification of infants who are born DHH"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "infants in this study living outside of the metropolitan area were more likely to have delayed identification"
+     }
+    ]
+   },
+   {
+    "v": "country of birth/language/nativity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Mother born in the United States (698) › No"
+     },
+     {
+      "loc": "table 1",
+      "q": "Primary language used in the home (723) › Non–English"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "they were more likely to be identified late compared with infants whose mother was aged 25–34 years (APR = 1.4; 1.1–1.8)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Delayed Identification of Infants Who Are Deaf or Hard of Hearing"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "socioeconomic factors; limited access to pediatric audiology services in nonmetropolitan regions; barriers to audiologic follow-up",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Health care resources, particularly access to pediatric audiology services, might be limited in some nonmetropolitan regions."
+    },
+    {
+     "loc": "text",
+     "q": "barriers to audiologic follow-up for persons with lower socioeconomic status"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referents: White, college graduate, no public insurance, metropolitan. Hmong and Somali are separate groups; American Indian counts suppressed; insurance unknown kept as its own category; complete-case model (686 records)."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 7,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Maternal race/Ethnicity (695) › Hmong"
+    },
+    {
+     "loc": "text",
+     "q": "infants whose mothers were Hmong were 60% more likely to have delayed identification compared with infants whose mothers were white"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Infants born to mothers who did not have a college degree were more likely to be identified late"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "they were more likely to be identified late compared with infants whose mother was aged 25–34 years (APR = 1.4; 1.1–1.8)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "country of birth/language/nativity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Primary language used in the home (723) › American Sign Language"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "study_design",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Multicollinearity screening (correlations >0.80, VIF >2.5) led to dropping birth hospital location; treated as a covariate-selection rule, not a procedure. Significance marks come from the model's p-values. The 3-month JCIH benchmark defines the outcome, not a referent.",
+ "view_issues": "Methods define the outcome as identification 'by 3 months of age', contradicting '>3 months' elsewhere. The adjustment footnote omits birthweight and home language, though APRs are shown for both. The Non–English unadjusted PR carries § instead of ¶."
+}

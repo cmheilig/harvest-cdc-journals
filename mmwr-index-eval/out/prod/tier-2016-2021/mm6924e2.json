@@ -1,0 +1,332 @@
+{
+ "id": "mm6924e2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyt7Qx3HmKjSmpQBAy",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Hospitalizations were six times higher among patients with a reported underlying condition than those without reported underlying conditions (45.4% versus 7.6%)."
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Incidence was 403.6 cases per 100,000 population ( Table 1 ) and was similar among females (406.0) and males (401.1)."
+    },
+    {
+     "loc": "text",
+     "q": "The 7-day moving average number ¶¶¶ of new daily cases peaked on April 12 (31,994) and deaths peaked on April 21 (2,856)."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, 184,673 (14%) patients were hospitalized, including 29,837 (2%) admitted to the ICU; 71,116 (5%) patients died"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Deaths were 12 times higher among patients with reported underlying conditions compared with those without reported underlying conditions (19.5% versus 1.6%)."
+    },
+    {
+     "loc": "text",
+     "q": "The percentages of males who were hospitalized (16%), admitted to the ICU (3%), and who died (6%) were higher than were those for females"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Death was most commonly reported among persons aged ≥80 years regardless of the presence of underlying conditions (with underlying conditions 50%; without 30%)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "7-day moving average",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "moving average stated as smoothing of daily counts",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "The 7-day moving average of new cases and deaths (current day + 6 preceding days / 7) was calculated to smooth"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "patients without reported underlying conditions",
+  "across": [
+   "underlying health condition status",
+   "sex",
+   "age group",
+   "race/ethnicity"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Hospitalizations were six times higher and deaths 12 times higher among those with reported underlying conditions compared with those with none reported."
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Analyses are descriptive and statistical comparisons were not performed."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "cumulative incidence per 100,000",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "* Per 100,000 population."
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Outcome, no./total no. (%)"
+    }
+   ]
+  },
+  {
+   "v": "7-day moving average number of new daily cases and deaths",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "As of May 30, the 7-day moving average numbers of new cases were 19,913 per day and deaths were 950 per day."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What were the demographic characteristics, underlying conditions, symptoms and severe outcomes of laboratory-confirmed COVID-19 cases reported to CDC through May 30, 2020?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This report describes demographic characteristics, underlying health conditions, symptoms, and outcomes among 1,320,488 laboratory-confirmed COVID-19 cases individually reported to CDC"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Coronavirus Disease 2019 Case Surveillance — United States, January 22–May 30, 2020"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "among laboratory-confirmed COVID-19 patients with and without reported underlying health conditions"
+    }
+   ]
+  },
+  {
+   "v": "underlying health conditions",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "the most common underlying health conditions were cardiovascular disease (32%), diabetes (30%), and chronic lung disease (18%)."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Analyses are descriptive and statistical comparisons were not performed."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "individual COVID-19 case reports were submitted via a CDC COVID-19 case report form** and the National Notifiable Diseases Surveillance System (NNDSS)."
+    },
+    {
+     "loc": "text",
+     "q": "State and territorial health departments report daily aggregate counts of COVID-19 cases and deaths to CDC"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Notifiable Diseases Surveillance System (NNDSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the National Notifiable Diseases Surveillance System (NNDSS)."
+    }
+   ]
+  },
+  {
+   "v": "CDC COVID-19 case report form",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "individual COVID-19 case reports were submitted via a CDC COVID-19 case report form"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "COVID-19 case data reported from 50 states, New York City, and the District of Columbia ¶¶ were analyzed"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Hispanic, Black and AI/AN shares of cases are set beside their U.S. population shares and called disproportionate, but no difference or ratio is stated, so the side-by-side cap holds; age and sex results alone are level 0.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Race appears only as case composition, with outcomes by race explicitly not described; the population-share contrast could be read as a descriptor only."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "These findings suggest that persons in these groups, who account for 18%, 13%, and 0.7% of the U.S. population, respectively, are disproportionately affected"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Because of the high prevalence of missing race and ethnicity data, estimates of incidence and proportions of underlying health conditions, symptoms, and severe outcomes"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Incidence was highest among persons aged ≥80 years (902.0)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Incidence was 403.6 cases per 100,000 population ( Table 1 ) and was similar among females (406.0) and males (401.1)."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity missing for 55% of cases; case shares by race compared with U.S. population shares in the Discussion only; Hispanic of any race categorized as Hispanic."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 9,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Incidence was highest among persons aged ≥80 years (902.0)"
+    },
+    {
+     "loc": "text",
+     "q": "Prevalence of reported severe outcomes increased with age"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "analytic_depth",
+  "equity.level"
+ ],
+ "confidence": "high",
+ "notes": "Stratified depth rests on Table 3 outcome percentages by underlying-condition status within age groups, set side by side without stratum-specific ratios. The 'six times'/'12 times' contrasts are hand-computed ratios of percentages; no tests or CIs. Comparison with JHU aggregate counts is a consistency check, not an analysis.",
+ "view_issues": "Figure note * says aggregate case counts 'included deaths', apparently a wording slip. 'Statistical comparisons were not performed' yet the text ranks and contrasts groups descriptively."
+}

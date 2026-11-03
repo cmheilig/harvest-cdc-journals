@@ -1,0 +1,393 @@
+{
+ "id": "mm6524a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyra8yDfiEinKiLwBZ",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Visits by white males (1.6 visits per person) were more frequent than visits by black males (0.9) and Hispanic males (0.8)"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, HIV testing was performed at 674,001 (1.0%) of the visits made by males aged 15–39 years"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During 2009–2012, males aged 15–39 years had an average of 1.35 visits to physicians’ offices each year."
+    },
+    {
+     "loc": "summary",
+     "q": "Fewer than 1.1% of the visits by males included an HIV test."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "HIV testing was reported at 2.7% of visits by black males (prevalence ratio [PR] = 3.8; p<0.001)"
+    },
+    {
+     "loc": "text",
+     "q": "Compared with the rate found among males aged 35–39 years (0.6%), HIV testing rates were higher among those aged 20–24 years (1.7%)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "univariate logistic regression for prevalence ratios",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "table note: 'Univariate logistic regression model used to estimate prevalence ratios' → logistic; p-values and CIs from the model",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Univariate logistic regression model used to estimate prevalence ratios."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (NAMCS complex sampling design)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated weighting for the four-stage probability sampling design; produces every estimate",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All analyses used weighting to account for the complex sampling design."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "white, non-Hispanic males; males aged 35–39 years",
+  "across": [
+   "race/ethnicity",
+   "age group"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "HIV testing was reported at 2.7% of visits by black males (prevalence ratio [PR] = 3.8; p<0.001)"
+   },
+   {
+    "loc": "table 2",
+    "q": "HIV testing prevalence ratio (95% CI)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "Univariate logistic regression model used to estimate prevalence ratios."
+   },
+   {
+    "loc": "text",
+    "q": "1.4% of visits by Hispanic males (PR = 2.0; p = 0.08)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "visits per person",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Average annual no. of visits per person (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "percentage of visits with an HIV test",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Average annual percentage of visits with an HIV test (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "prevalence ratio",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "HIV testing prevalence ratio (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All analyses used weighting to account for the complex sampling design."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Univariate logistic regression model used to estimate prevalence ratios."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How often do U.S. males aged 15–39 years visit physicians' offices, and how often is HIV testing performed at those visits, by age and race/ethnicity?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to estimate rates of health care use at U.S. physicians’ offices and HIV testing at these encounters"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "HIV infection",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Health Care Use and HIV Testing of Males Aged 15–39 Years in Physicians’ Offices"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2009–2012 National Ambulatory Medical Care Survey (NAMCS)"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A four-stage probability sampling design is used in NAMCS to allow generation of nationally representative weighted estimates"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Ambulatory Medical Care Survey (NAMCS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2009–2012 National Ambulatory Medical Care Survey (NAMCS)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, 2009–2012"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 3,
+  "level_reason": "Black vs white HIV testing is quantified as a prevalence ratio (3.8) and interpreted as attenuated by fewer visits. Access and insurance are offered only for the visit-rate differences, which are set side by side.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "Access to care and insurance rates are named as explanations of the racial differences in visits that drive fewer testing opportunities for minority males."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "HIV testing was reported at 2.7% of visits by black males (prevalence ratio [PR] = 3.8; p<0.001)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Compared with the rate found among males aged 35–39 years (0.6%), HIV testing rates were higher among those aged 20–24 years (1.7%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Health Care Use and HIV Testing of Males Aged 15–39 Years in Physicians’ Offices"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Health Care Use and HIV Testing of Males Aged 15–39 Years in Physicians’ Offices"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "differences in access to health care and health insurance rates",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "possibly reflecting differences in access to health care and health insurance rates among racial and ethnic groups in the United States"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Only white, black and Hispanic non-HIV-infected males are compared, with white males as referent; other racial groups are not reported."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Race/Ethnicity › White, non-Hispanic"
+    },
+    {
+     "loc": "text",
+     "q": "HIV testing was reported at 2.7% of visits by black males (prevalence ratio [PR] = 3.8; p<0.001)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Compared with the rate found among males aged 35–39 years (0.6%), HIV testing rates were higher among those aged 20–24 years (1.7%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Visits by white males (1.6 visits per person) were more frequent than visits by black males (0.9) and Hispanic males (0.8)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among all racial/ethnic groups, visits per person per year by males aged 15–19 years, 20–24 years, and 35–39 years were 1.6, 1.0, and 1.8"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "analytic_depth"
+ ],
+ "confidence": "medium",
+ "notes": "Visits with an HIV test were estimated as total visits minus visits without a test, to avoid small unweighted cells; treated as arithmetic, not a procedure. Census population is the denominator for visits per person. The figure shows visits by age within race side by side, read as comparison, not stratified.",
+ "view_issues": "Text calls Hispanic testing higher (PR 2.0, p=0.08; CI 0.93–4.23) though not significant. Logistic-model 'prevalence ratios' match ratios of percentages, not ORs. Table 1 35–39 CI uses a comma; overall visits per person lacks a CI."
+}

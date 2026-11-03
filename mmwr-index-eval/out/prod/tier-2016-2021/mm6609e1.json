@@ -1,0 +1,474 @@
+{
+ "id": "mm6609e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrk4NeqH9gVFsBb3v",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2013–2015, an estimated 22.7% (54.4 million; age-adjusted prevalence = 21.0%) of all U.S. adults had doctor-diagnosed arthritis."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2013–2015, an estimated 22.7% (54.4 million; age-adjusted prevalence = 21.0%) of all U.S. adults had doctor-diagnosed arthritis."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The age-adjusted prevalence of arthritis was significantly higher among women (23.5%) than men (18.1%)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Annualized unadjusted and age-adjusted prevalence estimates (standardized to the projected 2000 U.S. standard population)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey sampling weights with poststratification",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated sampling weights and poststratification adjustments producing all annualized weighted prevalences",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Sampling weights were applied to account for household nonresponse and oversampling of non-Hispanic blacks (blacks), Hispanics, and non-Hispanic Asians (Asians)."
+    },
+    {
+     "loc": "text",
+     "q": "Poststratification adjustments were applied by the National Center for Health Statistics using 2010 census estimates for the years 2013–2015."
+    }
+   ]
+  },
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "age-adjusted to the 2000 U.S. projected adult population using three age groups",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Annualized unadjusted and age-adjusted prevalence estimates (standardized to the projected 2000 U.S. standard population)"
+    },
+    {
+     "loc": "table 1",
+     "q": "Age adjusted to the 2000 U.S. projected adult population, using three age groups: 18–44, 45–64, and ≥65 years."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "CI method not stated; significance of absolute percent differences judged by whether the 95% CI excludes zero",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were considered statistically significant if the 95% confidence intervals of the differences of the age-adjusted estimates did not include zero"
+    }
+   ]
+  },
+  {
+   "name": "orthogonal linear contrast trend test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "orthogonal linear contrasts over survey years since 2002 giving p-trend",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Orthogonal linear contrasts were performed to examine trends over time since 2002 in the age-adjusted prevalence of doctor-diagnosed arthritis"
+    },
+    {
+     "loc": "text",
+     "q": "an increase of 19.2% (p-trend <0.001)"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "both",
+  "referent": "referent subgroup within each characteristic (men, non-Hispanic whites, <high school, employed, etc.); 2002 for trend",
+  "across": [
+   "sex",
+   "race/ethnicity",
+   "education level",
+   "employment status",
+   "physical activity",
+   "health status",
+   "body mass index",
+   "heart disease",
+   "diabetes",
+   "year"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Absolute percent differences for all comparisons to the referent subgroups within each characteristic"
+   },
+   {
+    "loc": "text",
+    "q": "were approximately 1.5, 1.7, and 1.9 times more likely to have arthritis, respectively"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "were considered statistically significant if the 95% confidence intervals of the differences of the age-adjusted estimates did not include zero"
+   },
+   {
+    "loc": "text",
+    "q": "an increase of 19.2% (p-trend <0.001)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted prevalence, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Prevalence of doctor-diagnosed arthritis › % (95% CI) › Age-adjusted"
+    }
+   ]
+  },
+  {
+   "v": "unadjusted prevalence, %",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Prevalence of arthritis-attributable activity limitations › % (95% CI) › Unadjusted"
+    }
+   ]
+  },
+  {
+   "v": "APD (absolute percent difference)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "APD = absolute percent difference"
+    }
+   ]
+  },
+  {
+   "v": "p-trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The age-adjusted prevalence of doctor-diagnosed arthritis did not change significantly over time (p-trend = 0.71)."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What is the current US prevalence of doctor-diagnosed arthritis and arthritis-attributable activity limitation, overall, by subgroup and comorbidity, and how has it changed since 2002?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To update prevalence estimates of arthritis and arthritis-attributable activity limitations, CDC analyzed 2013–2015 data from the National Health Interview Survey (NHIS)."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "arthritis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Vital Signs: Prevalence of Doctor-Diagnosed Arthritis and Arthritis-Attributable Activity Limitation — United States, 2013–2015"
+    }
+   ]
+  },
+  {
+   "v": "arthritis-attributable activity limitation",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Vital Signs: Prevalence of Doctor-Diagnosed Arthritis and Arthritis-Attributable Activity Limitation — United States, 2013–2015"
+    }
+   ]
+  },
+  {
+   "v": "heart disease",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Approximately half of all adults with heart disease or diabetes had arthritis."
+    }
+   ]
+  },
+  {
+   "v": "diabetes",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Approximately half of all adults with heart disease or diabetes had arthritis."
+    }
+   ]
+  },
+  {
+   "v": "obesity",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Nearly one third of adults with obesity also had arthritis."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "because NHIS is a cross-sectional survey"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "an age-adjusted increase of approximately 20% in the proportion of adults with arthritis reporting activity limitations since 2002"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed 2013–2015 data from the National Health Interview Survey (NHIS)."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Health Interview Survey (NHIS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed 2013–2015 data from the National Health Interview Survey (NHIS)."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "an annual, nationally representative, in-person interview survey of the health status and behaviors of the noninstitutionalized civilian U.S. adult population"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Prevalences by race/ethnicity, education and employment status are reported with APDs and CIs and described (e.g., higher limitation among blacks), but not framed as disparities; causes are not offered beyond an unmeasured-factor limitation.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "APDs are computed and the Discussion interprets group differences (blacks vs whites; unemployment), which could be read as a quantified, interpreted disparity."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Similar to past analyses, blacks and whites had a similar prevalence of arthritis, but the prevalence of arthritis-attributable activity limitations was higher among blacks."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Sampling weights were applied to account for household nonresponse and oversampling of non-Hispanic blacks (blacks), Hispanics, and non-Hispanic Asians (Asians)."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education level",
+     "employment status"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "stratified by selected demographic (sex, age group, race/ethnicity, education level, and employment status)"
+     },
+     {
+      "loc": "text",
+      "q": "unemployed adults had a much higher prevalence of arthritis-attributable activity limitations, suggesting that arthritis-attributable activity limitations might play a role in their unemployment"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The age-adjusted prevalence of arthritis was significantly higher among women (23.5%) than men (18.1%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Almost half (49.6%, 22.2 million) of adults aged ≥65 years had arthritis; 7.1% (8.0 million) of young adults (aged 18–44 years)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "in the adult (aged ≥18 years) population"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referents: non-Hispanic whites, <high school diploma, employed; employment 'other' mixes students, homemakers and retirees; no APDs for age groups; noninstitutionalized adults only."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was significantly lower among Hispanics (15.4%) and Asians (11.8%) than non-Hispanic whites (whites) (22.6%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "among adults with less than a high school education (52.1%) than among adults with higher education (32.1%–43.6%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "among adults who were unable to work (80%) or unemployed (48.4%) than among adults who were employed (28.3%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Almost half (49.6%, 22.2 million) of adults aged ≥65 years had arthritis; 7.1% (8.0 million) of young adults (aged 18–44 years)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "procedures",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Orthogonal linear contrasts are recorded as a trend test, not a regression. Ratios of 1.5–1.9 are hand-computed ratios of age-adjusted prevalences. Health care access is named only as a possible unmeasured explanation in a limitation, so it is not recorded as a determinant.",
+ "view_issues": "Table 1: '<High school diploma' age-adjusted 21.2 (21.2 to 22.6) has its lower bound equal to the estimate; 'Obese' APD 11.3 (10.5 to 11.5) is asymmetric. Likely typos."
+}

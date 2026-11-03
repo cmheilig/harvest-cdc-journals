@@ -1,0 +1,332 @@
+{
+ "id": "mm7037a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyt4RjwrLhr7DhCzgB",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Information from these records was used to calculate incidence (cases per 100,000 population) and mortality (deaths per 100,000 population)"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In Hawaii, COVID-19 incidence and mortality rates per 100,000 population were 1,477 and 32, respectively during this period."
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Pacific Islander persons, who account for 5% of Hawaii’s population, represented 22% of cases."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During March 1, 2020–February 28, 2021, in Hawaii the COVID-19 incidence was 1,477 per 100,000 population and mortality rate was 32 per 100,000 population"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Native Hawaiian and Pacific Islander persons experienced the highest incidences (2,501) across the five minimum race categories."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "small-cell suppression of counts and rates",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "counts <10 withheld and rates <20 events not calculated: suppression of observed values",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "numbers of cases or deaths among racial groups were not reported when the number of cases or deaths was less than 10"
+    },
+    {
+     "loc": "text",
+     "q": "rates were not calculated when less than 20 cases or deaths were reported."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "race/ethnicity"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Native Hawaiian and Pacific Islander persons experienced the highest incidences (2,501) across the five minimum race categories."
+   },
+   {
+    "loc": "text",
+    "q": "Pacific Islander persons had the highest COVID-19 incidence of 7,070; incidence among Native Hawaiian persons was 1,181."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "95% CIs were computed using normal approximation for standard errors for proportions."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "cases per 100,000 population",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Cases per 100,000 population (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "deaths per 100,000 population",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Deaths per 100,000 population (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Pacific Islander persons, who account for 5% of Hawaii’s population, represented 22% of cases."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How do COVID-19 incidence and mortality differ across disaggregated Native Hawaiian, Pacific Islander and Asian subgroups in Hawaii?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess disparities in COVID-19 outcomes among Native Hawaiian, Pacific Islander, and Asian populations, a disaggregated, descriptive analysis"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Disaggregating Data to Measure Racial Disparities in COVID-19 Outcomes and Guide Community Response"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Descriptive data of Hawaii state residents reported to HDOH during March 1, 2020–February 28, 2021, were analyzed"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "449 COVID-19–associated deaths reported to the Hawaii State Department of Health (HDOH)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "HDOH case surveillance system",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "or the HDOH case surveillance system"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Hawaii, March 1, 2020–February 28, 2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Racial disparities are framed and interpreted, but group rates and case shares versus population shares are only set side by side; no difference, ratio or multiple is computed, so the cap at 2 applies.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The report frames 'substantial disparities' and contrasts Pacific Islander 22% of cases with 5% of population; some readers would treat this as quantified."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Race information for COVID-19 patients was mostly self-reported"
+     },
+     {
+      "loc": "summary",
+      "q": "Disaggregating race data can aid in identifying racial disparities among specific subpopulations"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "occupation",
+     "income",
+     "education"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "case information was not available on characteristics such as occupation, income, and education, which can influence COVID-19 outcomes"
+     }
+    ]
+   },
+   {
+    "v": "country of birth/language/nativity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "and nativity and generational status, which might be associated with access to services and other social determinants of health"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "age-adjustment or stratification of rates could not be conducted because of lack of age-specific U.S. Census population information"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "systemic and structural inequities; social determinants of health; access to health care",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Race can serve as a marker for underlying systemic and structural inequities that drive health disparities."
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race groups are alone or in combination (not mutually exclusive); ethnicity excluded (32% missing); 18% of cases lack race; denominators from ACS; rates are crude, not age-adjusted; small cells suppressed."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Native Hawaiian and Pacific Islander persons experienced the highest incidences (2,501) across the five minimum race categories."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 7,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the highest incidence of cases among all Pacific Islander subcategories occurred among Marshallese persons (10,580), followed by Other Micronesian persons (8,991)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among Asian persons, there was also substantial variation in incidence among subgroups after disaggregation (range = 568 to 1,247 cases per 100,000 population)."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise"
+ ],
+ "confidence": "high",
+ "notes": "CIs are reported for every rate, but no conclusion is drawn from them, so there is no test. The prepass diagnostic-accuracy cue ('sensitivity in public health strategies') is a false hit. The outreach team is described, not evaluated.",
+ "view_issues": "Table footnote †† says the Pacific Islander category is alone or in combination, yet also says it was computed as the remainder after Native Hawaiian single-race data, which is internally unclear."
+}

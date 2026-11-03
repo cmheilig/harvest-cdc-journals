@@ -1,0 +1,369 @@
+{
+ "id": "mm6846a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysHZ4yyunUF3N9Tcq",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "statistically significant decreases in obesity prevalence among WIC beneficiaries aged 2–4 years occurred in 41 of 56 WIC state or territory agencies"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2016, crude obesity prevalences ranged from 7.8% (95% CI = 6.4%–9.2%) in the Northern Mariana Islands to 19.8%"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2010, crude obesity prevalence ranged from 9.6% (95% confidence interval [CI] = 9.3%–9.8%) in Colorado"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the largest significant decrease was in Puerto Rico, where adjusted obesity prevalence among WIC beneficiaries aged 2–4 years decreased by 8.2 percentage points"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Obtained from log binomial regression model adjusted for age in month, sex, and race/ethnicity."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "log-binomial regression (adjusted prevalence ratio; trend test on year)",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'log binomial regression' giving adjusted prevalence ratios → loglinear; the trend test is the p-value of the year term in the all-years model",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a log binomial regression analysis was performed for each WIC state or territory agency to obtain the prevalence ratio from 2010 to 2016"
+    },
+    {
+     "loc": "text",
+     "q": "An obesity trend was considered statistically significant if the two-sided p-value was <0.05 in state-level log binomial regression model including all years of data."
+    }
+   ]
+  },
+  {
+   "name": "logistic regression with average marginal effects (adjusted prevalence difference)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'logistic regression' with Margins package average marginal effect → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Calculated as 100 times the average marginal effect of year (2010 versus 2016) from logistic regression controlling for age, sex, and race."
+    }
+   ]
+  },
+  {
+   "name": "BMI-for-age percentiles (CDC 2000 growth charts)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "BMI converted to age- and sex-specific percentiles before the ≥95th percentile cutpoint",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Obesity was defined as a body mass index ≥95th percentile for age and sex on the 2000 CDC growth charts."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "both",
+  "referent": "2010",
+  "across": [
+   "year",
+   "WIC state or territory agency"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "statistically significant decreases in obesity prevalence occurred in 41 of 56 WIC state or territory agencies (p<0.05 for trend test) across all years"
+   },
+   {
+    "loc": "table 1",
+    "q": "2016 versus 2010 › Adjusted prevalence ratio*(95% CI)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "An obesity trend was considered statistically significant if the two-sided p-value was <0.05 in state-level log binomial regression model including all years of data."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "crude prevalence %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Crude prevalence % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "adjusted prevalence ratio",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Adjusted prevalence ratio*(95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "adjusted prevalence difference, percentage points",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Adjusted prevalence difference † % (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Obtained from log binomial regression model adjusted for age in month, sex, and race/ethnicity."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age in months, sex, race/ethnicity",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Obtained from log binomial regression model adjusted for age in month, sex, and race/ethnicity."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did obesity prevalence among children aged 2–4 years enrolled in WIC change during 2010–2016 in each WIC state or territory agency?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC used data from the WIC Participant and Program Characteristics (WIC PC) to update state-specific trends through 2016"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "obesity",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "State-Specific Prevalence of Obesity Among Children Aged 2–4 Years Enrolled in the Special Supplemental Nutrition Program for Women, Infants, and Children"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "WIC PC is a biennial census in even years of all participants certified to receive WIC benefits."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "To estimate relative change in obesity prevalence during 2010–2016"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "administrative/claims",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "WIC PC is a biennial census in even years of all participants certified to receive WIC benefits."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "WIC Participant and Program Characteristics (WIC PC)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC used data from the WIC Participant and Program Characteristics (WIC PC) to update state-specific trends through 2016"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "from WIC agencies in 50 states, the District of Columbia, and five U.S. territories in 2010, 2012, 2014, and 2016"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Low income defines the WIC population and race/ethnicity enters only as a model covariate; no results are reported by an SPD.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 0,
+   "reason": "SES only defines the population and the race/ethnicity covariate is a routine adjustment, so the article could be read as having no equity content."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "population",
+    "ses_components": [
+     "low-income",
+     "household income ≤185% of federal poverty guidelines"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "for low-income children aged <5 years and pregnant, postpartum, or breastfeeding women"
+     },
+     {
+      "loc": "text",
+      "q": "have gross household income ≤185% of the federal poverty guidelines"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Prevalence of Obesity Among Children Aged 2–4 Years"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Obtained from log binomial regression model adjusted for age in month, sex, and race/ethnicity."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "adjusted for age in month, sex, and race/ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "adjusted for age in month, sex, and race/ethnicity"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "2009 revisions to the WIC food packages; availability of healthier foods in authorized WIC stores",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "might have contributed to the observed decreases in obesity prevalence in WIC enrollees is the 2009 revisions to the WIC food packages"
+    },
+    {
+     "loc": "text",
+     "q": "the availability of healthier foods and beverages in authorized WIC stores has increased"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Low-income status is defined by WIC enrollment; the contrast with the all-income national trend is cited from another report, not computed."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "comparison",
+  "equity.level"
+ ],
+ "confidence": "high",
+ "notes": "Trend tests are year-term p-values in state-level log-binomial models using all four years, so they are recorded within the regression. The design is not named; surveillance/descriptive with trend is inferred from the program census. Comparisons are within each state over time, not across states.",
+ "view_issues": "Text gives Alaska 2016 CI as 18.8%–19.8%; the table gives 18.8 to 20.8. Idaho and Illinois are flagged as significant decreases although their 2016 vs 2010 PR CIs include 1, while Montana's excludes 1 but is unflagged (trend test vs two-point ratio)."
+}

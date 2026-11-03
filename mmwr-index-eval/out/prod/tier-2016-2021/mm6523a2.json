@@ -1,0 +1,380 @@
+{
+ "id": "mm6523a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrXebyf2hNmQjgc8a",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2011–2012, 65.4% of U.S. adolescents lived in neighborhoods that support physical activity"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2011–2012, 65.4% of U.S. adolescents lived in neighborhoods that support physical activity"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The proportion of adolescents living in a neighborhood that supports physical activity was lower among adolescents with household income <100% of the FPL (51.1%)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "pairwise t-test vs referent group",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'Pairwise t-tests (p<0.05)' comparing each group with the highest-proportion referent group",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Pairwise t-tests (p<0.05) were used to compare the group with the largest proportion"
+    },
+    {
+     "loc": "table 1",
+     "q": "Significant pairwise difference at p<0.05."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "estimates and standard errors stated as weighted; table gives weighted proportions",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were analyzed by demographic characteristics and weighted to provide estimates and standard errors for the proportion of adolescents"
+    },
+    {
+     "loc": "table 1",
+     "q": "Weighted proportion."
+    }
+   ]
+  },
+  {
+   "name": "BMI-for-age percentiles",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "BMI converted to CDC growth-chart percentiles before categorizing at the 85th percentile",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Underweight/healthy weight = <85th percentile; overweight/obese = ≥85th percentile"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "absolute",
+  "referent": "group with the highest proportion in each characteristic (e.g., white, >high school education, ≥400% FPL, urban)",
+  "across": [
+   "race/ethnicity",
+   "household education",
+   "household income (% FPL)",
+   "urban/rural",
+   "body mass index category",
+   "sex",
+   "age group"
+  ],
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "Measured as percentage point difference from referent group, which is the group with the highest proportion living in a neighborhood supportive of physical activity."
+   },
+   {
+    "loc": "text",
+    "q": "The proportion of adolescents living in a neighborhood that supports physical activity was lower among adolescents with household income <100% of the FPL (51.1%)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Pairwise t-tests (p<0.05) were used to compare the group with the largest proportion"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted proportion (%)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Weighted proportion."
+    }
+   ]
+  },
+  {
+   "v": "amount of disparity (percentage point difference)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Measured as percentage point difference from referent group, which is the group with the highest proportion living in a neighborhood supportive of physical activity."
+    }
+   ]
+  },
+  {
+   "v": "SE",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "SE = standard error"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Which characteristics of U.S. adolescents aged 10–17 years are associated with living in a neighborhood supportive of physical activity?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess the characteristics of adolescents who live in neighborhoods that are supportive of physical activity, CDC analyzed data"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "overweight or obesity",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "lower among overweight or obese adolescents (60.9%) than adolescents who were underweight or at a healthy weight (67.4%)"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a national- and state-representative, random-digit–dialed, cross-sectional telephone survey of households"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "from the 2011–2012 National Survey of Children’s Health (NSCH)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Survey of Children’s Health (NSCH) 2011–2012",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "from the 2011–2012 National Survey of Children’s Health (NSCH)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Disparities in Adolescents’ Residence in Neighborhoods Supportive of Physical Activity — United States, 2011–2012"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Racial/ethnic, SES and rural disparities in a built-environment determinant are framed, quantified as percentage-point differences from a referent and interpreted; poverty, residential segregation and disinvestment are named as explanations.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The structural explanations are cited from prior literature for neighborhood disparities generally rather than analyzed in this report."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "lower among non-Hispanic blacks (blacks; 60.0%) and Hispanics (61.6%) than among non-Hispanic whites (whites; 67.2%)"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "primary comparison",
+    "ses_components": [
+     "highest household education",
+     "household income (% FPL)"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "the largest disparity in the percentage of adolescents living in these neighborhoods was observed between adolescents living in households with a family income <100%"
+     },
+     {
+      "loc": "text",
+      "q": "compared with adolescents living in households with a parent with more than a high school education (70.7%)"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "lower among rural residents (56.8%) than among adolescents living in urban areas (66.5%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "CDC analyzed data on U.S. children and adolescents aged 10–17 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group (yrs) › 10–12"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "neighborhood built environment (safety, sidewalks, parks) as analyzed outcome; poverty; residential segregation; disinvestment of economic resources; poor quality housing; infrastructure in poor neighborhoods",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Various reasons for disparities in the neighborhood environment have been proposed, including poverty, residential segregation, disinvestment of economic resources, and poor quality housing"
+    },
+    {
+     "loc": "text",
+     "q": "Infrastructure, such as street lighting and sidewalks, might not be as available or well maintained in poor neighborhoods as in affluent neighborhoods"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referent is the highest-proportion group within each characteristic; Multi/Other non-Hispanic excluded from the race disparity comparison as heterogeneous; 9.6% of households excluded for missing data."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Multi/other, non-Hispanic not included in disparity comparison because the racial/ethnic characteristics of this group were heterogeneous."
+    },
+    {
+     "loc": "text",
+     "q": "Pairwise t-tests (p<0.05) were used to compare the group with the largest proportion"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "compared with adolescents living in households with a parent with more than a high school education (70.7%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The proportion of adolescents living in a neighborhood that supports physical activity was lower among adolescents with household income <100% of the FPL (51.1%)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "comparison",
+  "equity.level"
+ ],
+ "confidence": "high",
+ "notes": "Headline compares several characteristics each against its highest-proportion referent; income (4 levels) leads to framework group. Overweight/obesity is a non-SPD comparison variable. Neighborhood support is a perceived composite from parent report.",
+ "view_issues": "Discussion misspells the survey as 'NCSH'. The §§ midpoint-age note applies to BMI-for-age but is attached to the BMI heading."
+}

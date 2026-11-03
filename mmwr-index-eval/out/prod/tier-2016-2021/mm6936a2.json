@@ -1,0 +1,591 @@
+{
+ "id": "mm6936a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysu1EgBKP6AtEsnqR",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Nearly one third of adults with disabilities (32.9%) reported experiencing frequent mental distress, compared with 7.2% of adults without disabilities (PR = 4.6)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "an estimated 17.4 million adults with disabilities experience frequent mental distress 4.6 times as often than do adults without disabilities"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Frequent mental distress was reported by 55.6% of those with disability in both mobility and cognition, 8.8 times that reported among those without disabilities."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Models estimating PRs are adjusted for age group (18–44, 45–64, and ≥65 years)."
+    },
+    {
+     "loc": "text",
+     "q": "Among adults without disabilities, both veterans and retirees were 20% less likely to report mental distress than were nonveterans and adults who were employed"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting (BRFSS)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "table notes state percentages are weighted; SUDAAN analysis",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percentages are weighted and standardized based on the population breakdown for the following age groups according to the 2000 U.S. Census"
+    }
+   ]
+  },
+  {
+   "name": "direct age standardization to the 2000 U.S. population",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "age-standardized prevalences using 2000 Census age breakdown (18–44, 45–64, ≥65)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percentages are weighted and standardized based on the population breakdown for the following age groups according to the 2000 U.S. Census"
+    }
+   ]
+  },
+  {
+   "name": "age-adjusted prevalence ratio models",
+   "class": "regression",
+   "regression_family": "other",
+   "inferred_from": "'Models estimating PRs' adjusted for age; model family not named → other",
+   "role": "primary",
+   "alternative_reading": "loglinear (PRs are typically from log-binomial/Poisson or predicted marginals in SUDAAN)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Models estimating PRs are adjusted for age group (18–44, 45–64, and ≥65 years)."
+    }
+   ]
+  },
+  {
+   "name": "two-sided t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named t-test in SUDAAN; Table 2 p-values from the t-distribution",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "statistical significance at a level of α = 0.05 was determined using a two-sided t-test in SAS-callable SUDAAN"
+    },
+    {
+     "loc": "table 2",
+     "q": "Two-sided p-value from the t-distribution comparing prevalence of frequent mental distress by whether or not the person had the health-related characteristic."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "CI method not stated; 'no differences' claims match PR CIs including 1 in Table 1",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "no differences were found by veteran and employment status for adults with disabilities."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "adults without disabilities",
+  "across": [
+   "disability status",
+   "disability type",
+   "sex",
+   "age group",
+   "race/ethnicity",
+   "veteran status",
+   "marital status",
+   "employment status",
+   "sexual identity",
+   "federal poverty level",
+   "urban/rural designation",
+   "state",
+   "health-related characteristics"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "an estimated 17.4 million adults with disabilities experience frequent mental distress 4.6 times as often than do adults without disabilities"
+   },
+   {
+    "loc": "summary",
+    "q": "Adults living below the federal poverty level report mental distress 70% more often than do adults in higher income households."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "statistical significance at a level of α = 0.05 was determined using a two-sided t-test in SAS-callable SUDAAN"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted prevalence",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among states, age-adjusted prevalence of mental distress among adults with disabilities ranged from 25.2% (Alaska) to 42.9% (New Hampshire)."
+    }
+   ]
+  },
+  {
+   "v": "PR",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Models estimating PRs are adjusted for age group (18–44, 45–64, and ≥65 years)."
+    }
+   ]
+  },
+  {
+   "v": "p-value",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Two-sided p-value from the t-distribution comparing prevalence of frequent mental distress by whether or not the person had the health-related characteristic."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "statistical significance at a level of α = 0.05 was determined using a two-sided t-test in SAS-callable SUDAAN"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percentages and PRs are not standardized or adjusted."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Models estimating PRs are adjusted for age group (18–44, 45–64, and ≥65 years)."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age group (18–44, 45–64, ≥65 years)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Models estimating PRs are adjusted for age group (18–44, 45–64, and ≥65 years)."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How does the prevalence of frequent mental distress among U.S. adults with disabilities compare with that among adults without disabilities, and what characteristics are associated with it?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC analyzed 2018 Behavioral Risk Factor Surveillance System (BRFSS) data to compare the prevalence of frequent mental distress among adults with disabilities"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "frequent mental distress",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Frequent Mental Distress Among Adults, by Disability Status, Disability Type, and Selected Characteristics — United States, 2018"
+    }
+   ]
+  },
+  {
+   "v": "disability",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Frequent Mental Distress Among Adults, by Disability Status, Disability Type, and Selected Characteristics — United States, 2018"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "causality cannot be inferred from data in this cross-sectional survey"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed 2018 Behavioral Risk Factor Surveillance System (BRFSS) data to compare the prevalence of frequent mental distress among adults with disabilities"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed 2018 Behavioral Risk Factor Surveillance System (BRFSS) data"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Age-standardized prevalence estimates and age-adjusted PRs of mental distress were calculated among adults with disabilities by state of residence."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "The disability disparity is framed ('large disparity'), quantified (PR 4.6; 70% more often below poverty) and interpreted; poverty and cost-related unmet care need are measured and analyzed, and social engagement and access are offered as explanations.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Determinants such as social connectedness and the Affordable Care Act appear mainly as speculative explanations and recommendations."
+  },
+  "dimensions": [
+   {
+    "v": "disability",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "suggest that programs aimed at increasing social connectedness might help reduce the large disparity in mental distress between adults with and without disabilities."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "self-reported survey of noninstitutionalized U.S. adults aged ≥18 years."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Persons identifying as non-Hispanic Asian, Hispanic, and middle-aged or older reported mental distress less often than did those who identified as non-Hispanic white"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Models estimating PRs are adjusted for age group (18–44, 45–64, and ≥65 years)."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Mental distress was more commonly reported among females"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Persons identifying as non-Hispanic Asian, Hispanic, and middle-aged or older reported mental distress less often than did those who identified as non-Hispanic white"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "federal poverty level",
+     "employment status",
+     "unmet health care need because of cost"
+    ],
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Adults living below the federal poverty level report mental distress 70% more often than do adults in higher income households."
+     },
+     {
+      "loc": "table 1",
+      "q": "Employment status › Unemployed"
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "stratifier",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "identified as lesbian or gay, bisexual, or something else"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Urban/Rural designation › Nonmetropolitan"
+     }
+    ]
+   },
+   {
+    "v": "other",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Marital status › Divorced/Separated"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "poverty; cost-related unmet health care need; reduced opportunities for social engagement; health care access policies (Affordable Care Act)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Adults with disabilities might have fewer opportunities for high-quality social engagement because of physical limitations"
+    },
+    {
+     "loc": "text",
+     "q": "the finding that adults with a cost-related unmet health care need during the past 12 months more often reported mental distress is particularly concerning"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referent is adults without disabilities (overall and by type) and the first-listed level of each demographic; disability types are mutually exclusive categories; sexual identity only in 29 states; veteran and marital status recorded as other."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "disability"
+   ],
+   "n_groups": 8,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "8-level categorization (cognition only, independent living only, mobility only, self-care only, vision only, and hearing only, >1 disability, no disability)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Persons identifying as non-Hispanic Asian, Hispanic, and middle-aged or older reported mental distress less often than did those who identified as non-Hispanic white"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group, yrs › 45–64"
+    }
+   ]
+  },
+  {
+   "across": [
+    "other"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Marital status › Divorced/Separated"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Employment status › Unemployed"
+    }
+   ]
+  },
+  {
+   "across": [
+    "sexual orientation and gender identity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "identified as lesbian or gay, bisexual, or something else"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Adults living below the federal poverty level report mental distress 70% more often than do adults in higher income households."
+    }
+   ]
+  },
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Urban/Rural designation › Nonmetropolitan"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "procedures",
+  "regression_fields"
+ ],
+ "confidence": "medium",
+ "notes": "The PR model family is not named; recorded as other with loglinear alternative. Age-group PRs are unadjusted models, read as unadjusted results. Table 2 yes/no tests within each disability type are not across an SPD and make no groupwise entry.",
+ "view_issues": "Table 2: Physical inactivity 'No' row lacks a p-value; Obesity 'Unknown' row marks vision and hearing estimates with § instead of ¶. Summary says '4.6 times as often than'."
+}

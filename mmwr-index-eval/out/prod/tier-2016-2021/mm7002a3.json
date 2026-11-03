@@ -1,0 +1,370 @@
+{
+ "id": "mm7002a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggQeAhMo7rG69DgUBZgG",
+  "batch_id": "msgbatch_018MUHrMCXUMTPYHxpo1b4G2"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "sensitivity = 79% [191 of 241; 95% CI = 74%–84%]; PPV = 99% [191 of 192; 95% CI = 97%–100%]"
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "significantly longer lengths of stay (14 versus 9 days)"
+    },
+    {
+     "loc": "text",
+     "q": "higher peak NAS scores (11 versus 9), more NAS symptoms (12 versus 9)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Pennsylvania’s NAS surveillance system had a PPV of 99% and sensitivity of 79%."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Descriptive analyses compared infants with confirmed NAS by reporting status and by presence of ICD-10-CM code P96.1."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "sensitivity and positive predictive value",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "diagnostic-accuracy measures of the surveillance system against medical record review",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Sensitivity and positive predictive value (PPV) of the Pennsylvania NAS surveillance system were calculated"
+    }
+   ]
+  },
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated for categorical variables comparing reporting status and P96.1 groups",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Categorical variables were compared using chi-squared tests (or Fisher’s exact tests for cell counts <5)"
+    }
+   ]
+  },
+  {
+   "name": "Fisher's exact test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated for categorical variables with cell counts <5",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Categorical variables were compared using chi-squared tests (or Fisher’s exact tests for cell counts <5)"
+    }
+   ]
+  },
+  {
+   "name": "negative binomial regression (likelihood ratio test)",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'negative binomial regression' with a likelihood ratio test → loglinear; used only to test continuous variables between two groups",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "continuous variables were compared using negative binomial regression."
+    },
+    {
+     "loc": "table 2",
+     "q": "using a negative binomial likelihood ratio test for continuous variables"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "surveillance reporting status",
+   "assignment of ICD-10-CM code P96.1"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "ICD-10-CM code P96.1 was assigned to 71% of those who were reported to the NAS surveillance system and 78% of those who were not"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "with corresponding 95% confidence intervals (CIs) estimated using an exact binomial distribution."
+   },
+   {
+    "loc": "text",
+    "q": "was similar among infants reported to surveillance (71%) and those who were not (78%; p = 0.30)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "sensitivity",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Pennsylvania’s NAS surveillance identified 191 (sensitivity = 79%) of the confirmed cases."
+    }
+   ]
+  },
+  {
+   "v": "PPV",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "PPV = 99% [191 of 192; 95% CI = 97%–100%]"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No.* (%) or mean (range)"
+    }
+   ]
+  },
+  {
+   "v": "mean",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "No.* (%) or mean (range)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "continuous variables were compared using negative binomial regression."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How accurate is Pennsylvania's NAS surveillance system, and how do confirmed NAS cases differ by reporting status and by assignment of code P96.1?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "In March 2019, CDC helped the Pennsylvania Department of Health assess the accuracy of this reporting system at five Pennsylvania hospitals."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "neonatal abstinence syndrome",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Assessment of Neonatal Abstinence Syndrome Surveillance — Pennsylvania, 2019"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Findings from this evaluation might inform NAS surveillance efforts in other states."
+    }
+   ]
+  },
+  {
+   "v": "diagnostic accuracy",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Sensitivity and positive predictive value (PPV) of the Pennsylvania NAS surveillance system were calculated"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the Pennsylvania Department of Health began surveillance for opioid-related NAS in birthing facilities and pediatric hospitals"
+    }
+   ]
+  },
+  {
+   "v": "record abstraction or interview",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Medical records of 445 infants who possibly had NAS were abstracted"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Pennsylvania NAS surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Pennsylvania’s NAS surveillance system had a PPV of 99% and sensitivity of 79%."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "at five Pennsylvania hospitals"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Maternal race (collapsed White vs other) and Medicaid payment appear only as Table-1 descriptors of the compared groups; no outcome is reported by social position.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 2,
+   "reason": "The text reports that infants assigned P96.1 more often had Medicaid-enrolled mothers (95% vs 88%), which could be read as a group-specific result by SES."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Maternal race › White"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "Medicaid as source of payment"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "to have mothers enrolled in Medicaid (95% versus 88%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Infants who possibly had NAS were aged <28 days born during March 1–August 31, 2018"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Infant sex › Male"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Maternal race collapsed to White vs Other because of small denominators; ethnicity almost all non-Hispanic."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "equity.level",
+  "outcome_types"
+ ],
+ "confidence": "high",
+ "notes": "Exact binomial CIs accompany sensitivity and PPV without a conclusion drawn from them. Sensitivity is relative to infants who possibly had NAS, not all infants, as the authors note.",
+ "view_issues": "Table 1 gives Hispanic share as '2 (>1)', presumably meaning <1%. Table 2 footnote marker ¶¶¶¶ does not match ¶¶¶ in the rows."
+}

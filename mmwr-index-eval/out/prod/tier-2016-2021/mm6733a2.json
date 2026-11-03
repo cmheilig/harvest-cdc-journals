@@ -1,0 +1,477 @@
+{
+ "id": "mm6733a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPys2fRCW6HEgLtynCD",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During 1999–2015, cervical cancer rates decreased 1.6% per year; vaginal squamous cell carcinoma (SCC) rates decreased 0.6% per year"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-adjusted incidence rates were calculated per 100,000 persons and standardized to the 2000 U.S. standard population."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In 2015 oropharyngeal SCC (15,479 cases among men and 3,438 among women) was the most common HPV-associated cancer."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 1999–2015 cervical carcinoma incidence rates decreased 1.6% per year, and oropharyngeal SCC incidence rates increased 2.7% per year among men"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-adjusted incidence rates were calculated per 100,000 persons and standardized to the 2000 U.S. standard population."
+    },
+    {
+     "loc": "text",
+     "q": "Cervical carcinoma rates decreased among all racial/ethnic groups, more among Hispanics than among non-Hispanics"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "joinpoint regression (AAPC)",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "joinpoint regression yielding annual percent changes in rates → log-linear segmented model of rates over year",
+   "role": "primary",
+   "alternative_reading": "linear (least squares on log rates, as the Joinpoint software fits)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Trends were measured with AAPC in rates calculated using joinpoint regression."
+    },
+    {
+     "loc": "text",
+     "q": "A maximum of two joinpoints was used."
+    }
+   ]
+  },
+  {
+   "name": "unnamed test (AAPC vs zero, p<0.05)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "significance of AAPC against zero decides increase/decrease/stable; test not named; CI method not stated beyond joinpoint model",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates were considered to increase if the AAPC was greater than zero (p<0.05)"
+    },
+    {
+     "loc": "table 1",
+     "q": "Trends were measured with AAPC in rates and were considered to increase or decrease if p<0.05; otherwise rates were considered stable."
+    }
+   ]
+  },
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "rates standardized to the 2000 U.S. standard population",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-adjusted incidence rates were calculated per 100,000 persons and standardized to the 2000 U.S. standard population."
+    }
+   ]
+  },
+  {
+   "name": "small-cell suppression (<6 cases)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "rates withheld when annual cases <6",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Data suppressed for rates when the number of cases was <6 in a year."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "AAPC of zero (stable rates)",
+  "across": [
+   "year",
+   "cancer type",
+   "sex",
+   "age group",
+   "race",
+   "ethnicity",
+   "region"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During 1999–2015 cervical carcinoma incidence rates decreased 1.6% per year, and oropharyngeal SCC incidence rates increased 2.7% per year among men"
+   },
+   {
+    "loc": "text",
+    "q": "Rates were considered to increase if the AAPC was greater than zero (p<0.05)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "AAPC (95% CI)"
+   },
+   {
+    "loc": "table 1",
+    "q": "Significant at p<0.05."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted incidence rate per 100,000",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Per 100,000 persons, age-adjusted to the 2000 U.S. standard population."
+    }
+   ]
+  },
+  {
+   "v": "AAPC",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "AAPC (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "number of cases",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. (rate)*"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Trends were measured with AAPC in rates calculated using joinpoint regression."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did incidence rates of HPV-associated cancers change in the United States during 1999–2015, by cancer type, sex, age, race, ethnicity and region?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "To assess trends, characterized by average annual percent change (AAPC), in HPV-associated cancer incidence during 1999–2015"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "HPV-associated cancers",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Trends in Human Papillomavirus–Associated Cancers — United States, 1999–2015"
+    }
+   ]
+  },
+  {
+   "v": "cervical carcinoma",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During 1999–2015 cervical carcinoma incidence rates decreased 1.6% per year"
+    }
+   ]
+  },
+  {
+   "v": "oropharyngeal squamous cell carcinoma",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Oropharyngeal squamous cell carcinoma is now the most common HPV-associated cancer."
+    }
+   ]
+  },
+  {
+   "v": "anal squamous cell carcinoma",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Anal SCC rates increased among women (2.9% per year) and men (2.1%) during this period."
+    }
+   ]
+  },
+  {
+   "v": "vulvar squamous cell carcinoma",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "vulvar SCC rates increased 1.3% per year"
+    }
+   ]
+  },
+  {
+   "v": "vaginal squamous cell carcinoma",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 1999–2015 vaginal SCC decreased 0.6% per year."
+    }
+   ]
+  },
+  {
+   "v": "penile squamous cell carcinoma",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In contrast, penile SCC rates were stable"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from population-based cancer registries that participate in the CDC’s National Program of Cancer Registries"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Trends were measured with AAPC in rates calculated using joinpoint regression."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from population-based cancer registries that participate in the CDC’s National Program of Cancer Registries"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Program of Cancer Registries (NPCR)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC’s National Program of Cancer Registries"
+    }
+   ]
+  },
+  {
+   "v": "Surveillance, Epidemiology, and End Results (SEER) program",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the National Cancer Institute’s Surveillance, Epidemiology, and End Results program"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "these data cover approximately 97.8% of the U.S. population."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Rates and AAPCs are reported by race and ethnicity and described; the Discussion calls higher cervical rates among Hispanics and blacks persistent disparities, but no difference or ratio is computed, so the cap at 2 holds.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Disparities are framed and interpreted (unmet health care delivery needs), and table values allow reading a quantified contrast."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "incidence rates were still higher among Hispanics and blacks than among whites in 2015."
+     },
+     {
+      "loc": "table 2",
+      "q": "Race › White"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Rates of oropharyngeal SCC increased among men in all age groups ≥40 years, ranging from 0.8% among men aged 40–49 years to 4.0%"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Age-adjusted incidence rates were calculated per 100,000 persons and standardized to the 2000 U.S. standard population."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "oropharyngeal SCC rates increased among both men (2.7%) and women (0.8%)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "health care delivery needs of some groups not fully met",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "These persistent disparities in incidence suggest that health care delivery needs of some groups are not fully met."
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race categories are not mutually exclusive of Hispanic ethnicity; unknown/other race excluded; AI/AN AAPCs often suppressed; race from medical records."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates varied by race, with the largest increase occurring among white men (3.3%), and by region"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates of oropharyngeal SCC increased among men in all age groups ≥40 years, ranging from 0.8% among men aged 40–49 years to 4.0%"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "procedures"
+ ],
+ "confidence": "medium",
+ "notes": "Each subgroup AAPC is tested only against zero; group differences in AAPCs are claimed side by side. Joinpoint family recorded as loglinear because APCs come from log-linear segments.",
+ "view_issues": "Claims that AAPCs differ between groups (Hispanic vs non-Hispanic, West vs other regions) rest on no stated test. Table 1 female all-cancer AAPC −0.4 is marked significant though its CI (−0.7 to 0.2) includes zero."
+}

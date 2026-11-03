@@ -1,0 +1,425 @@
+{
+ "id": "mm6728a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysDqGJPRMHjvZhddy",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Among black MSM, new diagnoses of HIV infection were highest in persons aged 20–24 years (4.8%)"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "among the 828 black MSM in the southern U.S. jurisdictions with newly diagnosed HIV infection, 552 (67%) were linked to HIV medical care"
+    },
+    {
+     "loc": "table 1",
+     "q": "Newly diagnosed HIV infections among black MSM › % positive"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "552 (67%) were linked to HIV medical care within 90 days of diagnosis, and 451 (55%) were interviewed for partner services."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was higher among persons aged 20–24 years (61%) than among those aged 25–34 years (50%) (aPR = 1.23)."
+    },
+    {
+     "loc": "text",
+     "q": "which is below the 2020 national goal of linking at least 85% of persons with newly diagnosed HIV infection to care within 30 days"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Multivariate binomial regression was used to assess the association between demographic characteristics and newly diagnosed HIV infections"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multivariate binomial regression (adjusted prevalence ratios)",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'multivariate binomial regression' yielding adjusted prevalence ratios with 95% CIs → log-binomial → loglinear",
+   "role": "primary",
+   "alternative_reading": "logistic, if 'binomial regression' meant a logit link, though the reported measures are prevalence ratios",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Multivariate binomial regression was used to assess the association between demographic characteristics and newly diagnosed HIV infections, linkage to HIV medical care"
+    },
+    {
+     "loc": "table 1",
+     "q": "aPR = adjusted prevalence ratio"
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "odds ratio with p-value for newly vs previously diagnosed linkage; test not named; CI method not stated",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were significantly more likely to be linked to HIV medical care (odds ratio = 1.44, p = 0.0008)"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "age 25–34 years, metropolitan, first-time tested (model referents); 2020 national goal of ≥85% linkage",
+  "across": [
+   "age group",
+   "urbanicity",
+   "first-time tested",
+   "new vs previous diagnosis"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Compared with black MSM aged 25–34 years, those aged ≥35 years were less likely to receive a new diagnosis"
+   },
+   {
+    "loc": "text",
+    "q": "and 58% with previously diagnosed infection, were linked to HIV medical care, both short of the national goal of 85%"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "aPR (95%CI)"
+   },
+   {
+    "loc": "table 1",
+    "q": "¶ p-value <0.001. ** p-value <0.05."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "552 (67%) were linked to HIV medical care within 90 days of diagnosis"
+    }
+   ]
+  },
+  {
+   "v": "% positive",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Newly diagnosed HIV infections among black MSM › % positive"
+    }
+   ]
+  },
+  {
+   "v": "aPR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(adjusted prevalence ratio [aPR] 35–44 years = 0.56; aPR 45–54 years = 0.46; and aPR ≥55 years = 0.34)"
+    }
+   ]
+  },
+  {
+   "v": "odds ratio",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "odds ratio = 1.44, p = 0.0008"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Multivariate binomial regression was used to assess the association between demographic characteristics and newly diagnosed HIV infections"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "demographic characteristics (presumably age group, first-time tested, urbanicity; not listed explicitly)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were stratified by the following characteristics: age group, first-time tested, and urbanicity."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Among black MSM tested in CDC-funded non–health care facilities in 20 southern jurisdictions, how do new HIV diagnoses, linkage to care and partner-services interviews vary by age, testing history and urbanicity?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Multivariate binomial regression was used to assess the association between demographic characteristics and newly diagnosed HIV infections, linkage to HIV medical care"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "HIV infection",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "HIV Testing, Linkage to HIV Medical Care, and Interviews for Partner Services Among Black Men Who Have Sex with Men"
+    }
+   ]
+  },
+  {
+   "v": "HIV infection",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among the 643 black MSM in the southern U.S. jurisdictions with a previously diagnosed HIV infection, 374 (58%) were linked"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Analysis of CDC-funded HIV testing data for black MSM submitted by 20 health departments in the southern United States in 2016"
+    }
+   ]
+  },
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Health departments and CBOs submitted deidentified program data about services provided through a secure, online CDC-supported system."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Health departments and CBOs submitted deidentified program data about services provided through a secure, online CDC-supported system."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Non–Health Care Facilities, 20 Southern U.S. Jurisdictions, 2016"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Results by age and urbanicity are reported with aPRs but not framed as disparities; the race framing (6% of tests vs 36% of diagnoses) is shares set side by side with no stated ratio, so capped at 2 despite named determinants.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "Black MSM are framed as disproportionately affected, and racism, income inequality and access are named as barriers; the 6% vs 36% contrast could be read as quantified."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Among Black Men Who Have Sex with Men"
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "population",
+    "basis": "behavior",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "reported sex with a male in the preceding 12 months"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "population",
+    "basis": "assigned or observed",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "to persons who reported their sex at birth and current gender identity as male"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "and their age as ≥13 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Data were stratified by the following characteristics: age group, first-time tested, and urbanicity."
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "tests performed in rural jurisdictions were less likely to yield new diagnoses (aPR = 1.23 and 0.48, respectively)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "2,327 (20%) were white, 5,676 (48%) were black, 2,943 (25%) were Hispanic or Latino"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "racism; lower educational levels; stigma; income inequality; lack of access to health care; travel distance to HIV care in rural areas",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "racism, lower educational levels, stigma, income inequality, and lack of access to health care are barriers to testing, linkage, and retention"
+    },
+    {
+     "loc": "text",
+     "q": "some persons living with HIV infection in the rural southeastern United States might have to travel >50 miles to receive HIV care"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Population restricted to black MSM; race contrast is black MSM share of tests vs share of new diagnoses among all persons tested. Urbanicity from NCHS 2013 scheme, referent metropolitan; missing data excluded."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group (yrs) › 25–34 › Referent"
+    }
+   ]
+  },
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Compared with tests performed in metropolitan jurisdictions, tests performed in urban jurisdictions were more likely to yield new diagnoses"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "study_design"
+ ],
+ "confidence": "medium",
+ "notes": "Design not named; inferred as program monitoring against the national linkage goal. The 85% goal is a general program target, not SPD-specific, so equity_action is false. Model covariates are not listed explicitly.",
+ "view_issues": "The new vs previous diagnosis OR (1.44) has no stated method and equals the rural aPR for partner services. Text says linkage goal is within 30 days but measures 90-day linkage."
+}

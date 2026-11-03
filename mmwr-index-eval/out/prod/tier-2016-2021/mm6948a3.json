@@ -1,0 +1,398 @@
+{
+ "id": "mm6948a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyt7ufma8evx5cWz9W",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Hispanic persons with COVID-19 were significantly more likely than were non-Hispanic persons to report symptoms (p<0.001)."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A higher percentage of symptomatic Hispanic persons with COVID-19 reported working while ill (86.4%) than did non-Hispanic persons with COVID-19 (77.3%; p<0.001)."
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the median interval between symptom onset and specimen collection was 4 days among Hispanic adults compared with 3 days among non-Hispanic adults (p<0.001)"
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The pandemic’s initial surge (March 1–June 14, 2020) included more cases and persisted longer among persons of Hispanic ethnicity"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-19 was diagnosed in 10,163 adults living in noncongregate settings, including 1,087 (10.7%) persons who were hospitalized at the time of diagnosis"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "68.8% of Hispanic adults reported working in essential industries compared with 60.2% of non-Hispanic adults (p<0.001)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "methods name chi-squared tests for categorical variables between Hispanic and non-Hispanic persons",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "T-tests and Mann-Whitney tests were used to compare continuous variables, and chi-squared tests were used for categorical variables"
+    }
+   ]
+  },
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "methods name t-tests for continuous variables; applied to mean age",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Hispanic adults who were hospitalized with COVID-19 were significantly younger than non-Hispanic adults (mean age = 52.8 years versus 60.2 years)"
+    }
+   ]
+  },
+  {
+   "name": "Mann-Whitney test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "methods name Mann-Whitney tests; applied to the median days from symptom onset to testing",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "T-tests and Mann-Whitney tests were used to compare continuous variables"
+    },
+    {
+     "loc": "table 2",
+     "q": "Days from symptom onset to laboratory test (symptomatic cases only) › Median (IQR)"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "fixed referent",
+  "scale": "relative",
+  "referent": "proportion of Denver adults identifying as Hispanic (24.9%)",
+  "across": [
+   "race/ethnicity",
+   "age group"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "were among Hispanic adults, double the proportion of Hispanic adults in Denver (24.9%)."
+   },
+   {
+    "loc": "text",
+    "q": "focused on comparisons between persons who identified as Hispanic to those who identified as non-Hispanic (all other racial/ethnic groups combined)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "T-tests and Mann-Whitney tests were used to compare continuous variables, and chi-squared tests were used for categorical variables"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Hispanic persons accounted for 62.1% of hospitalizations and 51.2% of deaths"
+    }
+   ]
+  },
+  {
+   "v": "median (IQR)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Median (IQR)"
+    }
+   ]
+  },
+  {
+   "v": "mean (SD)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Mean age (SD), yrs"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Did COVID-19 cases, hospitalizations and deaths, and their exposure and clinical characteristics, differ for Hispanic adults in Denver?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To evaluate COVID-19 health disparities in the community and inform public health, health system, and community-based interventions"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Disproportionate Incidence of COVID-19 Infection, Hospitalizations, and Deaths Among Persons Identifying as Hispanic or Latino"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The analysis used public health surveillance data"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "per notification of the Colorado Electronic Disease Reporting System"
+    }
+   ]
+  },
+  {
+   "v": "record abstraction or interview",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "conducted interviews or reviewed medical records for all persons with diagnosed laboratory-confirmed COVID-19"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Colorado Electronic Disease Reporting System",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "per notification of the Colorado Electronic Disease Reporting System"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Denver, Colorado March–October 2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Hispanic shares of cases, hospitalizations and deaths are framed as disparities, quantified as double the population share, and explained by named structural determinants (systemic discrimination, crowded housing, lack of paid leave), some measured.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 2,
+   "reason": "The headline contrast is a share of cases set beside a population share; if 'double' is not read as a stated ratio, the cap at 2 applies."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "focused on comparisons between persons who identified as Hispanic to those who identified as non-Hispanic"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race/Ethnicity § (9,056) › Black or African American"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The analysis focused on adults aged ≥18 years living in noncongregate settings"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "were assessed by age, sex, and race/ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The distribution of cases was similar among males and females in both Hispanic and non-Hispanic adults."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "population",
+    "ses_components": [
+     "housing status (homelessness shelters excluded)"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "excluding persons in long-term care facilities, jails, or in shelters for persons experiencing homelessness"
+     }
+    ]
+   },
+   {
+    "v": "country of birth/language/nativity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "information on immigration status was not solicited"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "systemic discrimination; crowded housing and household size; lack of paid medical leave; essential-industry work; barriers to testing and health care access",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A constellation of community, system, and individual factors, including systemic discrimination, likely lead to health inequalities"
+    },
+    {
+     "loc": "text",
+     "q": "several factors leading to disproportionate exposure, such as crowded housing and lack of paid medical leave, are attributable to upstream social drivers"
+    },
+    {
+     "loc": "text",
+     "q": "which might reflect barriers related to testing and health care access"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referent for shares is the Denver adult population (24.9% Hispanic); most comparisons collapse all non-Hispanic groups into one; race/ethnicity missing for 10.9% of cases."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "32.3% of persons diagnosed with COVID-19 identified as non-Hispanic White (White), and 6.4% identified as non-Hispanic Black"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Age group, yrs › 45–64"
+    },
+    {
+     "loc": "text",
+     "q": "chi-squared tests were used for categorical variables to determine differences between racial/ethnic groups"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Hispanic vs non-Hispanic comparisons are run separately among cases and among hospitalized patients; no stratified or adjusted analysis. The age-distribution chi-square (Table 2) has age as a margin, hence an omnibus groupwise entry.",
+ "view_issues": "Table 2 SD values for mean age (0.3, 0.2) look like standard errors. Symptomatic No/Yes percentages do not sum to 100. Text gives p<0.02 where the table gives 0.02."
+}

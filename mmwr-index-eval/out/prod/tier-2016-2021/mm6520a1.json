@@ -1,0 +1,300 @@
+{
+ "id": "mm6520a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrbNVMn3UTrmvwuoz",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The fatal AHT rates in 2013 and 2014 (0.41 and 0.43 per 100,000 children aged <5 years, respectively)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During 1999–2014, AHT resulted in nearly 2,250 deaths among U.S. resident children aged <5 years."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Whereas rates were relatively stable during 1999–2009, there was a statistically significant average annual decline of 13.0% in fatal AHT rates during 2009–2014."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "negative binomial joinpoint (segmented) rate regression",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'negative binomial rate regression model allowing for an arbitrary shift in trend' within the Joinpoint framework → loglinear (negative binomial), segmented at 2009",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a negative binomial rate regression model allowing for an arbitrary shift in trend was fit to the data."
+    },
+    {
+     "loc": "text",
+     "q": "The modeling process followed the general framework to test for significant changes in trend employed in the National Cancer Institute Joinpoint Regression Program"
+    }
+   ]
+  },
+  {
+   "name": "small-count suppression of rates (<20 deaths)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "table note withholds rates based on counts <20",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Incidence rates based on counts <20 are not considered statistically stable and are not presented."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": null,
+  "across": [
+   "year",
+   "time segment (1999–2009 vs 2009–2014)",
+   "case classification (AHT vs assault-related TBI without AHT)"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During 2009–2014, annual rates of fatal AHT declined significantly, with an average annual decrease of 13.0%"
+   },
+   {
+    "loc": "text",
+    "q": "During 2008–2014, the annual rate of fatal assault-related TBI (total) declined 28% from 2.25 to 1.62 per 100,000 children aged <5 years"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "with a modeled trend indicating a statistically significant average annual decrease of 13.0% (p<0.01)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "rate per 100,000 children aged <5 years",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Annual rates of fatal AHT and fatal assault-related TBI per 100,000 children aged <5 years"
+    }
+   ]
+  },
+  {
+   "v": "average annual decrease",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During 2009–2014, annual rates of fatal AHT declined significantly, with an average annual decrease of 13.0%"
+    }
+   ]
+  },
+  {
+   "v": "No. deaths",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Fatal AHT rates (No. deaths) › Total"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a negative binomial rate regression model allowing for an arbitrary shift in trend was fit to the data."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The modeling process followed the general framework to test for significant changes in trend employed in the National Cancer Institute Joinpoint Regression Program"
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "to examine whether the reported decline in AHT deaths was offset by an increase in deaths identified as assault-related TBI exclusive of AHT"
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "Did rates of fatal abusive head trauma among U.S. children aged <5 years change during 1999–2014, and did any decline reflect case reclassification?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC’s case definition for AHT and data from the National Vital Statistics System were used to examine the trends in fatal AHT"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "abusive head trauma",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Fatal Abusive Head Trauma Among Children Aged <5 Years — United States, 1999–2014"
+    }
+   ]
+  },
+  {
+   "v": "assault-related traumatic brain injury",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "fatal assault-related traumatic brain injury (TBI)"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC’s case definition for AHT and data from the National Vital Statistics System were used to examine the trends in fatal AHT"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Whereas rates were relatively stable during 1999–2009, there was a statistically significant average annual decline of 13.0% in fatal AHT rates during 2009–2014."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC’s case definition for AHT and data from the National Vital Statistics System were used to examine the trends in fatal AHT"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System (NVSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC’s case definition for AHT and data from the National Vital Statistics System were used to examine the trends in fatal AHT"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Fatal Abusive Head Trauma Among Children Aged <5 Years — United States, 1999–2014"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Age (<5 years) only defines the population; no other social-position dimension is analyzed.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Social and economic factors and family-friendly work policies are raised only in prevention recommendations."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Fatal Abusive Head Trauma Among Children Aged <5 Years — United States, 1999–2014"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "comparison"
+ ],
+ "confidence": "high",
+ "notes": "Design inferred (no design named): NVSS mortality trend analysis. The assault-related TBI without AHT series serves as a bias check for coding shifts, recorded as sensitivity analysis. The prepass 'sensitivity' cue (clinical ascertainment) is not diagnostic accuracy.",
+ "view_issues": "Table CSV: the 1999 row reads '0.75 143)' (missing parenthesis); Probable counts sit in an unlabeled column separate from the rate or § mark."
+}

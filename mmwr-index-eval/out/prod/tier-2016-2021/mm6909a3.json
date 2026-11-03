@@ -1,0 +1,432 @@
+{
+ "id": "mm6909a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyt3wLjqmjxsgTpC5r",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Logistic regressions revealed that students surveyed after the shooting, compared with those surveyed before, had significantly lower odds of feeling safe at school"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "students surveyed after the shooting had significantly higher odds of not going to school for ≥1 day in the past 30 days"
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Linear regression results found that students surveyed after the shooting had significantly higher average school connectedness scores (mean = 3.35)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Chi-squared tests and a t-test assessed differences between administration groups."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Logistic and linear regression models adjusting for sex, age, and race/ethnicity tested differences between groups for all safety, connectedness, and absenteeism variables."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Logistic regressions' giving AORs for dichotomized indicators → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Logistic and linear regression models adjusting for sex, age, and race/ethnicity tested differences between groups"
+    }
+   ]
+  },
+  {
+   "name": "linear regression",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "'linear regression' with coefficient B (SE) for average connectedness score → linear",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Average school connectedness was examined using a t-test and linear regression."
+    }
+   ]
+  },
+  {
+   "name": "chi-squared test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods and Table 1 note; bivariate before/after differences and demographic comparisons",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "School connectedness differences tested with a t-test; all other differences tested using chi-squared tests."
+    }
+   ]
+  },
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named t-test for the average connectedness score difference",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In addition, a t-test revealed a significant difference in average school connectedness."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "both",
+  "referent": "students surveyed before the shooting",
+  "across": [
+   "survey administration time point (before vs after shooting)"
+  ],
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "The administration time point indicator was coded as zero for students surveyed before the shooting (on February 14; referent group)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "Statistical tests were considered significant if p<0.05."
+   },
+   {
+    "loc": "text",
+    "q": "(AOR = 0.48; 95% CI = 0.36–0.63)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Feel safe at school ¶"
+    }
+   ]
+  },
+  {
+   "v": "AOR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusted odds ratio [AOR] = 0.48; 95% confidence interval [CI] = 0.36–0.63"
+    }
+   ]
+  },
+  {
+   "v": "regression coefficient (B)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(regression coefficient [B] = 0.125; standard error = 0.05; 95% CI = 0.03–0.22)"
+    }
+   ]
+  },
+  {
+   "v": "mean score",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Average school connectedness score, mean (SD)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "there were significant differences for one of two safety-related variables, three of five school connectedness variables, and both absenteeism variables."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Regressions controlled for sex, age (used as a continuous variable), and race/ethnicity"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "sex, age (continuous), race/ethnicity (four categories)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Regressions controlled for sex, age (used as a continuous variable), and race/ethnicity (four categories, with white, non-Hispanic as the referent)."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Did students' perceived school safety, school connectedness and absenteeism differ before and immediately after a multiple-fatality shooting at a neighboring school?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Linear and logistic regression analyses controlling for demographic characteristics explored differences between groups for safety-related perceptions or experiences, school connectedness, and absenteeism."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "school shooting",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Student-Reported School Safety Perceptions, Connectedness, and Absenteeism Following a Multiple-Fatality School Shooting"
+    }
+   ]
+  },
+  {
+   "v": "perceived school safety",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Detrimental changes to perceived school safety and absenteeism and an increase in school connectedness were identified"
+    }
+   ]
+  },
+  {
+   "v": "school absenteeism",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Detrimental changes to perceived school safety and absenteeism and an increase in school connectedness were identified"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "First, cross-sectional data do not allow before and after comparisons of the same students or long-term follow-up."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This study used data from a neighboring within-district school before and after a multiple-fatality shooting"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Teachers proctored a 47-item, voluntary, anonymous, paper-and-pencil questionnaire during personalization periods."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "2018 Youth Health and School Climate Survey",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "2018 Youth Health and School Climate Survey, Broward County, Florida, February 14–21, 2018"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Data were collected from a census of students in one high school participating in an ongoing evaluation project in Broward County Public Schools."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Race/ethnicity appears only as a model covariate, a Table-1 composition check and a descriptor of the sample; no group-specific outcomes are reported.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 0,
+   "reason": "Race/ethnicity serves only as an adjustment and balance-check variable, with no equity framing beyond noting a mostly Black and Hispanic sample."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "race/ethnicity (four categories, with white, non-Hispanic as the referent)."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "the studied sample comprises primarily black and Hispanic students, rather than predominately white students"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Regressions controlled for sex, age (used as a continuous variable)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Regressions controlled for sex, age (used as a continuous variable)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Data were collected from a census of students in one high school"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity in four categories (white non-Hispanic referent in models); used only for balance checks and adjustment."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Chi-squared tests revealed no significant demographic differences between students surveyed before and after the shooting"
+    },
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity › Other or multiracial, non-Hispanic"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 7,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Chi-squared tests revealed no significant demographic differences between students surveyed before and after the shooting"
+    },
+    {
+     "loc": "table 1",
+     "q": "Age (yrs) › ≥18"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise"
+ ],
+ "confidence": "high",
+ "notes": "Groupwise entries are Table-1 composition chi-squares (before vs after by race, 4 groups; by age, 7 groups), counted under rule 2. Chi-square and t-test bivariate results precede the adjusted models that carry the headline AORs. Nonindependence (students clustered in class periods) is not addressed.",
+ "view_issues": "Table 1 absenteeism rows are labelled 'mean (SD)' but report No. (%). The text gives B = 0.125, while Table 2 gives 0.13 (rounding)."
+}

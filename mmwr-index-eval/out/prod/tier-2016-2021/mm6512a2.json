@@ -1,0 +1,332 @@
+{
+ "id": "mm6512a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrYefiFQc4Vz5Jf68",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Half of managers (49.5%) said that slicers were fully cleaned at least every 4 hours (Table 1)."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Workers reported that 63.0% (393 of 624) of slicers were fully cleaned at least every 4 hours."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Half of managers (49.5%) said that slicers were fully cleaned at least every 4 hours (Table 1)."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Simple logistic regression models were used to examine associations between deli, manager, and worker characteristics and slicer-cleaning frequencies."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Each final model presented above simultaneously included all variables shown in the table."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "simple logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Simple ... logistic regression models' giving unadjusted ORs with 95% CIs and p-values → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Simple logistic regression models of deli, manager, and worker characteristics associated with managers and workers reporting that slicers"
+    }
+   ]
+  },
+  {
+   "name": "multiple logistic regression (forward selection, p≤0.10)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Multiple logistic regression models' giving adjusted ORs with 95% CIs and p-values → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Multiple logistic regression models* of deli, manager, and worker characteristics associated with managers and workers indicating"
+    },
+    {
+     "loc": "text",
+     "q": "The cut-off for variable inclusion in the multiple regression models was p≤0.10."
+    }
+   ]
+  },
+  {
+   "name": "correlation coefficient (manager vs worker reports)",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "r = 0.587 reported for manager–worker agreement; coefficient type not named",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Managers and workers agreed on cleaning frequency in 79.0% of delis (215 of 279, r = 0.587, p<0.001)."
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "p<0.001 attached to the correlation r; test not named",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(215 of 279, r = 0.587, p<0.001)."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "second category listed (e.g., independent delis); FDA Food Code minimum of every 4 hours",
+  "across": [
+   "ownership type",
+   "customers on busiest day",
+   "number of slicers",
+   "chubs sold daily",
+   "manager training and certification",
+   "written slicer-cleaning policy",
+   "worker and manager knowledge and experience"
+  ],
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "The reference level is the second category listed. Thus, the odds ratio is for the first category listed compared to the second category listed."
+   },
+   {
+    "loc": "summary",
+    "q": "Slicers were fully cleaned more frequently in chain delis"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "OR (95% CI)"
+   },
+   {
+    "loc": "text",
+    "q": "were significantly associated with managers indicating that slicers were fully cleaned at least every 4 hours."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Deli-level aggregation of these worker-reported data indicated that in 45.8% of delis, all slicers were fully cleaned at least every 4 hours"
+    }
+   ]
+  },
+  {
+   "v": "OR",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "OR (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Simple and multiple logistic regression models were used to examine associations"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Each final model presented above simultaneously included all variables shown in the table."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "manager model: ownership, customers on busiest day, worker knowledge; worker model: ownership, customers, slicers, chubs, required manager training, worker experience",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "deli chain ownership, more customers served on the busiest day, and worker food safety knowledge were significantly associated with managers indicating"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How often are retail deli slicers fully cleaned at the FDA Food Code minimum of every 4 hours, and which deli and staff characteristics are associated with it?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "assessed how often deli slicers were fully cleaned (disassembled, cleaned, and sanitized) at the FDA–specified minimum frequency of every 4 hours."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "listeriosis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Listeria contamination of sliced deli meats at retail locations contributes to Listeria illness and outbreaks."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A software program was then used to select a random sample of delis within in each of the site geographic areas."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data collectors interviewed deli managers about their characteristics, their deli’s characteristics; and how often slicers were fully cleaned"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Environmental Health Specialists Network (EHS-Net)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC’s Environmental Health Specialists Network (EHS-Net) studied how often retail deli slicers were fully cleaned"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Retail Deli Slicer Cleaning Frequency — Six Selected Sites, United States, 2012"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "No social-position dimension is analyzed; English-language interviewability only defines eligible delis and reappears as a generalizability limitation. Ownership and deli size are not SPDs.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "The limitation that delis with no English-speaking staff were excluded could be read as equity raised only as a limitation."
+  },
+  "dimensions": [
+   {
+    "v": "country of birth/language/nativity",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "had staff members who could be interviewed in English."
+     }
+    ]
+   },
+   {
+    "v": "country of birth/language/nativity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "because the data were collected from English-speaking staff members only, they might not reflect practices in delis with no English-speaking staff."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Units are delis; staff language only restricts eligibility."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "equity.level",
+  "study_design",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred as cross-sectional (random-sample interview survey); not named. Forward selection, joint p-values for multi-level ORs and overall model chi-squares are part of the models. Listeriosis is the motivating illness, not measured; outcome is slicer-cleaning practice.",
+ "view_issues": "Table 2 p-values disagree with some CIs (e.g., 3.51 (1.85, 6.65) p=0.003; worker industry experience ≤10 p=0.287) and shift-hours comparison reads '<8 versus >8' while Table 1 uses ≥8."
+}

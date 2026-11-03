@@ -1,0 +1,440 @@
+{
+ "id": "mm6712a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysDLaDMcTS197ttLw",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Age-adjusted death rates for overdoses involving synthetic opioids other than methadone doubled from 2015 to 2016"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the age-adjusted rate of overdose deaths increased significantly (21.5%) from 16.3 in 2015 to 19.8 in 2016."
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Opioids accounted for 66.4% (42,249) of deaths"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In 2016, there were 63,632 drug overdose deaths in the United States."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Relative change in age-adjusted rates and absolute change were calculated."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Rates are age-adjusted using the direct method and the 2000 U.S. standard population, except for age-specific crude rates."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "'age-adjusted using the direct method and the 2000 U.S. standard population'",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Rates are age-adjusted using the direct method and the 2000 U.S. standard population, except for age-specific crude rates."
+    }
+   ]
+  },
+  {
+   "name": "z-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "z-tests stated for 2015 vs 2016 rate changes when deaths ≥100",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Significance was assessed using z-tests when the number of deaths was ≥100 (p<0.05)"
+    }
+   ]
+  },
+  {
+   "name": "CI overlap assertion",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "nonoverlapping gamma-based CIs used as the significance criterion when deaths <100",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "nonoverlapping confidence intervals based on a gamma distribution when the number of deaths was <100."
+    }
+   ]
+  },
+  {
+   "name": "small-cell and unreliable-rate suppression",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "counts ≤9 and rates based on <20 deaths withheld",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Cells with ≤9 deaths are not reported. Rates based on <20 deaths are not considered reliable and not reported."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "both",
+  "referent": "2015",
+  "across": [
+   "year",
+   "drug category",
+   "sex",
+   "age group",
+   "race/ethnicity",
+   "urbanization level",
+   "state"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Age-adjusted death rates for overdoses involving synthetic opioids other than methadone doubled from 2015 to 2016"
+   },
+   {
+    "loc": "text",
+    "q": "Relative change in age-adjusted rates and absolute change were calculated."
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "ci_overlap": true,
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Significance was assessed using z-tests when the number of deaths was ≥100 (p<0.05)"
+   },
+   {
+    "loc": "note",
+    "q": "Note that the method of comparing confidence intervals is a conservative method for statistical significance"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted rate per 100,000",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "All rates are per 100,000 population."
+    }
+   ]
+  },
+  {
+   "v": "absolute rate change",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Absolute rate change is the difference between 2015 and 2016 rates."
+    }
+   ]
+  },
+  {
+   "v": "% change in rate",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percent change is the absolute rate change divided by the 2015 rate, multiplied by 100."
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Opioids accounted for 66.4% (42,249) of deaths"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did age-adjusted overdose death rates involving opioids, cocaine and psychostimulants change from 2015 to 2016, overall and by demographics, urbanization and state?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC examined age-adjusted death rates for overdoses involving all opioids, opioid subcategories"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "drug overdose death",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Overdose Deaths Involving Opioids, Cocaine, and Psychostimulants — United States, 2015–2016"
+    }
+   ]
+  },
+  {
+   "v": "opioid overdose",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Opioids accounted for 66.4% (42,249) of deaths"
+    }
+   ]
+  },
+  {
+   "v": "cocaine overdose",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "rates of overdose deaths involving cocaine and psychostimulants increased by 52.4% and 33.3%, respectively"
+    }
+   ]
+  },
+  {
+   "v": "psychostimulant overdose",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "rates of overdose deaths involving cocaine and psychostimulants increased by 52.4% and 33.3%, respectively"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Drug overdose deaths were identified in the National Vital Statistics System multiple cause-of-death mortality files"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-adjusted overdose death rates were examined for 2015 and 2016"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Drug overdose deaths were identified in the National Vital Statistics System multiple cause-of-death mortality files"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System (NVSS) multiple cause-of-death mortality files",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Drug overdose deaths were identified in the National Vital Statistics System multiple cause-of-death mortality files"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "by demographics, urbanization levels, and in 31 states and the District of Columbia (DC)"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Rate changes are reported by race/ethnicity, age, sex and urbanization, and the largest change among blacks is noted, but no disparity is framed or interpreted.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The largest relative increase among blacks (56.1%) is a quantified group-specific result that could be read as a quantified disparity."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The largest relative rate change occurred among blacks (56.1%) (Table 1)."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "potential race misclassification might lead to underestimates for certain categories, primarily for American Indian/Alaska Natives and Asian/Pacific Islanders."
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Counties in large central and fringe metro areas experienced the largest absolute increases in deaths involving prescription and synthetic opioids, heroin, and cocaine"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "occurred among males aged 25–44 years and persons aged 25–34 years."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Rates are age-adjusted using the direct method and the 2000 U.S. standard population"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "From 2015 to 2016, opioid-involved deaths increased in males and females and among persons aged ≥15 years"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Urbanization by the 2013 NCHS county scheme; race from death certificates, with possible misclassification of AI/AN and A/PI decedents and caution on Hispanic origin."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The largest relative rate change occurred among blacks (56.1%) (Table 1)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 7,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "occurred among males aged 25–44 years and persons aged 25–34 years."
+    }
+   ]
+  },
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Counties in large central and fringe metro areas experienced the largest absolute increases in deaths involving prescription and synthetic opioids, heroin, and cocaine"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "analytic_depth"
+ ],
+ "confidence": "high",
+ "notes": "Tests compare 2015 with 2016 within each group (non-SPD period contrasts), so groupwise entries are rankings of per-group changes only. Design inferred (not named). Prepass diagnostic_accuracy cue is a false hit on 'drug specificity'.",
+ "view_issues": null
+}

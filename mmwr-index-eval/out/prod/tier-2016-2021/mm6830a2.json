@@ -1,0 +1,507 @@
+{
+ "id": "mm6830a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysJo42CMa2p3ucCCG",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "helped increase VLS among HIV-positive persons approximately twofold overall (from 28.6% to 64.8%)"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VLS prevalence among all persons with HIV infection increased approximately twofold overall (from 28.6% to 64.8%)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "After the intervention in 2017, estimated prevalence of HIV infection among residents aged 18–49 years was 8.4% (95% CI = 6.9–9.9)."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VLS prevalence increased approximately threefold among men (20.5% to 59.1%), persons aged 18–29 years (15.6% to 56.7%)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VLS sex and age group disparities in 2014 (aPR = 1.5–2.7) were nearly eliminated by 2017 (aPR = 1.1–1.3)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting to census (sex, age group, geographic area) with clustering adjustment",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "'census-weighted' estimates with SURVEYFREQ; produces every survey estimate",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All estimates were census-weighted by sex, age group, and geographic area, and adjusted for clustering within enumeration areas."
+    }
+   ]
+  },
+  {
+   "name": "GENMOD prevalence ratio model (crude PRs and aPRs)",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "GENMOD giving prevalence ratios and adjusted PRs implies a log link (log-binomial or Poisson); distribution not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "VLS prevalence among persons with HIV infection, VLS PRs, and VLS aPRs were estimated with SURVEYFREQ and GENMOD procedures"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "significance defined by 95% CI lower bound ≥1.0; CIs model-based from SURVEYFREQ/GENMOD",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Unless otherwise indicated, all PRs with a lower bound of the 95% CI ≥1.0 are statistically significant (p<0.05)."
+    },
+    {
+     "loc": "text",
+     "q": "With the exception of cell phone or television ownership, VLS prevalence disparities were not observed in 2017 for other sociodemographic characteristics"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "both",
+  "referent": "preintervention survey (2014); 73% VLS target; preintervention diagnosis and enrollment-in-care targets",
+  "across": [
+   "period (preintervention vs postintervention)",
+   "sex",
+   "age group",
+   "duration of current home residence",
+   "ownership of cell phone or television",
+   "trouble satisfying household food needs",
+   "education",
+   "sexual behavior"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "helped increase VLS among HIV-positive persons approximately twofold overall (from 28.6% to 64.8%)"
+   },
+   {
+    "loc": "text",
+    "q": "BCPE nearly achieved the 73% VLS prevalence target for women, persons aged 40–49 years, and residents living in their current home >2 years."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "Unless otherwise indicated, all PRs with a lower bound of the 95% CI ≥1.0 are statistically significant (p<0.05)."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "VLS prevalence, %",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "VLS prevalence and prevalence ratios ¶ › % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "PR",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "VLS prevalence and prevalence ratios ¶ › PR (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "aPR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VLS sex and age group disparities in 2014 (aPR = 1.5–2.7) were nearly eliminated by 2017 (aPR = 1.1–1.3)."
+    }
+   ]
+  },
+  {
+   "v": "intersurvey VLS prevalence ratio",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Intersurvey VLS prevalence ratio ¶ › PR (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "% of intervention target achieved",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "BCPE achieved 109% and 100% of HIV diagnostic and enrollment-in-care targets for HIV-positive persons aged 18–49 years overall"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "weighted by sex, age group, and geographic area of the Bukoba Municipal Council census, and adjusted for clustering within census enumeration areas"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "VLS prevalence and prevalence ratios ¶ › PR (95% CI)"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "VLS prevalence and prevalence ratios ¶ › aPR (95% CI)"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "Table 2 characteristics not marked with a dash: sex, age group, duration of residence, cell phone/TV ownership, sexual behavior, education (2014 only)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Variables noted with a dash for aPR were not included in the multivariate GENMOD model."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Did population HIV viral load suppression, and its sex and age-group disparities, change in Bukoba after scale-up of testing, linkage and retention interventions?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To identify interventions that might increase VLS in Tanzania, and reduce VLS-associated sex and age-group disparities"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "HIV infection",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Threefold Increases in Population HIV Viral Load Suppression Among Men and Young Adults"
+    }
+   ]
+  },
+  {
+   "v": "HIV viral load suppression",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Threefold Increases in Population HIV Viral Load Suppression Among Men and Young Adults"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "to assess effectiveness of new HIV testing, linkage to care, and retention on antiretroviral therapy interventions"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Household surveys conducted before (November 2013–January 2014) and after (June–September 2017) the interventions used identical methods"
+    }
+   ]
+  },
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "all household members aged 18–49 years were eligible for an in-person interview and HIV testing."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from BCPE preintervention and postintervention surveys"
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During the intervention (October 2014–March 2017), BCPE conducted 133,695 HIV tests"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Bukoba Combination Prevention Evaluation (BCPE) household surveys",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from BCPE preintervention and postintervention surveys"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "international",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Bukoba Municipal Council, Tanzania, 2014–2017"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Sex and age-group VLS disparities are framed, quantified (aPR 1.5–2.7 to 1.1–1.3) and interpreted; SES determinants (food needs, asset ownership, education) are analyzed, and Test and Start policy plus services are offered as explaining the narrowing.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "SES variables get little interpretation and the policy/services explanation is an intervention, not a social or structural cause of the disparity."
+  },
+  "dimensions": [
+   {
+    "v": "sex",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "VLS sex and age group disparities in 2014 (aPR = 1.5–2.7) were nearly eliminated by 2017 (aPR = 1.1–1.3)."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "All estimates were census-weighted by sex, age group, and geographic area"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "all household members aged 18–49 years were eligible for an in-person interview and HIV testing."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "threefold among men (20.5% to 59.1%) and adults aged 18–29 years (15.6% to 56.7%)."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "All estimates were census-weighted by sex, age group, and geographic area"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "ownership of cell phone or television",
+     "trouble satisfying household food needs",
+     "highest level of education completed"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "With the exception of cell phone or television ownership, VLS prevalence disparities were not observed in 2017 for other sociodemographic characteristics"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "ownership of cell phone or television",
+     "highest level of education completed"
+    ],
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Variables noted with a dash for aPR were not included in the multivariate GENMOD model."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "Test and Start ART eligibility policy with testing, linkage and defaulter-tracing services; household food needs; cell phone or television ownership; education",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "combined with Test and Start and recommended linkage and defaulter-tracing services, can substantially increase VLS prevalence and reduce VLS-associated sex and age group disparities"
+    },
+    {
+     "loc": "table 2",
+     "q": "Trouble satisfying household food needs †† › Sometimes/Often/Always"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "To identify interventions that might increase VLS in Tanzania, and reduce VLS-associated sex and age-group disparities"
+    }
+   ]
+  },
+  "equity_measurement": "Men and age 18–29 are referents; SES proxied by asset ownership, food needs and education; men underrepresented in both surveys; no control communities."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Age group (yrs) › 40–49"
+    },
+    {
+     "loc": "table 2",
+     "q": "Unless otherwise indicated, all PRs with a lower bound of the 95% CI ≥1.0 are statistically significant (p<0.05)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Highest level of education completed †† › Post primary"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Trouble satisfying household food needs †† › Sometimes/Often/Always"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "procedures"
+ ],
+ "confidence": "medium",
+ "notes": "Prior diagnosis and ART use were reclassified using VLS (a measurement step, not a procedure). The GENMOD distribution is not stated; loglinear is inferred from prevalence ratios. The absolute difference of 36.2 points appears in the Discussion beside a cited trial.",
+ "view_issues": "Table 1 gives the intervention period as Oct 2014–May 2017, but the text gives Oct 2014–March 2017. The 2014 1–2-year residence PR of 1.4 (1.0–2.0) is flagged p≥0.05 despite the lower-bound rule."
+}

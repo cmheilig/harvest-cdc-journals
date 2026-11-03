@@ -1,0 +1,489 @@
+{
+ "id": "mm7047a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyss2XWvmfwFFnaXfp",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "14.4% to 40.1% of adolescent girls and young women had early sexual debut."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the prevalence of forced sexual initiation ranged from 14.7% (Zimbabwe) to 38.9% (Malawi)"
+    },
+    {
+     "loc": "summary",
+     "q": "the odds of having been tested for HIV was 40% lower"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence of lifetime sexual violence among adolescent girls and young women varied across countries, ranging from 12.5% (Zimbabwe) to 49.3% (Eswatini)"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The odds of alcohol abuse did not differ among those who did and did not experience forced sexual initiation or early sexual debut."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "These models included a fixed effect for country and accounted for survey design, including stratification and clustering"
+    },
+    {
+     "loc": "text",
+     "q": "and were adjusted to control for age and marital status."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weighted prevalences accounting for multistage cluster design, nonresponse and calibration to census or projections",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "prevalences were weighted to the most recent census or population projections to account for the multistage cluster design and nonresponse"
+    },
+    {
+     "loc": "note",
+     "q": "Weights accounted for the multistage cluster sampling design (e.g., enumeration area, household, and household member), nonresponse, and calibration to a known population"
+    }
+   ]
+  },
+  {
+   "name": "survey-weighted multiple logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Multiple logistic regression models' giving aORs → logistic; survey design accounted for; CIs model-based",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Multiple logistic regression models were fit to the data combined across all countries to examine the odds of forced sexual initiation"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "those who did not experience forced sexual initiation or early sexual debut; reference levels (aged 20–24, primary or higher education, never married)",
+  "across": [
+   "forced sexual initiation",
+   "early sexual debut",
+   "age group",
+   "education",
+   "marital status",
+   "orphan status",
+   "childhood violence",
+   "country"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Among those with early sexual debut, the odds of having been tested for HIV was 40% lower"
+   },
+   {
+    "loc": "text",
+    "q": "Compared with those who did not experience early sexual debut, those who did had increased odds of having multiple sexual partners"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "note",
+    "q": "Statistically significant (p<0.05)."
+   },
+   {
+    "loc": "table 2",
+    "q": "aOR (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted prevalence, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Weighted prevalence, ¶ % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "aOR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "those who experienced nonpenetrative sexual violence during childhood (aOR = 2.38)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "accounted for survey design, including stratification and clustering"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "and were adjusted to control for age and marital status."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age, marital status, country (fixed effect)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "These models included a fixed effect for country and accounted for survey design"
+    },
+    {
+     "loc": "text",
+     "q": "and were adjusted to control for age and marital status."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "What is the prevalence of forced sexual initiation and early sexual debut among adolescent girls and young women in nine PEPFAR countries, and what factors and health problems are associated with them?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "were analyzed to estimate prevalence and assess factors associated with early sexual debut and forced sexual initiation."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "forced sexual initiation",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Forced Sexual Initiation and Early Sexual Debut and Associated Risk Factors and Health Problems Among Adolescent Girls and Young Women"
+    }
+   ]
+  },
+  {
+   "v": "forced sexual initiation",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Compared with adolescent girls and young women who did not experience forced sexual initiation, those who did had elevated odds"
+    }
+   ]
+  },
+  {
+   "v": "early sexual debut",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The odds of early sexual debut were higher among adolescent girls and young women aged 16–19 years (aOR = 3.29)"
+    }
+   ]
+  },
+  {
+   "v": "early sexual debut",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Among those with early sexual debut, the odds of having been tested for HIV was 40% lower"
+    }
+   ]
+  },
+  {
+   "v": "sexual violence",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence of lifetime sexual violence among adolescent girls and young women varied across countries"
+    }
+   ]
+  },
+  {
+   "v": "risky sexual behavior",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Risky sexual behavior (past 12 mos)"
+    }
+   ]
+  },
+  {
+   "v": "sexually transmitted infections",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "ever having had an STI (aOR = 1.6)"
+    }
+   ]
+  },
+  {
+   "v": "mental distress and suicidal ideation",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "having recent moderate or severe mental distress (aOR = 1.6), and ever having suicidal thoughts (aOR = 2.1)"
+    }
+   ]
+  },
+  {
+   "v": "alcohol abuse",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Alcohol abuse in the past 30 days"
+    }
+   ]
+  },
+  {
+   "v": "HIV",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The odds were lower for ever having been tested for HIV (aOR = 0.4)"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VACS are nationally representative, multistage cluster household surveys of persons aged 13–24 years."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VACS are nationally representative, multistage cluster household surveys of persons aged 13–24 years."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Violence Against Children and Youth Surveys (VACS)",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Violence Against Children and Youth Surveys, Nine PEPFAR Countries, 2007–2018"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "international",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "in Eswatini,** Haiti, Kenya, Malawi, Nigeria, Tanzania, Uganda, Zambia, and Zimbabwe"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Education and age groups are compared with aORs and described as risk factors, but not framed as disparities; structural factors appear only in the introduction for the population's overall HIV burden.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Education aORs (5.16, 2.19) are quantified and interpreted with recommendations to target girls with primary education or less."
+  },
+  "dimensions": [
+   {
+    "v": "sex",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Among Adolescent Girls and Young Women"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "adolescent girls and young women aged 13–24 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Age group at time of survey, yrs › 13–15"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "and were adjusted to control for age and marital status."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "those who had no education (aOR = 5.16) or less than primary education (aOR = 2.19)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "structural factors: gender-based violence, orphanhood, low education level, harmful gender and societal norms, gender inequity, unequal power",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "disproportionately affected by HIV in sub-Saharan Africa ( 1 ), resulting from biologic, behavioral, and structural* factors, including violence."
+    },
+    {
+     "loc": "note",
+     "q": "low education level, spousal separation, harmful gender and societal norms, gender inequity, and unequal power."
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Education referent is primary or higher; age referent 20–24 years; data pooled across nine countries with country fixed effects; some items missing for several countries."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Age group at time of survey, yrs › 13–15"
+    },
+    {
+     "loc": "text",
+     "q": "the odds of having experienced forced sexual initiation were elevated among those aged 13–15 years (adjusted odds ratio [aOR] = 1.77)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Education › Less than primary"
+    },
+    {
+     "loc": "text",
+     "q": "those who had no education (aOR = 5.16) or less than primary education (aOR = 2.19)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Significance marks (p<0.05) on aORs are model-term p-values, not separate tests. Orphan and marital status were not treated as SPDs. Kessler 6 cutoff is quantization.",
+ "view_issues": "Table 2 column header reads 'Forced or sexual initiation'. Text aOR for marriage and early debut is 3.03 but Table 2 marks 3.0 with ¶ instead of the significance mark **."
+}

@@ -1,0 +1,457 @@
+{
+ "id": "mm6526a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrZPSUqwXCL35NysY",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Counts and rates per 100,000 population for methadone overdose deaths were calculated annually, by sex, age group, race/ethnicity, and U.S. Census region"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Rates (deaths per 100,000 population) are presented as age-adjusted rates, with the exception of rates by age group."
+    },
+    {
+     "loc": "figure 1",
+     "q": "number of methadone diversion reports per 100,000 population, and number of grams of methadone distributed per 100 population."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Males consistently experienced higher overdose death rates than females during 2002–2014"
+    },
+    {
+     "loc": "text",
+     "q": "During 2002–2006, the national methadone distribution rate increased, on average, 25.1% per year, and during 2006–2013, declined, on average, 3.2% per year"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-adjusted death rates were calculated by applying age-specific death rates to the 2000 U.S. standard population age distribution."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "joinpoint regression",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "joinpoint 'fitting an exponential curve' with annual percentage changes → log-linear model of rates over time",
+   "role": "primary",
+   "alternative_reading": "linear (least squares on log rates, the usual joinpoint fitting)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Joinpoint regression was used to examine changes in trends in rates over time."
+    },
+    {
+     "loc": "text",
+     "q": "Joinpoint models annual trend data by fitting an exponential curve"
+    }
+   ]
+  },
+  {
+   "name": "Monte Carlo permutation test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated as the test selecting the number of joinpoints; each joinpoint is a significant change in trend",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using a Monte Carlo permutation test to determine the optimal number of joinpoints"
+    },
+    {
+     "loc": "table 1",
+     "q": "Each joinpoint represents a statistically significant change in trend, p<0.05."
+    }
+   ]
+  },
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "age-specific rates applied to the 2000 U.S. standard population",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-adjusted death rates were calculated by applying age-specific death rates to the 2000 U.S. standard population age distribution."
+    }
+   ]
+  },
+  {
+   "name": "Pearson correlation coefficient",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "correlation of annual distribution rate with diversion and death rates",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The Pearson correlation coefficient ( r ) was used to assess correlation between the methadone distribution rate and rates of methadone diversion and overdose deaths."
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "p<0.05 reported for each correlation coefficient; test not named",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "rates of overdose death ( r = 0.89, p<0.05) and methadone diversion ( r = 0.95, p<0.05)."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": null,
+  "across": [
+   "period",
+   "sex",
+   "age group",
+   "race/ethnicity",
+   "U.S. Census region"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "By sex, most age groups, race/ethnicity, and U.S. Census region, the methadone overdose death rate peaked during 2005–2007 and declined in subsequent years."
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "using a Monte Carlo permutation test to determine the optimal number of joinpoints"
+   },
+   {
+    "loc": "text",
+    "q": "For all analyses, a p-value of <0.05 was considered to be statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "rate per 100,000 population",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Rates (deaths per 100,000 population) are presented as age-adjusted rates"
+    }
+   ]
+  },
+  {
+   "v": "annual percentage change",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "each of these trends is described by an annual percentage change"
+    }
+   ]
+  },
+  {
+   "v": "grams per 100 population",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "number of grams of methadone distributed per 100 population."
+    }
+   ]
+  },
+  {
+   "v": "Pearson correlation coefficient (r)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "There was a strong positive correlation between the rate of methadone distribution and the rates of overdose death ( r = 0.89, p<0.05)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Rates (deaths per 100,000 population) are presented as age-adjusted rates, with the exception of rates by age group."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Rates (deaths per 100,000 population) are presented as age-adjusted rates"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age (through age-adjusted rates)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-adjusted death rates were calculated by applying age-specific death rates to the 2000 U.S. standard population age distribution."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adding joinpoints, one at a time, and using a Monte Carlo permutation test to determine the optimal number of joinpoints"
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did methadone distribution for pain, methadone diversion and methadone overdose death rates change during 2002–2014, overall and by demographic group and region?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "analyzed methadone distribution, reports of diversion (the transfer of legally manufactured methadone into illegal markets), and overdose deaths during 2002–2014."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "methadone overdose",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Trends in Methadone Distribution for Pain Treatment, Methadone Diversion, and Overdose Deaths"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "information was obtained from the 2002–2014 National Vital Statistics System multiple cause of death mortality data"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Joinpoint regression was used to examine changes in trends in rates over time."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "2002–2014 National Vital Statistics System multiple cause of death mortality data"
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Drug Enforcement Administration (DEA) Automation of Reports and Consolidated Orders System."
+    },
+    {
+     "loc": "text",
+     "q": "were obtained from DEA’s National Forensic Laboratory Information System."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System (NVSS) multiple cause of death data",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "2002–2014 National Vital Statistics System multiple cause of death mortality data"
+    }
+   ]
+  },
+  {
+   "v": "DEA Automation of Reports and Consolidated Orders System (ARCOS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Drug Enforcement Administration (DEA) Automation of Reports and Consolidated Orders System."
+    }
+   ]
+  },
+  {
+   "v": "National Forensic Laboratory Information System (NFLIS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were obtained from DEA’s National Forensic Laboratory Information System."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Overdose Deaths — United States, 2002–2014"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Death rates and trends are reported and described by race/ethnicity (whites highest), but no disparity is framed or quantified as a difference or ratio. Age and sex results are not framed as social position.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Race/ethnicity appears mainly as one of several strata in a trend description; the age emphasis (≥55 years) is clinical, not social position."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Throughout the study period, non-Hispanic whites experienced higher methadone overdose death rates than other racial/ethnic groups."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Persons aged 25–54 years had the highest overdose death rates during the study period"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Age-adjusted death rates were calculated by applying age-specific death rates to the 2000 U.S. standard population age distribution."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Males consistently experienced higher overdose death rates than females during 2002–2014"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity in four groups (other non-Hispanic collapsed); race recorded from death certificates; census region is geography, not an SPD."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Persons aged 25–54 years had the highest overdose death rates during the study period, and all experienced significant declines after 2006."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Throughout the study period, non-Hispanic whites experienced higher methadone overdose death rates than other racial/ethnic groups."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "regression_fields",
+  "analytic_depth",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "Design not named; surveillance trend inferred. Joinpoint trends are fitted separately per group; no test compares trends across groups. Age-standardized rates feed the joinpoint models, so adjusted_results is read as true via standardization.",
+ "view_issues": "Table ≥65 row: 2004 rate shown as 1.10 for 36 deaths (likely 0.10), and 2003 is '—'. Prepass chi-square cue is a false hit on 'Pearson correlation'."
+}

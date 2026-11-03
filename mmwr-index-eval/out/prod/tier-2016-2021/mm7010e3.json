@@ -1,0 +1,294 @@
+{
+ "id": "mm7010e3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPytfdtPedkoyP221v1",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The daily growth rate was defined as the difference between the natural log of cumulative cases or deaths on a given day"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Associations between the policies and COVID-19 outcomes were measured using a reference period (1–20 days before implementation)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Reported numbers are from regression models, which controlled for county, time (day), COVID-19 tests per 100,000 persons"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "weighted least-squares regression with county and day fixed effects (event-study periods)",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "'Weighted least-squares regression' → linear; weighted by county population, SEs clustered by state",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Weighted least-squares regression with county and day fixed effects was used to compare COVID-19 case and death growth rates before and after"
+    },
+    {
+     "loc": "text",
+     "q": "All analyses were weighted by county population with standard errors robust to heteroscedasticity and clustered by state."
+    }
+   ]
+  },
+  {
+   "name": "log difference of cumulative counts (daily growth rate)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "outcome defined as 100 × difference of natural logs of cumulative cases or deaths on consecutive days",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The daily growth rate was defined as the difference between the natural log of cumulative cases or deaths on a given day"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "absolute",
+  "referent": "1–20 days before implementation",
+  "across": [
+   "time relative to policy implementation",
+   "mask mandate",
+   "on-premises restaurant dining allowed"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Associations between the policies and COVID-19 outcomes were measured using a reference period (1–20 days before implementation)"
+   },
+   {
+    "loc": "text",
+    "q": "Mask mandates were associated with a 0.5 percentage point decrease (p = 0.02) in daily COVID-19 case growth rates 1–20 days after implementation"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "All analyses were weighted by county population with standard errors robust to heteroscedasticity and clustered by state."
+   },
+   {
+    "loc": "table 1",
+    "q": "P-values <0.05 were considered statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage point change",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percentage point change (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "daily percentage point growth rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Two outcomes were examined: the daily percentage point growth rate of county-level COVID-19 cases and county-level COVID-19 deaths."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "clustered or robust SE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "with standard errors robust to heteroscedasticity and clustered by state."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Reported numbers are from regression models, which controlled for county, time (day), COVID-19 tests per 100,000 persons"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "restaurant closures (mask models) or mask mandates (restaurant models), bar closures, stay-at-home orders, gathering bans, daily COVID-19 tests per 100,000, county, day",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The regression models controlled for several covariates: restaurant closures in the mask mandate models and mask mandates in the restaurant reopening models"
+    },
+    {
+     "loc": "table 2",
+     "q": "mask mandates, closure of bars for any on-premises dining, and the presence of gathering bans and stay-at-home orders."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Were state-issued mask mandates and allowing on-premises restaurant dining associated with changes in county-level COVID-19 case and death growth rates in 2020?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To examine the association of state-issued mask mandates and allowing on-premises restaurant dining with COVID-19 cases and deaths during March 1–December 31, 2020"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Association of State-Issued Mask Mandates and Allowing On-Premises Restaurant Dining with County-Level COVID-19 Case and Death Growth Rates"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "ecologic",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Because state-issued policies often applied to specific counties, particularly when states began allowing on-premises dining, all analyses were conducted at the county level."
+    }
+   ]
+  },
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Mandating masks was associated with a decrease in daily COVID-19 case and death growth rates within 20 days of implementation."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were collected from state and local health department websites and accessed through U.S. Department of Health and Human Services Protect."
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "County-level data on state-issued mask mandates and restaurant closures were obtained from executive and administrative orders identified on state government websites."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "HHS Protect",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "accessed through U.S. Department of Health and Human Services Protect."
+    }
+   ]
+  },
+  {
+   "v": "CDC Public Health Law Program policy data sets (state orders)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "coding and analyses were published in freely available data sets."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "state-issued mask mandates applied in 2,313 (73.6%) of the 3,142 U.S. counties."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "No social-position dimension is analyzed; counties are weighted by population and economic impact on the food services industry is mentioned only as a policy cost.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "outcome_types",
+  "regression_fields"
+ ],
+ "confidence": "high",
+ "notes": "Design not named; ecologic policy evaluation inferred from county-level analysis of policy effects. Pre-implementation periods vs referent act as a pretrend check within the same model; not counted as a separate sensitivity analysis. Population weighting is part of the WLS model, not survey weighting.",
+ "view_issues": "Article notes it was corrected after publication (erratum 2021-05-28). Restaurant model shows a significant pre-period difference in case growth 41–60 days before reopening, which the text reports but does not discuss."
+}

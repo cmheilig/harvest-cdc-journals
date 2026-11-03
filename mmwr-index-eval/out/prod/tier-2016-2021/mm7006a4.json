@@ -1,0 +1,331 @@
+{
+ "id": "mm7006a4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPytethocLj8uMhtEJR",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "From 2013 to 2019, the synthetic opioid-involved death rate increased 1,040%, from 1.0 to 11.4 per 100,000 age-adjusted (3,105 to 36,359)"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The percentage of drug overdose deaths that involved synthetic opioids was highest in the Northeast (71.0%) and lowest in the West (26.4%)."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2019, a total of 70,630 drug overdose deaths occurred in the United States, corresponding to an age-adjusted rate of 21.6 per 100,000 population"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In contrast, the West experienced the largest relative (67.9%) and absolute (1.9) rate increases from 2.8 in 2018 to 4.7 in 2019."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Annual age-adjusted death rates § were examined during 2013–2019 and stratified by drug category and synthetic opioid coinvolvement."
+    },
+    {
+     "loc": "note",
+     "q": "Age-adjusted death rates were calculated by applying age-specific death rates to the 2000 U.S. Census standard population age distribution"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "age-specific rates applied to the 2000 U.S. standard population → direct standardization",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Age-adjusted death rates were calculated by applying age-specific death rates to the 2000 U.S. Census standard population age distribution"
+    }
+   ]
+  },
+  {
+   "name": "z-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "z-tests of 2018–2019 rate changes when deaths ≥100, p<0.05",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Analyses of rate changes used z-tests when deaths were ≥100 and nonoverlapping confidence intervals based on a gamma distribution when deaths were <100."
+    },
+    {
+     "loc": "text",
+     "q": "Changes presented in text represent statistically significant (p<0.05) findings unless otherwise specified."
+    }
+   ]
+  },
+  {
+   "name": "CI overlap assertion",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "nonoverlapping gamma-based CIs as the significance rule for rate changes with <100 deaths",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Nonoverlapping confidence intervals based on the gamma method were used if the number of deaths was <100 in 2018 or 2019."
+    }
+   ]
+  },
+  {
+   "name": "suppression of unstable or confidential state estimates",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "states with too few deaths for stable estimates or confidentiality excluded from state-level analyses",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "too few deaths to calculate stable estimates, or too few deaths to meet confidentiality requirements were excluded from state-level analyses"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "both",
+  "referent": null,
+  "across": [
+   "year",
+   "Census region",
+   "state",
+   "drug category",
+   "synthetic opioid coinvolvement"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During 2018–2019, the largest relative increase in synthetic opioid-involved death rates occurred in the West (67.9%)"
+   },
+   {
+    "loc": "text",
+    "q": "In contrast, the West experienced the largest relative (67.9%) and absolute (1.9) rate increases from 2.8 in 2018 to 4.7 in 2019."
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "ci_overlap": true,
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Analyses of rate changes used z-tests when deaths were ≥100 and nonoverlapping confidence intervals based on a gamma distribution when deaths were <100."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted death rate per 100,000",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Rate per 100,000 population age-adjusted to the 2000 U.S. standard population using the vintage year population of the data year."
+    }
+   ]
+  },
+  {
+   "v": "percentage of drug overdose deaths",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2019, a total of 49,860 (70.6%) drug overdose deaths involved opioids, 36,359 (51.5%) involved synthetic opioids"
+    }
+   ]
+  },
+  {
+   "v": "relative and absolute rate change",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The Northeast experienced the largest relative (43.8%), but smallest absolute (0.7), rate increase."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did age-adjusted overdose death rates by drug category change in the United States during 2013–2019, and how did synthetic opioid and psychostimulant deaths shift geographically during 2018–2019?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC analyzed trends in age-adjusted overdose death rates involving synthetic opioids, psychostimulants, cocaine, heroin, and prescription opioids during 2013–2019"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "drug overdose deaths",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Trends and Geographic Patterns in Drug and Synthetic Opioid Overdose Deaths — United States, 2013–2019"
+    }
+   ]
+  },
+  {
+   "v": "synthetic opioid overdose",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "the age-adjusted rate of deaths involving synthetic opioids other than methadone increased 1,040%"
+    }
+   ]
+  },
+  {
+   "v": "psychostimulant overdose",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "and for psychostimulants increased 317%."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Drug overdose deaths were identified in the National Vital Statistics System multiple cause-of-death mortality files"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Trends and Geographic Patterns in Drug and Synthetic Opioid Overdose Deaths"
+    },
+    {
+     "loc": "text",
+     "q": "From 2018 to 2019, the age-adjusted synthetic opioid-involved death rate increased 15.2%, from 9.9 to 11.4."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Drug overdose deaths were identified in the National Vital Statistics System multiple cause-of-death mortality files"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System (NVSS) multiple cause-of-death mortality files",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Drug overdose deaths were identified in the National Vital Statistics System multiple cause-of-death mortality files"
+    }
+   ]
+  },
+  {
+   "v": "CDC WONDER",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Source: National Vital Statistics System, Mortality File. https://wonder.cdc.gov/"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "were examined by U.S Census region ¶ and state."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Age enters only through age standardization of rates; no social-position dimension is analyzed. Region and state are geography, not SPDs.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "Age-adjusted death rates were calculated by applying age-specific death rates to the 2000 U.S. Census standard population age distribution"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Geographic comparisons only (Census region and state); no SPD stratification."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "comparison"
+ ],
+ "confidence": "high",
+ "notes": "Headline mixes a 2013 vs 2019 period contrast and a four-region comparison of 2018–2019 changes; group leads by precedence. Prepass diagnostic_accuracy cue is a false hit on 'drug specificity'.",
+ "view_issues": "The Figure 3 image description repeats Figure 2's description (line graphs) rather than describing the maps of percentages and relative changes."
+}

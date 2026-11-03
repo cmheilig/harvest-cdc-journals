@@ -1,0 +1,388 @@
+{
+ "id": "mm6844a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysGoFvtJvjmuf899a",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "among males, lung cancer incidence rates decreased from 99 to 82 per 100,000 in nonmetropolitan areas and from 83 to 63 in metropolitan areas"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "lung cancer incidence rates decreased more in metropolitan than nonmetropolitan counties, more among males than females"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was age-adjusted by the direct method to the 2000 U.S. standard population."
+    },
+    {
+     "loc": "text",
+     "q": "Rate ratios were calculated to test whether sex-, age- and year-specific rates in nonmetropolitan counties differed from those in metropolitan counties"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "'age-adjusted by the direct method to the 2000 U.S. standard population'",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was age-adjusted by the direct method to the 2000 U.S. standard population."
+    }
+   ]
+  },
+  {
+   "name": "least-squares regression for APC (with t-test of slope vs zero)",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "'calculated using least-squares regression' → linear; the two-sided t-test that APC differs from zero is the model-term test",
+   "role": "primary",
+   "alternative_reading": "loglinear: APC is conventionally from least squares on log rates (SEER*Stat), i.e. a log-linear trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Annual percentage change (APC) was used to quantify the change in incidence over time and was calculated using least-squares regression."
+    },
+    {
+     "loc": "text",
+     "q": "A two-sided t-test was used to determine whether APC was significantly different from zero."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "rate ratio judged significant if its 95% CI excluded one; CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "rates were considered significantly different (p<0.05) if the 95% confidence interval (CI) for the rate ratio excluded one"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "both",
+  "referent": "metropolitan counties",
+  "across": [
+   "rurality",
+   "sex",
+   "age group",
+   "year"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During 2007–2016, lung cancer incidence rates decreased more in metropolitan than nonmetropolitan counties"
+   },
+   {
+    "loc": "table 1",
+    "q": "Absolute rate change"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "A two-sided t-test was used to determine whether APC was significantly different from zero."
+   },
+   {
+    "loc": "text",
+    "q": "To allow for informal comparisons, without specifying a referent group, 95% CIs for rates and APCs are presented."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted rate per 100,000",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Per 100,000 persons; overall rates were age-adjusted to the 2000 U.S. standard population."
+    }
+   ]
+  },
+  {
+   "v": "RR",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "RR = rate ratio."
+    }
+   ]
+  },
+  {
+   "v": "APC",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In metropolitan areas, incidence rates declined more sharply among both males (APC = −2.9%) and females (−1.5%)"
+    }
+   ]
+  },
+  {
+   "v": "absolute rate change",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Absolute change was calculated as the difference in incidence from 2007 to 2016."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Annual percentage change (APC) was used to quantify the change in incidence over time and was calculated using least-squares regression."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Did lung cancer incidence trends in nonmetropolitan and metropolitan U.S. counties during 2007–2016 differ by age and sex?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To examine whether lung cancer incidence trends among nonmetropolitan and metropolitan counties differed by age and sex"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "lung cancer",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Lung Cancer Incidence in Nonmetropolitan and Metropolitan Counties — United States, 2007–2016"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data on new cases of invasive lung cancers † diagnosed during 2007–2016 were obtained from U.S. Cancer Statistics."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During 2007–2016, lung cancer incidence rates decreased more in metropolitan than nonmetropolitan counties"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "registry",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Cancer incidence data were compiled from 49 cancer registries that meet the data quality criteria"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "U.S. Cancer Statistics",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from U.S. Cancer Statistics during 2007–2016"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "data in this report cover approximately 97% of the U.S. population."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Rural-urban disparities are framed, quantified (rate ratios, APCs) and interpreted; limited access to preventive services, uninsurance and weaker rural smoke-free laws are named as explanations.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The determinants are offered tentatively in the Discussion ('might', 'may'), not analyzed."
+  },
+  "dimensions": [
+   {
+    "v": "rurality",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "categorize county of residence at diagnosis as nonmetropolitan (rural-urban continuum codes 4–9) or metropolitan (rural-urban continuum codes 1–3)."
+     },
+     {
+      "loc": "text",
+      "q": "differences in lung cancer incidence rates between males and females narrowed with decreasing age, but disparities by rural-urban status persisted."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Rates were examined by sex, age group, and nonmetropolitan or metropolitan county status."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Rates were examined by sex, age group, and nonmetropolitan or metropolitan county status."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "limited access to preventive services; uninsurance; weaker smoke-free laws and access to cessation programs in rural areas",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "access to these preventive services might be more limited in nonmetropolitan areas, where a higher percentage of residents aged <65 years report being uninsured"
+    },
+    {
+     "loc": "text",
+     "q": "In some states, rural areas may be less likely to have strong smoke-free laws or barrier-free access to tobacco cessation programs."
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referent is metropolitan counties (RR = 1.00); rurality by 2013 rural-urban continuum codes dichotomized 1–3 vs 4–9; Kansas and Minnesota excluded."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "more among middle-aged adults than older adults."
+    },
+    {
+     "loc": "text",
+     "q": "Among males, the largest declines were among those aged 45–54 years in metropolitan counties (APC = −5.2%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "sex",
+    "rurality"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2016, among persons aged ≥55 years, the highest lung cancer incidence rates were observed among men in nonmetropolitan counties"
+    },
+    {
+     "loc": "text",
+     "q": "the highest overall lung cancer incidence rates were observed among males in nonmetropolitan counties."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "regression_fields",
+  "equity.level",
+  "groupwise",
+  "outcome_types"
+ ],
+ "confidence": "medium",
+ "notes": "The t-test of APC vs zero is treated as the model-term test of the least-squares regression, not a separate procedure. adjusted_results is false because age standardization is applied to the rates, not within the regression. NHIS smoking figures in the Discussion are cited, not analyzed.",
+ "view_issues": "Claims that APCs differ between metropolitan and nonmetropolitan groups or sexes rest on no stated test; methods say CIs allow only informal comparisons."
+}

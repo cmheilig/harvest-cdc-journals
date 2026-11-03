@@ -1,0 +1,407 @@
+{
+ "id": "mm6516a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggQe1DqkGNDfh54qK3X6",
+  "batch_id": "msgbatch_018MUHrMCXUMTPYHxpo1b4G2"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "From 2006 to 2014, the birth rate for teens aged 15–19 years declined 41% overall (from 41.1 to 24.2 per 1,000 females)."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC calculated teen birth rates (number of births per 1,000 females aged 15–19 years) at the national, state, and county level"
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "mean percentage of the population aged ≥25 years with an associate’s degree or higher, and mean family income were 10.5%, 19.9% and $46,005"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Nationally, from 2006 to 2014, the teen birth rate declined 41% overall (from 41.1 per 1,000 to 24.2 per 1,000)."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The largest decline occurred among Hispanics (51%, from 77.4 to 38.0), followed by blacks (44%, from 61.9 to 34.9)"
+    },
+    {
+     "loc": "text",
+     "q": "values for all three socioeconomic indicators were more favorable among counties in the lowest quintile for teen birth rates"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the birth rate ratio declined significantly for black teens compared with white teens in 28 states"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Z-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated Z-test for changes in birth rates based on counts ≥100",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Changes over time were evaluated using a Z-test (for birth rates based on counts ≥100)"
+    }
+   ]
+  },
+  {
+   "name": "comparison of Poisson probability distributions",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated Poisson-distribution comparison for small counts and birth rate ratios; a test, not a Poisson regression (prepass loglinear cue is a false hit)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "or through a comparison of Poisson probability distributions (for birth rates based on counts <100, and for birth rate ratios)"
+    }
+   ]
+  },
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated t-tests comparing county socioeconomic indicators between highest and lowest teen-birth-rate quintiles",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "T-tests were used to evaluate differences (p<0.05)."
+    }
+   ]
+  },
+  {
+   "name": "suppression of unreliable estimates (small numerators)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "estimates not meeting reliability standards are withheld (small-cell suppression)",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Figure does not meet standards of reliability or precision; based on >20 births in the numerator."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "non-Hispanic white teens",
+  "across": [
+   "race/ethnicity",
+   "period",
+   "state",
+   "county teen birth rate quintile"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The greatest decline was for Hispanics (51%), followed by non-Hispanic blacks (blacks) (44%), and non-Hispanic whites (whites) (35%)."
+   },
+   {
+    "loc": "text",
+    "q": "the birth rate ratio for Hispanic teens and black teens compared with white teens declined from 2.9 to 2.2"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Changes over time were evaluated using a Z-test (for birth rates based on counts ≥100)"
+   },
+   {
+    "loc": "note",
+    "q": "the decline from 2006–2007 to 2013–2014 was significant (p<0.05)."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "birth rate per 1,000 females aged 15–19 years",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Number of births per 1,000 females aged 15–19 years."
+    }
+   ]
+  },
+  {
+   "v": "birth rate ratio",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Birth rate for non-Hispanic black teens divided by the birth rate for non-Hispanic white teens."
+    }
+   ]
+  },
+  {
+   "v": "% change in birth rate",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% change in birth rate 2006–2007 to 2013–2014"
+    }
+   ]
+  },
+  {
+   "v": "mean percentage unemployed; mean family income",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "mean percentage of the population aged ≥16 years unemployed"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did teen birth rates and racial/ethnic disparities in them change nationally and by state, and how do county socioeconomic indicators relate to county teen birth rates?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To examine trends in births for teens aged 15–19 years by race/ethnicity and geography, CDC analyzed National Vital Statistics System (NVSS) data"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "teen births",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Reduced Disparities in Birth Rates Among Teens Aged 15–19 Years"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed National Vital Statistics System (NVSS) data at the national (2006–2014), state (2006–2007 and 2013–2014), and county (2013–2014) levels."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "From 2006–2007 to 2013–2014, the overall birth rate for teens declined significantly in every state"
+    }
+   ]
+  },
+  {
+   "v": "ecologic",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The value for each indicator was compared between U.S. counties in highest and lowest quintiles of teen birth rates for 2013–2014."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NVSS natality files are compiled annually by CDC’s National Center for Health Statistics"
+    }
+   ]
+  },
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The ACS is a continual nationwide survey that collects detailed information on demographic, social, economic, and housing characteristics"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System (NVSS) natality files",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NVSS natality files are compiled annually by CDC’s National Center for Health Statistics"
+    }
+   ]
+  },
+  {
+   "v": "American Community Survey (ACS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the American Community Survey (ACS) (2010–2014)."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "at the national (2006–2014), state (2006–2007 and 2013–2014), and county (2013–2014) levels."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Racial/ethnic disparities are framed, quantified as birth rate ratios and their change, and interpreted; county unemployment, education and family income are measured and analyzed as social determinants and named as contributing to disparities.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The SES analysis is ecologic by teen-birth-rate quintile and not tied to the racial disparity itself; determinants as explanation of disparity appear mainly in the introduction."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "birth rate ratios (the birth rates for black teens and for Hispanic teens compared with white teens), as measures of disparities"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "primary comparison",
+    "ses_components": [
+     "unemployment",
+     "educational attainment",
+     "family income"
+    ],
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "unemployment was higher, and education attainment and family income were lower in counties with higher teen birth rates."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Birth Rates Among Teens Aged 15–19 Years"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "Number of births per 1,000 females aged 15–19 years."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "social determinants of teen childbearing; unemployment; educational attainment; family income; limited opportunities for education and employment",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Social determinants associated with teen childbearing (e.g., low parental educational attainment and limited opportunities for education and employment)"
+    },
+    {
+     "loc": "summary",
+     "q": "unemployment was higher, and education attainment and family income were lower in counties with higher teen birth rates."
+    }
+   ]
+  },
+  "equity_action": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In many states disparities also declined significantly from 2006–2007 to 2013–2014"
+    }
+   ]
+  },
+  "equity_measurement": "Referent is non-Hispanic white teens; AI/AN and API teens omitted as too small; SES measured at county level (ACS) and compared between highest and lowest teen-birth-rate quintiles; state and county geography noted but not an SPD."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the birth rate ratio for Hispanic teens and black teens compared with white teens declined from 2.9 to 2.2"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "analytic_depth",
+  "equity.level",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Prepass loglinear cue is a comparison of Poisson distributions used as a test, not a regression. Stratified/adjusted reflects race contrasts (birth rate ratios) estimated within each state. Equity action set true because the change in the gap (birth rate ratio) is explicitly measured.",
+ "view_issues": "Table note §§ says 'based on >20 births', contradicting the methods' numerators ≥20 rule (likely <20). Footnote ** calls all changes 'declines', though some % changes in ratios are increases (marked ††)."
+}

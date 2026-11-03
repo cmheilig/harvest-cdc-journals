@@ -1,0 +1,354 @@
+{
+ "id": "mm7034e4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyssGMM1SG7mHPbNvS",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "event-time",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Cox proportional hazards models were used to calculate ratios of unvaccinated to fully vaccinated"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Adjusted VE against SARS-CoV-2 infection was 80% (95% confidence interval [CI] = 69%–88%)."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Adjusted VE during this Delta predominant period was 66% (95% CI = 26%–84%) compared with 91% (95% CI = 81%–96%)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Adjusted VE was inversely weighted for probability of being vaccinated and adjusted for local virus circulation, study location, and occupation."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Cox proportional hazards regression",
+   "class": "regression",
+   "regression_family": "event-time",
+   "inferred_from": "'Cox proportional hazards models' giving ratios of infection rates (VE = 1 − HR) → event-time",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Cox proportional hazards models were used to calculate ratios of unvaccinated to fully vaccinated"
+    }
+   ]
+  },
+  {
+   "name": "inverse probability of vaccination weighting (IPTW)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated: weighted for inverse probability of vaccination",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "weighted for inverse probability of vaccination using sociodemographic characteristics, health information, frequency of close social contact, and mask use"
+    }
+   ]
+  },
+  {
+   "name": "boosted regression for probability of vaccination",
+   "class": "regression",
+   "regression_family": "other",
+   "inferred_from": "'boosted regression models' (machine-learning propensity model, family not stated) used only to build weights → other, ancillary",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "boosted regression models were fit including covariates for site, sociodemographic characteristics, health information"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "VE CIs model-based from the Cox regression; CI excluding 0 supports the protection conclusion",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "full vaccination with COVID-19 vaccines was 80% effective in preventing RT-PCR–confirmed SARS-CoV-2 infection among frontline workers"
+    }
+   ]
+  },
+  {
+   "name": "CI overlap assertion",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "non-significance of VE difference by time since vaccination judged from overlapping CIs",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "however the VE 95% CI were overlapping, indicating the difference was not statistically significant"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "unvaccinated",
+  "across": [
+   "vaccination status",
+   "time since full vaccination",
+   "Delta variant predominance period"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Cox proportional hazards models were used to calculate ratios of unvaccinated to fully vaccinated"
+   },
+   {
+    "loc": "text",
+    "q": "The VE point estimate was 85% among participants for whom <120 days had elapsed since completion of full vaccination"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "ci_overlap": true,
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "however the VE 95% CI were overlapping, indicating the difference was not statistically significant"
+   },
+   {
+    "loc": "text",
+    "q": "Adjusted VE against SARS-CoV-2 infection was 80% (95% confidence interval [CI] = 69%–88%)."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "adjusted VE, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Adjusted VE, † % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "person-days",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Total no. of person-days"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Adjusted VE was inversely weighted for probability of being vaccinated and adjusted for local virus circulation, study location, and occupation."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "occupation, study site, local viral circulation; ethnicity in Delta models; IPT weights on sociodemographics, health information, close contact, mask use",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusted for occupation, site, and local viral circulation"
+    },
+    {
+     "loc": "table 1",
+     "q": "Delta variant models were additionally adjusted for ethnicity."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "except mask use at work (SMD = 0.227 and 0.207, respectively) but was not found to change VE estimates by ≥3% when added"
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "How effective are COVID-19 vaccines against SARS-CoV-2 infection among frontline workers, by time since vaccination and before versus during Delta predominance?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "examines whether VE differs for adults with increasing time since completion of all recommended vaccine doses"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Effectiveness of COVID-19 Vaccines in Preventing SARS-CoV-2 Infection Among Frontline Workers"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Effectiveness of COVID-19 Vaccines in Preventing SARS-CoV-2 Infection Among Frontline Workers"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "prospective cohort",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a network of prospective cohorts among frontline workers"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "data from the HEROES-RECOVER Cohorts,* a network of prospective cohorts among frontline workers"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "HEROES-RECOVER Cohorts",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "data from the HEROES-RECOVER Cohorts,* a network of prospective cohorts among frontline workers"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "frontline workers in eight U.S. locations across six states were tested weekly for SARS-CoV-2 infection"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "effectiveness",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Adjusted VE against SARS-CoV-2 infection was 80% (95% confidence interval [CI] = 69%–88%)."
+   }
+  ]
+ },
+ "equity": {
+  "level": 1,
+  "level_reason": "Ethnicity enters only as a covariate in the Delta-period Cox models and sociodemographics only in the propensity weights; no SPD-specific results.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 0,
+   "reason": "Ethnicity adjustment is a minor model detail confined to a table note."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Delta variant models were additionally adjusted for ethnicity."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "examines whether VE differs for adults with increasing time since completion of all recommended vaccine doses"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Sociodemographic characteristics are used only in inverse-probability weights; occupation is an exposure-route covariate, not SES."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "regression_fields",
+  "procedures"
+ ],
+ "confidence": "high",
+ "notes": "Covariates were selected by SMD balance and a ≥3% change-in-VE rule; the re-fits adding mask use are read as a sensitivity check. The proportional hazards assumption was checked. Delta vs pre-Delta VE were estimated in separate models with no formal test.",
+ "view_issues": "Text gives 455,175 fully vaccinated person-days; the table gives 454,832. Table IQRs for time-since-vaccination strata (e.g. 106 (106–106)) look implausible."
+}

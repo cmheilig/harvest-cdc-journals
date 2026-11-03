@@ -1,0 +1,422 @@
+{
+ "id": "mm6902a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyssH9Mp1JC699YKn4",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "used to calculate the mean of total binge drinks per adult who reported binge drinking, age-adjusted to the 2000 projected U.S. population"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The age-adjusted prevalence of binge drinking decreased from 18.9% in 2011 to 18.0% in 2017"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "the total number of binge drinks consumed annually by U.S. adults who reported binge drinking increased significantly, from 472 to 529"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age-adjusted mean of total binge drinks per adult who reported binge drinking was standardized to the projected 2000 U.S. Census population."
+    },
+    {
+     "loc": "text",
+     "q": "Two-tailed t-tests were used to assess the statistical significance (p<0.05) of linear trends overall and among specific subgroups."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "linear trend test by orthogonal polynomial contrast (two-tailed t-test)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'orthogonal polynomial contrast' with 'two-tailed t-tests' of linear trends; no regression model named",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Linear and quadratic trends of the total annual binge drinks per adult who reported binge drinking were assessed by orthogonal polynomial contrast"
+    },
+    {
+     "loc": "text",
+     "q": "Two-tailed t-tests were used to assess the statistical significance (p<0.05) of linear trends overall and among specific subgroups."
+    }
+   ]
+  },
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "age-adjusted to the projected 2000 U.S. population",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age-adjusted mean of total binge drinks per adult who reported binge drinking was standardized to the projected 2000 U.S. Census population."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (BRFSS weights, SUDAAN)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weights to state adult population and selection probability; SUDAAN",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted to each state’s adult population and to each respondent’s probability of selection."
+    }
+   ]
+  },
+  {
+   "name": "relative standard error / small-n reliability rule",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "estimates with RSE >0.3 or n<50 flagged as unreliable",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Unreliable estimates if relative standard error >0.3 or n<50."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": null,
+  "across": [
+   "year",
+   "sex",
+   "age group",
+   "race/ethnicity",
+   "education level",
+   "annual household income",
+   "state"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Significant increases were observed among adults who reported binge drinking of both sexes, those aged ≥35 years"
+   },
+   {
+    "loc": "text",
+    "q": "increased significantly (12.1%) from 472 in 2011 to 529 in 2017"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Two-tailed t-tests were used to assess the statistical significance (p<0.05) of linear trends overall and among specific subgroups."
+   },
+   {
+    "loc": "table 1",
+    "q": "Year Mean (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted total annual binge drinks per adult who reported binge drinking (mean)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The age-adjusted † total annual number of binge drinks per adult who reported binge drinking increased significantly from 472 in 2011 to 529 in 2017."
+    }
+   ]
+  },
+  {
+   "v": "percentage increase",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were observed among those without a high school diploma (45.8%) and those with household incomes <$25,000 (23.9%)"
+    }
+   ]
+  },
+  {
+   "v": "binge drinking prevalence %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Binge drinking prevalence % †"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did total annual binge drinks per adult who reported binge drinking change in the United States during 2011–2017, overall, by sociodemographic group and by state?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to assess trends in total annual binge drinks per adult who reported binge drinking in the United States overall and in the individual states"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "binge drinking",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Trends in Total Binge Drinks per Adult Who Reported Binge Drinking — United States, 2011–2017"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "BRFSS is a state-based, random-digit–dialed landline and cellular telephone survey of noninstitutionalized, civilian U.S. adults aged ≥18 years"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Linear and quadratic trends of the total annual binge drinks per adult who reported binge drinking were assessed by orthogonal polynomial contrast"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed 2011–2017 BRFSS data"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed 2011–2017 Behavioral Risk Factor Surveillance System (BRFSS) data"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "in the United States overall and in the individual states"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Results by education, income, race/ethnicity and age are reported and socioeconomic disparities are mentioned, but between-group contrasts are only side-by-side levels and within-group trends; no difference or ratio between SES groups is computed.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The largest percentage increases among the lowest education and income groups (45.8%, 23.9%) could be read as a quantified, interpreted socioeconomic disparity."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "among adults aged ≥18 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "from 468 to 593 among those aged 35–44 years, from 428 to 527 among those aged 45–64 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age-adjusted mean of total binge drinks per adult who reported binge drinking was standardized to the projected 2000 U.S. Census population."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "both for men (from 587 to 666) and women (from 256 to 290)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "and from 487 to 539 among non-Hispanic white adults"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education level",
+     "annual household income"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "increased significantly among persons with some college education or less and across all income categories"
+     },
+     {
+      "loc": "text",
+      "q": "Socioeconomic disparities in the total number of binge drinks per adult who reported binge drinking also might have contributed"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "SES measured by education and household income categories; race/ethnicity in five groups with Asian/Pacific Islander combined; disparities shown as within-group percent changes and side-by-side levels. State alcohol policy is raised as general context, not tied to SPD groups."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were observed among those without a high school diploma (45.8%) and those with household incomes <$25,000 (23.9%)"
+    },
+    {
+     "loc": "table 1",
+     "q": "Education level* › Less than high school diploma"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Annual household income* › <$25,000"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group (yrs) › 35–44"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity* , *** › American Indian/Alaska Native"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "procedures",
+  "groupwise",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "Cross-sectional design inferred from the repeated BRFSS survey; none is named. The orthogonal polynomial contrast was likely fitted in SUDAAN by a linear model on year, but no regression is stated, so it is recorded as a test. Trend tests are run within each subgroup; no test compares trends across SPD groups.",
+ "view_issues": "The Summary says about 450 binge drinks per adult in 2015, while the text says 467 for 2015 and Table 1 gives 493. The Asian/Pacific Islander 2015 estimate is flagged unreliable but still shown."
+}

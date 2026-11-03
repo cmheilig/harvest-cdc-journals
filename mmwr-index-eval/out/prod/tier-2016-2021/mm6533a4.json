@@ -1,0 +1,433 @@
+{
+ "id": "mm6533a4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrZ9g8uc7Squ2FiPQ",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC analyzed data collected regarding 21,875 adolescents through the 2015 National Immunization Survey-Teen (NIS-Teen)."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2015, among males, coverage with ≥1 HPV vaccine dose was 49.8% and with ≥3 doses was 28.1%"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2015, among all adolescents (females and males combined), HPV vaccination coverage with ≥1 dose was 56.1% (95% CI = 54.9%–57.4%)"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2014–2015, among males, coverage with each HPV vaccine dose increased, with percentage point increases of 8.1 for ≥1 dose"
+    },
+    {
+     "loc": "text",
+     "q": "Coverage with ≥1 HPV vaccine dose was higher among non-Hispanic black (black) adolescents, compared with white adolescents."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "and higher for black males compared to white males among those living at or above the poverty level"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "t-test on weighted survey data",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'t-tests on weighted data' named in methods; used for year-to-year, race/ethnicity, poverty and age contrasts flagged in tables",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Statistical comparisons were made using t-tests on weighted data to account for the complex survey design."
+    },
+    {
+     "loc": "note",
+     "q": "Statistically significant (p<0.05) percentage point increase from 2014."
+    }
+   ]
+  },
+  {
+   "name": "survey sampling weights",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "sampling weights adjusted for dual frame, nonresponse and noncoverage produce all coverage estimates",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Sampling weights were adjusted for dual-frame (landline and cellular telephone), nonresponse, noncoverage, and overlapping samples of mixed telephone users."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "absolute",
+  "referent": "2014 estimates; non-Hispanic white adolescents; at or above poverty level; adolescents aged 13 years; Healthy People 2020 targets (80%, 90%)",
+  "across": [
+   "survey year",
+   "vaccine",
+   "race/ethnicity",
+   "poverty status",
+   "age",
+   "sex",
+   "state/local area"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "In 2015, vaccination coverage among adolescents aged 13–17 years increased for each HPV vaccine dose among males"
+   },
+   {
+    "loc": "text",
+    "q": "Targets were not met for ≥3 HPV doses (target 80%) in males (27.1% [95% CI = 25.1%–29.2%])"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Statistical comparisons were made using t-tests on weighted data to account for the complex survey design."
+   },
+   {
+    "loc": "text",
+    "q": "Differences were considered statistically significant at p<0.05."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "vaccination coverage, % (95% CI)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimated vaccination coverage with selected vaccines and doses among adolescents aged 13–17* years, by age at interview"
+    }
+   ]
+  },
+  {
+   "v": "percentage point increase/decrease",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among all adolescents, coverage with ≥1 MenACWY dose increased 2.0 percentage points to 81.3%."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What was vaccination coverage among U.S. adolescents aged 13–17 years in 2015, and how did it change from 2014 and vary by sociodemographic group and state?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess vaccination coverage among adolescents in the United States, CDC analyzed data collected regarding 21,875 adolescents"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "HPV infection",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "HPV vaccination coverage continues to be lower than Tdap and MenACWY coverage."
+    }
+   ]
+  },
+  {
+   "v": "pertussis",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "To prevent diseases, including human papillomavirus (HPV)-associated cancers, pertussis, and meningococcal disease"
+    }
+   ]
+  },
+  {
+   "v": "meningococcal disease",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "To prevent diseases, including human papillomavirus (HPV)-associated cancers, pertussis, and meningococcal disease"
+    }
+   ]
+  },
+  {
+   "v": "varicella",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "or ≥2 varicella vaccine doses (target = 90%) (84.6% [95% CI = 83.2%–85.9%])."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using a random-digit–dialed sample of landline and cell phone numbers"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2014–2015, coverage among adolescents aged 13–17 years increased for each HPV vaccine dose among males"
+    }
+   ]
+  },
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NIS-Teen monitors vaccination coverage among adolescents aged 13–17 years"
+    },
+    {
+     "loc": "text",
+     "q": "Targets were not met for ≥3 HPV doses (target 80%) in males (27.1% [95% CI = 25.1%–29.2%])"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data collected regarding 21,875 adolescents through the 2015 National Immunization Survey-Teen (NIS-Teen)."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Immunization Survey-Teen (NIS-Teen)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "through the 2015 National Immunization Survey-Teen (NIS-Teen)."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "National, Regional, State, and Selected Local Area Vaccination Coverage Among Adolescents Aged 13–17 Years — United States, 2015"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Wide variation in coverage by state was observed for all vaccines assessed."
+   }
+  ]
+ },
+ "equity": {
+  "level": 2,
+  "level_reason": "Coverage by race/ethnicity and poverty is reported and described as higher/lower, with contrasts shown only via significance marks and side-by-side estimates, no computed difference or ratio; capped at 2 though explanations are offered.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Poverty and race differences are discussed as recurring differences with explanations (clinician recommendations, VFC eligibility), which some would read as a framed, interpreted disparity."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Coverage with each HPV vaccine dose and with ≥1 MenACWY dose was higher among Hispanic adolescents than among non-Hispanic white (white) adolescents"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "federal poverty level"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Adolescents living below the federal poverty level had higher ≥1- and ≥2-dose HPV vaccination coverage than did adolescents living at or above the poverty level."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "cross-classifier",
+    "ses_components": [
+     "federal poverty level"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Among subgroups stratified by race/ethnicity and poverty status, ≥1-dose HPV vaccination coverage was higher among Hispanic and black adolescents living below the poverty level"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Vaccination Coverage Among Adolescents Aged 13–17 Years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "≥1-dose HPV vaccination coverage among females aged 13 years was lower than coverage among females aged ≥15 years"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Although HPV vaccination coverage remained higher among females than among males, the percentage point difference in coverage estimates decreased over time"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "clinician recommendations for adolescents from lower income households; Vaccines for Children program participation and eligibility; differential vaccine acceptance by poverty status",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "clinicians’ participation in, and adolescents’ eligibility for, the Vaccines for Children (VFC) program"
+    },
+    {
+     "loc": "text",
+     "q": "consistent coadministration of vaccines by clinicians caring for adolescents from lower income households"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity is parent-reported; referents are non-Hispanic white and at-or-above-poverty adolescents; NHOPI excluded for small samples; poverty unknown for 767 adolescents."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Statistically significant difference (p<0.05) in estimated vaccination coverage by race/ethnicity; reference group was non-Hispanic white adolescents."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Statistically significant difference (p<0.05) in estimated vaccination coverage by age; reference group was adolescents aged 13 years."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity",
+    "SES"
+   ],
+   "n_groups": null,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "note",
+     "q": "59.3% (95% CI = 56.9%–61.5%) for non-Hispanic white females at or above the poverty level (reference group)."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "analytic_depth",
+  "equity.level",
+  "groupwise",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Healthy People 2020 target attainment is judged from point estimates (MenACWY 80.8% 'met' though its CI includes 80%), so no CI-vs-fixed-value test is recorded. Table notes flag estimates with CI half-widths >10 as possibly unreliable but do not suppress them.",
+ "view_issues": "Several Table 3 cells have malformed numbers in the CSV (e.g. '72. 5(±5.3)', '78. 7(±5.0)'). Figure symbols '=' stand for '≥' in Table 1 and figure titles."
+}

@@ -1,0 +1,363 @@
+{
+ "id": "mm7012e2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPytXTeoaHiQRCoyKR1",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The median incidence among registered students was 1,280 per 100,000 students, ranging from 394 to 3,200 among counties."
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Therefore, among all cases reported among school-aged children, 39.4% were classified as school-related"
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Sports-related outbreaks were larger on average than were nonsports–related outbreaks (mean = 6.0 cases versus 4.1 cases; p<0.01)."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Fewer than 1% of registered students were identified as having school-related COVID-19."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Higher mean student case rates were reported from counties with the lowest population, districts opening school during August 10–14"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "one-way analysis of variance",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'one-way analysis of variance' named in methods; p-values for categorical district factors in Table 2",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "one-way analysis of variance and simple linear regression analyses were conducted to identify factors associated with student incidence by district"
+    }
+   ]
+  },
+  {
+   "name": "simple linear regression",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "'simple linear regression' of district student case rate on continuous factors, with R-squared → linear",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "one-way analysis of variance and simple linear regression analyses were conducted to identify factors associated with student incidence by district"
+    },
+    {
+     "loc": "table 2",
+     "q": "R-squared indicates the percent of variation in student case rate that is explained by the independent variable included in the regression model."
+    }
+   ]
+  },
+  {
+   "name": "correlation coefficient (R)",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "R reported as a correlation between each continuous factor and the student case rate",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "R is a measure of correlation between the continuous independent variable indicated in the Factor column and the continuous dependent variable"
+    },
+    {
+     "loc": "text",
+     "q": "The background cumulative disease incidence during August 10–December 21 in each county was positively correlated with the incidence among students."
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "p-value for mean outbreak size, sports vs nonsports; test not named (possibly the one-way ANOVA)",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Sports-related outbreaks were larger on average than were nonsports–related outbreaks (mean = 6.0 cases versus 4.1 cases; p<0.01)."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "county population size quartile",
+   "school opening date",
+   "district mask mandate",
+   "proportion of students in-person full-time",
+   "county case rate",
+   "sports vs nonsports outbreaks"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "COVID-19 school-related disease incidence among Florida students was correlated with community incidence in the counties observed and was highest in smaller counties"
+   },
+   {
+    "loc": "table 2",
+    "q": "County population size by quartile † › Q1: 8,613–28,089"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "one-way analysis of variance and simple linear regression analyses were conducted to identify factors associated with student incidence by district"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "student case rate per 100,000 registered students",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "School-related cases in students by school district, during school start date and December 21, per 100,000 registered students"
+    }
+   ]
+  },
+  {
+   "v": "R",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Q = quartile; R = correlation coefficient."
+    }
+   ]
+  },
+  {
+   "v": "R-squared",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "R-squared indicates the percent of variation in student case rate that is explained by the independent variable"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Therefore, among all cases reported among school-aged children, 39.4% were classified as school-related"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "R-squared indicates the percent of variation in student case rate that is explained by the independent variable included in the regression model."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How frequent were school-related COVID-19 cases and outbreaks in Florida K–12 schools after reopening, and which district factors were associated with student incidence?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess the occurrence of COVID-19 in Florida schools after resumption of in-person instruction"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "COVID-19 in Primary and Secondary School Settings During the First Semester of School Reopening"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC and the Florida Department of Health (FDOH) reviewed school-related cases and outbreaks during August–December 2020."
+    }
+   ]
+  },
+  {
+   "v": "ecologic",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "to identify factors associated with student incidence by district"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "reported data via the FDOH reportable disease surveillance system"
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "proportion of registered students receiving full-time in-person instruction were obtained from the Florida Department of Education"
+    },
+    {
+     "loc": "text",
+     "q": "Data on school district mask use policies were obtained from reopening plans in each district"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "FDOH reportable disease surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "reported data via the FDOH reportable disease surveillance system"
+    }
+   ]
+  },
+  {
+   "v": "Florida Department of Education",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were obtained from the Florida Department of Education"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Florida, August–December 2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "The only SPD is age, defining the school-aged population. District factors (county population size, mask mandates, opening date) describe non-human units and are not SPDs.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 2,
+   "reason": "County population quartiles could be read as rurality, with group rates reported and tested by ANOVA but not framed as a disparity."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "a total of 63,654 cases of COVID-19 among persons aged 5–17 years were reported to FDOH"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "County population size quartiles characterize districts (non-human units), not social position; not recorded as rurality."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "outcome_types",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "Student rates are scaled by 131/days in school (a person-time normalization), not covariate adjustment. One outlier county is excluded from the county case rate regression (exclusion rule). Design (ecologic) inferred from district-level analysis; not named.",
+ "view_issues": "Table 2 CSV repeats one p-value on every level of each categorical factor; article.txt mis-nests the continuous rows under the mask factor. Subset outbreak means (6.0, 4.1) are both below the overall 6.3 per outbreak."
+}

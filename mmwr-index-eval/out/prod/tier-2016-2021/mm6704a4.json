@@ -1,0 +1,435 @@
+{
+ "id": "mm6704a4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysNFfrTBq3iCryqdD",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "No statistically significant reduction in overall incidence of TRF-associated injuries and illnesses was observed in the first 3 years after the label revisions took effect."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the overall incidence rates in the 10 states during 2007–2012, 2013, and 2014–2015 were 27.0, 26.3, and 29.5 per 10 million population, respectively"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Severity was classified as low, moderate, and high for 78%, 21%, and 0.7% of the illnesses, respectively."
+    },
+    {
+     "loc": "summary",
+     "q": "Failure to vacate the premises and excessive fogger use were associated with moderate or high severity illness."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This study identified 3,222 cases in 10 states during 2007–2015, with an average annual incidence rate of 27 per 10 million population."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "No statistically significant decline in the overall TRF-illness incidence rate was found."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "controlling for state to adjust for discordance in missing data across states"
+    },
+    {
+     "loc": "text",
+     "q": "adjusting for age, sex, and preexisting health conditions."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Poisson regression corrected for overdispersion (adjusted IRR)",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'Poisson regression' giving IRRs, with overdispersion correction (quasi-Poisson-type) → loglinear; CIs model-based",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "IRR and 95% confidence intervals were estimated by Poisson regression analysis, controlling for state to adjust for discordance in missing data among states"
+    },
+    {
+     "loc": "table 2",
+     "q": "correcting for overdispersion (greater variability than expected based on Poison distribution)"
+    }
+   ]
+  },
+  {
+   "name": "stepwise logistic regression (severity odds ratios)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'step-wise logistic regression' giving odds ratios for moderate/high vs low severity → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Odds ratios were estimated using step-wise logistic regression analysis: entry p-value = 0.10 and stay p-value = 0.15."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "2007–2012 (before label improvement)",
+  "across": [
+   "period (2007–2012, 2013, 2014–2015)",
+   "reported cause of exposure",
+   "age group",
+   "sex",
+   "preexisting asthma"
+  ],
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "Incidence rate during 2007–2012 was the denominator."
+   },
+   {
+    "loc": "text",
+    "q": "The adjusted incidence rate did not change in 2013 or 2014–2015, compared with 2007–2012"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "IRR and 95% confidence intervals were estimated by Poisson regression analysis, controlling for state to adjust for discordance in missing data among states"
+   },
+   {
+    "loc": "text",
+    "q": "(adjusted IRR = 1.39, p = 0.002)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "incidence rate per 10 million population",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Per 10 million population, based on U.S. Census standard population estimates."
+    }
+   ]
+  },
+  {
+   "v": "adjusted IRR",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted IRR (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "odds ratio",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Odds ratio (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Approximately 56% occurred in females; 92% of exposures happened in private residences, and 91% were not work-related."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "controlling for state to adjust for discordance in missing data across states"
+    },
+    {
+     "loc": "text",
+     "q": "adjusting for age, sex, and preexisting health conditions."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "state (Poisson); age group, sex, preexisting conditions (pregnancy, asthma, allergies) and top 10 reported causes (logistic, stepwise)",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "independent variables included age group, sex, three preexisting conditions (pregnancy, preexisting asthma, and history of allergies), and the top 10 reported causes of exposure"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "results and conclusions were essentially unchanged when sensitivity analyses were performed that used data from different groups of states"
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "Did the incidence and characteristics of acute total release fogger–related illness change after EPA-required label improvements in 2012?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To examine the early impact of relabeling, the magnitude and characteristics of acute TRF-related illness were evaluated for the period 2007–2015."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "acute total release fogger–related illness and injury (pesticide poisoning)",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Acute Illnesses and Injuries Related to Total Release Foggers — 10 States, 2007–2015"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The magnitude, trends, and characteristics of acute TRF-related illnesses were assessed."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "2007–2012 (before label improvement)"
+    }
+   ]
+  },
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the evaluation of the early impact from the Environmental Protection Agency’s intervention to reduce TRF-related illnesses should be considered preliminary"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Acute TRF-related illnesses were identified from the SENSOR programs in 10 participating states (2007–2015)"
+    }
+   ]
+  },
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "the other is the Pesticide Illness Surveillance Program (PISP), administered by CDPR."
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "and PCCs in Florida, Texas, and Washington (2007–2015)."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Sentinel Event Notification System for Occupational Risk (SENSOR)–Pesticides",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Sentinel Event Notification System for Occupational Risk–Pesticides (SENSOR) programs"
+    }
+   ]
+  },
+  {
+   "v": "California Department of Pesticide Regulation Pesticide Illness Surveillance Program (PISP)",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "the Pesticide Illness Surveillance Program (PISP), administered by CDPR."
+    }
+   ]
+  },
+  {
+   "v": "poison control centers in Florida, Texas, and Washington",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "poison control centers (PCCs) in Florida, Texas, and Washington"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Acute Illnesses and Injuries Related to Total Release Foggers — 10 States, 2007–2015"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Only age and sex appear, as Table 1 descriptors and as covariates with ORs in the severity model, without social-position framing.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 2,
+   "reason": "Age-group and sex ORs for severity are reported and described in the text, if age/sex results were counted without framing."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 3",
+      "q": "Age group (yrs) › ≥60"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Five percent of cases occurred in children aged 0–5 years and 14% in adults aged ≥60 years"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 3",
+      "q": "Sex › Female"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Approximately 56% occurred in females"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Age and sex enter only as severity-model covariates (referents 18–59 years and male); work-related exposure is occupational route, not SES."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Age group (yrs) › 18–59 › Referent"
+    },
+    {
+     "loc": "text",
+     "q": "Moderate or high severity illness were more common among males, persons aged >60 years, those with preexisting asthma"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "regression_fields"
+ ],
+ "confidence": "high",
+ "notes": "Stepwise variable selection is a covariate-selection rule, not a procedure; only selected variables are reported. Overdispersion correction is not a nonindependence approach, so that field is null. Separate Poisson models were fit per reported cause, excluding Florida.",
+ "view_issues": "Text says 'persons aged >60 years' while Table 3 uses ≥60. Table 3 caption names 'Department of Pesticide Registration' vs Regulation in text. Table 2 note misspells Poisson as 'Poison'."
+}

@@ -1,0 +1,350 @@
+{
+ "id": "mm7014a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPytn6c6dqGkmqfcK4e",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "COVID-19 incidence and mortality rates among AI/AN persons in Montana were 2.2 and 3.8 times, respectively, those among White persons."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the cumulative COVID-19 mortality rate among AI/AN persons (267 deaths per 100,000) was 3.8 times that among White persons (71 deaths per 100,000)."
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "case-fatality rates (the number of COVID-19–associated deaths per 1,000 reported COVID-19 cases) were also calculated."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The estimated cumulative incidence among AI/AN persons (9,064 cases per 100,000) was 2.2 times the rate among White persons (4,033)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All rates were calculated separately for AI/AN and White persons, overall and by sex and age group."
+    },
+    {
+     "loc": "note",
+     "q": "Rates were age-adjusted to the 2000 U.S. standard population."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "rate-ratio CIs excluding 1 underpin 'higher' claims; CIs built by the Poisson exact method",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Corresponding 95% confidence intervals (CIs) were calculated using the Poisson Exact method"
+    },
+    {
+     "loc": "text",
+     "q": "Cumulative mortality was also higher among AI/AN persons than among White persons by sex and age group."
+    }
+   ]
+  },
+  {
+   "name": "direct age standardization (2000 U.S. standard population)",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "supplementary age-adjusted mortality rates and rate ratio computed by MDPHHS",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Rates were age-adjusted to the 2000 U.S. standard population."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "White persons",
+  "across": [
+   "race/ethnicity",
+   "sex",
+   "age group"
+  ],
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "AI/AN to White rate ratio (95% CI)"
+   },
+   {
+    "loc": "summary",
+    "q": "The case-fatality rate among AI/AN persons was 1.7 times that among White persons."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Corresponding 95% confidence intervals (CIs) were calculated using the Poisson Exact method"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "cumulative incidence per 100,000",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "crude cumulative incidence (cumulative cases per 100,000 population)"
+    }
+   ]
+  },
+  {
+   "v": "cumulative mortality rate per 100,000",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "cumulative mortality rates (cumulative deaths per 100,000 population)"
+    }
+   ]
+  },
+  {
+   "v": "rate ratio",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "AI/AN to White rate ratio (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "case-fatality rate per 1,000 cases",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The case-fatality rate among AI/AN persons (29.4 deaths per 1,000 COVID-19 cases) was 1.7 times (95% CI = 1.7–1.8)"
+    }
+   ]
+  },
+  {
+   "v": "age-adjusted mortality rate",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "The MDPHHS calculated age-adjusted COVID-19 mortality rate for AI/AN persons (374 deaths per 100,000; 95% CI = 322–433)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How do COVID-19 incidence, mortality and case-fatality rates among AI/AN persons in Montana compare with those among White persons?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to describe COVID-19 incidence, mortality, and case-fatality rates among AI/AN persons compared with those among White persons."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "COVID-19 Incidence and Mortality Among American Indian/Alaska Native and White Persons — Montana"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This activity was reviewed by MDPHHS and was conducted for public health surveillance purposes"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Case data were derived from the Montana Infectious Disease Information System."
+    }
+   ]
+  },
+  {
+   "v": "registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-19–associated deaths were identified from death certificates reported to the MDPHHS Office of Vital Records"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Montana Infectious Disease Information System",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Case data were derived from the Montana Infectious Disease Information System."
+    }
+   ]
+  },
+  {
+   "v": "MDPHHS Office of Vital Records death certificates",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "death certificates reported to the MDPHHS Office of Vital Records"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Montana, March 13–November 30, 2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "AI/AN vs White disparities are framed, quantified as rate ratios (2.2, 3.8, 1.7) and interpreted; specific social determinants (shared housing, health care access, transportation, income, Internet access, frontline work) are offered as explanations.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The determinants are offered only as possible contributors ('might have contributed') and are not measured or analyzed."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Persons of AI/AN race were defined as those whose race was reported as AI/AN alone or in combination with other races."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "All rates were calculated separately for AI/AN and White persons, overall and by sex and age group."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Age group was assessed both categorically (<65 and ≥65 years)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "Rates were age-adjusted to the 2000 U.S. standard population."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "social vulnerability",
+     "lower household incomes"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "AI/AN communities in Montana have higher levels of social vulnerability, including living in shared housing"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "social vulnerability; shared housing; challenges accessing health care and transportation; lower household incomes; multigenerational households; inability to telework (frontline work, lack of Internet access)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "living in shared housing, challenges accessing health care and transportation, and lower household incomes."
+    },
+    {
+     "loc": "text",
+     "q": "unable to work from home because of the nature of their work (e.g., being frontline workers)"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referent is White persons (White alone, including Hispanic); AI/AN defined as alone or in combination; race missing for 22% of cases; SVI cited only in the Discussion."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "procedures",
+  "inference"
+ ],
+ "confidence": "high",
+ "notes": "Rates are crude except a supplementary age-adjusted mortality comparison in a footnote. 'Poisson Exact' refers to the CI method, not a regression. Higher-rate claims rest on rate ratios whose CIs exclude 1, read as CI inversion.",
+ "view_issues": "Table: White male incidence CI '3,687 (2,633–3,741)' has an implausible lower bound; AI/AN ≥65 incidence CI '9,546–1,097' has a truncated upper bound."
+}

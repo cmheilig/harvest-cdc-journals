@@ -1,0 +1,416 @@
+{
+ "id": "mm6722a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysLH1bM5z7LpCDPfW",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The estimated rate of invasive MRSA among persons aged ≥13 years who injected drugs in the previous year was 472.2 per 100,000 in 2011"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Invasive MRSA from injecting drugs increased from 4.1% of invasive MRSA cases to 9.2% (2011–2016)."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a total of 2,093 (5.4%) occurred in persons who injected drugs"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Persons who inject drugs were an estimated 16.3 times more likely to develop invasive methicillin-resistant Staphylococcus aureus (MRSA) infections than others."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "National invasive MRSA disease prevalence (adjusted for age, race, sex, and dialysis) among persons aged ≥13 years who inject drugs"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "linear regression for trend in proportion of cases among PWID",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "'significance of trends was analyzed using linear regression' → linear",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "significance of trends was analyzed using linear regression. P values <0.05 were considered statistically significant."
+    }
+   ]
+  },
+  {
+   "name": "adjustment of national estimates for age, race, sex and dialysis (previously described method)",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "national estimates 'adjusted for age, race, sex, and dialysis' by a cited EIP method; read as standardization to the US population",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "National invasive MRSA disease prevalence (adjusted for age, race, sex, and dialysis) among persons aged ≥13 years who inject drugs"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(rate ratio [RR] = 16.3; 95% confidence interval [CI] = 15.7–16.8)"
+    },
+    {
+     "loc": "text",
+     "q": "cases during 2011–2016 were more likely to occur in persons who were white (OR = 1.7; 95% CI = 1.4–2.0)"
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "p<0.05 for median age difference with no test named",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "younger (median age = 45 versus 63 years; p<0.05)"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "persons who do not inject drugs",
+  "across": [
+   "injection drug use status",
+   "year",
+   "period (2005–2010 vs 2011–2016)",
+   "race/ethnicity"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Persons who inject drugs were an estimated 16.3 times more likely to develop invasive methicillin-resistant Staphylococcus aureus (MRSA) infections than others."
+   },
+   {
+    "loc": "text",
+    "q": "declined from 6.4% in 2005 to 3.5% in 2010 (p<0.05), but subsequently increased steadily to 9.2% in 2016 (p<0.05)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "significance of trends was analyzed using linear regression. P values <0.05 were considered statistically significant."
+   },
+   {
+    "loc": "text",
+    "q": "(rate ratio [RR] = 16.3; 95% confidence interval [CI] = 15.7–16.8)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "rate per 100,000",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "invasive MRSA rates per 100,000 persons in both groups (and the corresponding rate ratio) were calculated"
+    }
+   ]
+  },
+  {
+   "v": "rate ratio",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(rate ratio [RR] = 16.3; 95% confidence interval [CI] = 15.7–16.8)"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Percentage of invasive methicillin-resistant Staphylococcus aureus cases among persons who inject drugs, by year"
+    }
+   ]
+  },
+  {
+   "v": "OR",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "OR (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "significance of trends was analyzed using linear regression."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How has the opioid epidemic affected invasive MRSA infections among persons who inject drugs during 2005–2016?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess the effects of the opioid epidemic on invasive methicillin-resistant Staphylococcus aureus (MRSA) infections during 2005–2016"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "invasive methicillin-resistant Staphylococcus aureus infection",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Invasive Methicillin-Resistant Staphylococcus aureus Infections Among Persons Who Inject Drugs"
+    }
+   ]
+  },
+  {
+   "v": "injection drug use",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Invasive Methicillin-Resistant Staphylococcus aureus Infections Among Persons Who Inject Drugs"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Active, population-, and laboratory-based surveillance data collected through the Healthcare-Associated Infections/Community Interface (HAIC) component of CDC’s EIP"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The proportion of invasive MRSA cases that occurred among persons who inject drugs increased from 4.1% in 2011 to 9.2% in 2016."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "surveillance data from CDC’s Emerging Infections Program (EIP) were analyzed"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Emerging Infections Program (EIP)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "surveillance data from CDC’s Emerging Infections Program (EIP) were analyzed"
+    }
+   ]
+  },
+  {
+   "v": "Healthcare-Associated Infections/Community Interface (HAIC)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Healthcare-Associated Infections/Community Interface (HAIC) component of CDC’s EIP"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "National invasive MRSA disease prevalence (adjusted for age, race, sex, and dialysis)"
+   },
+   {
+    "loc": "text",
+    "q": "The six-site surveillance area used for the remainder of this report included California (three counties); Connecticut (statewide)"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Among PWID cases, the later period had more white cases (OR 1.7), interpreted as mirroring the opioid epidemic, not framed as a disparity. Race otherwise is an adjustment variable.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "The race result is a shift in case composition between periods, arguably a descriptor rather than a group-specific outcome."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "among persons aged ≥13 years who inject drugs"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "younger (median age = 45 versus 63 years; p<0.05)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "(adjusted for age, race, sex, and dialysis)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "(adjusted for age, race, sex, and dialysis)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "cases during 2011–2016 were more likely to occur in persons who were white (OR = 1.7; 95% CI = 1.4–2.0)"
+     },
+     {
+      "loc": "text",
+      "q": "mirror those observed in the ongoing opioid epidemic, such as the increased proportion of cases among whites"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "(adjusted for age, race, sex, and dialysis)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race is reported only as white vs other among PWID cases across two periods; national rates rely on a published estimate of the PWID population."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "equity.level",
+  "analytic_depth"
+ ],
+ "confidence": "medium",
+ "notes": "Rates and RR use a cited estimate of the US PWID population and an EIP national-estimation method; the adjustment is read as standardization. Trends in three further sites (2005–2014) are described without tests. ORs appear computed from 2×2 tables.",
+ "view_issues": "Table meningitis row (243, 11.6% vs 169, 0.5%) is inconsistent with OR 2.5. National estimates are called 'prevalence' but reported as rates per 100,000."
+}

@@ -1,0 +1,465 @@
+{
+ "id": "mm6513a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrb8i1Zk7qiwnC6Nw",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, 86.1% of students reported infrequent bicycle helmet use and 8.7% reported infrequent seatbelt use."
+    },
+    {
+     "loc": "text",
+     "q": "Female students reported a higher prevalence of insufficient sleep (≤7 hours) than did male students (71.3% versus 66.4%, p<0.001)."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, 86.1% of students reported infrequent bicycle helmet use and 8.7% reported infrequent seatbelt use."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Pairwise t-tests were used to assess significant differences compared with 9 hours"
+    },
+    {
+     "loc": "text",
+     "q": "Female students reported a higher prevalence of insufficient sleep (≤7 hours) than did male students (71.3% versus 66.4%, p<0.001)."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "with a referent sleep duration of 9 hours and were adjusted for sex, grade, and race/ethnicity"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "logistic regression (adjusted prevalence ratios)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Logistic regression analyses were used to calculate adjusted prevalence ratios' → logistic; APRs presumably from predicted marginals",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Logistic regression analyses were used to calculate adjusted prevalence ratios (APRs) and 95% confidence intervals (CIs) for the likelihood of each injury-related behavior"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "APR CIs excluding 1 read as 'significantly higher (APR >1.0)'; CIs model-based from the survey logistic regression",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The likelihood of each of the five risk behaviors was significantly higher (APR >1.0) among students with sleep durations ≤7 hours"
+    }
+   ]
+  },
+  {
+   "name": "pairwise t-tests",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated: pairwise t-tests of unadjusted prevalences vs 9 hours and across demographic groups",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Pairwise t-tests were used to assess significant differences compared with 9 hours"
+    },
+    {
+     "loc": "table 2",
+     "q": "*Prevalence significantly different from 9 hours (p<0.05)."
+    }
+   ]
+  },
+  {
+   "name": "ANOVA (linear trend)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated: ANOVA linear trend for sleep duration by survey year and grade",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "pairwise t-tests and ANOVA (i.e., linear trend) were used to assess crude significant differences."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated sampling weights and complex survey design for all analyses",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All analyses accounted for the sampling weights and complex survey design."
+    },
+    {
+     "loc": "table 1",
+     "q": "*Weighted percentages."
+    }
+   ]
+  },
+  {
+   "name": "suppression of unreliable estimates (RSE ≥0.3)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "table note withholds estimate with relative standard error ≥0.3",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Unreliable estimate. Relative standard error ≥0.3."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "9 hours of sleep",
+  "across": [
+   "sleep duration",
+   "sex",
+   "grade",
+   "race/ethnicity"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "with a referent sleep duration of 9 hours and were adjusted for sex, grade, and race/ethnicity"
+   },
+   {
+    "loc": "text",
+    "q": "The likelihood of each of the five risk behaviors was significantly higher (APR >1.0) among students with sleep durations ≤7 hours"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "pairwise t-tests and ANOVA (i.e., linear trend) were used to assess crude significant differences."
+   },
+   {
+    "loc": "text",
+    "q": "Logistic regression analyses were used to calculate adjusted prevalence ratios (APRs) and 95% confidence intervals (CIs) for the likelihood of each injury-related behavior"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted percentage (prevalence)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "*Weighted percentages."
+    }
+   ]
+  },
+  {
+   "v": "APR",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Adjusted prevalence ratios (APRs)* and 95% confidence intervals (CIs) for unintentional injury risk behaviors among high school students"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All analyses accounted for the sampling weights and complex survey design."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Unadjusted prevalence of each risk behavior was calculated by sleep duration."
+    },
+    {
+     "loc": "table 2",
+     "q": "*Prevalence significantly different from 9 hours (p<0.05)."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "*Adjusted for sex, grade, and race/ethnicity."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "sex, grade, and race/ethnicity",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "*Adjusted for sex, grade, and race/ethnicity."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Is self-reported school-night sleep duration associated with injury-related risk behaviors among U.S. high school students?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To evaluate the association between self-reported sleep duration on an average school night and several injury-related risk behaviors"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "insufficient sleep",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Sleep Duration and Injury-Related Risk Behaviors Among High School Students"
+    }
+   ]
+  },
+  {
+   "v": "injury-related risk behaviors",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Sleep Duration and Injury-Related Risk Behaviors Among High School Students"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from 50,370 high school students (grades 9–12) who participated in the national Youth Risk Behavior Surveys (YRBSs)"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Each national YRBS uses an independent, three-stage cluster sample design to obtain a nationally representative sample of students in grades 9–12."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Youth Risk Behavior Surveys (YRBS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "who participated in the national Youth Risk Behavior Surveys (YRBSs) in 2007, 2009, 2011, or 2013."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Sleep Duration and Injury-Related Risk Behaviors Among High School Students — United States, 2007–2013"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Insufficient sleep is reported by race/ethnicity (lowest AI/AN, highest Asian), sex and grade, described but not framed as a disparity; race/ethnicity is otherwise a model covariate.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Race/ethnicity results are a secondary Table 1 description; its main role in the analysis is as an adjustment covariate."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Among racial/ethnic groups, the prevalence of insufficient sleep was lowest for American Indian/Alaska Native students (60.3%) and highest for Asian students (75.7%)."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 3",
+      "q": "*Adjusted for sex, grade, and race/ethnicity."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Female students reported a higher prevalence of insufficient sleep (≤7 hours) than did male students (71.3% versus 66.4%, p<0.001)."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 3",
+      "q": "*Adjusted for sex, grade, and race/ethnicity."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "CDC analyzed data from 50,370 high school students (grades 9–12) who participated in the national Youth Risk Behavior Surveys (YRBSs)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The percentage reporting insufficient sleep ranged from 59.7% of students in 9th grade to 76.6% of students in 12th grade (p<0.001 for linear trend)."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 3",
+      "q": "*Adjusted for sex, grade, and race/ethnicity."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "School grade serves as an age proxy; race/ethnicity has seven groups; youths not attending school are not represented."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "trend test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The percentage reporting insufficient sleep ranged from 59.7% of students in 9th grade to 76.6% of students in 12th grade (p<0.001 for linear trend)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 7,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among racial/ethnic groups, the prevalence of insufficient sleep was lowest for American Indian/Alaska Native students (60.3%) and highest for Asian students (75.7%)."
+    },
+    {
+     "loc": "text",
+     "q": "pairwise t-tests and ANOVA (i.e., linear trend) were used to assess crude significant differences."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred as cross-sectional (repeated national survey, pooled). A null finding on mean sleep duration by survey year justified pooling years but carries no headline claim. The 2013 'did not drive' responses were recoded as 0 for comparability.",
+ "view_issues": "Logistic regression is said to yield prevalence ratios (likely predicted marginals); the method is not explained. The tests behind the race/ethnicity lowest/highest claim are not reported."
+}

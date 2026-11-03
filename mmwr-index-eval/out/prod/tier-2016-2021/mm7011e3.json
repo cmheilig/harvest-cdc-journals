@@ -1,0 +1,454 @@
+{
+ "id": "mm7011e3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPytmLzFBGQJmePdDjM",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "to be 63% (95% confidence interval = 33%–79%) effective against SARS-CoV-2 infection."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "event-time",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a Cox proportional hazards model with baseline hazard rates stratified by facility was applied to estimate the VE"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among the 463 residents, 115 (24.8%) had confirmed SARS-CoV-2 infection before the investigation period"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "By the date of discharge or the last day of the investigation, 304 residents (65.7%) had received 2 vaccine doses"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "P-values for the comparisons between facilities apply Pearson’s chi-square test for independence unless marked."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a Cox proportional hazards model with baseline hazard rates stratified by facility was applied to estimate the VE"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Cox proportional hazards model stratified by facility",
+   "class": "regression",
+   "regression_family": "event-time",
+   "inferred_from": "'Cox proportional hazards model' giving VE = 100% × (1−hazard ratio) → event-time; robust CIs",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a Cox proportional hazards model with baseline hazard rates stratified by facility was applied to estimate the VE"
+    },
+    {
+     "loc": "text",
+     "q": "with VE = 100% × (1−hazard ratio); 95% CIs were calculated using robust CI methods."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "robust CIs from the Cox model; VE CI excluding 0 supports 'significant reduction' and protection",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "partial vaccination with the Pfizer-BioNTech COVID-19 vaccine was associated with a significant reduction in the risk for SARS-CoV-2 infection"
+    }
+   ]
+  },
+  {
+   "name": "Kaplan-Meier estimator with Greenwood CIs",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "Kaplan-Meier curves to visualize infection-free proportion; Greenwood's method for CIs",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Kaplan-Meier curves of SARS-CoV-2 infection were constructed to visualize the cumulative infection-free proportion of residents"
+    }
+   ]
+  },
+  {
+   "name": "Pearson chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "table note: Pearson's chi-square for facility A vs B comparisons",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "P-values for the comparisons between facilities apply Pearson’s chi-square test for independence unless marked."
+    }
+   ]
+  },
+  {
+   "name": "Fisher's exact test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "table note: Fisher's exact test when cell counts <5",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "In cases with cell counts <5, Fisher’s exact test was used to calculate the p-value."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "unvaccinated person-time",
+  "across": [
+   "vaccination status",
+   "facility"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "found partial vaccination with Pfizer-BioNTech COVID-19 vaccine (from >14 days after dose 1 through 7 days after dose 2) to be 63%"
+   },
+   {
+    "loc": "text",
+    "q": "insufficient new cases and remaining person-time in the unvaccinated group to serve as a comparator"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "95% CIs were calculated using robust CI methods."
+   },
+   {
+    "loc": "note",
+    "q": "P-values for the comparisons between facilities apply Pearson’s chi-square test for independence unless marked."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "VE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimated effectiveness of partial vaccination in preventing SARS-CoV-2 infection was 63% (95% CI = 33%–79%)"
+    }
+   ]
+  },
+  {
+   "v": "hazard ratio",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "with VE = 100% × (1−hazard ratio)"
+    }
+   ]
+  },
+  {
+   "v": "No. (%)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. (%) of residents"
+    }
+   ]
+  },
+  {
+   "v": "p-value",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "p-value †,§"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "clustered or robust SE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "95% CIs were calculated using robust CI methods."
+    },
+    {
+     "loc": "text",
+     "q": "each observation in the model was treated as independent."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Use of a time-to-event analysis was necessary to adjust for expected heterogeneity in risk for infection across the investigation period"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "facility (stratified baseline hazards); calendar time through the time-to-event scale",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a Cox proportional hazards model with baseline hazard rates stratified by facility was applied to estimate the VE"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Sensitivity analyses were conducted with exclusion of residents with past confirmed SARS-CoV-2 infection and using two alternative endpoints for partial vaccination"
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "How effective is partial vaccination with the Pfizer-BioNTech COVID-19 vaccine against SARS-CoV-2 infection among residents of two Connecticut SNFs with outbreaks?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "A retrospective cohort investigation using data from electronic medical record chart abstraction was conducted to assess vaccine effectiveness."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Effectiveness of the Pfizer-BioNTech COVID-19 Vaccine Among Residents of Two Skilled Nursing Facilities Experiencing COVID-19 Outbreaks"
+    }
+   ]
+  },
+  {
+   "v": "SARS-CoV-2 infection",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A case was defined as any positive PCR- or antigen-based SARS-CoV-2 test result during the investigation period"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "retrospective cohort",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "A retrospective cohort analysis in two Connecticut SNFs found partial vaccination"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "electronic health records",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A retrospective cohort investigation using data from electronic medical record chart abstraction was conducted"
+    }
+   ]
+  },
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Positive SARS-CoV-2 test results received before the investigation period were identified for each resident using the Connecticut Electronic Disease Surveillance System."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Connecticut Electronic Disease Surveillance System",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using the Connecticut Electronic Disease Surveillance System."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Two Skilled Nursing Facilities Experiencing COVID-19 Outbreaks — Connecticut, December 2020–February 2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "effectiveness",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Little is known about COVID-19 vaccine effectiveness in SNF residents."
+   }
+  ]
+ },
+ "equity": {
+  "level": 1,
+  "level_reason": "Race appears only as a Table descriptor and in a limitation about underrepresentation of racial minorities; age and sex are descriptors without social-position framing.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 0,
+   "reason": "Race is only a descriptor of the cohort; the limitation is about generalizability, not equity."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race ¶ › Black"
+     },
+     {
+      "loc": "text",
+      "q": "racial minority groups were underrepresented in this investigation compared with the general population of older adults"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group, yrs › ≥85"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Ethnicity missing for 30% of residents and not reported; 92% of residents White."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 7,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group, yrs › <60"
+    },
+    {
+     "loc": "note",
+     "q": "For mutually exclusive categories of a characteristic a single p-value is reported."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race ¶ › White"
+    },
+    {
+     "loc": "note",
+     "q": "In cases with cell counts <5, Fisher’s exact test was used to calculate the p-value."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "regression_fields"
+ ],
+ "confidence": "high",
+ "notes": "Full 2-dose VE could not be estimated. Robust CIs are read as robust SE, though the limitations say observations were treated as independent. The race groupwise count includes the Unknown row in the Fisher test.",
+ "view_issues": null
+}

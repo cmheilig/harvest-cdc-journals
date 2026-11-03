@@ -1,0 +1,413 @@
+{
+ "id": "mm6914a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyt6QeHQKAhd6LvEj2",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The annual rate of reported acute hepatitis C cases per 100,000 population increased threefold, from 0.3 in 2009 to 1.2 in 2018"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2018, the highest rate of reported acute hepatitis C cases was in persons aged 20–29 years (3.1 per 100,000)"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Only 60.6% (95% CI = 46.1%–73.9%) of adults with hepatitis C reported having been told that they were infected."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Only 60.6% (95% CI = 46.1%–73.9%) of adults with hepatitis C reported having been told that they were infected."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The annual rate of reported acute hepatitis C cases per 100,000 population increased threefold, from 0.3 in 2009 to 1.2 in 2018"
+    },
+    {
+     "loc": "text",
+     "q": "A larger percentage of these cases were among males (63.1%) than among females (36.9%)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "methods state chi-squared tests with p<0.001; the contrasts tested are not specified",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The p-values for all chi-squared tests were <0.001 and are not presented."
+    }
+   ]
+  },
+  {
+   "name": "NHANES survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated weighting for unequal selection probability and nonresponse; complex survey design in SUDAAN",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was weighted to account for unequal probability of selection and nonresponse, and 95% Clopper-Pearson exact CIs accounted for the complex survey design."
+    }
+   ]
+  },
+  {
+   "name": "suppression of estimates not meeting NCHS data presentation standards",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "stratified awareness estimates withheld for small cell counts",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "no stratifications of interest met National Center for Health Statistics data presentation standards because of small cell counts"
+    }
+   ]
+  },
+  {
+   "name": "estimation of total acute cases adjusted for underascertainment and underreporting",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "standard CDC multiplier methodology described in annual surveillance reports; CI method not stated",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "representing an estimated 50,300 cases (95% CI = 39,800–171,600), after adjusting for underascertainment and underreporting."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": null,
+  "across": [
+   "year",
+   "age group",
+   "sex",
+   "birth cohort"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The annual rate of reported acute hepatitis C tripled from 2009 to 2018 and was highest among persons aged 20–39 years."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The p-values for all chi-squared tests were <0.001 and are not presented."
+   },
+   {
+    "loc": "text",
+    "q": "was weighted to account for unequal probability of selection and nonresponse, and 95% Clopper-Pearson exact CIs accounted for the complex survey design."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "rate per 100,000",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Cases per 100,000 population."
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A larger percentage of these cases were among males (63.1%) than among females (36.9%)"
+    }
+   ]
+  },
+  {
+   "v": "estimated number of cases",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "representing an estimated 50,300 cases (95% CI = 39,800–171,600), after adjusting for underascertainment and underreporting."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How have reported acute and newly reported chronic hepatitis C cases changed by age and sex in the United States, and what share of infected adults know their status?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The purpose of this report is to highlight the epidemic of hepatitis C among all adults in support of this new CDC screening recommendation."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "acute hepatitis C",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Vital Signs: Newly Reported Acute and Chronic Hepatitis C Cases ― United States, 2009–2018"
+    }
+   ]
+  },
+  {
+   "v": "chronic hepatitis C",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Vital Signs: Newly Reported Acute and Chronic Hepatitis C Cases ― United States, 2009–2018"
+    }
+   ]
+  },
+  {
+   "v": "hepatitis C",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NHANES data were analyzed to estimate the proportion of adults with confirmed current hepatitis C who reported having ever been told"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "National Notifiable Diseases Surveillance System data were analyzed to determine the rate of acute hepatitis C cases reported to CDC by age group and year"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The annual rate of reported acute hepatitis C tripled from 2009 to 2018 and was highest among persons aged 20–39 years."
+    }
+   ]
+  },
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NHANES is an ongoing, nationally representative interview and examination survey of the U.S. noninstitutionalized population."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "National Notifiable Diseases Surveillance System (NNDSS) data for 2009–2018 were analyzed by age group"
+    }
+   ]
+  },
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "National Health and Nutrition Examination Survey (NHANES) data were analyzed to estimate the proportion of adults with confirmed current hepatitis C"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Notifiable Diseases Surveillance System (NNDSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "National Notifiable Diseases Surveillance System (NNDSS) data for 2009–2018 were analyzed by age group"
+    }
+   ]
+  },
+  {
+   "v": "National Health and Nutrition Examination Survey (NHANES)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "National Health and Nutrition Examination Survey (NHANES) data were analyzed"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Newly Reported Acute and Chronic Hepatitis C Cases ― United States, 2009–2018"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Results are stratified by age, sex and birth cohort only, without social-position framing. Socioeconomic stratification and incarcerated persons appear only in methods and limitation statements.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Socioeconomic characteristics are mentioned as attempted strata and incarcerated persons as a missing high-risk group, which could be read as equity raised as a limitation."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "During 2018, the highest rate of reported acute hepatitis C cases was in persons aged 20–29 years (3.1 per 100,000)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Among 2015–2018 NHANES participants aged ≥20 years who were HCV RNA-positive"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "A larger percentage of these cases were among males (63.1%) than among females (36.9%)"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "socioeconomic characteristics",
+     "incarceration"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Stratifying the estimate by selected demographic and socioeconomic characteristics was attempted"
+     },
+     {
+      "loc": "text",
+      "q": "do not include some populations at highest risk for hepatitis C (e.g., incarcerated persons)."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Age and birth cohort are the only SPD strata reported; SES-stratified awareness estimates were suppressed for small cells; NHANES excludes institutionalized persons."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2018, the highest rate of reported acute hepatitis C cases was in persons aged 20–29 years (3.1 per 100,000)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 7,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The p-values for all chi-squared tests were <0.001 and are not presented."
+    },
+    {
+     "loc": "table 1",
+     "q": "Age group (yrs) › 20–29"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise",
+  "procedures",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "The chi-squared tests are mentioned once without stating which contrasts they test; they are assumed to cover the sex and age distributions of chronic cases. Clopper-Pearson CIs come from the NHANES awareness estimate; the method for the CI on the 50,300 estimate is not stated.",
+ "view_issues": "The chi-square footnote does not identify which comparisons were tested. The Discussion says baby boomer and millennial chronic rates are 'equal', but the Table shows 79.8 vs 89.7 per 100,000; only the counts are near equal."
+}

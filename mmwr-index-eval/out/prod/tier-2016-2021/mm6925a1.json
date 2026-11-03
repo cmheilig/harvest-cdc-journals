@@ -1,0 +1,432 @@
+{
+ "id": "mm6925a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysxjFLTbpnNRP26bB",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Hospitalization was reported by a substantially higher percentage of pregnant women (31.5%) than nonpregnant women (5.8%)"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Pregnant women were admitted more frequently to the ICU (1.5%) than were nonpregnant women (0.9%)."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data on pregnancy status were available for 91,412 (28.0%) of these women; 8,207 (9.0%) were pregnant"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Pregnant women were admitted more frequently to the ICU (1.5%) than were nonpregnant women (0.9%)."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Risk ratios were adjusted for age (as a continuous variable), presence of underlying chronic conditions (yes/no), and race/ethnicity."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "modified Poisson regression",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'modified Poisson regression' giving crude and adjusted risk ratios → loglinear; 'modified' implies robust variance",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Crude and adjusted risk ratios and 95% CIs for outcomes were calculated using modified Poisson regression."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based CIs from the modified Poisson regression, judged against RR = 1 ('significantly', 'no difference')",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "No difference in the risk for death between pregnant and nonpregnant women was found (aRR = 0.9, 95% CI = 0.5–1.5)."
+    },
+    {
+     "loc": "text",
+     "q": "the risks for both outcomes were significantly higher among pregnant women than among nonpregnant women"
+    }
+   ]
+  },
+  {
+   "name": "small-cell suppression",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "cell counts <5 withheld in Table 2",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Cell counts <5 are suppressed."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "nonpregnant women",
+  "across": [
+   "pregnancy status",
+   "age group",
+   "race/ethnicity"
+  ],
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "Nonpregnant women are the referent group."
+   },
+   {
+    "loc": "summary",
+    "q": "pregnancy was associated with hospitalization and increased risk for intensive care unit admission, and receipt of mechanical ventilation, but not with death."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Crude and adjusted risk ratios and 95% CIs for outcomes were calculated using modified Poisson regression."
+   },
+   {
+    "loc": "text",
+    "q": "No difference in the risk for death between pregnant and nonpregnant women was found (aRR = 0.9, 95% CI = 0.5–1.5)."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Hospitalization was reported by a substantially higher percentage of pregnant women (31.5%) than nonpregnant women (5.8%)"
+    }
+   ]
+  },
+  {
+   "v": "crude risk ratio",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Crude risk ratio (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "aRR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(aRR = 1.5, 95% confidence interval [CI] = 1.2–1.8)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "clustered or robust SE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were calculated using modified Poisson regression."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Crude and adjusted risk ratios and 95% CIs for outcomes were calculated using modified Poisson regression."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted for age as a continuous variable, dichotomous yes/no variable for presence of underlying conditions, and categorical race/ethnicity variable."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age (continuous), presence of underlying chronic conditions (yes/no), race/ethnicity",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Risk ratios were adjusted for age (as a continuous variable), presence of underlying chronic conditions (yes/no), and race/ethnicity."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Among women aged 15–44 years with laboratory-confirmed SARS-CoV-2 infection, do characteristics and the risk of severe outcomes differ by pregnancy status?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "data to assess the prevalence and severity of COVID-19 among pregnant U.S. women and determine whether signs and symptoms differ"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Characteristics of Women of Reproductive Age with Laboratory-Confirmed SARS-CoV-2 Infection by Pregnancy Status"
+    }
+   ]
+  },
+  {
+   "v": "severe COVID-19 illness",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Pregnant women might be at increased risk for severe COVID-19 illness."
+    }
+   ]
+  },
+  {
+   "v": "pregnancy",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "pregnancy was associated with hospitalization and increased risk for intensive care unit admission, and receipt of mechanical ventilation, but not with death."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "as part of COVID-19 surveillance, CDC received reports of 326,335 women of reproductive age (15–44 years)"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "or through the National Notifiable Diseases Surveillance System"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Notifiable Diseases Surveillance System (NNDSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "or through the National Notifiable Diseases Surveillance System"
+    }
+   ]
+  },
+  {
+   "v": "CDC Human Infection with 2019 Novel Coronavirus Case Report Form",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "CDC’s Human Infection with 2019 Novel Coronavirus Case Report Form"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "among women aged 15–44 years from 50 states, the District of Columbia, and New York City."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Outcomes are reported by race/ethnicity and age, and Hispanic and Black pregnant women are called disproportionately affected, but the contrast is case shares set beside 2019 birth shares with no stated difference or ratio, so it is capped at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The share-of-cases vs share-of-births contrast (46% vs 24%; 22% vs 15%) could be read as a quantified, interpreted disparity."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Hispanic and non-Hispanic black pregnant women appear to be disproportionately affected by SARS-CoV-2 infection during pregnancy."
+     },
+     {
+      "loc": "text",
+      "q": "When stratified by race/ethnicity, ICU admission was most frequently reported among pregnant women who were non-Hispanic Asian (3.5%)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "and categorical race/ethnicity variable."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "all outcomes (hospitalization, ICU admission, receipt of mechanical ventilation, and death) were more frequently reported among women aged 35–44 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Adjusted for age as a continuous variable"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "among women aged 15–44 years from 50 states, the District of Columbia, and New York City."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Characteristics of Women of Reproductive Age with Laboratory-Confirmed SARS-CoV-2 Infection by Pregnancy Status"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Racial/ethnic shares of pregnant cases are set beside an external referent (women who gave birth in 2019); race/ethnicity missing for 20% of pregnant women; AI/AN and NH/OPI collapsed into other."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "When stratified by race/ethnicity, ICU admission was most frequently reported among pregnant women who were non-Hispanic Asian (3.5%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "all outcomes (hospitalization, ICU admission, receipt of mechanical ventilation, and death) were more frequently reported among women aged 35–44 years"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise"
+ ],
+ "confidence": "high",
+ "notes": "Missing outcomes were assumed not to have occurred (a single fixed fill-in, treated as data handling, not a procedure). Risk ratios are given only overall; age and race rows of Table 2 give stratum percentages only. The age text compares only 35–44 vs 15–24, though Table 2 shows three age groups.",
+ "view_issues": "Table 2 CSV repeats each outcome's overall crude and adjusted ratios in every age and race row (merged cells expanded); the ICU block lists 'Hispanic or Latino' twice. Text compares Asian pregnant women's ICU share with all pregnant women ('most frequently ... than')."
+}

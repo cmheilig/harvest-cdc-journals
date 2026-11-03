@@ -1,0 +1,427 @@
+{
+ "id": "mm7019e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPytppN78bUpA3UQUX6",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Among 3,679 (38%) B.1.526 variant viruses identified, 2,050 (56%) carried the E484K mutation."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "persons infected with the B.1.1.7 variant were more likely to be hospitalized (5.8%) than were persons with non-VOI/VOC infections (4.1%) (p = 0.04)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among 3,679 (38%) B.1.526 variant viruses identified, 2,050 (56%) carried the E484K mutation."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "those with B.1.526 infections were significantly more likely to live in the Bronx or in neighborhoods with high or very high poverty"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods and table notes for categorical comparisons of B.1.526 vs non-VOI/VOC",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Comparisons across categorical characteristics were made using the chi-square or Fisher’s exact test"
+    },
+    {
+     "loc": "table 1",
+     "q": "p-values from chi-square test, Fisher’s exact test, or Kruskal-Wallis test as indicated, comparing persons with B.1.526 to persons with other non-VOI/VOC sequences."
+    }
+   ]
+  },
+  {
+   "name": "Fisher's exact test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods and table notes for categorical comparisons (small cells)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Comparisons across categorical characteristics were made using the chi-square or Fisher’s exact test"
+    }
+   ]
+  },
+  {
+   "name": "Kruskal-Wallis test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named for continuous variables; only median age compared in Table 1",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "continuous variables were compared using the Kruskal-Wallis test (SAS Enterprise Guide, version 7.1)."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": "persons with non-VOI/VOC infections",
+  "across": [
+   "variant lineage",
+   "age group",
+   "sex",
+   "race/ethnicity",
+   "borough of residence",
+   "neighborhood poverty"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Preliminary evidence suggests that, to date, B.1.526 does not lead to more severe disease or increased risk for infection after vaccination."
+   },
+   {
+    "loc": "text",
+    "q": "Persons infected with B.1.526 were compared with persons infected with variants that were not classified as VOIs or VOCs"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Comparisons across categorical characteristics were made using the chi-square or Fisher’s exact test"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "column %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Sequence result, no. (column %)"
+    }
+   ]
+  },
+  {
+   "v": "p-value",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "p-value † (B.1.526 vs. other)"
+    }
+   ]
+  },
+  {
+   "v": "secondary attack rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "No major differences between persons with B.1.526 and non-VOI/VOC infections were found in the secondary COVID-19 attack rate"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Do persons infected with the SARS-CoV-2 B.1.526 variant in NYC differ in characteristics, severity, transmission, reinfection and breakthrough infection from persons with other variants?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "analyzed laboratory and epidemiologic data to characterize cases of B.1.526 infection, including illness severity, transmission to close contacts, rates of possible reinfection"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Rapid Emergence and Epidemiologic Characteristics of the SARS-CoV-2 B.1.526 Variant"
+    }
+   ]
+  },
+  {
+   "v": "SARS-CoV-2 B.1.526 variant infection",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "to characterize cases of B.1.526 infection and the associated potential for breakthrough infection and reinfection."
+    }
+   ]
+  },
+  {
+   "v": "SARS-CoV-2 reinfection",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Possible reinfections were rare overall (0.5%), and the prevalence was similar among all persons with sequenced specimens"
+    }
+   ]
+  },
+  {
+   "v": "breakthrough infection",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "is not associated with increased risk for infection after vaccination (breakthrough infection) or reinfection."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Rapid integration of whole genome sequencing and population-based surveillance data is critical to characterizing new SARS-CoV-2 variants."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Records of persons with sequenced viruses were matched to the DOHMH COVID-19 surveillance Citywide Immunization and Vital Registry databases."
+    }
+   ]
+  },
+  {
+   "v": "vaccination registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Records of persons with sequenced viruses were matched to the DOHMH COVID-19 surveillance Citywide Immunization and Vital Registry databases."
+    }
+   ]
+  },
+  {
+   "v": "registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Records of persons with sequenced viruses were matched to the DOHMH COVID-19 surveillance Citywide Immunization and Vital Registry databases."
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "SARS-CoV-2 specimens were sequenced at the Public Health Laboratory (PHL) or the Pandemic Response Laboratory (PRL)."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "DOHMH COVID-19 surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "matched to the DOHMH COVID-19 surveillance Citywide Immunization and Vital Registry databases."
+    }
+   ]
+  },
+  {
+   "v": "Citywide Immunization Registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "matched to the DOHMH COVID-19 surveillance Citywide Immunization and Vital Registry databases."
+    }
+   ]
+  },
+  {
+   "v": "Public Health Laboratory and Pandemic Response Laboratory sequencing data",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "SARS-CoV-2 specimens were sequenced at the Public Health Laboratory (PHL) or the Pandemic Response Laboratory (PRL)."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "New York City, New York, January 1–April 5, 2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "other",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Among 32 fully vaccinated persons with sequenced viruses, eight (25%) were identified who were infected with the B.1.526 variant carrying the E484K mutation"
+   }
+  ]
+ },
+ "equity": {
+  "level": 2,
+  "level_reason": "Race/ethnicity and neighborhood poverty distributions are compared between B.1.526 and other infections with chi-square p-values only; the Discussion's 'disproportionate' framing has no computed difference or ratio, so the cap at 2 applies.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The Discussion frames B.1.526 as more prevalent in populations with disproportionate COVID-19 morbidity and lower vaccination, with percentages reported."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "or to identify as Black/African American."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "neighborhood-level poverty"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "the percentage of residents in a ZIP code tabulation area with household incomes of <100% of the federal poverty level"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group, yrs › 18–44"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Neighborhood poverty is a ZIP-code-level ACS proxy for SES; race/ethnicity missing for 1,691 persons; SPD comparisons are lineage composition tests (B.1.526 vs non-VOI/VOC), and representativeness vs citywide cases is side by side."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "p-values from chi-square test, Fisher’s exact test, or Kruskal-Wallis test as indicated, comparing persons with B.1.526 to persons with other non-VOI/VOC sequences."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "those with B.1.526 infections were significantly more likely to live in the Bronx or in neighborhoods with high or very high poverty"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group, yrs › 18–44"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "comparison",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Design is inferred (genomic surveillance linked to case surveillance); no design is named. Three lineage groups are shown but tests are B.1.526 vs non-VOI/VOC, plus a B.1.1.7 vs non-VOI/VOC hospitalization test in the text. Representativeness of sequenced persons vs citywide cases is set side by side without tests.",
+ "view_issues": "Table 2 household-contact denominator for other is 3,654 vs 3,564 elsewhere. Table 1 race note says missing among 'other VOCs/VOIs', apparently meaning non-VOI/VOC. Text says B.1.526 was 40% by April 5 vs 25%+16% elsewhere. Text cites B.1.1.7 hospitalization p=0.04 not shown in Table 2."
+}

@@ -1,0 +1,305 @@
+{
+ "id": "mm7015e3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPytnqGXjuc768hMF5i",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Race/ethnicity–specific crude and age-stratified visit rates per 100,000 population were calculated using population denominators"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among 5,794,050 total ED visits during this period, 282,220 (4.9%) were for COVID-19."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "compared with White persons, Hispanic and American Indian or Alaska Native persons experienced 1.7 times the rate"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "and for each age group examined (RR range = 1.91–2.92)"
+    },
+    {
+     "loc": "table 2",
+     "q": "Emergency department (ED) visits per 100,000 persons, by age group and race/ethnicity"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "RR CIs judged against 1.0 for significance; CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "RRs with CIs excluding 1.0 were considered statistically significant"
+    }
+   ]
+  },
+  {
+   "name": "CI overlap assertion",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "nonoverlapping CIs used to identify differences in RRs across age groups; CI method not stated",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "nonoverlapping CIs were used to identify differences in RRs by age groups"
+    },
+    {
+     "loc": "text",
+     "q": "Among AI/AN persons, those aged 30–44 years had the highest RR of COVID-19 ED visits compared with other age groups (3.07)."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "White persons",
+  "across": [
+   "race/ethnicity",
+   "age group"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "compared with White persons, Hispanic and American Indian or Alaska Native persons experienced 1.7 times the rate"
+   },
+   {
+    "loc": "text",
+    "q": "calculated as the rate of COVID-19 ED visits among a racial/ethnic group divided by the rate of COVID-19 ED visits among White persons"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "ci_overlap": true,
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "RRs with CIs excluding 1.0 were considered statistically significant, and nonoverlapping CIs were used to identify differences in RRs by age groups."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "COVID-19 ED visits per 100,000 population",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. of COVID-19 ED visits per 100,000 population"
+    }
+   ]
+  },
+  {
+   "v": "RR (crude and age-stratified)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "RR (95% CI)"
+    },
+    {
+     "loc": "text",
+     "q": "Hispanic persons were more likely to seek ED care for COVID-19 than were White persons overall (crude RR = 1.77)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Do rates of emergency department visits for COVID-19 differ by race/ethnicity, overall and within age groups, in 13 states during October–December 2020?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC assessed the number of ED visits with a COVID-19 discharge diagnosis code per 100,000 population during October–December 2020 by age and race/ethnicity."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Emergency Department Visits for COVID-19 by Race and Ethnicity — 13 States, October–December 2020"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Using ED visit data from 13 states obtained from the National Syndromic Surveillance Program (NSSP)"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Using ED visit data from 13 states obtained from the National Syndromic Surveillance Program (NSSP)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Syndromic Surveillance Program (NSSP)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Using ED visit data from 13 states obtained from the National Syndromic Surveillance Program (NSSP)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Emergency Department Visits for COVID-19 by Race and Ethnicity — 13 States, October–December 2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Racial/ethnic disparities in COVID-19 ED visit rates are framed, quantified as rate ratios vs White persons (1.39–1.77) and interpreted; systemic inequities, access to care, essential jobs and racism are named as explanations.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The determinants are cited from the literature in the Discussion as general explanations, not analyzed."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "COVID-19 ED visits were categorized by patient race/ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Racial/ethnic disparities in COVID-19 ED visit rates were observed across age groups."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "long-standing, systemic inequities; limited access to quality health care; access to quality education; disproportionate representation in essential jobs; racism and discrimination",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "These inequities include limited access to quality health care, lower general health status and access to quality education, and disproportionate representation in essential jobs"
+    },
+    {
+     "loc": "text",
+     "q": "racism, rather than a person’s race or ethnicity, is a key driver of these health inequities"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referent is White persons. Asian and NH/PI collapsed into A/PI; multiple/other races excluded for lack of denominators; 13.5% of COVID-19 visits missing race/ethnicity excluded."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "calculated as the rate of COVID-19 ED visits among a racial/ethnic group divided by the rate of COVID-19 ED visits among White persons"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "nonoverlapping CIs were used to identify differences in RRs by age groups"
+    },
+    {
+     "loc": "text",
+     "q": "Among AI/AN persons, those aged 30–44 years had the highest RR of COVID-19 ED visits compared with other age groups (3.07)."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise",
+  "analytic_depth"
+ ],
+ "confidence": "high",
+ "notes": "Design not named; surveillance/descriptive inferred. Population denominators (NCHS bridged-race estimates) are not listed as a data source. Age entry in groupwise records race RRs compared across six age groups by a CI-overlap rule.",
+ "view_issues": "Text says 'Black persons aged ≤74' beside the all-ages crude RR 1.39. Discussion says 'lowest rates' among adults ≥75 years where it means lowest RRs; their crude rates are the highest."
+}

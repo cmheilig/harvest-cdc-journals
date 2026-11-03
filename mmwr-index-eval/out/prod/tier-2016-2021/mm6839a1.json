@@ -1,0 +1,482 @@
+{
+ "id": "mm6839a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysF4kppQ2fMKCGyNS",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "During 2000–2015, the rate of HCV infection increased from 0.8 (95% CI = 0.7–0.9) to 4.1 (95% CI = 3.7–4.4) per 1,000 deliveries."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "National annual prevalence rates of opioid use disorder and HCV infection per 1,000 delivery hospitalizations during 2000–2015"
+    },
+    {
+     "loc": "table 1",
+     "q": "Prevalence of hepatitis C virus (HCV) infection and opioid use disorder* at delivery hospitalization, by demographic characteristic"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2000–2015, the rate of HCV infection increased from 0.8 (95% CI = 0.7–0.9) to 4.1 (95% CI = 3.7–4.4) per 1,000 deliveries."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among women with opioid use disorder, rates of HCV infection increased 148%, from 87.4 to 216.9 per 1,000 deliveries"
+    },
+    {
+     "loc": "text",
+     "q": "Women with publicly billed deliveries (Medicaid or Medicare) were the most likely to have a diagnosis of HCV infection"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting (complex survey design of NIS)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated survey-specific techniques for clustering, stratification and weighting produce the national estimates",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Survey-specific analysis techniques accounted for clustering, stratification, and weighting."
+    }
+   ]
+  },
+  {
+   "name": "joinpoint regression (average percentage change)",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "'Joinpoint regression' for percentage change in rates; the Joinpoint program fits least squares on log rates by default → linear",
+   "role": "primary",
+   "alternative_reading": "loglinear: percentage changes imply a log-linear model of the rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Joinpoint regression was used to model the average percentage change in HCV infection and opioid use disorder rates over time and their statistical significance."
+    }
+   ]
+  },
+  {
+   "name": "polytomous logistic regression (unadjusted ORs)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Polytomous logistic regression' giving ORs for each diagnosis category vs neither → logistic, multinomial",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Polytomous logistic regression models were used to calculate unadjusted odds ratios (ORs) and 95% CIs comparing the likelihood of each delivery hospitalization"
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'significantly higher' for HCV rates by OUD status with no test named; CIs and p-values are reported elsewhere; CI method not stated",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "HCV infection rates at delivery were significantly higher among women with opioid use disorder than among those who did not have opioid use disorder."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "Table 2 referents: age ≥35 years, private payer, non-Hispanic black, ZIP income ≥$68,000, West",
+  "across": [
+   "year",
+   "opioid use disorder status",
+   "age group",
+   "payer source",
+   "race/ethnicity",
+   "median income for ZIP code",
+   "region"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Rates significantly increased from 2000 to 2004 (15.7%; p<0.001), 2004 to 2010 (6.1%; p<0.001), and 2010 to 2015 (14.9%; p<0.001)."
+   },
+   {
+    "loc": "table 2",
+    "q": "Abbreviations: CI = confidence interval; Ref. = referent; OR = odds ratio."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Joinpoint regression was used to model the average percentage change in HCV infection and opioid use disorder rates over time and their statistical significance."
+   },
+   {
+    "loc": "text",
+    "q": "Polytomous logistic regression models were used to calculate unadjusted odds ratios (ORs) and 95% CIs comparing the likelihood of each delivery hospitalization"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "rate per 1,000 deliveries",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2000–2015, the rate of HCV infection increased from 0.8 (95% CI = 0.7–0.9) to 4.1 (95% CI = 3.7–4.4) per 1,000 deliveries."
+    }
+   ]
+  },
+  {
+   "v": "average percentage change",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The program identifies points (joinpoints) where the slope of the trend significantly changes"
+    }
+   ]
+  },
+  {
+   "v": "prevalence %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "HCV infection only › Prevalence % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "OR",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Abbreviations: CI = confidence interval; Ref. = referent; OR = odds ratio."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Survey-specific analysis techniques accounted for clustering, stratification, and weighting."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Polytomous logistic regression models were used to calculate unadjusted odds ratios (ORs) and 95% CIs"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The program identifies points (joinpoints) where the slope of the trend significantly changes"
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Did national trends in HCV infection among women at delivery hospitalization during 2000–2015 differ by opioid use disorder status?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to determine whether HCV infection trends differ by opioid use disorder status at delivery"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "hepatitis C virus infection",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "National Trends in Hepatitis C Infection by Opioid Use Disorder Status Among Pregnant Women at Delivery Hospitalization"
+    }
+   ]
+  },
+  {
+   "v": "opioid use disorder",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "HCV infection rates were calculated by opioid use disorder status."
+    }
+   ]
+  },
+  {
+   "v": "opioid use disorder",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "National annual prevalence rates of opioid use disorder and HCV infection per 1,000 delivery hospitalizations during 2000–2015"
+    }
+   ]
+  },
+  {
+   "v": "pregnancy",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Among Pregnant Women at Delivery Hospitalization"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed hospital discharge data from the 2000–2015 Healthcare Cost and Utilization Project (HCUP)"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The U.S. rate of HCV infection at delivery increased from 0.8 per 1,000 live births in 2000 to 4.1 in 2015"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "administrative/claims",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed hospital discharge data from the 2000–2015 Healthcare Cost and Utilization Project (HCUP)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Healthcare Cost and Utilization Project (HCUP) National Inpatient Sample (NIS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "data from HCUP’s National Inpatient Sample (NIS, 2000–2015)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, 2000–2015"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 3,
+  "level_reason": "ORs quantify contrasts by race/ethnicity, payer source and ZIP-code income; the Native American vs non-Hispanic black contrast and public payer findings are interpreted in the Discussion against prior reports. No causes are offered.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 2,
+   "reason": "The groups are presented as shared 'risk factors' and never framed as a disparity, so the ORs may be group-specific results only described."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Native American women were significantly more likely to have an HCV infection or opioid use disorder diagnosis at delivery than were non-Hispanic black women"
+     },
+     {
+      "loc": "text",
+      "q": "High rates of overdose deaths and HCV infection in American Indian and Alaska Native persons have been previously noted in the general adult population"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "payer source",
+     "median income for residency ZIP code"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Women with publicly billed deliveries (Medicaid or Medicare) were the most likely to have a diagnosis of HCV infection"
+     },
+     {
+      "loc": "text",
+      "q": "Women from areas with median income of <$42,000 were the most likely to receive a diagnosis of HCV infection"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Compared with women aged ≥35 years, those aged 25–34 years were more likely to have a diagnosis of HCV infection"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Among Pregnant Women at Delivery Hospitalization"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race referent is non-Hispanic black; income is an area proxy (ZIP-code median income from Claritas); public payer (Medicaid/Medicare) proxies SES; Asian-Pacific Islander/Other collapsed; region is geography, not an SPD."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Compared with non-Hispanic black women, Native American women were the most likely to have a diagnosis of HCV infection"
+    },
+    {
+     "loc": "table 2",
+     "q": "Race/Ethnicity §§ › Native American"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Women from areas with median income of <$42,000 were the most likely to receive a diagnosis of HCV infection"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Women with publicly billed deliveries (Medicaid or Medicare) were the most likely to have a diagnosis of HCV infection"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Compared with women aged ≥35 years, those aged 25–34 years were more likely to have a diagnosis of HCV infection"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "outcome_types",
+  "procedures"
+ ],
+ "confidence": "medium",
+ "notes": "Design is not named; cross-sectional with trend inferred from repeated annual discharge samples. The 'rates per 1,000 deliveries' are unitless prevalences, so binary/categorical rather than count/rate. Joinpoint family taken as least squares on log rates; ORs are unadjusted, one characteristic at a time.",
+ "view_issues": "Summary says 'per 1,000 live births' while text says per 1,000 deliveries. Table 1 West total CI lacks a closing parenthesis. The text calls the OR groups 'risk factors' though the ORs are unadjusted."
+}

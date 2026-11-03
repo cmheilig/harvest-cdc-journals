@@ -1,0 +1,518 @@
+{
+ "id": "mm6552a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrQD8ySbGbdWxsJzY",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2015, 68.0% of adult smokers wanted to stop smoking, 55.4% made a past-year quit attempt, 7.4% recently quit smoking"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "As of 2015, 59.1% of adults who had ever smoked had quit."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Higher prevalences of past-year quit attempts were reported by Asians (69.4%) and blacks (63.4%) than by whites (53.3%)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Based on linear and quadratic trend analyses using logistic regression models controlling for sex, race/ethnicity, and age, p <0.05."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "logistic regression trend analysis (linear and quadratic terms)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Logistic regression was conducted to analyze trends' → logistic; trend p-values from linear/quadratic year terms, adjusted for sex, race/ethnicity, age",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Logistic regression was conducted to analyze trends during 2000–2015. Both linear and quadratic terms were initially applied to all models."
+    },
+    {
+     "loc": "figure 1",
+     "q": "Based on linear and quadratic trend analyses using logistic regression models controlling for sex, race/ethnicity, and age, p <0.05."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated adjustment for selection probability and nonresponse, weighted to national estimates",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were adjusted for differences in the probability of selection and nonresponse, and were weighted to provide nationally representative estimates."
+    }
+   ]
+  },
+  {
+   "name": "suppression of small-sample or imprecise estimates",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "estimates withheld when n<50 or relative SE >30%",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Data not reported because sample size is <50 or the relative standard error of the estimate is >30%."
+    }
+   ]
+  },
+  {
+   "name": "imputation of missing family income",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "imputed values enter poverty-status estimates; method not stated",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Missing values were imputed."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": "Healthy People 2020 targets (recent cessation ≥8.0%; quit attempts ≥80.0%)",
+  "across": [
+   "survey year",
+   "age",
+   "race/ethnicity",
+   "education",
+   "health insurance",
+   "poverty status",
+   "sex",
+   "sexual orientation",
+   "disability/limitation",
+   "serious psychological distress",
+   "U.S. Census region"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "During 2000–2015, increases occurred in the proportion of smokers who reported a past-year quit attempt, recently quit smoking"
+   },
+   {
+    "loc": "text",
+    "q": "had private health insurance, or had no serious psychological distress met the Healthy People 2020 target for recent cessation (≥8.0%)."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The prevalence of recent cessation increased during 2000–2015 (p<0.05 based on linear trend analysis)"
+   },
+   {
+    "loc": "table 1",
+    "q": "% (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "prevalence (%)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Prevalence of interest in quitting smoking,* past-year quit attempt, † and recent smoking cessation"
+    }
+   ]
+  },
+  {
+   "v": "p-value for trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(p<0.05 based on quadratic trend analysis)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NHIS is an annual, nationally representative, in-person survey of the noninstitutionalized U.S. civilian population."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "using logistic regression models controlling for sex, race/ethnicity, and age"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "sex, race/ethnicity, and age",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "using logistic regression models controlling for sex, race/ethnicity, and age"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did cessation behaviors among U.S. adult smokers change during 2000–2015, how did they vary by group in 2015, and what progress was made toward Healthy People 2020 targets?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess progress toward the Healthy People 2020 objectives of increasing the proportion of U.S. adults who attempt to quit smoking cigarettes"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "smoking cessation",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Quitting Smoking Among Adults — United States, 2000–2015"
+    }
+   ]
+  },
+  {
+   "v": "cigarette smoking",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2015, 68.0% of all current smokers reported that they wanted to stop smoking completely."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using data from the 2000, 2005, 2010, and 2015 National Health Interview Surveys (NHIS)"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Logistic regression was conducted to analyze trends during 2000–2015."
+    }
+   ]
+  },
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "To assess progress toward the Healthy People 2020 objectives"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NHIS is an annual, nationally representative, in-person survey of the noninstitutionalized U.S. civilian population."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Health Interview Survey (NHIS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using data from the 2000, 2005, 2010, and 2015 National Health Interview Surveys (NHIS)"
+    }
+   ]
+  },
+  {
+   "v": "NHIS supplemental cancer-control questionnaire",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Every 5 years, a supplemental cancer-control questionnaire is administered to NHIS sample adult respondents"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Quitting Smoking Among Adults — United States, 2000–2015"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Disparities by race/ethnicity and insurance are framed and explained (access to cessation treatments), but contrasts are only group values set side by side (e.g., 44.1% vs 56.8%) with no computed difference or ratio, so the cap at 2 applies.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "The Discussion names 'disparities', gives paired percentages and attributes them to lack of access to treatment among the uninsured; reading the paired values as quantified would give 3 plus named determinants."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "reported by Asian (34.2%), American Indian/Alaska Native (38.1%), and Hispanic (42.2%) smokers than by white smokers (60.2%)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "figure 1",
+      "q": "using logistic regression models controlling for sex, race/ethnicity, and age"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education",
+     "health insurance coverage",
+     "poverty status"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Disparities by insurance status in receipt of advice to quit (44.1% for uninsured smokers versus 56.8% for smokers with private insurance)"
+     },
+     {
+      "loc": "text",
+      "q": "Recent cessation generally increased with increasing level of educational attainment"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Past-year quit attempts decreased with increasing age."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "figure 1",
+      "q": "using logistic regression models controlling for sex, race/ethnicity, and age"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "CDC assessed national estimates of cessation behaviors among adults aged ≥18 years"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Women"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "figure 1",
+      "q": "using logistic regression models controlling for sex, race/ethnicity, and age"
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "stratifier",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Gay, lesbian, or bisexual smokers reported a lower prevalence of counseling and/or medication use (14.5%) than did straight smokers (31.7%)."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "lack of access to cessation treatments among the uninsured; health care utilization, access to and knowledge about cessation treatments",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "are likely attributable, in part, to a lack of access to cessation treatments among the uninsured"
+    },
+    {
+     "loc": "text",
+     "q": "might be partly explained by differences in tobacco use behaviors, health care utilization, access to cessation treatments, and knowledge about these treatments"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Groups compared to white or privately insured smokers by side-by-side percentages; AI/AN and multiple-race estimates often suppressed; disability/limitation is framed as a condition, not social position; region is geography."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "reported by Asian (34.2%), American Indian/Alaska Native (38.1%), and Hispanic (42.2%) smokers than by white smokers (60.2%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Past-year quit attempts decreased with increasing age."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 7,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Recent cessation generally increased with increasing level of educational attainment"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "by uninsured smokers (44.1%) than by smokers with any type of insurance (range = 56.8%–69.2%)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "comparison",
+  "study_design"
+ ],
+ "confidence": "medium",
+ "notes": "Design not named; cross-sectional inferred from repeated NHIS surveys. A secondary analysis removing dual Medicaid/Medicare eligibles checks prevalence estimates, not the regression, so sensitivity_analysis is false. The 2015 Healthy People target comparisons are point estimates vs ≥8.0%, with no CI judgment.",
+ "view_issues": "Group differences in 2015 ('higher', 'lower') are stated with no stated test or CI-overlap rule; only trend p-values are reported."
+}

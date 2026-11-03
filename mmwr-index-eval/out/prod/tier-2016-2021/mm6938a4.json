@@ -1,0 +1,439 @@
+{
+ "id": "mm6938a4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyt6uuzrLCztUKGTHb",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Incidence of confirmed COVID-19 increased with area deprivation level, from 545 in very low-deprivation areas to 674 in low-"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Incidence of confirmed COVID-19 increased with area deprivation level, from 545 in very low-deprivation areas to 674 in low-"
+    },
+    {
+     "loc": "text",
+     "q": "the rate in very high-deprivation areas (13,374 per 100,000 persons) was approximately 25% higher than that in very low-deprivation areas (10,723)"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Hospitalization rates were calculated as the number of patients with confirmed COVID-19 cases admitted to hospitals per 1,000 COVID-19 patients."
+    },
+    {
+     "loc": "text",
+     "q": "Percentage test positivity increased with deprivation level, from 5.0% in very low-deprivation areas to 12.0% in very high areas."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "odds of SARS-CoV-2 infection in very high-deprivation areas of Utah were three times higher than those in very low-deprivation areas"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates for four age groups (≤24, 25–44, 25–64, and ≥65 years) were weighted to a U.S. Census 2000 age-standardized population"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "binary logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Binary logistic regression' used to calculate ORs for each quintile vs the least-deprived quintile → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Binary logistic regression was used to calculate unadjusted odds ratios (ORs) for incidence, hospitalization, and testing in each HII quintile"
+    }
+   ]
+  },
+  {
+   "name": "direct age standardization (age-weighted rates and ORs)",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "rates for four age groups weighted to the 2000 U.S. Census standard population; weighted ORs derived from age-weighted rates",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates for four age groups (≤24, 25–44, 25–64, and ≥65 years) were weighted to a U.S. Census 2000 age-standardized population"
+    },
+    {
+     "loc": "table 2",
+     "q": "Weighted ORs were calculated by estimating the number of persons with the outcome of interest based on the age-weighted rates"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated rule that ORs whose CI does not span 1.0 are significant; CIs for unadjusted ORs model-based from logistic regression, CI method for weighted ORs not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Confidence intervals that do not span 1.0 are considered significant"
+    },
+    {
+     "loc": "text",
+     "q": "age-weighted odds of having confirmed SARS-CoV-2 infection were significantly higher for persons in low- (weighted OR = 1.23), average- (1.49), high- (2.08)"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "very low (least deprived) HII quintile",
+  "across": [
+   "area-level deprivation (HII quintile)"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "odds of SARS-CoV-2 infection in very high-deprivation areas of Utah were three times higher than those in very low-deprivation areas"
+   },
+   {
+    "loc": "table 2",
+    "q": "Very low (least deprived) › Referent"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "Confidence intervals that do not span 1.0 are considered significant"
+   },
+   {
+    "loc": "text",
+    "q": "Binary logistic regression was used to calculate unadjusted odds ratios (ORs) for incidence, hospitalization, and testing in each HII quintile"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "incidence per 100,000",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Cases per 100,000 population during March 3–July 9, 2020."
+    }
+   ]
+  },
+  {
+   "v": "hospitalization rate per 1,000 cases",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Hospitalizations per 1,000 cases."
+    }
+   ]
+  },
+  {
+   "v": "testing rate per 100,000",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Determined by number of persons tested at least once per 100,000 persons."
+    }
+   ]
+  },
+  {
+   "v": "percentage positive",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percentage of persons who received a positive SARS-CoV-2 test result among all those tested."
+    }
+   ]
+  },
+  {
+   "v": "OR and weighted OR",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Unadjusted odds ratios (ORs), weighted* ORs, and 95% confidence intervals (CIs)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "OR (95% CI) for confirmed SARS-CoV-2 infection"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Weighted ORs were calculated by estimating the number of persons with the outcome of interest based on the age-weighted rates"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age (four age groups, standardized to the 2000 U.S. Census population)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates for four age groups (≤24, 25–44, 25–64, and ≥65 years) were weighted to a U.S. Census 2000 age-standardized population"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Do COVID-19 incidence, hospitalization and testing in Utah differ by area-level deprivation as measured by the Health Improvement Index?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To better understand how area-level deprivation might reinforce ethnic, racial, and workplace-based COVID-19 inequities"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Disparities in COVID-19 Incidence, Hospitalizations, and Testing, by Area-Level Deprivation"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Confirmed COVID-19 cases reported by local health departments and UDOH to the Utah National Electronic Disease Surveillance System"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Confirmed COVID-19 cases reported by local health departments and UDOH to the Utah National Electronic Disease Surveillance System"
+    }
+   ]
+  },
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "HII is a composite index calculated using nine indicators from the Utah Behavioral Risk Factor Surveillance System (BRFSS)"
+    },
+    {
+     "loc": "text",
+     "q": "Another six variables came from 2018 American Community Survey 5-year estimate data"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Utah National Electronic Disease Surveillance System",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Utah National Electronic Disease Surveillance System"
+    }
+   ]
+  },
+  {
+   "v": "Utah Behavioral Risk Factor Surveillance System (BRFSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Utah Behavioral Risk Factor Surveillance System (BRFSS)"
+    }
+   ]
+  },
+  {
+   "v": "American Community Survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Another six variables came from 2018 American Community Survey 5-year estimate data"
+    }
+   ]
+  },
+  {
+   "v": "Utah Health Improvement Index (HII)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "in relation to deprivation as measured by Utah’s Health Improvement Index (HII)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Utah, March 3–July 9, 2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Disparities by area deprivation (an SES index) are framed, quantified (weighted OR 3.11, 'three times higher') and interpreted; deprivation is the analyzed exposure, and crowded housing, high-risk work, isolation barriers and insurance access are named as explanations.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The named determinants are offered speculatively and only characterized at area level, not analyzed as explanations."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "primary comparison",
+    "ses_components": [
+     "median family income",
+     "poverty",
+     "unemployment"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "HII is a composite index calculated using nine indicators from the Utah Behavioral Risk Factor Surveillance System (BRFSS)"
+     },
+     {
+      "loc": "summary",
+      "q": "odds of SARS-CoV-2 infection in very high-deprivation areas of Utah were three times higher than those in very low-deprivation areas"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The population percentages of Hispanic (22.5%) and non-White (22.0%) residents in very high-deprivation areas were more than four and three times as high"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Rates for four age groups (≤24, 25–44, 25–64, and ≥65 years) were weighted to a U.S. Census 2000 age-standardized population"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "area-level deprivation; work in manual, essential and public-facing sectors; crowded housing; food and health care insecurity; inability to isolate because of work requirements or lack of private transportation; access to health insurance",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "These areas were characterized by larger proportions of Hispanic and non-White residents, persons working in manual, essential, and public-facing sectors, more crowded housing"
+    },
+    {
+     "loc": "text",
+     "q": "They might also be unable to adhere to isolation protocols because of work requirements, higher-density dwellings, or lack of private transportation"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Area-level SES index (HII quintiles of 99 small areas) assigned by case address; least-deprived quintile is the referent; race/ethnicity is only an area characteristic (Hispanic, non-White)."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "age-weighted odds of having confirmed SARS-CoV-2 infection were significantly higher for persons in low- (weighted OR = 1.23), average- (1.49), high- (2.08)"
+    },
+    {
+     "loc": "table 2",
+     "q": "Confidence intervals that do not span 1.0 are considered significant"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "regression_fields",
+  "inference"
+ ],
+ "confidence": "high",
+ "notes": "Design inferred (surveillance cases with area-level index). Table 3 characterizes HII quintiles by area composition (race, insurance, crowding, occupation) side by side, with stated multiples vs the least-deprived quintile. The logarithmic ratio and BRFSS weighting belong to the HII construction, not this analysis.",
+ "view_issues": "Age group given as 25–64 in methods and Table 1 note vs 45–64 elsewhere; Summary says March 3–June 9 vs July 9. Table 1 CIs garbled (654 (637–6725); 545 (905–927)). Text calls weighted hospitalization OR for low quintile significant though its CI is 1.00–1.47."
+}

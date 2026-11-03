@@ -1,0 +1,469 @@
+{
+ "id": "mm6531a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrf6BM643pjYVM95s",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "In 2013, prevalence of meeting two or fewer CHMs ranged from 5.0% among farming, fishing, and forestry employees to 14.6%"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "For the purposes of this study, the CHM score was dichotomized into two groups: 0–2 and 3–7."
+    },
+    {
+     "loc": "text",
+     "q": "The prevalence of meeting two or fewer CHMs among all 22 occupational groups was 9.6%"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among all occupational groups combined, 3.5% of workers met all seven CHMs (score = 7)."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The prevalence of meeting two or fewer CHMs was highest among persons aged ≥65 years (18.6%), men (11.1%), non-Hispanic blacks (12.2%)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusted for sociodemographic variables, including age, sex, race/ethnicity, and education level, using logistic regression models in SUDAAN."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "logistic regression (adjusted prevalence and adjusted prevalence ratios)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'logistic regression models in SUDAAN' yielding adjusted prevalence and aPRs → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusted for sociodemographic variables, including age, sex, race/ethnicity, and education level, using logistic regression models in SUDAAN."
+    },
+    {
+     "loc": "text",
+     "q": "Adjusted prevalence and prevalence ratios were obtained for CHM scores of 0–2"
+    }
+   ]
+  },
+  {
+   "name": "survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "'All analyses were weighted'; BRFSS survey weights in SUDAAN",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All analyses were weighted unless otherwise noted."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "significance judged from 95% CIs of aPRs (null 1); CIs model-based from SUDAAN logistic regression",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Significance was determined by evaluating confidence intervals at α = 0.05."
+    },
+    {
+     "loc": "text",
+     "q": "community and social services employees (aPR = 1.56) and transportations and material moving employees (aPR = 1.55) are significantly more likely"
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'significantly different' comparison of excluded vs included respondents; no test named",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "respondents who were excluded because of missing data for one or more of the CHM variables were found to be significantly different"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "all other occupational groups",
+  "across": [
+   "occupational group",
+   "age",
+   "sex",
+   "race/ethnicity",
+   "education"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "occupational group was found to be significantly associated with both the individual cardiovascular health metrics (CHMs) and the CHM summary score."
+   },
+   {
+    "loc": "table 3",
+    "q": "For calculation of aPR, each occupational group was compared with all other occupational groups."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Significance was determined by evaluating confidence intervals at α = 0.05."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "adjusted prevalence",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted* prevalence of CHM scores % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "aPR",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "aPR* (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "prevalence",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Prevalence of meeting ≤2 CHM % (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All analyses were weighted unless otherwise noted."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Adjusted for age, sex, race/ethnicity, and education."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age, sex, race/ethnicity, and education level",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Adjusted for age, sex, race/ethnicity, and education."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Among employed adults in 21 states, is occupational group associated with cardiovascular health metric scores?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To determine if an association between occupation and CHM score exists, CDC analyzed data from the 2013 Behavioral Risk Factor Surveillance System"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "cardiovascular health",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Cardiovascular Health Status by Occupational Group — 21 States, 2013"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "because BRFSS data are cross-sectional, it is not possible to make causal inferences."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2013 Behavioral Risk Factor Surveillance System (BRFSS) industry and occupation module"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS) industry and occupation module",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2013 Behavioral Risk Factor Surveillance System (BRFSS) industry and occupation module"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Cardiovascular Health Status by Occupational Group — 21 States, 2013"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Occupation is framed mainly through work conditions (route of exposure), so not read as SES. Table 1 reports prevalence by age, sex, race/ethnicity and education, described in text but not framed or quantified as disparities.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "If occupational group (e.g. white-collar vs other) is read as social position, the article frames 'health disparities among occupational groups' and quantifies them with aPRs (1.56, 1.55)."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race/Ethnicity › Black, non-Hispanic"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 3",
+      "q": "Adjusted for age, sex, race/ethnicity, and education."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education level"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Education › Less than high school"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "education level"
+    ],
+    "ev": [
+     {
+      "loc": "table 3",
+      "q": "Adjusted for age, sex, race/ethnicity, and education."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group (yrs)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 3",
+      "q": "Adjusted for age, sex, race/ethnicity, and education."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "noninstitutionalized, civilian residents aged ≥18 years."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 3",
+      "q": "Adjusted for age, sex, race/ethnicity, and education."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Demographic prevalences in Table 1 are unadjusted, with CIs and no tests; occupational aPRs use all other occupations as referent. Excluded respondents with missing data differed by race, sex, education and occupation."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The prevalence of meeting two or fewer CHMs was highest among persons aged ≥65 years (18.6%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity › Other race or multiracial, non-Hispanic"
+    },
+    {
+     "loc": "text",
+     "q": "non-Hispanic blacks (12.2%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "and persons with less than a high school education (17.7%) ( Table 1 )."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "equity.dimensions"
+ ],
+ "confidence": "medium",
+ "notes": "Occupational group (22 SOC groups) is treated as a non-SPD exposure; if read as SES it would add a groupwise entry (per-group vs referent only, 22 groups) and occupational factors (workplace stress, shift rotation, organizational culture) as determinants. The Summary's claim that occupation is 'significantly associated' cites no omnibus test; significance rests on aPR CIs.",
+ "view_issues": "Table 3 unweighted frequencies (e.g. 60,275 total) appear to be counts of all respondents per group, not adults meeting ≤2 CHMs as the header states. Text lists production (7.7%) among lowest though several groups are lower."
+}

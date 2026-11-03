@@ -1,0 +1,505 @@
+{
+ "id": "mm6816a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPys6spHqcm9zULPevZ",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "11.5% of pregnant women reported current drinking, and 3.9% reported binge drinking during the past 30 days."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "11.5% of pregnant women reported current drinking, and 3.9% reported binge drinking during the past 30 days."
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among pregnant women who reported binge drinking in the past 30 days, the average frequency was 4.5 (CI = 3.1–5.9) episodes"
+    },
+    {
+     "loc": "text",
+     "q": "the intensity estimate for the 2015–2017 report (6.0 drinks) was lower than that in the earlier report (7.5 drinks)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "11.5% of pregnant women reported current drinking, and 3.9% reported binge drinking during the past 30 days."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Women who were not married were more likely to drink alcohol and binge drink during pregnancy than were married women."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Adjusted prevalence ratios (aPRs) and CIs were calculated to examine the associations between sociodemographic characteristics and current and binge drinking"
+    },
+    {
+     "loc": "table 1",
+     "q": "Model includes age, race/ethnicity, education, employment status, and marital status."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting (BRFSS complex sample design)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weighted estimates stated; SUDAAN used to account for complex sampling",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted to represent state-level population estimates and aggregated to represent a nationwide estimate."
+    },
+    {
+     "loc": "text",
+     "q": "with SUDAAN (version 11.0; RTI International) to account for the complex sampling method used in BRFSS."
+    }
+   ]
+  },
+  {
+   "name": "unnamed regression model for adjusted prevalence ratios",
+   "class": "regression",
+   "regression_family": "other",
+   "inferred_from": "'Model includes' covariates giving aPRs, but the model is not named → other; aPRs suggest a log-link or predicted-marginal model",
+   "role": "primary",
+   "alternative_reading": "loglinear",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Adjusted prevalence ratios (aPRs) and CIs were calculated to examine the associations between sociodemographic characteristics and current and binge drinking"
+    },
+    {
+     "loc": "table 1",
+     "q": "Model includes age, race/ethnicity, education, employment status, and marital status."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "aPR CIs excluding 1 support 'significantly higher' and 'more likely' claims; CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "reported a significantly higher prevalence of current drinking (18.5%) than did Hispanics, who had the lowest prevalence (8.9%; aPR = 2.0)"
+    },
+    {
+     "loc": "table 1",
+     "q": "Marital status › Not married › 2.2 (1.6–3.0)"
+    }
+   ]
+  },
+  {
+   "name": "suppression of estimates with relative standard error >0.3",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "relative-SE rule withholds or flags imprecise estimates",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimate suppressed because the relative standard error is >0.3."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "married women (and each characteristic's referent level)",
+  "across": [
+   "marital status",
+   "age group",
+   "race/ethnicity",
+   "education",
+   "employment status"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Women who were not married were more likely to drink alcohol and binge drink during pregnancy than were married women."
+   },
+   {
+    "loc": "text",
+    "q": "who were not married (15.2%) was nearly double that among those who were married (8.6%; aPR = 2.2)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Prevalences and 95% confidence intervals (CIs) for current drinking and binge drinking by pregnant women were estimated overall and by sociodemographic characteristics"
+   }
+  ]
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity › Hispanic › Referent"
+    },
+    {
+     "loc": "text",
+     "q": "reported a significantly higher prevalence of current drinking (18.5%) than did Hispanics, who had the lowest prevalence (8.9%; aPR = 2.0)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group (yrs) › 35–44 › Referent"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Education › High school diploma or less › Referent"
+    }
+   ]
+  }
+ ],
+ "primary_measures": [
+  {
+   "v": "prevalence, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimated prevalences* and adjusted prevalence ratios (aPRs) of current drinking † and binge drinking §"
+    }
+   ]
+  },
+  {
+   "v": "aPR",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "aPR ¶ (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "average frequency and intensity of binge drinking",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among pregnant women who reported binge drinking in the past 30 days, the average frequency was 4.5 (CI = 3.1–5.9) episodes"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "with SUDAAN (version 11.0; RTI International) to account for the complex sampling method used in BRFSS."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Model includes age, race/ethnicity, education, employment status, and marital status."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age, race/ethnicity, education, employment status, and marital status",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Model includes age, race/ethnicity, education, employment status, and marital status."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "What is the prevalence of current and binge drinking among pregnant women aged 18–44 years, and how does it vary by sociodemographic characteristics?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC estimated the prevalence of self-reported current drinking (at least one alcohol drink in the past 30 days) and binge drinking"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "alcohol use during pregnancy",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Consumption of Alcohol Beverages and Binge Drinking Among Pregnant Women Aged 18–44 Years"
+    }
+   ]
+  },
+  {
+   "v": "binge drinking",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Consumption of Alcohol Beverages and Binge Drinking Among Pregnant Women Aged 18–44 Years"
+    }
+   ]
+  },
+  {
+   "v": "pregnancy",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Consumption of Alcohol Beverages and Binge Drinking Among Pregnant Women Aged 18–44 Years"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "BRFSS is a random-digit–dialed landline and cellphone telephone survey that measures behavioral risk factors"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using 2015–2017 data from the Behavioral Risk Factor Surveillance System (BRFSS)."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using 2015–2017 data from the Behavioral Risk Factor Surveillance System (BRFSS)."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "6,814 pregnant women aged 18–44 years from all 50 states and the District of Columbia."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Unmarried vs married drinking is quantified (nearly double, aPR 2.2) and explained by financial stress of sole providers and lack of social support; race and education contrasts appear with aPRs but are not interpreted.",
+  "level_confidence": "low",
+  "level_alternative": {
+   "level": 2,
+   "reason": "If marital status is not treated as a social position, the SPD contrasts (race, education, employment) are only reported with aPRs and not framed or discussed."
+  },
+  "dimensions": [
+   {
+    "v": "other",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Women who were not married were more likely to drink alcohol and binge drink during pregnancy than were married women."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "reported a significantly higher prevalence of current drinking (18.5%) than did Hispanics, who had the lowest prevalence (8.9%; aPR = 2.0)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Model includes age, race/ethnicity, education, employment status, and marital status."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education",
+     "employment status"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "estimated overall and by sociodemographic characteristics (age group, race/ethnicity, education, employment status, and marital status)."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "education",
+     "employment status"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Model includes age, race/ethnicity, education, employment status, and marital status."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Among Pregnant Women Aged 18–44 Years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group (yrs) › 35–44 › Referent"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Among Pregnant Women Aged 18–44 Years"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "financial stress of being the sole provider; lack of social support",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "might be related to the financial stress associated with being the sole provider as well as lack of social support"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Marital status recorded as SPD 'other'; AI/AN, Asian/Pacific Islander and multiracial collapsed into 'other, non-Hispanic'; Black binge-drinking estimates suppressed."
+ },
+ "uncertain_fields": [
+  "equity.level",
+  "equity.dimensions",
+  "outcome_types",
+  "procedures"
+ ],
+ "confidence": "medium",
+ "notes": "Cross-sectional design inferred from the BRFSS survey; not named. The regression model behind aPRs is not named. Comparisons with 2011–2013 estimates are cited from an earlier report.",
+ "view_issues": null
+}

@@ -1,0 +1,376 @@
+{
+ "id": "mm6632a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrgq329aKa8PKu3xq",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "awareness increased from 73.8% to 84.6%, treatment increased from 61.3% to 77.2%, and control of hypertension increased from 28.5% to 48.3%"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2007–2014, in Los Angeles County, approximately 300,000 adults were unaware of their hypertension"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During 2007–2014 the age-adjusted prevalence of hypertension among adults was significantly lower in Los Angeles County (23.1%) than in the United States (29.6%)."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Hypertension prevalence estimates were age-adjusted by the direct method to the 2000 U.S. Census population"
+    },
+    {
+     "loc": "text",
+     "q": "younger age groups in Los Angeles County had significantly lower prevalences of hypertension compared with their U.S. counterparts"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "'age-adjusted by the direct method to the 2000 U.S. Census population'; awareness/treatment/control standardized to NHANES 2007–2008 hypertensive subpopulation",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Hypertension prevalence estimates were age-adjusted by the direct method to the 2000 U.S. Census population"
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (NHANES examination sample weights, complex design)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "examination sample weights used for all estimates; software accounting for complex sample design",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "For all estimates, examination sample weights were used; analyses were performed using statistical software to account for the complex sample design."
+    }
+   ]
+  },
+  {
+   "name": "two-sided t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "univariate two-sided t-statistic with combined SE accounting for LA–US correlation; Taylor series SEs",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "evaluated by examining p-values calculated using a univariate two-sided t-statistic, with the combined standard error accounting for the correlation"
+    }
+   ]
+  },
+  {
+   "name": "flagging/suppression of unreliable estimates (RSE >30%, minimum sample size)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "RSE >30% flagged; estimates with n below minimum withheld",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates with a relative standard error >30% were designated as potentially unreliable and should be interpreted with caution."
+    },
+    {
+     "loc": "table 1",
+     "q": "Statistical reliability criteria not met because sample size (n = 17) was less than the required minimum."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": "United States; Healthy People 2020 goals (prevalence ≤26.9%, control ≥61.2%)",
+  "across": [
+   "Los Angeles County vs United States",
+   "period (1999–2006 vs 2007–2014)",
+   "sex",
+   "age group",
+   "race/ethnicity"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During 2007–2014 the age-adjusted prevalence of hypertension among adults was significantly lower in Los Angeles County (23.1%) than in the United States (29.6%)."
+   },
+   {
+    "loc": "text",
+    "q": "continued progress is needed to meet the Healthy People 2020 goal of ≥61.2% for control of hypertension."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Standard errors of prevalences were estimated using Taylor series linearization and 95% confidence intervals were constructed using Korn and Graubard’s method"
+   },
+   {
+    "loc": "text",
+    "q": "All differences reported are statistically significant (p<0.05). No adjustments were made for multiple comparisons."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted prevalence (%)",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Hypertension Prevalence, Awareness, Treatment, and Control Among Adults Aged ≥18 Years"
+    }
+   ]
+  },
+  {
+   "v": "% aware, treated, controlled (age-adjusted)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimates for awareness, treatment, and control of hypertension were age-adjusted using the subpopulation of persons who have hypertension"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did hypertension prevalence, awareness, treatment, and control among adults in Los Angeles County compare with the United States and change from 1999–2006 to 2007–2014?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Data from the National Health and Nutrition Examination Survey (NHANES) were used to estimate the prevalence of hypertension, as well as awareness"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "hypertension",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Hypertension Prevalence, Awareness, Treatment, and Control Among Adults Aged ≥18 Years"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NHANES is a cross-sectional survey designed to monitor the health and nutritional status of the civilian noninstitutionalized U.S. population"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Statistically significant (p<0.05) differences in awareness, treatment, and control of hypertension from 1999–2006 to 2007–2014 in both Los Angeles County and the United States."
+    }
+   ]
+  },
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the Healthy People 2020 goal for control of hypertension has not been met."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the National Health and Nutrition Examination Survey (NHANES) were used to estimate the prevalence of hypertension"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Health and Nutrition Examination Survey (NHANES)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the National Health and Nutrition Examination Survey (NHANES) were used to estimate the prevalence of hypertension"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Los Angeles County compared with adults aged ≥18 years in the United States during 1999–2006 and 2007–2014"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Race/ethnicity, age and sex-specific estimates are reported with significance marks and described (e.g., Black adults higher prevalence), but no disparity is framed or quantified as a difference or ratio.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The text states Black adults had significantly higher prevalence than Mexican American and White adults, which could be read as an interpreted disparity, though no contrast is computed."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "non-Hispanic black adults had a significantly higher prevalence of hypertension compared with both Mexican American adults and non-Hispanic white adults"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "a higher percentage of women than men reported taking antihypertensive medication in Los Angeles County (83.3% versus 71.8%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "the prevalence of hypertension among adults increased with age"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Hypertension prevalence estimates were age-adjusted by the direct method to the 2000 U.S. Census population"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Hypertension Prevalence, Awareness, Treatment, and Control Among Adults Aged ≥18 Years"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity reported for three groups only (non-Hispanic white, non-Hispanic black, Mexican American); pairwise significance marks with varying referents; LA estimates for ages 18–39 suppressed for awareness/treatment/control."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "pairwise (all pairs)",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Significantly different from age group 18–39 years."
+    },
+    {
+     "loc": "table 1",
+     "q": "Significantly different from age group 40–59 years."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "pairwise (all pairs)",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Significantly different from non-Hispanic white adults."
+    },
+    {
+     "loc": "table 1",
+     "q": "Significantly different from non-Hispanic black adults."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "study_design",
+  "groupwise",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Korn-Graubard CIs and Taylor series SEs are reported; conclusions rest on t-tests with no multiple-comparison adjustment. Healthy People 2020 goals serve as a referent for prevalence and control claims. ACS population counts are used only to compute adult counts.",
+ "view_issues": "Table LA Mexican American hypertension cell reads '†.§§' (likely '†,§§'). Text gives LA 40–59 prevalence 22.5%, table 22.6%."
+}

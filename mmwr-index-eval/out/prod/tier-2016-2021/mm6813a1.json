@@ -1,0 +1,401 @@
+{
+ "id": "mm6813a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPys4QANGMUqJDdfQB7",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Crude rates per 100,000 population per year were calculated using U.S. Census bridged-race resident population estimates."
+    },
+    {
+     "loc": "summary",
+     "q": "The estimated nonfatal assault rate increased 75.4% among men (2002–2016) and 35.4% among women (2007–2016)."
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Most (86.6%) nonfatal assaults were related to being intentionally struck or hit (e.g., with hand, foot, or object)."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The estimated overall average annual nonfatal assault rate and the observed average annual homicide rate"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Compared with women, men experienced higher rates of both nonfatal assaults (107.8 versus 50.4 per 100,000) and homicides (3.16 versus 1.53)."
+    },
+    {
+     "loc": "summary",
+     "q": "The estimated nonfatal assault rate increased 75.4% among men (2002–2016) and 35.4% among women (2007–2016)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "joinpoint regression (APC)",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "joinpoint regression giving annual percentage changes, which imply a log-linear model of rates over year",
+   "role": "primary",
+   "alternative_reading": "linear: joinpoint by default fits least squares to log rates",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Joinpoint § (version 4.6.0; National Cancer Institute) regression was used to model rates ¶ and test trend significance."
+    },
+    {
+     "loc": "table 1",
+     "q": "** Statistically significant regression results (p<0.05)."
+    }
+   ]
+  },
+  {
+   "name": "NEISS-AIP sample weighting (inverse probability of selection)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated weights producing national nonfatal estimates",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "data are weighted by the inverse probability of selection to produce national estimates"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": null,
+  "across": [
+   "year",
+   "sex",
+   "age group"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The estimated nonfatal assault rate increased 75.4% among men (2002–2016) and 35.4% among women (2007–2016)."
+   },
+   {
+    "loc": "text",
+    "q": "Compared with women, men experienced higher rates of both nonfatal assaults (107.8 versus 50.4 per 100,000) and homicides (3.16 versus 1.53)."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Joinpoint § (version 4.6.0; National Cancer Institute) regression was used to model rates ¶ and test trend significance."
+   },
+   {
+    "loc": "table 1",
+    "q": "Average annual rate † (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "rate per 100,000",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "¶ Rate per 100,000 population."
+    }
+   ]
+  },
+  {
+   "v": "average annual rate",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Average annual rate † (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "APC",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Annual percentage change estimates indicate magnitude and direction of trends across the study period."
+    }
+   ]
+  },
+  {
+   "v": "overall % change in modeled rate",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Overall % change in modeled rate range ¶"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Joinpoint § (version 4.6.0; National Cancer Institute) regression was used to model rates ¶ and test trend significance."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Joinpoint regression analysis was used to determine annual percentage change (APC) with statistically significant trend and significant joinpoints."
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did rates of nonfatal assaults and homicides among U.S. adults aged ≥60 years change during 2002–2016, by sex and age group?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC analyzed rates of nonfatal assaults and homicides against older adults during 2002–2016."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "nonfatal assault injury",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Nonfatal Assaults and Homicides Among Adults Aged ≥60 Years — United States, 2002–2016"
+    }
+   ]
+  },
+  {
+   "v": "homicide",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Homicides were limited to injury deaths with International Classification of Diseases, Tenth Revision underlying cause of death codes X85–Y09, Y87.1, and U01–U02."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed rates of nonfatal assaults and homicides against older adults during 2002–2016."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Fifteen-year trends in nonfatal assaults and homicides among adults aged ≥60 years were examined"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "data from the NEISS-AIP system, operated by the U.S. Consumer Product Safety Commission in collaboration with CDC, were analyzed."
+    },
+    {
+     "loc": "text",
+     "q": "NVSS data were used to analyze homicide trends."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Electronic Injury Surveillance System–All Injury Program (NEISS-AIP)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "National Electronic Injury Surveillance System–All Injury Program (NEISS-AIP)"
+    }
+   ]
+  },
+  {
+   "v": "National Vital Statistics System (NVSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "and the National Vital Statistics System (NVSS)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Nonfatal Assaults and Homicides Among Adults Aged ≥60 Years — United States, 2002–2016"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Results are by age and sex only, without social-position framing; race/ethnicity appears only in the limitations, with cited homicide rates and structural causes of racial inequities.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 2,
+   "reason": "Older adults are framed as vulnerable, and race-specific homicide rates are reported, though they come from online data in a limitation."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Nonfatal Assaults and Homicides Among Adults Aged ≥60 Years — United States, 2002–2016"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Trends were analyzed using SAS (version 9.4; SAS Institute) and were stratified by 10-year age groups (60–69, 70–79, and ≥80 years)."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Compared with women, men experienced higher rates of both nonfatal assaults (107.8 versus 50.4 per 100,000) and homicides (3.16 versus 1.53)."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "trends in nonfatal assault cases could not be examined by race/ethnicity because of substantial missing race/ethnicity data in NEISS-AIP"
+     },
+     {
+      "loc": "text",
+      "q": "Among older adults, 2002–2016 average crude homicide rates were highest among non-Hispanic blacks, non-Hispanic American Indian/Alaskan Natives, and Hispanics."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "residential segregation; concentrated disadvantage; limited educational and employment opportunities; systemic inequities",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "can result from disproportional exposure to residential segregation, concentrated disadvantage, limited educational and employment opportunities"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity is missing in NEISS-AIP; race-specific homicide rates are cited from WISQARS in the limitations only. Age groups are 10-year bands within ≥60 years."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age",
+    "sex"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "On average, the highest rates of nonfatal assaults (147.4) and homicides (3.58) were perpetrated against men aged 60–69 years."
+    },
+    {
+     "loc": "text",
+     "q": "The nonfatal assault rate was lowest among women aged 70–79 years (36.0), and the homicide rate was lowest among women aged 60–69 years (1.40)."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "outcome_types"
+ ],
+ "confidence": "medium",
+ "notes": "The significance marks on APCs come from the joinpoint model, not from a separate test. CIs for the average annual rates are shown, but no conclusion rests on them. Race-specific homicide rates in the Discussion come from WISQARS online data and are treated as context.",
+ "view_issues": "The table CSV repeats average annual rates across the joinpoint segment rows (merged cells expanded)."
+}
