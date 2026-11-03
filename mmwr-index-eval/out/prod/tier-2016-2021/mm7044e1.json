@@ -1,0 +1,435 @@
+{
+ "id": "mm7044e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyt99XGfcAn1KWSgMQ",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Laboratory-confirmed SARS-CoV-2 infection was identified among 324 (5.1%) of 6,328 fully vaccinated persons and among 89 of 1,020 (8.7%) unvaccinated, previously infected persons."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Laboratory-confirmed SARS-CoV-2 infection was identified among 324 (5.1%) of 6,328 fully vaccinated persons and among 89 of 1,020 (8.7%) unvaccinated, previously infected persons."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "aORs were stratified by mRNA vaccine product and age group."
+    },
+    {
+     "loc": "text",
+     "q": "adjusted for age, geographic region, calendar time (days from January 1 to hospitalization), and local virus circulation"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multivariable logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'multivariable logistic regression' giving aORs → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "aORs and 95% CIs were calculated using multivariable logistic regression"
+    }
+   ]
+  },
+  {
+   "name": "inverse propensity score weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "models 'weighted based on propensity to be in the vaccinated category'; inverse weights balance characteristics",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "weighted based on propensity to be in the vaccinated category"
+    },
+    {
+     "loc": "table 2",
+     "q": "balanced using inverse weights on characteristics that differed between the two groups (calculated separately for each odds ratio model)"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based CIs from the stated logistic regression; aOR CI excludes 1 and the conclusion of greater protection rests on it",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "(95% confidence interval = 2.75–10.99)"
+    },
+    {
+     "loc": "text",
+     "q": "vaccine-induced immunity was more protective than infection-induced immunity against laboratory-confirmed COVID-19"
+    }
+   ]
+  },
+  {
+   "name": "standardized mean or proportion difference (covariate balance check)",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "balance diagnostic between exposure groups with a >0.2 threshold, before and after weighting",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "a standardized mean or proportion difference >0.2 was considered noteworthy"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "fully vaccinated without previous documented infection",
+  "across": [
+   "source of immunity (previous infection vs mRNA vaccination)",
+   "mRNA vaccine product",
+   "age group",
+   "Delta predominance period"
+  ],
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "Fully vaccinated † without previous documented infection"
+   },
+   {
+    "loc": "summary",
+    "q": "the adjusted odds of laboratory-confirmed COVID-19 among unvaccinated adults with previous SARS-CoV-2 infection were 5.49-fold higher"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "aORs and 95% CIs were calculated using multivariable logistic regression"
+   },
+   {
+    "loc": "text",
+    "q": "p-values <0.2 were considered indicative of a statistically significant difference in aOR by product or age"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "aOR",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "(adjusted odds ratio [aOR] = 5.49; 95% confidence interval [CI] = 2.75–10.99)"
+    }
+   ]
+  },
+  {
+   "v": "row % of SARS-CoV-2 positive test results",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "No. (row %) of SARS-CoV-2 positive test results"
+    }
+   ]
+  },
+  {
+   "v": "standardized mean or proportion difference",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Standardized mean or proportion difference"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusted for age, geographic region, calendar time (days from January 1 to hospitalization), and local virus circulation"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age, geographic region, calendar time, local virus circulation; propensity weights on facility, sociodemographic characteristics and underlying medical conditions; some models add cardiovascular disease, immunosuppression, neuromuscular and respiratory conditions",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusted for age, geographic region, calendar time (days from January 1 to hospitalization), and local virus circulation"
+    },
+    {
+     "loc": "table 2",
+     "q": "using facility characteristics, sociodemographic characteristics, and underlying medical conditions"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the interaction term for exposure group by age indicated that the aOR was higher for patients aged ≥65 years (aOR = 19.57)"
+    },
+    {
+     "loc": "table 2",
+     "q": "P-value from assessment of effect modification by mRNA product was 0.02."
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Three secondary analyses were also conducted."
+    },
+    {
+     "loc": "text",
+     "q": "Then, number of days since previous infection or completion of vaccination, rather than calendar time, was adjusted in the model."
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "Among adults hospitalized with COVID-19–like illness, do odds of laboratory-confirmed COVID-19 differ between unvaccinated previously infected and fully mRNA-vaccinated adults 90–179 days after infection or vaccination?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To compare the early protection against COVID-19 conferred by SARS-CoV-2 infection and by receipt of mRNA COVID-19 vaccines"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Laboratory-Confirmed COVID-19 Among Adults Hospitalized with COVID-19–Like Illness"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "with Infection-Induced or mRNA Vaccine-Induced SARS-CoV-2 Immunity"
+    }
+   ]
+  },
+  {
+   "v": "previous SARS-CoV-2 infection",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Adults were considered unvaccinated with a previous SARS-CoV-2 infection if no COVID-19 vaccine doses were received"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19–like illness",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Among Adults Hospitalized with COVID-19–Like Illness"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "test-negative",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "compared the odds of receiving a positive SARS-CoV-2 test result, and thus having laboratory-confirmed COVID-19"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the VISION Network collected data from 187 hospitals across nine states during January–September 2021"
+    }
+   ]
+  },
+  {
+   "v": "vaccination registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Vaccination status was documented in electronic health records and immunization registries."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "VISION Network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC used data from the VISION Network"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Nine States, January–September 2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "effectiveness",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "vaccine-induced immunity was more protective than infection-induced immunity against laboratory-confirmed COVID-19"
+   }
+  ]
+ },
+ "equity": {
+  "level": 1,
+  "level_reason": "Race and ethnicity appear only as Table 1 descriptors and among sociodemographic characteristics in the propensity weights; age is a covariate and a two-level stratifier without social-position framing.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 0,
+   "reason": "The sociodemographic weighting variables are not itemized, so race/ethnicity may be only a descriptor alongside age and sex."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Hospitalized adults aged ≥18 years with COVID-19–like illness were included"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Odds ratios were adjusted for age, geographic region, calendar time"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "aORs were stratified by mRNA vaccine product and age group."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "A higher proportion of previously infected than vaccinated patients were aged 18–49 years (31% versus 9%), Black (10% versus 7%), and Hispanic"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Established methods were used to calculate weights to account for differences in sociodemographic and health characteristics between groups"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race and ethnicity recorded separately; Asian, NH/PI, AI/AN and multiple races collapsed into Other; race unknown for 13–20%."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "study_design",
+  "groupwise"
+ ],
+ "confidence": "high",
+ "notes": "Design not named; test-negative inferred from comparing odds of a positive test among CLI hospitalizations (retrospective cohort also defensible). Effect-modification p-values are model terms, recorded under interaction_modeled. Table 1 SMDs across 5 age and 4 race levels are balance diagnostics, not tests, so no groupwise entry.",
+ "view_issues": "Delta periods overlap in June (before: January–June; during: June–September). Product-specific rows reuse all 1,020 previously infected patients. Prepass diagnostic_accuracy and standard_error cues are false hits."
+}

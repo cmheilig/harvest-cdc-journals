@@ -1,0 +1,458 @@
+{
+ "id": "mm6853a1",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The prevalence of gastrointestinal and respiratory illness in the past 2 weeks was 5% and 13%, respectively."
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "children in the lowest income bracket (<$35,000) missed a mean of 0.5–0.8 more days compared with children in other income brackets"
+    },
+    {
+     "loc": "text",
+     "q": "number of days (reported as an integer) absent in the last year"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Sixty-nine percent of children missed ≥1 day of school in the previous year"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Children living below the poverty level were significantly less likely to have missed school during the past year (65% versus 71%)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Adjusting for age, sex, and year of survey, children in the lowest income bracket were 3%–12%"
+    },
+    {
+     "loc": "table 2",
+     "q": "Adjusted for age and sex of child, as well as year of data collection."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey-weighted logistic regression (prevalence ratios)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'linear and logistic regression models' stated; binary outcomes reported as PR/aPR → logistic as stated",
+   "role": "primary",
+   "alternative_reading": "loglinear: reported estimates are prevalence ratios, typical of log-binomial or Poisson models",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "compare school absenteeism, illness, and income using linear and logistic regression models, unadjusted and adjusted for age and sex"
+    },
+    {
+     "loc": "table 2",
+     "q": "aPR = adjusted prevalence ratio"
+    }
+   ]
+  },
+  {
+   "name": "survey-weighted linear regression (difference in mean days absent)",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "table note 'Est = estimate (from linear regression)' for mean days absent → linear",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "aEst = adjusted estimate (from linear regression)"
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (complex sample design)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated weighting and complex design of NHIS in R",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was used account for the complex sample design and weighting of the survey"
+    },
+    {
+     "loc": "table 1",
+     "q": "Data are presented as the unweighted number of respondents (N) and weighted percentage (%)"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based CIs from the survey-weighted regressions; PR CIs including 1 read as not different",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "comparisons with the $50,000–$74,999 and >$100,000 income brackets were not statistically different."
+    },
+    {
+     "loc": "text",
+     "q": "P-values <0.05 were considered statistically significant."
+    }
+   ]
+  },
+  {
+   "name": "NHIS multiple imputation of income",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "NHIS-imputed income files used for income brackets; imputation method not stated",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NHIS-imputed income files were used to present estimates by income brackets"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "both",
+  "referent": "income <$35,000; below federal poverty level",
+  "across": [
+   "annual family income",
+   "federal poverty level status"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "parents of children from low-income households were more likely to report recent childhood gastrointestinal and respiratory illnesses than were higher income parents."
+   },
+   {
+    "loc": "table 2",
+    "q": "Estimated difference from reference."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "18%–31% (95% CIs ranged from 2%–39%) more likely to have had a recent gastrointestinal illness."
+   },
+   {
+    "loc": "text",
+    "q": "P-values <0.05 were considered statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "weighted percentage (%)"
+    }
+   ]
+  },
+  {
+   "v": "PR",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "PR = prevalence ratio"
+    }
+   ]
+  },
+  {
+   "v": "aPR",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "aPR = adjusted prevalence ratio"
+    }
+   ]
+  },
+  {
+   "v": "mean days absent",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "weighted mean and standard deviation presented"
+    }
+   ]
+  },
+  {
+   "v": "estimated difference (Est, aEst)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Estimated difference from reference."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was used account for the complex sample design and weighting of the survey"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "linear and logistic regression models, unadjusted and adjusted for age and sex of the child and year of survey."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted for age and sex of child, as well as year of data collection."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age and sex of child, year of survey",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted for age and sex of child, as well as year of data collection."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Are school absenteeism and recent gastrointestinal and respiratory illness among U.S. school-aged children associated with family income?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "data on school absenteeism and gastrointestinal and respiratory illnesses in the United States during 2010–2016 were analyzed to examine their associations with income."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "gastrointestinal illness",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Associations Among School Absenteeism, Gastrointestinal and Respiratory Illness, and Income"
+    }
+   ]
+  },
+  {
+   "v": "respiratory illness (cold)",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "gastrointestinal illness or respiratory illness (occurrence of a cold) during the 2 weeks preceding the interview."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NHIS is an annual, national household survey on the health of the civilian noninstitutionalized U.S. population"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the 2010–2016 NHIS ( 1 ) were obtained from IPUMS Health Surveys"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Health Interview Survey (NHIS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "National Health Interview Survey (NHIS) data on school absenteeism"
+    }
+   ]
+  },
+  {
+   "v": "IPUMS Health Surveys",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were obtained from IPUMS Health Surveys"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Income — United States, 2010–2016"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Illness and absenteeism are compared across income and poverty groups with quantified PRs and mean differences, interpreted, and specific determinants (access to preventive care, lack of paid sick leave) are offered as explanations.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The determinants are offered speculatively ('could explain') in the Discussion and the word disparity is not used."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "primary comparison",
+    "ses_components": [
+     "family income",
+     "federal poverty level"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Results were similar when comparing children living below the federal poverty level with those at or above it."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "linked to information about the school-aged child (5–17 years)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Adjusted for age and sex of child, as well as year of data collection."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Adjusted for age and sex of child, as well as year of data collection."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "lack of access to preventive health care; lack of paid sick leave",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Multiple barriers faced by children in low-income households could explain these findings, including lack of access to preventive health care"
+    },
+    {
+     "loc": "text",
+     "q": "low-income parents might not have the opportunities (e.g., paid sick leave from work) to be able to implement this."
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referent is the lowest income bracket (<$35,000) or below FPL; income from NHIS multiply imputed files; poverty status has more missing values than income."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "PR (95% CI),Referent,1.03 (1.01 to 1.05),1.06 (1.04 to 1.09),1.10 (1.08 to 1.13),1.12 (1.10 to 1.14)"
+    },
+    {
+     "loc": "text",
+     "q": "Prevalence of gastrointestinal and respiratory illnesses (queried for the 2 weeks preceding the survey) increased as income decreased."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "outcome_types",
+  "procedures",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred as cross-sectional from the NHIS survey; not named. Days absent (an integer count) analyzed as means with linear regression is recorded as count/rate per the brief. Days-missed results among ill children by income are said to be significant in 'final model risk ratios' not shown in the tables.",
+ "view_issues": "Methods state logistic regression but tables report prevalence ratios (PR/aPR), not ORs; text also calls them risk ratios. Table 1 '<$34,999' vs Table 2 '<$35,000' label mismatch."
+}

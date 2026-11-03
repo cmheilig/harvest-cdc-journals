@@ -1,0 +1,458 @@
+{
+ "id": "mm6604a5",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrrW1QSF48aoEWKJa",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During 2007–2015, daily soda consumption among U.S. high school students decreased significantly from 33.8% to 20.4%."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percentage of high school students who drink soda, milk, and juice daily by sex, grade, race/ethnicity, and free/reduced price lunch eligibility"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "overall prevalence of daily soda consumption remains high."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During 2007–2015, daily soda consumption among U.S. high school students decreased significantly from 33.8% to 20.4%."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Logistic regression analyses were used to assess linear and quadratic trends during 2007–2015 adjusting for grade, sex, race/ethnicity, and FRPL eligibility."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "logistic regression for linear and quadratic trends (and segment-specific linear trends)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Logistic regression analyses' of daily vs non-daily consumption on survey year → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Logistic regression analyses were used to assess linear and quadratic trends during 2007–2015 adjusting for grade, sex, race/ethnicity, and FRPL eligibility."
+    },
+    {
+     "loc": "text",
+     "q": "Logistic regression models were then used again to assess the linear trends occurring in each segment"
+    }
+   ]
+  },
+  {
+   "name": "joinpoint (inflection point location)",
+   "class": "regression",
+   "regression_family": "other",
+   "inferred_from": "Joinpoint software is segmented regression; the model scale is not stated and it only locates the inflection year → other",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "When a significant quadratic trend was detected, the software Joinpoint † was used to determine the year in which the trend changed direction"
+    }
+   ]
+  },
+  {
+   "name": "survey weighting with complex survey design",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "'weighted to provide national estimates' and software accounting for the complex survey design",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from each survey were weighted to provide national estimates."
+    },
+    {
+     "loc": "text",
+     "q": "Statistical software was used to account for the complex survey design of the YRBS."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "survey year",
+   "school grade",
+   "sex",
+   "race/ethnicity",
+   "school-level FRPL eligibility"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During 2007–2011, daily milk and juice consumption did not significantly change, and then during 2011–2015 daily milk and juice consumption decreased significantly"
+   },
+   {
+    "loc": "table 1",
+    "q": "Based on linear and quadratic trend analyses using logistic regression models controlling for grade, sex, race/ethnicity, and FRPL p <0.05."
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "Based on linear and quadratic trend analyses using logistic regression models controlling for grade, sex, race/ethnicity, and FRPL p <0.05."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percentage of high school students who drink soda, milk, and juice daily"
+    }
+   ]
+  },
+  {
+   "v": "linear and quadratic change (significant at p <0.05)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Linear change › 2007–2015 §"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Statistical software was used to account for the complex survey design of the YRBS."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Logistic regression analyses were used to assess linear and quadratic trends during 2007–2015 adjusting for grade, sex, race/ethnicity, and FRPL eligibility."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "grade, sex, race/ethnicity, and FRPL eligibility",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "logistic regression models controlling for grade, sex, race/ethnicity, and FRPL"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Did the prevalence of daily soda, milk and 100% juice consumption among U.S. high school students change during 2007–2015, overall and by subgroup?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to assess whether the prevalence of drinking non-diet soda or pop (soda), milk, and 100% fruit juice (juice) has significantly changed over time"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "soda consumption",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "daily soda consumption among U.S. high school students decreased significantly from 33.8% to 20.4%."
+    }
+   ]
+  },
+  {
+   "v": "milk consumption",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "during 2011–2015 daily milk and juice consumption decreased significantly from 44.4% to 37.5%"
+    }
+   ]
+  },
+  {
+   "v": "100% fruit juice consumption",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "during 2011–2015 daily milk and juice consumption decreased significantly from 44.4% to 37.5% and from 28.2% to 21.6%"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The national YRBS is a biennial cross-sectional, school-based survey"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Logistic regression analyses were used to assess linear and quadratic trends during 2007–2015"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2007–2015 national Youth Risk Behavior Surveys (YRBS)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "national Youth Risk Behavior Survey (YRBS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2007–2015 national Youth Risk Behavior Surveys (YRBS)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Trends in Beverage Consumption Among High School Students — United States, 2007–2015"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Trends and prevalences are reported by race/ethnicity and school-level FRPL eligibility and described, but no disparity is framed or quantified; FRPL is motivated by income's role in diet without a computed contrast.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Group-specific results are per-group time trends; SPD groups are never compared with each other, so SPDs could be read as stratifiers/covariates only."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Prevalence estimates were computed overall and by school grade (9, 10, 11, 12), sex (male, female), and race/ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "logistic regression models controlling for grade, sex, race/ethnicity, and FRPL"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "school-level free and reduced-price lunch eligibility"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "a school-level variable, the percentage (low, middle, high*) of students in each school with free and reduced-price lunch (FRPL) eligibility"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "school-level free and reduced-price lunch eligibility"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "adjusting for grade, sex, race/ethnicity, and FRPL eligibility."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Prevalence estimates were computed overall and by school grade (9, 10, 11, 12)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "representative data on health behaviors among students in grades 9–12"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "sex (male, female)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "logistic regression models controlling for grade, sex, race/ethnicity, and FRPL"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "SES is a school-level proxy (tertiles of FRPL-eligible percentage), not student income; other and multiple race groups excluded for small numbers; grade used as age proxy."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among students in grade 12 and black students, daily milk consumption did not significantly change during 2007–2015."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among students in schools with high FRPL eligibility, daily juice consumption decreased significantly during 2007–2015."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence estimates were computed overall and by school grade (9, 10, 11, 12)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise",
+  "equity.level",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Trend tests are run within each subgroup; no test compares trends or levels across SPD groups, so groupwise entries are side by side only. Discussion attributes the soda decline to Smart Snacks standards and school policies, an overall-trend explanation not tied to social position.",
+ "view_issues": "article_type 'outbreak_report' is wrong (survey trend report). Figures differ between the Summary/Table and the intro paragraph (soda 20.4% vs 20.5%; milk 44.4/37.5 vs 44.3/37.4; juice 28.2% vs 27.2%)."
+}

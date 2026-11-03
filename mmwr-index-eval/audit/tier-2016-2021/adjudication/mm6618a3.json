@@ -1,0 +1,9 @@
+{"id": "mm6618a3",
+ "fields": [
+  {"field": "groupwise_any", "verdict": "true", "correct": ["A"], "category": "reader error", "why": "The Table reports aORs for six county urbanization levels and four race/ethnicity groups, each against a stated referent; both look groupwise."},
+  {"field": "groupwise_dims", "verdict": "[\"race/ethnicity\", \"rurality\"]", "correct": ["A"], "category": "reader error", "why": "Race/ethnicity (4 groups, white referent) and NCHS urban-rural class (6 levels, large central metro referent) are the SPDs with 3+ groups compared; education and marital status are dichotomous."},
+  {"field": "groupwise_assessments", "verdict": "[\"per-group vs referent only\"]", "correct": ["A"], "category": "reader error", "why": "No omnibus or trend test is reported; each level is assessed only by its aOR (95% CI) against the referent, so per-group vs referent only with resolves_to_finer true."}
+ ],
+ "justification": {"A": "good", "B": "n/a"},
+ "agreed_errors": [],
+ "brief_issues": "The mechanical flag (quote not found) hits table-label quotes in the brief's 'Group › level: value' form (e.g. 'Classification of residence county* › Large central metro: referent'), which rule 6 allows; the checker should accept that form."}

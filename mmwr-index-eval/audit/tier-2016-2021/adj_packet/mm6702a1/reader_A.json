@@ -1,0 +1,580 @@
+{
+ "id": "mm6702a1",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "In 2016, 15.5% (37.8 million) of U.S. adults were current cigarette smokers"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2016, 15.5% (37.8 million) of U.S. adults were current cigarette smokers"
+    },
+    {
+     "loc": "text",
+     "q": "The overall quit ratio increased from 50.8% in 2005 to 59.0% in 2016 (p<0.05)."
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "mean number of cigarettes smoked per day declined from 2005 (16.7) to 2016 (14.1) among daily smokers (p-value for trend <0.05)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2016, 15.5% (37.8 million) of U.S. adults were current cigarette smokers"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Current cigarette smoking prevalence was higher among males (17.5%) than among females (13.5%)."
+    },
+    {
+     "loc": "text",
+     "q": "T-tests were performed to examine differences between 2015 and 2016."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Logistic regression was used to assess overall trends in prevalence, cigarettes smoked per day, and quit ratios during 2005–2016"
+    },
+    {
+     "loc": "text",
+     "q": "controlling for sex, age, and race/ethnicity"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated weighting for selection probability and nonresponse; produces every estimate",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted to adjust for differences in the probability of selection and nonresponse and to provide nationally representative estimates."
+    }
+   ]
+  },
+  {
+   "name": "Wald F test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named test for differences between groups",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Differences between groups were assessed using a Wald F test, with statistical significance defined as p<0.05."
+    }
+   ]
+  },
+  {
+   "name": "logistic regression for 2005–2016 trends",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Logistic regression' with trend p-values, controlling for sex, age, race/ethnicity → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Logistic regression was used to assess overall trends in prevalence, cigarettes smoked per day, and quit ratios during 2005–2016"
+    },
+    {
+     "loc": "figure 2",
+     "q": "p-value for trend 2005–2016 adjusted for sex and race/ethnicity: overall: p<0.0001"
+    }
+   ]
+  },
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named t-tests for 2015 vs 2016",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "T-tests were performed to examine differences between 2015 and 2016."
+    },
+    {
+     "loc": "summary",
+     "q": "cigarette smoking prevalence did not change significantly during 2015–2016."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "survey year",
+   "sex",
+   "age group",
+   "race/ethnicity",
+   "education",
+   "poverty status",
+   "U.S. Census region",
+   "health insurance coverage",
+   "disability/limitation",
+   "sexual orientation",
+   "serious psychological distress"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The proportion of U.S. adults who smoke cigarettes declined from 20.9% in 2005 (45.1 million smokers) to 15.5% in 2016"
+   },
+   {
+    "loc": "summary",
+    "q": "Sociodemographic disparities in cigarette smoking persist."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Differences between groups were assessed using a Wald F test, with statistical significance defined as p<0.05."
+   },
+   {
+    "loc": "table 1",
+    "q": "Weighted % (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Weighted % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "population estimate",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Population estimate"
+    }
+   ]
+  },
+  {
+   "v": "quit ratio",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Quit ratios were defined as the ratio of former smokers to ever smokers"
+    }
+   ]
+  },
+  {
+   "v": "mean number of cigarettes smoked per day",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The mean number of cigarettes smoked per day was calculated among daily smokers."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NHIS is an annual, nationally representative in-person survey of the noninstitutionalized U.S. civilian population."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "T-tests were performed to examine differences between 2015 and 2016."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "controlling for sex, age, and race/ethnicity"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "sex, age, and race/ethnicity",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "controlling for sex, age, and race/ethnicity"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "What was the prevalence of current cigarette smoking among U.S. adults in 2016, how did it vary by sociodemographic group, and how did it change since 2005?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess progress toward the Healthy People 2020 target of reducing the proportion of U.S. adults aged ≥18 years who smoke cigarettes"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "cigarette smoking",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Current Cigarette Smoking Among Adults — United States, 2016"
+    }
+   ]
+  },
+  {
+   "v": "smoking cessation",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "increases occurred in the proportion of adult ever smokers who quit smoking (50.8% to 59.0%)."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2016 National Health Interview Survey (NHIS)."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The proportion of U.S. adults who smoke cigarettes declined from 20.9% in 2005 (45.1 million smokers) to 15.5% in 2016"
+    }
+   ]
+  },
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "To assess progress toward the Healthy People 2020 target of reducing the proportion of U.S. adults aged ≥18 years who smoke cigarettes"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2016 National Health Interview Survey (NHIS)."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Health Interview Survey (NHIS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2016 National Health Interview Survey (NHIS)."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "NHIS is an annual, nationally representative in-person survey of the noninstitutionalized U.S. civilian population."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Prevalence is reported by sex, age, race/ethnicity, education, poverty, insurance, disability and sexual orientation and framed as persisting disparities, but contrasts are values side by side with Wald F significance; no difference or ratio is computed, so the cap at 2 holds despite named determinants.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "If tested 'higher than' contrasts count as quantified, the framed disparities plus named determinants (sociocultural norms, marketing, access via insurance, financial resources) reach level 4."
+  },
+  "dimensions": [
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Current cigarette smoking prevalence was higher among males (17.5%) than among females (13.5%)."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "controlling for sex, age, and race/ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "In 2016, the NHIS was administered to 33,028 adults aged ≥18 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "By age group, prevalence was higher among adults aged 25–44 years (17.6%) and 45–64 years (18.0%) than among those aged 18–24 years (13.1%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "controlling for sex, age, and race/ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Prevalence was highest among American Indian/Alaska Natives (31.8%) and lowest among non-Hispanic Asians (9.0%)."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "controlling for sex, age, and race/ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education",
+     "poverty status",
+     "health insurance coverage"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Prevalence was higher among persons living below the poverty level (25.3%) than those at or above this level (14.3%)."
+     },
+     {
+      "loc": "text",
+      "q": "By insurance status, prevalence was higher among Medicaid enrollees (25.3%) and uninsured adults (28.4%) than among those covered by private insurance (11.8%)"
+     }
+    ]
+   },
+   {
+    "v": "disability",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Prevalence was higher among adults with a disability/limitation (21.2%) than among those with no disability/limitation (14.4%)."
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "stratifier",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Prevalence was higher among LGB adults (20.5%) than among heterosexual adults (15.3%)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "sociocultural influences and norms; exposure to tobacco marketing; access to cessation treatments through insurance coverage; lack of financial resources; stressful living conditions",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Racial or ethnic differences might be partly explained by sociocultural influences and norms related to the acceptability of tobacco use"
+    },
+    {
+     "loc": "text",
+     "q": "Variations in access to evidence-based tobacco cessation treatments through insurance coverage might partially explain the differences observed across insurance types"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referent groups are implicit (Wald F tests); education is among adults ≥25 years; Asians exclude NH/OPI and broad race groups may mask subgroups; disability asked of a half sample with its own weight; Census region is geography, not an SPD."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "By age group, prevalence was higher among adults aged 25–44 years (17.6%) and 45–64 years (18.0%) than among those aged 18–24 years (13.1%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence was highest among American Indian/Alaska Natives (31.8%) and lowest among non-Hispanic Asians (9.0%)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 9,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among adults aged ≥25 years, prevalence was highest among persons with a GED (40.6%) and lowest among those with a graduate degree (4.5%)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "By insurance status, prevalence was higher among Medicaid enrollees (25.3%) and uninsured adults (28.4%) than among those covered by private insurance (11.8%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2005–2016, the largest increase in quit ratios occurred among adults aged 25–44 years (from 37.0% to 48.9% [p<0.05])"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise",
+  "equity.level",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "The Healthy People 2020 target (≤12.0%) is stated as the purpose but no claim compares estimates with it, so referent is null. Whether the Wald F test is omnibus or pairwise is not stated; groupwise entries assume omnibus. Design inferred: repeated NHIS cross-sections with a trend headline.",
+ "view_issues": "Logistic regression is stated for the trend in mean cigarettes per day, a continuous outcome. The text uses both 'serious' and 'severe' psychological distress. Table note reads 'obtained used'."
+}

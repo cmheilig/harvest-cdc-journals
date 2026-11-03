@@ -1,0 +1,287 @@
+{
+ "id": "mm6517a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrWQyYmDrCSrFDzkw",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Among the 6.7% of respondents who reported severe vision impairment, 46.7% reported a fall, ranging from 30.8% in Hawaii to 59.1% in California."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among all respondents, 28.9% reported at least one fall in the previous year"
+    },
+    {
+     "loc": "note",
+     "q": "Respondents were dichotomized into either those in the last year who did or those who did not fall."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "found that 28.9% of respondents reported at least one fall in the previous year."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "46.7% of adults aged ≥65 years with severe vision impairment fell, compared with 27.7% of those without severe vision impairment."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The differences were statistically significant in all but six U.S. states (Alaska, Delaware, Hawaii, Idaho, Vermont, and Wisconsin)."
+    },
+    {
+     "loc": "table 1",
+     "q": "Weighted estimates, age adjusted to the 2000 U.S. standard population."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods as the basis of statistically significant differences (p<0.05)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Statistically significant differences (p<0.05) were determined by a chi-square test."
+    }
+   ]
+  },
+  {
+   "name": "direct age standardization (2000 U.S. standard population)",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "age-adjusted prevalences to the 2000 U.S. standard population",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Weighted estimates, age adjusted to the 2000 U.S. standard population."
+    }
+   ]
+  },
+  {
+   "name": "BRFSS survey weighting (selection, nonresponse, poststratification) with SUDAAN",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weights and complex sampling design stated; SUDAAN used",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates were age-adjusted and weighted to account for individual selection probabilities, nonresponse, and poststratification."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": "persons without severe vision impairment",
+  "across": [
+   "severe vision impairment status",
+   "state"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Overall, 46.7% of persons with, and 27.7% of older adults without, self-reported severe vision impairment reported having fallen during the previous year."
+   },
+   {
+    "loc": "table 1",
+    "q": "States without significant difference in falls between those with vision impairment and no vision impairment."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Statistically significant differences (p<0.05) were determined by a chi-square test."
+   },
+   {
+    "loc": "table 1",
+    "q": "% (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted prevalence, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age-adjusted prevalence* of falls among persons aged ≥65 years, by self-reported vision impairment † status and state"
+    }
+   ]
+  },
+  {
+   "v": "weighted number",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Weighted numbers."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What is the state-specific annual prevalence of falls among U.S. adults aged ≥65 years with and without self-reported severe vision impairment?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to estimate the state-specific annual prevalence of falls among persons aged ≥65 years with and without self-reported severe vision impairment."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "falls",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Falls Among Persons Aged ≥65 Years With and Without Severe Vision Impairment"
+    }
+   ]
+  },
+  {
+   "v": "severe vision impairment",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Falls Among Persons Aged ≥65 Years With and Without Severe Vision Impairment"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "A state-based, cross-sectional, telephone survey of noninstitutionalized U.S. adults aged ≥65 years"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2014 Behavioral Risk Factor Surveillance System (BRFSS)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS) 2014",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2014 Behavioral Risk Factor Surveillance System (BRFSS)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "State and national populations and prevalences were estimated."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Age only defines the population (≥65 years) and is used for age adjustment. Severe vision impairment is analyzed as a clinical exposure, not framed as disability as social position or access.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 2,
+   "reason": "If severe vision impairment is read as disability, group-specific fall prevalences by it are reported and described without disparity framing (capped at 2)."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Falls Among Persons Aged ≥65 Years With and Without Severe Vision Impairment"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Weighted estimates, age adjusted to the 2000 U.S. standard population."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Comparison is by self-reported severe vision impairment and state; states are geography, not an SPD. Age adjusted to the 2000 U.S. standard population."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "equity.level",
+  "equity.dimensions"
+ ],
+ "confidence": "high",
+ "notes": "The prepass diagnostic-accuracy cue is a false hit ('contrast sensitivity'). The state range is reported with p<0.001, but it is unclear whether that test is across states or with vs without impairment. Vision impairment is treated as a clinical exposure, not disability as social position.",
+ "view_issues": "The p<0.001 attached to the state ranges does not say which contrast it tests. In the CSV, column headers have inconsistent spacing ('No .§', '% 95% CI')."
+}

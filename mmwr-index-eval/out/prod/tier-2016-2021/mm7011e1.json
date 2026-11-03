@@ -1,0 +1,357 @@
+{
+ "id": "mm7011e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPytgPNvaemnPnaHvkF",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During January–April, COVID-19 incidence ranged from 35 cases per 100,000 among White persons to 163 per 100,000 among AI/AN persons."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Compared with White persons, rates were higher among AI/AN (RR = 4.62), Hispanic (RR = 3.87)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the highest COVID-19 incidence relative to that among White persons was among NH/PI persons of most age groups"
+    },
+    {
+     "loc": "text",
+     "q": "Racial and ethnic disparities were similar in magnitude and direction for both females and males across age groups"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "rate ratio CIs judged against 1.0 for significance; CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rate ratios with 95% CIs excluding 1.0 were considered to be statistically significant."
+    },
+    {
+     "loc": "text",
+     "q": "were approximately equal among multiracial persons (RR = 1.09)."
+    }
+   ]
+  },
+  {
+   "name": "small-cell suppression (<20 cases)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "rate ratios withheld when fewer than 20 cases in a race/ethnicity and age group cell",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "where data were suppressed because of <20 cases being reported for a given race/ethnicity and age group"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "non-Hispanic White persons (race/ethnicity); females (sex); aged 5–9 years (age)",
+  "across": [
+   "race/ethnicity",
+   "period",
+   "age group",
+   "sex"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "RRs with 95% confidence intervals (CIs) comparing rates by race and ethnicity (combined), age, and/or sex overall and for each period were calculated."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Rate ratios with 95% CIs excluding 1.0 were considered to be statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "cases per 100,000 population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Population-based COVID-19 incidence (cases per 100,000 persons) by race and ethnicity, sex, and age was calculated"
+    }
+   ]
+  },
+  {
+   "v": "RR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Compared with White persons, rates were higher among AI/AN (RR = 4.62), Hispanic (RR = 3.87)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did racial and ethnic disparities in COVID-19 incidence among persons aged <25 years vary by age, sex and period during 2020?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "less is known about population-based disparities in infection with SARS-CoV-2, the virus that causes COVID-19."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Racial and Ethnic Disparities in COVID-19 Incidence by Age, Sex, and Period Among Persons Aged <25 Years"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Based on 689,672 U.S. COVID-19 cases reported to CDC’s case-based surveillance system by jurisdictional health departments"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Racial and ethnic disparities in COVID-19 incidence among persons aged <25 years in 16 U.S. jurisdictions evolved during the pandemic."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Based on 689,672 U.S. COVID-19 cases reported to CDC’s case-based surveillance system by jurisdictional health departments"
+    }
+   ]
+  },
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Case surveillance data were received directly from two jurisdictional health departments (Hawaii State Department of Health and New Mexico Department of Health)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "CDC case-based surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using COVID-19 cases reported to CDC’s case-based surveillance system"
+    }
+   ]
+  },
+  {
+   "v": "Data Collation and Integration for Public Health Event Response (DCIPHER)",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Individual-level case report data for COVID-19 cases were accessed through the DCIPHER system on January 27, 2021."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "16 U.S. Jurisdictions, January 1–December 31, 2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Racial/ethnic disparities are framed, quantified as rate ratios vs White persons and interpreted; essential work, multigenerational households, ability to follow stay-at-home orders and social determinants are named as explanations.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Determinants are offered speculatively from cited sources and not analyzed."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Racial and Ethnic Disparities in COVID-19 Incidence by Age, Sex, and Period"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Among Persons Aged <25 Years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "five age categories (0–4, 5–9, 10–14, 15–19, and 20–24 years) were examined."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Incidence was higher among females than among males during all of 2020 and across periods."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "income",
+     "educational attainment"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Despite on average having lower income and educational attainment, NH/PI persons are often grouped in analyses with Asian persons"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "social determinants of health; overrepresentation in essential work settings; multigenerational households; differential ability to participate in mitigation measures such as stay-at-home orders",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Racial and ethnic minority groups are disproportionately represented in essential work settings, making it difficult for youths and parents to stay at home"
+    },
+    {
+     "loc": "text",
+     "q": "a higher likelihood of living in a multigenerational household also increases the risk for household exposures to SARS-CoV-2"
+    },
+    {
+     "loc": "text",
+     "q": "might reflect differential ability to participate in early mitigation measures, such as stay-at-home orders"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referent is non-Hispanic White persons; 23% of cases missing race/ethnicity or sex excluded; other-race cases (n = 19,627) excluded for lack of denominator; NH/PI reported separately via direct HI and NM data."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 7,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The largest persistent disparities involved Native Hawaiian and Pacific Islander, American Indian or Alaska Native, and Hispanic persons."
+    },
+    {
+     "loc": "text",
+     "q": "Compared with White persons, rates were higher among AI/AN (RR = 4.62), Hispanic (RR = 3.87)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Incidence also tended to be lowest among younger children across periods."
+    },
+    {
+     "loc": "table 1",
+     "q": "Age group (yrs) › 5–9"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "study_design",
+  "analytic_depth"
+ ],
+ "confidence": "high",
+ "notes": "Race RRs are reported overall, by period, and within age group by sex (Table 2, Figure), giving stratified contrasts. Jurisdictions were selected by reporting completeness using HHS Protect aggregate counts; Census estimates serve only as denominators.",
+ "view_issues": "The Supplementary Table holding the Figure data is not in the packet. The closing paragraph attributes the decrease to a greater increase in 'reporting of cases' among White persons, while elsewhere the text attributes it to a greater increase in incidence."
+}

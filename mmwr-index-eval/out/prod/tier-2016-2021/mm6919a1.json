@@ -1,0 +1,349 @@
+{
+ "id": "mm6919a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysvjzScmajPcowrwZ",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "EDs performed a total of 14,252 tests on unique visitors, and 1,315 (9.2%) had positive test results for anti-HCV"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The prevalence of positive results for anti-HCV was higher among persons in the 1945–1965 birth cohort (13.9%) than among those"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "identified an overall 9.2% prevalence of positive results for anti-HCV among the adult patient population"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The prevalence of positive results for anti-HCV was higher among persons in the 1945–1965 birth cohort (13.9%) than among those"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among persons born during 1945–1965, overall positive results for anti-HCV prevalence was significantly higher among blacks (16.0%) than among whites (12.2%)"
+    },
+    {
+     "loc": "table 3",
+     "q": "Prevalence of positive results for hepatitis C virus antibody (anti-HCV) and prevalence differences, by study site and patient characteristics"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "p-values (p<0.001) and 'significantly higher' with a stated p<0.05 criterion; the test is not named",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "P-values <0.05 were considered statistically significant."
+    },
+    {
+     "loc": "text",
+     "q": "significantly higher among whites (15.3%) than among blacks (3.2%) (p<0.001)"
+    }
+   ]
+  },
+  {
+   "name": "bootstrap",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "bias-corrected bootstrap CIs (1,000 replicates) for prevalence differences",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Bias-corrected 95% CIs for prevalence differences calculated by using 1,000 bootstrap replicates."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "site-specific significance claims rest on Table 3 bias-corrected bootstrap CIs of prevalence differences vs 0",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Significant differences in positive results for anti-HCV were identified among ED sites regarding race/ethnicity for both birth cohorts."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "absolute",
+  "referent": "Black, NH; women; Medicaid/publicly funded; state and national HCV RNA prevalence estimates",
+  "across": [
+   "birth cohort",
+   "race/ethnicity",
+   "sex",
+   "insurance type",
+   "ED site"
+  ],
+  "ev": [
+   {
+    "loc": "table 3",
+    "q": "Prevalence difference (95% CI)*"
+   },
+   {
+    "loc": "text",
+    "q": "higher among Medicaid or other public insurance recipients, persons with other or missing insurance information, and Medicare recipients, than among commercially insured persons"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "ci_overlap": false,
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 3",
+    "q": "Bias-corrected 95% CIs for prevalence differences calculated by using 1,000 bootstrap replicates."
+   },
+   {
+    "loc": "text",
+    "q": "P-values <0.05 were considered statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "prevalence of positive results for anti-HCV, %",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Total no. (% positive test results for anti-HCV)"
+    }
+   ]
+  },
+  {
+   "v": "prevalence difference",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Prevalence difference (95% CI)*"
+    }
+   ]
+  },
+  {
+   "v": "estimated prevalence of positive results for HCV RNA, %",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Estimated prevalence of positive results for HCV RNA (%)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What is the prevalence of anti-HCV positivity under opt-out universal ED screening, and how does it differ by birth cohort, race/ethnicity, sex and insurance?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "cumulative anti-HCV results stratified by birth year, race/ethnicity, sex, and insurance type"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "hepatitis C virus infection",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "High Prevalence of Hepatitis C Infection Among Adult Patients at Four Urban Emergency Departments"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A retrospective study from four urban academic EDs located in Birmingham, Alabama; Oakland, California; Boston, Massachusetts; and Baltimore, Maryland was conducted"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "ED sites collected cumulative hepatitis C testing outcomes for the 4-month study period"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Four Urban Emergency Departments — Birmingham, Oakland, Baltimore, and Boston, 2015–2017"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Prevalence is reported by race/ethnicity and insurance within birth cohorts, with prevalence differences in Table 3 and p-values in text, but the contrasts are not framed as disparities; the racial difference is attributed to drug-use epidemiology.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Race and insurance prevalence differences are computed with CIs and the age-associated racial difference is highlighted and interpreted."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "These findings highlight age-associated differences in racial/ethnic prevalences"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "insurance type"
+    ],
+    "ev": [
+     {
+      "loc": "table 3",
+      "q": "Insurance type › Medicaid/Publicly funded"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "prevalence of positive results for anti-HCV was significantly higher among men (18.9% and 8.7%, respectively), than among women"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Significant differences in positive results for anti-HCV by birth cohort and race/ethnicity were identified"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Born after 1944, aged ≥18 years, medically or surgically stable, and no self-reported history of prior HCV infection."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race reduced to White NH, Black NH and Other/Missing; insurance (Medicaid/public referent) proxies SES; state and national HCV RNA prevalence used as external referents."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Race/Ethnicity › Black, NH"
+    },
+    {
+     "loc": "table 3",
+     "q": "Prevalence difference (95% CI)*"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "than among commercially insured persons in both the 1945–1965 birth cohort (17.7%, 14.1%, and 13.6%, respectively, versus 8.4%; p<0.001)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "study_design",
+  "procedures"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred: a 'retrospective study' of single-visit screening prevalence, mapped to cross-sectional. The test behind the p-values is not named. Comparisons with state and national HCV RNA prevalence use cited estimates as fixed referents.",
+ "view_issues": "Text says no significant sex differences among sites, yet most site Men-vs-Women CIs in Table 3 exclude 0. Some CIs look sign-garbled, e.g. −3.8 (−5.8 to 1.6) and −19.2 (−24.8 to 13.6). Summary gives 47.5%, text 47.8%."
+}

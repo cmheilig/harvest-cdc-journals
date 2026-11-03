@@ -1,0 +1,403 @@
+{
+ "id": "mm6724a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPys8NHPxEonPAphZFh",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The 2017 Youth Risk Behavior Survey found that 15.1% of students reported having at least one concussion related to sports or physical activity"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The 2017 Youth Risk Behavior Survey found that 15.1% of students reported having at least one concussion related to sports or physical activity"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Concussion prevalence was significantly higher among male students than among female students"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the association between the number of teams on which students played and concussion was evaluated for each demographic subgroup using unadjusted logistic regression models."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey sampling weights with complex design",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "sampling weights applied to every record and survey software accounting for the complex design; all estimates are weighted",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Sampling weights were applied to each student record to adjust for nonresponse and the oversampling of black and Hispanic students."
+    },
+    {
+     "loc": "text",
+     "q": "For all analyses, statistical software was used that took into account the complex sampling design and sampling weights."
+    }
+   ]
+  },
+  {
+   "name": "chi-square test (survey-adjusted)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named chi-square tests run in survey software; p-values in Table 1",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Chi-square tests were used to identify associations between student characteristics and having had 0, 1, 2, 3, or ≥4 concussions."
+    }
+   ]
+  },
+  {
+   "name": "t-test (pairwise)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named t-tests for pairwise comparisons after a significant chi-square",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "T-tests were used for pairwise comparisons when a chi-square test result was significant."
+    }
+   ]
+  },
+  {
+   "name": "unadjusted logistic regression (categorical ORs and linear trend)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'unadjusted logistic regression models' giving ORs vs one team and a linear-trend p-value with teams as continuous → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "First, number of sports teams was treated as a categorical variable and then, to test for a linear association, as a continuous variable."
+    },
+    {
+     "loc": "table 3",
+     "q": "Logistic regression models tested a linear association between the number of sports teams on which students played and the odds"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "students who played on one sports team",
+  "across": [
+   "number of sports teams",
+   "sports team participation",
+   "sex",
+   "grade",
+   "race/ethnicity"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Playing on more than one sports team was found to further increase the risk for concussion."
+   },
+   {
+    "loc": "text",
+    "q": "the odds of reporting a concussion increased significantly with the number of sports teams on which students played"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "T-tests were used for pairwise comparisons when a chi-square test result was significant."
+   },
+   {
+    "loc": "table 3",
+    "q": "OR (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Weighted percentages are presented."
+    }
+   ]
+  },
+  {
+   "v": "OR",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "OR (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "linear trend p-value",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Linear trend ¶ p-value"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "For all analyses, statistical software was used that took into account the complex sampling design and sampling weights."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the association between the number of teams on which students played and concussion was evaluated for each demographic subgroup using unadjusted logistic regression models."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "What is the prevalence of self-reported sports- or physical activity–related concussions among US high school students, and how does it vary by student characteristics and number of sports teams played?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To estimate the prevalence of concussions among U.S. high school students related to playing a sport or being physically active"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "concussion",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Self-Reported Concussions from Playing a Sport or Being Physically Active Among High School Students"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "YRBS is a biennial, cross-sectional, school-based survey that uses a three-stage cluster sampling design"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2017 national Youth Risk Behavior Survey (YRBS)."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Youth Risk Behavior Survey (YRBS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2017 national Youth Risk Behavior Survey (YRBS)."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "High School Students — United States, 2017"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Race/ethnicity-specific prevalences are reported and Black and Hispanic students' higher prevalence of ≥4 concussions is discussed, but the contrast rests on significance marks only, with no computed difference or ratio.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The racial contrast is interpreted in the Discussion with a call for targeted messaging, which could be read as a framed disparity."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Black and Hispanic students were more likely to report four or more concussions than were white students."
+     },
+     {
+      "loc": "text",
+      "q": "targeted messaging might be needed to educate these groups in particular about the risks associated with sustaining multiple concussions"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Sampling weights were applied to each student record to adjust for nonresponse and the oversampling of black and Hispanic students."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Concussion prevalence was significantly higher among male students than among female students"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Prevalence estimates were computed overall and by sex (female or male), grade (9, 10, 11, or 12)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "nationally representative samples of public and private school students in grades 9–12"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Grade is used as an age proxy; race/ethnicity limited to White, Black and Hispanic because other groups were too small; White students are the implicit referent."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Students in grades 9, 10, and 11 were more likely to report a single concussion than were students in grade 12"
+    },
+    {
+     "loc": "table 1",
+     "q": "Prevalence among 12th grade students was significantly lower than among 9th, 10th, and 11th grade students"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Prevalence among non-Hispanic white students was significantly lower than among non-Hispanic black and Hispanic students."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "comparison"
+ ],
+ "confidence": "high",
+ "notes": "Table 3 trend tests are across number of teams (non-SPD) within each SPD subgroup, so they add no groupwise entry. The 2.5 million figure is prevalence multiplied by NCES enrollment (arithmetic). Table 1 p-values are reported per concussion-count column though the methods describe one chi-square across the 0–≥4 categories.",
+ "view_issues": "Table 1 p-values appear per concussion-count column although methods describe a chi-square across all five categories. Table 3 cell for grade 12 reads '1.6 (1.1,2.3)' with a comma instead of a dash."
+}

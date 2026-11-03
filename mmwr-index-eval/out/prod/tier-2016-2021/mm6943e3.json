@@ -1,0 +1,262 @@
+{
+ "id": "mm6943e3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyt4RwAuN2xg9ggXWp",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "HCP status was documented for 6,760 sampled patients, 438 of whom were HCP, yielding a weighted estimate of 5.9% (95% CI = 5.1%–6.8%)."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Approximately 28% of these patients were admitted to an intensive care unit, 16% required invasive mechanical ventilation, and 4% died."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Analysis of COVID-19 hospitalization data from 13 sites indicated that 6% of adults hospitalized with COVID-19 were HCP."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "those generally not expected to have direct patient contact had higher prevalences of obesity (80.9% versus 68.3%)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "sampling weights (probability of selection for chart abstraction)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weights reflect the age-stratified sampling probability; every percentage is weighted; Taylor series linearization CIs in SUDAAN",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Weights were applied to reflect the probability of being sampled for complete chart abstraction; weighted percentages and unweighted case counts are presented"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "type of patient contact"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "those generally not expected to have direct patient contact had higher prevalences of obesity (80.9% versus 68.3%)"
+   },
+   {
+    "loc": "table 1",
+    "q": "overall and by type of patient contact"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "95% confidence intervals (CIs) were generated using the Taylor series linearization method in SUDAAN"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Unweighted no. (weighted %)"
+    }
+   ]
+  },
+  {
+   "v": "median (IQR)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The median length of hospitalization among HCP with COVID-19 was 4 days (IQR = 3–9 days)."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What are the characteristics and outcomes of U.S. health care personnel hospitalized with COVID-19, and what share of hospitalized adults are HCP?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Data on characteristics and outcomes of U.S. health care personnel (HCP) hospitalized with COVID-19 are limited."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "COVID-19–Associated Hospitalizations Among Health Care Personnel"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "27.5% were admitted to an intensive care unit (ICU), 15.8% required invasive mechanical ventilation, and 4.2% died during hospitalization."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-NET conducts population-based surveillance for laboratory-confirmed COVID-19–associated hospitalizations among persons of all ages in 99 counties in 14 states"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Trained surveillance officers conduct medical chart abstractions for COVID-19 patients using a standardized case report form, which includes HCP status."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "COVID-19–Associated Hospitalization Surveillance Network (COVID-NET)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "by the COVID-19–Associated Hospitalization Surveillance Network (COVID-NET)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "COVID-NET, 13 States, March 1–May 31, 2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Race/ethnicity, sex and age appear only as shares of hospitalized HCP (composition); the Black share is set beside a cited report without a computed contrast, and no outcome is compared across SPD groups.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 2,
+   "reason": "The Discussion notes a larger proportion of Black HCP than previously reported and links it to disproportionate effects, but this is side by side with cited data."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "52.0% were non-Hispanic Black (Black), 27.4% were non-Hispanic White, and 8.6% were Hispanic or Latino persons"
+     },
+     {
+      "loc": "text",
+      "q": "HCP identified by COVID-NET were older, and a larger proportion were Black"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Descriptive statistics were calculated for all sampled HCP aged ≥18 years hospitalized with COVID-19"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The median age of HCP hospitalized with COVID-19 was 49 years (interquartile range [IQR] = 38–57 years)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "and 71.9% were female"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity is reported only as case composition; Asian and Pacific Islander are combined, and 1.9% have unknown race/ethnicity. Occupation is a route of exposure, not SES."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "equity.level"
+ ],
+ "confidence": "high",
+ "notes": "Comparisons with all hospitalized adults (median age 62 years; similar severe-outcome proportions) are cited from other COVID-NET reports, not computed here. The direct vs no-direct-contact comparison is side by side with CIs and no test.",
+ "view_issues": "Prepass false hits: 'Yates' is Yates County; 'HR' is human resources, not a hazard ratio."
+}

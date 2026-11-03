@@ -1,0 +1,426 @@
+{
+ "id": "mm6910a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyt9tWTyyooSuQd1j8",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In 2017, 81% of survey respondents were asked by their health care provider about alcohol consumption and 38% about binge drinking"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Among those asked about alcohol use and who reported current binge drinking, 80% received no advice to reduce their drinking."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence was also higher among Hispanic adults (28.5%) than among white adults (16.8%)."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Only age-standardized estimates are included in the text of this report."
+    },
+    {
+     "loc": "table 1",
+     "q": "Estimates are age-standardized to the 2000 projected population for the United States."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Wald chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'Wald chi-squared tests' for within-group differences; SUDAAN survey-design test",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Wald chi-squared tests were used to determine significant within-group differences."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (BRFSS complex sampling design)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weighted estimates accounting for the complex sampling design, computed in SUDAAN",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Analyses were conducted to account for BRFSS’s complex sampling design."
+    },
+    {
+     "loc": "text",
+     "q": "Weighted crude and age-standardized prevalence estimates of responses to alcohol SBI module questions were calculated."
+    }
+   ]
+  },
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "age-standardized to the 2000 projected U.S. population; text reports only age-standardized estimates",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimates are age-standardized to the 2000 projected population for the United States."
+    }
+   ]
+  },
+  {
+   "name": "suppression of estimates with relative standard error >0.30",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "RSE-based withholding of imprecise estimates in Table 2",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Estimate not available because relative standard error >0.30."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "sex",
+   "race/ethnicity",
+   "education",
+   "federal poverty level",
+   "disability status",
+   "health insurance coverage",
+   "binge drinking status"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Hispanic adults reported being asked about binge drinking more than other racial/ethnic groups."
+   },
+   {
+    "loc": "text",
+    "q": "Estimates were stratified by demographic characteristics and selected drinking patterns."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Wald chi-squared tests were used to determine significant within-group differences."
+   },
+   {
+    "loc": "table 1",
+    "q": "Age-standardized % (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted crude %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Crude % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "age-standardized %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age-standardized % (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How often do adults with a recent checkup report being screened for alcohol use and, among current binge drinkers, receiving brief counseling, and does this differ by demographic group?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "asked adults in 13 states § and the District of Columbia (DC) about the delivery of alcohol SBI during their most recent checkup"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "binge drinking",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Subanalyses were performed among alcohol SBI module respondents who indicated that they had been asked"
+    },
+    {
+     "loc": "summary",
+     "q": "Among those asked about alcohol use and who reported current binge drinking, 80% received no advice to reduce their drinking."
+    }
+   ]
+  },
+  {
+   "v": "binge drinking",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence of being asked about binge drinking was also higher among module respondents who reported binge drinking (47.3%) than among those who did not"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "BRFSS is an ongoing state-based, random-digit–dialed telephone survey of the noninstitutionalized U.S. adult population aged ≥18 years"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC recently analyzed 2017 data from the Behavioral Risk Factor Surveillance System (BRFSS) survey’s five-question module"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS) alcohol SBI module",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed 2017 data from the 13 states and DC that administered an optional alcohol SBI module."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Screening for Alcohol Use and Brief Counseling of Adults — 13 States and the District of Columbia, 2017"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Screening and counseling percentages are reported and described by race/ethnicity, education, poverty, insurance and disability, but only as side-by-side values with significance; no difference or ratio is computed and no disparity is framed.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The Discussion interprets demographic differences through contact with health systems, which could be read as an interpreted contrast."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Hispanic adults reported being asked about binge drinking more than other racial/ethnic groups."
+     },
+     {
+      "loc": "table 1",
+      "q": "Persons who self-identified as Hispanic might have been of any race."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education level",
+     "federal poverty level",
+     "health insurance coverage"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "persons with income <100% of the federal poverty level (37.5%), and those without health insurance coverage (36.2%) than among their counterparts."
+     }
+    ]
+   },
+   {
+    "v": "disability",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "might be a consequence of some adults having more contact with health systems, such as those with a disability"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "higher among males (24.1%), persons with a disability (28.2%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group (yrs) › 18–24"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "noninstitutionalized U.S. adult population aged ≥18 years"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "more contact with health systems; screening practices in systems that implemented SBI (VA, federally qualified health centers)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The demographic differences in this report might be a consequence of some adults having more contact with health systems"
+    },
+    {
+     "loc": "text",
+     "q": "screening practices might vary in health care systems that have systematically implemented alcohol SBI"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Groups are compared with counterparts by Wald chi-square; poverty is collapsed to <200% vs ≥200% FPL in the Table 1 text; some A/PI and AI/AN estimates are suppressed for RSE >0.30."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Hispanic adults reported being asked about binge drinking more than other racial/ethnic groups."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "persons with less than a high school diploma (46.2%) than among females (36.0%) and persons with higher levels of education"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "persons with income <100% of the federal poverty level (37.5%), and those without health insurance coverage (36.2%) than among their counterparts."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group (yrs) › ≥65"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise",
+  "comparison",
+  "analytic_depth",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred as cross-sectional from the BRFSS survey; the report names no design. Whether the Wald chi-square tests are omnibus across levels or group-vs-counterpart is not stated; the text reports group-vs-counterparts claims. USPSTF review effect estimates in the Discussion are cited, not the report's own.",
+ "view_issues": "Table 2 suppression is inconsistent: A/PI shows a crude estimate but N/A age-standardized, while AI/AN shows N/A crude but an age-standardized estimate. The text calls results 'U.S. adults' though data are from 13 states and DC."
+}

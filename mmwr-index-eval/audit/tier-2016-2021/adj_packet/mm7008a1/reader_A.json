@@ -1,0 +1,409 @@
+{
+ "id": "mm7008a1",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC analyzed changes in counts and age-adjusted suicide rates from 2018 to 2019 by demographic characteristics, county urbanicity, mechanism of injury, and state."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the overall suicide rate declined significantly by 2.1% (14.2 per 100,000 population to 13.9)"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The percentage of suicides by firearm in 2019 increased in a stepped pattern from the most urban counties (41.7%)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2019, a total of 47,511 deaths were attributable to suicide."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Suicide rates declined overall by 2.1%, among females by 3.2%, and among males by 1.8%"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "age-adjusted death rates (per 100,000 population) and confidence intervals were calculated by using the direct method and the 2000 U.S. standard population"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "z-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named z-tests for 2018 vs 2019 rate differences when deaths ≥100",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Differences in rates between 2018 and 2019 were assessed by using z-tests when deaths were ≥100"
+    }
+   ]
+  },
+  {
+   "name": "CI overlap assertion",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "nonoverlapping gamma-based CIs used as the significance criterion when deaths <100",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "by using nonoverlapping confidence intervals based on a gamma distribution when deaths were <100"
+    }
+   ]
+  },
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "direct method with 2000 U.S. standard population",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age-adjusted death rates (per 100,000) were calculated by using the direct method and the 2000 U.S. standard population."
+    }
+   ]
+  },
+  {
+   "name": "suppression of unstable small-count rates",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "rates not shown when counts <20 (dashes in table; age <10 not shown)",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data for persons aged <10 years are not shown in results by age group because"
+    },
+    {
+     "loc": "text",
+     "q": "case counts were <20, indicating unstable rates"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "both",
+  "referent": "2018",
+  "across": [
+   "year",
+   "sex",
+   "race/ethnicity",
+   "age group",
+   "county urbanization level",
+   "mechanism of injury",
+   "state"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Changes in suicide rates from 2018 to 2019 were examined overall and by age, sex, race/ethnicity, county urbanization level, mechanism of injury, and state."
+   },
+   {
+    "loc": "text",
+    "q": "Relative and absolute changes in rates were calculated; however, only relative changes are presented in the text."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "ci_overlap": true,
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Z-tests and 95% confidence intervals were used to assess statistical significance."
+   },
+   {
+    "loc": "table 1",
+    "q": "nonoverlapping confidence intervals based on the gamma method were used if the number of deaths was <100 in 2018 or 2019."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted rate per 100,000",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Annual number and age-adjusted* rate of suicide † per 100,000 population, by selected characteristics"
+    }
+   ]
+  },
+  {
+   "v": "relative change",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "The (2019 rate minus 2018 rate) divided by 2018 rate multiplied by 100."
+    }
+   ]
+  },
+  {
+   "v": "absolute change",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "The rate in 2019 minus the rate in 2018."
+    }
+   ]
+  },
+  {
+   "v": "crude rate per 100,000",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Crude rates per 100,000 are presented for age groups."
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2019, the largest proportion of suicides occurred by use of firearms (50.4%)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did suicide counts and age-adjusted rates change from 2018 to 2019 across demographic groups, urbanization levels, mechanisms and states?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To understand how the decline varied among different subpopulations by demographic and other characteristics"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "suicide",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Changes in Suicide Rates — United States, 2018–2019"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the 2018–2019 National Vital Statistics System multiple cause-of-death mortality files were analyzed."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Changes in suicide rates from 2018 to 2019 were examined overall"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the 2018–2019 National Vital Statistics System multiple cause-of-death mortality files were analyzed."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System multiple cause-of-death mortality files",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the 2018–2019 National Vital Statistics System multiple cause-of-death mortality files were analyzed."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The overall suicide rate declined significantly from 2018 to 2019 in five states"
+   },
+   {
+    "loc": "title",
+    "q": "Changes in Suicide Rates — United States, 2018–2019"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Rates by race/ethnicity, urbanization, age and sex are reported and AI/AN rates called highest, with 'disparities persist' framing, but group contrasts are only side by side with no computed difference or ratio.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The Summary frames persisting disparities and names AI/AN as disproportionately affected, which could be read as an interpreted disparity."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "basis": "assigned or observed",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "rates of suicide were highest in 2019 among American Indian/Alaskan Native (AI/AN) persons (22.5 per 100,000) overall"
+     },
+     {
+      "loc": "table 1",
+      "q": "studies comparing Hispanic origin on death certificates and on Census surveys have shown inconsistent reporting"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Suicide rates in 2019 were lowest in large central metropolitan areas (11.2 per 100,000) and increased as the level of urbanization declined"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Rates in 2019 were highest among persons aged ≥85 years (20.1 per 100,000)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "among females by 3.2%, and among males by 1.8%"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race from death certificates with possible misclassification of AI/AN and Asian/PI decedents; NHPI female rates suppressed; unknown race excluded from rates; no referent group for disparities, only rankings."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 7,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "rates of suicide were highest in 2019 among American Indian/Alaskan Native (AI/AN) persons (22.5 per 100,000) overall"
+    }
+   ]
+  },
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "increased as the level of urbanization declined, with noncore (nonmetropolitan) areas having the highest rate (20.1 per 100,000)"
+    },
+    {
+     "loc": "text",
+     "q": "The percentage of suicides by firearm in 2019 increased in a stepped pattern from the most urban counties (41.7%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 9,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates in 2019 were highest among persons aged ≥85 years (20.1 per 100,000)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "inference"
+ ],
+ "confidence": "high",
+ "notes": "All tests are 2018 vs 2019 within strata, not across SPD groups. State-specific results are in Figure 2 and a supplementary table. The national goal of a 20% reduction by 2025 is cited only in the Discussion, so it is not a referent.",
+ "view_issues": "Table: female Fall row marked significant with zero change (0**); CI typos '0.3–.03'; drowning relative change 100% is a rounding artifact. Methods say 'two-digit' rates rounded to one digit. Figure 1 description mentions 2018 and 2019 but its title is 2019 only."
+}

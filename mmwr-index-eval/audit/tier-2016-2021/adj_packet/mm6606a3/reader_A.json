@@ -1,0 +1,438 @@
+{
+ "id": "mm6606a3",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "overall vaccine effectiveness (VE) (adjusted for study site, age group, sex, race/ethnicity, self-rated general health, and days from illness onset to enrollment)"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The proportion of ARI patients vaccinated with 2016–17 seasonal influenza vaccine was 45% among influenza patients compared with 55% among influenza-negative participants"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "744 (24%) tested positive for influenza virus by rRT-PCR"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The proportion of patients with influenza differed by study site, sex, age group, race/ethnicity, and interval from illness onset to enrollment"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates were adjusted for study site, age group, sex, race/ethnicity, self-rated general health, and number of days from illness onset to enrollment"
+    },
+    {
+     "loc": "text",
+     "q": "VE point estimates against H3N2-related illness varied by age group"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'odds ratios were estimated using logistic regression'; VE = 100% x (1 − OR) → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "odds ratios were estimated using logistic regression."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based CIs from the named logistic regression; significance of VE judged at p<0.05 against VE = 0",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "statistically significant protection was found against H3N2-related illness among children aged 6 months through 8 years (VE = 53%; CI = 16%–74%)"
+    },
+    {
+     "loc": "table 2",
+     "q": "Statistically significant at the p<0.05 level."
+    }
+   ]
+  },
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "Table 1 note names the chi-square statistic for comparing characteristics by test result and vaccination",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "The chi-square statistic was used to assess differences between the numbers of persons with influenza-negative and influenza-positive test results"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "unvaccinated persons (influenza-negative controls in test-negative design)",
+  "across": [
+   "vaccination status",
+   "influenza type/subtype",
+   "age group",
+   "race/ethnicity",
+   "study site",
+   "sex"
+  ],
+  "ev": [
+   {
+    "loc": "note",
+    "q": "ratio of odds of being vaccinated among outpatients with influenza-positive test results to the odds of being vaccinated among outpatients with influenza-negative test results"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "whereas protection in other age groups did not reach statistical significance."
+   },
+   {
+    "loc": "table 1",
+    "q": "The chi-square statistic was used to assess differences"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "VE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VE was estimated as 100% x (1 – odds ratio)."
+    }
+   ]
+  },
+  {
+   "v": "adjusted VE % (95% CI)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Vaccine effectiveness* › Adjusted % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "percentage vaccinated",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Influenza-positive › No. (%) vaccinated"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Vaccine effectiveness* › Unadjusted % (95% CI)"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates were adjusted for study site, age group, sex, race/ethnicity, self-rated general health, and number of days from illness onset to enrollment"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "study site, age group, sex, race/ethnicity, self-rated general health, days from illness onset to enrollment",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates were adjusted for study site, age group, sex, race/ethnicity, self-rated general health, and number of days from illness onset to enrollment"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How effective was the 2016–17 seasonal influenza vaccine against medically attended ARI due to laboratory-confirmed influenza, interim to February 2017?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "to estimate an interim adjusted effectiveness of seasonal influenza vaccine for preventing laboratory-confirmed influenza virus infection associated with medically attended ARI"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "influenza",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "744 (24%) tested positive for influenza virus by rRT-PCR"
+    }
+   ]
+  },
+  {
+   "v": "influenza",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Interim Estimates of 2016–17 Seasonal Influenza Vaccine Effectiveness"
+    }
+   ]
+  },
+  {
+   "v": "acute respiratory illness",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "patients aged ≥6 months seeking outpatient medical care for an ARI with cough, within 7 days of illness onset, were enrolled."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "test-negative",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the test-negative design is widely used in VE studies and has been used by the U.S. Flu VE Network"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "enrolled in the U.S. Influenza Vaccine Effectiveness Network (U.S. Flu VE Network)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "U.S. Influenza Vaccine Effectiveness Network (U.S. Flu VE Network)",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "enrolled in the U.S. Influenza Vaccine Effectiveness Network (U.S. Flu VE Network)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "At five study sites, patients aged ≥6 months seeking outpatient medical care"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "effectiveness",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "VE was estimated to be 43% (CI = 29%–54%) against illness caused by influenza A (H3N2) virus"
+   }
+  ]
+ },
+ "equity": {
+  "level": 2,
+  "level_reason": "Race/ethnicity is a model covariate and Table 1 reports influenza positivity and vaccination by race with chi-square p-values; the text only says positivity 'differed', with no disparity framing or quantified contrast.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "The race contrast is a Table-1 characteristic comparison; race otherwise appears only as a confounder in the VE model."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Estimates were adjusted for study site, age group, sex, race/ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Enrollees were categorized into one of four mutually exclusive racial/ethnic populations: white, black, other race, and Hispanic."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "patients aged ≥6 months seeking outpatient medical care for an ARI with cough"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "VE point estimates against H3N2-related illness varied by age group"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Estimates were adjusted for study site, age group, sex"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Estimates were adjusted for study site, age group, sex"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity in four categories (white, black, other race, Hispanic); missing for 19 enrollees. VE is not reported by race."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group › 6 mos–8 yrs"
+    },
+    {
+     "loc": "text",
+     "q": "The proportion of patients with influenza differed by study site, sex, age group, race/ethnicity"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Enrollees were categorized into one of four mutually exclusive racial/ethnic populations: white, black, other race, and Hispanic."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "VE point estimates against H3N2-related illness varied by age group"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise"
+ ],
+ "confidence": "high",
+ "notes": "Age-specific VE is each group tested against VE = 0, not across groups. Prior-season VE and meta-analysis estimates in the Discussion are cited, not computed. Vaccination status from records, registries or self-report by site.",
+ "view_issues": null
+}

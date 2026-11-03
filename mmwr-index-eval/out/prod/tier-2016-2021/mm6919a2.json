@@ -1,0 +1,485 @@
+{
+ "id": "mm6919a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyt3h3G4i6TBRnbcrt",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Among respondents from 31 sites, the prevalence of PDS was 13.2%, ranging from 9.7% in Illinois to 23.5% in Mississippi."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "79.1% of those who received prenatal care reported being asked by a health care provider about depression during pregnancy."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Among respondents from 31 sites, the prevalence of PDS was 13.2%, ranging from 9.7% in Illinois to 23.5% in Mississippi."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence was higher among women aged ≤19 and 20–24 years, those who were non-Hispanic black (black), non-Hispanic American Indian/Alaska Native"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC tested for linear trends in aggregate estimates of PDS from 2012 to 2018 among 16 continuously reporting sites"
+    },
+    {
+     "loc": "text",
+     "q": "using logistic regression, adjusting for site."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting (sampling design, nonresponse, noncoverage)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "PRAMS weights stated; all prevalences are weighted percentages",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "PRAMS data for each site are weighted for sampling design, nonresponse, and noncoverage to produce data representative of the site’s birth population"
+    },
+    {
+     "loc": "table 2",
+     "q": "Weighted percentage."
+    }
+   ]
+  },
+  {
+   "name": "chi-square test of independence (survey design)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated chi-squared tests of independence, run in SAS complex survey module",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Chi-squared tests of independence were used to examine the distribution of both PDS and health care provider inquiry about depression by selected maternal characteristics"
+    },
+    {
+     "loc": "table 2",
+     "q": "p<0.05 from chi-squared test of independence."
+    }
+   ]
+  },
+  {
+   "name": "CI overlap assertion",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "subgroup differences judged by nonoverlap of 95% CIs of weighted prevalences; CI method not stated beyond survey module",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Subgroup differences in PDS and health care provider inquiry about depression during prenatal and postpartum visits were ascertained using 95% confidence interval"
+    },
+    {
+     "loc": "note",
+     "q": "95% confidence intervals (CIs) for the prevalence were compared across groups, with an emphasis on identifying differences (i.e., nonoverlap of CIs)"
+    }
+   ]
+  },
+  {
+   "name": "logistic regression for linear trend, adjusted for site",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'using logistic regression' with year as linear term → logistic",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC tested for linear trends in aggregate estimates of PDS from 2012 to 2018 among 16 continuously reporting sites"
+    },
+    {
+     "loc": "text",
+     "q": "using logistic regression, adjusting for site."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "absolute",
+  "referent": null,
+  "across": [
+   "site",
+   "age group",
+   "race/ethnicity",
+   "education",
+   "marital status",
+   "WIC participation",
+   "health insurance",
+   "smoking",
+   "intimate partner violence",
+   "prior depression",
+   "year"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The prevalence of self-reported PDS varied by site and maternal and infant characteristics."
+   },
+   {
+    "loc": "text",
+    "q": "a small but statistically significant annual percentage point increase of 0.22% (p-value <0.05) in PDS was observed from 2012 to 2018."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "ci_overlap": true,
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "All statistical analyses were conducted using a SAS (version 9.4; SAS Institute) complex survey module to account for the PRAMS sampling design."
+   },
+   {
+    "loc": "note",
+    "q": "95% confidence intervals (CIs) for the prevalence were compared across groups, with an emphasis on identifying differences (i.e., nonoverlap of CIs)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted prevalence, % (95% CI)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Postpartum depressive symptoms (N = 32,659) † % § (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "annual percentage point increase",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "with an average annual percentage point increase of 1.5% (data not shown)."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All statistical analyses were conducted using a SAS (version 9.4; SAS Institute) complex survey module to account for the PRAMS sampling design."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using logistic regression, adjusting for site."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "site",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using logistic regression, adjusting for site."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How prevalent were self-reported postpartum depressive symptoms, and how often did providers ask about depression prenatally and postpartum, by site and maternal characteristics?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to examine the prevalence of self-reported PDS and whether a health care provider inquired about depression during prenatal and postpartum health care visits."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "postpartum depressive symptoms",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Postpartum Depressive Symptoms and Provider Discussions About Perinatal Depression"
+    }
+   ]
+  },
+  {
+   "v": "perinatal depression",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Provider Discussions About Perinatal Depression"
+    }
+   ]
+  },
+  {
+   "v": "pregnancy (recent live birth)",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a stratified, random sample of women with a recent live birth (singleton and multiple births) is selected monthly from birth certificate files"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "these women are surveyed 2–6 months postpartum (average = 4 months) using a standardized protocol and questionnaire"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC used data from the Pregnancy Risk Assessment Monitoring System (PRAMS)"
+    }
+   ]
+  },
+  {
+   "v": "registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were obtained from the infant’s birth certificate and survey questions."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Pregnancy Risk Assessment Monitoring System (PRAMS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC used data from the Pregnancy Risk Assessment Monitoring System (PRAMS)"
+    }
+   ]
+  },
+  {
+   "v": "birth certificates",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were obtained from the infant’s birth certificate and survey questions."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Data from 31 PRAMS sites* that had weighted response rates ≥55% in 2018 were included in this analysis."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Prevalences are reported and described by race/ethnicity, age, education, WIC and insurance ('higher among'), with chi-square marks and CI overlap, but no disparity is framed or quantified as a difference or ratio.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Group gaps (e.g., AI/AN 22.0% vs White 11.4%) are interpreted, and low SES is mentioned, though only for site variation."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Race/Ethnicity ¶ › American Indian/Alaska Native, non-Hispanic"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Age group (yrs) ¶ › ≤19"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education level",
+     "WIC participation",
+     "health insurance at delivery"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Prevalence was also higher among women who had participated in WIC during pregnancy, had Medicaid at delivery"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "a stratified, random sample of women with a recent live birth (singleton and multiple births) is selected monthly from birth certificate files"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race and SES taken from birth certificates; insurance 'Other' plans excluded; Indian Health Service grouped with no insurance; low SES cited only as possible explanation of site differences."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Age group (yrs) ¶ › ≤19"
+    },
+    {
+     "loc": "table 4",
+     "q": "p<0.05 from chi-squared test of independence for the prenatal period."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "p<0.05 from chi-squared test of independence."
+    },
+    {
+     "loc": "text",
+     "q": "was higher among those who were black, Hispanic, American Indian/Alaska Native, or non-Hispanic other (other) than among respondents who were white or Asian/Pacific Islander"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Education level (yrs) ¶ › <12"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Health insurance at delivery ¶ › Medicaid"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "comparison",
+  "procedures"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred as cross-sectional survey (PRAMS); not named. Each groupwise entry covers both Table 2 (PDS) and Table 4 (provider inquiry) chi-square results. Trend logistic regression is a secondary result, so it is ancillary.",
+ "view_issues": "Text says provider inquiry was higher among those with Medicaid than 'private or no health insurance', but no-insurance CI (73.2–81.4) overlaps Medicaid (83.3–85.2), contradicting the stated CI-nonoverlap rule."
+}

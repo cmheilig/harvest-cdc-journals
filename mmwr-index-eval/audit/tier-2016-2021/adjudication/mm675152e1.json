@@ -1,0 +1,9 @@
+{"id": "mm675152e1",
+ "fields": [
+  {"field": "groupwise_any", "verdict": true, "correct": ["A"], "category": "reader error", "why": "The text ranks 2016-2017 rate changes across 5 race/ethnicity groups, 7 age groups, 6 urbanization levels and 6 sex-by-age cells ('largest relative change occurred among blacks')."},
+  {"field": "groupwise_dims", "verdict": ["age", "race/ethnicity", "rurality", "sex"], "correct": ["A"], "category": "reader error", "why": "Sex enters only through the sex-by-age cells, which the text ranks as one set ('males aged 25-44 years'), so rule 3 counts them; counts match the Table 1 rows."},
+  {"field": "groupwise_assessments", "verdict": ["side by side"], "correct": ["A"], "category": "reader error", "why": "The z-tests and the gamma-CI overlap rule test 2016 vs 2017 within each group, a non-SPD contrast that makes no groupwise entry (rule 6); the cross-group claims are rankings only. The mechanical flag is a false hit: the CI-overlap assertion is not across SPD groups."}
+ ],
+ "justification": {"A": "good", "B": "n/a"},
+ "agreed_errors": [],
+ "brief_issues": "The mechanical check flags side by side whenever the record has a CI-overlap assertion; it should check whether that test is across the SPD levels or a within-group period contrast."}

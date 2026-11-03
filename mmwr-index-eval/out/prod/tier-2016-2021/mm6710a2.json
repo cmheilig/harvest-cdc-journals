@@ -1,0 +1,376 @@
+{
+ "id": "mm6710a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysEpGiWU3DqUSUzVw",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the rate of all acute kidney injury hospitalizations among persons with diabetes increased by 139%, from 23.1 to 55.3 per 1,000 persons"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Diabetes was an associated comorbidity in 38%, 37%, and 40% of all hospitalizations in these years, respectively."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Hospitalization for acute kidney injury among persons with diabetes accounted for approximately 40% of all such hospitalizations"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "acute kidney injury hospitalization rates among persons without diabetes were much lower, but the observed relative increase was larger (230% versus 139%)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Trends in all and dialysis-treated acute kidney injury were examined by sex and standardized to the 2000 U.S. standard population."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "rates age-standardized to the 2000 U.S. standard population (direct method)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Rate per 1000 population and age-standardized based on the 2000 U.S. standard population."
+    }
+   ]
+  },
+  {
+   "name": "ordinary least squares regression for trend",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "'Ordinary least squares regression' giving p-values for trend → linear",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Ordinary least squares regression assessed trends over time, reported as p-value for trend with two-sided significance determined as p<0.05."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting with Taylor series linearization (complex sampling design)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weighted numbers and estimates accounting for complex sampling designs of NIS/NHIS",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "to obtain point estimates and standard errors based on the Taylor series linearization method and to account for complex sampling designs"
+    },
+    {
+     "loc": "table 1",
+     "q": "All persons with diagnosed diabetes › Weighted no."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "both",
+  "referent": "2000",
+  "across": [
+   "year",
+   "diabetes status",
+   "sex"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "indicates a significant absolute and relative increase in hospitalization rates for acute kidney injury among men and women in the United States"
+   },
+   {
+    "loc": "table 1",
+    "q": "Absolute change (95% CI)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to obtain point estimates and standard errors based on the Taylor series linearization method and to account for complex sampling designs"
+   },
+   {
+    "loc": "table 1",
+    "q": "All p-values for trend <0.001."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-standardized hospitalization rate per 1,000",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Rate per 1000 population and age-standardized based on the 2000 U.S. standard population."
+    }
+   ]
+  },
+  {
+   "v": "absolute change",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Absolute change (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "percent change",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percent change(95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "p-value for trend",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "All p-values for trend <0.001."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "to obtain point estimates and standard errors based on the Taylor series linearization method and to account for complex sampling designs"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Ordinary least squares regression assessed trends over time, reported as p-value for trend with two-sided significance determined as p<0.05."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did age-standardized rates of hospitalization with acute kidney injury change during 2000–2014 among U.S. adults with and without diagnosed diabetes, by sex?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To estimate diabetes- and nondiabetes-related acute kidney injury trends, CDC analyzed 2000–2014 data from the National Inpatient Sample (NIS)"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "acute kidney injury",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Trends in Hospitalizations for Acute Kidney Injury — United States, 2000–2014"
+    }
+   ]
+  },
+  {
+   "v": "diabetes",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "absolute increases in hospitalization rates among persons with diabetes were larger than those among persons without diabetes"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "provides cross-sectional information on the health and use of health care services of the U.S. population"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Ordinary least squares regression assessed trends over time, reported as p-value for trend with two-sided significance determined as p<0.05."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "administrative/claims",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Using 2000–2014 NIS data, CDC estimated the annual number of hospitalizations with acute kidney injury."
+    }
+   ]
+  },
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the 2000–2014 NHIS were used to estimate the number of U.S. residents aged ≥20 years with and without diabetes."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Inpatient Sample (NIS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed 2000–2014 data from the National Inpatient Sample (NIS)"
+    }
+   ]
+  },
+  {
+   "v": "National Health Interview Survey (NHIS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the National Health Interview Survey (NHIS)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Trends in Hospitalizations for Acute Kidney Injury — United States, 2000–2014"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Only age (population bound and standardization) and sex (stratifier) appear, without social-position framing.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Rates increased 165%, from 23.0 to 60.9 per 1,000 persons (p<0.001) among men and increased 114%, from 23.2 to 49.7 (p<0.001) among women"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Data from the 2000–2014 NHIS were used to estimate the number of U.S. residents aged ≥20 years with and without diabetes."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "standardized to the 2000 U.S. standard population"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "regression_fields",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Study design inferred (repeated cross-sections of NIS/NHIS with a trend headline). NHIS supplies the diabetes/nondiabetes population denominators; it is listed because the report names it as an analyzed source. OLS on age-standardized annual rates has only year as predictor; standardization is applied before the model, so adjusted_results is false.",
+ "view_issues": "Table CIs are inconsistent: 3.5 (2.4 to 3.7); 0.08 (0.1 to 0.1) and 0.06 (0.01 to 0.08) where intervals exclude or barely bound the estimate. Dialysis percent-change CIs include 0 while text reports p<0.001 trends. Text gives men's dialysis increase as 68% from 0.3 to 0.5, consistent with the table, but rounded rates do not reproduce it."
+}

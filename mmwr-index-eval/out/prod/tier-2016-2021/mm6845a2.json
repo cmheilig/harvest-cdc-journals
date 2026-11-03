@@ -1,0 +1,476 @@
+{
+ "id": "mm6845a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPys1SFfZko9Hg7Ar8Z",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "In 2018, approximately 20% of U.S. adults currently used any tobacco product; cigarette smoking reached an all-time low (13.7%)."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among U.S. adults in 2018, 19.7% (estimated 49.1 million) currently used any tobacco product"
+    },
+    {
+     "loc": "text",
+     "q": "The quit ratio for cigarette smoking increased from 51.7% in 2009 to 61.7% in 2018 (p<0.001)."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In 2018, approximately 20% of U.S. adults currently used any tobacco product; cigarette smoking reached an all-time low (13.7%)."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2017–2018, the prevalence of e-cigarette use increased from 2.8% to 3.2% (p = 0.029)"
+    },
+    {
+     "loc": "text",
+     "q": "The prevalence of any current tobacco product use was higher among males (25.8%) than among females (14.1%)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting (complex survey design, SUDAAN)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "states weights for selection probability and nonresponse and analysis accounting for the complex survey design",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted to provide nationally representative estimates, adjusting for differences in selection probability and nonresponse."
+    },
+    {
+     "loc": "text",
+     "q": "all analyses were weighted and accounted for the complex survey design."
+    }
+   ]
+  },
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named t-tests for 2017 vs 2018 prevalence differences",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "T-tests were performed to assess overall differences in tobacco product use from 2017 to 2018."
+    }
+   ]
+  },
+  {
+   "name": "unnamed test (linear and quadratic trend)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "linear and nonlinear trends assessed with p-values; the trend method is not named",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Linear and nonlinear (quadratic) trends were assessed for each cigarette smoking cessation indicator during 2009–2018."
+    },
+    {
+     "loc": "text",
+     "q": "Significant linear increases occurred for all three cigarette cessation indicators."
+    }
+   ]
+  },
+  {
+   "name": "unnamed test (demographic group differences)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "significance defined as p<0.05 for differences; the test behind the 'higher among' group claims is not named",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Statistical significance was defined as p<0.05 for differences and trends."
+    }
+   ]
+  },
+  {
+   "name": "suppression of estimates with relative standard error >30%",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "estimates with RSE >30% withheld",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Dashes indicate prevalence estimates with a relative standard error >30% that are not presented."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "year",
+   "sex",
+   "age group",
+   "race/ethnicity",
+   "U.S. Census region",
+   "education",
+   "marital status",
+   "annual household income",
+   "sexual orientation",
+   "health insurance coverage",
+   "disability",
+   "serious psychological distress",
+   "tobacco product"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During 2009–2018, significant increases in three cigarette cessation indicators occurred."
+   },
+   {
+    "loc": "text",
+    "q": "Estimates were calculated overall and separately by sex, age, race/ethnicity, U.S. Census region, education (for adults aged ≥25 years), marital status"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "T-tests were performed to assess overall differences in tobacco product use from 2017 to 2018."
+   },
+   {
+    "loc": "table 1",
+    "q": "% (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage (prevalence)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percentage of persons aged ≥18 years who reported tobacco product use “every day” or “some days,”"
+    }
+   ]
+  },
+  {
+   "v": "quit ratio",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The quit ratio for cigarette smoking increased from 51.7% in 2009 to 61.7% in 2018 (p<0.001)."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What was the prevalence of tobacco product use among U.S. adults in 2018, by characteristic, and how did use and cessation indicators change over time?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess recent national estimates of tobacco product use among U.S. adults aged ≥18 years"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "tobacco product use",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Tobacco Product Use and Cessation Indicators Among Adults — United States, 2018"
+    }
+   ]
+  },
+  {
+   "v": "cigarette smoking cessation",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Three cigarette smoking cessation indicators were assessed: past-year quit attempts,** recent successful cessation, †† and quit ratio."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NHIS is an annual, nationally representative, household survey of the noninstitutionalized U.S. civilian population."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During 2017–2018, e-cigarette and smokeless tobacco product use prevalence increased."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "analyzed data from the 2018 National Health Interview Survey (NHIS)."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Health Interview Survey (NHIS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "analyzed data from the 2018 National Health Interview Survey (NHIS)."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Tobacco Product Use and Cessation Indicators Among Adults — United States, 2018"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Prevalence is reported and described by race/ethnicity, education, income, insurance, sexual orientation and disability ('higher among'), but with no computed difference or ratio, no disparity framing and no determinants, so it is capped at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The many 'higher among' SPD contrasts in the text could be read as framed and interpreted disparities."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "and Hispanic adults (13.8%) than among non-Hispanic Asian adults (10.0%)"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education",
+     "annual household income",
+     "health insurance coverage"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Current tobacco product use was higher among persons with an annual household income <$35,000 (26.2%) than those in higher income groups"
+     },
+     {
+      "loc": "text",
+      "q": "Prevalence also was higher among adults who were uninsured (29.9%), insured by Medicaid (27.8%), or had some other public insurance (23.0%)"
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "as well as among lesbian, gay, or bisexual adults (29.2%) than among those who were heterosexual (19.5%)"
+     }
+    ]
+   },
+   {
+    "v": "disability",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "among those who had a disability/limitation (24.3%)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The prevalence of any current tobacco product use was higher among males (25.8%) than among females (14.1%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "among persons aged 25–44 years (23.8%), 45–64 years (21.3%), and 18–24 years (17.1%) than among those aged ≥65 years (11.9%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The 2018 NHIS Sample Adult component included 25,417 adults aged ≥18 years"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Group contrasts are stated as 'higher than' named referent groups; income is missing for 8,310 respondents and was not imputed; many subgroup estimates are suppressed for RSE >30%; education is restricted to adults aged ≥25 years."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Current tobacco product use was also higher among non-Hispanic American Indian/Alaska Native adults (32.3%), non-Hispanic multiracial adults (25.4%), non-Hispanic whites (21.9%)"
+    },
+    {
+     "loc": "text",
+     "q": "and Hispanic adults (13.8%) than among non-Hispanic Asian adults (10.0%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "among persons aged 25–44 years (23.8%), 45–64 years (21.3%), and 18–24 years (17.1%) than among those aged ≥65 years (11.9%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 7,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "higher among persons who had a GED (41.4%) than among those with other levels of education"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Current tobacco product use was higher among persons with an annual household income <$35,000 (26.2%) than those in higher income groups"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence also was higher among adults who were uninsured (29.9%), insured by Medicaid (27.8%), or had some other public insurance (23.0%)"
+    },
+    {
+     "loc": "text",
+     "q": "than among those with private insurance (17.2%) or Medicare only (12.6%)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "procedures",
+  "equity.level",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "The cross-sectional design is inferred from the annual household survey. The method for the 2009–2018 linear and quadratic trends is not named (commonly regression in SUDAAN), so it is recorded as an unnamed test. Marital status contrasts (3 groups vs married) are recorded in comparison only, not as an SPD.",
+ "view_issues": "T-tests are named only for 2017 vs 2018; the test behind the demographic 'higher among' claims is unstated. The intro says 'adults aged ≤65 years' had higher use, but the table shows ≥65 lowest (likely <65). The CSV uses '–' instead of '—' for Northeast pipe use."
+}

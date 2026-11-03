@@ -1,0 +1,481 @@
+{
+ "id": "mm675152e1",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "In 2017, among 70,237 drug overdose deaths, 47,600 (67.8%) involved opioids"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "From 2016 to 2017, synthetic opioid-involved overdose death rates increased 45.2%."
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Synthetic opioids were involved in 59.8% of all opioid-involved overdose deaths"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In 2017, among 70,237 drug overdose deaths, 47,600 (67.8%) involved opioids"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "From 2016 to 2017, opioid-involved overdose deaths increased among males and females and among persons aged ≥25 years"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Rates are age-adjusted using the direct method and the 2000 U.S. standard population, except for age-specific crude rates."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "joinpoint regression",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "Joinpoint (NCI software) giving annual percent change in age-adjusted rates implies a log-linear trend in rates",
+   "role": "primary",
+   "alternative_reading": "linear: Joinpoint fits least squares on the log rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Annual percent change with statistically significant trends in age-adjusted drug overdose death rates"
+    },
+    {
+     "loc": "text",
+     "q": "were analyzed using Joinpoint regression."
+    }
+   ]
+  },
+  {
+   "name": "z-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "z-tests stated for 2016 vs 2017 rate comparisons with ≥100 deaths; p<0.05",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Analyses comparing changes in death rates from 2016 to 2017 used z-tests when the number of deaths was ≥100"
+    }
+   ]
+  },
+  {
+   "name": "CI overlap assertion",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "nonoverlapping gamma-method CIs used as the significance criterion when deaths <100",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "nonoverlapping confidence intervals based on a gamma distribution when the number was <100."
+    },
+    {
+     "loc": "table 2",
+     "q": "Confidence intervals of 2016 and 2017 rates of synthetic opioid-involved deaths in Iowa overlapped only slightly: (1.40, 2.39), (2.36, 3.59)."
+    }
+   ]
+  },
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "age-specific rates applied to the 2000 U.S. standard population",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Age-adjusted death rates were calculated by applying age-specific death rates to the 2000 U.S. Census standard population age distribution"
+    }
+   ]
+  },
+  {
+   "name": "small-cell and unreliable-rate suppression",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "cells ≤9 deaths and rates on <20 deaths withheld",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Cells with ≤9 deaths are not reported. Rates based on <20 deaths are not considered reliable and are not reported."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "both",
+  "referent": "2016 rates",
+  "across": [
+   "year",
+   "drug category",
+   "sex",
+   "age",
+   "race/ethnicity",
+   "urbanization level",
+   "state"
+  ],
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "Absolute rate change is the difference between 2016 and 2017 rates."
+   },
+   {
+    "loc": "table 1",
+    "q": "Percent change is the absolute rate change divided by the 2016 rate, multiplied by 100."
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "ci_overlap": true,
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "note",
+    "q": "Z-tests were used if the number of deaths was ≥100, and a p-value of <0.05 was considered to be statistically significant."
+   },
+   {
+    "loc": "note",
+    "q": "Nonoverlapping confidence intervals based on the gamma method were used if the number of deaths was <100"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted death rate per 100,000",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "All rates are per 100,000 population."
+    }
+   ]
+  },
+  {
+   "v": "absolute rate change",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Absolute rate change is the difference between 2016 and 2017 rates."
+    }
+   ]
+  },
+  {
+   "v": "% change in rate",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percent change is the absolute rate change divided by the 2016 rate, multiplied by 100."
+    }
+   ]
+  },
+  {
+   "v": "annual percent change",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Annual percent change with statistically significant trends in age-adjusted drug overdose death rates"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Joinpoint regression examining changes in trends from 2013 to 2017 indicated that 35 states and the District of Columbia had significant increases"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Annual percent change with statistically significant trends in age-adjusted drug overdose death rates"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age (rates directly standardized to the 2000 U.S. standard population)",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Age-adjusted death rates were calculated by applying age-specific death rates to the 2000 U.S. Census standard population age distribution"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did drug and opioid-involved overdose death rates change during 2013–2017 and 2016–2017, by state, demographics and urbanization?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC examined state-level changes in death rates involving all drug overdoses in 50 states and the District of Columbia (DC)"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "drug overdose deaths",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Drug and Opioid-Involved Overdose Deaths — United States, 2013–2017"
+    }
+   ]
+  },
+  {
+   "v": "opioid overdose",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "From 2016 to 2017, synthetic opioid-involved overdose death rates increased 45.2%."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Drug overdose deaths were identified in the National Vital Statistics System multiple cause-of-death mortality files"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-adjusted overdose death rates were examined from 2016 to 2017 for all opioids, prescription opioids"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Drug overdose deaths were identified in the National Vital Statistics System multiple cause-of-death mortality files"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System multiple cause-of-death mortality files",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Drug overdose deaths were identified in the National Vital Statistics System multiple cause-of-death mortality files"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "were examined by demographics, county urbanization levels, and by 34 states and DC."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Rates and their 2016–2017 changes are reported and described by race/ethnicity, urbanization, age and sex (e.g., largest relative increase among blacks), but no between-group disparity is framed or quantified.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The Discussion highlights relatively large increases among blacks while rates remain highest among whites, which could be read as a framed, quantified disparity."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "basis": "assigned or observed",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Death rates were stratified by age, sex, racial/ethnic group, urbanization level"
+     },
+     {
+      "loc": "text",
+      "q": "The largest relative change occurred among blacks (25.2%)"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "the largest relative rate increase occurred in micropolitan counties (14.9%)."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The largest relative change among age groups was for persons aged ≥65 years (17.2%)."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "From 2016 to 2017, opioid-involved overdose deaths increased among males and females"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity from death certificates, with possible misclassification of AI/AN and Asian/Pacific Islander decedents; urbanization by 2013 NCHS county classification; state results limited to states with adequate drug specificity."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The largest relative change occurred among blacks (25.2%)"
+    },
+    {
+     "loc": "text",
+     "q": "the largest relative increases occurred among blacks (60.7%) and American Indian/Alaska Natives (58.5%)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 7,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The largest relative change among age groups was for persons aged ≥65 years (17.2%)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Counties in medium metro areas experienced the largest absolute rate increase (an increase of 1.9 per 100,000)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "sex",
+    "age"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the largest absolute rate increase was among males aged 25–44 years (an increase of 4.6 per 100,000)."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "regression_fields",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Tests compare 2016 vs 2017 within each group (period contrast), so groupwise entries rest only on rankings of changes across groups. Joinpoint is applied to age-adjusted rates; adjusted_results is set true for that standardization. 'Drug specificity' cue is a false diagnostic-accuracy hit.",
+ "view_issues": "Table 2 note § describes T40.4 as 'semisynthetic opioids other than methadone' (should be synthetic). Table 2 CSV has an extra empty column shifting synthetic-opioid 2016 rates. Footnote **** says '<100 in 2015 or 2016' while table notes say 2016 or 2017."
+}

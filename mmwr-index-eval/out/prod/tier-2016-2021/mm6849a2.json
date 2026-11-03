@@ -1,0 +1,439 @@
+{
+ "id": "mm6849a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPys1RXiLuQ4EjqVcGA",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2017, the age-adjusted hospitalization rate for Crohn’s disease was 15.5 per 100,000 Medicare enrollees"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The surgery rate was defined as the number of partial or total resections of the small or large intestine per 100 hospital stays."
+    },
+    {
+     "loc": "text",
+     "q": "For both diseases, the 30-day mortality rate was higher among older beneficiaries."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, the surgery rate was 17.4 per 100 hospital stays for Crohn’s disease and 11.2 per 100 stays for ulcerative colitis."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "For both diseases, the hospitalization rate was higher among women, whites, and urban residents than among men, blacks, and rural residents."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Direct age adjustment according to 2000 U.S. Standard Population based on two age groups (65–74 years and ≥75 years)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "'Direct age adjustment according to 2000 U.S. Standard Population' for hospitalization rates compared across groups",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Direct age adjustment according to 2000 U.S. Standard Population based on two age groups (65–74 years and ≥75 years)."
+    }
+   ]
+  },
+  {
+   "name": "Z-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods for group differences in 2017 rates",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Group differences were determined by Z-test with the significance level set at alpha = 0.05."
+    }
+   ]
+  },
+  {
+   "name": "linear regression for trend",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "'linear regression' of annual age-adjusted rates on year, giving slope per year and p-values → linear",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Trends in hospitalization rates were assessed using a linear regression."
+    },
+    {
+     "loc": "figure 2",
+     "q": "Linear trend p-values were assessed from a linear regression."
+    }
+   ]
+  },
+  {
+   "name": "suppression of small-cell or imprecise estimates (RSE >0.3)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "table and figure notes withhold cells by cell-size policy or relative standard error",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Data were suppressed according to the cell size suppression"
+    },
+    {
+     "loc": "figure 1",
+     "q": "Data were suppressed if relative standard errors were >0.3."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "absolute",
+  "referent": null,
+  "across": [
+   "urban-rural residence",
+   "race/ethnicity",
+   "sex",
+   "age group",
+   "year",
+   "state"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "were higher among urban than rural beneficiaries."
+   },
+   {
+    "loc": "text",
+    "q": "a modest decrease occurred in the hospitalization rate for Crohn’s disease overall (0.08 per 100,000 eligible Medicare enrollees, p = 0.002)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "All hospitalization outcome rates were calculated with 95% confidence intervals by demographic variables"
+   },
+   {
+    "loc": "text",
+    "q": "Group differences were determined by Z-test with the significance level set at alpha = 0.05."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted hospitalization rate per 100,000",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The age-adjusted hospitalization rate (hereafter referred to as hospitalization rate) was estimated per 100,000 eligible Medicare enrollees"
+    }
+   ]
+  },
+  {
+   "v": "surgery rate per 100 hospital stays",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Surgery rate, ¶, ** ,†† (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "30-day readmission rate and 30-day mortality rate per 100 stays",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "30-Day readmission rate, ¶,§§ (95% CI)"
+    },
+    {
+     "loc": "table 1",
+     "q": "30-Day mortality rate, ¶,¶¶ (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "geometric mean length of stay",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Length of stay (days)** geometric mean,*** (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Trends in hospitalization rates were assessed using a linear regression."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "What were IBD-related hospitalization rates and outcomes among older Medicare fee-for-service beneficiaries in 2017 by demographics, and how did rates trend by race/ethnicity during 1999–2017?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC analyzed Medicare Provider Analysis and Review (MedPAR) data to estimate IBD-related hospitalization rates and hospitalization outcomes in 2017"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "Crohn’s disease",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "4,782 hospital admissions were attributable to Crohn’s disease (15.5 per 100,000 Medicare population)"
+    }
+   ]
+  },
+  {
+   "v": "ulcerative colitis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "4,932 were attributable to ulcerative colitis (16.2 per 100,000 Medicare population)"
+    }
+   ]
+  },
+  {
+   "v": "inflammatory bowel disease",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Hospitalizations for Inflammatory Bowel Disease Among Medicare Fee-for-Service Beneficiaries — United States, 1999–2017"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "to estimate IBD-related hospitalization rates and hospitalization outcomes in 2017 among Medicare fee-for-service beneficiaries aged ≥65 years"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During 1999–2017, hospitalization rates for IBD decreased among whites but not among blacks."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "administrative/claims",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Medicare data are collected for insurance reimbursement purposes and are not designed for research."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Medicare Provider Analysis and Review (MedPAR)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed Medicare Provider Analysis and Review (MedPAR) data"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Medicare Fee-for-Service Beneficiaries — United States, 1999–2017"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Rates by race/ethnicity and urban-rural residence are reported and discussed (whites vs blacks trends; urban higher than rural), but contrasts are shown only as side-by-side rates with Z-test significance, no computed difference or ratio.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The Black-White trend contrast is framed as a concern needing health care utilization assessment and interpreted with prior disparity literature and rural access."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "In contrast to the decreased hospitalization rates for both diseases observed among whites, no significant temporal changes in hospitalization rates among blacks were observed."
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "the IBD-related hospitalization rate was higher among beneficiaries who were urban residents than among those who were rural residents."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "among Medicare fee-for-service beneficiaries aged ≥65 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "For both diseases, the 30-day mortality rate was higher among older beneficiaries."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "for Crohn’s disease was higher among men than women."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "limited health care access among rural residents",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "rural residents might also have limited health care access to receive IBD-related care or diagnosis"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race from the RTI race code; Hispanic, Asian, Native American and others collapsed with unknown into 'other or unknown'; trends shown for whites and blacks only. Rurality from the 2013 NCHS county scheme, collapsed to urban vs rural."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity › Other or unknown ¶¶¶"
+    },
+    {
+     "loc": "text",
+     "q": "Group differences were determined by Z-test with the significance level set at alpha = 0.05."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred (none named): descriptive analysis of claims plus trend. Trend claims contrast a significant slope among whites with a nonsignificant one among blacks; no formal test of slope difference, so interaction is false. Comparison scale 'absolute' rests on annual slope estimates; 2017 group contrasts are side by side with Z-tests.",
+ "view_issues": "Table note ¶¶ (30-day mortality) says 'To calculate 30-day all-cause readmission rate' with n = 4,781/4,932, apparently mislabelled. Urban+rural UC hospitalizations (4,929) do not sum to the total 4,932."
+}

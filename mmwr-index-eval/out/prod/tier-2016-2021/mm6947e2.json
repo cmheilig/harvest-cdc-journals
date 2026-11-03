@@ -1,0 +1,317 @@
+{
+ "id": "mm6947e2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPystGKkGrME4JbJeZ8",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-19 incidence (calculated as the 7-day rolling average number of new daily cases per 100,000 population) decreased"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "After July 3, COVID-19 incidence decreased in 24 counties with mask mandates but continued to increase in 81 counties without mask mandates."
+    },
+    {
+     "loc": "text",
+     "q": "By August 17–23, 2020, the 7-day rolling average COVID-19 incidence had decreased by 6% to 16 cases per 100,000 among mandated counties"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "segmented regression of daily incidence trends with GEE (autoregressive correlation)",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "segmented regression: slopes reported as mean change in cases per 100,000 per day before and after July 3, i.e. linear trends in the rolling-average rate; GEE with AR correlation",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was used to examine changes in COVID-19 incidence before and after July 3, 2020, among mandated and nonmandated counties."
+    },
+    {
+     "loc": "note",
+     "q": "Generalized estimating equation regression modeling with an autoregressive correlation variance structure was used to estimate trends over time within counties."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based CIs for daily slopes from the GEE segmented regression; increase/decrease conclusions rest on CIs excluding 0",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-19 incidence decreased each day in mandated counties (mean decrease = 0.08 cases per 100,000 per day; 95% CI = –0.14 to –0.03)"
+    },
+    {
+     "loc": "text",
+     "q": "in nonmandated counties, incidence continued to increase each day (mean increase = 0.11 cases per 100,000 per day; 95% CI = 0.01–0.21)"
+    }
+   ]
+  },
+  {
+   "name": "7-day rolling average (moving-average smoothing)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "moving average applied to daily rates before tabulation and modelling",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates were calculated as 7-day rolling averages."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "both",
+  "referent": null,
+  "across": [
+   "mask mandate status",
+   "period (before vs after July 3)"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "After July 3, COVID-19 incidence decreased in 24 counties with mask mandates but continued to increase in 81 counties without mask mandates."
+   },
+   {
+    "loc": "table 1",
+    "q": "Change in incidence = [(incidence in period – incidence in previous period)/incidence in previous period] x 100."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "note",
+    "q": "Generalized estimating equation regression modeling with an autoregressive correlation variance structure was used to estimate trends over time within counties."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "7-day rolling average incidence per 100,000",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Seven-day rolling average number of new daily cases per 100,000 population."
+    }
+   ]
+  },
+  {
+   "v": "mean daily increase/decrease in incidence",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "in nonmandated counties, incidence continued to increase each day (mean increase = 0.11 cases per 100,000 per day; 95% CI = 0.01–0.21)"
+    }
+   ]
+  },
+  {
+   "v": "% change in incidence",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Change in incidence = [(incidence in period – incidence in previous period)/incidence in previous period] x 100."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "GEE",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Generalized estimating equation regression modeling with an autoregressive correlation variance structure was used to estimate trends over time within counties."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Mandated and nonmandated counties were compared to themselves over time, allowing for the control of constant county-related characteristics"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "examining incidence trends after July 3 separately among mandated counties with and without other public health mitigation strategies"
+    },
+    {
+     "loc": "text",
+     "q": "recategorizing nonmandated counties that included cities mandating masks (n=6) as mandated counties."
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "Did COVID-19 incidence trends change after the July 3, 2020 Kansas mask order differently in counties with and without a mask mandate?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "analyzed trends in county-level COVID-19 incidence before (June 1–July 2) and after (July 3–August 23) the governor’s executive order"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Trends in County-Level COVID-19 Incidence in Counties With and Without a Mask Mandate"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "ecologic",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "First, the ecologic design of this study and limited information on community mask-wearing behaviors"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was used to examine changes in COVID-19 incidence before and after July 3, 2020, among mandated and nonmandated counties."
+    }
+   ]
+  },
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Countywide mask mandates appear to have contributed to the mitigation of COVID-19 transmission in mandated counties."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was calculated using case and population counts accessed from USAFacts"
+    },
+    {
+     "loc": "text",
+     "q": "Data on county mask mandates were obtained from the Kansas Health Institute."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "USAFacts",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was calculated using case and population counts accessed from USAFacts"
+    }
+   ]
+  },
+  {
+   "v": "Kansas Health Institute",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data on county mask mandates were obtained from the Kansas Health Institute."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Kansas, June 1–August 23, 2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Units are counties compared by mask-mandate (policy) status; county urbanicity is only a controlled or descriptive characteristic of non-human units, so no SPD is analyzed.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 1,
+   "reason": "County metropolitan status is described and controlled by design, if county rurality were read as an SPD descriptor."
+  },
+  "dimensions": [],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Geography and policy status (mask mandate) only; county metropolitan status from the NCHS urban-rural scheme is a descriptor of counties, not persons."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "analytic_depth",
+  "regression_fields"
+ ],
+ "confidence": "high",
+ "notes": "Slopes are estimated separately by mandate group and period; no formal test of slope differences between periods or groups is reported, so interaction is false. Segmented-regression family inferred as linear from slopes in cases per 100,000 per day. Testing-rate analyses are mentioned without results.",
+ "view_issues": "Summary contains a typo ('this this topic'); article was corrected after publication (erratum 2021-01-01)."
+}

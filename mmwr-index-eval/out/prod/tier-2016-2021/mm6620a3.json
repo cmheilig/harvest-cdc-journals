@@ -1,0 +1,298 @@
+{
+ "id": "mm6620a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrZeJ9bfss6ch3xvV",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "the median current tobacco smoking prevalence among students aged 13–15 years was 10.7%"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "the median current tobacco smoking prevalence among students aged 13–15 years was 10.7%"
+    },
+    {
+     "loc": "text",
+     "q": "the proportion of current tobacco smokers who reported a desire to quit exceeded 50% in 40 of those countries"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "the median current tobacco smoking prevalence among students aged 13–15 years was 10.7%"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Males had a higher prevalence of current tobacco smoking in 38 countries (p<0.05)"
+    },
+    {
+     "loc": "summary",
+     "q": "Tobacco smoking prevalence differed by gender and varied across countries."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated: data weighted per country for nationally representative estimates; two-stage sample design",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted for each country to yield nationally representatives estimates of youths attending school."
+    },
+    {
+     "loc": "note",
+     "q": "uses a two-stage sample design to select schools with a probability of selection proportional to enrollment size"
+    }
+   ]
+  },
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated chi-squared tests of male vs female prevalence within each country",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "chi-squared tests were used to determine statistically significant differences (p<0.05) in current tobacco smoking between males and females"
+    },
+    {
+     "loc": "table 1",
+     "q": "Female prevalence significantly different from males at p<0.05."
+    }
+   ]
+  },
+  {
+   "name": "suppression of imprecise estimates (n<35 or RSE>0.3)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "estimates withheld by sample-size and relative-SE rule",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates based on unweighted sample sizes <35 or relative standard error >0.3 are not reported."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": "50% of current smokers desiring to quit",
+  "across": [
+   "country",
+   "sex"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Tobacco smoking prevalence differed by gender and varied across countries."
+   },
+   {
+    "loc": "text",
+    "q": "the proportion of current tobacco smokers who reported a desire to quit exceeded 50% in 40 of those countries"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Overall country-specific prevalence estimates with corresponding 95% confidence intervals were calculated for current tobacco smoking and desire to quit smoking."
+   },
+   {
+    "loc": "text",
+    "q": "chi-squared tests were used to determine statistically significant differences (p<0.05) in current tobacco smoking between males and females"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "prevalence, % (95% CI)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Prevalence of current tobacco smoking › Overall % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "median prevalence",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "the median current tobacco smoking prevalence among students aged 13–15 years was 10.7%"
+    }
+   ]
+  },
+  {
+   "v": "proportion desiring to quit",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Proportion of current tobacco smokers* who desire to quit"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What are the prevalence of current tobacco smoking and the desire to quit among students aged 13–15 years in 61 countries, and does smoking differ by sex?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to examine the prevalence of current tobacco smoking and desire to quit smoking among students aged 13–15 years"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "tobacco smoking",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Current Tobacco Smoking and Desire to Quit Smoking Among Students Aged 13–15 Years"
+    }
+   ]
+  },
+  {
+   "v": "desire to quit smoking",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In the majority of countries, over 50% of youth tobacco smokers desired to quit."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "GYTS is a nationally representative school-based, paper and pencil, cross-sectional survey of students in school grades associated with ages 13–15 years."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "GYTS is a nationally representative school-based, paper and pencil, cross-sectional survey"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Global Youth Tobacco Survey (GYTS)",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Global Youth Tobacco Survey, 61 Countries, 2012–2015"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "international",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Global Youth Tobacco Survey, 61 Countries, 2012–2015"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Only age (population definition) and sex (stratifier tested within country) appear, without social-position framing; countries and WHO regions are geography, not SPDs.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 2,
+   "reason": "Sex-specific prevalences are reported and tested in each country, if sex were read as framed beyond a stratifier."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Current Tobacco Smoking and Desire to Quit Smoking Among Students Aged 13–15 Years"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "By sex, the median current tobacco smoking prevalence was 14.6% among males"
+     },
+     {
+      "loc": "text",
+      "q": "Males had a higher prevalence of current tobacco smoking in 38 countries (p<0.05)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Sex compared within each country; some sex-specific estimates suppressed. Country and WHO region are geography only; FCTC policy implementation is mentioned as a possible influence on country differences, not on an SPD."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "analytic_depth"
+ ],
+ "confidence": "high",
+ "notes": "Sex contrasts are tested separately within each country (separate surveys); read as comparison rather than stratified/adjusted. CIs are reported for estimation only; no conclusion rests on them. The 50% desire-to-quit threshold is a fixed referent with no test.",
+ "view_issues": "Table 1 shows '—' without the § mark for some cells (Egypt, Georgia, Vietnam females; Montenegro males; Sri Lanka by sex). Summary says 'gender', text says 'sex'. Typo 'nationally representatives estimates'."
+}

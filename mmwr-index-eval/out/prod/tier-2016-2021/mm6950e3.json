@@ -1,0 +1,414 @@
+{
+ "id": "mm6950e3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggQe1HK9Jvoty5X7nPsg",
+  "batch_id": "msgbatch_018MUHrMCXUMTPYHxpo1b4G2"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "lack of consistent mask use in school were associated with SARS-CoV-2 infection"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In each model, SARS-CoV-2 test result (i.e., positive or negative) was the outcome variable, and each exposure response was the predictor variable."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among children and adolescents with COVID-19, 69% reported close contact with a person with COVID-19"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "64% of close contacts of case-patients and 48% of those of control participants were family members (p = 0.02)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Logistic regression models accounting for child sex, age group, and race/ethnicity were used to estimate aORs and 95% CIs"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Logistic regression models' estimating aORs → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Logistic regression models accounting for child sex, age group, and race/ethnicity were used to estimate aORs and 95% CIs"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "CIs model-based from the stated logistic regression; conclusions of association or no association drawn from CIs vs 1",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was not associated with a positive SARS-CoV-2 test result (aOR = 0.8, 95% CI = 0.5–1.3)"
+    }
+   ]
+  },
+  {
+   "name": "Pearson chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "table note names Pearson's chi-squared test for categorical characteristics",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "using Fisher’s exact text or Pearson’s chi-squared test for categorical variables or Wilcoxon rank sum test for continuous variables"
+    }
+   ]
+  },
+  {
+   "name": "Fisher exact test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "table note names Fisher's exact test for categorical characteristics",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "using Fisher’s exact text or Pearson’s chi-squared test for categorical variables"
+    }
+   ]
+  },
+  {
+   "name": "Wilcoxon rank sum test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "table note names Wilcoxon rank sum test for continuous variables (household size, days per week)",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "or Wilcoxon rank sum test for continuous variables"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "control participants (negative SARS-CoV-2 test result)",
+  "across": [
+   "SARS-CoV-2 test result (case vs control)",
+   "school, community and close contact exposures"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "comparing odds of exposures among case-patients and control participants"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Logistic regression models accounting for child sex, age group, and race/ethnicity were used to estimate aORs and 95% CIs"
+   },
+   {
+    "loc": "table 1",
+    "q": "P-value for comparison of characteristics of case-patients with control participants using Fisher’s exact text or Pearson’s chi-squared test"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "aOR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "case-patients were more likely to have had close contact with a person with known COVID-19"
+    },
+    {
+     "loc": "text",
+     "q": "(aOR = 3.2, 95% CI = 2.0–5.0)"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was reported for 62% of case-patients and 68% of control participants"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Community exposure ≤14 days before SARS-CoV-2 test** › Social gatherings"
+    },
+    {
+     "loc": "table 1",
+     "q": "P-value for comparison of characteristics of case-patients with control participants"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Odds ratios were estimated using logistic regression models adjusting for sex, age group, and race/ethnicity."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "sex, age group, race/ethnicity",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Odds ratios were estimated using logistic regression models adjusting for sex, age group, and race/ethnicity."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Which school, community and close contact exposures are associated with a positive SARS-CoV-2 test among children and adolescents aged <18 years in Mississippi?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess school, community, and close contact exposures associated with pediatric COVID-19, a case-control study was conducted"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Factors Associated with Positive SARS-CoV-2 Test Results in Outpatient Health Facilities and Emergency Departments Among Children and Adolescents"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "case-control",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a case-control study was conducted to compare exposures reported by parents or guardians of children and adolescents"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "record abstraction or interview",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Trained interviewers administered structured interviews in English or Spanish (three interviews) by telephone and entered data into REDCap software"
+    }
+   ]
+  },
+  {
+   "v": "electronic health records",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "lists of children and adolescents with an electronic medical record of a SARS-CoV-2 test within the study period were randomly ordered"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "University of Mississippi Medical Center (UMMC) electronic medical records",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "emergency departments associated with the University of Mississippi Medical Center (UMMC) during September 1–November 5, 2020"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Mississippi, September–November 2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Race/ethnicity appears only as a model covariate and as a Table 1 descriptor with a composition test; no group-specific outcomes are discussed. Age and sex define the population, matching and adjustment.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 2,
+   "reason": "Table 1 reports race/ethnicity distributions by case status with a p-value, which could be read as group-specific results."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "figure 1",
+      "q": "adjusting for sex, age group, and race/ethnicity."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "217 (55%) were non-Hispanic Black, and 145 (37%) were non-Hispanic White"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Among Children and Adolescents Aged <18 Years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "frequency matched to the number of case-patients enrolled by age group (0–3, 4–8, 9–14 and 15–17 years), sex"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "figure 1",
+      "q": "adjusting for sex, age group, and race/ethnicity."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity missing for 20 participants; Hispanic and other non-Hispanic groups are very small (≤7 per arm)."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity (missing = 20) › Black, non-Hispanic"
+    },
+    {
+     "loc": "table 1",
+     "q": "using Fisher’s exact text or Pearson’s chi-squared test for categorical variables"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group, yrs › 15–17"
+    },
+    {
+     "loc": "table 1",
+     "q": "using Fisher’s exact text or Pearson’s chi-squared test for categorical variables"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [],
+ "confidence": "high",
+ "notes": "Controls were frequency matched on age group, sex and test date interval; the models are unconditional logistic adjusted for sex, age group and race/ethnicity. Each exposure was modelled separately.",
+ "view_issues": "Table note reads 'Fisher’s exact text' (typo for test). The mask-use aOR (0.4) appears only in text and figure, not in the Table."
+}

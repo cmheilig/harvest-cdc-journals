@@ -1,0 +1,389 @@
+{
+ "id": "mm7012e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggS4QnyMZkL4oq4oGxuB",
+  "batch_id": "msgbatch_015VCMXVPf2jEMdvPXUCM23r"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Vaccination coverage (percentage of residents who received at least one COVID-19 vaccine dose) and 95% confidence intervals (CIs) within SVI tertiles were calculated"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "National first-dose vaccination coverage was 15.1%."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "For overall SVI, vaccination coverage was 1.9 percentage points higher in low vulnerability counties than in high vulnerability counties (15.8% versus 13.9%, respectively)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Vaccination disparities were observed in 31 states (overall SVI measure); in 11 of these states, the disparity was found in all four SVI themes."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "meaningful-difference rule (≥0.5 percentage points)",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "a fixed threshold on rate differences replaces significance testing; no test or CI judgment underlies the claims",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "rather than using statistical significance to determine meaningful differences between tertiles, a difference of ≥0.5 percentage points was used."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "both",
+  "referent": "high social vulnerability counties",
+  "across": [
+   "SVI tertile (SES, household composition and disability, racial/ethnic minority status and language, housing and transportation)",
+   "state"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "high social vulnerability counties had lower COVID-19 vaccination coverage than did low social vulnerability counties."
+   },
+   {
+    "loc": "table 1",
+    "q": "Rate ratios compare the relative difference in vaccination coverage between SVI tertiles; high social vulnerability is the reference category."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "A vaccination rate ratio (RR) and 95% CI for each SVI metric was calculated using Wald’s unconditional maximum likelihood estimation"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "vaccination coverage, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Vaccination coverage estimate § (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "rate ratio",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Rate ratio for relative differences in vaccination coverage (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "rate difference, percentage points",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Rate differences in vaccination coverage"
+    }
+   ]
+  },
+  {
+   "v": "normalized proportion of vaccination coverage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were normalized so that the sum across tertiles was one."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Did first-dose COVID-19 vaccination coverage in the first 2.5 months of the U.S. program differ across counties by social vulnerability, nationally and within states?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "These tertiles were combined with vaccine administration data for 49,264,338 U.S. residents in 49 states and the District of Columbia (DC)"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "County-Level COVID-19 Vaccination Coverage and Social Vulnerability"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "ecologic",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "these associations are ecological and reported for population-based metrics rather than individual-level vulnerability data."
+    }
+   ]
+  },
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-19 vaccine administration data are reported to CDC by multiple entities via immunization information systems (IIS)"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "vaccination registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-19 vaccine administration data are reported to CDC by multiple entities via immunization information systems (IIS), the Vaccine Administration Management System, or direct data submission."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "immunization information systems (IIS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "via immunization information systems (IIS)"
+    }
+   ]
+  },
+  {
+   "v": "Vaccine Administration Management System",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the Vaccine Administration Management System, or direct data submission."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Each of the SVI metrics was categorized into national §§ and state-specific ¶¶ tertiles"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "high social vulnerability counties had lower COVID-19 vaccination coverage than did low social vulnerability counties."
+   }
+  ]
+ },
+ "equity": {
+  "level": 4,
+  "level_reason": "Coverage disparities by county SVI are framed, quantified (1.9 and 2.5 percentage points; rate ratios) and interpreted; access problems and specific state practices (prioritizing minority groups, free transportation, directing vaccine) are named as explanations.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Access problems are offered only as something to investigate, and state practices are cited, not analyzed, so determinants may be judged generic."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "primary comparison",
+    "ses_components": [
+     "poverty",
+     "per capita income",
+     "no high school diploma"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "with the largest coverage disparity in the socioeconomic status theme (2.5 percentage points higher coverage in low than in high vulnerability counties)."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Racial/Ethnic minority status and language › Racial/Ethnic minority"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Higher coverage in counties with large proportions of older adults was consistent with the prioritization of this age group"
+     }
+    ]
+   },
+   {
+    "v": "disability",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "equal vaccination coverage in counties with low and high social vulnerability was observed for the indicators relating to"
+     },
+     {
+      "loc": "text",
+      "q": "persons who speak English less than well and with persons with a disability"
+     }
+    ]
+   },
+   {
+    "v": "country of birth/language/nativity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Racial/Ethnic minority status and language › Limited English"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "With only age, sex, and limited race/ethnicity data available at the national level"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "access problems (vaccine supply, vaccination clinic availability, lack of prioritization of vulnerable groups); state practices such as prioritizing racial/ethnic minority groups, directing vaccines to vulnerable communities, free transportation",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "whether disparities are occurring because of access problems (e.g., vaccine supply, vaccination clinic availability, and lack of prioritization of vulnerable groups)"
+    },
+    {
+     "loc": "text",
+     "q": "Practices in states with high equity included 1) prioritizing persons in racial/ethnic minority groups during the early stages of the vaccine program implementation"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "vaccination coverage was lower in high vulnerability counties nationwide, demonstrating that additional efforts are needed to achieve equity in vaccination coverage"
+    }
+   ]
+  },
+  "equity_measurement": "Area-level proxy: county CDC SVI 2018 tertiles (ACS 2014–2018), national and state-specific ranks; high vulnerability is the referent. Denominators are total population although vaccines were for persons aged ≥16 or ≥18 years."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "comparing low and moderate vulnerability counties with high vulnerability counties."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Racial/Ethnic minority status and language › Racial/Ethnic minority"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Household composition and disability status › Age ≥65 yrs"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "procedures",
+  "equity.level",
+  "groupwise",
+  "analytic_depth"
+ ],
+ "confidence": "medium",
+ "notes": "No significance tests are used; claims rest on a ≥0.5 percentage-point difference rule, recorded as an 'other' procedure. Normalization of coverage to proportions summing to one is arithmetic, not a procedure. State-level SVI comparisons are treated as stratification by state.",
+ "view_issues": "In the Table CSV the Group quarters row duplicates the Poverty row values exactly, which looks like a table error."
+}

@@ -1,0 +1,446 @@
+{
+ "id": "mm7012a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPytge2Qpx4XGBc47YH",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Prevalence of 4vHPV-type infection decreased 88% among females aged 14–19 years, from 11.5% during 2003–2006 (prevaccine era) to 1.1% during 2015–2018"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence of 4vHPV-type infection decreased 88% among females aged 14–19 years, from 11.5% during 2003–2006 (prevaccine era) to 1.1% during 2015–2018"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence ratios (PRs) and adjusted prevalence ratios (aPRs), comparing 2015–2018 with 2003–2006, were estimated using logistic regression."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "For females aged 14–19 years, estimates were adjusted a priori for race/ethnicity and ever having had sex."
+    },
+    {
+     "loc": "text",
+     "q": "Among sexually experienced females, 4vHPV-type prevalence in each 4-year period was estimated overall, by age group and vaccination history."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "logistic regression for prevalence ratios (PR, aPR)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'estimated using logistic regression' → logistic; PRs presumably from predicted marginals",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence ratios (PRs) and adjusted prevalence ratios (aPRs), comparing 2015–2018 with 2003–2006, were estimated using logistic regression."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "significance defined as 95% CI for PR excluding 1; CIs model-based from survey logistic regression",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Statistical significance was defined as p<0.05, or 95% CIs that did not include one for PRs."
+    },
+    {
+     "loc": "text",
+     "q": "the prevalence of the five additional 9vHPV types did not decline significantly"
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (NHANES examination weights, complex design)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "examination weights and complex survey methods stated for all analyses",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Complex survey analytic methods were used to account for the survey design; analyses used examination weights."
+    }
+   ]
+  },
+  {
+   "name": "Wald F test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named Wald F tests comparing participant characteristics between periods",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "2015–2018 was compared with 2003–2006 using Wald F tests."
+    }
+   ]
+  },
+  {
+   "name": "flagging/suppression of unstable estimates (RSE >30%, low vaccinated counts)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "relative-SE rule flags estimates; figure withholds estimates with few vaccinated",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence estimates with relative standard error >30% were noted for stability concerns."
+    },
+    {
+     "loc": "figure 1",
+     "q": "Estimates are not shown for vaccinated females aged 25–29 years in 2007–2010"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "prevaccine era (2003–2006)",
+  "across": [
+   "survey period",
+   "age group",
+   "vaccination history",
+   "HPV type category"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "HPV vaccine-type prevalence continues to decline among females aged 14–19 (88%) and 20–24 (81%) years compared with before vaccination."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Statistical significance was defined as p<0.05, or 95% CIs that did not include one for PRs."
+   },
+   {
+    "loc": "text",
+    "q": "2015–2018 was compared with 2003–2006 using Wald F tests."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "prevalence, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Prevaccine era 2003–2006 › % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "PR",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Comparison of 2015–2018 with 2003–2006 › PR (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "aPR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(aPR = 0.12; 95% CI = 0.06–0.26)"
+    }
+   ]
+  },
+  {
+   "v": "percent decrease",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "i.e., a 97% decrease among those vaccinated and an 87% decrease among those unvaccinated"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Complex survey analytic methods were used to account for the survey design; analyses used examination weights."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Comparison of 2015–2018 with 2003–2006 › PR (95% CI)"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Comparison of 2015–2018 with 2003–2006 › aPR (95% CI)"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "race/ethnicity and ever having had sex (14–19 years); race/ethnicity and number of lifetime sex partners (20–34 years)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "For females aged 14–19 years, estimates were adjusted a priori for race/ethnicity and ever having had sex."
+    },
+    {
+     "loc": "text",
+     "q": "For females aged 20–24, 25–29, and 30–34 years, estimates were adjusted a priori for race/ethnicity and number of lifetime sex partners."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "To account for this, prevalence ratios were adjusted for sexual behaviors, and a subanalysis was restricted to sexually experienced females"
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "Has HPV vaccine-type infection prevalence among U.S. females aged 14–34 years declined from the prevaccine era through 2015–2018, including among unvaccinated females?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "NHANES data from 2017–2018 were included in this analysis to update HPV prevalence estimates among females aged 14–34 years."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "human papillomavirus infection",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Declines in Prevalence of Human Papillomavirus Vaccine-Type Infection Among Females after Introduction of Vaccine"
+    }
+   ]
+  },
+  {
+   "v": "human papillomavirus infection",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "HPV vaccination is a critical prevention tool against HPV infection, anogenital warts, and HPV-attributable precancers and cancers."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NHANES is an ongoing cross-sectional survey conducted by CDC’s National Center for Health Statistics"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from 2003 through 2018 were analyzed in 4-year periods: 2003–2006, 2007–2010, 2011–2014, and 2015–2018."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NHANES is an ongoing cross-sectional survey conducted by CDC’s National Center for Health Statistics"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Health and Nutrition Examination Survey (NHANES)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "in the National Health and Nutrition Examination Survey (NHANES)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Nationally representative data through 2018 indicate that HPV vaccine-type prevalence continues to decline"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "effectiveness",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "These data show increasing impact of HPV vaccination in the United States."
+   }
+  ]
+ },
+ "equity": {
+  "level": 1,
+  "level_reason": "Race/ethnicity appears only as an adjustment covariate and as a composition row in Table 2; age and sex define the population and age strata, without social-position framing.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 0,
+   "reason": "Race enters only as a confounder and a sample-composition descriptor; one could read it as no equity content."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "For females aged 14–19 years, estimates were adjusted a priori for race/ethnicity and ever having had sex."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The distribution of race/ethnicity was different in most age groups during 2015–2018 than during the prevaccine era."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "to update HPV prevalence estimates among females aged 14–34 years."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Age groups were categorized as 14–19, 20–24, 25–29, and 30–34 years."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Declines in Prevalence of Human Papillomavirus Vaccine-Type Infection Among Females after Introduction of Vaccine"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity limited to White, Black, Mexican American and other because of NHANES Hispanic oversampling changes."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The distribution of race/ethnicity was different in most age groups during 2015–2018 than during the prevaccine era."
+    },
+    {
+     "loc": "table 2",
+     "q": "Significant difference from 2015–2018 to 2003–2006 (p<0.05)."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise"
+ ],
+ "confidence": "high",
+ "notes": "Period comparisons are run within each age group (and vaccination history among sexually experienced females); age is not compared across groups, so no age groupwise entry. Vaccine outcome type read as effectiveness (population impact, herd effects); coverage appears only in Table 2.",
+ "view_issues": null
+}

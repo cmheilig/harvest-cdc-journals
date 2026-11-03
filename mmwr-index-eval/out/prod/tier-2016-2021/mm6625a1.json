@@ -1,0 +1,458 @@
+{
+ "id": "mm6625a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrb7yEtxzhJBKwMnt",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The prevalence of self-reported walking among women significantly increased from 2005 to 2015 (2005: 57.4%; 2010: 62.5%; 2015: 65.1%)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The proportion (with 95% confidence intervals) of adults who reported walking each year was calculated."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2015, women were significantly more likely to report walking (65.1%) than were men (62.8%)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Linear and quadratic trends in walking prevalence from 2005 to 2015 were tested using logistic regression, controlling for age group."
+    },
+    {
+     "loc": "text",
+     "q": "Because significant interactions between sex and trend terms were observed, sex-specific results are presented."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "logistic regression for linear and quadratic trends",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'trends ... were tested using logistic regression, controlling for age group' → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Linear and quadratic trends in walking prevalence from 2005 to 2015 were tested using logistic regression, controlling for age group."
+    }
+   ]
+  },
+  {
+   "name": "adjusted Wald test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named: 'adjusted Wald tests' for pairwise subgroup and between-year differences",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "pairwise differences between subgroups and across years were tested using adjusted Wald tests."
+    }
+   ]
+  },
+  {
+   "name": "direct age standardization to the 2000 U.S. standard population",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "'age-standardized to the 2000 U.S. standard population'",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Reported estimates are weighted and age-standardized to the 2000 U.S. standard population"
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (complex survey design)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weighted estimates and complex survey design stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All analyses accounted for the complex survey design."
+    },
+    {
+     "loc": "table 1",
+     "q": "Weighted percentages, age-standardized to the 2000 U.S. standard population."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "absolute",
+  "referent": null,
+  "across": [
+   "survey year",
+   "sex",
+   "age group",
+   "race/ethnicity",
+   "education level",
+   "U.S. Census region",
+   "body mass index category",
+   "walking assistance status",
+   "meeting aerobic physical activity guideline"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The prevalence of self-reported walking among women significantly increased from 2005 to 2015 (2005: 57.4%; 2010: 62.5%; 2015: 65.1%)"
+   },
+   {
+    "loc": "text",
+    "q": "The increase in walking prevalence among women between 2010 and 2015 was significant overall (2.7 percentage points)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "pairwise differences between subgroups and across years were tested using adjusted Wald tests."
+   },
+   {
+    "loc": "text",
+    "q": "Linear and quadratic trends in walking prevalence from 2005 to 2015 were tested using logistic regression, controlling for age group."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted age-standardized percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Weighted percentages, age-standardized to the 2000 U.S. standard population."
+    }
+   ]
+  },
+  {
+   "v": "absolute change from 2010 to 2015",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Absolute change from 2010 to 2015"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All analyses accounted for the complex survey design."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "based on trend analyses using logistic regression controlling for age category."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age group",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were tested using logistic regression, controlling for age group."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Because significant interactions between sex and trend terms were observed, sex-specific results are presented."
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Did the prevalence of self-reported walking for transportation or leisure among U.S. adults continue to increase from 2005 to 2015, overall and by subgroup?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to evaluate trends in the age-adjusted prevalence of self-reported walking among adults aged ≥18 years."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "walking for transportation or leisure (physical activity)",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Walking for Transportation or Leisure Among U.S. Women and Men — National Health Interview Survey, 2005–2015"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NHIS is a continuous in-person survey of U.S. households designed to be representative of the civilian, noninstitutionalized population"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "to evaluate trends in the age-adjusted prevalence of self-reported walking among adults aged ≥18 years."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed National Health Interview Survey (NHIS) data from 2005 (26,551 respondents), 2010 (23,313), and 2015 (28,877)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Health Interview Survey (NHIS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed National Health Interview Survey (NHIS) data from 2005 (26,551 respondents), 2010 (23,313), and 2015 (28,877)"
+    }
+   ]
+  },
+  {
+   "v": "NHIS Cancer Control Supplement",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "per sampled household in the 2005, 2010, and 2015 Cancer Control Supplements."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Walking for Transportation or Leisure Among U.S. Women and Men — National Health Interview Survey, 2005–2015"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Race/ethnicity and education disparities are framed and tested, with environmental determinants named, but contrasts are shown only as side-by-side percentages with significance claims; no difference or ratio between SPD groups is computed, so the level is capped at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "The Summary frames 'sociodemographic disparities', the tables quantify group prevalences, and low-SES and minority neighborhood safety is offered as an explanation."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Sociodemographic disparities in walking prevalence exist, with the lowest prevalences among non-Hispanic blacks and persons with a high school education or less."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education level"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The prevalence of walking was lower among men and women with a high school education or less"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Because significant interactions between sex and trend terms were observed, sex-specific results are presented."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Among males, there were no significant age group differences in walking prevalence."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Reported estimates are weighted and age-standardized to the 2000 U.S. standard population"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "to evaluate trends in the age-adjusted prevalence of self-reported walking among adults aged ≥18 years."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "perceived safety and attractiveness of low-SES and minority neighborhoods (traffic, crime); community supports for physical activity",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Low socioeconomic status (SES) and minority neighborhoods are often perceived as less attractive and less safe because of traffic or crime"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity has 4 groups (Other race combines Asian, AI/AN and multiracial); education has 4 levels; region is not an SPD; groups are compared via significance claims without computed contrasts."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "pairwise (all pairs)",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among women in 2015, the lowest reported prevalence of walking was among those aged ≥65 years, non-Hispanic blacks (blacks), and residents of the South"
+    },
+    {
+     "loc": "text",
+     "q": "pairwise differences between subgroups and across years were tested using adjusted Wald tests."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "pairwise (all pairs)",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The prevalence of walking was lower among men and women with a high school education or less"
+    },
+    {
+     "loc": "text",
+     "q": "among men, walking increased at a steady rate among college graduates from 2005 to 2015 (significant linear trend only)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "pairwise (all pairs)",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among males, there were no significant age group differences in walking prevalence."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "regression_fields"
+ ],
+ "confidence": "medium",
+ "notes": "Cross-sectional design inferred from repeated NHIS cross-sections; no design is named. Pairwise Wald tests are stated for 'differences between subgroups', read as all pairs, though only the lowest/highest groups are reported. Trend tests within each subgroup are tests of time within SPD levels, not across SPD groups.",
+ "view_issues": "Total 2005 prevalence for women is 57.4% in Summary and Table 1 but 57.3% in text. Table 1 walking-assistance CIs do not contain their point estimates (e.g. 65.3 (62.6–64.9)); Table 1 and 2 'needs assistance' CIs repeat."
+}

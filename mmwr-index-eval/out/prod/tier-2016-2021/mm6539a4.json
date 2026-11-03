@@ -1,0 +1,505 @@
+{
+ "id": "mm6539a4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrdcQkxvcV2FDKbUQ",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC analyzed data collected by the 2015 National Immunization Survey (NIS) for children aged 19–35 months"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Coverage in 2015 was highest for ≥3 doses of poliovirus vaccine (93.7%), ≥3 doses of hepatitis B vaccine (HepB) (92.6%)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Coverage in 2015 was highest for ≥3 doses of poliovirus vaccine (93.7%), ≥3 doses of hepatitis B vaccine (HepB) (92.6%)"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The 2015 NIS data reveal no significant changes in overall coverage relative to the previous year."
+    },
+    {
+     "loc": "text",
+     "q": "The difference in coverage levels ranged from 2.6 to 10.0 percentage points"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Coverage differences between black and white children were not statistically significant after adjustment for poverty status (data not shown)."
+    },
+    {
+     "loc": "text",
+     "q": "In all cases, poverty status remained independently associated with vaccination coverage after adjustment for MSA status."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "t-tests on weighted data (survey-design adjusted)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated t-tests accounting for complex survey design; behind the significance marks in Tables 1–3",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Statistical comparisons were made using t-tests on weighted data, taking into account the complex survey design."
+    },
+    {
+     "loc": "table 2",
+     "q": "Statistically significant (p<0.05) difference from referent group."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (NIS)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated weighting of NIS data producing all coverage estimates",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Details regarding NIS methodology and weighting have been described previously."
+    }
+   ]
+  },
+  {
+   "name": "logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Logistic regression' controlling for poverty and testing poverty × MSA interaction → logistic; results largely not shown",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Logistic regression was used to assess differences among racial/ethnic groups, controlling for poverty status,"
+    },
+    {
+     "loc": "text",
+     "q": "Logistic regression analyses did not identify any statistically significant interaction between poverty status and MSA status for any of the vaccines monitored by NIS."
+    }
+   ]
+  },
+  {
+   "name": "suppression of unreliable estimates (sample size and CI half-width rule)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "table note withholds estimates by n<30 or CI half-width rules",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Estimate not available because the unweighted sample size for the denominator was <30, or 95% CI half-width/estimate >0.588"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "absolute",
+  "referent": "Healthy People 2020 coverage targets (90%, 85%, 80%); referent groups: white, at or above poverty, MSA central city; previous year",
+  "across": [
+   "year",
+   "poverty level",
+   "race/ethnicity",
+   "MSA status",
+   "state/local area"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "children living below the poverty level continued to have lower coverage with rotavirus vaccine; pneumococcal conjugate vaccine"
+   },
+   {
+    "loc": "text",
+    "q": "The Healthy People 2020 †† target of 90% coverage was met for four vaccines"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Statistical comparisons were made using t-tests on weighted data, taking into account the complex survey design."
+   },
+   {
+    "loc": "table 1",
+    "q": "Statistically significant (p<0.05) change in coverage compared with previous year."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "vaccination coverage, % (95% CI)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Estimated vaccination coverage among children aged 19–35 months, by selected vaccines and doses"
+    }
+   ]
+  },
+  {
+   "v": "difference in percentage points",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The difference in coverage levels ranged from 2.6 to 10.0 percentage points"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Statistical comparisons were made using t-tests on weighted data, taking into account the complex survey design."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Compared with non-Hispanic white*** (white) children, non-Hispanic black (black) children had lower coverage with the full series of Hib"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Coverage differences between black and white children were not statistically significant after adjustment for poverty status (data not shown)."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "poverty status; MSA status",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Logistic regression was used to assess differences among racial/ethnic groups, controlling for poverty status,"
+    },
+    {
+     "loc": "text",
+     "q": "In all cases, poverty status remained independently associated with vaccination coverage after adjustment for MSA status."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Logistic regression analyses did not identify any statistically significant interaction between poverty status and MSA status for any of the vaccines monitored by NIS."
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "What was vaccination coverage among U.S. children aged 19–35 months in 2015, and did it differ by year, race/ethnicity, poverty, urbanicity and state relative to Healthy People 2020 targets?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess coverage with vaccinations recommended for children by age 2 years in the United States"
+   },
+   {
+    "loc": "text",
+    "q": "The data were also examined for potential vaccination coverage differences by race/ethnicity, poverty status, and urbanicity."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "vaccine-preventable childhood diseases",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Vaccination has resulted in substantial reductions in morbidity and mortality from childhood diseases in the United States."
+    }
+   ]
+  },
+  {
+   "v": "measles, mumps, and rubella",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "More than 90% of children were up to date on vaccination against polio; hepatitis B; measles, mumps, and rubella; and varicella."
+    }
+   ]
+  },
+  {
+   "v": "rotavirus",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "children living below the poverty level continued to have lower coverage with rotavirus vaccine"
+    }
+   ]
+  },
+  {
+   "v": "diphtheria, tetanus, and pertussis",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "diphtheria, tetanus, and acellular pertussis vaccine"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using a random digit dialing (RDD) sample of landline and cellular telephone numbers"
+    }
+   ]
+  },
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "on vaccine coverage among U.S. children aged 19–35 months and on progress toward meeting coverage targets"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data collected by the 2015 National Immunization Survey (NIS)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Immunization Survey (NIS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data collected by the 2015 National Immunization Survey (NIS)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "NIS monitors vaccination coverage among children aged 19–35 months in the 50 states, the District of Columbia, selected local areas, and territories"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The 2015 NIS data reveal no significant changes in overall coverage relative to the previous year."
+   }
+  ]
+ },
+ "equity": {
+  "level": 4,
+  "level_reason": "Poverty and rural disparities in coverage are framed, quantified (2.6–10.0 percentage points) and interpreted; access, transportation, provider proximity, clinic hours and insurance enrollment breaks are named as possible explanations.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The determinants are offered as issues to investigate rather than firm explanations of the disparity."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "primary comparison",
+    "ses_components": [
+     "poverty level"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The difference in coverage levels ranged from 2.6 to 10.0 percentage points"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "poverty status"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Logistic regression was used to assess differences among racial/ethnic groups, controlling for poverty status,"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Race/ethnicity › White, non-Hispanic (Referent)"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Children living in a non-MSA had lower coverage with ≥3 doses of DTaP, ≥3 doses of poliovirus vaccine"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "In all cases, poverty status remained independently associated with vaccination coverage after adjustment for MSA status."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Vaccination Coverage Among Children Aged 19–35 Months — United States, 2015"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "access to vaccination; proximity to providers and clinics; transportation; clinic hours; breaks in insurance (Medicaid) enrollment; VFC program awareness/participation barriers",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Issues such as proximity to health care providers and clinics, transportation, and convenience of clinic hours also should be investigated and addressed, if needed."
+    },
+    {
+     "loc": "text",
+     "q": "Breaks in insurance enrollment (especially Medicaid) are another complication faced by families living below the poverty level"
+    },
+    {
+     "loc": "text",
+     "q": "This also could reflect issues of access and proximity to vaccination providers, including those who administer VFC vaccines."
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referents: white, at or above poverty, MSA central city. Poverty dichotomized; 492 children missing income excluded; NHOPI estimates mostly suppressed. Race reported by parent/guardian."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 7,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Black, Hispanic, non-Hispanic Asian, and non-Hispanic American Indian/Alaska Native children had higher coverage with the HepB birth dose than did white children."
+    },
+    {
+     "loc": "table 2",
+     "q": "Statistically significant (p<0.05) difference from referent group."
+    }
+   ]
+  },
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "MSA status › MSA, central city (Referent)"
+    },
+    {
+     "loc": "text",
+     "q": "Coverage differed by MSA status for several vaccines in 2015 (Table 2)."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "comparison",
+  "study_design"
+ ],
+ "confidence": "medium",
+ "notes": "Headline leads with the 2014–2015 national comparison and the poverty contrast, so framework is pair; race and MSA comparisons are group-wise against referents. State variation in Table 3 is side by side with year-to-year significance marks. Design inferred as cross-sectional survey with monitoring against Healthy People 2020 targets.",
+ "view_issues": "Text says HepB birth-dose target is 85% but cites the 90% target alongside; Table 2 CSV has a missing parenthesis ('71.7 ±2.2)')."
+}

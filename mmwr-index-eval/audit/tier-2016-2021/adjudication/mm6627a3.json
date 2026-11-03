@@ -1,0 +1,9 @@
+{"id": "mm6627a3",
+ "fields": [
+  {"field": "groupwise_any", "verdict": "true", "correct": ["A"], "category": "reader error", "why": "Table 1 gives breastfeeding by mother's age (3), poverty level (5), mother's education (4), WIC status (3) and child's race (3), with a chi-square footnote on demographic differences."},
+  {"field": "groupwise_dims", "verdict": "[\"SES\", \"age\", \"race/ethnicity\"]", "correct": ["A"], "category": "reader error", "why": "Mother's age, SES (poverty ratio, education, WIC) and race/ethnicity each have 3+ groups with outcomes per group; state is geography, not an SPD."},
+  {"field": "groupwise_assessments", "verdict": "[\"omnibus test\", \"side by side\"]", "correct": ["A"], "category": "ambiguity", "why": "The chi-square footnote mark sits on mother's age (omnibus, 3 groups) and race, whose test is limited to black vs white, so race stays side by side; whether the footnote's 'by demographic variables' also covers the unmarked poverty, WIC and education rows (omnibus rather than side by side) is ambiguous, but the set of assessments is the same either way."}
+ ],
+ "justification": {"A": "good", "B": "n/a"},
+ "agreed_errors": [],
+ "brief_issues": "The mechanical flag (side by side despite a chi-square) is a false alarm here: the test is marked only on some rows, and the race test is pairwise. Minor: A's race entry has resolves_to_finer false although the black vs white chi-square is a finer contrast within the same groups (rule 5 suggests true). The brief could say whether a table-wide test footnote marked on only some rows covers the unmarked rows."}

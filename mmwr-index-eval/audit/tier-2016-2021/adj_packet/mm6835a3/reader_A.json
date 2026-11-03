@@ -1,0 +1,403 @@
+{
+ "id": "mm6835a3",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Over the period analyzed, the U.S. overall PRMR was 16.7 pregnancy-related deaths per 100,000 births."
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Proportionate cause of death by race/ethnicity* No. (%) attributed to each cause"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Over the period analyzed, the U.S. overall PRMR was 16.7 pregnancy-related deaths per 100,000 births."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "PRMRs were highest among black (40.8) and AI/AN (29.7) women; these rates were 3.2 and 2.3 times the PRMR for white women (12.7)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among women with a college education or higher, the PRMR for black women was 5.2 times that of their white counterparts."
+    },
+    {
+     "loc": "text",
+     "q": "The black:white disparity ratio in the PRMR for the states in the lowest, middle, and highest tertiles was 3.0, 3.3, and 2.8, respectively."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'chi-squared tests' for cause-specific proportions by race/ethnicity; Table 2 marks each group vs white at p<0.05",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Cause-specific proportionate mortality was classified in 10 mutually exclusive categories,* and differences by race/ethnicity were identified using chi-squared tests."
+    },
+    {
+     "loc": "table 2",
+     "q": "Significantly higher proportion of pregnancy-related deaths compared with that among white women, p<0.05."
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'significantly' for PRMR and disparity-ratio differences; no test named for PRMRs, but the article reports p-values and chi-square tests elsewhere",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "black and American Indian/Alaska Native women had significantly more pregnancy-related deaths per 100,000 births than did white, Hispanic, and Asian/Pacific Islander women."
+    },
+    {
+     "loc": "text",
+     "q": "The disparity ratios did not change significantly over time."
+    }
+   ]
+  },
+  {
+   "name": "small-cell suppression (<10 deaths)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "suppression of estimates based on fewer than 10 deaths",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Dashes indicate fewer than 10 deaths; these results were suppressed because ratios might be unreliable."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "white women",
+  "across": [
+   "race/ethnicity",
+   "age group",
+   "education",
+   "period",
+   "state PRMR tertile"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "White decedents were the referent group because they represented the largest racial/ethnic group."
+   },
+   {
+    "loc": "text",
+    "q": "Disparity ratios (comparisons of PRMR between two racial/ethnic groups) were calculated by five 2-year intervals, demographic characteristics, and state PRMR tertiles."
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "differences by race/ethnicity were identified using chi-squared tests."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "pregnancy-related mortality ratio (PRMR) per 100,000 live births",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Pregnancy-related mortality ratios (PRMRs) (i.e., pregnancy-related deaths per 100,000 live births)"
+    }
+   ]
+  },
+  {
+   "v": "disparity ratio",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Black: white disp. ratio"
+    }
+   ]
+  },
+  {
+   "v": "cause-specific proportionate mortality (%)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "cause-specific proportionate mortality by race/ethnicity also was calculated."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did pregnancy-related mortality ratios and causes of pregnancy-related death differ by race/ethnicity in the United States during 2007–2016, across age, education, time and state tertiles?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "PRMRs were analyzed by age group, highest level of education, and calendar year for women who were non-Hispanic white, black, AI/AN"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "pregnancy-related death",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Racial/Ethnic Disparities in Pregnancy-Related Deaths — United States, 2007–2016"
+    }
+   ]
+  },
+  {
+   "v": "pregnancy",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "identify deaths during or within 1 year of pregnancy and send corresponding death certificates"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from CDC’s Pregnancy Mortality Surveillance System (PMSS) for 2007–2016 were analyzed."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from CDC’s Pregnancy Mortality Surveillance System (PMSS) for 2007–2016 were analyzed."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Pregnancy Mortality Surveillance System (PMSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from CDC’s Pregnancy Mortality Surveillance System (PMSS) for 2007–2016 were analyzed."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Racial/Ethnic Disparities in Pregnancy-Related Deaths — United States, 2007–2016"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Racial/ethnic disparities are framed, quantified as disparity ratios (3.2, 2.3; 4–5 times) and interpreted; access to and quality of care, implicit bias and structural racism are named as explanations.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The determinants are offered from cited literature as possible contributors rather than analyzed in this report."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Racial/Ethnic Disparities in Pregnancy-Related Deaths — United States, 2007–2016"
+     },
+     {
+      "loc": "note",
+      "q": "data for race and Hispanic origin were obtained from linked birth certificates, which are self-reported"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "PRMR increased with maternal age; the black:white disparity was lowest among women aged <20 years (1.5)"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "highest level of education"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Among women with a college education or higher, the PRMR for black women was 5.2 times that of their white counterparts."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Approximately 700 women die annually in the United States as a result of pregnancy or its complications"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "access to care; quality of care; implicit racial bias; structural racism; gaps in health care coverage; transportation and housing",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "might reflect differences in access to care, quality of care, and prevalence of chronic diseases"
+    },
+    {
+     "loc": "text",
+     "q": "Identifying and addressing implicit bias and structural racism in health care and community settings"
+    },
+    {
+     "loc": "text",
+     "q": "black women are more likely than are white women to receive obstetric care in hospitals that provide lower quality of care"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "White women are the referent for all disparity ratios; race from birth certificates (self-reported) or death certificates; cells with <10 deaths suppressed; 687 deaths with unknown education excluded."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "black and American Indian/Alaska Native women had significantly more pregnancy-related deaths per 100,000 births than did white, Hispanic, and Asian/Pacific Islander women."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The proportion of pregnancy-related deaths attributed to each of 10 mutually exclusive causes varied by race/ethnicity"
+    },
+    {
+     "loc": "table 2",
+     "q": "Significantly higher proportion of pregnancy-related deaths compared with that among white women, p<0.05."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "PRMR increased with maternal age; the black:white disparity was lowest among women aged <20 years (1.5)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Education completed › College graduate or higher"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "procedures"
+ ],
+ "confidence": "medium",
+ "notes": "Disparity ratios are computed by hand (arithmetic) within age, education, period and state-tertile strata. Preventability figures and contributing factors in the Discussion are cited from other reports.",
+ "view_issues": "The Summary and Discussion call PRMR differences 'significant', but the only test method stated is chi-square for cause-specific proportions; no CIs or test for PRMRs or disparity-ratio trends are described."
+}

@@ -1,0 +1,9 @@
+{"id": "mm6948a3",
+ "fields": [
+  {"field": "groupwise_any", "verdict": "true", "correct": ["A"], "category": "reader error", "why": "Table 2's chi-square of age group (4 levels) by Hispanic ethnicity has the SPD age as a margin, so rule 2 makes it an omnibus groupwise entry."},
+  {"field": "groupwise_dims", "verdict": ["age", "race/ethnicity"], "correct": ["A"], "category": "ambiguity", "why": "Age is clear. The race entry (Hispanic, White and Black shares of cases set beside their population shares, plus weekly cases by race in the Figure) is defensible as side by side. Rule 6 (composition is not groupwise) could instead drop it, leaving only age."},
+  {"field": "groupwise_assessments", "verdict": ["omnibus test", "side by side"], "correct": ["A"], "category": "ambiguity", "why": "The age-by-ethnicity chi-square is an omnibus test over 4 groups. The race comparison is side by side if kept; the chi-squares are Hispanic vs non-Hispanic only, so the mechanical flag on the race entry is a false hit."}
+ ],
+ "justification": {"A": "good"},
+ "agreed_errors": [],
+ "brief_issues": "Rule 6 does not say whether group shares of cases set beside their population shares (an implicit per-group incidence) count as an outcome measured per group or as composition."}

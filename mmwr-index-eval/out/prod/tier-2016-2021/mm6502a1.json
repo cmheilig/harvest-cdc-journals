@@ -1,0 +1,369 @@
+{
+ "id": "mm6502a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrSTCJWqyFGc45BUg",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "64.4% (95% CI: 59.5–69.1) reported any breastfeeding for ≥4 weeks and 40.9% (95% CI: 36.2–45.7) reported exclusively breastfeeding ≥4 weeks"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "64.4% (95% CI: 59.5–69.1) reported any breastfeeding for ≥4 weeks and 40.9% (95% CI: 36.2–45.7) reported exclusively breastfeeding ≥4 weeks"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "there was a positive dose-response relationship between the number of practices experienced by adolescent mothers and their breastfeeding outcomes."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Prevalence ratios adjusted for maternal age, race/ethnicity, and receipt of Women, Infants, and Children (WIC) services during pregnancy."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "logistic regression with predicted marginal proportions (adjusted prevalence ratios)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'predicted marginal proportions from logistic regression models' giving aPRs → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC calculated adjusted prevalence ratios and 95% confidence intervals (CIs) by using predicted marginal proportions from logistic regression models"
+    }
+   ]
+  },
+  {
+   "name": "survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "sample weighted to represent the population; all prevalences reported as weighted",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The final sample size included 1,325 adolescent mothers, weighted to represent 104,030 adolescent mothers."
+    },
+    {
+     "loc": "table 3",
+     "q": "Weighted prevalence of the number of maternity care practices"
+    }
+   ]
+  },
+  {
+   "name": "test for linear trend",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'P-value for linear trend' across 0–5 practices; test method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "P-value for linear trend"
+    },
+    {
+     "loc": "text",
+     "q": "There was a significant dose-response relationship between the number of practices experienced and any or exclusive breastfeeding for ≥4 weeks and ≥8 weeks."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "aPR CIs judged against 1 (boldface significance); CIs model-based from logistic predicted marginals",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Boldface indicates a statistically significant result."
+    },
+    {
+     "loc": "text",
+     "q": "however, none of these practices were associated with study outcomes."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "0 practices experienced (Ref.); not experiencing each practice",
+  "across": [
+   "number of maternity care practices experienced",
+   "each maternity care practice",
+   "maternal age (adolescent vs ≥20 years)"
+  ],
+  "ev": [
+   {
+    "loc": "table 3",
+    "q": "multivariate association between the number of maternity care practice experienced and any breastfeeding and exclusive breastfeeding"
+   },
+   {
+    "loc": "text",
+    "q": "the prevalence of any breastfeeding for ≥8 weeks among adolescent mothers (44.6%) was 40% lower than among PRAMS respondents aged ≥20 years (74.8%)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC calculated adjusted prevalence ratios and 95% confidence intervals (CIs) by using predicted marginal proportions from logistic regression models"
+   },
+   {
+    "loc": "text",
+    "q": "Statistical significance was defined as p<0.05."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted prevalence (%)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Weighted prevalence of maternity care practices"
+    }
+   ]
+  },
+  {
+   "v": "aPR",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "aPR = adjusted prevalence ratios"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Prevalence ratios adjusted for maternal age, race/ethnicity, and receipt of Women, Infants, and Children (WIC) services during pregnancy."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "maternal age, race/ethnicity, receipt of WIC services during pregnancy",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Prevalence ratios adjusted for maternal age, race/ethnicity, and receipt of Women, Infants, and Children (WIC) services during pregnancy."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Among adolescent mothers who initiated breastfeeding, how common are BFHI-aligned maternity care practices and are they associated with breastfeeding duration and exclusivity?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "studies have not examined associations between BFHI-aligned maternity care and breastfeeding outcomes solely among adolescent mothers"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "breastfeeding",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Maternity Care Practices and Breastfeeding Among Adolescent Mothers Aged 12–19 Years"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "PRAMS is a surveillance project that collects state-specific, population-based data on maternal attitudes and experiences"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC used 2009–2011 PRAMS data (the most current data available) from New York City and 10 states"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Pregnancy Risk Assessment Monitoring System (PRAMS) maternity practices module",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed 2009–2011 Pregnancy Risk Assessment Monitoring System (PRAMS) data"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "10 states † and New York City, Pregnancy Risk Assessment Monitoring System, 2009–2011"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Race/ethnicity and WIC participation (SES) appear only as model covariates. Adolescent age defines the population; the adolescent vs ≥20 years contrast is age not framed as social position.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Adolescent mothers are called a vulnerable group, and the Discussion quantifies their breastfeeding as 40% lower than older mothers."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Breastfeeding Among Adolescent Mothers Aged 12–19 Years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "the prevalence of any breastfeeding for ≥8 weeks among adolescent mothers (44.6%) was 40% lower than among PRAMS respondents aged ≥20 years (74.8%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Prevalence ratios adjusted for maternal age"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Breastfeeding Among Adolescent Mothers"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Prevalence ratios adjusted for maternal age, race/ethnicity, and receipt of Women, Infants, and Children (WIC) services during pregnancy."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "receipt of WIC services during pregnancy"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "covariates (age, race/ethnicity, and Special Supplemental Nutrition Program for Women, Infants and Children [WIC] participation)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "WIC participation serves as an SES proxy covariate; the older-mother referent (PRAMS aged ≥20 years) appears only in the Discussion."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "equity.level",
+  "regression_fields",
+  "procedures"
+ ],
+ "confidence": "medium",
+ "notes": "Design is not named; cross-sectional is inferred from a weighted PRAMS survey. Survey design variance is not stated, so nonindependence is null. The trend test may be a model term; it is recorded as a test.",
+ "view_issues": "Boldface marking significant aPRs is not preserved in the CSV. The source of the ≥20-year PRAMS comparison figures in the Discussion is not described in the methods."
+}

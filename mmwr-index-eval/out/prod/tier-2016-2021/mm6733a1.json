@@ -1,0 +1,529 @@
+{
+ "id": "mm6733a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPys9sBw6fCWTgnhHqT",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To estimate U.S. adolescent vaccination coverage, CDC analyzed data from the 2017 National Immunization Survey–Teen (NIS-Teen) for 20,949 adolescents"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2017, coverage with ≥1 dose of HPV vaccine was 65.5% among teens, an increase of 5.1 percentage points compared with 2016"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Coverage with ≥1 dose of MenB among persons aged 17 years was 14.5% (95% confidence interval [CI] = 12.3%–17.1%)."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Coverage with ≥1 dose of HPV vaccine was 10.8 percentage points lower among adolescents living in non-MSAs"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "These disparities remained after controlling for poverty level."
+    },
+    {
+     "loc": "note",
+     "q": "Among adolescents living below poverty level, ≥1-dose HPV vaccination coverage estimates stratified by MSA status were 63.7%"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods; significance marks (p<0.05) in Tables 1–3 against stated referents",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "T-tests were used to assess vaccination coverage differences between 2017 and 2016 and between demographic subgroups"
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (complex sampling design)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated weighting for dual-frame, nonresponse and noncoverage; produces every estimate",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted and analyzed to account for the complex sampling design of NIS-Teen."
+    },
+    {
+     "loc": "note",
+     "q": "Sampling weights were adjusted for dual-frame (landline and cellular telephone), nonresponse, noncoverage, and overlapping samples of mixed telephone users."
+    }
+   ]
+  },
+  {
+   "name": "weighted linear regression of coverage on survey year",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "'Weighted linear regression by survey year' giving annual percentage point changes → linear",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Weighted linear regression by survey year was used to estimate annual percentage point changes in coverage."
+    },
+    {
+     "loc": "summary",
+     "q": "HPV vaccination initiation has increased an average of 5.1 percentage points annually since 2013."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "absolute",
+  "referent": "2016 NIS-Teen estimates; MSA principal city; at or above poverty level; private insurance; age 13 years",
+  "across": [
+   "survey year",
+   "poverty level",
+   "MSA status",
+   "health insurance status",
+   "age",
+   "sex",
+   "jurisdiction"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "In 2017, coverage among adolescents aged 13–17 years increased for ≥1 dose of HPV vaccine and ≥1 and ≥2 doses of meningococcal vaccines"
+   },
+   {
+    "loc": "table 2",
+    "q": "the referent groups were adolescents living at or above poverty level and MSA principal city respectively."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "T-tests were used to assess vaccination coverage differences between 2017 and 2016 and between demographic subgroups"
+   },
+   {
+    "loc": "table 1",
+    "q": "Statistically significant difference (p<0.05) compared with 2016 NIS-Teen estimates."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "vaccination coverage, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimated vaccination coverage with selected vaccines and doses among adolescents aged 13–17 * years, by age at interview"
+    }
+   ]
+  },
+  {
+   "v": "percentage point difference",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Difference between non-MSA and MSA principal city"
+    }
+   ]
+  },
+  {
+   "v": "average annual percentage point change",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2013–2017, ≥1-dose HPV vaccination coverage increased an average of 5.1 percentage points per year nationally"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted and analyzed to account for the complex sampling design of NIS-Teen."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Weighted linear regression by survey year was used to estimate annual percentage point changes in coverage."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "What was vaccination coverage with recommended vaccines among U.S. adolescents aged 13–17 years in 2017, and how did it change and differ by subgroup and jurisdiction?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To estimate U.S. adolescent vaccination coverage, CDC analyzed data from the 2017 National Immunization Survey–Teen (NIS-Teen) for 20,949 adolescents"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "HPV infection and HPV-associated cancers",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Vaccines to prevent human papillomavirus (HPV)–associated cancers, diphtheria, pertussis, tetanus, and meningococcal diseases are routinely recommended"
+    }
+   ]
+  },
+  {
+   "v": "meningococcal disease",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Vaccines to prevent human papillomavirus (HPV)–associated cancers, diphtheria, pertussis, tetanus, and meningococcal diseases are routinely recommended"
+    }
+   ]
+  },
+  {
+   "v": "pertussis",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Vaccines to prevent human papillomavirus (HPV)–associated cancers, diphtheria, pertussis, tetanus, and meningococcal diseases are routinely recommended"
+    }
+   ]
+  },
+  {
+   "v": "tetanus",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Vaccines to prevent human papillomavirus (HPV)–associated cancers, diphtheria, pertussis, tetanus, and meningococcal diseases are routinely recommended"
+    }
+   ]
+  },
+  {
+   "v": "diphtheria",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Vaccines to prevent human papillomavirus (HPV)–associated cancers, diphtheria, pertussis, tetanus, and meningococcal diseases are routinely recommended"
+    }
+   ]
+  },
+  {
+   "v": "measles, mumps, and rubella",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Coverage with ≥1 and ≥2 MenACWY doses, ≥2 MMR doses, and ≥2 VAR doses also increased"
+    }
+   ]
+  },
+  {
+   "v": "hepatitis B",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Hepatitis B vaccine ≥3 doses"
+    }
+   ]
+  },
+  {
+   "v": "varicella",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Coverage with ≥1 and ≥2 MenACWY doses, ≥2 MMR doses, and ≥2 VAR doses also increased"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NIS-Teen is an annual survey that estimates vaccination coverage among adolescents aged 13–17 years"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2016–2017, coverage increased for ≥1 dose of HPV vaccine (from 60.4% to 65.5%)"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2017 National Immunization Survey–Teen (NIS-Teen)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Immunization Survey–Teen (NIS-Teen)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2017 National Immunization Survey–Teen (NIS-Teen)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "National, Regional, State, and Selected Local Area Vaccination Coverage Among Adolescents Aged 13–17 Years — United States, 2017"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "HPV vaccination initiation has increased an average of 5.1 percentage points annually since 2013."
+   }
+  ]
+ },
+ "equity": {
+  "level": 4,
+  "level_reason": "Rural (non-MSA) coverage shortfalls are called disparities, quantified in percentage points (e.g., 10.8 lower), checked within poverty strata and interpreted; a shortage of rural health care providers is named as a partial explanation.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The rural provider shortage could be read as a health-system factor rather than a social or structural determinant, leaving a quantified, interpreted disparity only."
+  },
+  "dimensions": [
+   {
+    "v": "rurality",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Coverage with ≥1 dose of HPV vaccine was 10.8 percentage points lower among adolescents living in non-MSAs"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "poverty level",
+     "health insurance status"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Coverage with ≥1 dose of HPV vaccine and HPV UTD status were higher among adolescents living below the federal poverty level"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "cross-classifier",
+    "ses_components": [
+     "poverty level"
+    ],
+    "ev": [
+     {
+      "loc": "note",
+      "q": "Among adolescents living below poverty level, ≥1-dose HPV vaccination coverage estimates stratified by MSA status were 63.7%"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Differences in HPV vaccination coverage by race/ethnicity in 2017 were similar to patterns observed in previous years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Vaccination Coverage Among Adolescents Aged 13–17 Years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Statistically significant difference (p<0.05) in estimated vaccination coverage by age; reference group was adolescents aged 13 years."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "HPV ¶¶ vaccine – females"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "shortage of health care providers, especially pediatricians, in rural areas",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The overall shortage of health care providers, especially pediatricians, in rural areas might partially explain the lower coverage among rural adolescents"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referents are MSA principal city, at or above poverty level and private insurance; poverty is dichotomized and unknown for 779 adolescents; race/ethnicity and insurance results are in supplementary tables."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "the referent groups were adolescents living at or above poverty level and MSA principal city respectively."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Statistically significant difference (p<0.05) in estimated vaccination coverage by age; reference group was adolescents aged 13 years."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Coverage with ≥1 dose of HPV vaccine and HPV UTD status were 8.8 and 6.6 percentage points higher, respectively, among adolescents enrolled in Medicaid"
+    },
+    {
+     "loc": "text",
+     "q": "HPV UTD status, ≥1-dose MenACWY, and ≥2-dose MenACWY coverage rates were 12.7, 5.0, and 22.6 percentage points lower"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred as repeated cross-sectional survey; no design is named. The method behind the per-birth-year average increases (5.9 and 3.6 points) is not stated, and the ¶¶¶ sensitivity analysis of 2013 data is cited, not part of this analysis. Insurance groups are taken as Medicaid, private only and uninsured; the full categories are in a supplementary table.",
+ "view_issues": "Table 2 difference CIs are malformed: upper bounds lack minus signs (e.g., -7.4 (-10.0 to 4.7)), and one is 0.1 (-81.2 to 83.2). Footnote ††† gives a non-MSA CI of 40.7% (37.6%–48.3%), which is asymmetric. The Table 3 Texas ≥1 HPV cell lacks a closing parenthesis."
+}

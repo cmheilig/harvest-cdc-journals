@@ -1,0 +1,445 @@
+{
+ "id": "mm7022e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPytTFWc3cKvnqt6MP2",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "vaccination coverage was lower among adults living in counties with the highest overall SVI (Q4 coverage = 49.0% versus Q1 coverage = 59.3%)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During December 14, 2020–May 1, 2021, 54% of adults living in the 3,129 assessed U.S. counties received ≥1 dose of COVID-19 vaccine."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "vaccination coverage was lower among adults living in counties with the highest overall SVI (Q4 coverage = 49.0% versus Q1 coverage = 59.3%)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "–16.7% (95% CI = –20.7% to –12.7%) in large fringe metropolitan counties"
+    },
+    {
+     "loc": "text",
+     "q": "Trends in vaccination coverage were evaluated by epidemiologic week for SVI quartile, stratified by urbanicity."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "GEE binomial regression with identity link",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "'binomial regression and an identity link' estimating absolute coverage differences → additive (linear-probability) model fitted by GEE; not a logit link",
+   "role": "primary",
+   "alternative_reading": "logistic (GEE binomial family listed under logistic in the family table), though the identity link gives differences, not ORs",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Generalized estimating equation models using binomial regression and an identity link were used to estimate vaccination coverage by SVI metrics"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based CIs from the GEE with robust standard errors; conclusions of difference or no variation rest on CIs for differences vs 0",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Although coverage did not vary by the SVI theme related to housing type and transportation"
+    },
+    {
+     "loc": "text",
+     "q": "Absolute coverage differences with corresponding 95% confidence intervals (CIs) were calculated to evaluate differences between groups."
+    }
+   ]
+  },
+  {
+   "name": "suppression of categories with four or fewer counties",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "small-cell suppression rule stated in table notes",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Results were suppressed for SVI and urbanicity categories with four or fewer counties"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "absolute",
+  "referent": "lowest-vulnerability SVI quartile (Q1; Q2 in large central metropolitan) or below-median counties",
+  "across": [
+   "SVI quartile (overall and four themes)",
+   "individual SVI components (dichotomized)",
+   "urbanicity",
+   "period"
+  ],
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "reference group was the lowest vulnerability quartile with more than four counties"
+   },
+   {
+    "loc": "text",
+    "q": "Absolute coverage differences with corresponding 95% confidence intervals (CIs) were calculated to evaluate differences between groups."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "note",
+    "q": "95% CIs for the vaccination coverage differences used robust standard errors to account for state variability."
+   }
+  ]
+ },
+ "groupwise": [
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Overall SVI › Q4 (highest)"
+    },
+    {
+     "loc": "table 1",
+     "q": "reference group was the lowest vulnerability quartile with more than four counties"
+    }
+   ]
+  },
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Although differences in coverage by SVI were observed in counties of all urbanicity levels, large fringe metropolitan and nonmetropolitan counties were most affected."
+    }
+   ]
+  }
+ ],
+ "primary_measures": [
+  {
+   "v": "vaccination coverage (≥1 dose), %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "VC estimate"
+    }
+   ]
+  },
+  {
+   "v": "VC differences (95% CI)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "VC differences (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "clustered or robust SE",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "95% CIs for the vaccination coverage differences used robust standard errors to account for state variability."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Generalized estimating equation models using binomial regression and an identity link were used to estimate vaccination coverage by SVI metrics"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Have inequities in adult COVID-19 vaccination coverage by county social vulnerability persisted over time, overall and by urbanicity?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to ascertain whether inequities in COVID-19 vaccination coverage with respect to county-level SVI have persisted, overall and by urbanicity."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Patterns in COVID-19 Vaccination Coverage, by Social Vulnerability and Urbanicity"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "County-level data on FDA-authorized COVID-19 vaccines administered during December 14, 2020–May 1, 2021, and reported through May 5, 2021, were analyzed."
+    }
+   ]
+  },
+  {
+   "v": "ecologic",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Vaccine recipients were categorized by SVI metrics and urbanicity, based on county of residence."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Disparities in vaccination coverage by SVI increased over time, especially in large fringe metropolitan and nonmetropolitan counties"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "vaccination registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-19 vaccination data are reported to CDC through state, local, and territorial immunization information systems, the Vaccine Administration Management System"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "immunization information systems",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "state, local, and territorial immunization information systems"
+    }
+   ]
+  },
+  {
+   "v": "Vaccine Administration Management System",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the Vaccine Administration Management System, or direct data submission to the CDC Data Clearinghouse."
+    }
+   ]
+  },
+  {
+   "v": "CDC Data Clearinghouse",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the Vaccine Administration Management System, or direct data submission to the CDC Data Clearinghouse."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Data from adults living in 3,129 (99%) U.S. counties were analyzed"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "By May 1, 2021, vaccination coverage among adults was lower among those living in counties with lower socioeconomic status"
+   }
+  ]
+ },
+ "equity": {
+  "level": 4,
+  "level_reason": "Coverage disparities by county SVI (an area index of social determinants, the analyzed exposure) are framed, quantified as absolute differences with CIs, and interpreted; socioeconomic barriers and access to care are named as explanations.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Determinants offered in the Discussion are partly generic or speculative ('might face'); the SVI itself is a proxy, not a specific structural cause."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "primary comparison",
+    "ses_components": [
+     "social vulnerability index",
+     "per capita income",
+     "poverty"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "coverage was lower in counties with higher SVI pertaining to socioeconomic status (Q4 = 44.3% versus Q1 = 61.0%)"
+     },
+     {
+      "loc": "table 2",
+      "q": "Income per capita (median = $26,245) › Below median"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Trends in vaccination coverage were evaluated by epidemiologic week for SVI quartile, stratified by urbanicity."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "higher in counties with higher SVI related to racial and ethnic minority residents and English proficiency (Q4 = 56.5% versus Q1 = 45.3%)"
+     }
+    ]
+   },
+   {
+    "v": "country of birth/language/nativity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Percentage of persons who speak English less than well (median = 0.7%) › At or above median"
+     }
+    ]
+   },
+   {
+    "v": "disability",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Percentage of persons living with a disability (median = 15.4%) › At or above median"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "the number of persons aged ≥18 years (adults) who had received ≥1 dose"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "social vulnerability (social and structural factors); socioeconomic status, income, poverty, education; barriers to accessing health care services; travel outside county for vaccination",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "defined as social and structural factors associated with adverse health outcomes"
+    },
+    {
+     "loc": "text",
+     "q": "residents of large fringe metropolitan counties might face socioeconomic challenges, including substantial barriers to accessing health care services"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "County-level (ecologic) SVI quartiles with Q1 as referent (Q2 in large central metropolitan counties, Q1 suppressed); SVI components dichotomized at the national median; small California counties and Hawaii excluded."
+ },
+ "uncertain_fields": [
+  "procedures",
+  "comparison",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Regression family is ambiguous: a binomial GEE with identity link yields risk differences, so it is recorded as linear with a logistic alternative. Period-specific differences appear only in a supplementary table. Rurality is treated as an SPD (residence of adults), although classified at the county level.",
+ "view_issues": "Text calls the large central metropolitan –11.0% a highest-vs-lowest contrast, but Table 1 uses Q2 as referent there because Q1 is suppressed. The Discussion says disparities were not associated with minority status, whereas results show higher coverage in high-minority SVI counties."
+}

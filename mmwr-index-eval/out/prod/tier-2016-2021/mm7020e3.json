@@ -1,0 +1,326 @@
+{
+ "id": "mm7020e3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPytLJE9xHnfBvpHmtp",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "COVID-19 vaccination coverage was lower in rural counties (38.9%) than in urban counties (45.7%); disparities persisted among age groups and by sex."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "COVID-19 vaccination coverage was lower in rural counties (38.9%) than in urban counties (45.7%)"
+    },
+    {
+     "loc": "text",
+     "q": "Overall, 67.1% of vaccinated persons were vaccinated in their county of residence and 98.3% in their state of residence."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, 67.1% of vaccinated persons were vaccinated in their county of residence and 98.3% in their state of residence."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "COVID-19 vaccination coverage was lower in rural counties (38.9%) than in urban counties (45.7%)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "for adults aged 18–64 years (29.1% rural, 37.7% urban) and for those aged ≥65 years (67.6% rural, 76.1% urban)"
+    },
+    {
+     "loc": "text",
+     "q": "in 36 (72%) jurisdictions, coverage was higher in urban counties, in five (10%) coverage was higher in rural counties"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "capping of doses at county population size (top-coding coverage at 100%)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "doses per county censored at population size minus one, so coverage cannot exceed 100%",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "For statistical analysis, the number of doses allowed per county was capped at population size minus one for a maximum vaccination coverage of 100%."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "rurality (urban vs rural counties)",
+   "age group",
+   "sex",
+   "jurisdiction"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "COVID-19 vaccination coverage was lower in rural counties (38.9%) than in urban counties (45.7%); disparities persisted among age groups and by sex."
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Tests for statistical significance were not conducted because the data represent the U.S. population"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "vaccination coverage, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. (%) vaccinated"
+    }
+   ]
+  },
+  {
+   "v": "percentage of vaccinated persons who traveled outside their county of residence",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Percentage of vaccinated persons who traveled outside their county of residence"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Does first-dose COVID-19 vaccination coverage among adults differ between urban and rural U.S. counties, overall and by age, sex and jurisdiction?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To better understand COVID-19 vaccination disparities across the urban-rural continuum, CDC analyzed county-level vaccine administration data among adults aged ≥18 years"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Disparities in COVID-19 Vaccination Coverage Between Urban and Rural Counties"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed county-level vaccine administration data among adults aged ≥18 years"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "vaccination registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "reported to CDC by jurisdictions, pharmacies, and federal entities through immunization information systems (IISs)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "immunization information systems (IISs)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "through immunization information systems (IISs)"
+    }
+   ]
+  },
+  {
+   "v": "Vaccine Administration Management System",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the Vaccine Administration Management System"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "in 50 U.S. jurisdictions (49 states and the District of Columbia [DC])"
+   },
+   {
+    "loc": "table 1",
+    "q": "by jurisdiction, sex, age group, and urban-rural classification"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "COVID-19 vaccination coverage was lower in rural counties (38.9%) than in urban counties (45.7%)"
+   }
+  ]
+ },
+ "equity": {
+  "level": 2,
+  "level_reason": "Rural-urban coverage is framed as a disparity, but contrasts are rural and urban percentages set side by side with no computed difference or ratio and no tests, so the side-by-side cap holds at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The title and text frame rurality as a disparity, and jurisdictions are classified by an urban-rural difference within 1%; read as quantified, access and pharmacy dearth could even support 4."
+  },
+  "dimensions": [
+   {
+    "v": "rurality",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Disparities in COVID-19 Vaccination Coverage Between Urban and Rural Counties"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "county-level vaccine administration data among adults aged ≥18 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "for adults aged 18–64 years (29.1% rural, 37.7% urban) and for those aged ≥65 years (67.6% rural, 76.1% urban)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "for women (41.7% rural, 48.4% urban); and for men (35.3% rural, 41.9% urban)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Coverage by race and ethnicity was not calculated because information on race and ethnicity was missing for 40% of data."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "challenges with vaccine access; dearth of pharmacies in rural areas; jurisdictional prioritization of subgroups",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "which might be related to challenges with vaccine access and the dearth of pharmacies in some rural areas"
+    },
+    {
+     "loc": "text",
+     "q": "each jurisdiction prioritized population subgroups for vaccination differently, which might have also contributed to vaccination coverage differences between urban and rural populations"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Six NCHS 2013 urban-rural levels collapsed into urban vs rural; four jurisdictions have no rural counties; race/ethnicity missing for 40% so not analyzed; county of residence missing for 9.2%."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. (%) vaccinated › Six-level urban-rural classification › Noncore"
+    },
+    {
+     "loc": "text",
+     "q": "a larger proportion of persons in large fringe metropolitan counties (i.e., suburban areas) and noncore counties (i.e., the most rural areas) traveled"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "procedures",
+  "analytic_depth"
+ ],
+ "confidence": "medium",
+ "notes": "No significance tests were done because the data are treated as a population census. Rural-urban contrasts within age, sex and jurisdiction are read as stratified comparisons. Hesitancy figures in the Discussion are cited from a Kaiser Family Foundation poll, not the report's own analysis.",
+ "view_issues": "The Summary and Discussion use 'disparities' and 'vaccination rates' for coverage percentages; no differences or ratios are computed."
+}

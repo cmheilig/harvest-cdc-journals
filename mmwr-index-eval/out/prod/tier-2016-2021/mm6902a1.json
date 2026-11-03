@@ -1,0 +1,360 @@
+{
+ "id": "mm6902a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyt5B3Fb9cNLRxzErj",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During 2003–2017, rates of infant mortality attributable to birth defects declined 10% overall"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "IMBD rates decreased 10% from 2003 (12.2 per 10,000 live births [95% CI = 11.9–12.6])"
+    },
+    {
+     "loc": "text",
+     "q": "A birth defect was listed as the underlying cause of death for 70,954 (20.3%) infant deaths during 2003–2017"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "IMBD rates decreased 10% from 2003 (12.2 per 10,000 live births [95% CI = 11.9–12.6])"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2003–2017, rates were consistently higher among infants of black mothers and lowest among infants of white mothers"
+    },
+    {
+     "loc": "text",
+     "q": "Rates decreased 4% during 2003–2017 for infants of Hispanic mothers (from 13.0 infant deaths per 10,000 live births to 12.5)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Cochran-Armitage test for trend",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named test for trend across years 2003–2017, applied overall and within each stratum",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "References to decreasing or increasing trends during 2003–2017 are statistically significant and were assessed using the Cochran–Armitage test for trend."
+    },
+    {
+     "loc": "table 1",
+     "q": "Significant trend in IMBD rates during 2003–2017 using the Cochran-Armitage test for trend."
+    }
+   ]
+  },
+  {
+   "name": "weighting for nonlinkage of death records",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated weighting of the linked file by proportion of unlinked death certificates by year, state and age at death",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "To account for nonlinkage, the linked birth/infant death file was weighted by the proportion of death certificates unlinked"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "2003 rates; infants of white mothers",
+  "across": [
+   "year",
+   "maternal race/ethnicity",
+   "maternal age",
+   "infant sex",
+   "gestational age",
+   "infant age at death"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "rates of infant mortality attributable to birth defects declined 10% overall, including among infants of Hispanic mothers (4%), non-Hispanic black mothers (11%)"
+   },
+   {
+    "loc": "text",
+    "q": "The IMBD rate was 32% (2003) and 34% (2017) higher among infants born to black mothers than that among those born to white mothers"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "IMBD rates and 95% confidence intervals (CIs) were calculated for each year"
+   },
+   {
+    "loc": "text",
+    "q": "were assessed using the Cochran–Armitage test for trend."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "IMBD rate per 10,000 live births",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "IMBD rates per 10,000 live births (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "% change",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% Change* 2003–2017"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A birth defect was listed as the underlying cause of death for 70,954 (20.3%) infant deaths during 2003–2017"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did rates of infant mortality attributable to birth defects change in the United States during 2003–2017, overall and by maternal and infant characteristics?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "U.S. linked birth/infant death data from 2003–2017 were used to assess trends in IMBD."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "infant mortality attributable to birth defects",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Infant Mortality Attributable to Birth Defects — United States, 2003–2017"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Linked birth/infant death records for infants aged <1 year born to U.S. residents"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "U.S. linked birth/infant death data from 2003–2017 were used to assess trends in IMBD."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "through 2017 were obtained from the National Vital Statistics System."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System (NVSS) linked birth/infant death data",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "through 2017 were obtained from the National Vital Statistics System."
+    }
+   ]
+  },
+  {
+   "v": "CDC WONDER Multiple Cause of Death Files",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Data are from CDC WONDER’s Multiple Cause of Death Files, 1999–2017"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Infant Mortality Attributable to Birth Defects — United States, 2003–2017"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Racial/ethnic disparities are framed as persisting and quantified (32%/34% higher for black vs white; 15%/26% for Hispanic vs white), and access to and utilization of health care and insurance type are offered as explanations.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The determinants are offered tentatively ('might be influenced') alongside clinical factors, so they could be read as generic."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "however, racial/ethnic disparities remained."
+     },
+     {
+      "loc": "text",
+      "q": "Maternal race/ethnicity was obtained from the birth certificate"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "maternal age at delivery (<20 years, 20–34 years, or >34 years)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Linked birth/infant death records for infants aged <1 year born to U.S. residents"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "IMBD rates decreased 14% during 2003–2017 for male infants (from 12.8 to 11.0) and 6% for female infants"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "access to and utilization of health care before and during pregnancy; insurance type",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The observed differences in IMBD rates by race/ethnicity might be influenced by access to and utilization of health care before and during pregnancy"
+    },
+    {
+     "loc": "text",
+     "q": "prenatal screening, losses of pregnancies with fetal anomalies, and insurance type"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "White mothers are the referent; only white, black and Hispanic groups are analyzed, other races excluded; race uses bridged single-race categories from birth certificates."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The IMBD rate was 32% (2003) and 34% (2017) higher among infants born to black mothers than that among those born to white mothers"
+    },
+    {
+     "loc": "text",
+     "q": "rates were consistently higher among infants of black mothers and lowest among infants of white mothers"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Trends varied by maternal age: rates for infants of mothers aged <20 years were stable from 2003 (13.3) to 2017 (12.9)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "outcome_types",
+  "comparison",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred (no design named). Infant deaths per live births are unitless, so read as binary/categorical despite the 'rate' label. Trend tests within each stratum are tests across years, not across SPD levels.",
+ "view_issues": "Table gives 2003 total IMBD cases as 4,897 while text gives 4,898 of 25,069."
+}

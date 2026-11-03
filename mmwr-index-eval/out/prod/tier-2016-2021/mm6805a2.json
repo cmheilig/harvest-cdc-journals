@@ -1,0 +1,444 @@
+{
+ "id": "mm6805a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysGogP6CHJjbuuonW",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "knew all five common heart attack symptoms increased from 39.6% in 2008 to 50.0% in 2014 and to 50.2% in 2017"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "in 2017, approximately half of respondents (50.2%) knew all five common heart attack signs and symptoms"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "P-values for difference from 2008 to 2017 were obtained using the t-test"
+    },
+    {
+     "loc": "text",
+     "q": "In 2017, knowledge of the five heart attack symptoms was lower among men, younger age groups, racial/ethnic minorities (especially non-Hispanic Asians and Hispanics)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "unadjusted and adjusted for age, sex, race/ethnicity, level of education, history of coronary heart disease, and number of CVD risk factors"
+    },
+    {
+     "loc": "table 1",
+     "q": "Adjusted by age, sex, race/ethnicity, education, history of CHD, and CVD risk factor."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'p-values for difference from 2008 to 2017 were obtained using the t-test', survey-design based in SUDAAN",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "P-values for difference from 2008 to 2017 were obtained using the t-test"
+    }
+   ]
+  },
+  {
+   "name": "Wald F-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'Wald F-test' across levels of each characteristic, 2017 adjusted percentages; table footnote marks",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Within-group comparisons for awareness and response were assessed by demographic characteristics and CVD risk factors in 2017 using the Wald F-test."
+    },
+    {
+     "loc": "table 1",
+     "q": "p<0.001 from Wald F of adjusted percentage by characteristics for 2017 data."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (NHIS sampling weights, complex design)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "SUDAAN accounting for NHIS sampling weights and complex sample design for all analyses",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "SAS-callable SUDAAN (version 11.0, Research Triangle Institute) that accounted for the NHIS complex sample design, NHIS sampling weights, and design variables"
+    }
+   ]
+  },
+  {
+   "name": "covariate-adjusted prevalence (method not stated)",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "adjusted percentages by six covariates; the adjustment model is not named",
+   "role": "primary",
+   "alternative_reading": "logistic regression with predicted marginals (typical in SUDAAN), not stated",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "unadjusted and adjusted for age, sex, race/ethnicity, level of education, history of coronary heart disease, and number of CVD risk factors"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "absolute",
+  "referent": "2008; HP2020 targets (43.6% symptom awareness, 93.8% calling 9-1-1)",
+  "across": [
+   "survey year",
+   "sex",
+   "age group",
+   "race/ethnicity",
+   "education",
+   "history of CHD",
+   "number of CVD risk factors"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "knowledge of five common signs and symptoms of a heart attack and the appropriate emergency response increased significantly"
+   },
+   {
+    "loc": "table 1",
+    "q": "Percentage point change 2008 to 2017"
+   },
+   {
+    "loc": "text",
+    "q": "estimates for certain subpopulations remained below the HP2020 target, including racial/ethnic minorities and adults with less than a high school education"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "P-values for difference from 2008 to 2017 were obtained using the t-test"
+   },
+   {
+    "loc": "text",
+    "q": "Within-group comparisons for awareness and response were assessed by demographic characteristics and CVD risk factors in 2017 using the Wald F-test."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "adjusted percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The adjusted percentage of adults who knew to call 9-1-1 if someone was having a heart attack increased"
+    }
+   ]
+  },
+  {
+   "v": "percentage point change",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percentage point change 2008 to 2017"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Did awareness of heart attack symptoms and knowing to call 9-1-1 change among U.S. adults from 2008 to 2017, and did it differ by demographic and CVD risk groups?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess changes in awareness and response to an apparent heart attack, CDC analyzed data from NHIS"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "awareness of heart attack symptoms and response",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Awareness of Heart Attack Symptoms and Response Among Adults"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NHIS is an annual survey that collects health-related information on the civilian, noninstitutionalized U.S. population"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "P-values for difference from 2008 to 2017 were obtained using the t-test"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from NHIS to report awareness of heart attack symptoms and calling 9-1-1"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Health Interview Survey (NHIS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A recent report using National Health Interview Survey (NHIS) data from 2014"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Awareness of Heart Attack Symptoms and Response Among Adults — United States, 2008, 2014, and 2017"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Group-specific adjusted percentages by race/ethnicity and education are reported and framed as persistent disparities, but contrasts are values side by side with Wald F significance marks; no difference or ratio between groups is computed.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Disparities are framed and interpreted, and subpopulations are said to fall below HP2020 targets, which could be read as a quantified shortfall."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "In 2017, knowledge of the five heart attack symptoms was lower among men, younger age groups, racial/ethnic minorities (especially non-Hispanic Asians and Hispanics)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Adjusted by age, sex, race/ethnicity, education, history of CHD, and CVD risk factor."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "and persons with lower levels of educational attainment than among women, older adults, non-Hispanic whites, and adults with at least a high school education"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "education"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Adjusted by age, sex, race/ethnicity, education, history of CHD, and CVD risk factor."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "In 2017, knowledge of the five heart attack symptoms was lower among men, younger age groups"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Adjusted by age, sex, race/ethnicity, education, history of CHD, and CVD risk factor."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Awareness of Heart Attack Symptoms and Response Among Adults"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "In 2017, knowledge of the five heart attack symptoms was lower among men"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Adjusted by age, sex, race/ethnicity, education, history of CHD, and CVD risk factor."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referent groups implied in text (women, older adults, non-Hispanic whites, at least high school); race/ethnicity collapsed to five groups including 'Other'. HP2020 targets are general population targets, not SPD-specific."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "p<0.001 from Wald F of adjusted percentage by characteristics for 2017 data."
+    },
+    {
+     "loc": "table 2",
+     "q": "p<0.0001 from Wald F of adjusted percentage by characteristics for 2017 data."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "p<0.001 from Wald F of adjusted percentage by characteristics for 2017 data."
+    },
+    {
+     "loc": "table 2",
+     "q": "p<0.0001 from Wald F of adjusted percentage by characteristics for 2017 data."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "p<0.001 from Wald F of adjusted percentage by characteristics for 2017 data."
+    },
+    {
+     "loc": "table 2",
+     "q": "p<0.0001 from Wald F of adjusted percentage by characteristics for 2017 data."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "procedures",
+  "analytic_depth",
+  "equity.level",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Design not named; cross-sectional repeated survey inferred. The adjustment method for adjusted percentages is not stated (likely SUDAAN predicted marginals), so no regression is recorded and regression_fields is null. Groupwise entries cover both outcomes (Tables 1 and 2), each with a Wald F test across levels in 2017.",
+ "view_issues": "Text asserts disparities 'among all demographic groups'; only Wald F omnibus tests support group differences, with no pairwise tests reported for the specific 'lower than' claims."
+}

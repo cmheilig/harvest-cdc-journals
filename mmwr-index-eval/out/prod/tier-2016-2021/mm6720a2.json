@@ -1,0 +1,458 @@
+{
+ "id": "mm6720a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggQe1AdXPFh9ycDZ3qAy",
+  "batch_id": "msgbatch_018MUHrMCXUMTPYHxpo1b4G2"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2013, stroke outpatient rehab participation was 31.2% (95% CI = 29.1%–33.4%)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In 2013, 31.2% of stroke survivors reported participation in outpatient stroke rehabilitation in 20 states and the District of Columbia."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the overall adjusted percentage of stroke outpatient rehab participation increased 8.3 percentage points, from 27.2% in 2013 to 35.5% in 2015 (p < 0.05)."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Adjusted for age, sex, race/ethnicity, education, insurance status, and CVD risk."
+    },
+    {
+     "loc": "text",
+     "q": "Adjusted percentages and 95% confidence intervals (CIs) were calculated"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Wald F test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods and table notes: tests differences among subgroups, among states, and between 2013 and 2015",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "p-values <0.05 (obtained using Wald F test) were regarded as statistically significant."
+    },
+    {
+     "loc": "table 2",
+     "q": "comparison of differences between 2013 and 2015 among four states only was p = 0.0289."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting for complex sampling design",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "methods state software accounted for the complex sampling design of BRFSS; all estimates are survey estimates",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Statistical software was used to account for the complex sampling design."
+    }
+   ]
+  },
+  {
+   "name": "covariate-adjusted percentages (model not named)",
+   "class": "regression",
+   "regression_family": "other",
+   "inferred_from": "adjusted percentages imply a model with listed covariates, but no model is named; likely predicted marginals from logistic regression",
+   "alternative_reading": "logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "and were adjusted for age, sex, race/Hispanic origin, education, insurance status, presence of cardiovascular disease risk factors"
+    }
+   ]
+  },
+  {
+   "name": "suppression of unreliable estimates (RSE >30% or denominator <50)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "BRFSS suppression rule; p-values withheld for flagged rows",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "BRFSS recommends that data be suppressed when relative standard error (RSE) is >30% or denominator <50"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "both",
+  "referent": null,
+  "across": [
+   "sex",
+   "age group",
+   "race/ethnicity",
+   "education",
+   "insurance status",
+   "number of CVD risk factors",
+   "state",
+   "year"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Reported use varied by demographic characteristics and by state."
+   },
+   {
+    "loc": "text",
+    "q": "adjusted outpatient rehab use prevalence in Minnesota (43.6%) was almost twice that in Oregon (23.1%)."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Adjusted percentages and 95% confidence intervals (CIs) were calculated; p-values <0.05 (obtained using Wald F test) were regarded as statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "unadjusted %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Unadjusted % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "adjusted %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Adjusted* % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "percentage points",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "increased 8.3 percentage points, from 27.2% in 2013 to 35.5% in 2015"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Statistical software was used to account for the complex sampling design."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Unadjusted % (95% CI)"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Adjusted for age, sex, race/ethnicity, education, insurance status, and CVD risk."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age, sex, race/ethnicity, education, insurance status, presence and number of CVD risk factors",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusted for age, sex, race/Hispanic origin, education, insurance status, presence of cardiovascular disease risk factors, and number of cardiovascular disease risk factors"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How common is outpatient rehabilitation use among adult stroke survivors, and does it vary by demographic group, state and year?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "2013 and 2015 BRFSS data were analyzed to assess outpatient rehab use among adult stroke survivors."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "stroke",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Use of Outpatient Rehabilitation Among Adult Stroke Survivors"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "BRFSS is a telephone survey of the noninstitutionalized U.S. population* conducted annually by all states."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Among the four states reporting rehabilitation use for both 2013 (27.7%) and 2015 (35.5%), use increased significantly"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "2013 and 2015 BRFSS data were analyzed"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS), cardiovascular health module",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The cardiovascular health module, which includes questions about rehab participation, was an optional module in 2013 and 2015."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "20 States and the District of Columbia, 2013, and Four States, 2015"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Rehab use by sex, race/ethnicity and education is called a disparity, but SPD contrasts are only group percentages with Wald F p-values; no difference or ratio is computed for SPD groups (the 'almost twice' is between states).",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Disparities are explicitly framed and supported by significant tests; the differences are readable from the table."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race/Ethnicity › Black, non-Hispanic"
+     },
+     {
+      "loc": "text",
+      "q": "Disparities were evident by sex, race, Hispanic origin, and level of education."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Adjusted for age, sex, race/ethnicity, education, insurance status, and CVD risk."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education",
+     "health insurance status"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Education › Less than high school"
+     },
+     {
+      "loc": "table 1",
+      "q": "Insurance › No"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "education",
+     "insurance status"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Adjusted for age, sex, race/ethnicity, education, insurance status, and CVD risk."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Women"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group (yrs) › ≥65"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Use of Outpatient Rehabilitation Among Adult Stroke Survivors"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race groups collapsed to White, Black, Hispanic and other non-Hispanic; other non-Hispanic flagged as unreliable. Access, costs and insurance are offered only as explanations of overall underuse, not of the disparities."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "P-values were obtained using Wald F test to identify statistically significant differences among subgroup."
+    },
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity › Hispanic"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Education › College or higher"
+    },
+    {
+     "loc": "table 1",
+     "q": "P-values were obtained using Wald F test to identify statistically significant differences among subgroup."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "procedures",
+  "regression_fields",
+  "equity.level",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "The adjustment model is not named; adjusted percentages are recorded as a regression of family other (likely logistic predicted marginals). Design is inferred as cross-sectional from the survey. The race Wald F probably spans 4 groups, though the other non-Hispanic row shows no p-value.",
+ "view_issues": "Summary gives 27.7% for the four states in 2013, but the text says 27.2% and Table 2 gives 27.2% unadjusted and 27.4% adjusted. In Table 1, the adjusted CIs for 0 and 1 CVD risk factors look swapped (35.6 (27.4–40.2); 29.4 (24.9–44.7))."
+}

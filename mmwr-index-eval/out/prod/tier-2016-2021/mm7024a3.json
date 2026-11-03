@@ -1,0 +1,450 @@
+{
+ "id": "mm7024a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyszDeyoejxzabFDMC",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Approximately 70% of all caregivers (parents only, caregivers of adults only, or those with both roles) reported adverse mental health symptoms"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Approximately 70% of all caregivers (parents only, caregivers of adults only, or those with both roles) reported adverse mental health symptoms"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "parents-caregivers (persons in both roles) had significantly worse mental health than adults not in these roles, including five times the odds"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "with survey wave, gender, age group, race/ethnicity, sexual orientation, disability status, education attainment, region, urbanicity, and employment"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "weighted multivariable logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Multivariable weighted logistic regression' estimating aORs → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Multivariable weighted logistic regression was used to estimate aORs by group for symptoms of anxiety or depression or COVID-19 TSRDs"
+    },
+    {
+     "loc": "figure 1",
+     "q": "Adjusted odds ratios, with 95% confidence intervals indicated by error bars, were estimated using weighted multivariable logistic regression models."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (raking by iterative proportional fitting, weight trimming)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "quota sample weighted to ACS sex, age and race/ethnicity; all reported values weighted",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "iterative proportional fitting and weight trimming were applied to the overall sample to match 2019 American Community Survey estimates"
+    },
+    {
+     "loc": "text",
+     "q": "Rounded, weighted values are reported."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based CIs from weighted logistic regression; aOR CIs excluding 1 support 'significantly associated' claims",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Parenting and caregiving were significantly positively associated with each adverse mental health symptom compared with being a nonparent/noncaregiver"
+    }
+   ]
+  },
+  {
+   "name": "variance inflation factors (multicollinearity check)",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "collinearity diagnostic for the logistic models",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Variance inflation factors for all variables with aOR estimates were less than six, indicating acceptable multicollinearity."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "nonparents/noncaregivers",
+  "across": [
+   "parent/caregiver role",
+   "reason for providing care for adults",
+   "agreement with caregiving statements"
+  ],
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "Referent: nonparent/noncaregiver."
+   },
+   {
+    "loc": "text",
+    "q": "those who agreed with the statements that they had experienced caregiving-related family disagreements or resented their caregiving responsibilities had approximately three times the odds"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "P values <0.05 were considered statistically significant."
+   },
+   {
+    "loc": "figure 1",
+    "q": "Adjusted odds ratios, with 95% confidence intervals indicated by error bars, were estimated using weighted multivariable logistic regression models."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Total, no. (%) (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "aOR",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Parent role/caregiver role, aOR (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "with survey wave, gender, age group, race/ethnicity, sexual orientation, disability status, education attainment, region, urbanicity, and employment"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "survey wave, gender, age group, race/ethnicity, sexual orientation, disability status, education, region, urbanicity, employment (work hours, remote work); caregiver models also parenting, duration and hours of caregiving, care recipient",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "with survey wave, gender, age group, race/ethnicity, sexual orientation, disability status, education attainment, region, urbanicity, and employment"
+    },
+    {
+     "loc": "text",
+     "q": "which also adjusted for parenting, duration of caregiving, hours of caregiving per week, and person receiving care"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "During the COVID-19 pandemic, do U.S. parents, unpaid caregivers of adults, and persons in both roles have worse mental health than adults in neither role, and which caregiving factors are associated?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To examine mental health during the COVID-19 pandemic among U.S. adults on the basis of their classification as having a parenting role"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "anxiety or depression symptoms",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "completed screening instruments for symptoms of anxiety and depression"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19 trauma- and stressor-related disorder symptoms",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-19 trauma- and stressor-related disorders (TSRDs)"
+    }
+   ]
+  },
+  {
+   "v": "suicidal ideation",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "serious suicidal ideation: aOR = 8.2, 95% CI = 6.5–10.4"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from cross-sectional surveys that were administered during December 2020 and February–March 2021"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "completed English-language, Internet-based surveys administered to Qualtrics panels for The COPE Initiative"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "The COVID-19 Outbreak Public Evaluation (COPE) Initiative",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "completed English-language, Internet-based surveys administered to Qualtrics panels for The COPE Initiative"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Among 10,444 U.S. adults surveyed during December 6–27, 2020, and February 16–March 8, 2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Race/ethnicity, SES (education, employment status), rurality, sexual orientation enter only as model covariates and Table 1 descriptors; no group-specific results by an SPD are reported or discussed.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Caregiving-related financial strain is an analyzed social-determinant exposure with quantified aORs (about twice the odds), which could be read as an SDOH contrast."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "potential participants who met criteria of age ≥18 years and U.S. residence"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "with survey wave, gender, age group, race/ethnicity, sexual orientation, disability status, education attainment, region, urbanicity, and employment"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group, yrs › 25–44"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "with survey wave, gender, age group, race/ethnicity, sexual orientation, disability status, education attainment, region, urbanicity, and employment"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Gender › Female"
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "with survey wave, gender, age group, race/ethnicity, sexual orientation, disability status, education attainment, region, urbanicity, and employment"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "with survey wave, gender, age group, race/ethnicity, sexual orientation, disability status, education attainment, region, urbanicity, and employment"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race/Ethnicity › Black, non-Hispanic"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "education attainment",
+     "employment status"
+    ],
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "with survey wave, gender, age group, race/ethnicity, sexual orientation, disability status, education attainment, region, urbanicity, and employment"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "employment status"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Employment status › Unemployed"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "with survey wave, gender, age group, race/ethnicity, sexual orientation, disability status, education attainment, region, urbanicity, and employment"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "caregiving-related financial strain (analyzed exposure)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "or had to decrease living expenses to help pay for things, compared with caregivers who did not agree with these statements"
+    },
+    {
+     "loc": "text",
+     "q": "Social factors, such as financial strain, feeling a lack of preparedness for or resentment of caregiving, a lack of freedom, and family conflict"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "SPDs are covariates only; disability (functional limitation) is a covariate not framed as social position. Weighting matches ACS sex, age, race/ethnicity; English-only Internet sample."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "equity.level"
+ ],
+ "confidence": "high",
+ "notes": "Parent/caregiver role (4 groups) is not an SPD, so no groupwise entry. Caregiver-statement models compare trichotomized agreement levels; reason-for-care aORs use 'not providing care for this reason' as referent.",
+ "view_issues": null
+}

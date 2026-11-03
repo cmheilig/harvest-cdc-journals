@@ -1,0 +1,285 @@
+{
+ "id": "mm7010a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPytSzy4dX619hTwubS",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "show that 16.2%–29.4% of HIV-positive persons were not screened for HIV during TB clinic visits"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The percentage of adults who reported having ever visited a TB clinic ranged from 4.7% to 9.7%."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "viral load suppression rates were significantly higher among those who reported ever visiting a TB clinic than among those who had not (p<0.001)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated weighting for selection probabilities, nonresponse and undercoverage; all percentages weighted",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Survey data were weighted to account for differential selection probabilities, with adjustments for nonresponse and undercoverage"
+    },
+    {
+     "loc": "text",
+     "q": "Estimated percentages were weighted, and confidence intervals were calculated using jackknife replicate weights."
+    }
+   ]
+  },
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated chi-square tests behind the p-values for group contrasts",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Via chi-square tests, p values <0.05 were considered statistically significant."
+    }
+   ]
+  },
+  {
+   "name": "jackknife replicate variance estimation",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "CIs computed from jackknife replicate weights (resampling-based variance)",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimated percentages were weighted, and confidence intervals were calculated using jackknife replicate weights."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": "never visited a TB clinic",
+  "across": [
+   "TB clinic visit and TB diagnosis status (confirmed, presumptive, never visited)"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "viral load suppression rates were higher among TB clinic attendees with a confirmed TB diagnosis"
+   },
+   {
+    "loc": "text",
+    "q": "awareness of HIV-positive status was significantly higher (p<0.001 and p = 0.01, respectively) among TB clinic attendees with a confirmed TB diagnosis"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Estimated percentages were weighted, and confidence intervals were calculated using jackknife replicate weights."
+   },
+   {
+    "loc": "text",
+    "q": "Via chi-square tests, p values <0.05 were considered statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Weighted % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "weighted frequency",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Weighted frequency (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Among HIV-positive adults in Malawi, Zambia and Zimbabwe, how often were TB clinic attendees screened for HIV, and do HIV care outcomes differ by TB clinic visit and TB diagnosis?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "were analyzed to assess HIV screening at TB clinics among persons who had positive HIV test results in the survey"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "HIV infection",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were analyzed to assess HIV screening at TB clinics among persons who had positive HIV test results in the survey"
+    }
+   ]
+  },
+  {
+   "v": "HIV infection",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "these visits represent missed opportunities for HIV diagnosis among persons who are not aware of their HIV-positive status"
+    }
+   ]
+  },
+  {
+   "v": "tuberculosis",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "viral load suppression rates were higher among TB clinic attendees with a confirmed TB diagnosis"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "PHIA surveys are nationally representative, cross-sectional, household-based, two-stage cluster sample surveys designed to measure HIV program impact"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "PHIA surveys are nationally representative, cross-sectional, household-based, two-stage cluster sample surveys designed to measure HIV program impact"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Population-based HIV Impact Assessment (PHIA) surveys",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Population-based HIV Impact Assessment (PHIA) survey data from Malawi, Zambia, and Zimbabwe"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "international",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Results from Population-Based HIV Impact Assessment Surveys, Malawi, Zambia, and Zimbabwe, 2015–2016"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Only age and sex appear: age bounds define the surveyed population and both are weighting variables. No other SPD is analyzed or framed.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "consenting persons aged ≥15 years were asked about ever visiting a TB clinic"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "The weighted frequency was estimated by using survey weights based on age and sex distribution of the national population for each country."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "The weighted frequency was estimated by using survey weights based on age and sex distribution of the national population for each country."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "comparison",
+  "analytic_depth"
+ ],
+ "confidence": "medium",
+ "notes": "Results are reported separately for each country's survey; within-country contrasts were not treated as stratification. The WHO universal-testing recommendation frames the screening gap, but no shortfall is computed against it. Weighted frequencies extrapolate percentages to national counts.",
+ "view_issues": "Figure notes describe tests 'with and without a TB diagnosis' while the text compares confirmed vs presumptive TB among attendees. The Discussion says awareness and ART use were significantly higher for ever vs never visitors, but only the viral-suppression p-value is reported. Typo 'receiving?' in text."
+}

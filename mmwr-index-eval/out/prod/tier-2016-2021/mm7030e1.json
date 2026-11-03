@@ -1,0 +1,380 @@
+{
+ "id": "mm7030e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysukh9Zy54upCh8db",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among 2-dose, 1-dose, and zero-dose vaccine recipients, 0.09%, 1.21%, and 1.76% of test results, respectively, were positive (p<0.001)"
+    },
+    {
+     "loc": "text",
+     "q": "Among 22,808 district employees eligible for COVID-19 vaccination, 10,700 (46.9%) received ≥1 dose through the program"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, 0.70% of tests returned a positive result."
+    },
+    {
+     "loc": "text",
+     "q": "Among 22,808 district employees eligible for COVID-19 vaccination, 10,700 (46.9%) received ≥1 dose through the program"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "representing a 95% lower percentage of positive test results among staff members who received 2 doses compared with those who were unvaccinated"
+    },
+    {
+     "loc": "text",
+     "q": "The highest coverage with ≥1 dose (95.1%) was among Asian or Pacific Islander persons, followed by White persons (65.3%)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "p<0.001 across 2-dose, 1-dose and zero-dose positivity with no test named for this comparison (chi-square is named only for coverage)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "0.09%, 1.21%, and 1.76% of test results, respectively, were positive (p<0.001)"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "RR 95% CIs judged against 1 (2-dose vs zero excludes 1; 1-dose vs zero includes 1, 'not statistically significant'); CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(RR = 0.04; 95% confidence interval [CI] = 0.02–0.07)"
+    },
+    {
+     "loc": "text",
+     "q": "however, the differences were not statistically significant between these two groups."
+    }
+   ]
+  },
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated chi-square tests of coverage by demographic group, each level vs a referent in Table 1",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Chi-square tests were performed to determine whether vaccination coverage of school staff members differed by demographic characteristics."
+    },
+    {
+     "loc": "table 1",
+     "q": "† Indicates chi-square significance (p-value <0.05)."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "unvaccinated (zero doses)",
+  "across": [
+   "self-reported vaccination status",
+   "age group",
+   "race/ethnicity",
+   "sex"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "found a 95% lower percentage of positive test results among persons who reported receipt of 2 doses of COVID-19 mRNA vaccine (0.09%)"
+   },
+   {
+    "loc": "text",
+    "q": "Risk ratios (RRs) comparing vaccinated with unvaccinated groups were calculated."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Chi-square tests were performed to determine whether vaccination coverage of school staff members differed by demographic characteristics."
+   },
+   {
+    "loc": "text",
+    "q": "(RR = 0.07; 95% CI = 0.04–0.11)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage of positive test results",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "No. of positive results (%)"
+    }
+   ]
+  },
+  {
+   "v": "risk ratio",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Risk ratio (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "vaccination coverage, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. of staff members vaccinated through school program (%)*"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Among Philadelphia school district employees after a district-wide vaccination program, did the percentage of positive SARS-CoV-2 screening tests differ by self-reported vaccination status, and did coverage differ by demographics?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to assess the percentage of positive BinaxNow point-of-care antigen tests (Abbott Laboratories) identified among school staff members based on their self-reported vaccination status"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "SARS-CoV-2 Infection in Public School District Employees Following a District-Wide Vaccination Program"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "followed a mass vaccination program using the Pfizer-BioNTech 2-dose vaccine"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Results of all school-based testing conducted during March 21–April 23, 2021, were used to calculate the percentage of asymptomatic persons with positive test results"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Antigen test results were automatically reported through the secure mobile application PARapidTest"
+    },
+    {
+     "loc": "text",
+     "q": "to Pennsylvania’s National Electronic Disease Surveillance System."
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The School District of Philadelphia provided a roster of all school staff members who were invited to participate"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Pennsylvania National Electronic Disease Surveillance System",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "to Pennsylvania’s National Electronic Disease Surveillance System."
+    }
+   ]
+  },
+  {
+   "v": "PARapidTest",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Antigen test results were automatically reported through the secure mobile application PARapidTest"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Philadelphia County, Pennsylvania, March 21–April 23, 2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "effectiveness",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "representing a 95% lower percentage of positive test results among staff members who received 2 doses compared with those who were unvaccinated"
+   }
+  ]
+ },
+ "equity": {
+  "level": 2,
+  "level_reason": "Coverage by race and age is reported and called a disparity, but contrasts appear only as values side by side and chi-square significance marks, with no computed difference or ratio, so the cap at 2 applies.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The Discussion frames disparities among Black and younger staff and interprets them with a targeted-outreach recommendation; Table 1 values (32.6% vs 65.3%) could be read as quantified."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Disparities in vaccination coverage were observed, particularly among younger staff members and Black or African American persons."
+     },
+     {
+      "loc": "text",
+      "q": "Approximately one third (32.6%) of Black or African American persons received ≥1 dose through the program."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "coverage was 44.5% among persons aged 17–39 years and 27.9% among those aged >65 years."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "and was similar among men and women."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Black staff are the race referent and Hispanic staff the ethnicity referent; coverage counts only program doses; Native American and other/unknown groups are small; positivity is not reported by any SPD."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The highest coverage with ≥1 dose (95.1%) was among Asian or Pacific Islander persons, followed by White persons (65.3%)."
+    },
+    {
+     "loc": "table 1",
+     "q": "† Indicates chi-square significance (p-value <0.05)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "coverage was 44.5% among persons aged 17–39 years and 27.9% among those aged >65 years."
+    },
+    {
+     "loc": "table 1",
+     "q": "† Indicates chi-square significance (p-value <0.05)."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "study_design",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "No design is named; surveillance/descriptive is inferred for an analysis of program screening-test records. Tests, not persons, are the unit; repeated tests per person are not accounted for. Headline compares 2-dose vs unvaccinated (pair), though three vaccination groups are tested together.",
+ "view_issues": "Summary gives 1.77% unvaccinated positivity; text and Table 2 give 1.76%. Text describes the subset as not reporting symptoms, while Table 2 labels it 'Asymptomatic, nonexposed persons'."
+}

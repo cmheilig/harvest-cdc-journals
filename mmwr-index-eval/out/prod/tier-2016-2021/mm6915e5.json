@@ -1,0 +1,258 @@
+{
+ "id": "mm6915e5",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysvk36ENhc99TTFTi",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Being present for or assisting with nebulizer treatments was more common among HCP who developed COVID-19 (67%) than among those who did not (9%)"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "nebulizer treatments was more common among HCP who developed COVID-19 (67%) than among those who did not (9%)"
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "median estimated duration of overall exposure to the patient was higher among HCP with COVID-19 (120 minutes)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "SARS-CoV-2 was detected in three (7%) HCP."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "performing a physical examination was more common among HCP with COVID-19 (p = 0.02)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Fisher's exact test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "methods name Fisher's exact test for categorical variables; p-values in Tables 2 and 3",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Two-sided p-values were calculated using Fisher’s exact test for categorical variables and Wilcoxon rank-sum test for continuous variables"
+    }
+   ]
+  },
+  {
+   "name": "Wilcoxon rank-sum test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "methods name Wilcoxon rank-sum test for continuous variables; applied to median exposure durations",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Two-sided p-values were calculated using Fisher’s exact test for categorical variables and Wilcoxon rank-sum test for continuous variables"
+    },
+    {
+     "loc": "table 3",
+     "q": "Median (IQR) total estimated time in patient room, mins"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": "HCP without COVID-19",
+  "across": [
+   "COVID-19 status of HCP (with vs without)"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Exposures while performing physical examinations or during nebulizer treatments were more common among HCP with COVID-19."
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Two-sided p-values were calculated using Fisher’s exact test for categorical variables and Wilcoxon rank-sum test for continuous variables"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "nebulizer treatments was more common among HCP who developed COVID-19 (67%) than among those who did not (9%)"
+    }
+   ]
+  },
+  {
+   "v": "median (IQR) duration, mins",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Median (IQR) total estimated time in patient room, mins"
+    }
+   ]
+  },
+  {
+   "v": "p-value",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "p-value"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Which exposures to an unrecognized COVID-19 patient were associated with SARS-CoV-2 infection among exposed health care personnel?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To better characterize and compare exposures among HCP who did and did not develop COVID-19, standardized interviews were conducted"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Transmission of COVID-19 to Health Care Personnel During Exposures to a Hospitalized Patient"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Among 121 HCP exposed to a patient with unrecognized COVID-19"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "outbreak investigation",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The investigation team, including hospital, local and state health departments, and CDC staff members, attempted to contact all 43 tested HCP"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "record abstraction or interview",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "HCP with potential exposures to the index patient at hospital A were identified through medical record review."
+    },
+    {
+     "loc": "text",
+     "q": "standardized interviews were conducted with 37 hospital A HCP who were tested for SARS-CoV-2"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Solano County, California, February 2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Only age and sex appear, as descriptors of tested HCP in Table 1; job titles reflect occupational exposure, not social position.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age in yrs, median (range)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Among 43 HCP who were tested, 84% were female"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "groupwise": [],
+ "uncertain_fields": [],
+ "confidence": "high",
+ "notes": "Exposures are compared between 3 HCP with and 34 without COVID-19; authors state no multivariable analysis was possible. Hospital B results come from a personal communication. The Table 3 longest-duration categories share one test across 4 non-SPD groups.",
+ "view_issues": "Table 3 'patient masked' percentages (e.g. 7/34 shown as 23%) imply a denominator of about 31, not 34. Text typo 'to conducted interviews'."
+}

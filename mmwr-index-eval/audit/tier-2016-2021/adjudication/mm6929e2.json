@@ -1,0 +1,9 @@
+{"id": "mm6929e2",
+ "fields": [
+  {"field": "groupwise_any", "verdict": true, "correct": ["A"], "category": "no error", "why": "Table 2 gives seroprevalence for each of 4 age and 5 race/ethnicity groups and the text ranks them; Table 1 reports one-way chi-square goodness-of-fit tests across the 4 age and 5 race levels."},
+  {"field": "groupwise_dims", "verdict": ["age", "race/ethnicity"], "correct": ["A"], "category": "no error", "why": "Sex has only 2 tested levels (Other excluded from the test), so age and race/ethnicity are the groupwise dimensions."},
+  {"field": "groupwise_assessments", "verdict": ["omnibus test", "side by side"], "correct": [], "category": "brief gap", "why": "The only race test is Black vs all other groups combined, a collapsed pair (rule 1), so the 5-group seroprevalence ranking is side by side with resolves_to_finer true rather than per-group vs referent only; the brief does not say whether one top-group-vs-rest test lifts a ranking to per-group vs referent. The goodness-of-fit omnibus entries are right under rule 6, and the age side-by-side flag is a false alarm (the omnibus test on age is the separate Table 1 entry)."}
+ ],
+ "justification": {"A": "good", "B": "n/a"},
+ "agreed_errors": [],
+ "brief_issues": "Per-group vs referent only says it includes 'each level vs the rest' but not whether a single level vs the rest (here Black vs all others combined) counts or is a collapsed pair under rule 1; a rule is needed (suggest: one level vs the rest is a pair, and the ranking it accompanies is side by side with resolves_to_finer true)."}

@@ -1,0 +1,390 @@
+{
+ "id": "mm6526a1",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "An average of 38,793 HPV-associated cancers (11.7 per 100,000 persons) were diagnosed annually in the United States during 2008–2012"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "An average of 38,793 HPV-associated cancers (11.7 per 100,000 persons) were diagnosed annually in the United States during 2008–2012"
+    },
+    {
+     "loc": "text",
+     "q": "Rates of oropharyngeal SCC were higher among males (7.6) than females (1.7)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "An average of 38,793 HPV-associated cancers (11.7 per 100,000 persons) were diagnosed annually in the United States during 2008–2012"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates of cervical carcinoma were higher among blacks (9.2) than among whites (7.1), and among Hispanics (9.7) than non-Hispanics (7.1)"
+    },
+    {
+     "loc": "text",
+     "q": "By state, overall rates of all HPV-associated cancers combined ranged from 7.5 per 100,000 persons (Utah) to 14.7 (Kentucky)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-adjusted incidence rates were calculated per 100,000 persons and standardized to the 2000 U.S. standard population."
+    },
+    {
+     "loc": "text",
+     "q": "Among females, rates of anal SCC were lower among blacks (1.4) than whites (1.9), but among males, were higher among blacks (1.5)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization to the 2000 U.S. standard population",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "'age-adjusted ... standardized to the 2000 U.S. standard population' → direct standardization",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-adjusted incidence rates were calculated per 100,000 persons and standardized to the 2000 U.S. standard population."
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "p<0.05 vs referent group stated; no test named",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates were considered significantly different from the referent category at a p-value of <0.05."
+    },
+    {
+     "loc": "table 1",
+     "q": "Rate differed significantly from the rate in the referent group (p<0.05)."
+    }
+   ]
+  },
+  {
+   "name": "small-cell suppression (<16 cases)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "rates withheld when fewer than 16 cases",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Data suppressed because the total number of cancers for 2008–2012 was <16."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": "White and non-Hispanic referent groups; U.S. rate (11.7 per 100,000) for states",
+  "across": [
+   "race",
+   "ethnicity",
+   "sex",
+   "age group",
+   "state",
+   "anatomic site"
+  ],
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "Race › White ††"
+   },
+   {
+    "loc": "text",
+    "q": "Most states with overall HPV-associated cancer rates that exceeded the U.S. rate (11.7 per 100,000) were located in the U.S. Census Southern region"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Rates were considered significantly different from the referent category at a p-value of <0.05."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted rate per 100,000",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Per 100,000 persons; age-adjusted to the 2000 U.S. standard population."
+    }
+   ]
+  },
+  {
+   "v": "average annual number",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Rate* and average annual number of human papillomavirus (HPV)-associated cancers"
+    }
+   ]
+  },
+  {
+   "v": "estimated number attributable to HPV",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "The estimated number of HPV-attributable cancers was calculated by multiplying the HPV-associated cancer counts by the percentage of each cancer attributable to HPV."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What was the incidence of HPV-associated cancers in the United States during 2008–2012, by site, sex, age, race, ethnicity and state, and how many are attributable to HPV?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess the incidence of HPV-associated cancers, CDC analyzed 2008–2012 high-quality data from the CDC’s National Program of Cancer Registries"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "HPV-associated cancers",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Human Papillomavirus–Associated Cancers — United States, 2008–2012"
+    }
+   ]
+  },
+  {
+   "v": "cervical carcinoma",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The most common of these cancers were 11,771 (7.4 per 100,000 females) cervical carcinomas"
+    }
+   ]
+  },
+  {
+   "v": "oropharyngeal squamous cell cancer",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates of oropharyngeal SCC were higher among males (7.6) than females (1.7)"
+    }
+   ]
+  },
+  {
+   "v": "anal squamous cell cancer",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The rate of anal SCC among Hispanic males and females (1.1) was lower than among non-Hispanics (1.5)."
+    }
+   ]
+  },
+  {
+   "v": "HPV infection",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "30,700 HPV-associated cancers (79%) were estimated to be attributable to HPV"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The impact of these primary and secondary prevention interventions can be monitored using surveillance data from population-based cancer registries."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from population-based cancer registries that participate in the CDC’s National Program of Cancer Registries"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Program of Cancer Registries (NPCR)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from population-based cancer registries that participate in the CDC’s National Program of Cancer Registries"
+    }
+   ]
+  },
+  {
+   "v": "Surveillance, Epidemiology, and End Results (SEER) program",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the National Cancer Institute’s Surveillance, Epidemiology, and End Results program"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "By state, overall rates of all HPV-associated cancers combined ranged from 7.5 per 100,000 persons (Utah) to 14.7 (Kentucky)"
+   },
+   {
+    "loc": "text",
+    "q": "covering approximately 99% of the U.S. population."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Race- and ethnicity-specific rates are reported and described, with significance marks vs White/non-Hispanic referents, but only set side by side with no computed difference or ratio; the Summary mentions disparities generically.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The Summary frames racial and ethnic disparities in incidence and the text states tested higher/lower contrasts, which could be read as a quantified, framed disparity."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "assigned or observed",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Rates of cervical carcinoma were higher among blacks (9.2) than among whites (7.1), and among Hispanics (9.7) than non-Hispanics (7.1)"
+     },
+     {
+      "loc": "text",
+      "q": "reporting of race and ethnicity uses data from medical records, which might be inaccurate in a small proportion of cases."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Rates of oropharyngeal SCC were higher among males (7.6) than females (1.7)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group (yrs) › ≥80"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "White and non-Hispanic are referent groups; race and ethnicity are separate variables from medical records; unknown or other race and unknown ethnicity are not presented. States are geography, not an SPD."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race › Asian/Pacific Islander"
+    },
+    {
+     "loc": "table 1",
+     "q": "Rate differed significantly from the rate in the referent group (p<0.05)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 8,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group (yrs) › ≥80"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "HPV-attributable counts multiply registry counts by attributable fractions cited from genotyping studies (arithmetic, not a procedure). The comparison with 2004–2008 incidence is cited from an earlier report; Discussion coverage and screening figures are cited.",
+ "view_issues": "Table 1 CSV has an extra empty column after penile SCC, shifting cells; article.txt column labels for that block are misaligned."
+}

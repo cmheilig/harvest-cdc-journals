@@ -1,0 +1,349 @@
+{
+ "id": "mm6505a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrXf3sPrKM1aHVxDY",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "nearly twice the incidence in low poverty (<5% of persons living below the federal poverty level) neighborhoods (10.9, 95% CI: 10.3–11.4)"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "age-adjusted incidence of influenza-related hospitalizations per 100,000 person-years in high poverty (≥20% of persons living below the federal poverty level) neighborhoods was 21.5"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The overall percentage of hospitalized influenza patients who were vaccinated was inversely associated with census tract poverty level"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "nearly twice the incidence in low poverty (<5% of persons living below the federal poverty level) neighborhoods (10.9, 95% CI: 10.3–11.4)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "age-adjusted (2000 U.S. Standard Population) influenza-related hospitalization incidence overall and for each FluSurv-NET site was calculated"
+    },
+    {
+     "loc": "text",
+     "q": "within groups defined by age (0–4 years, 5–17 years, 18–49 years, 50–64 years, and ≥65 years), within each racial/ethnic group"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization (2000 U.S. Standard Population)",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "age-adjusted incidence to the 2000 U.S. Standard Population: direct standardization",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "age-adjusted (2000 U.S. Standard Population) influenza-related hospitalization incidence overall and for each FluSurv-NET site was calculated"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "CI method not stated; IRR CIs exclude 1 and support the claim that the relationship held for severe outcomes",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The incidence rate ratios for census tracts with ≥20% versus <5% of households living below the federal poverty level were 1.96"
+    },
+    {
+     "loc": "text",
+     "q": "The relationship also was observed for age-adjusted rates for hospitalizations requiring intensive care"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "census tracts with <5% below the federal poverty level",
+  "across": [
+   "census tract poverty level",
+   "state/site",
+   "age group",
+   "race/ethnicity",
+   "influenza season"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "found increasing rates of influenza-related hospitalization with increasing census tract poverty."
+   },
+   {
+    "loc": "text",
+    "q": "with a gradient of increasing incidence as census tract poverty category increased"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The incidence rate ratios for census tracts with ≥20% versus <5% of households living below the federal poverty level were 1.96"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted incidence per 100,000 person-years",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age-adjusted incidence of influenza-related hospitalizations per 100,000 person-years, by census tract poverty level and state"
+    }
+   ]
+  },
+  {
+   "v": "incidence rate ratio",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The incidence rate ratios for census tracts with ≥20% versus <5% of households living below the federal poverty level"
+    }
+   ]
+  },
+  {
+   "v": "percentage vaccinated",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The overall percentage of hospitalized influenza patients who were vaccinated was inversely associated with census tract poverty level"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Is census tract-level poverty associated with the incidence of influenza-related hospitalization across 14 FluSurv-NET states?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess the association between census tract-level poverty and influenza hospitalization at a national level"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "influenza",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Influenza-Related Hospitalizations and Poverty Levels — United States, 2010–2012"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "FluSurv-NET is a national sentinel surveillance system established in 2009 that conducts population-based surveillance for laboratory-confirmed influenza-associated hospitalizations"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "participating sites in the Influenza Hospitalization Surveillance Network (FluSurv-NET), including all 10 EIP sites, participated in a multisite analysis"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Influenza Hospitalization Surveillance Network (FluSurv-NET)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "participating sites in the Influenza Hospitalization Surveillance Network (FluSurv-NET), including all 10 EIP sites"
+    }
+   ]
+  },
+  {
+   "v": "Emerging Infections Program (EIP)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "participating sites in the Influenza Hospitalization Surveillance Network (FluSurv-NET), including all 10 EIP sites"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "data were gathered from 78 counties in 14 FluSurv-NET states"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Poverty-related disparities are framed, quantified (nearly twice; IRRs 1.8–2.0) and interpreted, with poverty itself the analyzed exposure and poverty-related crowding named as a possible cause.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Crowding is offered only as a possible factor alongside vaccination differences and comorbidity; causes could be read as generic."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "primary comparison",
+    "ses_components": [
+     "census tract poverty level"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Census tracts were categorized by their percentage of households living below the poverty level (<5%, 5%–9%, 10%–19%, ≥20%)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "figure 2",
+      "q": "Age-adjusted incidence of influenza-related hospitalizations per 100,000 person-years,* by racial/ethnic group and census tract poverty level"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "within groups defined by age (0–4 years, 5–17 years, 18–49 years, 50–64 years, and ≥65 years)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "age-adjusted (2000 U.S. Standard Population) influenza-related hospitalization incidence"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "census tract poverty; poverty-related crowding",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "poverty-related crowding with higher rates of influenza transmission"
+    },
+    {
+     "loc": "text",
+     "q": "to reduce poverty-associated disparities in influenza-related hospitalizations, there is a need to increase influenza vaccination levels in higher poverty neighborhoods"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Area-based SES: census tract poverty from 2008–2012 ACS 5-year estimates; referent <5% poverty tracts; 4% of cases not geocoded."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "with a gradient of increasing incidence as census tract poverty category increased"
+    },
+    {
+     "loc": "text",
+     "q": "The incidence rate ratios for census tracts with ≥20% versus <5% of households living below the federal poverty level"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "from a high of 48% in the census tracts with the lowest poverty levels to a low of 35%"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "procedures"
+ ],
+ "confidence": "medium",
+ "notes": "No trend test is reported for the poverty gradient; site-, age- and race-specific results show the gradient with CIs only. Design inferred as surveillance/descriptive; none named.",
+ "view_issues": "Poverty level is defined as percentage of households in the text but as percentage of population in the table and figure notes."
+}

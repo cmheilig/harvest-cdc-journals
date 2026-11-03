@@ -1,0 +1,440 @@
+{
+ "id": "mm6947a5",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyswk3A3DTbA5ZdmiD",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Current cigarette smoking prevalence was 24.9% for adults with active epilepsy, 25.9% for adults with inactive epilepsy, and 16.6% for adults without epilepsy"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Current cigarette smoking prevalence was 24.9% for adults with active epilepsy, 25.9% for adults with inactive epilepsy, and 16.6% for adults without epilepsy"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among all U.S. adults, 1.1% had active epilepsy and 0.7% had inactive epilepsy."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During 2010–2017, one in four adults with active or inactive epilepsy were current smokers, compared with one in six persons without epilepsy."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Cigarette smoking percentages were age-standardized to the 2000 U.S. projected population."
+    },
+    {
+     "loc": "text",
+     "q": "current cigarette smoking among adults with active epilepsy was higher (22.4%) than it was among adults without epilepsy (15.7%)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting (NHIS complex sample design)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "SUDAAN accounting for respondent sampling weights and complex design; produces every estimate",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "which accounted for the respondent sampling weights and the NHIS complex sample design, were used for the analysis"
+    }
+   ]
+  },
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "percentages age-standardized to the 2000 U.S. projected population using four age groups",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Cigarette smoking percentages were age-standardized to the 2000 U.S. projected population."
+    }
+   ]
+  },
+  {
+   "name": "two-tailed t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated for differences between two subgroups (e.g. active epilepsy vs no history, within subgroups)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "differences between two subgroups were assessed using two-tailed t-tests"
+    }
+   ]
+  },
+  {
+   "name": "Wald F test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated for differences among three or more groups (e.g. the three epilepsy-status groups)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All reported differences among three or more groups were assessed using a Wald F test"
+    }
+   ]
+  },
+  {
+   "name": "orthogonal polynomial trend test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "orthogonal polynomial contrasts estimate the 2010–2017 decline with CI and p-value, accounting for unequal intervals; no regression named",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Orthogonal polynomials, a statistical analysis to examine trends, was used to estimate the decline in percentage of adults who smoked"
+    },
+    {
+     "loc": "text",
+     "q": "current cigarette smoking declined significantly from 2010 to 2017 among adults with no history of epilepsy (19.3% to 14.0% [p<0.001])"
+    }
+   ]
+  },
+  {
+   "name": "suppression of estimates with relative SE ≥0.30",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "table footnote withholding imprecise estimates",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Suppressed because relative standard error was ≥0.30."
+    }
+   ]
+  },
+  {
+   "name": "NHIS multiple imputation of family income",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "income-to-poverty ratio uses NHIS imputed income files; imputation method not stated",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Categorized based on the ratio of total family income to the federal poverty level calculated using the NHIS imputed income files."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "no history of epilepsy",
+  "across": [
+   "epilepsy status",
+   "survey year",
+   "sex",
+   "age group",
+   "race/ethnicity",
+   "education",
+   "family income",
+   "insurance status",
+   "employment status",
+   "U.S. Census region",
+   "serious psychological distress"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During 2010–2017, one in four adults with active or inactive epilepsy were current smokers, compared with one in six persons without epilepsy."
+   },
+   {
+    "loc": "text",
+    "q": "a 9.3% decline (95% confidence interval [CI] = −10.6% to −7.9%) (p<0.05)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "All reported differences among three or more groups were assessed using a Wald F test"
+   },
+   {
+    "loc": "text",
+    "q": "differences between two subgroups were assessed using two-tailed t-tests"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-standardized percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age-standardized* estimates of current smoking † prevalence among adults, by epilepsy status and selected characteristics"
+    }
+   ]
+  },
+  {
+   "v": "% decline (95% CI)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a 9.3% decline (95% confidence interval [CI] = −10.6% to −7.9%) (p<0.05)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What is the prevalence of current cigarette smoking among U.S. adults by epilepsy status, and how did it change during 2010–2017?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC analyzed National Health Interview Survey (NHIS) data among 121,497 U.S. adults from 2010, 2013, 2015, and 2017"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "cigarette smoking",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Prevalence and Trends in Cigarette Smoking Among Adults with Epilepsy — United States, 2010–2017"
+    }
+   ]
+  },
+  {
+   "v": "epilepsy",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Current cigarette smoking, ¶ by epilepsy status, was assessed overall and by survey year"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NHIS is an annual, nationally representative, in-person survey of the noninstitutionalized U.S. civilian population."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Although fewer adults with active epilepsy smoked cigarettes in 2017 than in 2010, this difference was not statistically significant."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed National Health Interview Survey (NHIS) data among 121,497 U.S. adults from 2010, 2013, 2015, and 2017"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Health Interview Survey (NHIS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed National Health Interview Survey (NHIS) data among 121,497 U.S. adults from 2010, 2013, 2015, and 2017"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "NHIS is an annual, nationally representative, in-person survey of the noninstitutionalized U.S. civilian population."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Smoking prevalence by epilepsy status is reported and described within race/ethnicity, education, income, insurance and employment groups, and the Discussion notes higher prevalence among minorities and lower-income adults, but no SPD contrast is quantified or framed as a disparity.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "SPD subgroups mainly stratify the clinical (epilepsy) contrast; SPD differences themselves are only set side by side."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race/Ethnicity › Black, non-Hispanic"
+     },
+     {
+      "loc": "text",
+      "q": "with higher prevalences among some racial/ethnic minorities and those with lower income, a disability, or serious psychological distress"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "family income (% of FPL)",
+     "education",
+     "insurance and employment status"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "adults with family incomes <100% or >300% of the federal poverty level; adults with health insurance; unemployed adults"
+     },
+     {
+      "loc": "table 1",
+      "q": "Family income › <100% of FPL"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "administered to a randomly selected adult aged ≥18 years in each family within the selected household"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group (yrs) › 35–54"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Women"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "SPD groups are used to stratify the epilepsy vs no-epilepsy contrast; race collapsed into four groups with 'Other, non-Hispanic'; 'disabled' appears as an employment category; one retired estimate suppressed."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "with higher prevalences among some racial/ethnic minorities and those with lower income, a disability, or serious psychological distress"
+    },
+    {
+     "loc": "text",
+     "q": "All reported differences among three or more groups were assessed using a Wald F test"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Differences in current smoking among adults with epilepsy within subgroups generally paralleled those in the general U.S. adult population"
+    },
+    {
+     "loc": "table 1",
+     "q": "Family income › <100% of FPL"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise",
+  "comparison",
+  "procedures"
+ ],
+ "confidence": "medium",
+ "notes": "Design not named; cross-sectional plus trend inferred from repeated NHIS cross-sections. Orthogonal polynomial trend analysis recorded as a test because no regression is named; it may have been fitted via a SUDAAN model. Groupwise entries rest on the blanket Wald F statement under Discussion claims of SPD differences; no SPD test result is reported, so side by side is the alternative.",
+ "view_issues": "Reported declines (9.3% for 19.3%→14.0%; 16.6% for 29.2%→16.2%) match neither the pp nor relative change. Table CSV: inactive 35–54 CI '25.938.1' lacks a dash; inactive 55–64 CI (18.6–23.9) excludes 25.1; retired values (67.8 inactive; 24.7, CI 15.6–36.8, no history) look implausible."
+}

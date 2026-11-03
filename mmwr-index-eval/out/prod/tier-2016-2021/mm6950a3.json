@@ -1,0 +1,286 @@
+{
+ "id": "mm6950a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysuFrJYrZVjsBHSZU",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "White and Hispanic patients each accounted for 29% of tests performed; however, only 19% of positive test results were among White persons"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "among those with known race/ethnicity with positive test results, 56% were Hispanic, 24% were White, and 15% were Black"
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Texas reported the highest number of patients who received testing (353,081; 11%)"
+    },
+    {
+     "loc": "text",
+     "q": "California reported the most Hispanic patients who received testing (186,034)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "health centers responding to the survey reported that 3,194,838 patients received testing and 308,780 had positive SARS-CoV-2 test results"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "White and Hispanic patients each accounted for 29% of tests performed; however, only 19% of positive test results were among White persons"
+    },
+    {
+     "loc": "text",
+     "q": "By comparison, the 2019 American Community Survey estimated that the U.S. population comprises 60% White, 18% Hispanic, 12% Black"
+    }
+   ]
+  }
+ ],
+ "procedures": [],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "race/ethnicity",
+   "jurisdiction",
+   "tested vs positive"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "the numbers and proportions of persons with tests and positive results by race/ethnicity and state of residence"
+   },
+   {
+    "loc": "text",
+    "q": "with the largest percentage of positive test results (45%) among Hispanic patients"
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "primary_measures": [
+  {
+   "v": "no. tested (row %)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity, no. tested (row %)"
+    }
+   ]
+  },
+  {
+   "v": "no. positive (row %)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Race/Ethnicity, no. positive (row %)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Did HRSA-funded health centers reach racial and ethnic minority groups at increased risk for COVID-19 with SARS-CoV-2 testing, and how were tested and positive patients distributed by race/ethnicity and jurisdiction?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess health centers’ capacity to reach racial and ethnic minority groups at increased risk for COVID-19 and to provide access to testing"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Health Center Testing for SARS-CoV-2 During the COVID-19 Pandemic"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This analysis used survey data from the weeks ending June 5–October 2, 2020, to describe the patient population"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "HRSA administers a weekly voluntary Health Center COVID-19 Survey to track health center COVID-19 testing capacity"
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "As reported in the HRSA Uniform Data System in 2019"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Health Center COVID-19 Survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "HRSA administers a weekly voluntary Health Center COVID-19 Survey"
+    }
+   ]
+  },
+  {
+   "v": "HRSA Uniform Data System",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "As reported in the HRSA Uniform Data System in 2019"
+    }
+   ]
+  },
+  {
+   "v": "2019 American Community Survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "By comparison, the 2019 American Community Survey estimated that the U.S. population comprises 60% White"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "located in all 50 states, the District of Columbia (DC), and five territories and freely associated states"
+   },
+   {
+    "loc": "text",
+    "q": "by race/ethnicity and state of residence"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Shares of tested and positive patients by race/ethnicity are set side by side (Hispanic 29% of tests vs 45% of positives) and framed as increased risk, but no difference or ratio is stated, so the cap holds at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "If the share-of-tests vs share-of-positives contrast is read as a quantified disparity, named determinants (discrimination, access, housing, income gaps) would give level 4."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "the numbers and proportions of persons with tests and positive results by race/ethnicity and state of residence"
+     },
+     {
+      "loc": "text",
+      "q": "In 2019, 63% of HRSA health center patients who reported race and ethnicity identified as members of racial ethnic minority populations"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "discrimination; limited health care access and utilization; occupation; housing; educational and income gaps",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "limited health care access and utilization, occupation, housing, and educational and income gaps"
+    },
+    {
+     "loc": "summary",
+     "q": "Long-standing social inequities and health disparities have resulted in increased risk for COVID-19 infection, severe illness, and death"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "To assess health centers’ capacity to reach racial and ethnic minority groups at increased risk for COVID-19 and to provide access to testing"
+    }
+   ]
+  },
+  "equity_measurement": "Composition shares only; race/ethnicity unreported for 22% of tested and 19% of positive patients (kept as a category). Positivity by group cannot be computed; ACS 2019 shares serve as an external referent."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 7,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "among patients who received positive test results, 19% were White and 45% were Hispanic"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "outcome_types"
+ ],
+ "confidence": "medium",
+ "notes": "No design is named; surveillance/descriptive is inferred from the descriptive analysis of a voluntary aggregate survey. Equity action is set true because the stated aim is to assess health centers' reach to minority groups at increased risk. The groupwise entry rests on shares of positives vs shares of tests by race and may instead be composition.",
+ "view_issues": "Text says positivity cannot be inferred from these counts, yet concludes minority groups were at increased risk 'given the large percentage of positive test results'. Summary percentages use known-race denominators (36/38/20%), body uses all patients (29/29/15%)."
+}

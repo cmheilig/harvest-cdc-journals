@@ -1,0 +1,445 @@
+{
+ "id": "mm6923a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyst23ffHXAaRYievC",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Pneumoconiosis deaths decreased from 2,738 deaths in 1999 to 1,632 in 2018"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-adjusted death rates (deaths per 1 million population) decreased from 12.8 in 1999 to 5.3 in 2018"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the highest number of asbestosis-associated deaths occurred among workers in the construction industry (820; 25.0%)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Asbestosis was associated with approximately three fifths of the deaths (26,059; 60.1%)"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Pneumoconiosis deaths decreased from 2,738 deaths in 1999 to 1,632 in 2018"
+    },
+    {
+     "loc": "text",
+     "q": "The highest age-adjusted death rates for the 20-year period were in West Virginia for coal workers’ pneumoconiosis (59.8 per million population)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Death rates per 1 million population were age-adjusted by applying age-specific death rates to the 2000 U.S. Census standard population."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "joinpoint regression (slopes on death counts; APCs on log-transformed age-adjusted rates)",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "Joinpoint software fits segmented least-squares lines: slopes on counts, and on log rates giving APCs → linear",
+   "alternative_reading": "loglinear: the APC segments are fitted on log-transformed rates, a log-linear model of the rate",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Joinpoint regression software (version 4.8.0.1; National Cancer Institute) was used to analyze time trends in deaths and log transformed death rates."
+    },
+    {
+     "loc": "table 1",
+     "q": "Calculated using death counts; the slope characterizes the direction of the disease trend"
+    }
+   ]
+  },
+  {
+   "name": "direct age standardization to 2000 U.S. standard population",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "age-specific rates applied to the 2000 U.S. Census standard population",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Death rates per 1 million population were age-adjusted by applying age-specific death rates to the 2000 U.S. Census standard population."
+    }
+   ]
+  },
+  {
+   "name": "log transformation of death rates",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "rates log-transformed before joinpoint trend analysis",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was used to analyze time trends in deaths and log transformed death rates."
+    }
+   ]
+  },
+  {
+   "name": "suppression of unreliable rates and small counts",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "rates withheld below 20 deaths; counts suppressed below 10 decedents",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Dashes indicate unreliable death rates because there were fewer than 20 deaths per year."
+    },
+    {
+     "loc": "table 2",
+     "q": "Suppressed because there were fewer than 10 decedents."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "both",
+  "referent": "Healthy People 2020 target of 2,187 deaths (10% reduction from 2005 baseline)",
+  "across": [
+   "year",
+   "pneumoconiosis type",
+   "state"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "annual percent change = −0.88% during 1999–2001 and −5.22% during 2002–2018"
+   },
+   {
+    "loc": "text",
+    "q": "Results of this study indicate that the total number of pneumoconiosis deaths in 2018 was 1,632, a 32.8% decline from the baseline."
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "a significant decline began in 2002 (2,715 deaths) through 2018 (1,632) (p-value for time trend <0.05)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "number of deaths",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Pneumoconiosis deaths decreased from 2,738 deaths in 1999 to 1,632 in 2018"
+    }
+   ]
+  },
+  {
+   "v": "age-adjusted death rate per million population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-adjusted death rates (deaths per 1 million population) decreased from 12.8 in 1999 to 5.3 in 2018"
+    }
+   ]
+  },
+  {
+   "v": "slope",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Calculated using death counts; the slope characterizes the direction of the disease trend"
+    }
+   ]
+  },
+  {
+   "v": "APC",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "APC = annual percent change"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the highest number of asbestosis-associated deaths occurred among workers in the construction industry (820; 25.0%)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Calculated using death counts; the slope characterizes the direction of the disease trend"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did pneumoconiosis deaths and age-adjusted death rates among U.S. decedents aged ≥15 years change during 1999–2018, by disease type, state, industry and occupation?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess recent trends in deaths associated with pneumoconiosis, CDC analyzed multiple cause-of-death data"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "pneumoconiosis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Trends in Pneumoconiosis Deaths — United States, 1999–2018"
+    }
+   ]
+  },
+  {
+   "v": "coal workers’ pneumoconiosis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The largest decreases over time were for deaths associated with coal workers’ pneumoconiosis (69.6%)"
+    }
+   ]
+  },
+  {
+   "v": "asbestosis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Asbestosis was associated with approximately three fifths of the deaths (26,059; 60.1%)"
+    }
+   ]
+  },
+  {
+   "v": "silicosis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "and silicosis (53.0%), from 185 in 1999 to 87 in 2018"
+    }
+   ]
+  },
+  {
+   "v": "pneumoconiosis attributed to other inorganic dusts",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "All pneumoconioses decreased with the exception of pneumoconiosis attributed to other inorganic dusts."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The CDC National Vital Statistics System’s multiple cause-of-death data for 1999–2018 were analyzed for decedents aged ≥15 years."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "To assess recent trends in deaths associated with pneumoconiosis, CDC analyzed multiple cause-of-death data"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The CDC National Vital Statistics System’s multiple cause-of-death data for 1999–2018 were analyzed for decedents aged ≥15 years."
+    },
+    {
+     "loc": "text",
+     "q": "Cause-of-death data from the 26 states were compiled using CDC’s National Occupational Respiratory Mortality Surveillance system."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System multiple cause-of-death data (CDC WONDER)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Source: CDC WONDER multiple cause-of-death data."
+    }
+   ]
+  },
+  {
+   "v": "National Occupational Respiratory Mortality Surveillance (NORMS) system",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Data were compiled using CDC’s National Occupational Respiratory Mortality Surveillance (NORMS) system."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Age-adjusted death rates varied across geographic locations for each pneumoconiosis type"
+   },
+   {
+    "loc": "text",
+    "q": "industry and occupation data collected from 26 states"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Race/ethnicity appears only as a descriptor of decedents (94.6% white); age defines the population and is standardized; occupation is a route of exposure, not SES.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 0,
+   "reason": "The race/ethnicity mention is a single composition line and could be read as no SPD use beyond age and sex."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The CDC National Vital Statistics System’s multiple cause-of-death data for 1999–2018 were analyzed for decedents aged ≥15 years."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Death rates per 1 million population were age-adjusted by applying age-specific death rates to the 2000 U.S. Census standard population."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "nearly all were male (41,777; 96.3%), white (41,029; 94.6%), and non-Hispanic (42,339; 97.6%)."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "nearly all were male (41,777; 96.3%), white (41,029; 94.6%), and non-Hispanic (42,339; 97.6%)."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Industry and occupation are analyzed as exposure routes, not social position; states are geography. The Healthy People target is for the whole population, not an SPD group."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "comparison",
+  "analytic_depth",
+  "procedures"
+ ],
+ "confidence": "medium",
+ "notes": "No design is named; surveillance/descriptive with trend is inferred. P-values come from joinpoint model terms, so no separate test is recorded. Legislation and workforce decline are offered as explanations of overall trends with no tie to social position; the 'time-weighted average' prepass weighting cue is a false hit.",
+ "view_issues": "Text gives 'p-value for 2018 time trend' for silicosis, apparently a typo. Table 1 CSV repeats slope and APC rows (merged cells expanded); the asbestosis 1999–2001 slope of +102.49 is marked significant on three points."
+}

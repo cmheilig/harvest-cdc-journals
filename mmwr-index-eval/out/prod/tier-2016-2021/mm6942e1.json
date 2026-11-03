@@ -1,0 +1,287 @@
+{
+ "id": "mm6942e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysvW6yQKy3jqVfeMq",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The number of COVID-19–associated deaths decreased from 37,940 in May to 17,718 in June"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The percentage of Hispanic decedents increased from 16.3% in May to 26.4% in August."
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The number of COVID-19–associated deaths decreased from 37,940 in May to 17,718 in June; subsequently, counts increased to 30,401 in July"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, 78.2% of decedents were aged ≥65 years, and 53.3% were male"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the percentage who were Black decreased from 20.3% to 17.4%, whereas the percentage who were Hispanic increased from 16.3% to 26.4%"
+    },
+    {
+     "loc": "text",
+     "q": "the percentage of decedents who were Hispanic increased 10.1 percentage points from May through August."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "small-cell suppression (counts <10)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "NVSS suppresses counts <10; NHPI and multiracial groups combined; totals may vary because of suppression",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "counts <10 are suppressed in NVSS to maintain confidentiality, these groups were combined into one group for analyses"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "absolute",
+  "referent": "May 2020",
+  "across": [
+   "month",
+   "race/ethnicity",
+   "age group",
+   "U.S. Census region",
+   "place of death"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The percentage of Hispanic decedents increased from 16.3% in May to 26.4% in August."
+   },
+   {
+    "loc": "text",
+    "q": "a small decrease (2.9 percentage points between May and August) in decedents who were Black was observed"
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "primary_measures": [
+  {
+   "v": "percentage of deaths",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Deaths, § %"
+    }
+   ]
+  },
+  {
+   "v": "number of deaths",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "counts increased to 30,401 in July and declined to 28,352 in August"
+    }
+   ]
+  },
+  {
+   "v": "percentage points",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the percentage of decedents who were Hispanic increased 10.1 percentage points from May through August."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did the age, race/ethnicity and geographic distribution of COVID-19–associated deaths in the United States change during May–August 2020?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This report describes demographic and geographic trends in COVID-19–associated deaths reported to the National Vital Statistics System"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Race, Ethnicity, and Age Trends in Persons Who Died from COVID-19 — United States, May–August 2020"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC tabulated the numbers and percentages of COVID-19–associated deaths by age, sex, race and ethnicity"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "To describe changes in demographic features over time, percentages of deaths among two age groups"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-19–associated deaths reported to the National Vital Statistics System † (NVSS) during May 1–August 31, 2020"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System (NVSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-19–associated deaths reported to the National Vital Statistics System † (NVSS) during May 1–August 31, 2020"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "by 50 states and the District of Columbia"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Racial/ethnic shares of deaths are framed as disproportionate, but they are only set beside population shares (18.7% vs 12.5%; 24.2% vs 18.5%) with no stated difference or ratio, so the cap at 2 holds despite named determinants.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "Disparities are framed and the Hispanic share change is quantified (10.1 points); social determinants (crowded housing, in-person jobs, access, discrimination) are named as explanations."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "The percentage of Hispanic decedents increased from 16.3% in May to 26.4% in August."
+     },
+     {
+      "loc": "text",
+      "q": "Black persons still accounted for 18.7% of overall deaths despite representing just 12.5% of the U.S. population"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The percentage of decedents aged ≥65 years decreased from 81.8% to 77.6%"
+     },
+     {
+      "loc": "text",
+      "q": "The monthly percentage of Hispanic decedents aged <65 years increased in the South (from 29.2% to 38.1%)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Male"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "inequities in social determinants of health; multigenerational and multifamily households; congregate living; in-person work; limited access to health care; discrimination",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Inequities in the social determinants of health can lead to increased risk for SARS-CoV-2 exposure among some racial and ethnic groups."
+    },
+    {
+     "loc": "text",
+     "q": "hold jobs requiring in-person work (e.g., meatpacking, agriculture, service, and health care), have limited access to health care, or experience discrimination"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Shares of decedents by race/ethnicity compared with Census population shares (external referent, no ratio); NHPI and multiracial combined as Other; race/ethnicity unknown for 0.4%."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "equity.level",
+  "comparison",
+  "procedures"
+ ],
+ "confidence": "medium",
+ "notes": "Purely descriptive: distributions of decedents by group and month, no rates per population and no tests. Race/ethnicity shares are composition of decedents, so no groupwise entry. Age × region × Hispanic results are in a supplementary figure not in the packet.",
+ "view_issues": "Figure 1 title says COVID-19 deaths 'as a percentage of all deaths', but the text describes the percentage distribution of COVID-19 deaths by region. Text says 22% died in nursing homes; table gives 21.5% (rounding)."
+}

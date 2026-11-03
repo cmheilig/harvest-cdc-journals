@@ -1,0 +1,385 @@
+{
+ "id": "mm6522a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrURh3HXjjzJiqwvo",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "In 2014, an estimated 5.5 million (3.8%) of 146 million U.S. working adults were current e-cigarette users."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among working adults, 3.8% (an estimated 5.5 million) were current e-cigarette users."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In 2014, an estimated 5.5 million (3.8%) of 146 million U.S. working adults were current e-cigarette users."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The prevalences of current e-cigarette use were significantly (p<0.05) higher among males (4.5%) and non-Hispanic whites (4.5%)"
+    },
+    {
+     "loc": "summary",
+     "q": "The highest e-cigarette use prevalence was among workers in accommodation and food services (6.9%) industry"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting with nonresponse adjustment",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated nonresponse adjustment and weighting to national estimates; every prevalence and count is weighted",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were adjusted for nonresponse and weighted to provide nationally representative estimates."
+    },
+    {
+     "loc": "table 3",
+     "q": "Weighted to provide national estimates using the survey sample weights for each participant."
+    }
+   ]
+  },
+  {
+   "name": "two-sided t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named t-tests between point estimates behind the 'significantly higher' claims; CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Two-sided t-tests † were used to determine statistically significant (p<0.05) differences between point estimates."
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "table note reports a significant association of e-cigarette use with each characteristic; test not named",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "E-cigarette use was significantly associated (p<0.05) with age, gender, race, income, health insurance coverage, perceived health status, and region."
+    }
+   ]
+  },
+  {
+   "name": "suppression of estimates with relative standard error >30%",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "RSE rule withholding imprecise estimates; small industries/occupations combined into 'All others'",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates with a relative standard error >30% are not reported."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "industry",
+   "occupation",
+   "age",
+   "sex",
+   "race/ethnicity",
+   "family income",
+   "health insurance",
+   "education",
+   "census region",
+   "perceived health",
+   "tobacco use status"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The highest e-cigarette use prevalence was among workers in accommodation and food services (6.9%) industry"
+   },
+   {
+    "loc": "text",
+    "q": "E-cigarette use was assessed overall, and by age, sex, race/ethnicity, education, annual household income, health insurance status, U.S. census region"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Prevalence estimates and corresponding 95% confidence intervals were calculated."
+   },
+   {
+    "loc": "text",
+    "q": "Two-sided t-tests † were used to determine statistically significant (p<0.05) differences between point estimates."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "% (95% CI)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimated e-cigarette use** › % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "estimated number of users (x 1,000)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimated number of e-cigarette users among working adults."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What is the prevalence of current e-cigarette use among U.S. working adults, overall and by demographic characteristics, tobacco use, industry and occupation?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to provide national estimates of current e-cigarette use among U.S. working adults by industry and occupation."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "e-cigarette use",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Electronic Cigarette Use Among Working Adults — United States, 2014"
+    }
+   ]
+  },
+  {
+   "v": "tobacco use (cigarette, other combustible, smokeless)",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "E-cigarette use was also significantly (p<0.05) higher among current cigarette smokers (16.2%)"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed 2014 National Health Interview Survey (NHIS) data for adults aged ≥18 years"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed 2014 National Health Interview Survey (NHIS) data"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Health Interview Survey (NHIS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed 2014 National Health Interview Survey (NHIS) data"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "NHIS data are collected annually from a nationally representative sample of the noninstitutionalized U.S. civilian population"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Prevalence by race/ethnicity, income and insurance is reported with t-test significance and described as higher in some groups, but not framed as a disparity or interpreted with social causes.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The implications call for strategies among populations with the greatest prevalence, which could be read as framing group differences as disparities."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "than among females (3.0%) and non-Hispanic blacks (1.9%)"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "annual family income",
+     "health insurance",
+     "education"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "with annual family income <$35,000 (5.1%), with no health insurance (5.9%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "for adults aged ≥18 years who were working during the week before the interview"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "and among persons aged 18–24 years (5.1%)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "significantly (p<0.05) higher among males (4.5%)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Industry and occupation are treated as workplace groups, not social position; unknown income and insurance categories are kept in tables; small industries/occupations are combined into 'All others'."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "E-cigarette use was significantly associated (p<0.05) with age, gender, race, income, health insurance coverage, perceived health status, and region."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "E-cigarette use was significantly associated (p<0.05) with age, gender, race, income, health insurance coverage, perceived health status, and region."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": null,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "E-cigarette use was significantly associated (p<0.05) with age, gender, race, income, health insurance coverage, perceived health status, and region."
+    },
+    {
+     "loc": "text",
+     "q": "with annual family income <$35,000 (5.1%)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred as cross-sectional survey analysis; none is named. The association test in the Table 1 note is unnamed; t-tests support the pairwise claims in the text. Income groupwise n_groups is null because it is unclear whether the unknown category entered the test.",
+ "view_issues": "Table 1 Health insurance counts look swapped (Insured 1,186 vs Not insured 4,236 contradict 3.4% and 5.9%). Text gives income >$75,000 as 2.6%, but the table shows ≥75,000 at 2.8% (2.6% is Unknown)."
+}

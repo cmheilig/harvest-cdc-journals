@@ -1,0 +1,300 @@
+{
+ "id": "mm6532a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrMjGqzWs1y9rqpMy",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC analyzed trends in sports-related marketing expenditures for cigarettes and smokeless tobacco during 1992–2013 using data from the Federal Trade Commission (FTC)."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Sports-related smokeless tobacco marketing expenditures decreased from $34.8 million in 1992 (18.2%) to $2.1 million in 2013 (0.4%) (p<0.05)."
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The percentage of all marketing expenditures that were sports-related was higher for smokeless tobacco than cigarettes in each study year"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "during 2010–2013, smokeless tobacco manufacturers reported a total of $16.3 million advertising and promoting smokeless tobacco in sports."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 1992–2009, expenditures declined (APC = −5.4; 95% confidence interval [CI] = −7.6 to −3.1) (p<0.05); steeper declines occurred during 2009–2013"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "joinpoint regression (APC, AAPC)",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'Joinpoint regression' summarized by annual percentage change implies a segmented log-linear model of expenditures",
+   "role": "primary",
+   "alternative_reading": "linear (least squares on log expenditures, the Joinpoint default)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Trends were assessed using Joinpoint regression §§ (p<0.05)"
+    },
+    {
+     "loc": "text",
+     "q": "annual percentage change (APC) and average annual percentage changes (AAPC) were computed to summarize the temporal trends"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": null,
+  "across": [
+   "year",
+   "tobacco product (cigarettes vs smokeless tobacco)"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During 1992–2013, sports-related marketing expenditures decreased significantly for both cigarettes (from $136 million in 1992 to $0 in 2013)"
+   },
+   {
+    "loc": "text",
+    "q": "The overall rate of change (AAPC) during 1992–2013 was −14.7 (95% CI = −18.3 to −11.0)."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Trends were assessed using Joinpoint regression §§ (p<0.05)"
+   },
+   {
+    "loc": "text",
+    "q": "Adjusted expenditures were stable during 1992–2001 (APC = 4.1; 95% CI = −0.9 to 9.4)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "expenditures, million $ (constant 2013 dollars)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Dollar values were adjusted by the consumer price index (all items) to constant 2013 $US."
+    }
+   ]
+  },
+  {
+   "v": "proportion of total expenditures spent on sports (%)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Proportion of total advertising/promotion expenditures spent on sports and sporting events (%)"
+    }
+   ]
+  },
+  {
+   "v": "APC",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "steeper declines occurred during 2009–2013 (APC = −45.1; 95% CI = −55.8 to −31.8) (p<0.05)."
+    }
+   ]
+  },
+  {
+   "v": "AAPC",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The overall rate of change (AAPC) during 1992–2005 was −9.9 (95% CI = −14.6 to −4.9)."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Trends were assessed using Joinpoint regression §§ (p<0.05)"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 1992–2009, expenditures declined (APC = −5.4; 95% confidence interval [CI] = −7.6 to −3.1) (p<0.05); steeper declines occurred during 2009–2013"
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did sports-related cigarette and smokeless tobacco marketing expenditures change in the United States during 1992–2013, including after the 2010 brand-sponsorship prohibition?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To monitor tobacco advertising and promotional activities in sports in the United States, CDC analyzed trends in sports-related marketing expenditures"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "tobacco use",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Tobacco Advertising and Promotional Expenditures in Sports and Sporting Events — United States, 1992–2013"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "To monitor tobacco advertising and promotional activities in sports in the United States"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed trends in sports-related marketing expenditures for cigarettes and smokeless tobacco during 1992–2013"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Marketing expenditures reported by tobacco companies during 1992–2013 were obtained from the FTC for cigarette and smokeless tobacco"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Federal Trade Commission (FTC) cigarette and smokeless tobacco marketing expenditure reports",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Marketing expenditures reported by tobacco companies during 1992–2013 were obtained from the FTC for cigarette and smokeless tobacco"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Tobacco Advertising and Promotional Expenditures in Sports and Sporting Events — United States, 1992–2013"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "No social-position dimension is measured; youths appear only in background and recommendations about marketing exposure.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Youth-oriented marketing is raised in recommendations, though age alone without SPD framing stays at 0."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Policies to reduce exposure of youths to sports-related advertising and promotion of smokeless tobacco might help reduce use of these products among youths"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "data_focus",
+  "regression_fields"
+ ],
+ "confidence": "medium",
+ "notes": "Outcomes are industry marketing expenditures (a determinant of tobacco use), read as public health quantities. CPI inflation adjustment is arithmetic rescaling, not a procedure. FTC, not the authors, suppressed 2006 and 2009 cigarette figures, which prevented joinpoint assessment after 2005.",
+ "view_issues": "Table 1 note † for smokeless tobacco describes 'cigarette advertising and promotional categories', apparently copied from Table 2."
+}

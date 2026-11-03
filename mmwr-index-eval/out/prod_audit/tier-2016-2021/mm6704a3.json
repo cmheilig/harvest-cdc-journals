@@ -1,0 +1,415 @@
+{
+ "id": "mm6704a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggRgdZ4trFRYvuAU6sfF",
+  "batch_id": "msgbatch_01STeYLQ5XwXE85pN9Qnpkjr"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In 2016, these three brands accounted for 73.1% and 78.7% of current cigarette smokers in middle and high school, respectively."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In 2016, these three brands accounted for 73.1% and 78.7% of current cigarette smokers in middle and high school, respectively."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A higher proportion of female smokers (27.2%) smoked Newport cigarettes than did male smokers (16.6%; p<0.05)."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Binary logistic regression was used to assess brand-specific linear trends during 2012–2016, adjusting for grade, sex, and race/ethnicity."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "binary logistic regression for linear trend",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Binary logistic regression' for brand-specific linear trends, adjusted for grade, sex, race/ethnicity → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Binary logistic regression was used to assess brand-specific linear trends during 2012–2016, adjusting for grade, sex, and race/ethnicity."
+    },
+    {
+     "loc": "table 1",
+     "q": "Statistically significant linear trend during 2012–2016 (p-trend<0.05)."
+    }
+   ]
+  },
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'Chi-squared tests' named for subgroup differences, p<0.05",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Chi-squared tests and logistic regression were used to determine subgroup differences, with statistical significance set at p<0.05."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "'Data were weighted' to give nationally representative estimates",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted to yield nationally representative estimates."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "brand",
+   "year",
+   "school level",
+   "sex",
+   "grade",
+   "race/ethnicity",
+   "smoking frequency",
+   "ad exposure status",
+   "advertising medium"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Marlboro, Newport, and Camel were the most commonly reported usual brands smoked by middle and high school current (past 30-day) cigarette smokers."
+   },
+   {
+    "loc": "text",
+    "q": "The proportion of current cigarette smokers who smoked Marlboro cigarettes during 2016 was highest among non-Hispanic whites (whites) (54.6%)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Chi-squared tests and logistic regression were used to determine subgroup differences, with statistical significance set at p<0.05."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "% (SE)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% (SE)"
+    }
+   ]
+  },
+  {
+   "v": "p-trend",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Statistically significant linear trend during 2012–2016 (p-trend<0.05)."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted to yield nationally representative estimates."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Chi-squared tests and logistic regression were used to determine subgroup differences"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusting for grade, sex, and race/ethnicity"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "grade, sex, and race/ethnicity",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusting for grade, sex, and race/ethnicity"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Which cigarette brands do US middle and high school current smokers usually smoke, how did this change 2012–2016, and is it related to pro-tobacco advertising?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To identify usual cigarette brands smoked among U.S. middle and high school students who were current (past 30-day) cigarette smokers"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "cigarette smoking",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Cigarette Brand Preference and Pro-Tobacco Advertising Among Middle and High School Students"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "measured at the same time in this cross-sectional study"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Trend analyses during 2012–2016 indicated an increase in the prevalence of Marlboro smoking for all high school students (38.5% to 48.8%)"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NYTS is an annual national survey of U.S. students in grades 6–12."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Youth Tobacco Survey (NYTS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2012–2016 National Youth Tobacco Survey (NYTS)."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, 2012–2016"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Brand prevalence is reported by race/ethnicity (highest/lowest with p<0.05) and targeted marketing is offered as an explanation, but no difference or ratio is computed, so the contrast is capped at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Race differences are framed as resulting from targeted menthol marketing to blacks; one could read the highest vs lowest contrast as quantified."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "the proportion who smoked Newport cigarettes during 2016 was highest among blacks (58.4%) and lowest among whites (7.9%; p<0.05)."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "adjusting for grade, sex, and race/ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "A higher proportion of female smokers (27.2%) smoked Newport cigarettes than did male smokers (16.6%; p<0.05)."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "adjusting for grade, sex, and race/ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "NYTS is an annual national survey of U.S. students in grades 6–12."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "brand-specific prevalence was calculated overall and by school level, sex, grade, race/ethnicity, and smoking frequency"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "targeted marketing of tobacco products (menthol cigarettes marketed to blacks)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Targeted marketing of tobacco products to certain groups can explain differences in brand preferences among subgroups"
+    },
+    {
+     "loc": "text",
+     "q": "menthol cigarettes are marketed to specific demographic groups, including blacks"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity limited to non-Hispanic white, non-Hispanic black and Hispanic; other groups not shown. Grade used as an age proxy."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was highest among non-Hispanic whites (whites) (54.6%) and lowest among non-Hispanic blacks (blacks) (11.5%; p<0.05)."
+    },
+    {
+     "loc": "text",
+     "q": "Chi-squared tests and logistic regression were used to determine subgroup differences"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Grade › 9"
+    },
+    {
+     "loc": "table 1",
+     "q": "Grade › 12"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise",
+  "regression_fields",
+  "comparison",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "Agreement between usual brand and favorite ad (72.1%) is a simple percentage. The ad-exposure contrast (neither vs both) uses chi-square and/or logistic regression; which one is not stated. Race-group p<0.05 may be a pairwise highest-vs-lowest test rather than omnibus.",
+ "view_issues": "The text says Marlboro rose among 11th graders implicitly (not listed) while the table shows no trend mark; the text omits 11th grade consistently with the table. The test behind each subgroup p-value is not specified."
+}

@@ -1,0 +1,482 @@
+{
+ "id": "mm6539a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrLFZLMTH7zdWdcyT",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The unadjusted prevalence of SJP in the preceding 30 days among adults with arthritis was 27.2% in 2014."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "SJP was defined as a response ≥7."
+    },
+    {
+     "loc": "summary",
+     "q": "The unadjusted prevalence of SJP in the preceding 30 days among adults with arthritis was 27.2% in 2014."
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the estimated number of adults with SJP was significantly higher in 2014 (14.6 million, CI = 13.8–15.4 million) compared with 2002"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The unadjusted prevalence of SJP in the preceding 30 days among adults with arthritis was 27.2% in 2014."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the age-standardized prevalence of SJP among adults with arthritis (range = 24.9%–26.5%) did not significantly change (p = 0.14)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the age-standardized prevalence of SJP was significantly higher among women (29.2%), non-Hispanic blacks (42.3%), Hispanics (35.8%), those with a disability (45.6%)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "age-standardized to the 2000 U.S. standard population using three age groups: direct standardization",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates were age-standardized to the 2000 U.S. standard population using three age groups (18–44, 45–64, and ≥65 years)"
+    }
+   ]
+  },
+  {
+   "name": "survey sampling weights with poststratification",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "sampling weights, poststratification and complex-design software stated; weights produce every estimate",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Sampling weights were applied so that estimates were representative of the civilian noninstitutionalized U.S. population."
+    },
+    {
+     "loc": "text",
+     "q": "Analyses were conducted using statistical software to account for the complex sampling design."
+    }
+   ]
+  },
+  {
+   "name": "CI overlap assertion",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "nonoverlapping 95% CIs stated as the significance criterion for 2014 group differences; CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "nonoverlapping 95% confidence intervals (CIs) (for the age-standardized estimates) were considered statistically significant."
+    }
+   ]
+  },
+  {
+   "name": "linear orthogonal polynomial contrast (trend test)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "linear orthogonal polynomial contrast across the 5 survey years, p = 0.14",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a linear orthogonal polynomial contrast for the age-standardized estimates was used."
+    },
+    {
+     "loc": "text",
+     "q": "the age-standardized prevalence of SJP among adults with arthritis (range = 24.9%–26.5%) did not significantly change (p = 0.14)"
+    }
+   ]
+  },
+  {
+   "name": "suppression of imprecise estimates (relative standard error ≤30%)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "estimates for small racial/ethnic groups withheld under an RSE precision rule",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "because they did not meet the minimum criterion for precision of relative standard error ≤30.0%."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "sex",
+   "age group",
+   "race/ethnicity",
+   "disability status",
+   "education level",
+   "employment status",
+   "smoking status",
+   "leisure-time physical activity",
+   "overall health status",
+   "body mass index",
+   "heart disease",
+   "diabetes",
+   "serious psychological distress",
+   "survey year"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Groups disproportionately affected by SJP included women, non-Hispanic blacks, Hispanics, those with a disability, those unable to work"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "ci_overlap": true,
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "nonoverlapping 95% confidence intervals (CIs) (for the age-standardized estimates) were considered statistically significant."
+   },
+   {
+    "loc": "text",
+    "q": "a linear orthogonal polynomial contrast for the age-standardized estimates was used."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "unadjusted %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Unadjusted % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "age-standardized %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age-standardized % † with SJP (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "weighted number (thousands)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Weighted no. (thousands)*"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What was the prevalence of severe joint pain among U.S. adults with doctor-diagnosed arthritis in 2014, by group, and did it change during 2002–2014?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To determine the prevalence of SJP among adults with doctor-diagnosed arthritis, and the trend in SJP from 2002 to 2014"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "severe joint pain",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Prevalence of Severe Joint Pain Among Adults with Doctor-Diagnosed Arthritis"
+    }
+   ]
+  },
+  {
+   "v": "arthritis",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Prevalence of Severe Joint Pain Among Adults with Doctor-Diagnosed Arthritis"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Fourth, these data are cross-sectional; therefore, causal inferences cannot be made."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The age-standardized prevalence of SJP remained high (range = 24.9%–26.5%) and stable during 2002–2014"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC used data from the National Health Interview Survey, an annual, nationally representative, in-person survey"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Health Interview Survey (NHIS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC used data from the National Health Interview Survey"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, 2002–2014"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "SJP prevalence by race/ethnicity, education, employment and disability is reported and called disproportionate and 'large disparities', but contrasts are only side-by-side values judged by CI overlap, with no computed difference or ratio, so capped at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The disparity is framed explicitly and values such as 42.3% vs 23.1% could be read as quantified."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race/Ethnicity › Black, non-Hispanic"
+     },
+     {
+      "loc": "text",
+      "q": "might help reduce the large disparities in SJP burden."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "These weights adjusted for household nonresponse and oversampling of blacks, Hispanics, and Asians."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education level",
+     "employment status"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "those with less than a high school education (40.2%), and those unable to work (51.9%)"
+     }
+    ]
+   },
+   {
+    "v": "disability",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Groups disproportionately affected by SJP included women, non-Hispanic blacks, Hispanics, those with a disability, those unable to work"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Women"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "with the highest prevalence among persons aged 45–64 years (30.7%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "noninstitutionalized civilian U.S. adult population"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Group values judged by non-overlapping CIs of age-standardized estimates; Asian, AI/AN, NH/PI and multiracial estimates suppressed (RSE >30%); disability defined by six functional-limitation questions."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the age-standardized prevalence of SJP was significantly higher among women (29.2%), non-Hispanic blacks (42.3%), Hispanics (35.8%), those with a disability (45.6%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Education level › Less than high school diploma"
+    },
+    {
+     "loc": "text",
+     "q": "those with less than a high school education (40.2%), and those unable to work (51.9%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Employment status › Unable to work"
+    },
+    {
+     "loc": "text",
+     "q": "those with less than a high school education (40.2%), and those unable to work (51.9%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "with the highest prevalence among persons aged 45–64 years (30.7%)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "equity.dimensions",
+  "groupwise",
+  "outcome_types"
+ ],
+ "confidence": "medium",
+ "notes": "The 2014 vs 2002 difference in estimated numbers is called significant without a named test; it is consistent with non-overlapping CIs. Age-group comparisons use unadjusted estimates, while the overlap rule is stated for age-standardized ones. Disability is recorded as an SPD because the article frames it among disproportionately affected groups.",
+ "view_issues": "Discussion says SJP was 'significantly higher among middle-aged adults', but the overlap rule is stated only for age-standardized estimates, which are not given by age group. The 'Other' employment row has an unusually wide age-standardized CI."
+}

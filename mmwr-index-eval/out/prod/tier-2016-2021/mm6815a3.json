@@ -1,0 +1,415 @@
+{
+ "id": "mm6815a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysCLVVMPgbvdGe4Vi",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "the prevalence of violence perpetration ranged among males from 29.5% in Nigeria to 51.5% in Malawi"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "46.2% of males and 26.8% of females in Uganda reported ever perpetrating physical violence against another person."
+    },
+    {
+     "loc": "table 2",
+     "q": "Ever perpetrated physical or sexual violence, weighted % (95% CI)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "the prevalence of violence perpetration ranged among males from 29.5% in Nigeria to 51.5% in Malawi"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Perpetration of physical violence was more common than sexual violence in all four countries and occurred among both males and females."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Logistic regression models were used to identify predictors of violence perpetration, adjusting for age at time of survey, marital status, sex, educational status"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multivariable logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Logistic regression models' giving crude and adjusted ORs → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Logistic regression models were used to identify predictors of violence perpetration, adjusting for age at time of survey, marital status, sex, educational status"
+    }
+   ]
+  },
+  {
+   "name": "survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weighted percentages from nationally representative multistage cluster surveys",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Weighted percentages of participants reporting lifetime perpetration of physical or sexual violence were calculated for each independent variable."
+    }
+   ]
+  },
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "Table 2 column 'Chi-square p-value' for bivariate comparisons; used to select model covariates",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Chi-square p-value"
+    },
+    {
+     "loc": "text",
+     "q": "adjusted models included all significant (p<0.05) factors in unadjusted analyses."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "CI method not stated; aOR CIs excluding 1 underpin association claims",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "males and victims of childhood violence had consistently higher odds of perpetrating physical or sexual violence"
+    },
+    {
+     "loc": "text",
+     "q": "(aOR = 19.8, 95% confidence interval = 9.0–43.6)"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "persons who did not experience childhood violence",
+  "across": [
+   "country",
+   "sex",
+   "childhood violence victimization",
+   "number of types of childhood violence",
+   "age group",
+   "marital status",
+   "education"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "a strong dose-response relationship was observed between the number of types of childhood violence experienced and odds of perpetrating violence."
+   },
+   {
+    "loc": "note",
+    "q": "The referent was experiencing zero types of violence."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "Chi-square p-value"
+   },
+   {
+    "loc": "table 1",
+    "q": "Weighted % (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Weighted % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "OR",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "OR (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "aOR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the adjusted odds ratio (aOR) for perpetrating violence was more than five times higher (aOR range = 5.4–7.0)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "OR (95% CI)"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted OR (95% CI)"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age at time of survey, marital status, sex, educational status (Nigeria, Zambia), and experiencing any violence in childhood",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusting for age at time of survey, marital status, sex, educational status, and experiencing any violence in childhood."
+    },
+    {
+     "loc": "table 2",
+     "q": "Malawi model included age at time of survey, marital status, and sex."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Effect measure modification between sex, age, and sexual violence was observed for Malawi; pooled results are provided."
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How prevalent is violence perpetration among persons aged 13–24 years in four sub-Saharan African countries, and is it associated with childhood violence victimization?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to measure experiences of violence victimization in childhood and subsequent perpetration of physical or sexual violence."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "violence perpetration",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Prevalence of Violence Victimization and Perpetration Among Persons Aged 13–24 Years"
+    }
+   ]
+  },
+  {
+   "v": "childhood violence victimization",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "being a victim of childhood violence was the strongest independent predictor of being a perpetrator of violence."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "First, this was a cross-sectional study, and causality between violence victimization and perpetration cannot be established."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Violence Against Children Surveys, which are nationally representative, multistage cluster surveys of adolescents and young adults aged 13–24 years."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Violence Against Children Surveys (VACS)",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Analysis of data from Violence Against Children Surveys in four sub-Saharan African countries"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "international",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Four Sub-Saharan African Countries, 2013–2015"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Education (SES) group-specific prevalences and ORs appear only in Table 2 and as a model covariate, not discussed; sex and age contrasts are not framed as social position. Gender equity appears only as a recommendation.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Education functions mainly as a covariate/risk factor in variable selection, so it could be read as covariate-only."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Prevalence of Violence Victimization and Perpetration Among Persons Aged 13–24 Years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "adjusting for age at time of survey, marital status, sex, educational status"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "by sex and type of violence"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "males and victims of childhood violence had consistently higher odds of perpetrating physical or sexual violence"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "reduction of community violence, and improving gender equity"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "educational status"
+    ],
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Education › Primary education or less"
+     },
+     {
+      "loc": "text",
+      "q": "adjusting for age at time of survey, marital status, sex, educational status"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Education collapsed to primary or less vs secondary or more; dropped from Malawi and Uganda models as nonsignificant. Persons not living in households excluded."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "equity.level",
+  "regression_fields",
+  "procedures"
+ ],
+ "confidence": "medium",
+ "notes": "Covariates entered adjusted models only if significant (p<0.05) in unadjusted analyses; each childhood violence type entered separately due to collinearity. Effect modification is reported with stratified aORs in footnotes; the formal test is not described.",
+ "view_issues": "Text says models adjusted for educational status, but Table 2 notes show Malawi and Uganda models omitted it. Zambia crude and adjusted ORs for any childhood violence are identical (5.4, 3.4–8.6)."
+}

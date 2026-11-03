@@ -1,0 +1,523 @@
+{
+ "id": "mm6932a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysyyDAYMg8w7g1Eu2",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Overall, 9.8% of women reported marijuana use before pregnancy, 4.2% during pregnancy, and 5.5% after pregnancy."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The most common mode of marijuana use during pregnancy was smoking (91.0%)"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates also varied by state, ranging from 8.4% in New York to 21.2% in Maine before pregnancy"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Adjusted prevalence ratios (aPRs) were calculated to describe associations between continued versus ceased use in pregnancy and maternal characteristics."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting (noncoverage and nonresponse)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated weights adjusting for noncoverage and nonresponse; weighted prevalence estimates computed in SUDAAN",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted to adjust for noncoverage and nonresponse and represent the total population of women with a live birth"
+    },
+    {
+     "loc": "text",
+     "q": "Weighted prevalence estimates and 95% confidence intervals (CIs) were calculated overall and by state using SUDAAN"
+    }
+   ]
+  },
+  {
+   "name": "multivariable prevalence-ratio regression",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'multivariable models' giving adjusted prevalence ratios → log link (log-binomial or Poisson type); model not named",
+   "role": "primary",
+   "alternative_reading": "other: the regression is not named in the article",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In multivariable analysis, women who continued versus ceased use during pregnancy were more likely to be non-Hispanic white (aPR = 1.8"
+    },
+    {
+     "loc": "table 1",
+     "q": "Adjusted prevalence ratio statistically significant (p<0.05)."
+    }
+   ]
+  },
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "chi-squared tests comparing characteristics of continued vs ceased users",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "chi-squared tests were used to compare characteristics of women who continued versus ceased marijuana use during pregnancy"
+    },
+    {
+     "loc": "table 1",
+     "q": "Chi–square tests indicated that characteristic was significantly different (p<0.05) across marijuana use during pregnancy."
+    }
+   ]
+  },
+  {
+   "name": "age standardization of prevalence",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "age-standardized prevalences computed as a check against the unadjusted estimates",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Age-standardized prevalence estimates were also calculated but did not differ meaningfully from unadjusted results."
+    }
+   ]
+  },
+  {
+   "name": "small-cell suppression",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "table cells suppressed when cell sizes <5",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Suppressed because cell sizes <5."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "women who ceased use; reference category of each characteristic (e.g., non-Hispanic black, >12 years of education)",
+  "across": [
+   "period (before, during, after pregnancy)",
+   "state",
+   "continued vs ceased use",
+   "age",
+   "race/ethnicity",
+   "marital status",
+   "education",
+   "insurance status",
+   "parity",
+   "prenatal care entry",
+   "cigarette and e-cigarette use"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Overall, 9.8% of women reported marijuana use before pregnancy, 4.2% during pregnancy, and 5.5% after pregnancy."
+   },
+   {
+    "loc": "text",
+    "q": "have <12 years of education (aPR = 1.9; 95% CI = 1.3–2.8) or 12 years of education (aPR = 1.6; 95% CI = 1.1–2.2)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "chi-squared tests were used to compare characteristics of women who continued versus ceased marijuana use during pregnancy"
+   },
+   {
+    "loc": "text",
+    "q": "P-values <0.05 were considered significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted prevalence (%)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalences of self-reported marijuana use before, during, and after pregnancy were 9.8%, 4.2%, and 5.5%, respectively"
+    }
+   ]
+  },
+  {
+   "v": "aPR",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "aPR = adjusted prevalence ratio"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a monthly stratified systematic sample of women with recent live births is selected from birth certificate records"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Chi–square tests indicated that characteristic was significantly different (p<0.05) across marijuana use during pregnancy."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "the association between continued use during pregnancy and maternal characteristics controlling for all other characteristics (unweighted n = 675)"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age, race/ethnicity, marital status, education, insurance status, parity, trimester of entry into prenatal care, cigarette and e-cigarette use during pregnancy",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In multivariable models that included age, race/ethnicity, marital status, education, insurance status, parity, trimester of entry into prenatal care"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How prevalent is marijuana use before, during and after pregnancy, why and how is it used, and which characteristics distinguish women who continue versus cease use during pregnancy?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "identify reasons for and mode of use, and understand characteristics of women who continue versus cease marijuana use during pregnancy"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "marijuana use",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Characteristics of Marijuana Use During Pregnancy"
+    }
+   ]
+  },
+  {
+   "v": "pregnancy",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "among women who have had a recent live birth"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "PRAMS is a state-specific, population-based surveillance system designed to monitor self-reported behaviors and experiences before, during, and after pregnancy"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from eight states participating in the 2017 Pregnancy Risk Assessment Monitoring System (PRAMS) marijuana supplement."
+    }
+   ]
+  },
+  {
+   "v": "registry",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Ascertained from PRAMS and birth certificate."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Pregnancy Risk Assessment Monitoring System (PRAMS) marijuana supplement",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the 2017 Pregnancy Risk Assessment Monitoring System (PRAMS) marijuana supplement"
+    }
+   ]
+  },
+  {
+   "v": "birth certificates",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Ascertained from PRAMS and birth certificate."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Alaska, Illinois, Maine, New Mexico, New York, North Dakota, Pennsylvania, and West Virginia"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Adjusted PRs by race/ethnicity and education (and marital status) are reported and described as characteristics of continued users, but not framed or interpreted as disparities.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The race and education contrasts are quantified (aPR 1.8 white vs black; 1.9 <12 vs >12 years) and restated in the Discussion."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "more likely to be non-Hispanic white (aPR = 1.8; 95% CI = 1.1–3.2) or other race/ethnicity (aPR = 2.5"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "In multivariable models that included age, race/ethnicity, marital status, education, insurance status"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education",
+     "insurance status"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "have <12 years of education (aPR = 1.9; 95% CI = 1.3–2.8)"
+     },
+     {
+      "loc": "table 1",
+      "q": "Insurance status during prenatal care › Medicaid"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "education",
+     "insurance status"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "In multivariable models that included age, race/ethnicity, marital status, education, insurance status"
+     }
+    ]
+   },
+   {
+    "v": "other",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "to be unmarried (aPR = 1.7; 95% CI = 1.1–2.6)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group, yrs › <20"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "In multivariable models that included age, race/ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "among women who have had a recent live birth"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referent levels: non-Hispanic black, >12 years of education, private insurance, married; 'Other' race collapses AI/AN, Asian, Hawaiian and mixed race; uninsured cells suppressed. Marital status recorded as 'other' SPD."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "chi-squared tests were used to compare characteristics of women who continued versus ceased marijuana use during pregnancy, including age, race/ethnicity"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "chi-squared tests were used to compare characteristics of women who continued versus ceased marijuana use during pregnancy, including age"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Chi–square tests indicated that characteristic was significantly different (p<0.05) across marijuana use during pregnancy."
+    },
+    {
+     "loc": "table 1",
+     "q": "Education, yrs › <12"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Insurance status during prenatal care §§ › Medicaid"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "procedures",
+  "equity.level",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "The aPR model is not named; loglinear is inferred from the prevalence-ratio measure. Missing prenatal insurance was filled with delivery insurance (a single fixed fill-in, not a procedure). Thematic recoding of 'other' reasons is quantization.",
+ "view_issues": "Insurance 'None' row has suppressed percentages yet reports an aPR; aPR model uses unweighted n = 675 versus 765 in the table, unexplained."
+}

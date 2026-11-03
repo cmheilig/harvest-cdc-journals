@@ -1,0 +1,490 @@
+{
+ "id": "mm6938a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysvF68ykD8ry2QAb3",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Fewer than one third of participants (31.1%) had ever heard of any of the fungal diseases listed on the survey."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Awareness was lowest for blastomycosis (4.1%), followed by aspergillosis (5.1%), histoplasmosis (7.5%), coccidioidomycosis (7.6%), cryptococcosis (9.0%), and candidiasis (24.6%)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Fewer than one third of participants (31.1%) had ever heard of any of the fungal diseases listed on the survey."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using simple weighted logistic regression of awareness of each fungal disease by various sociodemographic and health care utilization characteristics"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Multivariate weighted logistic regression was estimated to derive adjusted odds ratios (AORs); p-values <0.05 were considered statistically significant."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multivariable survey-weighted logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Multivariate weighted logistic regression ... adjusted odds ratios' → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Multivariate weighted logistic regression was estimated to derive adjusted odds ratios (AORs); p-values <0.05 were considered statistically significant."
+    }
+   ]
+  },
+  {
+   "name": "simple (bivariate) survey-weighted logistic regression with overall F-test",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'simple weighted logistic regression' by each characteristic; Table 1 F-test for overall effect of each variable",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using simple weighted logistic regression of awareness of each fungal disease by various sociodemographic and health care utilization characteristics"
+    },
+    {
+     "loc": "table 1",
+     "q": "P value for the F-test for significant effect of variable overall, equivalent to t-test for dichotomous and continuous variables."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting for sampling design and nonresponse",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated weights to Current Population Survey benchmarks; SAS survey procedures",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted to adjust for sampling design and nonresponse to be representative of the U.S. adult population"
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "p-value for correlation of awareness among diseases; test not named",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Persons aware of one fungal disease were more likely to be aware of others (i.e., awareness was correlated among diseases, p<0.001)."
+    }
+   ]
+  },
+  {
+   "name": "goodness-of-fit measures (AIC, max-rescaled R-squared, McFadden pseudo R-squared)",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "model fit statistics reported in Table 2 and cited in limitations",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Measures of goodness of fit assessed included Akaike Information Criterion, Max-scaled R-squared, and McFadden’s pseudo R-squared."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "male; White; non-Hispanic; bachelor’s degree or higher; MSA; Midwest",
+  "across": [
+   "sex",
+   "age",
+   "race/ethnicity",
+   "education",
+   "household income",
+   "have child aged <18 years",
+   "no. of health care provider visits",
+   "no. of prescription medications",
+   "MSA category",
+   "census region"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Female sex, higher educational level, and increased number of prescription medications were associated with awareness in the multivariable models for all 6 fungal diseases"
+   },
+   {
+    "loc": "table 2",
+    "q": "Education (referent = bachelor’s degree or higher)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Multivariate weighted logistic regression was estimated to derive adjusted odds ratios (AORs); p-values <0.05 were considered statistically significant."
+   },
+   {
+    "loc": "table 1",
+    "q": "P value for the F-test for significant effect of variable overall, equivalent to t-test for dichotomous and continuous variables."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Weighted no. (%)"
+    }
+   ]
+  },
+  {
+   "v": "AOR",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "AOR (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "mean (standard error)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Mean (standard error)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All analyses were conducted using SAS survey procedures (version 9.4; SAS Institute)."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using simple weighted logistic regression of awareness of each fungal disease by various sociodemographic and health care utilization characteristics"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted odds ratios (AORs) for sociodemographic and health care utilization characteristics associated with awareness of fungal diseases"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "sex, age, race, ethnicity, education, having a child aged <18 years, provider visits, prescription medications, household income, MSA category, census region",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "MSA category (non-MSA versus MSA)"
+    },
+    {
+     "loc": "table 2",
+     "q": "No. of prescription medications"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How aware are U.S. adults of six invasive fungal diseases, and which sociodemographic and health care utilization characteristics are associated with awareness?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "a nationally representative online survey was conducted to assess whether participants had ever heard of six invasive fungal diseases."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "invasive fungal diseases",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Public Awareness of Invasive Fungal Diseases — United States, 2019"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a nationally representative online survey was conducted to assess whether participants had ever heard of six invasive fungal diseases."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Porter Novelli’s Fall 2019 ConsumerStyles survey was used to ask, “Have you ever heard of the following infections?”"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Porter Novelli Fall 2019 ConsumerStyles survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Porter Novelli’s Fall 2019 ConsumerStyles survey was used to ask, “Have you ever heard of the following infections?”"
+    }
+   ]
+  },
+  {
+   "v": "Ipsos KnowledgePanel",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "participants aged ≥18 years who were part of the market research and consulting firm Ipsos’ KnowledgePanel."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Data were weighted to adjust for sampling design and nonresponse to be representative of the U.S. adult population"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 3,
+  "level_reason": "Lower awareness among non-White/multiracial respondents (AOR 0.68, 0.60) and lower-education groups is quantified and interpreted as a gap needing focused messaging; no specific social determinants are offered as causes.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 2,
+   "reason": "The contrasts are reported as model AORs without disparity framing; the interpretation is brief and tied to clinical risk rather than social position."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Non-White or multiracial respondents had lower odds of awareness of candidiasis (AOR = 0.68, p<0.001)"
+     },
+     {
+      "loc": "text",
+      "q": "The lower awareness of coccidioidomycosis among non-White and multiracial respondents is noteworthy given that Black race and Filipino ethnicity are risk factors"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "benchmarks for sex, age, race/ethnicity, education, U.S. Census region, household income, home ownership status, metropolitan area status"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education",
+     "household income"
+    ],
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Education (referent = bachelor’s degree or higher) › High school"
+     },
+     {
+      "loc": "text",
+      "q": "particularly for groups at higher risk and those with lower educational attainment."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "education",
+     "household income",
+     "home ownership status"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "benchmarks for sex, age, race/ethnicity, education, U.S. Census region, household income, home ownership status, metropolitan area status"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "MSA category (non-MSA versus MSA)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "participants aged ≥18 years who were part of the market research and consulting firm Ipsos’ KnowledgePanel."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group (yrs) › 18–29"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "females were more than three times as likely to be aware of candidiasis (AOR = 3.40, 95% CI = 2.8–4.1"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race collapsed to White vs non-White or multiracial; ethnicity Hispanic vs non-Hispanic; referents White and bachelor’s degree or higher; income entered as a 21-category scale. Health literacy named only as unmeasured."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "model joint test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "P value for the F-test for significant effect of variable overall, equivalent to t-test for dichotomous and continuous variables."
+    },
+    {
+     "loc": "table 2",
+     "q": "Education (referent = bachelor’s degree or higher) › High school"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "model joint test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group (yrs) › 18–29"
+    },
+    {
+     "loc": "table 1",
+     "q": "P value for the F-test for significant effect of variable overall, equivalent to t-test for dichotomous and continuous variables."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Table 1 bivariate F-tests come from the simple weighted logistic regressions; census region (4 levels) is geography, not an SPD, so it has no groupwise entry. Age is continuous in the adjusted models but grouped in Table 1.",
+ "view_issues": "Table 1 marks § as p<0.10 and † as p<0.005, while Table 2 uses † for p<0.05; the text calls the model both multivariate and multivariable."
+}

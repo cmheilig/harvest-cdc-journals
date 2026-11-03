@@ -1,0 +1,360 @@
+{
+ "id": "mm6937a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysxEmGSoKeTBLEbyq",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Rates of cervical cancer also were higher among AI/AN females than among White females (RR = 1.58)."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Cancer incidence was expressed as cases per 100,000 population within PRCDA counties"
+    },
+    {
+     "loc": "text",
+     "q": "The largest number of potentially vaccine-preventable cancers in AI/AN occurred among those in the Pacific Coast (180) and Southern Plains (230)."
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "740 (72%) of 1,030 HPV-associated cancers among AI/AN were estimated to be types targeted by 9-valent HPV vaccine."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "740 (72%) of 1,030 HPV-associated cancers among AI/AN were estimated to be types targeted by 9-valent HPV vaccine."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The highest rates of cervical cancer occurred in the Southern Plains (13.8 per 100,000), the lowest occurred in the East (6.5 per 100,000)."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using 10 age groups, were directly age-adjusted to the 2000 U.S. standard population."
+    },
+    {
+     "loc": "text",
+     "q": "rates of all HPV-associated cancers were higher among AI/AN females than among White females (RR = 1.16)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "'directly age-adjusted to the 2000 U.S. standard population' using 10 age groups",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using 10 age groups, were directly age-adjusted to the 2000 U.S. standard population."
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "significance of standardized rate ratios at p<0.05; test not named",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Standardized rate ratios (RRs) were used to determine significant differences in rates (p<0.05)."
+    },
+    {
+     "loc": "table 1",
+     "q": "For all regions combined, the rate among AI/AN was significantly (p<0.05) different from the rate among non-Hispanic Whites."
+    }
+   ]
+  },
+  {
+   "name": "small-cell suppression (<6 cases)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "rates withheld when fewer than six cases",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were suppressed when fewer than six cases were reported."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "non-Hispanic White populations in PRCDA counties",
+  "across": [
+   "race/ethnicity",
+   "region",
+   "cancer type",
+   "sex"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Rates by cancer type were compared with those among non-Hispanic White populations in PRCDA counties."
+   },
+   {
+    "loc": "summary",
+    "q": "Oropharyngeal cancers were the most common HPV-associated cancers among AI/AN males, and cervical cancers were the most common among AI/AN females."
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Standardized rate ratios (RRs) were used to determine significant differences in rates (p<0.05)."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted rate per 100,000",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Cases per 100,000 persons; age-adjusted to the 2000 U.S. standard population."
+    }
+   ]
+  },
+  {
+   "v": "RR",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "RR = rate ratio."
+    }
+   ]
+  },
+  {
+   "v": "percent distribution",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Incidence* and percent distribution of human papillomavirus (HPV)-associated cancers"
+    }
+   ]
+  },
+  {
+   "v": "estimated number of HPV-attributable cancers",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Estimated number of human papillomavirus (HPV)–attributable cancers"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What is the incidence of HPV-associated cancers, and the estimated number attributable to HPV, among AI/AN populations overall and by region?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to assess the incidence of HPV-associated cancers and to estimate the number of cancers caused by HPV among AI/AN populations overall and by region."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "HPV-associated cancers",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Cancers Associated with Human Papillomavirus in American Indian and Alaska Native Populations"
+    }
+   ]
+  },
+  {
+   "v": "cervical cancer",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "cervical cancers were the most common among AI/AN females."
+    }
+   ]
+  },
+  {
+   "v": "oropharyngeal cancer",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Oropharyngeal cancers were the most common HPV-associated cancers among AI/AN males"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed cancer incidence data from the United States Cancer Statistics American Indian and Alaska Native Incidence Analytic Database (USCS AIAD)"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "includes data from central cancer registries that have been linked with the Indian Health Service (IHS) patient registration database"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "United States Cancer Statistics American Indian and Alaska Native Incidence Analytic Database (USCS AIAD)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "United States Cancer Statistics American Indian and Alaska Native Incidence Analytic Database (USCS AIAD)"
+    }
+   ]
+  },
+  {
+   "v": "IHS patient registration database",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "linked with the Indian Health Service (IHS) patient registration database"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "PRCDA counties were grouped into six regions: Alaska, East, Northern Plains, Pacific Coast, Southern Plains, and Southwest"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 3,
+  "level_reason": "AI/AN vs non-Hispanic White rates are contrasted with computed rate ratios (e.g., cervical RR 1.58) and the article frames the aim as addressing disparities in AI/AN populations; causes are generic (screening, vaccination use).",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 2,
+   "reason": "Disparity language mainly concerns regional variation; the racial RRs are described as higher or lower with little interpretation as a disparity."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Analyses were also limited to non-Hispanic populations"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Rates by cancer type were compared with those among non-Hispanic White populations in PRCDA counties."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Rates among non-Hispanic AI/AN populations were examined by sex, cancer type, and region."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "using 10 age groups, were directly age-adjusted to the 2000 U.S. standard population."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "use of health services such as cancer screening or vaccination",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "These variations might, in part, result from geographic disparities in the use of health services, such as cancer screening or vaccination"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referent is non-Hispanic White in PRCDA counties; Hispanic AI/AN excluded; limited to IHS-linked members of federally recognized tribes; regions are geographic, not SPD."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "comparison",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "HPV-attributable counts are arithmetic: case counts multiplied by HPV-attributable percentages cited from genotyping studies. Vaccination coverage and screening figures in the Discussion are cited from other sources. Design inferred as surveillance/descriptive; none named.",
+ "view_issues": "Text says Southern Plains had 230 potentially vaccine-preventable cancers, but Table 2 shows 210 9vHPV-targeted cancers for Southern Plains."
+}

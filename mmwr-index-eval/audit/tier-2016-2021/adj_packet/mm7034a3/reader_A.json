@@ -1,0 +1,556 @@
+{
+ "id": "mm7034a3",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "64.1% of adults with disabilities reported adverse mental health symptoms or substance use compared with 36.0% of adults without disabilities"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During February–March 2021, 64.1% of surveyed U.S. adults with disabilities reported adverse mental health symptoms or substance use"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "past-month substance use was higher than that among adults without disabilities (40.6% versus 24.5%, respectively)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Multivariable Poisson regression models with robust standard error estimators were used to estimate adjusted prevalence ratios (aPRs) by symptom type"
+    },
+    {
+     "loc": "text",
+     "q": "symptoms of anxiety or depression were approximately twice as prevalent among adults with disabilities who were aged ≥50 years"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "modified Poisson regression (robust SE)",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'Poisson regression models with robust standard error estimators' giving aPRs → loglinear with robust variance",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Multivariable Poisson regression models with robust standard error estimators were used to estimate adjusted prevalence ratios (aPRs) by symptom type"
+    }
+   ]
+  },
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named chi-square tests comparing prevalence by disability status",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence estimates for adverse mental health symptoms and substance use were compared among adults with and without disabilities using chi-square tests."
+    },
+    {
+     "loc": "figure 2",
+     "q": "All differences between adults with disabilities and adults without disabilities were significant (chi-square p-value <0.05)."
+    }
+   ]
+  },
+  {
+   "name": "McNemar's test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named McNemar's test for paired prepandemic vs past-month substance use",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "McNemar’s test assessed prepandemic and past-month substance use among adults with and without disabilities."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based CIs from the robust-SE Poisson regression; 'significantly higher' aPRs judged against 1",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "At all timepoints, aPRs for all symptom types were significantly higher among adults with disabilities than among adults without disabilities"
+    }
+   ]
+  },
+  {
+   "name": "survey weighting to ACS population estimates",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated survey weighting to Census sex, age, race/ethnicity estimates; weighted counts and percentages",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Quota sampling and survey weighting were used to match U.S. Census Bureau’s 2019 American Community Survey adult U.S. population estimates"
+    },
+    {
+     "loc": "table 1",
+     "q": "Weighted rounded counts and percentages might not sum to expected values."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "adults without disabilities",
+  "across": [
+   "disability status",
+   "prepandemic vs past month",
+   "survey wave",
+   "age group",
+   "race/ethnicity",
+   "parental/caregiving role",
+   "employment status"
+  ],
+  "ev": [
+   {
+    "loc": "figure 1",
+    "q": "Within each subgroup, adults without disabilities are the reference group used to estimate aPRs for outcomes among adults with disabilities."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Prevalence estimates for adverse mental health symptoms and substance use were compared among adults with and without disabilities using chi-square tests."
+   },
+   {
+    "loc": "text",
+    "q": "(aPR = 2.4; 95% confidence interval [CI] = 1.7–3.2)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "prevalence, %",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "past-month substance use was higher among adults with disabilities (40.6%) than among adults without disabilities (24.5%)"
+    }
+   ]
+  },
+  {
+   "v": "aPR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the aPR for serious suicidal ideation was approximately 2.5 times as high as in adults without disabilities"
+    }
+   ]
+  },
+  {
+   "v": "percent increase",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "with disabilities, 45.6% increase, p<0.001; without disabilities, 40.6% increase, p = 0.003"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "clustered or robust SE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Multivariable Poisson regression models with robust standard error estimators"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence estimates for adverse mental health symptoms and substance use were compared among adults with and without disabilities using chi-square tests."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "included sex, age group, race/ethnicity, income, U.S. Census region, urbanicity, and parental or unpaid caregiving roles."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "sex, age group, race/ethnicity, income, U.S. Census region, urbanicity, parental or unpaid caregiving roles; employment status in separate models",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "included sex, age group, race/ethnicity, income, U.S. Census region, urbanicity, and parental or unpaid caregiving roles."
+    },
+    {
+     "loc": "figure 1",
+     "q": "Separate, additional models were run to estimate aPRs for the following employment statuses: essential worker, nonessential worker, and unemployed."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "sensitivity analyses excluding adults with disabilities who had mental health or substance use diagnoses yielded consistent findings."
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "During February–March 2021, did adverse mental health symptoms, substance use and access to related care differ between U.S. adults with and without disabilities?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To identify factors associated with adverse mental health symptoms and substance use among adults with disabilities"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "symptoms of anxiety or depression",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "symptoms of anxiety or depression (56.6% versus 28.7%, respectively)"
+    }
+   ]
+  },
+  {
+   "v": "substance use",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Mental Health and Substance Use Among Adults with Disabilities During the COVID-19 Pandemic"
+    }
+   ]
+  },
+  {
+   "v": "suicidal ideation",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "and suicidal ideation (30.6% versus 8.3%) than did adults without disabilities"
+    }
+   ]
+  },
+  {
+   "v": "disability",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among 5,119 respondents who completed a two-item disability screener, nearly one third (1,648; 32.2%) screened as adults with disabilities."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "administered nonprobability–based Internet surveys to 5,256 U.S. adults during February–March 2021"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "completed nonprobability based, English-language, Internet-based Qualtrics surveys for COPE."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "COVID-19 Outbreak Public Evaluation (COPE) Initiative surveys (Qualtrics)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the COVID-19 Outbreak Public Evaluation (COPE) Initiative † administered nonprobability–based Internet surveys"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, February–March 2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Disability, framed through access and accessibility, is the primary comparison; disparities are quantified (aPRs ~1.5–2.5, 'twice as high') and interpreted. Pandemic-related difficulty accessing care is analyzed as an outcome, and stigma in health care is offered as an explanation.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Access difficulty may be read as a service disruption, and stigma appears only behind a recommendation, which leaves determinants generic."
+  },
+  "dimensions": [
+   {
+    "v": "disability",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Adults with disabilities experience higher levels of mental health conditions and substance use than do adults without disabilities."
+     },
+     {
+      "loc": "text",
+      "q": "Mental health disparities among adults with disabilities were observed across demographic groups"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Suicidal ideation was also more prevalent among adults with disabilities aged ≥50 years (4.0; 95% CI = 2.1–7.8)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "included sex, age group, race/ethnicity, income, U.S. Census region, urbanicity, and parental or unpaid caregiving roles."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "those of Hispanic or Latino (Hispanic) ethnicity (2.1; 95% CI = 1.4–3.0)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "included sex, age group, race/ethnicity, income, U.S. Census region, urbanicity, and parental or unpaid caregiving roles."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "included sex, age group, race/ethnicity, income, U.S. Census region, urbanicity, and parental or unpaid caregiving roles."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "household income",
+     "education",
+     "employment status"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "2020 Household income, USD ¶¶ › <25,000"
+     },
+     {
+      "loc": "table 1",
+      "q": "Education › High school diploma or less"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "income"
+    ],
+    "ev": [
+     {
+      "loc": "note",
+      "q": "the models including income were included to account for potential differences in access to health care more directly"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "included sex, age group, race/ethnicity, income, U.S. Census region, urbanicity, and parental or unpaid caregiving roles."
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Urbanicity (n = 5,091) §§§ › Rural"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "access to mental health and substance use care or medication; stigma and trauma in health care interactions; accessibility of services and technology",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a higher percentage of adults with (versus without) disabilities reported that accessing care or medication was harder because of the COVID-19 pandemic"
+    },
+    {
+     "loc": "text",
+     "q": "because adults with disabilities might have encountered stigma and trauma in previous health care interactions"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referent is adults without disabilities, overall and within each subgroup; disability from a two-item BRFSS screener; AI/AN and NHPI collapsed into multiple/other; transgender and 'prefer not to say' income responses not shown."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group , yrs › 60–69"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity › Hispanic or Latino, any race"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "2020 Household income, USD ¶¶ › ≥100,000"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Education › After bachelor’s degree"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "aPRs were also estimated for earlier COPE waves (June, September, December 2020); employment status was modeled separately. Table prevalences by subgroup cover adults with disabilities only and are not tested across groups. Household Pulse Survey figures are cited for comparison only.",
+ "view_issues": "Article gives 5,261 completers in methods but 5,256 elsewhere. Table 'Both of above' shows 699 respondents but 669 with disabilities; 778+171+669=1,618, not 1,648."
+}

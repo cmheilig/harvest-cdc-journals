@@ -1,0 +1,422 @@
+{
+ "id": "mm6537a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrLExvCt4GhcwG5YT",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In 2014, 28.7% of older adults reported falling at least once in the preceding 12 months"
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The rate of fall-related injuries was significantly higher in the population reporting poor health (480 per 1,000)"
+    },
+    {
+     "loc": "table 1",
+     "q": "Number of falls per 1,000 adults aged ≥65 years."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In 2014, 28.7% of older adults reported falling at least once in the preceding 12 months, resulting in an estimated 29.0 million falls."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Women (30.3%) were more likely to report falling than men (26.5%) (p<0.01)"
+    },
+    {
+     "loc": "text",
+     "q": "The percentage of older adults who fell increased with age (p<0.01)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "orthogonal polynomial contrasts (trend test)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated in methods; used for increases with age group",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Orthogonal polynomial contrasts and pairwise t-tests were used to identify significant increases or decreases where appropriate."
+    }
+   ]
+  },
+  {
+   "name": "pairwise t-tests",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated in methods; underlies group contrasts and state vs overall significance marks",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Orthogonal polynomial contrasts and pairwise t-tests were used to identify significant increases or decreases where appropriate."
+    },
+    {
+     "loc": "table 2",
+     "q": "Significantly higher than the overall percentage or rate."
+    }
+   ]
+  },
+  {
+   "name": "raking survey weights",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "iterative proportional fitting stated; all results weighted",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The 2014 BRFSS data were weighted by iterative proportional fitting (raking) to represent state-level population estimates"
+    },
+    {
+     "loc": "text",
+     "q": "All results presented are weighted."
+    }
+   ]
+  },
+  {
+   "name": "suppression of unreliable estimates (n<50 or RSE>30%)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "table footnote suppression rule",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Sample size <50 or relative standard error >30%."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": "overall (national) percentage or rate, for states",
+  "across": [
+   "sex",
+   "age group",
+   "race/ethnicity",
+   "marital status",
+   "education",
+   "annual household income",
+   "health status",
+   "state"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The percentages and numbers were compared across the following subgroups: sex, age group, race/ethnicity, marital status, education, annual household income, health status"
+   },
+   {
+    "loc": "text",
+    "q": "Several states had either significantly higher or lower percentages of reported falls among older adults compared with the national average"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Orthogonal polynomial contrasts and pairwise t-tests were used to identify significant increases or decreases where appropriate."
+   },
+   {
+    "loc": "table 1",
+    "q": "% (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "rate per 1,000",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Number of fall injuries per 1,000 adults aged ≥65 years."
+    }
+   ]
+  },
+  {
+   "v": "number of falls (millions)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. of falls reported (millions)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How common are falls and fall injuries among U.S. adults aged ≥65 years, and how do they vary by characteristics and state?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To estimate the numbers, percentages, and rates of falls and fall injuries among older adults by selected characteristics and state"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "falls",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Falls and Fall Injuries Among Adults Aged ≥65 Years — United States, 2014"
+    }
+   ]
+  },
+  {
+   "v": "fall injuries",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Falls and Fall Injuries Among Adults Aged ≥65 Years — United States, 2014"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "BRFSS is an annual, random-digit–dialed telephone survey of the noninstitutionalized U.S. civilian population aged ≥18 years"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2014 Behavioral Risk Factor Surveillance System (BRFSS) survey."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2014 Behavioral Risk Factor Surveillance System (BRFSS) survey."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "weighted by iterative proportional fitting (raking) to represent state-level population estimates and aggregated to represent a nationwide estimate"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Fall percentages by race/ethnicity are reported and described (whites and AI/ANs higher than blacks and APIs), and income and education strata are tabulated, but no disparity is framed or quantified; Discussion only calls them racial/ethnic differences.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Race contrasts are side-by-side values without a computed ratio and attributed to health and behavior; one could read SPDs as mere descriptors."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Falls and Fall Injuries Among Adults Aged ≥65 Years — United States, 2014"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "from 26.7% among persons aged 65–74 years, to 29.8% among persons aged 75–84 years, to 36.5% among persons aged ≥85 years"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Women (30.3%) were more likely to report falling than men (26.5%) (p<0.01)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The percentage of older adults who fell was higher among whites (29.6%) and American Indian/Alaska Natives (AI/ANs) (34.2%) than among blacks (23.1%)"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education",
+     "annual household income"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Annual household income ($) › <15,000"
+     },
+     {
+      "loc": "table 1",
+      "q": "Education › Less than high school graduate"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity has six groups; Asian/Pacific Islander injury estimates are suppressed. Income and education are shown only in Table 1, side by side. Self-rated health status and state are not SPDs."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "trend test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The percentage of older adults who fell increased with age (p<0.01)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The percentage of older adults who fell was higher among whites (29.6%) and American Indian/Alaska Natives (AI/ANs) (34.2%) than among blacks (23.1%)"
+    },
+    {
+     "loc": "text",
+     "q": "AI/ANs were more likely to report a fall-related injury (16.8%) than were whites (10.9%), Hispanics (10.7%), and blacks (7.8%)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Annual household income ($) › ≥75,000"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Education › College graduate or more"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise",
+  "comparison",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "Pairwise t-tests are stated once for all contrasts; the race claims and the state-vs-national significance marks presumably rest on them. Health status comparisons (poor vs excellent) are not SPD and are kept in comparison only. Reported means (0.67 falls) are descriptive.",
+ "view_issues": "Table 1 row 'Member of unmarried couple' shows injury count suppressed but number and rate of injuries given; figure caption shows '=65' for '≥65' (encoding)."
+}

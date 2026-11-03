@@ -1,0 +1,590 @@
+{
+ "id": "mm7001a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPytRWpfo75ZmqtZniC",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The predicted heart age and excess heart age among cancer survivors were 57.2 and 8.5 years, respectively, for men"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The prevalence of excess heart age ≥5 years was 52.4% for men and 43.6% for women."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The prevalence of excess heart age ≥5 years was 52.4% for men and 43.6% for women."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The prevalence of excess heart age ≥5 years was higher among men, cancer survivors with lower income and lower educational attainment"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "with an interaction term of age-by-cancer status to estimate cancer status difference in excess heart age by age group"
+    },
+    {
+     "loc": "text",
+     "q": "Disparities between non-Hispanic Black and non-Hispanic White persons were greater for women (7.4 years) than for men (4.3 years)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multivariate linear regression",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "'multivariate linear regression' giving adjusted differences in years → linear",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "racial/ethnic differences in predicted heart age for cancer survivors were calculated using multivariate linear regression."
+    }
+   ]
+  },
+  {
+   "name": "t-test (pairwise and across age groups)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated t-tests and pairwise t-tests with p-values in table notes",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A t-test across all age groups was used to ascertain differences within categories, and pairwise t-tests were used for education, income, and race/ethnicity."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (BRFSS complex sampling design)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weights and strata in SAS/SUDAAN for all estimates",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "To account for the complex sampling design, CDC calculated estimates using weights and strata in SAS"
+    }
+   ]
+  },
+  {
+   "name": "age adjustment of means and prevalences",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "'Age-adjusted weighted means, prevalences'; method not specified",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-adjusted weighted means, prevalences, and 95% confidence intervals were calculated for actual age, predicted heart age, and excess heart age."
+    }
+   ]
+  },
+  {
+   "name": "model-estimated systolic blood pressure from NHANES",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "previously published prediction method supplies SBP values entering the heart-age estimates",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "with National Health and Nutrition Examination Survey 2011–2012, 2013–2014, and 2015–2016 cycles"
+    }
+   ]
+  },
+  {
+   "name": "capping of predicted heart age at 100 years",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "censoring of derived outcome values at an upper limit",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Predicted heart age was capped with an upper limit of 100 years"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "absolute",
+  "referent": "noncancer participants; non-Hispanic White cancer survivors",
+  "across": [
+   "cancer status",
+   "sex",
+   "age",
+   "race/ethnicity",
+   "education",
+   "annual household income"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "and varied by age, race/ethnicity, education, and income."
+   },
+   {
+    "loc": "table 2",
+    "q": "Difference was calculated as excess heart age among noncancer participants subtracted from excess heart age among cancer survivors."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "A t-test across all age groups was used to ascertain differences within categories, and pairwise t-tests were used for education, income, and race/ethnicity."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "predicted heart age",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The predicted heart age and excess heart age among cancer survivors were 57.2 and 8.5 years, respectively, for men"
+    }
+   ]
+  },
+  {
+   "v": "excess heart age",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Average excess heart age"
+    }
+   ]
+  },
+  {
+   "v": "prevalence of excess heart age ≥5 years, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Prevalence of average excess heart age ≥5 yrs % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "adjusted difference in excess heart age",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted difference in excess heart age and 95% confidence intervals (CIs) comparing cancer versus noncancer group"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "To account for the complex sampling design, CDC calculated estimates using weights and strata in SAS"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "excess heart age ≥5 years was 3.0 percentage points higher for men and 6.5 percentage points higher for women among cancer survivors"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted for age, education, and annual household income."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age, education, and annual household income",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted for age, education, and annual household income."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "with an interaction term of age-by-race/ethnicity to estimate racial difference in excess heart age by age group"
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "What are predicted and excess heart age among U.S. adult cancer survivors, and how do they differ from noncancer adults and across racial/ethnic and sociodemographic groups?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "racial/ethnic and sociodemographic disparities in predicted heart age among U.S. adult cancer survivors and noncancer participants aged 30–74 years"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "cancer",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Predicted Heart Age Among Cancer Survivors — United States, 2013–2017"
+    }
+   ]
+  },
+  {
+   "v": "cardiovascular disease",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "predicted heart age is estimated from the 10-year risk of CVD"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were drawn from the BRFSS 2013, 2015, and 2017 survey cycles"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Using data from the Behavioral Risk Factor Surveillance System (BRFSS), this study estimates predicted heart age"
+    },
+    {
+     "loc": "text",
+     "q": "with National Health and Nutrition Examination Survey 2011–2012, 2013–2014, and 2015–2016 cycles"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Using data from the Behavioral Risk Factor Surveillance System (BRFSS), this study estimates predicted heart age"
+    }
+   ]
+  },
+  {
+   "v": "National Health and Nutrition Examination Survey (NHANES)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "with National Health and Nutrition Examination Survey 2011–2012, 2013–2014, and 2015–2016 cycles"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Predicted Heart Age Among Cancer Survivors — United States, 2013–2017"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 3,
+  "level_reason": "Racial/ethnic and socioeconomic disparities are framed as disparities, quantified as adjusted differences (Black vs White women 7.4 vs men 4.3 years) and interpreted; explanations are individual risk factors, with only generic mention of macro-level barriers.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "The Discussion mentions macro-level challenges and social and financial issues, though as topics for future analysis rather than explanations of the disparity."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Disparities between non-Hispanic Black and non-Hispanic White persons were greater for women (7.4 years) than for men (4.3 years)."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Race/Ethnicity › Black, non-Hispanic"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education",
+     "annual household income"
+    ],
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "The prevalence of excess heart age ≥5 years was higher among men, cancer survivors with lower income and lower educational attainment"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "education",
+     "annual household income"
+    ],
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Adjusted for age, education, and annual household income."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The eligible sample included nonpregnant adults aged 30–74 years, who had no self-reported history of CVD"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group, yrs › 60–74"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Adjusted for age, education, and annual household income."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Disparities between non-Hispanic Black and non-Hispanic White persons were greater for women (7.4 years) than for men (4.3 years)."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Non-Hispanic White is the main racial referent; race collapsed to four groups (Other combined); education three levels; income dichotomized at $35,000."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "pairwise (all pairs)",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "White, non-Hispanic versus Hispanic (p = 0.53 for men; p = 0.08 for women)"
+    },
+    {
+     "loc": "table 2",
+     "q": "Hispanic versus other: (p = 0.23 for men; p = 0.43 for women)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "less than high school versus high school (p = 0.25 for men; p = 0.04 for women)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "P-value based on t-tests across the age group."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "with an interaction term of age-by-race/ethnicity to estimate racial difference in excess heart age by age group"
+    },
+    {
+     "loc": "table 3",
+     "q": "P-value based on t-tests across the age group."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "less than high school versus more than high school (p = 0.09 for Black, non-Hispanic men versus White, non-Hispanic men"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among cancer survivors, groups with the highest average excess heart age were those in which persons were aged 60–74 years, were non-Hispanic Black"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence of excess heart age ≥5 years was highest for those aged 60–74 years among both men and women"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise",
+  "regression_fields",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred as cross-sectional (pooled BRFSS cycles); not named. The across-age p-values test whether cancer-status or racial differences vary by age group (interaction), recorded as omnibus tests. Unadjusted results set true from age-adjusted Table 1 contrasts by cancer status.",
+ "view_issues": "Table 2 note says listed education comparisons 'were significantly different' but gives p=0.25, 0.07, 0.06; it reports 'p = 0' for men. Table 3 has an implausible CI (−3.5, −4.6 to 2.5). Methods say 'predicted heart age' differences while tables report excess heart age."
+}

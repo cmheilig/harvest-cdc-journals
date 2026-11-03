@@ -1,0 +1,600 @@
+{
+ "id": "mm6643a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrYeDSQ1q7gUt5xLD",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Data from the 2016 National Immunization Survey-Child (NIS-Child) were used to assess coverage with recommended vaccines"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Coverage remained ≥90% for ≥3 doses of poliovirus vaccine (91.9%), ≥1 dose MMR (91.1%), ≥1 dose of varicella vaccine (90.6%)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Only 0.8% of children received no vaccinations."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rotavirus vaccination coverage was lower among Hispanic (73.0%) than among white (77.3%) children."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Logistic regression was used to assess the association of race/ethnicity with vaccination coverage, adjusting for poverty status."
+    },
+    {
+     "loc": "text",
+     "q": "coverage with ≥4 doses of DTaP was similar for white and black children below poverty (75.6% and 76.6%, respectively)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "NIS-Child weighting procedures; t-tests on weighted data; weighted sample percentages",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NIS-Child methodology, including weighting procedures, has been described previously."
+    }
+   ]
+  },
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated t-tests on weighted data for differences by demographic characteristics vs referent groups",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "T-tests on weighted data were used to evaluate differences in coverage estimates by demographic characteristics"
+    },
+    {
+     "loc": "table 2",
+     "q": "Statistically significant (p<0.05) difference from the referent group."
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "p<0.05 for change from previous year; test not named",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Statistically significant (p<0.05) change in coverage compared with previous year."
+    }
+   ]
+  },
+  {
+   "name": "logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Logistic regression' of coverage on race/ethnicity adjusting for poverty → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Logistic regression was used to assess the association of race/ethnicity with vaccination coverage, adjusting for poverty status."
+    }
+   ]
+  },
+  {
+   "name": "weighted linear regression",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "'weighted linear regression' of coverage on month and year of birth, inverse-variance weights → linear",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Trends in vaccination coverage by ages 19, 24, and 35 months were evaluated by month and year of birth using weighted linear regression"
+    },
+    {
+     "loc": "figure 1",
+     "q": "based on weighted linear regression analysis using the inverse of the estimated variance of each point estimate to construct the weights"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based CIs from the weighted linear regression for 12-month slopes; 'did not change' where CI includes 0",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Estimated percentage point change over 12 consecutive birth months: 4+ DTaP -0.05 (-0.4, 0.3); 3+ Poliovirus -0.3 (-0.5, -0.006)"
+    },
+    {
+     "loc": "text",
+     "q": "coverage did not change for ≥4 doses of DTaP, ≥1 dose of MMR, the full series of Hib"
+    }
+   ]
+  },
+  {
+   "name": "Kaplan-Meier",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "Kaplan-Meier used to account for censoring of vaccination status before age 24 months",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "The Kaplan-Meier method was used to account for censoring of vaccination status for children assessed before age 24 months."
+    }
+   ]
+  },
+  {
+   "name": "suppression of imprecise estimates (CI width ≥20)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "estimates withheld when 95% CI width ≥20",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Estimate not available because the 95% CI was ≥20."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "absolute",
+  "referent": "white, non-Hispanic; at or above poverty; private insurance only",
+  "across": [
+   "race/ethnicity",
+   "poverty status",
+   "health insurance status",
+   "survey year",
+   "month and year of birth"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "coverage was lower among black children, children living below the federal poverty level, and children who were uninsured or covered by Medicaid"
+   },
+   {
+    "loc": "text",
+    "q": "for uninsured children, ranged from -12.4 for ≥3 doses of HepB to -24.9 for ≥4 doses of PCV."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "T-tests on weighted data were used to evaluate differences in coverage estimates by demographic characteristics"
+   },
+   {
+    "loc": "table 1",
+    "q": "% (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "% (95% CI) coverage",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "% (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "percentage point difference",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The largest gaps were for rotavirus vaccine (12.7 percentage points), ≥4 PCV doses (7.4 percentage points)"
+    }
+   ]
+  },
+  {
+   "v": "percentage point change over 12 consecutive birth months",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Estimated percentage point change over 12 consecutive birth months"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NIS-Child methodology, including weighting procedures, has been described previously."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Compared with white children, black children had lower coverage with ≥3 and ≥4 doses of DTaP"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "these disparities were not statistically significant after adjustment for poverty status"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "poverty status",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusting for poverty status"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "an expanded analysis of the 2012–2016 data (births from January 2009 through January 2015)"
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "What was vaccination coverage among U.S. children aged 19–35 months in 2016, how did it change, and did it differ by race/ethnicity, poverty and insurance?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Data from the 2016 National Immunization Survey-Child (NIS-Child) were used to assess coverage with recommended vaccines"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "diphtheria, tetanus, pertussis",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "diphtheria and tetanus toxoids and acellular pertussis vaccine (DTaP)"
+    }
+   ]
+  },
+  {
+   "v": "polio",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "≥3 doses of poliovirus vaccine (91.9%)"
+    }
+   ]
+  },
+  {
+   "v": "measles, mumps, rubella",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "≥1 dose of measles, mumps, and rubella vaccine (MMR) (91.1%)"
+    }
+   ]
+  },
+  {
+   "v": "Haemophilus influenzae type b",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the primary Haemophilus influenzae type b (Hib) series"
+    }
+   ]
+  },
+  {
+   "v": "hepatitis B",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "≥3 doses of hepatitis B vaccine (HepB) (90.5%)"
+    }
+   ]
+  },
+  {
+   "v": "varicella",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "≥1 dose of varicella vaccine (90.6%)"
+    }
+   ]
+  },
+  {
+   "v": "pneumococcal disease",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "≥3 and ≥4 doses of pneumococcal conjugate vaccine (PCV)"
+    }
+   ]
+  },
+  {
+   "v": "hepatitis A",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "≥2 doses of hepatitis A vaccine (HepA) (60.6%)"
+    }
+   ]
+  },
+  {
+   "v": "rotavirus",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a completed series of rotavirus vaccine (74.1%)"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The NIS-Child uses a random-digit–dialing sample of landline and cellular telephone numbers to contact parents or guardians"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Coverage in 2016 was statistically significantly lower than in 2015 by 1.3 to 2.3 percentage points"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the 2016 National Immunization Survey-Child (NIS-Child) were used"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Immunization Survey-Child (NIS-Child)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the 2016 National Immunization Survey-Child (NIS-Child) were used"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Vaccination Coverage Among Children Aged 19–35 Months — United States, 2016"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Coverage with most recommended vaccines remained stable and high in 2016"
+   }
+  ]
+ },
+ "equity": {
+  "level": 4,
+  "level_reason": "Disparities by race, poverty and insurance are framed, quantified in percentage points and interpreted; specific determinants (inability to pay, insurance discontinuity, access barriers, income differences within poverty strata) are offered as explanations.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Determinants are mostly cited from other reports in the Discussion rather than analyzed."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Compared with white children, black children had lower coverage with ≥3 and ≥4 doses of DTaP"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "racial/ethnic disparities persisted only among children living at or above poverty (data not shown)"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "primary comparison",
+    "ses_components": [
+     "poverty level",
+     "health insurance status",
+     "income to poverty ratio"
+    ],
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "children living below the federal poverty level, and children who were uninsured or covered by Medicaid"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "poverty status"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "adjusting for poverty status"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Vaccination Coverage Among Children Aged 19–35 Months"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "inability to pay; awareness of VFC; breaks in insurance coverage; barriers to health care access (language, trust, transportation, office hours); lower income within poverty strata",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Medicaid patients also tend to experience more breaks in insurance coverage than do privately insured children"
+    },
+    {
+     "loc": "text",
+     "q": "Barriers to health care access and use among the publicly insured include language barriers, lack of trust in providers, transportation problems"
+    },
+    {
+     "loc": "text",
+     "q": "black children living above poverty could still live in lower income households, on average, than do white children."
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referents are white, at-or-above-poverty and privately insured children; poverty dichotomized; 560 children missing income excluded; small-group estimates suppressed when CI width ≥20."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 7,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Race/Ethnicity › White, non-Hispanic (Referent) (n = 8,794)"
+    },
+    {
+     "loc": "table 2",
+     "q": "Statistically significant (p<0.05) difference from the referent group."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Health insurance status › Private only, (Referent) (n = 8,284)"
+    },
+    {
+     "loc": "text",
+     "q": "Vaccination coverage varied widely by health insurance status, with highest coverage (other than for the HepB birth dose) among children with private insurance"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "regression_fields",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Cross-sectional design inferred from the telephone survey. The year-to-year change test is not named; it may also be a t-test. The total survey error sensitivity analysis is cited from earlier reports; sensitivity_analysis rests on the expanded 2012–2016 trend window.",
+ "view_issues": "Table 2 rows are mis-nested in article.txt (Polio and MMR under DTaP, Varicella under HepB, HepA under PCV); the CSV is correct."
+}

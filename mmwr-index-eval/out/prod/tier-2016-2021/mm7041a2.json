@@ -1,0 +1,462 @@
+{
+ "id": "mm7041a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyt9eCZ9vap5TaxV3B",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The overall unadjusted prevalence of binge drinking during the past 30 days was 16.6%"
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Median binge drinking frequency and intensity were significantly higher among men (1.9 occasions and 5.9 drinks, respectively) than among women"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The overall unadjusted prevalence of binge drinking during the past 30 days was 16.6%"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Binge drinking prevalence was significantly higher among men (22.5%) than among women (12.6%)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-standardized prevalence was also estimated by respondents’ sociodemographic characteristics (except prevalence by age group)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "prevalence age-standardized to the 2000 U.S. standard population",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Prevalence estimates for all characteristics except age group were age-standardized to the 2000 U.S. standard population."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (BRFSS sampling weights)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "sampling weights applied for complex design in SUDAAN; produce every estimate",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "sampling weights were applied to account for complex sampling design, including nonresponse bias and noncoverage errors"
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'pairwise tests' at p<0.05, test not named; variances by Taylor series linearization",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Statistically significant differences between medians were defined as p<0.05 using pairwise tests and nonoverlapping CIs."
+    }
+   ]
+  },
+  {
+   "name": "CI overlap assertion",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "methods define significance by nonoverlapping CIs; 'significantly higher' and 'highest' claims rest on it; CI method: Taylor series linearization",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Statistically significant differences between medians were defined as p<0.05 using pairwise tests and nonoverlapping CIs."
+    },
+    {
+     "loc": "text",
+     "q": "was highest among non-Hispanic White adults (19.7%)"
+    }
+   ]
+  },
+  {
+   "name": "suppression of estimates with relative standard error >0.3",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "RSE rule withholds unreliable estimates (e.g., New Jersey median frequency)",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Estimates are unreliable if the relative standard error is >0.3."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "age group",
+   "sex",
+   "race/ethnicity",
+   "income",
+   "marital status",
+   "veteran status",
+   "education",
+   "census region",
+   "county urbanization",
+   "state"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Some sociodemographic groups and states with low binge drinking prevalence reported large quantities of alcohol consumed during binge occasions."
+   },
+   {
+    "loc": "text",
+    "q": "Age-standardized binge drinking prevalence was 17.4% (95% CI = 17.2%–17.7%) and varied by sociodemographic group and by state"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "ci_overlap": true,
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "variance estimates were derived using the Taylor series linearization method."
+   },
+   {
+    "loc": "text",
+    "q": "Statistically significant differences between medians were defined as p<0.05 using pairwise tests and nonoverlapping CIs."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-standardized prevalence, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Binge drinking § prevalence, ¶ % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "median",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the median frequency was 1.7 (mean = 4.6) binge drinking occasions during the past 30 days"
+    }
+   ]
+  },
+  {
+   "v": "75th and 90th percentiles",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Unadjusted weighted medians and percentiles were derived from SAS-callable SUDAAN “proc descript”"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What were the prevalence, frequency and intensity of binge drinking among U.S. adults in 2018, overall and by sociodemographic characteristics and state?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to estimate past 30-day binge drinking prevalence, frequency, and intensity (number of drinks per occasion), overall and by select characteristics and state"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "binge drinking",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Binge Drinking Among Adults, by Select Characteristics and State — United States, 2018"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "BRFSS is an ongoing, state-based, random-digit–dialed, landline and cellular telephone survey of the U.S. noninstitutionalized adult population"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from 398,485 respondents aged ≥18 years in the 2018 BRFSS"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2018 Behavioral Risk Factor Surveillance System (BRFSS)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "the overall nationwide unadjusted binge drinking prevalence among U.S. adults was 16.6%"
+   },
+   {
+    "loc": "text",
+    "q": "State-level age-standardized binge drinking prevalence ranged from 10.5% (Utah) to 25.8% (Wisconsin)."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Prevalence and medians are reported by race/ethnicity, income, education and urbanization and described, with significance claims, but contrasts are side by side with no computed difference or ratio; 'disproportionately affected' does not lift the cap.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The Discussion interprets the income, education and rural patterns and calls some groups disproportionately affected."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "was highest among non-Hispanic White adults (19.7%)"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "annual household income",
+     "education level"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "those with less than a high school diploma reported higher frequency and intensity than did college graduates"
+     },
+     {
+      "loc": "text",
+      "q": "particularly among groups who are disproportionately affected."
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "adults in the most rural counties who binge drank did so more frequently and at higher intensity"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Median binge drinking intensity was highest among adults aged 18–24 years and decreased with age."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Prevalence estimates for all characteristics except age group were age-standardized to the 2000 U.S. standard population."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "CDC analyzed data from 398,485 respondents aged ≥18 years in the 2018 BRFSS"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Binge drinking prevalence was significantly higher among men (22.5%) than among women (12.6%)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Income has 4 levels, education 4, race/ethnicity 6 (AI/AN and A/PI kept; other collapsed); urbanization uses NCHS 6-level scheme. Census region and state are geography, not SPDs."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was highest among non-Hispanic White adults (19.7%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The age-standardized binge drinking prevalence was higher among men (22.5%) than among women (12.6%), increased with income"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Binge drinking prevalence was significantly higher among adults with a college degree (18.9%) than among adults with less than a high school diploma"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Median binge drinking intensity was highest among adults aged 18–24 years and decreased with age."
+    }
+   ]
+  },
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "County urban-rural status §§ › Noncore"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "outcome_types"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred as cross-sectional from the BRFSS survey; not named. Frequency (occasions per 30 days) is analyzed by medians, so recorded as continuous. State tertile grouping on the map is quantization.",
+ "view_issues": "The stated pairwise-test/nonoverlapping-CI rule refers to medians, yet 'significantly higher' prevalence claims use no separately stated method. New Jersey median frequency is suppressed (RSE >0.3)."
+}

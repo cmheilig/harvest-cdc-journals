@@ -1,0 +1,459 @@
+{
+ "id": "mm6739a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysNGNn12i1MHaP6qE",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Among adults with arthritis, 22.5% reported symptoms of anxiety and 12.1% reported depression."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Among adults with arthritis, 22.5% reported symptoms of anxiety and 12.1% reported depression."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalences of symptoms of anxiety and depression were substantially higher among adults with arthritis than among those without arthritis"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-standardized prevalences of symptoms of anxiety and depression were higher among women than among men"
+    },
+    {
+     "loc": "table 1",
+     "q": "Estimates were age-standardized to the 2000 projected U.S. population aged ≥18 years using three groups"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "age-standardized to the 2000 projected U.S. population in three age groups: direct standardization",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimates were age-standardized to the 2000 projected U.S. population aged ≥18 years using three groups"
+    }
+   ]
+  },
+  {
+   "name": "survey sampling weights with complex survey design",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated use of supplement file sampling weights and complex survey design",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Analyses accounted for the complex survey design, including the use of supplement file sampling weights"
+    }
+   ]
+  },
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named: 'T-tests were performed'",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "T-tests were performed to assess statistical significance (p<0.05) when comparing differences."
+    }
+   ]
+  },
+  {
+   "name": "multiple imputation of income",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "imputed income enters the income-to-poverty ratio strata; method details not stated",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Income-to-poverty ratio was calculated using income data generated using multiple imputation."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "arthritis status",
+   "age group",
+   "sex",
+   "employment status",
+   "sexual identity",
+   "education",
+   "income-to-poverty ratio",
+   "chronic pain",
+   "co-occurring chronic conditions",
+   "physical activity",
+   "smoking status",
+   "symptom type"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Anxiety and depression symptoms were more common among younger adults, those with chronic pain or comorbid chronic conditions"
+   },
+   {
+    "loc": "text",
+    "q": "Symptom prevalences were lower among adults with higher educational and income-to-poverty ratios."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "T-tests were performed to assess statistical significance (p<0.05) when comparing differences."
+   },
+   {
+    "loc": "text",
+    "q": "age-standardized prevalences of symptoms of anxiety and depression among adults with arthritis were 22.5% (95% confidence interval [CI] = 20.8–24.3)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-standardized prevalence (%)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age-standardized prevalence * of anxiety symptoms and depression symptoms † among adults aged ≥18 years with arthritis"
+    }
+   ]
+  },
+  {
+   "v": "age-specific prevalence (%)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group percentages are age-specific, and all other percentages are age-standardized."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What is the national prevalence of clinically relevant anxiety and depression symptoms among U.S. adults with arthritis, and how does it vary by characteristics?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to estimate the national prevalence of clinically relevant symptoms of anxiety and depression among adults aged ≥18 years with arthritis"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "anxiety",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Symptoms of Anxiety and Depression Among Adults with Arthritis"
+    }
+   ]
+  },
+  {
+   "v": "depression",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Symptoms of Anxiety and Depression Among Adults with Arthritis"
+    }
+   ]
+  },
+  {
+   "v": "arthritis",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Symptoms of Anxiety and Depression Among Adults with Arthritis"
+    }
+   ]
+  },
+  {
+   "v": "arthritis",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalences of symptoms of anxiety and depression were substantially higher among adults with arthritis than among those without arthritis"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NHIS is an ongoing, in-person, cross-sectional survey of the civilian, noninstitutionalized U.S. population."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed 2015–2017 National Health Interview Survey (NHIS) data"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Health Interview Survey (NHIS), Adult Functioning and Disability supplement",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "completed the Adult Functioning and Disability supplement over the 3-year period."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Symptoms of Anxiety and Depression Among Adults with Arthritis — United States, 2015–2017"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Prevalences are reported and described by age, sex, employment, education, income and sexual identity, but differences are not framed as disparities nor quantified as differences or ratios.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Higher prevalence among poorer, less educated and LGB adults is tested and interpreted as identifying treatment-priority groups."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "among adults aged ≥18 years with arthritis"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "age-specific prevalences of symptoms of anxiety and depression were higher among adults aged 18–44 years than among those aged ≥65 years"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Age-standardized prevalences of symptoms of anxiety and depression were higher among women than among men"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race/Ethnicity › White"
+     },
+     {
+      "loc": "table 1",
+      "q": "Race/Ethnicity › Black"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education",
+     "income-to-poverty ratio",
+     "employment status"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Symptom prevalences were lower among adults with higher educational and income-to-poverty ratios."
+     },
+     {
+      "loc": "text",
+      "q": "among those who were unemployed, unable to work, or disabled compared with employed adults"
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "stratifier",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "among adults who reported their sexual identity as lesbian, gay, bisexual, or “other” than among those who reported being heterosexual"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Age-standardized prevalences by SPD with t-tests; LGB and 'other' identities collapsed; AI/AN and Asian estimates imprecise; income imputed."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "age-specific prevalences of symptoms of anxiety and depression were higher among adults aged 18–44 years than among those aged ≥65 years"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "among those who were unemployed, unable to work, or disabled compared with employed adults"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Symptom prevalences were lower among adults with higher educational and income-to-poverty ratios."
+    },
+    {
+     "loc": "table 1",
+     "q": "Education › College degree or higher"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Symptom prevalences were lower among adults with higher educational and income-to-poverty ratios."
+    },
+    {
+     "loc": "table 1",
+     "q": "Income-to-poverty ratio (IPR) › High income (IPR≥400%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity › American Indian/Alaska Native"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "Which pairs were t-tested is not stated and the table has no significance marks; groupwise education and income entries treat the blanket t-test statement under gradient claims as per-group vs referent. CI method not stated.",
+ "view_issues": "The table shows no significance marks, so which pairwise t-tests support the gradient claims cannot be verified."
+}

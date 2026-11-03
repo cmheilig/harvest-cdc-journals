@@ -1,0 +1,410 @@
+{
+ "id": "mm6948a5",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPytE6uuyYU1wfcqB41",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Among the youths surveyed, 73.6% reported exposure to loud sound at school for >15 minutes a day"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "nearly one half (46.5%) report exposure on a regular basis."
+    },
+    {
+     "loc": "text",
+     "q": "researchers dichotomized student answers into two categories for student exposure"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "70.4% of all respondents reported that they never had a class or coursework that taught how to protect hearing from noise."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Students in the South were more likely to be exposed to loud sounds at school on a regular basis than were students in the Northeast"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Multivariable logistic regressions were used to calculate adjusted odds ratios (aORs), 95% confidence intervals (CIs), and p-values (α = 0.05)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting to Census estimates",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated weights to March 2019 Census estimates; weighted % in Table 1 via PROC SURVEYFREQ",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The resulting data were weighted to match March 2019 U.S. Census estimates."
+    },
+    {
+     "loc": "text",
+     "q": "The PROC SURVEYFREQ procedure of SAS was used for descriptive analysis."
+    }
+   ]
+  },
+  {
+   "name": "multivariable logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Multivariable logistic regressions' giving aORs with CIs and p-values → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Multivariable logistic regressions were used to calculate adjusted odds ratios (aORs), 95% confidence intervals (CIs), and p-values (α = 0.05)."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "male; aged 12–14; White; income <$50,000; Northeast; nonmetropolitan; never taught",
+  "across": [
+   "sex",
+   "age group",
+   "race/ethnicity",
+   "household income",
+   "census region",
+   "metropolitan status",
+   "hearing protection coursework",
+   "exposure frequency"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Students from households with an average income ≥$150,000 were significantly less likely to have hearing protection provided by the school"
+   },
+   {
+    "loc": "table 2",
+    "q": "Statistical difference at p<0.05 compared with the referent group."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Multivariable logistic regressions were used to calculate adjusted odds ratios (aORs), 95% confidence intervals (CIs), and p-values (α = 0.05)."
+   },
+   {
+    "loc": "text",
+    "q": "There was no significant difference in exposure reported by sex"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "All respondents weighted % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "aOR",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Abbreviations: aOR = adjusted odds ratio"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Multivariable logistic regressions were used to calculate adjusted odds ratios (aORs)"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "sex, age group, race/ethnicity, income, census region, metropolitan status, hearing protection coursework, exposure frequency (as shown in Table 2)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Multivariable logistic regression comparing frequencies of youths’ exposure to loud sounds at school"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How often are U.S. teens exposed to loud noise at school, and do schools provide hearing protection devices and hearing-protection education?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The survey measured the frequency of exposure to loud noise in school settings, the provision of hearing protection devices (HPDs) during exposure"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "loud noise exposure",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Survey of Teen Noise Exposure and Efforts to Protect Hearing at School"
+    }
+   ]
+  },
+  {
+   "v": "noise-induced hearing loss",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Noise-induced hearing loss is a substantial, often unrecognized, health problem."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from a sample of 817 youths aged 12–17 years who responded to the web-based YouthStyles survey in 2020."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The current study used data from Porter Novelli’s 2020 YouthStyles § survey via Ipsos’ KnowledgePanel"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Porter Novelli YouthStyles",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The current study used data from Porter Novelli’s 2020 YouthStyles § survey"
+    }
+   ]
+  },
+  {
+   "v": "Ipsos KnowledgePanel",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "via Ipsos’ KnowledgePanel, ¶ an online panel representative of the noninstitutionalized U.S. population."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Survey of Teen Noise Exposure and Efforts to Protect Hearing at School — United States, 2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Adjusted ORs by race/ethnicity, income and metro status are reported; the text states the ≥$150,000 income result but neither frames it as a disparity nor interprets it.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Income and race enter mainly as model covariates and weighting factors; the single income contrast could be read as covariate output only."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "participants were youths aged 12–17 years residing with parents"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Age group, yrs › 15–17"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "There was no significant difference in exposure reported by sex"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Race/Ethnicity › Black"
+     },
+     {
+      "loc": "text",
+      "q": "youth gender, youth age, household income, youth race/ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "household income"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Students from households with an average income ≥$150,000 were significantly less likely to have hearing protection provided by the school"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Metropolitan statistical area status › Metropolitan"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referents: White, income <$50,000, nonmetropolitan; Asian collapsed into Other/Multiracial; small subgroups give wide CIs."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Race/Ethnicity › White"
+    },
+    {
+     "loc": "table 2",
+     "q": "Statistical difference at p<0.05 compared with the referent group."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Income, USD ($) › ≥150,000"
+    },
+    {
+     "loc": "text",
+     "q": "Students from households with an average income ≥$150,000 were significantly less likely to have hearing protection provided by the school"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "inference"
+ ],
+ "confidence": "medium",
+ "notes": "Responses were dichotomized for analysis (quantization, not a procedure). Significance rests on model-term p-values and ** marks; no separate CI-inversion test recorded. Whether the regressions used survey weights or design is not stated.",
+ "view_issues": "Table 2: Midwest coursework aOR 0.8 (0.8–1.3) has a lower CI bound equal to the estimate; Table 1 Other/Multiracial 9.3 (8.1−12.6) is asymmetric. Footnote mentions Asian, but there is no Asian row."
+}

@@ -1,0 +1,370 @@
+{
+ "id": "mm6942e2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysoodzSVAt8ADsGXM",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Overall, an estimated 299,028 excess deaths occurred from late January through October 3, 2020"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the total numbers of excess deaths during the analysis period ranged from a low of approximately 3,412 among AI/AN persons to a high of 171,491"
+    },
+    {
+     "loc": "text",
+     "q": "Excess deaths reached their highest points to date during the weeks ending April 11 (40.4% excess) and August 8, 2020 (23.5% excess)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Overall, an estimated 299,028 excess deaths occurred from late January through October 3, 2020"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the average percentage change in deaths over this period compared with previous years was largest for adults aged 25–44 years (26.5%)"
+    },
+    {
+     "loc": "text",
+     "q": "Specifically, the average percentage increase over this period was largest for Hispanic persons (53.6%)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "overdispersed Poisson regression for expected deaths",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'overdispersed Poisson regression models' (quasi-Poisson) → loglinear; used only to set expected-death thresholds",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "expected numbers of deaths are estimated using overdispersed Poisson regression models with spline terms to account for seasonal patterns."
+    }
+   ]
+  },
+  {
+   "name": "weighting of observed deaths for reporting completeness",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated weights estimated from completeness of provisional data in the past year",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Observed numbers of deaths are weighted to account for incomplete reporting by jurisdictions"
+    }
+   ]
+  },
+  {
+   "name": "observed count vs upper bound of 95% prediction interval",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "footnote: deaths above the prediction-interval upper bound are 'significantly higher than expected'; interval from the Poisson model",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Deaths above the upper bound threshold are significantly higher than expected."
+    }
+   ]
+  },
+  {
+   "name": "negative weekly excess truncated to zero",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "censoring of observed negative excess values in excess-death totals",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "negative values were treated as 0 excess deaths"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "both",
+  "referent": "average number of deaths in the same week during 2015–2019 (expected number)",
+  "across": [
+   "age group",
+   "race/ethnicity",
+   "week",
+   "cause (COVID-19 vs other)"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The largest percentage increases were seen among adults aged 25–44 years and among Hispanic or Latino persons."
+   },
+   {
+    "loc": "text",
+    "q": "the difference between the weekly number of deaths occurring in 2020 and the average number occurring in the same week during 2015–2019"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "note",
+    "q": "Using the upper bound of the 95% prediction interval for the expected numbers (the upper bound threshold), an estimated 224,173 excess deaths occurred"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "excess deaths",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "an estimated 299,028 excess deaths occurred"
+    }
+   ]
+  },
+  {
+   "v": "percentage excess",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "percentage excess (excess deaths divided by average expected number of deaths)"
+    }
+   ]
+  },
+  {
+   "v": "average percentage change",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "These values were used to calculate an average percentage change in 2020"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Excluding weeks with negative numbers of excess deaths results in overall percentage increases of 4.2% for decedents aged <25 years."
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "How many excess deaths occurred in the United States during January 26–October 3, 2020, and how did they differ by age and race/ethnicity?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This report describes trends and demographic patterns in excess deaths during January 26–October 3, 2020."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Excess Deaths Associated with COVID-19, by Age and Race and Ethnicity"
+    }
+   ]
+  },
+  {
+   "v": "all-cause mortality",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "to quantify the number of excess deaths and the percentage excess for deaths from all causes"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using provisional mortality data from CDC’s National Vital Statistics System (NVSS)"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the difference between the weekly number of deaths occurring in 2020 and the average number occurring in the same week during 2015–2019"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using provisional mortality data from CDC’s National Vital Statistics System (NVSS)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System (NVSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using provisional mortality data from CDC’s National Vital Statistics System (NVSS)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "NVSS data in this report include all deaths occurring in the 50 states and DC"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Percentage increases in deaths by race/ethnicity are reported and called disproportionate and consistent with disparities, but group values are only set side by side with no computed between-group difference or ratio, so the cap at 2 applies.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The Discussion frames the racial/ethnic differences as disparities and contrasts the smallest (11.9%) with the largest (53.6%) increase."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "some racial and ethnic subgroups experienced disproportionately higher percentage increases in deaths"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Weekly numbers of deaths by age group (0–24, 25–44, 45–64, 65–74, 75–84, and ≥85 years)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Each group is compared with its own 2015–2019 average, not with White persons; NHPI, multiracial and unknown are collapsed into other/unknown."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Deaths were 28.9% above average for AI/AN persons, 32.9% above average for Black persons"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "among adults aged 45–64, 65–74 years, 75–84, and ≥85 years were 14.4%, 24.1%, 21.5%, and 14.7% above average"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "inference",
+  "procedures",
+  "equity.level",
+  "regression_fields"
+ ],
+ "confidence": "medium",
+ "notes": "The Poisson model only sets expected-death thresholds; group-specific percentage changes use 2015–2019 averages. Spline terms are part of the model, not a transformation. The prediction-interval upper bound gives the lower end of the excess-death range (224,173).",
+ "view_issues": null
+}

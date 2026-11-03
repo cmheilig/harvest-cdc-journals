@@ -1,0 +1,371 @@
+{
+ "id": "mm6937a5",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggQe1R1PKin3d8ZeWfew",
+  "batch_id": "msgbatch_018MUHrMCXUMTPYHxpo1b4G2"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Compared with 1-star–rated (lowest rating) nursing homes, the odds of a COVID-19 outbreak were 87% lower among 2- to 3-star–rated facilities"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During March–June 2020, 14 (11%) of 123 West Virginia nursing homes experienced COVID-19 outbreaks."
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Average daily resident census in outbreak facilities (92) was higher than that in nonoutbreak facilities (76) (p = 0.03)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During March–June 2020, 14 (11%) of 123 West Virginia nursing homes experienced COVID-19 outbreaks."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Seven (50%) of 14 outbreak facilities had 1-star ratings compared with 13 (12%) of 109 nonoutbreak facilities (Table 3)."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "After adjusting for county-level COVID-19 incidence and the number of facility residents, odds of a COVID-19 outbreak were significantly lower"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Logistic regression models' giving crude ORs and aORs → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Logistic regression models were used to assess the association between overall star ratings and COVID-19 outbreaks"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based CIs from the named logistic regression; 'significantly lower' drawn from ORs whose CIs exclude 1",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the unadjusted odds of a COVID-19 outbreak were significantly lower among 2- to 3-star–rated nursing homes (OR = 0.16; 95% CI = 0.04-0.59)"
+    }
+   ]
+  },
+  {
+   "name": "Wilcoxon rank-sum test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated for continuous facility characteristics, outbreak vs nonoutbreak facilities",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Wilcoxon rank-sum tests were used to evaluate continuous variables and Fisher’s exact tests for categorical variables"
+    }
+   ]
+  },
+  {
+   "name": "Fisher's exact test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated for categorical characteristics, including star rating by outbreak status (Table 3)",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "P-values based on Wilcoxon rank-sum test (for continuous variables) and Fisher’s exact test (for categorical variables)."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "1-star–rated nursing homes",
+  "across": [
+   "overall star rating",
+   "outbreak status"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The overall star rating was analyzed as a three-level variable (1-star, 2–3-star, and 4–5-star)."
+   },
+   {
+    "loc": "text",
+    "q": "the reference group was 1-star–rated nursing homes."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "P-values <0.05 were considered statistically significant."
+   },
+   {
+    "loc": "text",
+    "q": "ORs and 95% CIs were estimated with R statistical software (version 3.6.1; The R Foundation)."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "aOR",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "the odds of a COVID-19 outbreak were 87% lower among 2- to 3-star–rated facilities"
+    }
+   ]
+  },
+  {
+   "v": "OR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In unadjusted analyses, the odds of a COVID-19 outbreak in a nursing home increased by 5%"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Seven (50%) of 14 outbreak facilities had 1-star ratings compared with 13 (12%) of 109 nonoutbreak facilities"
+    }
+   ]
+  },
+  {
+   "v": "mean (95% CI)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Nursing home outbreak* status, mean (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the unadjusted odds of a COVID-19 outbreak were significantly lower among 2- to 3-star–rated nursing homes (OR = 0.16; 95% CI = 0.04-0.59)"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "94% lower among 4- to 5-star–rated nursing homes (aOR = 0.06; 95% CI = 0.003–0.39)"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "county-level COVID-19 incidence; average daily number of facility residents",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusting for county-level COVID-19 incidence (analyzed as continuous cases per 100,000 population) and average daily number of facility residents"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Are CMS overall star quality ratings associated with COVID-19 outbreaks in West Virginia nursing homes?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "West Virginia’s census of nursing home outbreaks was used to examine associations between CMS star ratings and COVID-19 outbreaks."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Association Between CMS Quality Ratings and COVID-19 Outbreaks in Nursing Homes — West Virginia, March 17–June 11, 2020"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "to compare facilities with and without COVID-19 outbreaks (outbreak- and nonoutbreak facilities) on several CMS survey measures"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-19 surveillance data from the West Virginia Department of Health and Human Resources were used to identify all nursing home outbreaks"
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Nursing home data were downloaded from the CMS Nursing Home Compare website"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "West Virginia Department of Health and Human Resources COVID-19 surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-19 surveillance data from the West Virginia Department of Health and Human Resources"
+    }
+   ]
+  },
+  {
+   "v": "CMS Nursing Home Compare (Five-Star Quality Rating System)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Nursing home data were downloaded from the CMS Nursing Home Compare website"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "COVID-19 Outbreaks in Nursing Homes — West Virginia, March 17–June 11, 2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "No SPD is analyzed; race/ethnicity and SES (dual enrollees, low income) appear only in the Discussion as cited context, a limitation (resident demographics unavailable) and a recommendation to address inequities.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 0,
+   "reason": "The SPD mentions are cited background and recommendations only, with no SPD in the data at all."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "dual Medicare-Medicaid enrollees, racial and ethnic minority populations, and persons with low income"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "dual Medicare-Medicaid enrollees",
+     "low income"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "serve patients experiencing social and economic disadvantage, including dual Medicare-Medicaid enrollees"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "No resident-level demographic data; the analysis is at the facility level by quality rating, not by social position."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "study_design",
+  "outcome_types"
+ ],
+ "confidence": "high",
+ "notes": "Design is not named; cross-sectional is inferred (retrospective cohort is defensible since ratings precede the outbreak period). Rescaling of covariates by 10 is affine and not a procedure. One unrated Special Focus Facility with an outbreak was excluded from regression.",
+ "view_issues": "Unadjusted 4–5-star CI is truncated ('95% CI = 0.003'); the adjusted 4–5-star CI lower bound is 0.006 in the opening and 0.003 in Results. Outbreak period starts March 14 in methods vs March 17 in title. Table 3 repeats one Fisher p-value in every star row."
+}

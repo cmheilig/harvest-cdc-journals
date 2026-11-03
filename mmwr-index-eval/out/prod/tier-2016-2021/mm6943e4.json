@@ -1,0 +1,399 @@
+{
+ "id": "mm6943e4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysxyc7Q7MpyEyRsW9",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In April, 78% of adults aged ≥18 years reported wearing a mask; this increased to 83% in May and 89% in June"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "At each time point, >40% of all adults aged ≥18 years reported all six assessed mitigation behaviors"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "the prevalence of these behaviors was lowest among adults aged 18–29 years and highest among those aged >60 years"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "within each survey wave and stratified by face mask use, based on a significance level of α = 0.05"
+    },
+    {
+     "loc": "figure 1",
+     "q": "by age group and reported face mask use"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Pearson chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named Pearson's chi-squared test of behaviors by age within each wave and by mask use",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Pearson’s Chi-squared test was used to assess differences in reported behaviors (individual and cumulative) by age, within each survey wave"
+    },
+    {
+     "loc": "table 1",
+     "q": "Chi-square p-value <0.05 for differences across age groups, by survey wave."
+    }
+   ]
+  },
+  {
+   "name": "logistic regression test for trend over survey week",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Logistic regression models' with calendar week as a single linear predictor → logistic; gives the trend p-values in table notes",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Logistic regression models were used to test statistical significance of time trends"
+    },
+    {
+     "loc": "text",
+     "q": "assigning calendar week of data collection for each survey wave as a single linear predictor"
+    }
+   ]
+  },
+  {
+   "name": "raking survey weights",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "iterative raking to adjust for nonresponse; weights applied to all estimates",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "an iterative raking process was used to adjust for nonresponse, noncoverage, and under- and oversampling"
+    },
+    {
+     "loc": "text",
+     "q": "with survey weights applied during analyses for nationally representative estimates"
+    }
+   ]
+  },
+  {
+   "name": "suppression of values <5% in figure",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "small values withheld from the figure",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Weighted to be representative of noninstitutionalized U.S. adults; values <5% not shown."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "age group",
+   "survey wave",
+   "face mask use"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "the prevalence of these behaviors was lowest among adults aged 18–29 years and highest among those aged >60 years"
+   },
+   {
+    "loc": "summary",
+    "q": "Whereas mask wearing increased over time, other reported mitigation behaviors decreased or remained unchanged."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Pearson’s Chi-squared test was used to assess differences in reported behaviors (individual and cumulative) by age, within each survey wave"
+   },
+   {
+    "loc": "table 1",
+    "q": "Weighted % (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Weighted % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "cumulative number of mitigation behaviors",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Cumulative number of self-reported mitigation behaviors,* by adult age group"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "with survey weights applied during analyses for nationally representative estimates"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "assigning calendar week of data collection for each survey wave as a single linear predictor"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did self-reported COVID-19 mitigation behaviors among U.S. adults differ by age group and change during April–June 2020?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The Data Foundation COVID Impact Survey collected nationally representative data on reported mitigation behaviors during April–June 2020"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19 mitigation behaviors",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "COVID-19 Mitigation Behaviors by Age Group — United States, April–June 2020"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Surveys were conducted in three waves (April 20–26, May 4–10, and May 30–June 8), without significant resampling of persons across waves."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Whereas mask wearing increased over time, other reported mitigation behaviors decreased or remained unchanged."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using a national probability sample covering approximately 97% of the U.S. population of non-institutionalized adults with a home address"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Data Foundation COVID Impact Survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The Data Foundation COVID Impact Survey collected nationally representative data on reported mitigation behaviors during April–June 2020"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "COVID-19 Mitigation Behaviors by Age Group — United States, April–June 2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Age is the primary comparison but is not framed as social position; race/ethnicity and sex appear only as sample descriptors.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 0,
+   "reason": "Race appears only in one weighted-sample descriptive sentence; otherwise age only, which stays at level 0."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "the prevalence of these behaviors was lowest among adults aged 18–29 years and highest among those aged >60 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "among adults in the United States aged ≥18 years"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "the majority of the weighted sample (range = 62%–65%) identified as Non-Hispanic or Latino White, and 50% identified as female"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "the majority of the weighted sample (range = 62%–65%) identified as Non-Hispanic or Latino White, and 50% identified as female"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "social, developmental, and practical factors (young adults)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Young adults might also be less likely to engage in mitigation behaviors because of social, developmental, and practical factors"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Four adult age groups (18–29, 30–44, 45–59, ≥60); no referent group; race/ethnicity and sex not analyzed."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Chi-square p-value <0.05 for differences across age groups, by survey wave."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Chi-square p-value <0.01 for differences across age groups, by survey wave."
+    },
+    {
+     "loc": "note",
+     "q": "Chi-squared p-value <0.001 for differences in cumulative number of mitigation behaviors reported across age groups, within all survey waves."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "analytic_depth",
+  "equity.level",
+  "regression_fields"
+ ],
+ "confidence": "medium",
+ "notes": "Design not named; cross-sectional survey waves inferred. Age chi-squares within mask-use strata read as stratified. Survey design treated as complex from stated survey weights.",
+ "view_issues": "Table 1 CSV has misaligned columns for several behaviors; wave 1 restaurant counts for 45–59 and ≥60 are both 148 (implausible); '68.2 (64,0–72.2)' typo. Summary says >60 years where the text says ≥60."
+}

@@ -1,0 +1,385 @@
+{
+ "id": "mm6904a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggQdzhqiqj4bznPtSiwu",
+  "batch_id": "msgbatch_018MUHrMCXUMTPYHxpo1b4G2"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "ED visit rates related to suicidal ideation, self-directed violence, or both increased 25.5% overall, with an average increase of 1.2% per month"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were assessed as a percentage of the total number of ED visits for each month"
+    },
+    {
+     "loc": "text",
+     "q": "by the total number of ED visits recorded in ESSENCE each month, multiplied by 100,000"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a total of 2,123,614 involved suicidal ideation, self-directed violence, or both (1,300.6 per 100,000 ED visits)"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the rate of ED visits involving suicidal ideation, self-directed violence, or both increased 25.5%, with an average increase of 1.2% per month"
+    },
+    {
+     "loc": "text",
+     "q": "the rate increased 22.7% for females and 27.6% for males"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "joinpoint regression (average monthly percentage change)",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'Joinpoint regression' giving average monthly percentage change; an APC implies a log-linear model of the rate over time (Joinpoint default)",
+   "role": "primary",
+   "alternative_reading": "linear: Joinpoint fits least squares on the log rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates of average monthly percentage change were calculated using Joinpoint regression with Joinpoint software (version 4.7.0.0; National Cancer Institute)."
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "significance marks on percentage changes (p<0.05) with no test named; CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "P-values <0.05 were considered statistically significant."
+    },
+    {
+     "loc": "table 1",
+     "q": "Statistically significant (p<0.05)."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": null,
+  "across": [
+   "month/period",
+   "sex",
+   "age group",
+   "U.S. region"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "increased 25.5% overall, with an average increase of 1.2% per month, nationwide during January 2017–December 2018"
+   },
+   {
+    "loc": "text",
+    "q": "Three of five U.S. regions experienced significant increases in these ED visit rates"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "Average monthly % change (95% CI)"
+   },
+   {
+    "loc": "text",
+    "q": "P-values <0.05 were considered statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "rate per 100,000 ED visits",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Per 100,000 visits."
+    }
+   ]
+  },
+  {
+   "v": "% change",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% Change › From Jan 2017 to Dec 2018"
+    }
+   ]
+  },
+  {
+   "v": "average monthly % change",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Average monthly % change (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates of average monthly percentage change were calculated using Joinpoint regression"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did ED visit rates for suicidal ideation, self-directed violence, or both change during 2017–2018 among persons aged ≥10 years, by sex, age group and region?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "among persons aged ≥10 years during January 2017–December 2018 were examined by sex, age group, and U.S. region"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "suicidal ideation",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Syndromic Surveillance of Suicidal Ideation and Self-Directed Violence"
+    }
+   ]
+  },
+  {
+   "v": "self-directed violence",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Syndromic Surveillance of Suicidal Ideation and Self-Directed Violence"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Syndromic Surveillance of Suicidal Ideation and Self-Directed Violence — United States, January 2017–December 2018"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "ED syndromic surveillance data can provide timely suicidal ideation and self-directed violence trend information"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC’s NSSP BioSense Platform,* a national public health surveillance system, was used to identify ED visits for this study."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Syndromic Surveillance Program (NSSP) BioSense Platform",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC’s NSSP BioSense Platform,* a national public health surveillance system, was used to identify ED visits for this study."
+    }
+   ]
+  },
+  {
+   "v": "ESSENCE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The Electronic Surveillance System for the Early Notification of Community-based Epidemics (ESSENCE) tool in the BioSense Platform was used to analyze ED visits."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "NSSP included data from approximately 65% of visits at facilities categorized as EDs"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Only age and sex are used as stratifiers, without social-position framing; region is geography, not an SPD.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Socioeconomic risk factors and policies are mentioned only as a future research recommendation."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "with substantial increases occurring in younger age groups"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "among persons aged ≥10 years during January 2017–December 2018"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "the rate increased 22.7% for females and 27.6% for males"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "socioeconomic risk factors"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Research examining variation in the impact of policies, socioeconomic risk factors, and access to lethal means"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Age and sex strata only; region (HHS regions grouped into five) is geography; NSSP facilities are not nationally representative."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "with substantial increases occurring in younger age groups"
+    }
+   ]
+  },
+  {
+   "across": [
+    "sex",
+    "age"
+   ],
+   "n_groups": 8,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among the demographic groups examined, males aged 10–19 years experienced the largest significant increase during this period (62.3%)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "outcome_types",
+  "comparison",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "The outcome is visits per 100,000 ED visits, a unitless proportion, so binary/categorical rather than count/rate. Significance of percentage changes is shown with marks; the test behind the Jan-to-Dec changes is not named. Tests are of change over time within each group, not across groups.",
+ "view_issues": "The table note defines percentage change as month-over-previous-month, but the columns report Jan-to-Dec and 24-month changes. Females 20–39 (27.1%) and Southeast (30.2%) are unmarked despite large changes."
+}

@@ -1,0 +1,478 @@
+{
+ "id": "mm6930e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyst1UV5BYBcE3sJ8T",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "35% had not returned to their usual state of health when interviewed 2–3 weeks after testing."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Ninety-five (35%) reported that they had not returned to their usual state of health at the time of interview."
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "with the longest intervals reported for loss of smell (median = 8 days; IQR = 5–10.5 days) and loss of taste"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "35% had not returned to their usual state of health when interviewed 2–3 weeks after testing."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The proportion who had not returned to their usual state of health differed across age groups"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Adjusting for other factors, age ≥50 versus 18–34 years (adjusted odds ratio [aOR] = 2.29; 95% confidence interval [CI] = 1.14–4.58)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "GEE logistic regression (exchangeable correlation, clustering by site)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "GEE models estimating crude and adjusted odds ratios → logistic (GEE logistic)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Generalized estimating equation regression models with exchangeable correlation structure accounting for clustering by site were fitted"
+    },
+    {
+     "loc": "table 2",
+     "q": "Adjusted odds ratio (95% CI)"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based CIs from the GEE logistic models; CIs including 1.00 judged not significant",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "95% CIs including 1.00 are not considered statistically significant."
+    }
+   ]
+  },
+  {
+   "name": "chi-square test or Fisher's exact test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "Table 1 footnote names the tests; text cites p-values for age and chronic conditions",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "were compared using the chi-square test or Fisher’s exact test."
+    },
+    {
+     "loc": "text",
+     "q": "26% of interviewees aged 18–34 years, 32% aged 35–49 years, and 47% aged ≥50 years"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "age 18–34 years; no chronic medical conditions; White, non-Hispanic; women",
+  "across": [
+   "age group",
+   "number of chronic medical conditions",
+   "individual medical conditions",
+   "sex",
+   "race/ethnicity",
+   "insurance"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "among 180 persons with no or one chronic medical condition, 39 with two chronic medical conditions, and 44 with three or more"
+   },
+   {
+    "loc": "table 2",
+    "q": "Age group (yrs) › 18–34"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "note",
+    "q": "were compared using the chi-square test or Fisher’s exact test."
+   },
+   {
+    "loc": "note",
+    "q": "95% CIs including 1.00 are not considered statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Ninety-five (35%) reported that they had not returned to their usual state of health at the time of interview."
+    }
+   ]
+  },
+  {
+   "v": "aOR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "reporting three or more versus no chronic medical conditions (aOR = 2.29; 95% CI = 1.07–4.90)"
+    }
+   ]
+  },
+  {
+   "v": "unadjusted odds ratio",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Unadjusted odds ratio (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "median days",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "175 (65%) reported that they had returned to their usual state of health a median of 7 days"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "GEE",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "GEE models were used to account for clustering of cases by site."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Unadjusted odds ratio (95% CI)"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Models for individual conditions (e.g., hypertension) were adjusted for age, sex, and race/ethnicity."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age, sex, race/ethnicity, and number of chronic medical conditions (mutually adjusted); individual-condition models adjusted for age, sex, race/ethnicity",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "In adjusted GEE models for age, sex, race/ethnicity, and number of chronic medical conditions, the other variables were used to adjust"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How long do symptoms last among symptomatic COVID-19 outpatients, and which characteristics are associated with not returning to usual health 14–21 days after testing?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to evaluate the association between baseline characteristics and return to usual health"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Among Outpatients with COVID-19 in a Multistate Health Care Systems Network"
+    }
+   ]
+  },
+  {
+   "v": "delayed return to usual health (prolonged COVID-19 illness)",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Symptom Duration and Risk Factors for Delayed Return to Usual Health"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In a multistate telephone survey of symptomatic adults who had a positive outpatient test result for SARS-CoV-2 infection"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC personnel interviewed the randomly sampled patients or their proxies by telephone"
+    }
+   ]
+  },
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The Influenza Vaccine Effectiveness in the Critically Ill (IVY) Network, a collaboration of U.S. health care systems"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Influenza Vaccine Effectiveness in the Critically Ill (IVY) Network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The Influenza Vaccine Effectiveness in the Critically Ill (IVY) Network, a collaboration of U.S. health care systems"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Fourteen predominantly urban academic health systems in 13 states"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Results are reported by race/ethnicity (Table 1 p=0.29, ORs in Table 2) and insurance, and the Discussion notes no association with race/ethnicity; no disparity is framed. Age is analyzed as a risk factor, not as social position.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Race/ethnicity serves mainly as an adjustment variable and Table-1 characteristic; its null result is mentioned only briefly."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The proportion who had not returned to their usual state of health differed across age groups"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "a random sample of adults aged ≥18 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "Models for individual conditions (e.g., hypertension) were adjusted for age, sex, and race/ethnicity."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Women"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "Models for individual conditions (e.g., hypertension) were adjusted for age, sex, and race/ethnicity."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "did not find an association between race/ethnicity and return to usual health"
+     },
+     {
+      "loc": "table 2",
+      "q": "Race/Ethnicity › Black, non-Hispanic"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "Models for individual conditions (e.g., hypertension) were adjusted for age, sex, and race/ethnicity."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "insurance"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Insurance (14 missing) › No"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity in four groups with White, non-Hispanic as referent; other non-Hispanic races collapsed; insurance missing for 14."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "47% aged ≥50 years reported not having returned to their usual state of health (p = 0.010)"
+    },
+    {
+     "loc": "table 2",
+     "q": "Age group (yrs) › 18–34"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "note",
+     "q": "were compared using the chi-square test or Fisher’s exact test."
+    },
+    {
+     "loc": "table 2",
+     "q": "Race/Ethnicity › White, non-Hispanic"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "outcome_types"
+ ],
+ "confidence": "high",
+ "notes": "Design inferred as cross-sectional from 'telephone survey'. Symptom-resolution medians (4–8 days) are descriptive but compared across symptoms, so continuous is listed. Chronic conditions are analyzed as risk factors, not listed as conditions.",
+ "view_issues": "Table notes report 294/276/272 respondents vs 292/274/270 in the text (the two 7-day calls). Text defines obesity as BMI ≥30; tables say >30."
+}

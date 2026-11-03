@@ -1,0 +1,9 @@
+{"id": "mm6628a1",
+ "fields": [
+  {"field": "groupwise_any", "verdict": "true", "correct": ["A"], "category": "reader error", "why": "Characteristics are compared across five racial/ethnic groups by chi-square and Fisher's exact tests with Bonferroni posthoc pairwise marks, and age-adjusted rates are ranked across the five groups."},
+  {"field": "groupwise_dims", "verdict": "[\"race/ethnicity\"]", "correct": ["A"], "category": "brief gap", "why": "Race/ethnicity is the grouping of every test and ranking; but Table 1's tests of age group (5 levels) and education (3 levels) by race have a second SPD margin, so by rule 2's symmetry age and SES are also defensible dims. A noted this and folded them under the race entry."},
+  {"field": "groupwise_assessments", "verdict": "[\"omnibus test\", \"side by side\"]", "correct": ["A"], "category": "reader error", "why": "The race-by-characteristic chi-square/Fisher tests are omnibus (resolves_to_finer true via posthoc pairwise marks); the rates per 100,000 by race are only ranked with no test, so side by side. The mechanical flag is a false alarm: the tests cover the Table 1-3 characteristics, not the rates."}
+ ],
+ "justification": {"A": "good", "B": "n/a"},
+ "agreed_errors": [],
+ "brief_issues": "Rule 2 ('count whichever margin is the SPD') does not say what to record when both margins of a test are SPDs (race x age group, race x education): one entry across the grouping SPD, or entries for each. A rule naming the grouping variable of the comparison would decide it."}

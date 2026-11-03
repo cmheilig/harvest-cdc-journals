@@ -1,0 +1,340 @@
+{
+ "id": "mm7009e2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPytZwSeLiJSfaJcK7W",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "infrequent mask use during class was reported more commonly among attendees with COVID-19 (32; 84%) than among those who did not have COVID-19"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In August 2020, 55 COVID-19 cases were identified among 81 attendees of indoor high-intensity classes at a Chicago exercise facility."
+    },
+    {
+     "loc": "text",
+     "q": "infrequent mask use during class was reported more commonly among attendees with COVID-19 (32; 84%) than among those who did not have COVID-19"
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Attendees with COVID-19 reported participating in a median of five exercise classes (IQR = 3–7)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In August 2020, 55 COVID-19 cases were identified among 81 attendees of indoor high-intensity classes at a Chicago exercise facility."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "infrequent mask use during class was reported more commonly among attendees with COVID-19 (32; 84%) than among those who did not have COVID-19"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "logistic regression (crude ORs)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Crude odds ratios ... were estimated using logistic regression' → logistic; CIs model-based from the logistic model",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Crude odds ratios (ORs) with 95% confidence intervals (CIs) were estimated using logistic regression."
+    }
+   ]
+  },
+  {
+   "name": "Fisher's exact test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods and Table 1 note; p-values for demographic and in-class behavior comparisons",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Characteristics of attendees with and without COVID-19 were compared using Fisher’s exact test."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "attendees without COVID-19",
+  "across": [
+   "COVID-19 status",
+   "in-class mask use",
+   "physical distancing",
+   "demographic characteristics"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "(odds ratio [OR] = 3.5; 95% confidence interval [CI] = 0.9–15.1)"
+   },
+   {
+    "loc": "table 1",
+    "q": "ORs among attendees with COVID-19 versus without COVID-19 were calculated for mask use, observing others’ mask use, and physical distancing"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "note",
+    "q": "Crude odds ratios (ORs) with 95% confidence intervals (CIs) were estimated using logistic regression."
+   },
+   {
+    "loc": "table 1",
+    "q": "p-values from Fisher’s exact test were used to compare differences in demographic distributions and in-class behaviors"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Most attendees (76%) wore masks infrequently, including persons with (84%) and without COVID-19 (60%)."
+    }
+   ]
+  },
+  {
+   "v": "OR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(odds ratio [OR] = 3.5; 95% confidence interval [CI] = 0.9–15.1)"
+    }
+   ]
+  },
+  {
+   "v": "median (IQR)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Attendees with COVID-19 reported participating in a median of five exercise classes (IQR = 3–7)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Crude odds ratios (ORs) with 95% confidence intervals (CIs) were estimated using logistic regression."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A complete-case sensitivity analysis included only attendees with laboratory-confirmed positive or negative COVID-19 status"
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "In a COVID-19 outbreak at a Chicago exercise facility, how many attendees were infected, and were in-class behaviors such as mask use associated with case status?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Associations between in-class behaviors and COVID-19 case status were estimated using logistic regression."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "COVID-19 Outbreak Among Attendees of an Exercise Facility — Chicago, Illinois, August–September 2020"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "outbreak investigation",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "COVID-19 Outbreak Among Attendees of an Exercise Facility — Chicago, Illinois, August–September 2020"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "record abstraction or interview",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Case investigations were conducted using standardized REDCap data collection tools"
+    },
+    {
+     "loc": "text",
+     "q": "All August 24–September 1 class attendees were contacted for interview during September 14–22."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Illinois' National Electronic Disease Surveillance System (I-NEDSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Self-reported positive test results were confirmed through Illinois’ National Electronic Disease Surveillance System (I-NEDSS)."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "COVID-19 Outbreak Among Attendees of an Exercise Facility — Chicago, Illinois, August–September 2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Race/ethnicity (97% non-Hispanic Black) appears only as a descriptor of attendees, compared between cases and noncases in Table 1 without framing; age and sex are descriptors only.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 0,
+   "reason": "Race is a single Table-1 descriptor row of a near-homogeneous population, arguably no equity reading at all."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Sixty-eight (84%) attendees were Chicago residents, 71 (88%) were women, and 72 (97%) were non-Hispanic Black"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Sixty-eight (84%) attendees were Chicago residents, 71 (88%) were women, and 72 (97%) were non-Hispanic Black"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group, yrs (n = 78) ¶ › 45–54"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity reported only as Black, non-Hispanic vs others; missing for 7 attendees."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "p-values from Fisher’s exact test were used to compare differences in demographic distributions"
+    },
+    {
+     "loc": "table 1",
+     "q": "Age group, yrs (n = 78) ¶ › 45–54"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "outcome_types",
+  "equity.level"
+ ],
+ "confidence": "high",
+ "notes": "Five-point mask and distancing scales were dichotomized (quantization, not a procedure). No conclusion is drawn from the OR CIs against 1, so no CI-inversion test is recorded. The age-group Fisher test (p = 0.80) is a 2 × 5 case-status by age table.",
+ "view_issues": null
+}

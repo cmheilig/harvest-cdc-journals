@@ -1,0 +1,449 @@
+{
+ "id": "mm6820a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrqGJ3shAYH7Apcrh",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "18% of adults who reported vision impairment also reported SCD-related functional limitations, compared with only 4% of those without vision impairment"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The overall prevalence of vision impairment among respondents was 6.2% (95% confidence interval [CI] = 6.0%–6.3%)"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "prevalences of vision impairment and SCD-related functional limitations were higher among adults with less than a high school diploma (4.1%, 95% CI = 3.6%–4.6%)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Adjusted prevalence based on predicted marginal from logistic regression models adjusting for age, sex, race/ethnicity, smoking status, health insurance status, and vision impairment."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multivariable logistic regression with predicted marginal proportions",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Multivariate logistic regression models' giving predicted marginal (adjusted) prevalences → logistic; p-values for marginal contrasts treated as part of the model",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Multivariate logistic regression models were used to calculate predicted marginal proportions and examine the relationship between vision impairment and SCD-related functional limitations"
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (BRFSS sampling weights)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated use of BRFSS sampling weights for all estimates, SUDAAN",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All estimates used the BRFSS-provided sampling weights to account for the complex survey design and nonresponse."
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'no significant differences' in descriptive stratified comparisons; test not named; CI method not stated",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Similarly, no significant differences in report of SCD-related functional limitations among those with and without vision impairment were seen when stratified by race/ethnicity."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "no vision impairment",
+  "across": [
+   "vision impairment",
+   "age group",
+   "race/ethnicity",
+   "education level",
+   "smoking status",
+   "health insurance"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "SCD-related functional limitations were three and one half times higher among adults with vision impairment than among those with no vision impairment."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "the highest prevalence of SCD-related functional limitations (18%) was among adults with vision impairment; prevalence among those with no reported vision impairment was 4%"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Vision and SCD-related FL status, % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "prevalence",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The overall prevalence of vision impairment among respondents was 6.2% (95% confidence interval [CI] = 6.0%–6.3%)"
+    }
+   ]
+  },
+  {
+   "v": "adjusted percentage (predicted marginal)",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Adjusted prevalence based on predicted marginal from logistic regression models"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All estimates used the BRFSS-provided sampling weights to account for the complex survey design and nonresponse."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Similarly, no significant differences in report of SCD-related functional limitations among those with and without vision impairment were seen when stratified by race/ethnicity."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusting for age, sex, race/ethnicity, education level, and smoking status"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age, sex, race/ethnicity, education level, smoking status (figure note lists health insurance instead of education)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusting for age, sex, race/ethnicity, education level, and smoking status"
+    },
+    {
+     "loc": "figure 1",
+     "q": "adjusting for age, sex, race/ethnicity, smoking status, health insurance status, and vision impairment."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Among U.S. adults aged ≥45 years, is self-reported vision impairment associated with SCD-related functional limitations?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This report describes the association of vision impairment and SCD-related functional limitations using Behavioral Risk Factor Surveillance System (BRFSS) surveys for the years 2015–2017."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "vision impairment",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Vision Impairment and Subjective Cognitive Decline–Related Functional Limitations"
+    }
+   ]
+  },
+  {
+   "v": "subjective cognitive decline-related functional limitations",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Vision Impairment and Subjective Cognitive Decline–Related Functional Limitations"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "an annual state-based, cross-sectional telephone survey of noninstitutionalized adults aged ≥18 years"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This analysis used data from the BRFSS, an annual state-based, cross-sectional telephone survey"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS), cognitive decline module",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "completed the optional cognitive decline module."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "208,601 respondents aged ≥45 years in 49 states (all except Pennsylvania), Puerto Rico, and the District of Columbia (DC)"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Adjusted and crude prevalences are reported by race/ethnicity, education and insurance, and education is given as 'three times', but no contrast is framed or interpreted as a disparity.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The education contrast is quantified as a stated multiple ('three times') with a p-value, which could be read as a quantified disparity."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "non-Hispanic whites and Hispanics reported the lowest prevalences (5%), and non-Hispanic persons of other races reported the highest prevalence (8%) (p<0.001)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "adjusting for age, sex, race/ethnicity, education level, and smoking status"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education level",
+     "health insurance"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "among persons having less than a high school education (9%) was three times that of those reporting being a college graduate (3%) (p<0.001)"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "education level",
+     "health insurance"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "adjusting for age, sex, race/ethnicity, education level, and smoking status"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "208,601 respondents aged ≥45 years in 49 states (all except Pennsylvania), Puerto Rico, and the District of Columbia (DC)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "highest among persons aged 45–64 years (6%) and lowest among those aged 65–74 years (4%; p<0.001)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "adjusting for age, sex, race/ethnicity, education level, and smoking status"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity in five groups (other, non-Hispanic collapsed); education in three levels with college graduates as implicit referent; insurance yes/no."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "model joint test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "non-Hispanic whites and Hispanics reported the lowest prevalences (5%), and non-Hispanic persons of other races reported the highest prevalence (8%) (p<0.001)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "model joint test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "highest among persons aged 45–64 years (6%) and lowest among those aged 65–74 years (4%; p<0.001)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "among persons having less than a high school education (9%) was three times that of those reporting being a college graduate (3%) (p<0.001)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Vision impairment without SCD related limitations was highest among Hispanics (10.4%, 95% CI = 9.3–11.6) and lowest among non-Hispanic whites"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise",
+  "equity.level",
+  "regression_fields",
+  "procedures"
+ ],
+ "confidence": "medium",
+ "notes": "The p<0.001 values for adjusted prevalences are treated as model-based tests within the logistic regression (SUDAAN predicted marginals); whether each is a joint test or a highest-vs-lowest contrast is not stated. The crude contrast is available only via the Table's joint distribution and descriptive 'no significant differences' statement.",
+ "view_issues": "Methods adjust for education but not insurance; the figure note lists insurance but not education; the introduction lists both. Text quotes Table cells (joint distribution percentages) as if they were age-specific prevalences of SCD-FL. Typo '95% = 3.2%–4.0%'."
+}

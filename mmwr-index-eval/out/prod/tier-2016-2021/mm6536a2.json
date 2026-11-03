@@ -1,0 +1,250 @@
+{
+ "id": "mm6536a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrZ9HvjwJ9qJzw8yV",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "79.9% of school districts required schools to have a comprehensive plan that includes provisions for students and staff members with special needs"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, 79.9% of school districts required provisions for students and staff members with special needs"
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "urban districts required schools to include more of the four topics in their preparedness plans than did nonurban districts (3.1 versus 2.7 specific topics"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, 79.9% of school districts required provisions for students and staff members with special needs"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "For all four of the topics, the percentage of school districts requiring schools to address the topic was lowest in the Midwest."
+    },
+    {
+     "loc": "table 1",
+     "q": "Significant difference (p<0.05) between urban and nonurban districts."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'Significant differences were evaluated ... by t-test'; pairwise contrasts between regions and between urban and nonurban districts, marked in table notes",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Significant differences were evaluated by census region and urbanicity by t-test, with significance set at p<0.05."
+    },
+    {
+     "loc": "table 1",
+     "q": "Significant difference (p<0.05) between Midwest and South districts."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (complex sample design)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated: data weighted to national estimates, software accounting for complex sample design",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted to provide national estimates and analyzed using statistical software that accounted for the complex sample design."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "census region",
+   "urbanicity",
+   "plan topic",
+   "planning partner type"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The deficiencies found in some census regions show a need to strengthen school district–based disaster preparedness planning."
+   },
+   {
+    "loc": "summary",
+    "q": "On average, urban districts required schools to include more of the four selected topics in their plans than nonurban districts."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Prevalence estimates and 95% confidence intervals were computed for all point estimates."
+   },
+   {
+    "loc": "text",
+    "q": "Significant differences were evaluated by census region and urbanicity by t-test, with significance set at p<0.05."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage of school districts",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percentage of school districts that require schools to have a comprehensive plan to address crisis preparedness, response, and recovery"
+    }
+   ]
+  },
+  {
+   "v": "mean number of specific topics",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(3.1 versus 2.7 specific topics, p<0.05)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How do U.S. school district requirements for crisis preparedness plan topics and collaboration with community partners vary by census region and urbanicity?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "these estimates have not been analyzed by U.S. Census region* and urbanicity."
+   },
+   {
+    "loc": "text",
+    "q": "this report examines policies and practices related to school district preparedness, response, and recovery."
+   }
+  ]
+ },
+ "conditions": [],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "SHPPS is a national survey conducted every 6 years by CDC to assess school health policies and practices"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Using data from the 2012 School Health Policies and Practices Study (SHPPS)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "School Health Policies and Practices Study (SHPPS) 2012, healthy and safe school environment questionnaire",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "this report provides results from the healthy and safe school environment questionnaire."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "A two-stage sample design was used to generate a nationally representative sample of public school districts in the United States."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Units are school districts; comparisons are by census region (geography) and district urbanicity (rurality of non-human units), neither an SPD. Children define the population only.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 2,
+   "reason": "District urbanicity could be read as rurality, with urban vs nonurban results reported and tested but not framed as a disparity."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Children represent nearly one fourth of the U.S. population, have unique vulnerabilities, and might be in a school setting"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Urbanicity is a district characteristic, dichotomized urban vs nonurban; regions are geography. Special needs and limited English proficiency appear only as plan topics or discussion context."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "comparison",
+  "equity.level",
+  "study_design"
+ ],
+ "confidence": "medium",
+ "notes": "Study design inferred as cross-sectional from a single-wave national survey. Healthy People 2020 PREP-5 is cited as motivation, but no claim compares estimates against a target value, so there is no referent. The t-tests are pairwise between regions; regions are not an SPD, so no groupwise entry.",
+ "view_issues": "Table 2 gives Northeast law enforcement as 100 with CI (100–100), a degenerate interval."
+}

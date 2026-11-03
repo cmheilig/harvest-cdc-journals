@@ -1,0 +1,400 @@
+{
+ "id": "mm6948a4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyt4vMmR3qHd1gYzZn",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "age-adjusted annual incidence rates were calculated statewide and by region per 100,000 population"
+    },
+    {
+     "loc": "table 2",
+     "q": "Multivariable relative risk and associated 95% confidence intervals were calculated by negative binomial regression."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a total of 65,438 coccidioidomycosis cases were reported in California, with a median age-adjusted annual incidence of 7.9 per 100,000 population."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "When comparing the incidence in 2018 statewide with that in 2000, the rate ratio was 7.5"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This model was fit to the aggregated statewide data, both unadjusted and adjusted for region, and stratified by region."
+    },
+    {
+     "loc": "table 1",
+     "q": "median annual incidence from 2000 to 2018 was age-adjusted to the United States 2000 standard population."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "negative binomial regression",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'multivariable negative binomial regression' giving relative risks → loglinear",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "calculated by year (continuous), sex, age group, race/ethnicity, and region using multivariable negative binomial regression"
+    }
+   ]
+  },
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "rates age-adjusted to the US 2000 standard population",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "median annual incidence from 2000 to 2018 was age-adjusted to the United States 2000 standard population."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "female; age 0–19 years; White persons; Northern and Eastern California; 2000 and 2014 incidence",
+  "across": [
+   "region",
+   "sex",
+   "age group",
+   "race/ethnicity",
+   "year"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "risk was consistently high across California regions among males and Black persons yet varied by region among different age groups and Hispanic ethnicity."
+   },
+   {
+    "loc": "summary",
+    "q": "Incidence was highest in the Southern San Joaquin Valley"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "using multivariable negative binomial regression (with statistical significance defined as p<0.05)"
+   },
+   {
+    "loc": "text",
+    "q": "whereas the RR for Black persons was significantly higher in all regions, ranging from 1.84 to 2.25."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted incidence per 100,000",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "age-adjusted annual incidence rates were calculated statewide and by region per 100,000 population"
+    }
+   ]
+  },
+  {
+   "v": "rate ratio",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "with highest rate ratios in the Northern San Joaquin Valley (15.3) and Southern Coast (8.8)."
+    }
+   ]
+  },
+  {
+   "v": "relative risk (RR)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Relative risk † (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "RR was highest among adults aged 40–59 years (RR = 4.03) in the statewide unadjusted model."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "However, when adjusted for region, the RRs for Black and Hispanic persons were 2.13 and 1.21, respectively."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "year (continuous), sex, age group, race/ethnicity, region",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "calculated by year (continuous), sex, age group, race/ethnicity, and region using multivariable negative binomial regression"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did coccidioidomycosis incidence and demographic risk differ and change across California regions during 2000–2018?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "age-adjusted incidence rates were calculated, and coccidioidomycosis epidemiology was described in six regions."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "coccidioidomycosis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Regional Analysis of Coccidioidomycosis Incidence — California, 2000–2018"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Using 2000–2018 California coccidioidomycosis surveillance data, age-adjusted annual incidence rates were calculated statewide and by region"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "the largest increase from 2000 to 2018 occurred in the Northern San Joaquin Valley."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the 61 California local health jurisdictions reported data to CDPH"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "California coccidioidomycosis surveillance data (CDPH)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Using 2000–2018 California coccidioidomycosis surveillance data"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Regional Analysis of Coccidioidomycosis Incidence — California, 2000–2018"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 3,
+  "level_reason": "Higher risk among Black vs White persons is quantified (RR 2.13; 1.84–2.25 by region) and interpreted as consistent across regions; explanations mix host factors with generic societal factors.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "Access to care and socioeconomic status are named as possible explanations of the higher risk among Black persons."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "the RR for Black persons was significantly higher in all regions, ranging from 1.84 to 2.25."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Race/Ethnicity (ref = White)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Compared with cases in persons aged <20 years, the RR was highest among adults aged 40–59 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Age group (yrs) (ref = 0–19)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "the relative risk (RR) for coccidioidomycosis among males compared with that among females ranged from 1.91 (Southern Coast) to 2.86"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Sex (ref = female)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "societal factors (access to care, socioeconomic status)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "might include host characteristics (e.g., genetic factors and prevalence of comorbidities) and societal factors, (e.g., access to care and socioeconomic status)"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "White is the referent for race/ethnicity; 41% of cases had other or unknown race/ethnicity and were excluded from models; only White, Black, Hispanic and API shown."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Race/Ethnicity (ref = White)"
+    },
+    {
+     "loc": "text",
+     "q": "among Black persons than among other racial/ethnic groups."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Age group (yrs) (ref = 0–19)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "regression_fields"
+ ],
+ "confidence": "medium",
+ "notes": "The 'unadjusted' statewide model is unadjusted for region only; it still includes year, sex, age and race/ethnicity. Rate ratios 2018 vs 2000/2014 are computed by hand. Significance claims rest on model p-values (p<0.05).",
+ "view_issues": "Statewide 2017/2018 incidence differs between intro (19.3, 18.8) and results (18.9, 18.3). Table 1 stratum incidences (e.g., by age) are labeled age-adjusted."
+}

@@ -1,0 +1,403 @@
+{
+ "id": "mm7043e1",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "found no significant increases in the proportion of hospitalized COVID-19 patients with severe outcomes during the Delta period"
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates subsequently increased during July–August, with the highest rates among adults aged ≥65 years and the lowest among those aged 18–49 years."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "71.8% (weighted) of patients hospitalized during the Delta period were unvaccinated."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Chi-square testing was used to compare differences between the pre-Delta and Delta periods"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "results were analyzed overall and stratified by COVID-19 vaccination status."
+    },
+    {
+     "loc": "text",
+     "q": "the average monthly proportion who were aged 18–49 years significantly increased from 26.9% in the pre-Delta period to 43.6% during the Delta period"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "chi-square test (survey procedures)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'Chi-square testing' comparing weighted proportions between periods, run in SAS survey procedures",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Chi-square testing was used to compare differences between the pre-Delta and Delta periods"
+    },
+    {
+     "loc": "table 1",
+     "q": "Proportions between the pre-Delta and Delta period were compared with chi-square tests"
+    }
+   ]
+  },
+  {
+   "name": "Bonferroni correction",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "multiple-comparison adjustment of the chi-square p-values",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "p-values <0.05 were considered statistically significant, adjusted for multiple comparisons using the Bonferroni correction method."
+    }
+   ]
+  },
+  {
+   "name": "sampling weights for selection probability",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weighted percentages from an age- and site-stratified sample; Taylor series linearization variances",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "percentages presented are weighted to account for the probability of selection for sampled cases"
+    },
+    {
+     "loc": "text",
+     "q": "Variances were estimated using Taylor series linearization method."
+    }
+   ]
+  },
+  {
+   "name": "suppression of imprecise estimates (RSE >30% and CI width >20)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "table note withholding estimates by RSE and CI-width rules",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Results with relative standard errors >30% and CI widths >20 were suppressed."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": "pre-Delta period",
+  "across": [
+   "period (pre-Delta vs Delta)",
+   "vaccination status",
+   "age group",
+   "sex",
+   "race/ethnicity",
+   "long-term care facility residence"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Severe outcomes were compared during periods before (pre-Delta period) and during Delta variant predominance (Delta period)."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Variances were estimated using Taylor series linearization method."
+   },
+   {
+    "loc": "text",
+    "q": "Chi-square testing was used to compare differences between the pre-Delta and Delta periods"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Weighted % of COVID-19 hospitalizations (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "hospitalization rate per 100,000",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "COVID-19–associated monthly hospitalization rates per 100,000 population among adults aged ≥18 years"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Did the severity of disease among adults hospitalized with COVID-19 change from before to during the period of Delta variant predominance?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to examine trends in severe outcomes in adults aged ≥18 years hospitalized with laboratory-confirmed COVID-19 during periods before"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Severity of Disease Among Adults Hospitalized with Laboratory-Confirmed COVID-19"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-19–associated hospitalization rates among all adults declined during January–June 2021 (pre-Delta period)"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-NET conducts population-based surveillance for laboratory-confirmed COVID-19–associated hospitalizations in 99 counties across 14 states."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Severe outcomes were compared during periods before (pre-Delta period) and during Delta variant predominance (Delta period)."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the CDC COVID-19–Associated Hospitalization Surveillance Network (COVID-NET), a population-based surveillance system"
+    }
+   ]
+  },
+  {
+   "v": "vaccination registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Vaccination status was determined using state immunization information systems data"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "COVID-19–Associated Hospitalization Surveillance Network (COVID-NET)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the CDC COVID-19–Associated Hospitalization Surveillance Network (COVID-NET)"
+    }
+   ]
+  },
+  {
+   "v": "state immunization information systems",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Vaccination status was determined using state immunization information systems data"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "COVID-NET, 14 States, January–August 2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Age is the main stratifier but is not framed as social position; race/ethnicity appears only as a composition descriptor of hospitalized patients compared between periods, with no outcome measured per race group.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 2,
+   "reason": "Race/ethnicity shares are tested between periods (chi-square), which could be read as group-specific results reported and described."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The proportion of hospitalized COVID-19 patients who were aged 18–49 years significantly increased, from 24.7%"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Severity of Disease Among Adults Hospitalized with Laboratory-Confirmed COVID-19"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "no statistically significant differences were observed between the pre-Delta and Delta periods by sex, race/ethnicity"
+     },
+     {
+      "loc": "table 1",
+      "q": "Race/Ethnicity ¶¶ › Black"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity has five groups; multiple, unknown or missing race (3.4% weighted) are excluded from race proportions. Lower vaccination coverage in younger adults is offered as explanation, which is unequal uptake, not a determinant."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Proportions between the pre-Delta and Delta period were compared with chi-square tests"
+    },
+    {
+     "loc": "text",
+     "q": "the average monthly proportion who were aged 18–49 years significantly increased from 26.9% in the pre-Delta period to 43.6% during the Delta period"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "no statistically significant differences were observed between the pre-Delta and Delta periods by sex, race/ethnicity"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates subsequently increased during July–August, with the highest rates among adults aged ≥65 years and the lowest among those aged 18–49 years."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "analytic_depth"
+ ],
+ "confidence": "medium",
+ "notes": "Period comparisons are repeated within vaccination status and age group, which is read as stratified. Table p-values are identical across levels of each characteristic, so one chi-square per period × characteristic table is assumed. Vaccination status is a stratifier, not a vaccine-epidemiology outcome, so vaccine_outcome_type is null.",
+ "view_issues": "Text writes B.1.671.2 for B.1.617.2. Text calls 26.9% and 43.6% 'average monthly' proportions, but the table gives period percentages. Text gives p = 0.70 for the June–August change in ≥65 deaths; the table's 0.70 is the pre-Delta vs Delta comparison."
+}

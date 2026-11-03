@@ -1,0 +1,381 @@
+{
+ "id": "mm6705a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPys9N3PE53A5BxnhLW",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Annual injury rates (per 100,000 population) were computed overall and for the indicated strata."
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Most persons in this age range who visited an ED for assault injuries were treated and released (87.0%)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The 2015 rate for nonfatal injuries among persons aged 10–24 years was 753.2 per 100,000 population, the lowest rate in the 15-year study period"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates were significantly higher among males (1,265.3 per 100,000) than among females (729.0)."
+    },
+    {
+     "loc": "summary",
+     "q": "From 2011 to 2015, injury rates declined among both males and females and all age groups examined."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "joinpoint regression",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "joinpoint (segmented) regression reporting APCs, which implies a log-linear trend in rates; fitting method not stated",
+   "role": "primary",
+   "alternative_reading": "linear: Joinpoint software fits least squares on log rates by default",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Joinpoint regression* was used to test the significance of trends from 2001 to 2015."
+    },
+    {
+     "loc": "table 1",
+     "q": "§ Statistical significance of regression results (p<0.05)."
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'significantly higher' for sex and age contrasts of average annual rates; p-values and CIs reported elsewhere; no test named; CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "significantly higher among males than among females and among young adults aged 20–24 years than among youths aged 10–14 and 15–19"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": null,
+  "across": [
+   "calendar year",
+   "sex",
+   "age group",
+   "mechanism of injury",
+   "disposition"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "From 2011 to 2015, injury rates declined among both males and females and all age groups examined."
+   },
+   {
+    "loc": "text",
+    "q": "Data were stratified by calendar year, sex, and 5-year age group (10–14, 15–19, and 20–24 years)."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Joinpoint regression* was used to test the significance of trends from 2001 to 2015."
+   },
+   {
+    "loc": "table 1",
+    "q": "Average annual rate † (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "rate per 100,000",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Annual injury rates (per 100,000 population) were computed overall and for the indicated strata."
+    }
+   ]
+  },
+  {
+   "v": "APC",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Annual percentage change (APC) estimates that were statistically significant (p<0.05) are presented"
+    }
+   ]
+  },
+  {
+   "v": "% reduction in rate",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% reduction in rate during joinpoint year range"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Most persons in this age range who visited an ED for assault injuries were treated and released (87.0%)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Changes in the annual nonfatal assault rate among persons aged 10–24 years by sex and age group were examined."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did rates of ED-treated nonfatal assault injuries among persons aged 10–24 years change during 2001–2015, by sex and age group?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to examine 2001 – 2015 trends in nonfatal assault injuries among youths treated in EDs, by sex and age group"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "nonfatal assault injuries",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Nonfatal Assaults Among Persons Aged 10–24 Years — United States, 2001–2015"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the National Electronic Injury Surveillance System–All Injury Program (NEISS-AIP)"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Joinpoint regression* was used to test the significance of trends from 2001 to 2015."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NEISS-AIP collects data from a nationally representative sample of EDs"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Electronic Injury Surveillance System–All Injury Program (NEISS-AIP)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the National Electronic Injury Surveillance System–All Injury Program (NEISS-AIP)"
+    }
+   ]
+  },
+  {
+   "v": "Web-based Injury Statistics Query and Reporting System (WISQARS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data are accessible using CDC’s Web-based Injury Statistics Query and Reporting System"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "NEISS-AIP collects data from a nationally representative sample of EDs"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Only age and sex are compared, without social-position framing; race/ethnicity appears only in a limitation, which does not raise the level.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Equity is raised as a limitation (race/ethnicity could not be examined), which the level table places at 1."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Nonfatal Assaults Among Persons Aged 10–24 Years — United States, 2001–2015"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Rates were higher for young adults aged 20–24 years (1,376.5) than for persons aged 10–14 years (461.7) and 15–19 years (1,159.7)."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Rates were significantly higher among males (1,265.3 per 100,000) than among females (729.0)."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "differences by race and ethnicity could not be examined because of the high prevalence of missing race/ethnicity data (20.3%)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity not analyzed because 20.3% missing; only sex and three age groups compared."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "significantly higher among males than among females and among young adults aged 20–24 years than among youths aged 10–14 and 15–19"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The injury rate declined 11.5% per year for persons aged 10–14 years, 9.2% for persons aged 15–19 years, and 5.6% for persons aged 20–24"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "procedures"
+ ],
+ "confidence": "medium",
+ "notes": "National estimates come from a sample of EDs and are presumably weighted, but weighting is not stated, so it is not recorded. The test behind the 'significantly higher' sex and age contrasts is not named; the 95% CIs of the average annual rates do not overlap. Joinpoint APCs per group are set side by side with no test that they differ.",
+ "view_issues": "Table CSV repeats each group's sample cases, national estimate and average rate on every joinpoint segment row (merged cells expanded)."
+}

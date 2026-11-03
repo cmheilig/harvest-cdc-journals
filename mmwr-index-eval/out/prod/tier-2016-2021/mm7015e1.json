@@ -1,0 +1,397 @@
+{
+ "id": "mm7015e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyteAL2q8UyXNyruFu",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Among 594 student contacts, 438 (74%) participated (range = 59%–82% across schools)"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among 594 student contacts, 438 (74%) participated (range = 59%–82% across schools)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among 594 student contacts, 438 (74%) participated (range = 59%–82% across schools)"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Participation was higher in January (PR = 1.12) than in December."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "log-binomial regression (univariate, crude prevalence ratios)",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'univariate log-binomial regression' giving crude PRs → loglinear",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Crude prevalence ratios (PRs) were calculated using univariate log-binomial regression."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "CIs model-based from the stated log-binomial regression; PR CIs excluding 1.0 judged significant",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Prevalence ratio estimates that did not include 1.0 were considered statistically significant at p<0.05."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "non-Hispanic White students; reference level of each characteristic",
+  "across": [
+   "race/ethnicity",
+   "grade in school",
+   "close contact status",
+   "family member positive test",
+   "school incidence",
+   "recent school cases",
+   "days from exposure to contact or test",
+   "month of testing",
+   "ZIP code incidence",
+   "ZIP code deprivation level",
+   "ZIP code mask compliance"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Compared with non-Hispanic White students, participation in the testing program was higher among students identifying as Hispanic/Latino White (PR = 1.21)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "note",
+    "q": "Log-binomial regression was conducted to calculate crude prevalence ratios and 95% CIs to identify correlates of participation."
+   },
+   {
+    "loc": "note",
+    "q": "Prevalence ratio estimates that did not include 1.0 were considered statistically significant at p<0.05."
+   }
+  ]
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity › White, non-Hispanic"
+    },
+    {
+     "loc": "text",
+     "q": "and among members of a racial minority group ¶¶ (PR = 1.19)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Grade in school › Kindergarten–grade 2"
+    },
+    {
+     "loc": "text",
+     "q": "No differences were found based on grade level"
+    }
+   ]
+  }
+ ],
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among 594 student contacts, 438 (74%) participated"
+    }
+   ]
+  },
+  {
+   "v": "crude prevalence ratio",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Prevalence ratio (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Crude prevalence ratios (PRs) were calculated using univariate log-binomial regression."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Which student, school and ZIP code–level factors were associated with participation in in-school SARS-CoV-2 testing among elementary school contacts?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Analyses examined participation (i.e., completing in-school specimen collection for SARS-CoV-2 testing) in relation to factors"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "School contacts † of persons with laboratory-confirmed SARS-CoV-2 infection, including close contacts, were eligible to participate"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "outbreak investigation",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "as part of a transmission investigation of SARS-CoV-2, the virus that causes COVID-19, in elementary school settings"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "record abstraction or interview",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Investigators approached parents or guardians of student contacts by telephone"
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Student demographics and school-level characteristics were obtained from the school district."
+    }
+   ]
+  },
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Incidence by each student’s ZIP code of residence was obtained from UDOH."
+    }
+   ]
+  },
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "were obtained from the Utah Behavioral Risk Factor Surveillance System."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Utah Behavioral Risk Factor Surveillance System",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "were obtained from the Utah Behavioral Risk Factor Surveillance System."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Salt Lake County, Utah, December 2020–January 2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Participation by race/ethnicity is quantified (PR 1.21, 1.19 vs non-Hispanic White) and interpreted; access to testing and underserved populations are named as explanations of the group difference.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Access explanations are speculative and the difference favors minority groups rather than being framed as a disparity."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Compared with non-Hispanic White students, participation in the testing program was higher among students identifying as Hispanic/Latino White (PR = 1.21)"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "median family income",
+     "poverty",
+     "unemployment"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "ZIP code–level deprivation score (a composite measure of socioeconomic disadvantage)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Factors Associated with Participation in Elementary School–Based SARS-CoV-2 Testing"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Grade in school › Kindergarten–grade 2"
+     }
+    ]
+   },
+   {
+    "v": "country of birth/language/nativity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Explaining testing procedures in a parent’s or guardian’s preferred language, as was done in this situation, might also be important"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "lack of access to testing; better access to other testing resources among non-Hispanic White households",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "this discrepancy could reflect a lack of access to testing"
+    },
+    {
+     "loc": "text",
+     "q": "or less concern or better access to other testing resources among non-Hispanic White households."
+    }
+   ]
+  },
+  "equity_action": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In-school specimen collection could therefore be a useful strategy for facilitating SARS-CoV-2 testing among those at higher risk for infection"
+    }
+   ]
+  },
+  "equity_measurement": "Referent is non-Hispanic White; Asian, Black, NHPI, AI/AN and multiracial students collapsed into 'racial minority'; SES measured only as ZIP-level deprivation index dichotomized."
+ },
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Grade in school treated as an age proxy for groupwise. Equity_action set true because the program's reach by race is evaluated in relation to testing access; this is a judgment call. Students clustered in 13 schools; no clustering approach stated.",
+ "view_issues": "prepass 'log_transform' is a false hit (logarithmic ratio within the deprivation index definition)."
+}

@@ -1,0 +1,483 @@
+{
+ "id": "mm7013a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggRgkhRcPe8jV2kt9A9j",
+  "batch_id": "msgbatch_01STeYLQ5XwXE85pN9Qnpkjr"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among 5,110 total participants, a total of 2,294 (44.9%) responded that they would receive"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "45% were willing to be vaccinated."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Willingness to receive a COVID-19 vaccination was higher among participants in prisons than among those in jails (50.6% versus 43.7%; p<0.001)."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Lower willingness to receive a vaccination persisted in multivariable analyses among participants who were younger, were Black, lived in jails"
+    },
+    {
+     "loc": "table 2",
+     "q": "p<0.001 comparing “yes,” “maybe,” and “no” vaccination willingness and race/ethnicity among men (by chi-square test)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "table notes name chi-square tests across yes/maybe/no by each characteristic, race within sex, and reasons by willingness",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "p<0.001 comparing “yes,” “maybe,” and “no” vaccination willingness and characteristic (by chi-square test)."
+    },
+    {
+     "loc": "table 3",
+     "q": "p<0.001 comparing the distribution of reasons between “maybe” and “no” vaccination willingness (by chi-square test)."
+    }
+   ]
+  },
+  {
+   "name": "bivariate and multivariable logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Separate bivariate logistic regression models' and 'multivariable logistic regression' giving unadjusted and adjusted ORs → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Multivariable logistic regression was used to compare willingness to receive a vaccination (“yes”) and vaccine hesitancy or refusal (“maybe”/“no”)"
+    },
+    {
+     "loc": "table 1",
+     "q": "Separate bivariate logistic regression models were constructed to examine the association between participant’s willingness to receive a COVID-19 vaccination"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "adjusted OR CIs excluding 1 support 'persisted in multivariable analyses'; CIs are model-based from the named logistic regression",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Lower willingness to receive a vaccination persisted in multivariable analyses among participants who were younger, were Black, lived in jails"
+    },
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity › Black/African American"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "referent categories: men, aged 18–29 years, White, jail, Washington",
+  "across": [
+   "age group",
+   "race/ethnicity",
+   "sex",
+   "facility type",
+   "facility location",
+   "willingness category (reasons)"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Willingness to be vaccinated was lower among participants who were younger, identified as Black/African American, and lived in jails."
+   },
+   {
+    "loc": "table 1",
+    "q": "Willingness to be vaccinated,* odds ratio (95% CI)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "p<0.001 comparing “yes,” “maybe,” and “no” vaccination willingness and characteristic (by chi-square test)."
+   },
+   {
+    "loc": "table 1",
+    "q": "Willingness to be vaccinated,* odds ratio (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Willingness to receive a vaccination was similar among men (45.0%) and women (44.4%)"
+    }
+   ]
+  },
+  {
+   "v": "unadjusted odds ratio",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Willingness to be vaccinated,* odds ratio (95% CI) › Unadjusted †"
+    }
+   ]
+  },
+  {
+   "v": "adjusted odds ratio",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Willingness to be vaccinated,* odds ratio (95% CI) › Adjusted §"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Separate bivariate logistic regression models were constructed to examine the association between participant’s willingness to receive a COVID-19 vaccination"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "by sex, age, race/ethnicity, facility type, and location, adjusting for all characteristics listed in the table"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "sex, age, race/ethnicity, facility type, and facility location",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "by sex, age, race/ethnicity, facility type, and location, adjusting for all characteristics listed in the table"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How willing are incarcerated or detained persons to receive a COVID-19 vaccination, how does willingness vary by demographics and facility, and what reasons underlie hesitancy or refusal?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "little is known about their willingness to receive a COVID-19 vaccination"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Willingness to Receive a COVID-19 Vaccination Among Incarcerated or Detained Persons in Correctional and Detention Facilities"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a survey was conducted in three prisons and 10 small-to-medium–sized jails in Washington"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a survey was conducted in three prisons and 10 small-to-medium–sized jails in Washington"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Four States, September–December 2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "other",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "45% were willing to be vaccinated."
+   }
+  ]
+ },
+ "equity": {
+  "level": 4,
+  "level_reason": "Lower willingness among Black participants is quantified (aOR 0.74 vs White; 36.7%), framed within inequities and health equity, and explained by historical mistreatment, institutional distrust and institutional racism; incarceration defines the population.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The contrast is quantified mainly in table ORs and the text percentages; distrust could be read as an attitude rather than a structural determinant."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Willingness to be vaccinated was lower among participants who were younger, identified as Black/African American, and lived in jails."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "by sex, age, race/ethnicity, facility type, and location, adjusting for all characteristics listed in the table"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "cross-classifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Willingness to receive a COVID-19 vaccination among incarcerated or detained persons, by sex and race/ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "population",
+    "ses_components": [
+     "incarcerated or detained"
+    ],
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Willingness to Receive a COVID-19 Vaccination Among Incarcerated or Detained Persons in Correctional and Detention Facilities"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "increased with age from 38.5% among participants aged 18–29 years to 61.8% among those aged 60–83 years (p<0.001)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "by sex, age, race/ethnicity, facility type, and location, adjusting for all characteristics listed in the table"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Willingness to receive a vaccination was similar among men (45.0%) and women (44.4%)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "by sex, age, race/ethnicity, facility type, and location, adjusting for all characteristics listed in the table"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "cross-classifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Willingness to receive a COVID-19 vaccination among incarcerated or detained persons, by sex and race/ethnicity"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "historical mistreatment; distrust of health care, correctional, and governmental institutions; institutional racism; overrepresentation in the criminal justice system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Lower willingness to receive a COVID-19 vaccination among Black participants is not unexpected given historical mistreatment and higher rates of distrust"
+    },
+    {
+     "loc": "text",
+     "q": "their interactions with law enforcement or the justice system or their experiences with institutional racism"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "White is the referent for race/ethnicity; AI/AN shown separately but Asian and other groups collapsed into Other; race missing for 131 participants. Comparison with the general population (45% vs 56%–67%) is cited from national surveys."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "increased with age from 38.5% among participants aged 18–29 years to 61.8% among those aged 60–83 years (p<0.001)"
+    },
+    {
+     "loc": "table 1",
+     "q": "p<0.001 comparing “yes,” “maybe,” and “no” vaccination willingness and characteristic (by chi-square test)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "lowest among Black participants (36.7%) and highest among Hispanic/Latino (Hispanic) (52.5%) and American Indian/Alaska Native (48.4%) participants (p<0.001 for group)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "p<0.001 comparing “yes,” “maybe,” and “no” vaccination willingness and race/ethnicity among men (by chi-square test)."
+    },
+    {
+     "loc": "table 2",
+     "q": "p<0.001 comparing “yes,” “maybe,” and “no” vaccination willingness and race/ethnicity among women (by chi-square test)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity",
+    "sex"
+   ],
+   "n_groups": 10,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "When stratified by sex and race/ethnicity, willingness to receive a vaccination was highest among Hispanic men (54.9%) and lowest among Hispanic women (35.8%)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise"
+ ],
+ "confidence": "high",
+ "notes": "The report calls itself both a survey and an evaluation of willingness; mapped to cross-sectional since no program is evaluated. Clustering by facility is not addressed in the logistic models. The general-population comparison (56%–67%) is cited, not computed.",
+ "view_issues": "Summary gives 9.8% hesitant while the text and Table 1 give 9.7% (498/5,110). Table 1 jail 'No' cell reads '2, 037'. Erratum noted after publication."
+}

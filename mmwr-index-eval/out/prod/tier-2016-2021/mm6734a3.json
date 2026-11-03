@@ -1,0 +1,413 @@
+{
+ "id": "mm6734a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysEaUjQNhi8y6racc",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Current use of any tobacco product was highest among NHOPIs (23.4%) and AI/ANs (20.6%), followed by multiracial persons (16.5%)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "e-cigarettes were the most commonly ever-used tobacco product, both overall (22.9%)"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Compared with these two groups, prevalence of ever-use of any tobacco product was significantly lower among multiracial persons (38.2%), Hispanics (35.1%), blacks (32.3%)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Differences in any tobacco product use across groups were assessed using Poisson regression models adjusted for sex and school level."
+    },
+    {
+     "loc": "text",
+     "q": "Males reported significantly higher ever-use of any tobacco product than did females among whites (males: 34.6% versus females: 29.5%)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'chi-squared tests' named for comparisons between and within racial/ethnic groups",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Comparisons between and within each racial/ethnic group were performed with chi-squared tests, with statistical significance defined as p<0.05."
+    }
+   ]
+  },
+  {
+   "name": "Poisson regression",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'Poisson regression models' giving adjusted prevalence ratios → loglinear",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Differences in any tobacco product use across groups were assessed using Poisson regression models adjusted for sex and school level."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "aPR CIs excluding 1 read as 'significantly higher'; CIs model-based from Poisson regression",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "current use of any tobacco product was significantly higher among blacks (aPR = 2.33; 95% CI = 1.91–2.82)"
+    }
+   ]
+  },
+  {
+   "name": "survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "data stated as weighted for nonresponse to yield national estimates",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted to adjust for differential nonresponse and to yield nationally representative estimates."
+    }
+   ]
+  },
+  {
+   "name": "suppression of estimates with RSE ≥30%",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "relative-SE suppression rule",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates with relative standard errors ≥30% were suppressed."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "Asians",
+  "across": [
+   "race/ethnicity",
+   "sex",
+   "school level",
+   "tobacco product"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "were highest among Native Hawaiians/Other Pacific Islanders and American Indians/Alaska Natives and lowest among Asians."
+   },
+   {
+    "loc": "text",
+    "q": "with the group with the lowest prevalence (Asians) serving as the referent group."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Comparisons between and within each racial/ethnic group were performed with chi-squared tests, with statistical significance defined as p<0.05."
+   },
+   {
+    "loc": "text",
+    "q": "Adjusted prevalence ratios (aPRs) with 95% confidence intervals (CIs) were calculated"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "prevalence (%)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Prevalence of ever use* of tobacco products among middle and high school students, by race/ethnicity, † sex, and school level"
+    }
+   ]
+  },
+  {
+   "v": "aPR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Adjusted prevalence ratios (aPRs) with 95% confidence intervals (CIs) were calculated"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A three-stage cluster sampling procedure was used to generate a nationally representative sample of U.S. students"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Comparisons between and within each racial/ethnic group were performed with chi-squared tests"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Compared with Asians, and controlling for sex and school level, current use of any tobacco product was significantly higher"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "sex and school level",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "were obtained using Poisson regression models adjusted for sex and school level"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How does ever and current tobacco product use among U.S. middle and high school students differ across seven racial/ethnic groups?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess tobacco product use among U.S. middle and high school students from seven racial/ethnic groups"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "tobacco product use",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Racial/Ethnic Disparities in Tobacco Product Use Among Middle and High School Students — United States, 2014–2017"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NYTS is a cross-sectional, voluntary, school-based, paper-and-pencil questionnaire administered to U.S. middle (grades 6–8) and high (grades 9–12) school students."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed pooled data from the 2014–2017 National Youth Tobacco Surveys (NYTS)."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Youth Tobacco Survey (NYTS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed pooled data from the 2014–2017 National Youth Tobacco Surveys (NYTS)."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to generate a nationally representative sample of U.S. students attending public and private schools."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Racial/ethnic disparities are framed, quantified with aPRs versus Asians and interpreted; targeted tobacco industry marketing to minority groups is named as an explanation.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The industry-marketing explanation is offered tentatively ('might be attributable') and drawn from cited literature, not analyzed."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Marked disparities in tobacco product use exist among U.S. youths by race/ethnicity."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "within each racial/ethnic group, prevalence was further stratified by sex and school level (middle or high school)."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Poisson regression models adjusted for sex and school level."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Racial/Ethnic Disparities in Tobacco Product Use Among Middle and High School Students — United States, 2014–2017"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Across all racial/ethnic groups, current use of any tobacco product was significantly higher among high school students than among middle school students."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "racial/ethnic variations in targeted tobacco industry advertising, marketing and promotion; acculturation and social norms",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Observed disparities in tobacco product use might also be attributable to racial/ethnic variations in targeted tobacco industry advertising, marketing, and promotional activities"
+    },
+    {
+     "loc": "text",
+     "q": "these findings suggest distinct acculturation and social norms regarding tobacco use across racial/ethnic groups."
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Seven non-Hispanic racial/ethnic groups plus Hispanics; Asians (lowest prevalence) are the aPR referent; four survey years pooled for small groups; estimates with RSE ≥30% suppressed. School level serves as an age proxy."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 7,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Compared with these two groups, prevalence of ever-use of any tobacco product was significantly lower among multiracial persons (38.2%), Hispanics (35.1%), blacks (32.3%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 7,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Compared with Asians, and controlling for sex and school level, current use of any tobacco product was significantly higher"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "regression_fields",
+  "groupwise"
+ ],
+ "confidence": "high",
+ "notes": "Ever-use group differences are tested with chi-square against NHOPI/AI/AN; current use is assessed by aPRs vs Asians. Nonindependence set to complex survey design from the stated cluster sampling and weighting; survey-design variance is not explicitly stated.",
+ "view_issues": "Text omits an opening parenthesis ('multiracial persons 3.37; 2.74–4.13)'). Table 2 AI/AN MS hookah cell shows '§§' without a dash."
+}

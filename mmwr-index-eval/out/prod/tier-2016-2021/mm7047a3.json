@@ -1,0 +1,517 @@
+{
+ "id": "mm7047a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPytKZURAGcwHK3XXmB",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among 9,359 total participants, 3,026 (32.3%) were aware of PrEP, including 1,221 (29.2%) men and 1,805 (34.8%) women"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "PrEP awareness (32.3%) and use (<1%) among heterosexually active adults in high-prevalence cities is low"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Lower PrEP awareness was found among uninsured participants (26.4%) than among insured participants (34.2%) (aPR = 0.76)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Models were adjusted for urban area and network size and clustered on recruitment chain."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "log-linked Poisson regression with GEE",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'log-linked Poisson regression models with generalized estimating equations' giving adjusted prevalence ratios → loglinear",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "differences in PrEP awareness were assessed using log-linked Poisson regression models** with generalized estimating equations to calculate adjusted prevalence ratios (aPRs) and 95% CIs."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based 95% CIs from the GEE Poisson models; 'lower' claims rest on aPRs whose CIs exclude 1",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "PrEP awareness was lower among participants born in Puerto Rico (8.2%; aPR = 0.57) or Mexico (12.6%; aPR = 0.57)"
+    },
+    {
+     "loc": "table 1",
+     "q": "Adjusted prevalence ratio (95% CI)"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "Ref levels: women; Black; age 50–60 yrs; above poverty level; college degree; insured; usual source of care; U.S.-born; South region",
+  "across": [
+   "race/ethnicity",
+   "sex",
+   "age group",
+   "federal poverty level",
+   "education",
+   "health insurance",
+   "usual source of care",
+   "place of birth",
+   "years lived in United States",
+   "English proficiency",
+   "Census region of residence"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "especially among Hispanic or Latino men and women (19.5% and 17.6%, respectively) and persons residing in Puerto Rico (5.8%)."
+   },
+   {
+    "loc": "table 1",
+    "q": "Ref = referent group."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "log-linked Poisson regression models** with generalized estimating equations to calculate adjusted prevalence ratios (aPRs) and 95% CIs."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Awareness of PrEP no. (%)"
+    }
+   ]
+  },
+  {
+   "v": "aPR",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Adjusted prevalence ratio (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "GEE",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Models were adjusted for urban area and network size and clustered on recruitment chain."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Log-linked Poisson regression models were adjusted for urban area and network size and clustered on recruitment chain."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "urban area and network size",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Models were adjusted for urban area and network size and clustered on recruitment chain."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How aware of PrEP are HIV-negative, low-income heterosexually active adults in high-prevalence U.S. cities, and does awareness differ by demographic and social determinants?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC analyzed National HIV Behavioral Surveillance (NHBS) data to describe PrEP awareness among heterosexually active adults in cities with high HIV prevalence."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "HIV infection",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Awareness of Preexposure Prophylaxis Among HIV-Negative Heterosexually Active Adults at Increased Risk for HIV Infection"
+    }
+   ]
+  },
+  {
+   "v": "PrEP awareness",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "PrEP awareness was defined as having ever heard of PrEP."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Finally, NHBS data are cross-sectional and do not support causal inference."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The 2019 NHBS cycle included face-to-face interviews and HIV testing among eligible* heterosexually active adults in 23 urban areas"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National HIV Behavioral Surveillance (NHBS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed National HIV Behavioral Surveillance (NHBS) data"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "23 Urban Areas, United States, 2019"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Racial, ethnic, gender and nativity disparities in PrEP awareness are framed and quantified with aPRs; insurance and usual source of care are analyzed as social determinants, and lack of tailored campaigns, stigma and gender norms are offered as explanations.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The explanations (campaign focus, stigma, provider communication) could be read as generic rather than specific structural determinants."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Racial, Ethnic, and Gender Disparities in Awareness of Preexposure Prophylaxis"
+     },
+     {
+      "loc": "table 1",
+      "q": "Race/Ethnicity › Hispanic"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "primary comparison",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Overall, men reported lower PrEP awareness than did women."
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "population",
+    "basis": "behavior",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "Eligibility to participate in the study included never having had male-to-male sexual contact, aged 18–60 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "never having had male-to-male sexual contact, aged 18–60 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group, yrs › 50–60"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "population",
+    "ses_components": [
+     "low income"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "This analysis was limited to participants who received a negative HIV test result and reported low income"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "federal poverty level",
+     "education",
+     "health insurance"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Lower PrEP awareness was found among uninsured participants (26.4%) than among insured participants (34.2%) (aPR = 0.76)"
+     },
+     {
+      "loc": "table 1",
+      "q": "Education › Less than high school"
+     }
+    ]
+   },
+   {
+    "v": "country of birth/language/nativity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Non–U.S.-born participants who did not speak English well reported lower PrEP awareness than did U.S.-born participants (6.5% versus 35.2%; aPR = 0.26)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "health insurance; usual source of care; limited tailored communications; few PrEP campaigns for heterosexual Hispanic adults; stigma and gender norms; campaigns tailored toward Black persons",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "PrEP awareness might be low for multiple reasons, including limited tailored communications and infrequent patient-provider discussions about PrEP."
+    },
+    {
+     "loc": "text",
+     "q": "Because of stigma and gender norms, these stereotypes might interfere with marketing HIV prevention to some heterosexual Hispanic adults"
+    },
+    {
+     "loc": "text",
+     "q": "This might be attributable to HIV prevention campaigns tailored toward Black persons."
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referents are Black (race), women, U.S.-born, insured; AI/AN, Asian and NH/OPI groups are very small (≤15 per sex in figure). Census region and Puerto Rico residence are geography, not SPDs. Population limited to low income (≤150% FPL)."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 7,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity › Black"
+    },
+    {
+     "loc": "table 1",
+     "q": "Ref = referent group."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, 17.6% of Hispanic, 32.7% of White, and 40.3% of Black heterosexually active women were aware of PrEP."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group, yrs › 50–60"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Education › College degree or more"
+    }
+   ]
+  },
+  {
+   "across": [
+    "country of birth/language/nativity"
+   ],
+   "n_groups": 10,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Place of birth †† › 50 U.S. states or District of Columbia"
+    }
+   ]
+  },
+  {
+   "across": [
+    "country of birth/language/nativity"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "higher PrEP awareness was reported with increasing English proficiency."
+    },
+    {
+     "loc": "table 1",
+     "q": "Proficiency in English §§ › Non–U.S.-born, does not speak English well"
+    }
+   ]
+  },
+  {
+   "across": [
+    "country of birth/language/nativity"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Years lived in United States §§ › Non–U.S.-born, ≤5 yrs"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "procedures"
+ ],
+ "confidence": "medium",
+ "notes": "Each characteristic appears to be modeled separately, adjusted only for urban area and network size; crude percentages are side by side with no crude ratios. PrEP use (<1%) was not analyzed. The CI-inversion test is inferred from 'lower' claims tied to aPRs whose table CIs exclude 1.",
+ "view_issues": null
+}

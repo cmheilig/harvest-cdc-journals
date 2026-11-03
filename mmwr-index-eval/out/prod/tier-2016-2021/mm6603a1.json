@@ -1,0 +1,442 @@
+{
+ "id": "mm6603a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysHoFZc1s7p2jmpMZ",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "for an annual age-adjusted incidence rate of 439 cases per 100,000 persons"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "for an annual age-adjusted incidence rate of 439 cases per 100,000 persons"
+    }
+   ]
+  },
+  {
+   "v": "event-time",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The 5-year relative survival proportion was calculated using the Ederer II actuarial method for cases of cancer diagnosed during 2006–2012"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The proportion of persons with cancer who survived ≥5 years after diagnosis was 67%."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Cancer incidence rates were higher among males (479) than females (413), highest among blacks (444)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Annual incidence rates per 100,000 population were age-adjusted to the 2000 U.S. standard population."
+    },
+    {
+     "loc": "text",
+     "q": "particularly among black females (59%) compared with white females (68%)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization to the 2000 U.S. standard population",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "'age-adjusted to the 2000 U.S. standard population' → direct standardization",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Annual incidence rates per 100,000 population were age-adjusted to the 2000 U.S. standard population."
+    }
+   ]
+  },
+  {
+   "name": "Ederer II actuarial relative survival (life table)",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "'Ederer II actuarial method' for 5-year relative survival → life-table method",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The 5-year relative survival proportion was calculated using the Ederer II actuarial method for cases of cancer diagnosed during 2006–2012"
+    }
+   ]
+  },
+  {
+   "name": "small-cell suppression of rates (<16 cases)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "table note withholds rates with <16 cases",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Rate not shown because <16 cases were reported."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": "Healthy People 2020 targets (colorectal ≤39.9 per 100,000; cervical ≤7.2 per 100,000 females)",
+  "across": [
+   "state",
+   "sex",
+   "race/ethnicity",
+   "age group",
+   "cancer site",
+   "Puerto Rico vs states and DC"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "ranged by state from 364 (New Mexico) to 512 (Kentucky) per 100,000 persons (359 in Puerto Rico)."
+   },
+   {
+    "loc": "text",
+    "q": "The Healthy People 2020 target for reducing colorectal cancer incidence to ≤39.9 per 100,000 persons was reached in 30 states"
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted incidence rate per 100,000",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Number and annual age-adjusted rate* of invasive cancers"
+    }
+   ]
+  },
+  {
+   "v": "5-year relative survival proportion (%)",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Percentage of patients with five-year relative survival after cancer diagnosis"
+    }
+   ]
+  },
+  {
+   "v": "number of cancers",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a total of 1,559,130 invasive cancers were diagnosed and reported to central cancer registries"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What were U.S. invasive cancer incidence and 5-year relative survival in 2013, by sex, race/ethnicity, age, site and state, and how did states compare with Healthy People 2020 targets?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To monitor changes in cancer incidence and assess progress toward achieving Healthy People 2020 objectives"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "invasive cancer",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Invasive Cancer Incidence and Survival — United States, 2013"
+    }
+   ]
+  },
+  {
+   "v": "colorectal cancer",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Healthy People 2020 targets for reducing incidence rates were reached in 30 states for colorectal cancer"
+    }
+   ]
+  },
+  {
+   "v": "cervical cancer",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "28 states for cervical cancer"
+    }
+   ]
+  },
+  {
+   "v": "female breast cancer",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "incidence rates were highest for cancers of the female breast (124 per 100,000 females)"
+    }
+   ]
+  },
+  {
+   "v": "prostate cancer",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "prostate (102 per 100,000 males)"
+    }
+   ]
+  },
+  {
+   "v": "lung cancer",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "lung and bronchus (lung) (59 per 100,000 persons)"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the U.S. Cancer Statistics (USCS) data set for 2013"
+    }
+   ]
+  },
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "To monitor changes in cancer incidence and assess progress toward achieving Healthy People 2020 objectives"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "high quality incidence data from population-based cancer registries affiliated with CDC’s National Program of Cancer Registries (NPCR)"
+    },
+    {
+     "loc": "text",
+     "q": "conducted active case follow-up or linkage with CDC’s National Center for Health Statistics National Death Index"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "U.S. Cancer Statistics (USCS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the U.S. Cancer Statistics (USCS) data set for 2013"
+    }
+   ]
+  },
+  {
+   "v": "National Program of Cancer Registries (NPCR)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC’s National Program of Cancer Registries (NPCR)"
+    }
+   ]
+  },
+  {
+   "v": "Surveillance, Epidemiology, and End Results (SEER) program",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the National Cancer Institute’s (NCI’s) Surveillance, Epidemiology, and End Results (SEER) program"
+    }
+   ]
+  },
+  {
+   "v": "National Death Index",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "linkage with CDC’s National Center for Health Statistics National Death Index"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "data for the United States were restricted to the states and DC, and data for Puerto Rico were analyzed separately."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Incidence and survival are reported by race/ethnicity (e.g., survival lower among blacks 62% than whites 67%) but only set side by side, not framed or quantified as a disparity, and not interpreted.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Race appears mainly as a stratifier in descriptive tables; the brief comparison of blacks and whites could be read as description only."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The 5-year relative survival proportion after any cancer diagnosis was lower among blacks (62%) than among whites (67%)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "relative survival could only be calculated for white and black racial groups because accurate life tables were not available"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The cancer incidence rate increased with increasing age group, with highest rates (2,163 per 100,000 persons) among persons aged ≥75 years"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Cancer incidence rates were higher among males (479) than females (413)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Incidence by five race/ethnicity groups (not mutually exclusive with Hispanic; Virginia excluded from Hispanic); survival only for whites and blacks because life tables were lacking for other groups. State comparisons are geography, not SPD."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Cancer incidence rates were higher among males (479) than females (413), highest among blacks (444)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The cancer incidence rate increased with increasing age group, with highest rates (2,163 per 100,000 persons) among persons aged ≥75 years"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "highest among persons who received a diagnosis of cancer before age 45 years (83%) and decreased with increasing age"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "comparison",
+  "equity.level"
+ ],
+ "confidence": "high",
+ "notes": "No CIs or tests are reported; all contrasts are side by side. Healthy People 2020 targets serve as fixed referents for state colorectal and cervical incidence, while the headline mixes sex, race and state comparisons, so group leads.",
+ "view_issues": null
+}

@@ -1,0 +1,451 @@
+{
+ "id": "mm6605e3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrbdV1RYgVmttAff3",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The weighted prevalence of an audiometric notch among U.S. adults aged 20–69 years was 39.4 million or 24.4%"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Nearly one in four adults (24%) had audiometric notches, suggesting a high prevalence of noise-induced hearing loss."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Differences were identified by age, sex, and race/ethnicity, and by whether participants were exposed to loud noise at work."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "by reported work exposure to noise status, † and selected characteristics"
+    },
+    {
+     "loc": "text",
+     "q": "The prevalence of notches was consistently higher in males than in females for both reported work exposure to noise"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Logistic regression' giving ORs (95% CI) vs referent groups → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Logistic regression was performed to evaluate the notch prevalence among age groups and its association with sociodemographic factors"
+    }
+   ]
+  },
+  {
+   "name": "NHANES survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "analyses weighted as recommended for NHANES; weighted prevalence reported",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Statistical analyses were weighted as recommended for NHANES data."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based CIs for ORs from the logistic regression; differences by group concluded from ORs vs 1",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Persons exposed to loud noise at work were twice as likely to have bilateral or unilateral notches"
+    },
+    {
+     "loc": "table 1",
+     "q": "OR (95% CI)"
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "p-value for age trend and significance marks on percentages vs referent; test not named",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The presence of an audiometric notch increased with age (p<0.01)"
+    },
+    {
+     "loc": "table 2",
+     "q": "Statistical difference at p<0.5 compared with the referent group."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "male; age 20–29 years; White, non-Hispanic; more than high school; poverty income ratio ≥5; no work noise exposure; excellent or good hearing",
+  "across": [
+   "age group",
+   "sex",
+   "race/ethnicity",
+   "education",
+   "poverty income ratio",
+   "work exposure to noise",
+   "self-reported hearing status"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The presence of noise-induced hearing loss increased from one in five among young adults aged 20–29 years to one in four"
+   },
+   {
+    "loc": "table 1",
+    "q": "OR (95% CI)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The presence of an audiometric notch increased with age (p<0.01)"
+   },
+   {
+    "loc": "table 1",
+    "q": "OR (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage (SE)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% (SE)"
+    }
+   ]
+  },
+  {
+   "v": "OR",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "OR (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "weighted prevalence",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The weighted prevalence of an audiometric notch among U.S. adults aged 20–69 years was 39.4 million or 24.4%"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Statistical analyses were weighted as recommended for NHANES data."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% (SE)"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": null,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "What is the prevalence of audiometric notches indicating noise-induced hearing loss among U.S. adults aged 20–69 years, and how does it vary by sociodemographics and noise exposure?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC analyzed data from the 2011–2012 National Health and Nutrition Examination Survey (NHANES) to estimate the prevalence of audiometric notches"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "noise-induced hearing loss",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Vital Signs: Noise-Induced Hearing Loss Among Adults — United States 2011–2012"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NHANES † is a continuous, cross-sectional health interview and examination survey"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2011–2012 National Health and Nutrition Examination Survey (NHANES)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Health and Nutrition Examination Survey (NHANES) 2011–2012",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2011–2012 National Health and Nutrition Examination Survey (NHANES)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "hearing-related questions for a nationally representative sample of adults aged 20–69 years"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Group-specific prevalences and ORs by race/ethnicity, education and poverty income ratio are reported and race/ethnicity differences are noted, but not framed or interpreted as disparities; age and sex findings are not framed as social position.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Race and SES contrasts appear mainly in interpretive tables; the text only names race/ethnicity among differences without discussing it."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Differences were identified by age, sex, and race/ethnicity, and by whether participants were exposed to loud noise at work."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education",
+     "poverty income ratio"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Poverty income ratio › ≤1 (848)"
+     },
+     {
+      "loc": "table 1",
+      "q": "Education › Less than high school (690)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The presence of an audiometric notch increased with age (p<0.01)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Noise-Induced Hearing Loss Among Adults"
+     },
+     {
+      "loc": "text",
+      "q": "a nationally representative sample of adults aged 20–69 years"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "The prevalence of notches was higher among males."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity limited to White, Black and Mexican American; SES via education and poverty income ratio, each vs the most advantaged referent."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "trend test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The presence of an audiometric notch increased with age (p<0.01)"
+    },
+    {
+     "loc": "table 1",
+     "q": "Age group (yrs) › 20–29 (803)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity › Mexican American (381)"
+    },
+    {
+     "loc": "text",
+     "q": "Differences were identified by age, sex, and race/ethnicity"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Education › More than high school (2,156)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Poverty income ratio › ≥5 (607)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise",
+  "regression_fields",
+  "equity.level",
+  "procedures"
+ ],
+ "confidence": "medium",
+ "notes": "The audiometric notch algorithm is a case definition, not a procedure. Whether the ORs are crude or mutually adjusted is not stated; the age p<0.01 may come from the logistic model rather than a trend test. Figures cited in the Introduction (NHIS 2014) are context.",
+ "view_issues": "Table 2 note gives 'p<0.5', likely a typo for p<0.05. Table 2 cell '4.5 (0.85' lacks a parenthesis. Table 1 White unilateral SE (0.67) duplicates the bilateral SE."
+}

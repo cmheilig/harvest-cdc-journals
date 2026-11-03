@@ -1,0 +1,418 @@
+{
+ "id": "mm6839a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPys3v1s67YrdM3ozjE",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2016, past 30–day marijuana use was reported by 0.6% (CI = 0.4–0.7) of grade 6 students"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2016, past 30–day marijuana use was reported by 0.6% (CI = 0.4–0.7) of grade 6 students"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among students in grade 6, past 30–day marijuana use declined significantly, from 1.3% in 2004 to 0.6% in 2016."
+    },
+    {
+     "loc": "text",
+     "q": "prevalence of past 30–day use of other substances was four times higher among those who had used marijuana in the past 30 days"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting to school district enrollment by grade and sex",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "estimates weighted to district enrollment by grade and sex, adjusted to county totals; Stata survey software",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "percentage estimates were weighted to the school district total enrollment by grade and sex"
+    },
+    {
+     "loc": "table 1",
+     "q": "All estimates are survey weighted to reflect total county public school enrollment by grade and sex"
+    }
+   ]
+  },
+  {
+   "name": "joinpoint regression",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "Joinpoint software fits segmented least-squares regression; model scale (linear or log) not stated",
+   "role": "primary",
+   "alternative_reading": "loglinear: Joinpoint's default fits least squares on the log of the percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was used to evaluate statistical significance of trends in survey-weighted percentage estimates by grade and sex"
+    },
+    {
+     "loc": "figure 1",
+     "q": "Change in trend starting in 2012 for grades 10 and 12."
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'no significant difference' between sexes in 2016; test not named, CIs and p-values reported elsewhere",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2016, there was no significant difference in past 30–day marijuana use between male and female students in grade 10."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "prevalence ratio CIs vs 1 support 'higher' and 'similar' conclusions; Stata survey software, CI method not stated",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "No parental discussion about marijuana during the past year was reported by similar percentages of past 30–day marijuana users (39.2%) and nonusers (39.8%)."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "nonusers (prevalence ratios)",
+  "across": [
+   "survey year",
+   "school grade",
+   "sex",
+   "past 30-day marijuana use"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "past 30–day marijuana use decreased or remained stable through 2016 among King County students in grades 6, 8, 10, and 12."
+   },
+   {
+    "loc": "table 1",
+    "q": "Prevalence ratio marijuana users/ nonusers (95% CI)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Stata survey software (version 13; StataCorp) was used to generate percentage estimates and corresponding 95% confidence intervals (CIs)."
+   },
+   {
+    "loc": "figure 1",
+    "q": "Significant decreasing trend (p<0.05) in past 30-day marijuana use for grade 6."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2016, past 30–day marijuana use was reported by 0.6% (CI = 0.4–0.7) of grade 6 students"
+    }
+   ]
+  },
+  {
+   "v": "prevalence ratio",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Prevalence ratio marijuana users/ nonusers (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "change in trend",
+   "ev": [
+    {
+     "loc": "figure 2",
+     "q": "Significant (p<0.05) change in trend among male grade 10 students starting in 2010."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was used to evaluate statistical significance of trends in survey-weighted percentage estimates by grade and sex"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did past 30-day marijuana use and related characteristics change among King County public school students during 2004–2016, around retail legalization for adults?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "assessed trends and characteristics of past 30–day marijuana use among King County, Washington, public school students in grades 6, 8, 10, and 12."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "marijuana use",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Trends and Characteristics in Marijuana Use Among Public School Students"
+    }
+   ]
+  },
+  {
+   "v": "marijuana use",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Use of alcohol or other substances was four times as frequent among marijuana users as among nonusers."
+    }
+   ]
+  },
+  {
+   "v": "alcohol use",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Additional substance use › Alcohol"
+    }
+   ]
+  },
+  {
+   "v": "cigarette smoking",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Additional substance use › Cigarette smoking"
+    }
+   ]
+  },
+  {
+   "v": "electronic cigarette use",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Additional substance use › Electronic cigarettes/Vape pens"
+    }
+   ]
+  },
+  {
+   "v": "binge drinking",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Additional substance use › Binge drinking"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The Healthy Youth Survey is a school-based, anonymous, self-administered, cross-sectional survey"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "past 30–day marijuana use decreased or remained stable through 2016 among King County students in grades 6, 8, 10, and 12."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This report used biennial data for 2004–2016 from the Washington State Healthy Youth Survey."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Washington State Healthy Youth Survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This report used biennial data for 2004–2016 from the Washington State Healthy Youth Survey."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "King County, Washington, 2004–2016"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Results are by school grade (age) and sex, without social-position framing. Race/ethnicity appears only through a cited statewide finding in the Discussion, as a descriptor.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 0,
+   "reason": "The race/ethnicity mention is cited from another report, so the article's own analysis covers age and sex only."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "the prevalence of reported past 30–day marijuana use was lowest among students in grade 6 and increased with school grade level"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Among grade 10 students, the decline in use occurred among males while the rate among females remained steady."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "percentage estimates were weighted to the school district total enrollment by grade and sex"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "higher among students identifying as non-Hispanic American Indian/Alaska Native and Hispanic than among non-Hispanic white and non-Hispanic Asian students"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "School grade serves as an age proxy; sex is analyzed only in grade 10; race/ethnicity is not analyzed, only cited from statewide data."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the prevalence of reported past 30–day marijuana use was lowest among students in grade 6 and increased with school grade level"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "procedures",
+  "equity.level",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "The joinpoint model scale is not stated and APCs are not reported. The Healthy People 2020 target of 6% is cited only in the Discussion and is not used as a referent. An ACS-based in-school percentage in a footnote is context only.",
+ "view_issues": "The text says grade 12 use 'declined' after 2012, but the Discussion says it 'did not change significantly'."
+}

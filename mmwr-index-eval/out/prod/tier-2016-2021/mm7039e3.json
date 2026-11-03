@@ -1,0 +1,368 @@
+{
+ "id": "mm7039e3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyszU74WdJk45iANoJ",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "County-specific pediatric COVID-19 rates (number of cases per 100,000 population aged <18 years) from CDC’s COVID Data Tracker"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Counties without school mask requirements experienced larger increases in pediatric COVID-19 case rates after the start of school"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "After controlling for covariates, school mask requirements remained associated with lower daily case rates of pediatric COVID-19"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "one-sided t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'one-sided t-test' comparing average weekly changes between counties with and without mask requirements",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "average weekly changes were compared for counties with and without school mask requirements using a one-sided t-test"
+    }
+   ]
+  },
+  {
+   "name": "multiple linear regression",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "'multiple linear regression' of daily pediatric case rates on mask requirement plus covariates → linear",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a multiple linear regression was constructed that adjusted for age, race and ethnicity"
+    },
+    {
+     "loc": "text",
+     "q": "(β = −1.31; 95% confidence interval = −1.51 to −1.11) (p<0.001)."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "absolute",
+  "referent": "counties without school mask requirements",
+  "across": [
+   "school mask requirement",
+   "week relative to school start"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "was 18.53 cases per 100,000 per day lower than the average change for counties without school mask requirements"
+   },
+   {
+    "loc": "text",
+    "q": "Comparisons between pediatric COVID-19 case rates during the weeks before (weeks −3, −2, and −1) and after (weeks 0, 1, and 2)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "average weekly changes were compared for counties with and without school mask requirements using a one-sided t-test"
+   },
+   {
+    "loc": "text",
+    "q": "(β = −1.31; 95% confidence interval = −1.51 to −1.11) (p<0.001)."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "cases per 100,000 per day",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(16.32 cases per 100,000 children and adolescents aged <18 years per day)"
+    }
+   ]
+  },
+  {
+   "v": "average change",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The average change from week −1 (1–7 days before the start of school) to week 1"
+    }
+   ]
+  },
+  {
+   "v": "β",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(β = −1.31; 95% confidence interval = −1.51 to −1.11) (p<0.001)."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was 18.53 cases per 100,000 per day lower than the average change for counties without school mask requirements"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "After controlling for covariates, school mask requirements remained associated with lower daily case rates of pediatric COVID-19"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age, race and ethnicity, pediatric COVID-19 vaccination rate, COVID-19 community transmission, population density, SVI score, CCVI score, percentage uninsured, percentage living in poverty",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusted for age, race and ethnicity, § pediatric COVID-19 vaccination rate, COVID-19 community transmission, population density, social vulnerability index score,"
+    },
+    {
+     "loc": "text",
+     "q": "COVID-19 community vulnerability index score,** percentage uninsured, and percentage living in poverty."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Did increases in county-level pediatric COVID-19 case rates after school start differ between counties with and without school mask requirements?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess the impact of masking in schools on COVID-19 incidence among K–12 students across the United States"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Pediatric COVID-19 Cases in Counties With and Without School Mask Requirements"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "ecologic",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "First, this was an ecologic study, and causation cannot be inferred."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Comparisons between pediatric COVID-19 case rates during the weeks before (weeks −3, −2, and −1) and after (weeks 0, 1, and 2)"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "County-specific pediatric COVID-19 rates (number of cases per 100,000 population aged <18 years) from CDC’s COVID Data Tracker"
+    }
+   ]
+  },
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "MCH Strategic Data are obtained from a weekly phone survey of public, private, and independent U.S. school districts."
+    }
+   ]
+  },
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "and the 2018 American Community Survey"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "CDC COVID Data Tracker",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "from CDC’s COVID Data Tracker"
+    }
+   ]
+  },
+  {
+   "v": "MCH Strategic Data",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "MCH Strategic Data* included a known school mask requirement for at least one district"
+    }
+   ]
+  },
+  {
+   "v": "American Community Survey",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "and the 2018 American Community Survey"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, July 1–September 4, 2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Race/ethnicity and county SES measures (SVI, uninsured, poverty) appear only as regression covariates; age defines the pediatric population.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 0,
+   "reason": "The SPD covariates are county-level area measures rather than individual social position."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "number of cases per 100,000 population aged <18 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "a multiple linear regression was constructed that adjusted for age, race and ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "a multiple linear regression was constructed that adjusted for age, race and ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "social vulnerability index score",
+     "percentage uninsured",
+     "percentage living in poverty"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "COVID-19 community vulnerability index score,** percentage uninsured, and percentage living in poverty."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "County-level SVI, CCVI, percentage uninsured and percentage in poverty enter only as regression covariates; no results are reported by social group."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "study_design"
+ ],
+ "confidence": "high",
+ "notes": "Exposure is county-level school mask requirement (198 with, 322 without). The CI for β is reported alongside a p-value, so no separate CI-inversion test is recorded. Before/after is added because the main contrast is the change from before to after school start.",
+ "view_issues": "The intro says 'case rates in schools' although the analysis is of county-level rates. The regression outcome and its units, and any handling of repeated county-weeks, are not specified."
+}

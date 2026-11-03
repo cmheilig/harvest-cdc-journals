@@ -1,0 +1,512 @@
+{
+ "id": "mm7019a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPytopjRTrqZwTUb3rZ",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "In 2018, 0.40% and 0.64% of 25.1 million Medicare fee-for-service beneficiaries aged ≥67 years"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In 2018, 0.40% and 0.64% of 25.1 million Medicare fee-for-service beneficiaries aged ≥67 years"
+    },
+    {
+     "loc": "table 1",
+     "q": "Crohn’s disease, † % (95% CI)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In 2018, 0.40% and 0.64% of 25.1 million Medicare fee-for-service beneficiaries aged ≥67 years"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The prevalence of Crohn’s disease was higher among younger beneficiaries, highest among non-Hispanic White persons, and lowest among non-Hispanic A/PI persons."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence estimates were age-adjusted § when presented by state and for all trend analyses."
+    },
+    {
+     "loc": "text",
+     "q": "An interaction term for race/ethnicity and year was included to assess the differences in trends between racial/ethnic groups."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "z-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named z-test for 2018 subgroup prevalence differences, alpha 0.05",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Group differences were determined by z-test with the significance level set at 0.05."
+    }
+   ]
+  },
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "direct adjustment to 2000 U.S. Census population, three age groups",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Direct age adjustment according to 2000 U.S. Census population"
+    }
+   ]
+  },
+  {
+   "name": "weighted linear regression of ln prevalence on year (APC), with race × year interaction",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "'linear regression models weighted by inversed standard errors' on natural-log prevalence → linear (weighted least squares); APC from slope",
+   "role": "primary",
+   "alternative_reading": "loglinear: a linear model on log prevalence yields multiplicative annual change",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Trends were assessed by using linear regression models weighted by inversed standard errors."
+    },
+    {
+     "loc": "figure 2",
+     "q": "The estimated prevalence was natural logarithm transformed."
+    }
+   ]
+  },
+  {
+   "name": "natural log transformation of prevalence",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "outcome log-transformed before the trend regression",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "figure 2",
+     "q": "The estimated prevalence was natural logarithm transformed."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": null,
+  "across": [
+   "race/ethnicity",
+   "year",
+   "age group",
+   "sex",
+   "urban-rural residency",
+   "state"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "the highest annual percentage increase was among non-Hispanic Black persons"
+   },
+   {
+    "loc": "text",
+    "q": "The rate of increase was highest among non-Hispanic Black persons (APC = 5.0% for Crohn’s disease and 3.5% for ulcerative colitis)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Group differences were determined by z-test with the significance level set at 0.05."
+   },
+   {
+    "loc": "figure 2",
+    "q": "All were statistically significant (p<0.001)."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "prevalence, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Crohn’s disease, † % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "age-adjusted prevalence",
+   "ev": [
+    {
+     "loc": "figure 2",
+     "q": "Age-adjusted prevalence* ,† of Crohn’s disease and ulcerative colitis among Medicare fee-for-service beneficiaries"
+    }
+   ]
+  },
+  {
+   "v": "APC",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the overall prevalence of Crohn’s disease increased (APC = 3.4%, 95% CI = 3.2%–3.7%)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "figure 2",
+     "q": "Trends in age-adjusted prevalence estimates were assessed in linear regressions"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age (direct standardization of the modeled prevalence)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence estimates were age-adjusted § when presented by state and for all trend analyses."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "An interaction term for race/ethnicity and year was included to assess the differences in trends between racial/ethnic groups."
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How prevalent are Crohn's disease and ulcerative colitis among older Medicare fee-for-service beneficiaries, how does prevalence differ by demographics, and how did it trend in 2001–2018 by race/ethnicity?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to examine differences by demographic characteristics for both diseases and to assess trends of prevalence from 2001 through 2018"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "inflammatory bowel disease",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Prevalence of Inflammatory Bowel Disease Among Medicare Fee-For-Service Beneficiaries"
+    }
+   ]
+  },
+  {
+   "v": "Crohn’s disease",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the overall prevalence of Crohn’s disease increased (APC = 3.4%, 95% CI = 3.2%–3.7%)"
+    }
+   ]
+  },
+  {
+   "v": "ulcerative colitis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "as did the overall prevalence of ulcerative colitis (APC = 2.8%, 95% CI = 2.6%–3.0%)"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence estimates and 95% confidence intervals (CIs) were calculated overall and by demographic subgroups for 2018."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "From 2001 to 2018, the age-adjusted prevalence of IBD increased among all racial/ethnic groups"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "administrative/claims",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Medicare data are collected for insurance reimbursement purposes."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Medicare fee-for-service Parts A and B claims",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "continuously enrolled throughout a calendar year during 2001−2018 in Medicare parts A and B"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Medicare Fee-For-Service Beneficiaries — United States, 2001−2018"
+   },
+   {
+    "loc": "text",
+    "q": "Age-adjusted state-level prevalence estimates ranged from 0.17% (Hawaii) to 0.62% (Rhode Island) for Crohn’s disease"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Race/ethnicity-specific prevalence and APCs are reported and linked to health equity, but group APCs are only set side by side (5.0% vs range 2.7–3.5%) with no computed difference or ratio, so the level is capped at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The faster increase among Black persons is framed as an equity concern and tested by a race × year interaction, which could be read as a quantified, interpreted disparity."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "the highest annual percentage increase was among non-Hispanic Black persons"
+     },
+     {
+      "loc": "summary",
+      "q": "underscore the importance for promoting health equity"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "CDC examined data for U.S. adults aged ≥67 years who were continuously enrolled"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The prevalence of ulcerative colitis was highest among beneficiaries aged 75–84 years and among non-Hispanic White persons."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "For both diseases, prevalence estimates were higher among women than they were among men."
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Estimates for both diseases were highest among persons in large fringe metropolitan counties"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "income",
+     "education"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "certain socioeconomic measures, such as income and education, could not be assessed."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "health care access and quality; health literacy",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Racial/ethnic disparities have been noted in health care access, quality, and outcomes of patients with IBD"
+    },
+    {
+     "loc": "text",
+     "q": "Health literacy about IBD was also lower among non-Hispanic Black persons and Hispanic persons"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Five race/ethnicity groups; AI/AN APCs appear only in the Figure 2 note. Income and education unavailable in Medicare. State-level geography is not an SPD."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "interaction",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "An interaction term for race/ethnicity and year was included to assess the differences in trends between racial/ethnic groups."
+    },
+    {
+     "loc": "text",
+     "q": "The rate of increase was highest among non-Hispanic Black persons (APC = 5.0% for Crohn’s disease and 3.5% for ulcerative colitis)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The prevalence of Crohn’s disease was higher among younger beneficiaries, highest among non-Hispanic White persons, and lowest among non-Hispanic A/PI persons."
+    },
+    {
+     "loc": "text",
+     "q": "Group differences were determined by z-test with the significance level set at 0.05."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The prevalence of ulcerative colitis was highest among beneficiaries aged 75–84 years and among non-Hispanic White persons."
+    }
+   ]
+  },
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates for both diseases were highest among persons in large fringe metropolitan counties"
+    },
+    {
+     "loc": "text",
+     "q": "lowest among those in noncore counties."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "regression_fields",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Design not named; cross-sectional plus trend inferred. Inverse-SE weights are treated as part of the weighted least-squares model, not survey weighting. The outcome is age-standardized before modeling, so adjusted_results is true with age as the standardized factor; the model's only covariates are year and race.",
+ "view_issues": "Summary and text say the APC was highest among non-Hispanic Black persons, but the Figure 2 note gives AI/AN Crohn’s APC 5.3% > 5.0%. The Table note gives the 2017 enrollee count for a 2018 table and lists only ICD-10 codes."
+}

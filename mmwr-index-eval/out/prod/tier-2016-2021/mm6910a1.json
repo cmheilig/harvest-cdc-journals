@@ -1,0 +1,421 @@
+{
+ "id": "mm6910a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPytCcfqqifVU1EQbQw",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In 2018, 68.8% of adults were up to date with CRC screening test use"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In 2018, 68.8% of adults were up to date with CRC screening test use"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "screening prevalence was 15.9 percentage points lower among those aged 50–64 years than among those aged 65–75 years."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among all demographic groups studied, a significantly higher percentage of respondents aged 65–75 years reported being up to date with CRC screening"
+    },
+    {
+     "loc": "text",
+     "q": "were age-standardized to the 2018 BRFSS population."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'Chi-squared tests' comparing 50–64 vs 65–75 years overall and within each demographic group",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Chi-squared tests were used to evaluate significant (p<0.005) differences in screening compliance by age group (50–64 years and 65–75 years)."
+    },
+    {
+     "loc": "table 1",
+     "q": "All reported data significantly different (p<0.005) by age group (50–64 years compared with 65–75 years)."
+    }
+   ]
+  },
+  {
+   "name": "test for trend",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'A test for trend' across age groups shown in the Figure",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A test for trend was used to evaluate a significant (p<0.005) relationship between age and up-to-date screening status."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (BRFSS weights)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated weighting to state population distributions; SUDAAN used",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted to the age, sex, and racial/ethnic distribution of each state’s adult population using intercensal estimates"
+    }
+   ]
+  },
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "'age-standardized to the 2018 BRFSS population' (standard population → direct)",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were age-standardized to the 2018 BRFSS population."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "absolute",
+  "referent": "Healthy People 2020 target of 70.5%",
+  "across": [
+   "age group",
+   "sex",
+   "race/ethnicity",
+   "education",
+   "annual household income",
+   "residence location",
+   "health insurance status",
+   "regular health care provider status",
+   "state"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "screening prevalence was 15.9 percentage points lower among those aged 50–64 years than among those aged 65–75 years."
+   },
+   {
+    "loc": "text",
+    "q": "The percentage of adults aged 50–64 years who were up to date was ≥70.5% in four states and <60% in 11 states."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Chi-squared tests were used to evaluate significant (p<0.005) differences in screening compliance by age group (50–64 years and 65–75 years)."
+   },
+   {
+    "loc": "table 1",
+    "q": "% (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage up to date",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percentage of respondents aged 50–75 years who reported being up to date* with colorectal cancer screening"
+    }
+   ]
+  },
+  {
+   "v": "percentage-point difference",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was largest (23.1 percentage points) among those without health insurance"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What proportion of U.S. adults aged 50–75 years were up to date with CRC screening in 2018, and how did it vary by age, demographic characteristics and state?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "This report describes current CRC screening prevalence by age, various demographic factors, and state."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "colorectal cancer screening",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Vital Signs : Colorectal Cancer Screening Test Use — United States, 2018"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Data from the 2018 Behavioral Risk Factor Surveillance System survey were analyzed"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The Behavioral Risk Factor Surveillance System (BRFSS) is an annual, state-based, random-digit–dialed telephone survey"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The Behavioral Risk Factor Surveillance System (BRFSS) is an annual, state-based, random-digit–dialed telephone survey"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "by age group and by state — Behavioral Risk Factor Surveillance System (BRFSS), United States, 2018"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Screening by sex, race/ethnicity, education, income, insurance and rurality is reported and described, mostly side by side; the headline gap is by age, not framed as social position. The 54.5-point subgroup gap mixes age with income/insurance and is not interpreted as a disparity.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The Summary says gains were 'not equally among all populations' and the Discussion quantifies a 54.5-point gap between high-income and uninsured subgroups."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "screening prevalence was 15.9 percentage points lower among those aged 50–64 years than among those aged 65–75 years."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "This report describes current CRC screening among U.S. adults aged 50–75 years, by demographic characteristics and state."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "was higher among women (65.4%)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race/Ethnicity › Hispanic"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Data were weighted to the age, sex, and racial/ethnic distribution of each state’s adult population"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education",
+     "annual household income",
+     "health insurance"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "reported CRC screening prevalence was lowest among those without a regular health care provider (32.7%) and those without health insurance (32.6%)"
+     },
+     {
+      "loc": "text",
+      "q": "As education level and annual household income increased, the percentage of respondents who were up to date with CRC testing also increased."
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Residence location › Nonmetropolitan"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "lack of health insurance; availability of providers who perform colonoscopy",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Although lack of health insurance has been strongly associated with low CRC screening prevalence"
+    },
+    {
+     "loc": "text",
+     "q": "as well as the availability of providers who perform colonoscopy and the number of primary care providers per capita"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Healthy People 2020 target (70.5%) is a general target, applied to states by age group; race/ethnicity collapsed into six groups; insurance and income used as SES; state variation is geography."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": null,
+   "ordered": true,
+   "assessment": "trend test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "increasing age was significantly associated with an increasing percentage of persons who were up to date (p<0.005)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "As education level and annual household income increased, the percentage of respondents who were up to date with CRC testing also increased."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Annual household income ($) › ≥75,000"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity › AI/AN, non-Hispanic"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "analytic_depth"
+ ],
+ "confidence": "medium",
+ "notes": "Within-subgroup age contrasts (50–64 vs 65–75) tested by chi-square give stratified depth. State comparisons with the 70.5% Healthy People target are counts only, no test. The number of age groups in the Figure is not stated (text implies 5-year bins, 50–54 to 70–75).",
+ "view_issues": "Estimates by age group are described as age-standardized to the 2018 BRFSS population, which is unusual for age-specific estimates. The Figure description gives no numbers."
+}

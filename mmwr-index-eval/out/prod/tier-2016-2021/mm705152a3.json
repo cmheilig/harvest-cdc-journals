@@ -1,0 +1,361 @@
+{
+ "id": "mm705152a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPytA91k1b5Ey5x6ZWX",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "A higher proportion of patients with obesity were admitted to the ICU (41.1%) than were those without obesity (23.9%) (p<0.001)."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A higher proportion of patients with obesity were admitted to the ICU (41.1%) than were those without obesity (23.9%) (p<0.001)."
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The duration of hospitalization was longer for patients with obesity (median = 4 days [IQR = 2.0–7.5 days])"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among 915 patients aged <18 years, 713 (77.9%) were hospitalized for COVID-19"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A higher proportion of patients with viral coinfection required oxygen support (69.0%) compared with those without viral coinfection (51.2%) (p<0.001)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Pearson chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods and table notes for categorical variables across age groups and exposure groups",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Pearson’s chi-square and Kruskal-Wallis tests were used to compare categorical and continuous variables, respectively"
+    }
+   ]
+  },
+  {
+   "name": "Kruskal-Wallis test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods and table notes for continuous variables (lengths of stay, durations)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Clinical characteristics and outcomes were compared among groups using Pearson’s chi-square test for categorical variables and a Kruskal-Wallis test for nonnormally distributed variables."
+    }
+   ]
+  },
+  {
+   "name": "BMI-for-age percentiles",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "BMI converted to age- and sex-specific percentiles to classify obesity",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "BMI percentiles were calculated using BMI, age, and sex."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "age group",
+   "underlying medical condition",
+   "obesity",
+   "viral coinfection",
+   "reason for hospitalization"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "approximately one third aged <5 years had a viral coinfection"
+   },
+   {
+    "loc": "text",
+    "q": "Adolescents were more likely to require ICU admission and oxygen support compared with other age groups"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Pearson’s chi-square and Kruskal-Wallis tests were used to compare categorical and continuous variables, respectively; p – values <0.05 were considered statistically significant."
+   }
+  ]
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Hospitalization and illness course among children and adolescents aged <18 years hospitalized for COVID-19,* by age group"
+    },
+    {
+     "loc": "table 2",
+     "q": "Clinical characteristics and outcomes were compared among groups using Pearson’s chi-square test for categorical variables and a Kruskal-Wallis test for nonnormally distributed variables."
+    }
+   ]
+  }
+ ],
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Approximately one half (54.0%) of patients hospitalized for COVID-19 received oxygen support"
+    }
+   ]
+  },
+  {
+   "v": "median days (IQR)",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Hospital length of stay, median days (IQR)"
+    }
+   ]
+  },
+  {
+   "v": "p-value",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "p-value §"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What were the characteristics, coinfections, vaccination status and clinical outcomes of children and adolescents hospitalized with COVID-19 during Delta predominance?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "clinical signs and symptoms, illness course, and factors contributing to hospitalizations during the period of Delta predominance have not been well described in pediatric patients"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Characteristics and Clinical Outcomes of Children and Adolescents Aged <18 Years Hospitalized with COVID-19"
+    }
+   ]
+  },
+  {
+   "v": "obesity",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A higher proportion of patients with obesity were admitted to the ICU (41.1%) than were those without obesity (23.9%)"
+    }
+   ]
+  },
+  {
+   "v": "viral coinfection (RSV)",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A higher proportion of patients with viral coinfection required oxygen support (69.0%) compared with those without viral coinfection (51.2%)"
+    }
+   ]
+  },
+  {
+   "v": "MIS-C",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "25 (2.7%) had multisystem inflammatory syndrome in children (MIS-C)"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "only 0.4% of age-eligible patients were fully vaccinated."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC partnered with six children’s hospitals to review medical record data for patients aged <18 years"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "electronic health records",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were abstracted from electronic medical records using REDCap software"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Data were collected from six U.S. children’s hospitals located in areas with high COVID-19 incidence"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Among 272 vaccine-eligible patients hospitalized for COVID-19, one (0.4%) was fully vaccinated"
+   }
+  ]
+ },
+ "equity": {
+  "level": 1,
+  "level_reason": "Race/ethnicity appears only as the composition of hospitalized patients (Table 1, Discussion), with no outcome by race and no test. Age-group comparisons are tested but age is not framed as social position.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 0,
+   "reason": "Race/ethnicity is only a demographic descriptor in Table 1 and the Discussion; the earlier-study disparity is cited, not the report's own."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Children and Adolescents Aged <18 Years Hospitalized with COVID-19"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "presence of underlying medical conditions (including obesity), †††† viral coinfection, and illness course were described by age group."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The majority of those hospitalized for COVID-19 were Black or Hispanic and were aged <5 or 12–17 years."
+     },
+     {
+      "loc": "table 1",
+      "q": "Race/Ethnicity › Black or African American, non-Hispanic"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "approximately one half (373; 52.3%) were male"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity is reported only as case composition; Asian, NH/OPI, AI/AN and unspecified are collapsed into Other; 7.7% unknown."
+ },
+ "uncertain_fields": [
+  "study_design",
+  "equity.level"
+ ],
+ "confidence": "high",
+ "notes": "No design is named; surveillance/descriptive is inferred from multisite medical record review of hospitalized patients. Pediatric vaccination coverage (29%) and hospitalization rate ratios are cited from other sources, not computed here.",
+ "view_issues": "Table 2 'Total length of stay in ICU' row repeats the hospital length-of-stay row exactly (values and p=0.187). Table 3 ECMO duration is identical for the underlying-condition and obesity columns. Article was corrected after publication."
+}

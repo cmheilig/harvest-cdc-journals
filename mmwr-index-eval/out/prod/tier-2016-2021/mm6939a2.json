@@ -1,0 +1,476 @@
+{
+ "id": "mm6939a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyswVUNz1w2zs1PFy5",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During 2019–20, 61.2% of pregnant women received influenza vaccination, 56.6% received Tdap during pregnancy, and 40.3% received both vaccines."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During 2019–20, 61.2% of pregnant women received influenza vaccination, 56.6% received Tdap during pregnancy, and 40.3% received both vaccines."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During 2019–20, 61.2% of pregnant women received influenza vaccination, 56.6% received Tdap during pregnancy, and 40.3% received both vaccines."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the difference in influenza vaccination coverage between White and Black women decreased from 19 to 8 percentage points from 2018–19 to 2019–20"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among women with an offer or referral, influenza vaccination coverage was lower among Black (66.7%) than among White (75.6%) and Hispanic (79.0%) women"
+    },
+    {
+     "loc": "text",
+     "q": "but among those without high-risk conditions, coverage was lower among Black (62.8%) than among White women (77.4%)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting to age, race/ethnicity and geography of U.S. pregnant women",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated weighting of the opt-in panel; all estimates are weighted %, analyzed in SUDAAN",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted to reflect the age, race/ethnicity, and geographic distribution of the total U.S. population of pregnant women"
+    }
+   ]
+  },
+  {
+   "name": "≥5 percentage-point difference rule",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "fixed difference threshold used in place of tests to declare increases, decreases and differences vs referent",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A difference was noted as an increase or decrease when a percentage-point difference of ≥5 was found between any values being compared."
+    },
+    {
+     "loc": "note",
+     "q": "Because the opt-in Internet panel sample is not probability-based, no statistical tests were performed."
+    }
+   ]
+  },
+  {
+   "name": "small-cell suppression (n<30)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "estimates with sample size <30 withheld",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimates with sample size <30 are not reported."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "absolute",
+  "referent": "White, non-Hispanic women; other stated referent levels; 2018–19 season",
+  "across": [
+   "race/ethnicity",
+   "influenza season",
+   "age group",
+   "education",
+   "marital status",
+   "employment status",
+   "poverty status",
+   "rurality",
+   "region",
+   "prenatal insurance status",
+   "provider recommendation/offer",
+   "number of provider visits",
+   "high-risk condition"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Influenza vaccination coverage among Black and Hispanic women increased, yet disparities persisted"
+   },
+   {
+    "loc": "table 1",
+    "q": "≥5 percentage-point difference compared with referent group."
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "note",
+    "q": "Because the opt-in Internet panel sample is not probability-based, no statistical tests were performed."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "% (weighted) vaccinated",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% (weighted) vaccinated"
+    }
+   ]
+  },
+  {
+   "v": "percentage-point difference",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "an increase of 7.5 percentage points compared with 53.7% reported for the 2018–19 influenza season"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What were influenza and Tdap vaccination coverage among women pregnant during the 2019–20 season, overall and by race/ethnicity and other characteristics?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess influenza and Tdap vaccination coverage among women pregnant during the 2019–20 influenza season, CDC analyzed data from an Internet panel survey"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "influenza",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Influenza and Tdap Vaccination Coverage Among Pregnant Women — United States, April 2020"
+    }
+   ]
+  },
+  {
+   "v": "pertussis",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "can decrease the risk for severe influenza and pertussis among pregnant women and their infants"
+    }
+   ]
+  },
+  {
+   "v": "pregnancy",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Influenza and Tdap Vaccination Coverage Among Pregnant Women — United States, April 2020"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from an Internet panel survey conducted during April 2020."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "61.2% reported receiving influenza vaccine before or during their pregnancy, an increase of 7.5 percentage points compared with the rate during the 2018–19 season"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Pregnant women were recruited from a large, pre-existing, opt-in Internet panel of the general population, a panel operated by Dynata"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Internet panel survey (Dynata opt-in Internet panel)",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Pregnant women were recruited from a large, pre-existing, opt-in Internet panel of the general population, a panel operated by Dynata"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Influenza and Tdap Vaccination Coverage Among Pregnant Women — United States, April 2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During 2019–20, 61.2% of pregnant women received influenza vaccination, 56.6% received Tdap during pregnancy, and 40.3% received both vaccines."
+   }
+  ]
+ },
+ "equity": {
+  "level": 4,
+  "level_reason": "Racial/ethnic disparities are framed, quantified (White–Black gap fell from 19 to 8 percentage points) and interpreted; access, trust, provider-patient communication and quality-of-care deficits for minority patients are named as explanations.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Named explanations are cited from other studies and partly individual (attitudes, knowledge), so they may count as generic causes."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Influenza vaccination coverage among Black and Hispanic women increased, yet disparities persisted"
+     },
+     {
+      "loc": "table 1",
+      "q": "Race/ethnicity was self-reported."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "by selected characteristics, stratified by race/ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Data were weighted to reflect the age, race/ethnicity, and geographic distribution of the total U.S. population of pregnant women"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "among women aged 18–49 years who reported being pregnant anytime since August 1, 2019"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group (yrs) › 18–24"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Influenza and Tdap Vaccination Coverage Among Pregnant Women — United States, April 2020"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education",
+     "poverty status",
+     "prenatal insurance status"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Poverty status ¶¶ › Below poverty"
+     },
+     {
+      "loc": "table 1",
+      "q": "Education › High school diploma or less"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Area of residence*** › Rural"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "less knowledge about and access to vaccines; lack of trust in health care providers; provider-patient communication problems; deficits in quality of care for minority patients",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Factors including negative attitudes and beliefs about vaccines, less knowledge about and access to vaccines, and a lack of trust in health care providers"
+    },
+    {
+     "loc": "text",
+     "q": "Differences by patient race/ethnicity in reported vaccination offers might result from provider-patient communication problems or reflect deficits in quality of care"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the difference in influenza vaccination coverage between White and Black women decreased from 19 to 8 percentage points from 2018–19 to 2019–20"
+    }
+   ]
+  },
+  "equity_measurement": "Referent is White non-Hispanic women; 'Other' collapses Asian, AI/AN, NH/OPI and multiple races; small-cell estimates suppressed; employment status (out of work, unable to work) also tabulated."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Influenza vaccination coverage among Black and Hispanic women increased, yet disparities persisted"
+    },
+    {
+     "loc": "table 1",
+     "q": "≥5 percentage-point difference compared with referent group."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group (yrs) › 35–49 ¶"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Education › More than college degree ¶"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Prenatal insurance status §§§ › Uninsured"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "procedures",
+  "equity.level",
+  "analytic_depth"
+ ],
+ "confidence": "medium",
+ "notes": "No statistical tests or CIs; all differences are judged by a fixed ≥5 percentage-point rule, recorded as an 'other' procedure. Earlier-season coverage values are cited from prior reports of the same survey. Design inferred as cross-sectional from the Internet panel survey.",
+ "view_issues": "Table 1 Tdap Public cell is marked '49.4*' where '§' seems intended; Table 1 'Working' full-vaccination count (293) exceeds the Tdap count (269)."
+}

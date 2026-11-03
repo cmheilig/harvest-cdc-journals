@@ -1,0 +1,308 @@
+{
+ "id": "mm6841a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPys2v7woDrfjFoxv6Z",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Z-tests were used to assess statistically significant differences (p<0.05) between surveys."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the estimated percentage change in tobacco use from the first round to the most recent round ranged from −21.5% in Russia"
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the overall population estimate for current tobacco use decreased by approximately 20 million between GATS rounds"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Also, percentage point differences and percentage differences in prevalences and differences in population estimates were calculated."
+    },
+    {
+     "loc": "text",
+     "q": "Although seven of the 11 countries made measurable progress toward WHO’s target of a 30% reduction in tobacco use by 2030, country-level progress varied."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "z-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'Z-tests were used' to compare prevalences between survey rounds; significance marked in the table and figures",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Z-tests were used to assess statistically significant differences (p<0.05) between surveys."
+    },
+    {
+     "loc": "table 1",
+     "q": "Statistically significant change, p<0.05."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting with nonresponse adjustment",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weights stated as producing nationally representative estimates; SUDAAN used for all analyses",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were adjusted for nonresponse through weighting to provide nationally representative estimates among persons aged ≥15 years."
+    },
+    {
+     "loc": "text",
+     "q": "All statistical analyses were conducted using SAS-callable SUDAAN (version 11.0; RTI International)."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "both",
+  "referent": "WHO 2030 target of a 30% reduction in current tobacco use",
+  "across": [
+   "survey round (period)",
+   "country"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Also, percentage point differences and percentage differences in prevalences and differences in population estimates were calculated."
+   },
+   {
+    "loc": "text",
+    "q": "Although seven of the 11 countries made measurable progress toward WHO’s target of a 30% reduction in tobacco use by 2030, country-level progress varied."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Country-specific prevalence and population estimates with corresponding 95% confidence intervals (CIs) were calculated for current tobacco use, SHS exposure"
+   },
+   {
+    "loc": "text",
+    "q": "Z-tests were used to assess statistically significant differences (p<0.05) between surveys."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "prevalence, % (95% CI)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Prevalence † › Baseline round › % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "% point difference",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Prevalence † › % Point difference"
+    }
+   ]
+  },
+  {
+   "v": "% change",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percentage change is calculated as [(t2-t1)/t1] x 100"
+    }
+   ]
+  },
+  {
+   "v": "population estimate (millions)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Population is presented in millions and has been rounded down to the nearest 100,000."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did tobacco use, secondhand smoke exposure, warning-label-prompted quit thoughts and tobacco advertising exposure change between GATS rounds in 11 countries?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC analyzed data from 11 countries that completed two or more rounds of the Global Adult Tobacco Survey (GATS) during 2008–2017."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "tobacco use",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Tobacco Use and Tobacco-Related Behaviors — 11 Countries, 2008–2017"
+    }
+   ]
+  },
+  {
+   "v": "secondhand smoke exposure",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimated percentage change in SHS exposure ranged from −71.5% in Turkey to 72.9% in Thailand."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "GATS is a nationally representative household survey of noninstitutionalized adults aged ≥15 years that uses a standard core questionnaire"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Across the 11 countries, the overall population estimate for current tobacco use decreased by approximately 20 million between GATS rounds"
+    }
+   ]
+  },
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Although seven of the 11 countries made measurable progress toward WHO’s target of a 30% reduction in tobacco use by 2030, country-level progress varied."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "GATS is a nationally representative household survey of noninstitutionalized adults aged ≥15 years"
+    },
+    {
+     "loc": "note",
+     "q": "Second round of GATS data for Brazil were obtained from a national health survey (Pesquisa Nacional Por Amostrade Domicilios)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Global Adult Tobacco Survey (GATS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "completed two or more rounds of the Global Adult Tobacco Survey (GATS) during 2008–2017."
+    }
+   ]
+  },
+  {
+   "v": "Pesquisa Nacional Por Amostrade Domicilios (Brazil national health survey)",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Second round of GATS data for Brazil were obtained from a national health survey (Pesquisa Nacional Por Amostrade Domicilios)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "international",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Tobacco Use and Tobacco-Related Behaviors — 11 Countries, 2008–2017"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Age (≥15 years; ≥18 in Brazil) only defines the population; comparisons are across countries and survey rounds, which are not social-position dimensions.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 1,
+   "reason": "The introduction notes most smokers live in low- and middle-income countries, but country income group is geography, not an SPD."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "GATS is a nationally representative household survey of noninstitutionalized adults aged ≥15 years"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "No SPD groups compared; countries (some described as low- and middle-income in background) are geographic units, not SPDs."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "outcome_types",
+  "study_design"
+ ],
+ "confidence": "high",
+ "notes": "Design not named; cross-sectional repeated survey inferred. Weighted population counts (millions) and their differences are reported alongside prevalences, hence count/rate. Turkey's three rounds are compared pairwise (2008–2012, 2012–2016) with the same tests; progress toward the WHO 30% target is judged by percent change, not by a test.",
+ "view_issues": "Table: Brazil 'thinking about quitting' most recent estimate 54.3 lies outside its CI (50.3–54.2). Brazil's comparison uses adults ≥18 years, and Russia/Ukraine rounds covered different areas."
+}

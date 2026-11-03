@@ -1,0 +1,454 @@
+{
+ "id": "mm6927a5",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysyUUCfvXz7iECq4Y",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In 2018, 27.5% of adults aged ≥65 years reported at least one fall in the past year"
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "an average of 714 falls (Table 1) and an average of 170 fall-related injuries were reported per 1,000 older adults"
+    },
+    {
+     "loc": "table 1",
+     "q": "Weighted number of falls per 1,000 adults aged ≥65 years."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In 2018, 27.5% of adults aged ≥65 years reported at least one fall in the past year"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a higher percentage of women reported at least one fall (29.1%; p<0.001) or fall-related injury (11.9%; p<0.001) than did men"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "when stratified by age group, the percentages of adults aged ≥85 years reporting a fall (32.8% of women and 35.7% of men"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "two-sample t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated: two-sample t-tests comparing percentages across characteristics",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Two-sample t-tests were used to compare percentages across characteristics."
+    }
+   ]
+  },
+  {
+   "name": "linear trend test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated: linear trend tests across age groups and self-reported health",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Linear trend tests were conducted for age group and self-reported health status."
+    }
+   ]
+  },
+  {
+   "name": "polynomial linear regression for trend linearity",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "'Polynomial linear regression' over survey years → linear",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Polynomial linear regression was used to assess linearity of trends"
+    }
+   ]
+  },
+  {
+   "name": "Bonferroni-adjusted two-sample t-tests between years",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated: t-tests with Bonferroni adjustment where trends were nonlinear",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "two-sample t-tests with Bonferroni adjustments for multiple comparisons were performed to determine differences between years"
+    }
+   ]
+  },
+  {
+   "name": "survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated: weighted results; SUDAAN for complex survey design",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All results presented are weighted to represent the U.S. population."
+    },
+    {
+     "loc": "text",
+     "q": "Analysis was conducted using SAS-callable SUDAAN (version 11; RTI International) to account for the complex survey design."
+    }
+   ]
+  },
+  {
+   "name": "suppression of imprecise estimates (n<50 or RSE>30%)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "table note: estimates withheld by sample-size and relative-SE rule",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Dashes indicate sample size <50 or relative standard error >30%."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "survey year",
+   "age group",
+   "sex",
+   "race/ethnicity",
+   "urban/rural status",
+   "self-reported health",
+   "functional characteristics",
+   "physical activity"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "From 2012 to 2016, the percentages of these adults reporting a fall increased, and from 2016 to 2018, the percentages decreased."
+   },
+   {
+    "loc": "text",
+    "q": "percentages and rates were calculated by age group for demographic (sex and race/ethnicity) and geographic (urban/rural status) characteristics"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Two-sample t-tests were used to compare percentages across characteristics."
+   },
+   {
+    "loc": "text",
+    "q": "the percentage of those older adults reporting a fall increased from 27.9% in 2012 to 29.6% in 2016 (p<0.001)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Weighted percentage of adults aged ≥65 years reporting at least one fall in the past year."
+    }
+   ]
+  },
+  {
+   "v": "rate per 1,000 older adults",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Weighted number of falls per 1,000 adults aged ≥65 years."
+    }
+   ]
+  },
+  {
+   "v": "weighted number reporting a fall",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Weighted number of adults aged ≥65 years reporting at least one fall in the past year."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Analysis was conducted using SAS-callable SUDAAN (version 11; RTI International) to account for the complex survey design."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Polynomial linear regression was used to assess linearity of trends"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "What percentages and rates of nonfatal falls and fall-related injuries do US adults aged ≥65 years report, by characteristics, and how did they change 2012–2018?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To describe the percentages and rates of nonfatal falls by age group and demographic characteristics and trends in falls and fall-related injuries over time"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "falls",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Trends in Nonfatal Falls and Fall-Related Injuries Among Adults Aged ≥65 Years"
+    }
+   ]
+  },
+  {
+   "v": "fall-related injuries",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Trends in Nonfatal Falls and Fall-Related Injuries Among Adults Aged ≥65 Years"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Second, this survey is cross-sectional."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "From 2012 to 2016, the percentages of these adults reporting a fall increased, and from 2016 to 2018, the percentages decreased."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "data were analyzed from the 2018 Behavioral Risk Factor Surveillance System (BRFSS) and were compared with data from 2012, 2014, and 2016"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "data were analyzed from the 2018 Behavioral Risk Factor Surveillance System (BRFSS)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Analysis was restricted to respondents aged ≥65 years residing in the 50 states and DC."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Race/ethnicity, sex and rural/urban results are reported with t-tests and described (e.g., lower fall percentage among Black than White adults), but not framed or interpreted as disparities.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 1,
+   "reason": "SPD contrasts are mentioned only in the Results and never discussed, so one could read them as descriptive strata."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Trends in Nonfatal Falls and Fall-Related Injuries Among Adults Aged ≥65 Years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The percentage of adults aged ≥65 years reporting a fall or a fall-related injury increased with age (p<0.001)."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "a higher percentage of women reported at least one fall (29.1%; p<0.001) or fall-related injury (11.9%; p<0.001) than did men"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "A lower percentage of blacks (22.5%; p<0.001) and Asian/Pacific Islanders (15.6%; p<0.001) reported a fall than did whites (28.3%)"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "a higher percentage of older adults living in rural areas (29.5%) reported a fall compared with those living in urban areas (27.0%; p<0.001)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "White adults are the referent for race/ethnicity t-tests; many race-by-age estimates are suppressed (n<50 or RSE>30%); functional limitations are treated as clinical risk factors, not disability as social position."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "trend test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Linear trend tests were conducted for age group and self-reported health status."
+    },
+    {
+     "loc": "text",
+     "q": "The percentage of adults aged ≥65 years reporting a fall or a fall-related injury increased with age (p<0.001)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A lower percentage of blacks (22.5%; p<0.001) and Asian/Pacific Islanders (15.6%; p<0.001) reported a fall than did whites (28.3%)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "procedures"
+ ],
+ "confidence": "high",
+ "notes": "The polynomial linear regression is taken as the trend model behind the 'no significant change' claims; year-to-year changes rest on Bonferroni-adjusted t-tests. Rates are mean falls per 1,000 older adults. The article was corrected after publication (2023 erratum).",
+ "view_issues": "Table 2, 65–74 years: urban (511,500) and rural (2,232,054) injury counts look swapped relative to the percentages and other age groups. Table 2 suppresses the overall Asian/Pacific Islander percentage but reports its rate."
+}

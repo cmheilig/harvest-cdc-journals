@@ -1,0 +1,467 @@
+{
+ "id": "mm6803a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysyxzJ5sL1EzENdwT",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "School-associated homicide trends were analyzed using Joinpoint regression based on Poisson distribution."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the average rate of single-victim school-associated youth homicides during July 1994–June 2016 was 0.03 per 100,000 students"
+    },
+    {
+     "loc": "text",
+     "q": "Incidence rates fluctuated substantially (range = 0–6 incidents per year)"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Firearm-related injuries were the cause of death in 247 (62.8%) and 115 (95%) single- and multiple-victim homicides, respectively."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the average rate of single-victim school-associated youth homicides during July 1994–June 2016 was 0.03 per 100,000 students"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was 8.27 times higher for non-Hispanic black youths than for non-Hispanic white youths"
+    },
+    {
+     "loc": "summary",
+     "q": "Multiple-victim incidence rates increased significantly from July 2009 to June 2018."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Joinpoint (segmented) Poisson regression",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'Joinpoint regression based on Poisson distribution': segmented regression of rates on time with a Poisson model → loglinear",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "School-associated homicide trends were analyzed using Joinpoint regression based on Poisson distribution."
+    },
+    {
+     "loc": "text",
+     "q": "however, the rate did not change significantly over the entire period (p = 0.3)"
+    }
+   ]
+  },
+  {
+   "name": "compound Poisson variance estimation for clustered victims",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "variance of multiple-victim victimization rates estimated with a compound Poisson process on 3-year aggregates to account for dependence",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "to account for dependence between cases, the variance was estimated by applying a compound Poisson process based on data aggregated across 3-year intervals"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "rate ratios with 95% CIs vs referent categories, read as higher risk; CI method not stated",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Race/Ethnicity › Black, non-Hispanic: 8.27 (6.47–10.57)"
+    },
+    {
+     "loc": "text",
+     "q": "Finally, statistical power for some comparisons was limited because of small numbers."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "referent categories: female, White non-Hispanic, rural, private, elementary/middle school",
+  "across": [
+   "school year",
+   "sex",
+   "race/ethnicity",
+   "fatal firearm injury",
+   "school locale",
+   "school type",
+   "school level"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Single-victim homicide rates remained stable overall during 1994–2016."
+   },
+   {
+    "loc": "table 2",
+    "q": "Referent category."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "but did not indicate a significant trend for the overall period (p = 0.6)"
+   },
+   {
+    "loc": "table 2",
+    "q": "Rate ratio (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "victimization rate per 100,000 students",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Victimization rates for school-associated single-victim homicides per 100,000 students"
+    }
+   ]
+  },
+  {
+   "v": "incidence rate per 100,000 students",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Incidence rates (using the number of incidents as the numerator) were also calculated for multiple-victim incidents."
+    }
+   ]
+  },
+  {
+   "v": "rate ratio",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Rate ratio (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Single-victim homicide decedents were mostly males (77.4%) and aged 15–18 years (77.9%)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "clustered or robust SE",
+   "ev": [
+    {
+     "loc": "figure 2",
+     "q": "to account for dependence between multiple-victim cases, the variance was estimated by applying a compound Poisson process"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Single-victim homicide trends were analyzed using Joinpoint regression based on Poisson distribution"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "What are the trends and characteristics of school-associated single- and multiple-victim youth homicides in the United States, 1994–2018?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To understand trends and characteristics in school-associated homicides involving youths, data from CDC’s School-Associated Violent Death Surveillance System were analyzed"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "school-associated youth homicide",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Characteristics of School-Associated Youth Homicides — United States, 1994–2018"
+    }
+   ]
+  },
+  {
+   "v": "firearm injury",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Firearm-related injuries were the cause of death in 247 (62.8%) and 115 (95%) single- and multiple-victim homicides, respectively."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The School-Associated Violent Death Surveillance System tracks lethal violence in school settings, providing a census of violent deaths"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Multiple-victim incidence rates increased significantly from July 2009 to June 2018."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "data from CDC’s School-Associated Violent Death Surveillance System were analyzed"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "School-Associated Violent Death Surveillance System",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "data from CDC’s School-Associated Violent Death Surveillance System were analyzed"
+    }
+   ]
+  },
+  {
+   "v": "LexisNexis",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "computerized newspaper and broadcast media databases via LexisNexis"
+    }
+   ]
+  },
+  {
+   "v": "Gun Violence Archive",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "web-based firearm injury data sets (i.e., Everytown for Gun Safety and the Gun Violence Archive)"
+    }
+   ]
+  },
+  {
+   "v": "Everytown for Gun Safety",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "web-based firearm injury data sets (i.e., Everytown for Gun Safety and the Gun Violence Archive)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Characteristics of School-Associated Youth Homicides — United States, 1994–2018"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 3,
+  "level_reason": "Race/ethnicity and urban locale are compared by rate ratios (Black vs White 8.27 times higher; urban 3.97) and interpreted as minority and urban youths being at higher risk; causes are generic (community-wide risks).",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 2,
+   "reason": "The contrast is never called a disparity; it may be read as group-specific results described as consistent with national data."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "was 8.27 times higher for non-Hispanic black youths than for non-Hispanic white youths"
+     },
+     {
+      "loc": "text",
+      "q": "racial/ethnic minority adolescents are at higher risk for being homicide victims than are non-Hispanic white youths"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "School locale †† › Urban: 3.97 (2.99–5.26)"
+     },
+     {
+      "loc": "text",
+      "q": "youth homicide rates are higher in urban areas"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Sex ¶ › Male: 2.96 (2.34–3.75)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Incidents involved the homicide of at least one youth aged 5–18 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Single-victim homicide decedents were mostly males (77.4%) and aged 15–18 years (77.9%)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Rate ratios use White non-Hispanic and rural schools as referents; Other/Unknown race excluded from rates; Asian/Pacific Islander in Table 1 but Asian in Table 2."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Race/Ethnicity †† › White, non-Hispanic**"
+    },
+    {
+     "loc": "table 2",
+     "q": "Referent category."
+    }
+   ]
+  },
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "School locale †† › Rural**"
+    },
+    {
+     "loc": "text",
+     "q": "The single-victim homicide rate was highest in urban (0.07 per 100,000), public (0.037), and high schools (0.091)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "procedures",
+  "regression_fields"
+ ],
+ "confidence": "medium",
+ "notes": "Rate ratios are crude; no adjusted model. The compound Poisson variance for multiple-victim victimization rates is mapped to clustered SE as the nearest nonindependence option. NCHS mortality, NCES and CPS data serve only as denominators.",
+ "view_issues": "Notes say multiple-victim data run through July 2018, text says June 2018. Table 1 CSV cell '21 (10.5' lacks a parenthesis; Table 1 race uses Asian/Pacific Islander, Table 2 Asian. Off-campus location percentages in perpetrator columns appear to use total perpetrators as denominator."
+}

@@ -1,0 +1,404 @@
+{
+ "id": "mm6946a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysqHJRFVv5o4CmPWa",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The age-adjusted cumulative citywide incidences were 2,263 cases, 582 hospitalizations, and 198 deaths per 100,000 population."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The age-adjusted cumulative citywide incidences were 2,263 cases, 582 hospitalizations, and 198 deaths per 100,000 population."
+    },
+    {
+     "loc": "text",
+     "q": "Age-specific incidence was highest among adults aged 45–64 years (7,007 per 100,000)"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The crude fatality rate among confirmed cases was 9.2% overall and 32.1% among hospitalized patients."
+    },
+    {
+     "loc": "text",
+     "q": "Citywide, the percentage of tests with positive results increased from 27% the week of March 8 to a peak of 65%"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The crude fatality rate among confirmed cases was 9.2% overall and 32.1% among hospitalized patients."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-specific incidence was highest among adults aged 45–64 years (7,007 per 100,000)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-adjusted incidence, hospitalization rate, and death rate were higher among males than females, and all increased with increasing levels of neighborhood poverty."
+    },
+    {
+     "loc": "table 1",
+     "q": "rates for sex, race/ethnicity, neighborhood poverty, and borough of residence were age-adjusted."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization (U.S. 2000 standard population)",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "'direct standardization for age and weighting by the U.S. 2000 standard population'; the weighting is the standard population, not survey weighting",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-adjusted rates were calculated using direct standardization for age and weighting by the U.S. 2000 standard population"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "race/ethnicity",
+   "neighborhood poverty",
+   "age group",
+   "sex",
+   "borough",
+   "week"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Incidence, hospitalization rates, and mortality were highest among Black/African American and Hispanic/Latino persons"
+   },
+   {
+    "loc": "text",
+    "q": "By borough, age-adjusted incidence, hospitalization rate, and death rate were consistently highest in the Bronx and lowest in Manhattan."
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted rate per 100,000",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Per 100,000 population; rates for sex, race/ethnicity, neighborhood poverty, and borough of residence were age-adjusted."
+    }
+   ]
+  },
+  {
+   "v": "crude fatality rate",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The crude fatality rate among confirmed cases was 9.2% overall and 32.1% among hospitalized patients."
+    }
+   ]
+  },
+  {
+   "v": "percentage of tests with positive results",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Citywide, the percentage of tests with positive results increased from 27% the week of March 8 to a peak of 65%"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What were the counts, rates and fatality of laboratory-confirmed COVID-19 cases, hospitalizations and deaths in NYC during the first 3 months, by demographic and neighborhood groups?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This report describes cases of laboratory-confirmed COVID-19 among NYC residents diagnosed during February 29–June 1, 2020, that were reported to DOHMH."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "COVID-19 Outbreak — New York City, February 29–June 1, 2020"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This report describes cases of laboratory-confirmed COVID-19 among NYC residents diagnosed during February 29–June 1, 2020, that were reported to DOHMH."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This report describes cases of laboratory-confirmed COVID-19 among NYC residents diagnosed during February 29–June 1, 2020, that were reported to DOHMH."
+    }
+   ]
+  },
+  {
+   "v": "electronic health records",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NYC public hospitals, DOHMH’s electronic death registry system, and remote access to hospitals’ electronic health record systems"
+    }
+   ]
+  },
+  {
+   "v": "registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NYC public hospitals, DOHMH’s electronic death registry system, and remote access to hospitals’ electronic health record systems"
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "These supplementary data systems included emergency department syndromic surveillance, the New York State Hospital Emergency Response Data System, regional health information organizations"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "NYC DOHMH COVID-19 case surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "DOHMH began COVID-19 surveillance in January 2020"
+    }
+   ]
+  },
+  {
+   "v": "emergency department syndromic surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "These supplementary data systems included emergency department syndromic surveillance"
+    }
+   ]
+  },
+  {
+   "v": "New York State Hospital Emergency Response Data System",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the New York State Hospital Emergency Response Data System, regional health information organizations"
+    }
+   ]
+  },
+  {
+   "v": "DOHMH electronic death registry system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NYC public hospitals, DOHMH’s electronic death registry system"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "COVID-19 Outbreak — New York City, February 29–June 1, 2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Age-adjusted rates by race/ethnicity and neighborhood poverty are reported and framed as disproportionate, with structural determinants named, but values are only set side by side with no computed difference or ratio, so the cap at 2 applies.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "The Discussion frames disparities ('suffered disproportionately') and names policies, occupations and insurance as causes; reading 'highest among' with tabulated rates as quantified would give level 4."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Age-adjusted rates of hospitalization and death were highest among Black (699 and 248 per 100,000, respectively) and Hispanic/Latino (Hispanic) persons"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "neighborhood poverty"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Age-adjusted incidence, hospitalization rate, and death rate were higher among males than females, and all increased with increasing levels of neighborhood poverty."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Age-specific incidence was highest among adults aged 45–64 years (7,007 per 100,000)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Male"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "long-term policies, practices, attitudes and cultural messages; lower-paid frontline employment; lack of employer-based health insurance; barriers to accessing testing",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "These trends represent the downstream effect of long-term policies, practices, attitudes, and cultural messages that promote, reinforce, and fail to eliminate inequities"
+    },
+    {
+     "loc": "text",
+     "q": "Black and Hispanic persons are disproportionately employed in lower-paid, often frontline industries and occupations"
+    },
+    {
+     "loc": "text",
+     "q": "suggests barriers to accessing testing in areas with considerable community transmission"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Neighborhood poverty is a ZIP-level ACS proxy in 4 ordered levels; race/ethnicity is missing for many nonhospitalized cases (Other race/Missing has no rate). Borough is geography, not an SPD."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-adjusted rates of hospitalization and death were highest among Black (699 and 248 per 100,000, respectively) and Hispanic/Latino (Hispanic) persons"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-adjusted incidence, hospitalization rate, and death rate were higher among males than females, and all increased with increasing levels of neighborhood poverty."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-specific incidence was highest among adults aged 45–64 years (7,007 per 100,000)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "study_design"
+ ],
+ "confidence": "high",
+ "notes": "The title calls it an outbreak, but the report describes citywide case surveillance, so surveillance/descriptive was chosen. Prepass 'weighting' cue is the standard population in direct standardization. Medians of hospital stay and diagnosis-to-death interval are single descriptive values and do not add continuous.",
+ "view_issues": "Article was corrected after publication (erratum 2020-12-18). The sentence 'Among 85% of decedents with known underlying medical conditions, the majority (75%)...' is garbled. Discussion's 'approximately 30%' of hospitalized dying differs from 32.1% in results."
+}

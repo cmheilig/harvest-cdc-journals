@@ -1,0 +1,406 @@
+{
+ "id": "mm6701e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPys3AFEvZPXKVaXWeG",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "In 2015, the overall prevalence of nonsupine sleep positioning was 21.6%, ranging from 12.2% in Wisconsin to 33.8% in Louisiana"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2015, more than half (61.4%) of respondents reported any bed sharing with their infant"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2015, the overall prevalence of nonsupine sleep positioning was 21.6%, ranging from 12.2% in Wisconsin to 33.8% in Louisiana"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Nonsupine sleep positioning prevalence was higher among respondents aged <25 years compared with ≥25 years"
+    },
+    {
+     "loc": "text",
+     "q": "nonsupine sleep positioning decreased significantly from 27.2% in 2009 to 19.4% in 2015 overall (p<0.001)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting (PRAMS sampling, nonresponse, noncoverage weights)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weighted prevalence from weights for sampling design, nonresponse and noncoverage; complex survey design",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "PRAMS data for each site are weighted for sampling design, nonresponse, and noncoverage"
+    },
+    {
+     "loc": "text",
+     "q": "Analyses accounted for the complex survey sampling design of PRAMS."
+    }
+   ]
+  },
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "chi-square p-values by characteristic in Tables 1–3; survey design accounted for",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Chi-square tests and 95% confidence intervals †† were used to determine differences in unsafe sleep practices by maternal characteristic"
+    },
+    {
+     "loc": "table 1",
+     "q": "Chi-square p-value"
+    }
+   ]
+  },
+  {
+   "name": "CI overlap assertion",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "footnote states nonoverlap of 95% CIs used to identify differences between categories; CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "95% CIs for the prevalence were compared across groups, with an emphasis on identifying differences (i.e., nonoverlap of CIs) between categories"
+    }
+   ]
+  },
+  {
+   "name": "logistic regression test for linear trend",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'tested for linear trends ... using logistic regression' → logistic; survey design accounted for",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC tested for linear trends in nonsupine sleep position overall and by maternal characteristics and state, from 2009 to 2015, using logistic regression."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "race/ethnicity",
+   "maternal age group",
+   "maternal education",
+   "WIC participation",
+   "state",
+   "gestational age",
+   "breastfeeding at 8 weeks",
+   "year"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Unsafe sleep practices varied by state, race/ethnicity, age, education, and participation in the Special Supplemental Nutrition Program for Women, Infants, and Children."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "ci_overlap": true,
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Chi-square tests and 95% confidence intervals †† were used to determine differences in unsafe sleep practices by maternal characteristic"
+   },
+   {
+    "loc": "note",
+    "q": "95% CIs for the prevalence were compared across groups, with an emphasis on identifying differences (i.e., nonoverlap of CIs) between categories"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted percentage (prevalence)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "* Weighted percentage."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Analyses accounted for the complex survey sampling design of PRAMS."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC tested for linear trends in nonsupine sleep position overall and by maternal characteristics and state, from 2009 to 2015, using logistic regression."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How prevalent were unsafe infant sleep practices in 2015, how did they vary by state and maternal characteristics, and how did nonsupine positioning change 2009–2015?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "CDC examined 2015 data on nonsupine sleep positioning, bed sharing, and soft bedding use by state and selected maternal characteristics"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "unsafe infant sleep practices (nonsupine positioning, bed sharing, soft bedding)",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Vital Signs: Trends and Disparities in Infant Safe Sleep Practices — United States, 2009–2015"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "PRAMS, a state-specific and population-based surveillance system, monitors self-reported behaviors and experiences"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "nonsupine sleep positioning decreased significantly from 27.2% in 2009 to 19.4% in 2015 overall (p<0.001)"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "CDC analyzed 2009–2015 Pregnancy Risk Assessment Monitoring System (PRAMS) data to describe infant sleep practices."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Pregnancy Risk Assessment Monitoring System (PRAMS)",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "CDC analyzed 2009–2015 Pregnancy Risk Assessment Monitoring System (PRAMS) data to describe infant sleep practices."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "In 2015, 21.6% of respondents from 32 states and New York City reported placing their infant in a nonsupine sleep position"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Prevalence by race/ethnicity, maternal age, education and WIC participation is reported and the title frames disparities, but contrasts are only values side by side with chi-square p-values or CI nonoverlap; no difference or ratio is computed.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The article frames 'disparities', states group differences as higher and interprets them against sleep-related death disparities."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Bed sharing prevalence was higher among respondents who were American Indians/Alaska Natives, non-Hispanic blacks, or Asians/Pacific Islanders compared with non-Hispanic whites or Hispanics"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Nonsupine sleep positioning prevalence was higher among respondents aged <25 years compared with ≥25 years"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "maternal education",
+     "WIC participation during pregnancy"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "those who had completed ≤12 years compared with >12 years of education, and who were WIC participants"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "monitors self-reported behaviors and experiences before, during, and shortly after pregnancy among women with a recent live birth"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Group differences judged by chi-square and CI nonoverlap without a stated referent; Alaska Native data from Alaska only; WIC participation serves as an income proxy."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Maternal race/ethnicity › Black, non-Hispanic"
+    },
+    {
+     "loc": "text",
+     "q": "Bed sharing prevalence was higher among respondents who were American Indians/Alaska Natives, non-Hispanic blacks, or Asians/Pacific Islanders compared with non-Hispanic whites or Hispanics"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Maternal age group (yrs) › 20–24"
+    },
+    {
+     "loc": "text",
+     "q": "Nonsupine sleep positioning prevalence was higher among respondents aged <25 years compared with ≥25 years"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Maternal education level (yrs) › <12"
+    },
+    {
+     "loc": "text",
+     "q": "those who had completed ≤12 years compared with >12 years of education"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "analytic_depth"
+ ],
+ "confidence": "medium",
+ "notes": "Trend tests by race/ethnicity, age, education and WIC are per-group time trends (shown in Figure), not tests across SPD groups. The trend data are in a supplementary table not in the packet.",
+ "view_issues": "Table CSVs repeat each variable's chi-square p-value on every category row (merged cells expanded)."
+}

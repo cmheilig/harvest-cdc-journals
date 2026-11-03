@@ -1,0 +1,384 @@
+{
+ "id": "mm7019a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggQe11wqXhxXJ6RF9Lsz",
+  "batch_id": "msgbatch_018MUHrMCXUMTPYHxpo1b4G2"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During 2009–2018, an estimated 596,972 ED visits for bicycle-related TBIs occurred in the United States."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "decreased by 27.7%, from 18.8 in 2009 to 13.6 in 2018."
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "most of the patients who incurred a TBI (83%) were treated and released from the ED."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During the 10-year study period, an estimated 596,972 ED visits involved bicycle-related TBIs"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The rate decrease among children aged ≤17 years (48.7%) was ninefold larger than that among adults (5.5%)."
+    },
+    {
+     "loc": "text",
+     "q": "The rate per 100,000 population of ED visits for bicycle-related TBIs was higher for males than for females overall (28.8 and 9.2, respectively)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting (inverse probability of selection, complex survey design)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated sample weights and complex survey design for national estimates, rates and CIs",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "weighted by the inverse probability of selection to provide national estimates"
+    },
+    {
+     "loc": "text",
+     "q": "accounting for sample weights and the complex survey design."
+    }
+   ]
+  },
+  {
+   "name": "joinpoint regression (APC per segment)",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "Joinpoint Regression Program on annual rates giving APCs → segmented least-squares fit on log rates; family stated as linear for that reason",
+   "role": "primary",
+   "alternative_reading": "loglinear",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Temporal trends were evaluated by applying the Joinpoint Regression Program (version 4.7.0.0; National Cancer Institute) to the annual rates."
+    },
+    {
+     "loc": "text",
+     "q": "Annual percentage change was estimated for each trend segment and considered significantly different from zero for p-values <0.05."
+    }
+   ]
+  },
+  {
+   "name": "suppression of unstable estimates",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "rates withheld under a CV, count and unweighted-count rule",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimates with coefficients of variation >30%, estimated annual number of <1,200, or an unweighted count of <20 are considered unstable"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": null,
+  "across": [
+   "age group",
+   "sex",
+   "year"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The rate of ED visits for bicycle-related TBIs decreased by approximately one half among children and adolescents aged ≤17 years and by 5.5% among adults"
+   },
+   {
+    "loc": "summary",
+    "q": "Rates were highest among adult males and children and adolescents aged 10–14 years."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Rates and 95% confidence intervals were calculated by using SAS (version 9.4; SAS Institute), accounting for sample weights and the complex survey design."
+   },
+   {
+    "loc": "text",
+    "q": "Annual percentage change was estimated for each trend segment and considered significantly different from zero for p-values <0.05."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "rate per 100,000 population",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Rate per 100,000 population."
+    }
+   ]
+  },
+  {
+   "v": "APC",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "total APC = -9.80%, which represents a large decline in ED visits for bicycle-related traumatic brain injuries during 2013–2018."
+    }
+   ]
+  },
+  {
+   "v": "percent decrease",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The rate decrease among children aged ≤17 years (48.7%) was ninefold larger than that among adults (5.5%)."
+    }
+   ]
+  },
+  {
+   "v": "estimated number of ED visits",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "an estimated 596,972 ED visits involved bicycle-related TBIs"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Temporal trends were evaluated by applying the Joinpoint Regression Program (version 4.7.0.0; National Cancer Institute) to the annual rates."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Findings were cross-validated by applying SAS complex survey software to the record-level data."
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "What were the national rates and trends of ED visits for bicycle-related TBIs by age group and sex during 2009–2018?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to determine the incidence of EDs for bicycle-related TBIs during 2009–2018."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "bicycle-related traumatic brain injury",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Emergency Department Visits for Bicycle-Related Traumatic Brain Injuries Among Children and Adults"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the National Electronic Injury Surveillance System-All Injury Program (NEISS-AIP)"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Temporal trends were evaluated by applying the Joinpoint Regression Program"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NEISS-AIP, operated by the U.S. Consumer Product Safety Commission, contains annual data on patients treated in hospital EDs"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Electronic Injury Surveillance System-All Injury Program (NEISS-AIP)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "National Electronic Injury Surveillance System-All Injury Program (NEISS-AIP)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "drawn from a nationally representative, stratified probability sample of hospitals"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Results are stratified by age and sex only, without social-position framing; race/ethnicity and SES appear only in a limitation, which gives level 1.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The male–female difference is called a disparity and quantified (three times higher), if sex is read as framed as social position."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group, yrs › 10–14"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "the rate of ED visits for bicycle-related TBIs among males of all ages was three times higher than that among females."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "this analysis did not examine differences by race/ethnicity or socioeconomic status"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "socioeconomic status"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "this analysis did not examine differences by race/ethnicity or socioeconomic status"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Age-by-sex stratification not possible for adults; race/ethnicity and SES not analyzed (limitation only)."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "among children aged 10–14 years (44.6) was higher than that among children aged 0–4 years (15.3) and adults aged ≥18 years (14.6)."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "regression_fields"
+ ],
+ "confidence": "medium",
+ "notes": "Joinpoint family is not stated; APCs imply a log-rate fit. The APC segment p-values are part of the joinpoint model. Comparisons of rates across age and sex rest on point estimates with CIs, with no stated test.",
+ "view_issues": "Figure 2 description says 'by sex' and '2009–2019', though the figure is by age group for 2009–2018. Summary says rates were highest among adult males, but no adult-male rates are shown."
+}

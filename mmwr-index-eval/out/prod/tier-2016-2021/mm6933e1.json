@@ -1,0 +1,349 @@
+{
+ "id": "mm6933e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyt8u5RByvheE66enN",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Disparities were defined as difference of ≥5% between the proportion of cases and the proportion of the population or a ratio ≥1.5"
+    },
+    {
+     "loc": "text",
+     "q": "Disparities in cases were identified among underrepresented racial/ethnic groups in 76 (96.2%) analyzed counties"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Disparities in cases were identified among underrepresented racial/ethnic groups in 76 (96.2%) analyzed counties"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The mean of the estimated ratio of the proportion of cases to the proportions of population were also generated"
+    },
+    {
+     "loc": "text",
+     "q": "ranged from 4.5% (NHPI) to 39.3% (AI/AN)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "CI vs fixed value (disparity thresholds: difference ≥5%, ratio ≥1.5)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "lower CI bound judged against fixed disparity thresholds; CI from simulation using logistic-regression coefficient and SE",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The lower bound of the CI was used to identify counties with disparities (as defined by percentage differences or ratio)."
+    }
+   ]
+  },
+  {
+   "name": "intercept-only logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'intercept-only logistic regression' → logistic; used only to supply coefficient and SE for the simulation CIs",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "An intercept-only logistic regression model was estimated for each race/ethnicity category and county to obtain the intercept regression coefficient and standard error."
+    }
+   ]
+  },
+  {
+   "name": "simulation accounting for missing race/ethnicity data",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "model-based simulation over assumed distributions of unknown-race cases produces the estimated means and CIs",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a simulation accounting for missing data using different assumptions of racial/ethnic distribution of cases with unknown race/ethnicity"
+    },
+    {
+     "loc": "text",
+     "q": "The simulation used the logistic regression-estimated coefficient and standard error to produce an estimated mean and confidence interval (CI)"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "fixed referent",
+  "scale": "both",
+  "referent": "proportion of county population in the racial/ethnic group (disparity thresholds: difference ≥5% or ratio ≥1.5)",
+  "across": [
+   "race/ethnicity",
+   "county"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Disparities were defined as difference of ≥5% between the proportion of cases and the proportion of the population or a ratio ≥1.5"
+   },
+   {
+    "loc": "summary",
+    "q": "a disproportionate number of COVID-19 cases among underrepresented racial/ethnic groups occurred in almost all areas during February–June 2020"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The simulation used the logistic regression-estimated coefficient and standard error to produce an estimated mean and confidence interval (CI)"
+   },
+   {
+    "loc": "text",
+    "q": "The lower bound of the CI was used to identify counties with disparities (as defined by percentage differences or ratio)."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage difference between proportion of cases and proportion of population",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Mean of estimated differences, † % (range)"
+    }
+   ]
+  },
+  {
+   "v": "ratio of proportion of cases to proportion of population",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Mean of estimated ratios of proportion of cases to proportion of population § (range)"
+    }
+   ]
+  },
+  {
+   "v": "No. (%) of counties with disparities",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "No. (%) † of counties with disparities § identified"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "An intercept-only logistic regression model was estimated for each race/ethnicity category and county"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "In counties identified as COVID-19 hotspots, are underrepresented racial/ethnic groups overrepresented among cumulative cases relative to their population share?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC examined county-level disparities in COVID-19 cases among underrepresented racial/ethnic groups in counties identified as hotspots"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Disparities in Incidence of COVID-19 Among Underrepresented Racial/Ethnic Groups in Counties Identified as Hotspots"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This analysis used cumulative county-level data during February–June 2020, reported to CDC by jurisdictions or extracted from state and county websites"
+    }
+   ]
+  },
+  {
+   "v": "ecologic",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC examined county-level disparities in COVID-19 cases among underrepresented racial/ethnic groups in counties identified as hotspots"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "reported to CDC by jurisdictions or extracted from state and county websites and disaggregated by race/ethnicity"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "HHS Protect",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were cross-referenced with counts from the HHS Protect database"
+    }
+   ]
+  },
+  {
+   "v": "CDC WONDER",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The proportion of the population for each county by race/ethnicity was calculated using data obtained from CDC WONDER"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "79 (38.5%) counties in 22 states, with a combined population of 27.5 million persons"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Racial/ethnic disparities are framed, quantified as differences and ratios of case share to population share, and interpreted; structural and social determinants (housing and economic policies, essential work, discrimination, structural racism) are named as explanations.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Determinants are cited from other literature as likely explanations of disparities generally, not analyzed in this report."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Disparities in Incidence of COVID-19 Among Underrepresented Racial/Ethnic Groups in Counties Identified as Hotspots"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "structural factors (economic and housing policies, built environment); essential worker employment; multigenerational households; congregate living; discrimination and social inequities; limited access to health care; structural racism",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "including structural factors, such as economic and housing policies and the built environment,"
+    },
+    {
+     "loc": "text",
+     "q": "social factors such as essential worker employment status requiring in-person work"
+    },
+    {
+     "loc": "text",
+     "q": "long-standing discrimination and social inequities might contribute to factors that increase risk for severe disease and death, such as limited access to health care"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referent is each group's county population share (CDC WONDER); white persons are not analyzed; 126 counties with >50% missing race excluded and missing race handled by simulation."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "ranged from 4.5% (NHPI) to 39.3% (AI/AN)"
+    },
+    {
+     "loc": "text",
+     "q": "Hispanic persons were the largest group living in hotspot counties with a disparity in cases identified within that population"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "study_design",
+  "analytic_depth"
+ ],
+ "confidence": "medium",
+ "notes": "Each group is compared with its own population share (a fixed referent) within each county; groups are not tested against each other. Ecologic design is inferred from the county unit of analysis; no design is named. The logistic model only supplies SEs for the simulation CIs.",
+ "view_issues": "Table 1 caption says counties 'with any disparity identified', but it lists all 79 analyzed counties, including Virginia with none. The NHPI mean difference (4.5%) is below the 5% threshold; those counties qualify through the ratio criterion."
+}

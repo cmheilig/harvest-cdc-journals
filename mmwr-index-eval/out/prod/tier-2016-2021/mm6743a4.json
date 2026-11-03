@@ -1,0 +1,405 @@
+{
+ "id": "mm6743a4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysCLDQEC9A8dcCQ4y",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Unadjusted prevalence estimates with 95% confidence intervals (CIs) were calculated using Taylor series linearization."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Bisexual females were more likely than were lesbians to report sexual dating violence"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Sex-stratified logistic regression models, controlling for race/ethnicity and school grade produced adjusted prevalence ratios (APRs) with heterosexual students serving as the referent group."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "logistic regression (adjusted prevalence ratios)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'sex-stratified logistic regression models' producing APRs → logistic; APRs likely from predicted marginals",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Sex-stratified logistic regression models, controlling for race/ethnicity and school grade produced adjusted prevalence ratios (APRs) with heterosexual students serving as the referent group."
+    }
+   ]
+  },
+  {
+   "name": "post-hoc linear contrast t-tests",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named t-tests for differences between sexual identity groups",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Post-hoc linear contrast t-tests were used to assess additional between-group differences in prevalence of outcomes across sexual identity."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "APR CIs judged against 1.0; model-based from the logistic regression under complex survey design",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Statistical tests were considered significant if p-values were <0.05 or 95% CIs did not include 1.0."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (complex sample design, Taylor series linearization)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated weights and survey software for complex design",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted to yield nationally representative estimates."
+    },
+    {
+     "loc": "text",
+     "q": "Analyses used statistical software to account for complex sampling design."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "heterosexual students",
+  "across": [
+   "sexual identity",
+   "sex"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Compared with heterosexuals, females who are bisexual and males who are gay, bisexual, or not sure of sexual identity reported more victimization"
+   },
+   {
+    "loc": "table 1",
+    "q": "Referent group is heterosexual students."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Unadjusted prevalence estimates with 95% confidence intervals (CIs) were calculated using Taylor series linearization."
+   },
+   {
+    "loc": "text",
+    "q": "Post-hoc linear contrast t-tests were used to assess additional between-group differences in prevalence of outcomes across sexual identity."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "unadjusted prevalence, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Unadjusted prevalence and adjusted prevalence ratios of experiences of violence victimization, by sex and sexual identity"
+    }
+   ]
+  },
+  {
+   "v": "APR",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "APR = adjusted (for race/ethnicity and grade) prevalence ratio"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Analyses used statistical software to account for complex sampling design."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "APR = adjusted (for race/ethnicity and grade) prevalence ratio"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "race/ethnicity and school grade",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "controlling for race/ethnicity and school grade produced adjusted prevalence ratios (APRs)"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Models were tested for effect modification by sex (i.e., Wald F statistic for interaction between sex and sexual identity)"
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Do victimization, substance use, and suicide risk differ across sexual identity groups, including within sexual minority groups, among U.S. high school students by sex?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "no nationally representative study has examined differences in victimization, substance use, and suicide risk within sexual minority youth."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "violence victimization",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Violence Victimization, Substance Use, and Suicide Risk Among Sexual Minority High School Students"
+    }
+   ]
+  },
+  {
+   "v": "substance use",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Violence Victimization, Substance Use, and Suicide Risk Among Sexual Minority High School Students"
+    }
+   ]
+  },
+  {
+   "v": "suicide risk behaviors",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Violence Victimization, Substance Use, and Suicide Risk Among Sexual Minority High School Students"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "First, data are cross-sectional and indicate only association, not causation."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "pooled data from the 2015 and 2017 cycles of the national YRBS, a biennial, school-based survey of U.S. high school students."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Youth Risk Behavior Survey (YRBS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Using pooled data from the 2015 and 2017 national Youth Risk Behavior Surveys (YRBS)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "a nationally representative sample of students in grades 9–12 attending public and private schools"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Sexual minority disparities are framed, quantified as APRs versus heterosexual students and interpreted; minority stress (stigma toward sexual minorities) is named as the explanation.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Minority stress is a generic attribution from prior literature, not analyzed here."
+  },
+  "dimensions": [
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "primary comparison",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Students were grouped into one of four sexual identity categories (gay/lesbian, bisexual, not sure, and heterosexual)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Sex-stratified logistic regression models, controlling for race/ethnicity and school grade produced adjusted prevalence ratios (APRs)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "APR = adjusted (for race/ethnicity and grade) prevalence ratio"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "a nationally representative sample of students in grades 9–12 attending public and private schools"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "minority stress; stigma directed toward sexual minorities; unique social stressors",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "These disparities are generally attributed to minority stress (the process through which stigma directed toward sexual minorities influences health outcomes)"
+    },
+    {
+     "loc": "text",
+     "q": "Violence prevention programs might need to consider the unique social stressors faced by bisexual females and sexual minority males."
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referent is heterosexual students; 'not sure' category is ambiguous; gender identity not asked, so transgender students cannot be assessed."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "sexual orientation and gender identity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "pairwise (all pairs)",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Post-hoc linear contrast t-tests were used to assess additional between-group differences in prevalence of outcomes across sexual identity."
+    },
+    {
+     "loc": "table 1",
+     "q": "Significantly different from bisexual students."
+    }
+   ]
+  },
+  {
+   "across": [
+    "sexual orientation and gender identity",
+    "sex"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "interaction",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Models were tested for effect modification by sex (i.e., Wald F statistic for interaction between sex and sexual identity)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "procedures"
+ ],
+ "confidence": "medium",
+ "notes": "The Wald F interaction test is treated as part of the logistic model (interaction_modeled) rather than a separate procedure. Table footnote marks show differences from heterosexual, bisexual and not-sure groups, covering all pairs of the four identity groups.",
+ "view_issues": "Table 3 Males lesbian/gay attempted-suicide APR carries a '††' mark that is defined in the note only as an item definition, apparently a misplaced significance symbol."
+}

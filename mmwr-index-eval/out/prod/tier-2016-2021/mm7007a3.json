@@ -1,0 +1,319 @@
+{
+ "id": "mm7007a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyttY9LaKLtn6eZ2Xs",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During June 26–November 6, 2020, 30.2% of weekly health center visits occurred via telehealth."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The Kruskal-Wallis test was used to measure differences in the overall average percentage of weekly telehealth visits by region and urbanicity."
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The number of COVID-19 cases varied by region and increased overall during the second half of the study period"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During June 26–November 6, 2020, 30.2% of weekly health center visits occurred via telehealth."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Urban health centers reported a significantly higher overall average percentage of telehealth visits than did rural health centers (p<0.01)."
+    },
+    {
+     "loc": "text",
+     "q": "decreased 25%, from 35.8% during the week ending June 26, to 26.9% for the week ending November 6"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Kruskal-Wallis test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods and table note",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Kruskal-Wallis Test shows significant differences in the overall average percentage of telehealth visits by U.S. Census regions (p<0.01)."
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "post hoc pairwise comparisons with p-values; test not named",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Post hoc tests for pairwise comparisons were conducted if the Kruskal-Wallis test identified a significant main effect."
+    },
+    {
+     "loc": "text",
+     "q": "the overall average percentage in the South was significantly lower than that in the Northeast (p<0.01) and the West (p<0.01)."
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'differed significantly' for first vs last 10 weeks within strata; no test named for this contrast",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Within each region and urbanicity stratum, the overall change in average percentage of telehealth visits differed significantly between the first 10 weeks"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "both",
+  "referent": null,
+  "across": [
+   "week/period",
+   "U.S. Census region",
+   "urbanicity"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Health centers in the South and rural areas consistently reported the lowest average percentage of weekly telehealth visits."
+   },
+   {
+    "loc": "text",
+    "q": "Overall and weekly changes in telehealth visits (absolute percentage point difference and percentage change)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The Kruskal-Wallis test was used to measure differences in the overall average percentage of weekly telehealth visits by region and urbanicity."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "average percentage of weekly telehealth visits",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The average percentage of weekly telehealth visits was calculated nationally by region, and by urbanicity."
+    }
+   ]
+  },
+  {
+   "v": "absolute difference in percentage points",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Change calculated as absolute difference in percentage points."
+    }
+   ]
+  },
+  {
+   "v": "percentage change",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the overall percentage of weekly health care visits conducted via telehealth (telehealth visits) decreased by 25%"
+    }
+   ]
+  },
+  {
+   "v": "7-day average number of new COVID-19 cases",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The 7-day average number of new known COVID-19 cases from 210 counties"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did telehealth use among HRSA-funded health centers change during June–November 2020, and did it differ by region and urbanicity and track COVID-19 cases?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to examine trends in telehealth use, assess differences by U.S. Census region and urbanicity,"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Telehealth visits declined as the number of new COVID-19 cases decreased but plateaued as the number of cases increased."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In April 2020, HRSA began administering a voluntary weekly Health Center COVID-19 Survey"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Telehealth visits declined as the number of new COVID-19 cases decreased but plateaued as the number of cases increased."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC and HRSA analyzed data from 245 health centers that completed a voluntary weekly HRSA Health Center COVID-19 Survey"
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Daily COVID-19 case counts were obtained from USAFacts."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "HRSA Health Center COVID-19 Survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "voluntary weekly HRSA Health Center COVID-19 Survey"
+    }
+   ]
+  },
+  {
+   "v": "USAFacts",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Daily COVID-19 case counts were obtained from USAFacts."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Trends in Use of Telehealth Among Health Centers During the COVID-19 Pandemic — United States"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Urbanicity describes health-center locations (non-human units), so it is not an SPD; equity enters only through the Discussion's call to assess disparities across population subgroups and barriers in rural areas.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 2,
+   "reason": "If urban vs rural health-center location is read as rurality of the populations served, rural results are reported with significance only, capped at 2."
+  },
+  "dimensions": [
+   {
+    "v": "rurality",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Health centers in the South and in rural areas have disproportionately experienced challenges and barriers"
+     },
+     {
+      "loc": "text",
+      "q": "Assessment of disparities in access to and use of telehealth across population subgroups will be important in the future."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "logistics of implementing telehealth; lack of partners or providers; limited broadband access",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "including the logistics of implementing telehealth, lack of partners or providers, and limited broadband access"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Urbanicity (Federal Office of Rural Health Policy criteria) and census region classify health centers, not patients; no patient-level SPD is measured."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "outcome_types",
+  "equity.level",
+  "study_design"
+ ],
+ "confidence": "medium",
+ "notes": "Outcome is an unweighted average of center-level percentages recorded in 5-point intervals, tested with Kruskal-Wallis, so read as continuous; binary/categorical is defensible. Design inferred (repeated weekly survey of health centers). Region comparisons are geographic, not groupwise.",
+ "view_issues": "Table CSV shows ranges (0–100) in parentheses under a 'no. (%)' header; Puerto Rico is in the table but excluded from figures."
+}

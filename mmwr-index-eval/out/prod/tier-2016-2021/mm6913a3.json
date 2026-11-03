@@ -1,0 +1,393 @@
+{
+ "id": "mm6913a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyswVZELwxDJ7z8mbr",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "In 2017, there were 967,615 nonfatal drug overdose ED visits (300.2 per 100,000 population)"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Annual rates for drug overdose per 100,000 population were calculated by sex, age group, U.S. Census region of facility"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2017, there were 967,615 nonfatal drug overdose ED visits (300.2 per 100,000 population)"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "From 2016 to 2017, the nonfatal overdose ED visits rates for all drugs, all opioids, nonheroin opioids, heroin, and cocaine increased significantly"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All rates, except age group, were age-adjusted."
+    },
+    {
+     "loc": "table 1",
+     "q": "Rates are age-adjusted using the direct method and the 2000 U.S. Census standard population, except for age-specific crude rates."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "z-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'z-tests were used' for 2016–2017 changes and pairwise 2017 group comparisons, p<0.05",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "z-tests were used to compare changes that occurred from 2016 to 2017 and for pairwise comparisons between groups for 2017 rates"
+    }
+   ]
+  },
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "direct method with the 2000 U.S. Census standard population",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Rates are age-adjusted using the direct method and the 2000 U.S. Census standard population, except for age-specific crude rates."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (HCUP NEDS complex survey design)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "analyses stated to account for complex survey design and weighting, giving national estimates",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Analyses were conducted using SAS (version 9.4; SAS Institute) to account for HCUP’s complex survey design and weighting."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "both",
+  "referent": "2016",
+  "across": [
+   "year",
+   "drug type",
+   "sex",
+   "age group",
+   "U.S. Census region",
+   "county urbanization level",
+   "intent"
+  ],
+  "ev": [
+   {
+    "loc": "note",
+    "q": "Absolute rate change is the difference in rates from 2016 to 2017."
+   },
+   {
+    "loc": "summary",
+    "q": "From 2016 to 2017, the nonfatal overdose ED visits rates for all drugs, all opioids, nonheroin opioids, heroin, and cocaine increased significantly"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "Z-tests were used to determine significance."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted rate per 100,000 population",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "All rates are per 100,000 population."
+    }
+   ]
+  },
+  {
+   "v": "absolute rate change",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Absolute rate change is the difference in rates from 2016 to 2017."
+    }
+   ]
+  },
+  {
+   "v": "relative rate change",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Relative change is the absolute rate change divided by the 2016 rate, multiplied by 100."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did rates of nonfatal drug overdoses treated in U.S. EDs change from 2016 to 2017, by drug type and by patient, facility and visit characteristics?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "examined changes from 2016 to 2017, stratified by drug type and by patient, facility, and visit characteristics"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "nonfatal drug overdose",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Nonfatal Drug Overdoses Treated in Emergency Departments — United States, 2016–2017"
+    }
+   ]
+  },
+  {
+   "v": "opioid overdose",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "which included 305,623 opioid-involved overdoses, a 3.1% increase from 2016"
+    }
+   ]
+  },
+  {
+   "v": "heroin overdose",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Increases in rates for heroin overdose were observed among males (4.1%) and females (3.0%)"
+    }
+   ]
+  },
+  {
+   "v": "cocaine overdose",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The large increase in cocaine overdose rates (32.9%) might indicate potential increase in polysubstance overdose."
+    }
+   ]
+  },
+  {
+   "v": "benzodiazepine overdose",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "From 2016 to 2017, rates for benzodiazepine overdoses decreased 5.1% among males and 5.2% among females."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Hospital discharge data represent the reference standard in nonfatal overdose surveillance"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Using 2016 and 2017 NEDS data, six drug overdose indicators were classified"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "administrative/claims",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Using discharge data from the Healthcare Cost and Utilization Project’s (HCUP) Nationwide Emergency Department Sample (NEDS)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Healthcare Cost and Utilization Project (HCUP) Nationwide Emergency Department Sample (NEDS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Using discharge data from the Healthcare Cost and Utilization Project’s (HCUP) Nationwide Emergency Department Sample (NEDS)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The 2017 HCUP NEDS data set is a nationally representative, stratified sample of ED visits"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Rates are reported and described by age, sex and county urbanization level of the facility (e.g. highest in micropolitan counties), but no difference is framed as a disparity.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 0,
+   "reason": "Urbanization refers to the facility's county, arguably rurality of non-human units; without it only age and sex remain, unframed."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "In 2017, the highest overdose rates for all drugs were among females (308.2), persons aged 15–34 years (range = 427.1–476.4)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "All rates, except age group, were age-adjusted."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "From 2016 to 2017, overdose rates for all drugs increased 5.0% among males and 3.7% among females."
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "persons in the Midwest (378.6), and persons in micropolitan (nonmetro) counties (363.3) (Table 1)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Urbanization is the NCHS level of the facility's county, not the patient's residence; no race/ethnicity or SES data."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 8,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2017, the highest overdose rates for all drugs were among females (308.2), persons aged 15–34 years (range = 427.1–476.4)"
+    },
+    {
+     "loc": "text",
+     "q": "Only selected comparisons were tested for statistical significance, and all results presented were statistically significant."
+    }
+   ]
+  },
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "persons in the Midwest (378.6), and persons in micropolitan (nonmetro) counties (363.3) (Table 1)"
+    },
+    {
+     "loc": "text",
+     "q": "z-tests were used to compare changes that occurred from 2016 to 2017 and for pairwise comparisons between groups for 2017 rates"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "equity.dimensions"
+ ],
+ "confidence": "medium",
+ "notes": "'Highest' group claims rest on selected pairwise z-tests whose pairs are not listed, so groupwise is per-group vs referent only. Period changes within age and urbanization levels are not groupwise.",
+ "view_issues": "Methods say all presented results were significant, yet the text reports some rates as stable (Northeast all drugs, 0.0%), and several table changes lack the significance mark."
+}

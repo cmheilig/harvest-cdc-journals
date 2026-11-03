@@ -1,0 +1,304 @@
+{
+ "id": "mm6648a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrcN6AmpVuAoHdCWg",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the median estimated prevalence of infants in NICUs receiving mother’s own milk was 75.0% (IQR = 60.0%–86.0%)"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Less than half (48.9%) of hospitals in postal codes with higher percentages of black residents reported that ≥75% of infants"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the median estimated prevalence of infants in NICUs receiving mother’s own milk was 75.0% (IQR = 60.0%–86.0%)"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the percentage was higher in NICUs in postal codes with lower percentages of black residents (80.0%)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Wilcoxon rank-sum test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods and Table 2 footnote for median breast milk prevalence by area racial composition",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Wilcoxon Rank-Sum test."
+    },
+    {
+     "loc": "text",
+     "q": "Chi-square, Fisher’s Exact, and, for continuous variables, Wilcoxon Rank-Sum tests were performed using statistical software."
+    }
+   ]
+  },
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "Table 1 footnote; compares hospital characteristics by area racial composition",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Chi-square test or Fisher’s Exact test if one or more cells with expected count <5."
+    }
+   ]
+  },
+  {
+   "name": "Fisher's exact test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "Table 1 footnote; used when expected cell count <5",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Chi-square test or Fisher’s Exact test if one or more cells with expected count <5."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "race/ethnicity (percentage of non-Hispanic black residents in hospital postal code area)"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Hospitals were categorized as being in a postal code where the percentage of black residents was >12.3% (the national average) or ≤12.3%."
+   },
+   {
+    "loc": "text",
+    "q": "the percentage was higher in NICUs in postal codes with lower percentages of black residents (80.0%)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Chi-square, Fisher’s Exact, and, for continuous variables, Wilcoxon Rank-Sum tests were performed using statistical software."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "median prevalence (IQR), %",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Median (interquartile range), (%)"
+    }
+   ]
+  },
+  {
+   "v": "percentage of hospitals",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Less than half (48.9%) of hospitals in postal codes with higher percentages of black residents reported that ≥75% of infants"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "Does breast milk use in U.S. NICUs differ by the racial composition of the hospital's postal code area?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "it is not known whether demographic disparities exist in the use of breast milk in neonatal intensive care units (NICUs)"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "breast milk use",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Disparities in Hospital-Reported Breast Milk Use in Neonatal Intensive Care Units"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC’s mPINC survey is a census of facilities providing maternity care in the United States and territories"
+    }
+   ]
+  },
+  {
+   "v": "ecologic",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "neighborhood demographics were used as a proxy for the racial makeup of the hospital’s patient population"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC’s mPINC survey is a census of facilities providing maternity care in the United States and territories"
+    }
+   ]
+  },
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the 2015 mPINC were linked to 2011–2015 ACS data by hospital postal code."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Maternity Practices in Infant Nutrition and Care (mPINC) survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from CDC’s 2015 Maternity Practices in Infant Nutrition and Care (mPINC) survey"
+    }
+   ]
+  },
+  {
+   "v": "American Community Survey (ACS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the 2015 mPINC were linked to 2011–2015 ACS data by hospital postal code."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Disparities in Hospital-Reported Breast Milk Use in Neonatal Intensive Care Units — United States, 2015"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Area-level black resident share is the primary comparison and the finding is framed as a disparity with determinants named, but medians and percentages are only set side by side with p-values; no difference or ratio is computed, so the cap at 2 applies.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "Disparity is framed in title and Discussion, interpreted, and specific determinants (hospital policies, state regulations, insurance reimbursement, milk bank proximity) are named."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "hospitals in areas with higher percentages of black residents reported lower percentages of infants in the neonatal intensive care unit (NICU)"
+     },
+     {
+      "loc": "text",
+      "q": "neighborhood demographics were used as a proxy for the racial makeup of the hospital’s patient population"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Disparities in Hospital-Reported Breast Milk Use in Neonatal Intensive Care Units"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "health care personnel support; hospital policies and practices; access to information; community-level support; proximity to milk banks; state regulations; insurance reimbursement",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "variations in health care personnel support, hospital policies and practices, mothers’ knowledge and access to information, and community-level support for breastfeeding"
+    },
+    {
+     "loc": "text",
+     "q": "hospital proximity to milk banks, state regulations and hospital policies related to the provision of donor milk, and insurance reimbursement"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race is an area-level proxy (ACS postal-code share of non-Hispanic black residents) dichotomized at the national average (12.3%); no patient-level race data."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "equity.level",
+  "study_design"
+ ],
+ "confidence": "high",
+ "notes": "Design is not named; cross-sectional and ecologic are inferred (hospital-level survey linked to area race composition). The Figure's category distributions (e.g., 48.9% vs 63.8%) are compared without a stated test.",
+ "view_issues": "Table 2 CSV repeats the between-group p-value in the Total (all hospitals) rows, where no comparison applies (merged cells expanded)."
+}

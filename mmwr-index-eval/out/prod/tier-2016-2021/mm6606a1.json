@@ -1,0 +1,446 @@
+{
+ "id": "mm6606a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyradzsMRK6mecPLEh",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "self-reported prevalence of PDS declined from 14.8% in 2004 to 9.8% in 2012."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In 2012, the overall PDS prevalence was 11.5% for 27 states."
+    },
+    {
+     "loc": "text",
+     "q": "Women responding “always” or “often” to either question were classified as experiencing PDS."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In 2012, the overall PDS prevalence was 11.5% for 27 states."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "self-reported prevalence of PDS declined from 14.8% in 2004 to 9.8% in 2012."
+    },
+    {
+     "loc": "text",
+     "q": "PDS prevalence was highest among the following: women who 1) were aged ≤19 years and 20–24 years (age group)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Overall linear trends for all states and for combined 13 states with data for all three periods also were adjusted for state"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "logistic regression linear trend test (birth year, adjusted for state)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'logistic regression models that included birth year and state variables' → logistic; trend p-values and annual percentage-point change from the birth-year coefficient",
+   "role": "primary",
+   "alternative_reading": "linear: notes say the annual percentage-point change uses the beta from 'the linear model'",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Combined and state-specific linear trends over time were assessed using logistic regression models that included birth year and state variables"
+    },
+    {
+     "loc": "table 1",
+     "q": "calculated using the beta coefficient of the infant’s birth year from the linear model and the average percentage over 2004–2012."
+    }
+   ]
+  },
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named chi-square tests of PDS by maternal and infant characteristics, 2012 data; survey-design adjusted",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were assessed with chi-square tests using 2012 data"
+    },
+    {
+     "loc": "text",
+     "q": "(p<0.05 for all) (Table 2)"
+    }
+   ]
+  },
+  {
+   "name": "complex survey design weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated use of software accounting for the complex survey design of the stratified PRAMS sample; produces all population estimates",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Analyses were conducted using statistical software to account for the complex survey design."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "absolute",
+  "referent": null,
+  "across": [
+   "period (2004, 2008, 2012)",
+   "state",
+   "age",
+   "race/ethnicity",
+   "education",
+   "marital status",
+   "smoking status",
+   "stressful life events",
+   "gestational age and birthweight",
+   "NICU admission"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "self-reported prevalence of PDS declined from 14.8% in 2004 to 9.8% in 2012."
+   },
+   {
+    "loc": "text",
+    "q": "The estimated annual percentage-point change during 2004–2012 was -0.6% for all states and for the 13 states with data for all three periods"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Annual PDS prevalence estimates and 95% confidence intervals were calculated for all states with available data"
+   },
+   {
+    "loc": "text",
+    "q": "were assessed with chi-square tests using 2012 data"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percentage of new mothers with postpartum depressive symptoms, by reporting state"
+    }
+   ]
+  },
+  {
+   "v": "average annual percentage-point change",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Average annual percentage-point change during 2004–2012"
+    }
+   ]
+  },
+  {
+   "v": "linear trend p-value",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Linear trend* p-value"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Analyses were conducted using statistical software to account for the complex survey design."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "State-specific linear trends were assessed using logistic regression models among states with all three periods using year of birth as the predictor."
+    },
+    {
+     "loc": "table 2",
+     "q": "Unadjusted average annual percentage-point change in prevalence within selected characteristic during 2004–2012"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Overall linear trends for all states and for combined 13 states with data for all three periods also were adjusted for state"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "state",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "included birth year and state variables to account for baseline state-specific differences in prevalence"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did the prevalence of self-reported postpartum depressive symptoms change during 2004–2012, overall, by state and by maternal and infant characteristics?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC sought to describe self-reported PDS overall, by reporting state, and by selected sociodemographic factors, using 2004, 2008, and 2012 data"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "postpartum depressive symptoms",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Trends in Postpartum Depressive Symptoms — 27 States, 2004, 2008, and 2012"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "PRAMS is an ongoing, population-based surveillance system"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "This report provides recent state-specific trends in self-reported PDS."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using 2004, 2008, and 2012 data from the Pregnancy Risk Assessment Monitoring System (PRAMS)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Pregnancy Risk Assessment Monitoring System (PRAMS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using 2004, 2008, and 2012 data from the Pregnancy Risk Assessment Monitoring System (PRAMS)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The 2012 PRAMS sample represented 1,610,767 women from 27 reporting states and 41% of U.S. births."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "PDS prevalence is reported by age, race/ethnicity and education with chi-square tests and called 'disparities', but group contrasts are only set side by side with significance (no computed difference or ratio), so the cap at 2 applies.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The Summary frames subgroup differences as disparities, and group-specific percentage-point trends are quantified and interpreted (e.g. no decline among AI/AN women)."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "PDS prevalence was highest among the following: women who 1) were aged ≤19 years and 20–24 years (age group)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "2) were American Indian/Alaska Natives or Asian/Pacific Islanders (race/ethnicity), 3) had ≤12 years of education (education level)"
+     },
+     {
+      "loc": "text",
+      "q": "PDS prevalence did not significantly decline among American Indian/Alaska Native women and women with term, low-birthweight infants (p>0.05)"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education level"
+    ],
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Education level (yrs) › <12"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "among women who had a live birth during the preceding 2–9 months"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Disparities shown as subgroup prevalences tested by chi-square, no referent ratios; Vermont lacks race/ethnicity and is excluded from subgroup analysis; marital status also reported."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "PDS prevalence was highest among the following: women who 1) were aged ≤19 years and 20–24 years (age group)"
+    },
+    {
+     "loc": "text",
+     "q": "were assessed with chi-square tests using 2012 data"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "2) were American Indian/Alaska Natives or Asian/Pacific Islanders (race/ethnicity), 3) had ≤12 years of education (education level)"
+    },
+    {
+     "loc": "table 2",
+     "q": "Maternal race/Ethnicity ** › Asian/Pacific Islander"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "3) had ≤12 years of education (education level)"
+    },
+    {
+     "loc": "table 2",
+     "q": "Education level (yrs) › <12"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "procedures"
+ ],
+ "confidence": "medium",
+ "notes": "The chi-square tests use 2012 data while Table 2 shows 13 states over three periods; group-specific trends are tested within each characteristic level, not across levels. Discussion explanations of the overall decline (teen births, antidepressants) concern the overall trend, not a disparity.",
+ "view_issues": "Text says the percentage-point change uses the beta from the logistic 'models', while table notes say 'the linear model'. Table 2 marital-status changes (−0.1, −0.2) look inconsistent with the reported prevalences."
+}

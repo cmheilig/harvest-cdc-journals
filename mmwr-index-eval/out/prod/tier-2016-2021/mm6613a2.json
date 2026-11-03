@@ -1,0 +1,272 @@
+{
+ "id": "mm6613a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrb7vmm8gx5qvcssB",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Overall, 73.1% of state health departments and 16.1% of local health departments matched STD case report data with HIV data"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A significantly higher percentage of state health departments conducted visits to HIV care providers (94.1%) than did local health departments (46.7%)."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All state and local health departments that field-tested STD contacts for HIV linked to care any persons with HIV identified"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A significantly higher percentage of state health departments conducted visits to HIV care providers (94.1%) than did local health departments (46.7%)."
+    },
+    {
+     "loc": "text",
+     "q": "Local health departments with small jurisdictions were significantly less likely to offer HIV field testing for STD contacts (11.4%)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'logistic regression models' comparing state versus local health departments → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Provision of HIV services by health department type (state versus local) was examined using logistic regression models"
+    }
+   ]
+  },
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named chi-square analyses of service by jurisdiction size (3 levels), p values in Table 2",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "among local health departments, chi-square analyses were used to determine whether jurisdiction size was associated with type of HIV service provided."
+    }
+   ]
+  },
+  {
+   "name": "survey weights (Census region, jurisdiction size, nonresponse)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated weights producing all local health department estimates",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Weights based on U.S. Census region, jurisdiction size, and nonresponse were used in all analyses focusing on local health departments."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "health department type (state vs local)",
+   "jurisdiction population size"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC found variation in the provision of HIV services by STD programs at the state and local levels."
+   },
+   {
+    "loc": "text",
+    "q": "For local health departments only, the delivery of HIV services by STD programs was examined by jurisdiction size"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "Table shows unweighted numbers, weighted column percentages, and weighted 95% CIs for local health departments."
+   },
+   {
+    "loc": "text",
+    "q": "chi-square analyses were used to determine whether jurisdiction size was associated with type of HIV service provided."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Weighted % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "p value",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "p value › (Local versus state)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Provision of HIV services by health department type (state versus local) was examined using logistic regression models"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "To what extent do STD programs in state and local health departments provide HIV services, and does provision differ by department type and jurisdiction size?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess the extent of provision of HIV services by state and local health department STD programs, CDC analyzed data"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "HIV infection",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "HIV Services Provided by STD Programs in State and Local Health Departments"
+    }
+   ]
+  },
+  {
+   "v": "sexually transmitted diseases",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "STD programs can play an essential role in reducing HIV transmission among patients with STD diagnoses."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "derived from a national survey of STD programs"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "From December 2013 to January 2014, a survey was sent to primary contacts of the sampled STD programs"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, 2013–2014"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Units are health departments; comparisons are by department type and jurisdiction population size, neither a social-position dimension of persons.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Jurisdiction population size could be read as a rurality proxy, but it is a characteristic of non-human units."
+  },
+  "dimensions": [],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Jurisdiction population size (small/medium/large) of health departments is a geographic unit attribute, not an SPD."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "regression_fields"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred as cross-sectional from 'national survey of STD programs'. The logistic model's covariates are not stated; it appears to contain only department type. The National Profile of Local Health Departments survey served only as a sampling frame.",
+ "view_issues": "Summary says one fourth of state and 39.4% of local departments field-tested, but Table 1 and results give local 25.0%, state 39.4% (reversed). Table 2 follow-up 'Yes' 100% plus 'Don't know' exceeds 100%."
+}

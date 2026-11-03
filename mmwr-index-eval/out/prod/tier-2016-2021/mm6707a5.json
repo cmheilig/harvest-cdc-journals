@@ -1,0 +1,510 @@
+{
+ "id": "mm6707a5",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPys78ga15XkHRvUG34",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "the prevalence of receiving advice to reduce sodium intake from a health professional was 42% compared with 13% among participants without hypertension"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among participants with self-reported hypertension, adjusted prevalence of receiving sodium reduction advice from a health professional was 41.9%"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "the prevalence of receiving advice to reduce sodium intake from a health professional was 42% compared with 13% among participants without hypertension"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "and 95% confidence intervals using predicted marginals adjusted for selected covariates"
+    },
+    {
+     "loc": "text",
+     "q": "Among participants with hypertension, the adjusted prevalence of receiving advice varied significantly by geographic location"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multiple logistic regression with predicted marginals (adjusted prevalence)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Multiple variable logistic regression' with predicted marginals giving adjusted prevalences → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Multiple variable logistic regression was used to examine characteristics associated with advice and action and to estimate prevalence"
+    },
+    {
+     "loc": "text",
+     "q": "and 95% confidence intervals using predicted marginals adjusted for selected covariates"
+    }
+   ]
+  },
+  {
+   "name": "survey sampling weights",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated sampling weights for complex survey design and nonresponse, used for all estimates",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All estimates used sampling weights to account for the complex survey design and nonresponse."
+    }
+   ]
+  },
+  {
+   "name": "Wald F test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated in Table 2 and 3 notes for subgroup differences in adjusted prevalence",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "p-value obtained by Wald F test and p-value <0.05 were used to identify statistically significant differences in prevalence of advice among subgroups"
+    }
+   ]
+  },
+  {
+   "name": "chi-square test (prevalence comparisons)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "methods state chi-square tests compared prevalence estimates, e.g. across the four hypertension × advice groups",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Chi-square tests were used to compare prevalence estimates."
+    },
+    {
+     "loc": "text",
+     "q": "(p<0.05 for overall comparison across the four groups)"
+    }
+   ]
+  },
+  {
+   "name": "survey-adjusted chi-square test (Table 1 characteristics)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "Table 1 note: chi-square on covariate distributions by hypertension status, accounting for survey design",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "p-value <0.05 for differences (chi-square test) in percent distribution of covariates between participants with reported hypertension and without reported hypertension"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "hypertension status",
+   "receipt of advice",
+   "jurisdiction",
+   "sex",
+   "age group",
+   "race/ethnicity",
+   "education",
+   "smoking status",
+   "obesity status",
+   "comorbidities"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "the prevalence of receiving advice to reduce sodium intake from a health professional was 42% compared with 13% among participants without hypertension"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Chi-square tests were used to compare prevalence estimates."
+   },
+   {
+    "loc": "table 2",
+    "q": "p-value obtained by Wald F test and p-value <0.05 were used to identify statistically significant differences in prevalence of advice among subgroups"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "adjusted prevalence, % (95% CI)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusted prevalence of receiving sodium reduction advice from a health professional was 41.9%"
+    }
+   ]
+  },
+  {
+   "v": "unadjusted prevalence",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Unadjusted prevalence estimates weighted for survey design and nonresponse."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "accounting for survey design and survey weights."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "and 95% confidence intervals using predicted marginals adjusted for selected covariates"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "geographic location, sex, age, race/ethnicity, education, smoking, obesity status, comorbidities (diabetes, kidney disease, MI, CHD, stroke)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Covariates included sociodemographic characteristics (geographic location, sex, age/ethnicity, race, and education) and cardiovascular disease risk factors (smoking, obesity status"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "with a term for the interaction between the covariate (e.g., sex) and hypertension status adjusted for all the other covariates in the table"
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How prevalent are receipt of health professional advice to reduce sodium and action to reduce sodium among adults with and without self-reported hypertension?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "analyzed to determine the prevalence of reported sodium reduction advice and action among participants with and without self-reported hypertension"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "hypertension",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Among Adults With and Without Hypertension"
+    }
+   ]
+  },
+  {
+   "v": "dietary sodium reduction",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Action to reduce sodium intake was defined by an affirmative response to the question"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "BRFSS is an annual state-based, cross-sectional telephone survey of noninstitutionalized adults aged ≥18 years."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from 50,576 participants in the sodium module of the 2015 Behavioral Risk Factor Surveillance System (BRFSS) in nine states and Puerto Rico"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS), sodium-related behavior module",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "completed the optional sodium-related behavior module."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Nine States and Puerto Rico, 2015"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Adjusted prevalences by race/ethnicity and education are reported with Wald F tests and described (e.g., Black and Hispanic higher than White), but not framed or interpreted as disparities.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Race/ethnicity and education serve mainly as adjustment covariates and subgroup rows; the article's focus is hypertension status and advice."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "non-Hispanic black (54.1%) and Hispanic (46.1%) versus non-Hispanic white (39.1%)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Covariates included sociodemographic characteristics (geographic location, sex, age/ethnicity, race, and education)"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "among participants with a high school diploma (14.0%) or less than a high school education (14.9%) than among those with college or more (10.5%)"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "education"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Covariates included sociodemographic characteristics (geographic location, sex, age/ethnicity, race, and education)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "cross-sectional telephone survey of noninstitutionalized adults aged ≥18 years."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Age group (yrs) › ≥65"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Covariates included sociodemographic characteristics (geographic location, sex, age/ethnicity, race, and education)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "receipt of advice was higher, for example, among participants who were female (43.0%) versus male (40.8%)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Covariates included sociodemographic characteristics (geographic location, sex, age/ethnicity, race, and education)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Non-Hispanic White is the implicit referent; AI/AN, Asian and others are collapsed into 'Other, non-Hispanic'; 5,281 respondents missing covariates were excluded."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "model joint test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "p-value obtained by Wald F test and p-value <0.05 were used to identify statistically significant differences in prevalence of advice among subgroups"
+    },
+    {
+     "loc": "text",
+     "q": "non-Hispanic black (54.1%) and Hispanic (46.1%) versus non-Hispanic white (39.1%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "model joint test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "among participants with a high school diploma (14.0%) or less than a high school education (14.9%) than among those with college or more (10.5%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "p-value <0.05 for differences (chi-square test) in percent distribution of covariates between participants with reported hypertension and without reported hypertension"
+    },
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity › Black, non-Hispanic"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Participants with self-reported hypertension differed significantly from participants without hypertension for all characteristics examined"
+    },
+    {
+     "loc": "table 1",
+     "q": "Education › Less than high school"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Tables 2–3 p-values are repeated across all levels of each covariate, read as a joint Wald F test per covariate within each hypertension (and advice) stratum. The four-group comparison of action (hypertension × advice) is non-SPD and stays in comparison only.",
+ "view_issues": "Methods list covariates as 'age/ethnicity, race', apparently a garble of 'age, race/ethnicity'. The article was corrected after publication (erratum 2018-04-06)."
+}

@@ -1,0 +1,324 @@
+{
+ "id": "mm6927a4",
+ "reader": {
+  "label": "B"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates of SRR-TBIs per 100,000 population per year were calculated using U.S. Census Bureau population estimates as the denominator"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "From 2001 to 2018 an estimated 3,888,020 SRR-TBI ED visits occurred in the United States for children aged <17 years."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a 32% decline in the rate of contact sports-related TBI ED visits from 189.9 in 2012 to 129.4 in 2018"
+    },
+    {
+     "loc": "text",
+     "q": "The estimated decline in annual percentage change from 2013 to 2018 differed by age group"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "joinpoint regression",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "Joinpoint software fitting trends reported as annual percentage change → log-linear model of rates by year",
+   "role": "primary",
+   "alternative_reading": "linear (least squares on log rate, the Joinpoint fitting method)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Trends in SRR-TBI ED visit rates were evaluated using Joinpoint software (version 4.7.0.0, National Cancer Institute)"
+    }
+   ]
+  },
+  {
+   "name": "survey sample weights (inverse probability of selection)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated weighting of a stratified probability sample of hospitals to give national estimates",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data are weighted by the inverse probability of selection to provide national estimates."
+    },
+    {
+     "loc": "text",
+     "q": "accounting for sample weights and the complex survey design."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": null,
+  "across": [
+   "year",
+   "activity type/sport",
+   "age group",
+   "sex"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "After a decade of increasing rates, contact sports–related TBI ED visits significantly declined from 2012 to 2018."
+   },
+   {
+    "loc": "figure 3",
+    "q": "by age group (A) and sex (B)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Rates and 95% confidence intervals were calculated using SAS software (version 9.4; SAS Institute), accounting for sample weights and the complex survey design."
+   },
+   {
+    "loc": "text",
+    "q": "TBI-ED visits for basketball and soccer, the other two leading contact sports, did not decline significantly."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "rate per 100,000 population",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Per 100,000 population."
+    }
+   ]
+  },
+  {
+   "v": "annual percentage change",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The estimated decline in annual percentage change from 2013 to 2018 differed by age group"
+    }
+   ]
+  },
+  {
+   "v": "percent decline",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The rate of football-related TBI ED visits in children aged 5–17 years declined 39% from 118.8 in 2013 to 72.4 in 2018"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Trends in SRR-TBI ED visit rates were evaluated using Joinpoint software"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a sensitivity analysis using case-level data in conjunction with complex survey software suggested qualitatively comparable findings."
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "How did rates of ED visits for sports and recreation–related TBIs among U.S. children change during 2001–2018, by activity, age group and sex?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess changes in the incidence of ED-related SRR-TBI among children, CDC analyzed data from the National Electronic Injury Surveillance System–All Injury Program"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "sports and recreation–related traumatic brain injury",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Trends in Emergency Department Visits for Contact Sports–Related Traumatic Brain Injuries Among Children"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the National Electronic Injury Surveillance System–All Injury Program (NEISS-AIP) for the period 2001–2018."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "After a decade of increasing rates, contact sports–related TBI ED visits significantly declined from 2012 to 2018."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NEISS-AIP is operated by the U.S. Consumer Product Safety Commission"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Electronic Injury Surveillance System–All Injury Program (NEISS-AIP)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the National Electronic Injury Surveillance System–All Injury Program (NEISS-AIP)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Data are drawn from a nationally representative sample of hospitals"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Only age and sex appear: age defines the population and both stratify trends, with no social-position framing.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 2,
+   "reason": "Group-specific trends by age and sex are reported and described, if age/sex were read as framed social position."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "SRR-TBIs included TBIs among children aged ≤17 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "declines of 8%, 5%, and 8% among children aged 5–9, 10–14, and 15–17 years, respectively."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "From 2012 to 2018, the rate among males declined 31%, to 277.3. From 2014 to 2018, the rate among females declined 38%"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The estimated decline in annual percentage change from 2013 to 2018 differed by age group"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Joinpoint significance of segment APCs is part of the model, so no separate test is listed. NEISS-AIP is a CPSC system run with CDC, coded other. Contact limitations and declining football participation explain the overall trend, not an SPD difference.",
+ "view_issues": "Ages given as <17 and ≤17 inconsistently; 3,888,020 visits vs 'approximately 3.8 million'. The female rate is said to increase 'from 2001 to 2012' but to 113.5 in 2014."
+}

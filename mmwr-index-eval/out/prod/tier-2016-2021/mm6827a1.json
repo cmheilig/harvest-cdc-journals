@@ -1,0 +1,465 @@
+{
+ "id": "mm6827a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysBbMkhDn5Vz6K7xj",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "PrEP awareness among MSM in 20 urban areas increased from 60% to 90%, and PrEP use increased from 6% to 35%"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2017, >80% of MSM in 17 of 20 urban areas and in most demographic subgroups were aware of PrEP."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "From 2014 to 2017, use of PrEP among MSM increased overall from 6% to 35% (aPR = 5.66; 95% CI = 4.85–6.61)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Stratified models for each subgroup were adjusted for income, health insurance, and region."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "log-linked Poisson regression with GEE",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'Log-linked Poisson regression models with generalized estimating equations' giving prevalence ratios → loglinear; GEE clustered on recruitment event",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Log-linked Poisson regression models with generalized estimating equations clustered on recruitment event were stratified by subgroup to estimate prevalence ratios"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based 95% CIs from the GEE Poisson models; significance claims rest on CIs excluding or including 1",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "with significant increases observed in all urban areas and in almost all demographic subgroups"
+    },
+    {
+     "loc": "text",
+     "q": "were no longer significant after controlling for income, health insurance, and region"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "2014",
+  "across": [
+   "year (2014 vs 2017)",
+   "race/ethnicity",
+   "age group",
+   "education",
+   "household income",
+   "urban area"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to estimate prevalence ratios and 95% confidence intervals (CIs) for PrEP awareness and use by year"
+   },
+   {
+    "loc": "text",
+    "q": "the difference in reported PrEP use between black (26%) and white (42%) MSM remained significant after controlling for these three factors"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Log-linked Poisson regression models with generalized estimating equations clustered on recruitment event were stratified by subgroup to estimate prevalence ratios"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Number and percentage of men who have sex with men who are at risk for human immunodeficiency virus (HIV) infection"
+    }
+   ]
+  },
+  {
+   "v": "adjusted prevalence ratio (aPR)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted prevalence ratio † (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "GEE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "with generalized estimating equations clustered on recruitment event"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Models adjusted for income, health insurance, and region."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "income, health insurance, and region",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Stratified models for each subgroup were adjusted for income, health insurance, and region."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did PrEP awareness and use change from 2014 to 2017 among MSM at risk for HIV in 20 U.S. urban areas, overall and by subgroup?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "were compared to assess changes in PrEP awareness and use among MSM"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "HIV infection",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Changes in HIV Preexposure Prophylaxis Awareness and Use Among Men Who Have Sex with Men"
+    }
+   ]
+  },
+  {
+   "v": "PrEP awareness and use",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Changes in HIV Preexposure Prophylaxis Awareness and Use Among Men Who Have Sex with Men"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "collected cross-sectional behavioral survey data and conducted HIV testing among MSM at recruitment events using venue-based sampling"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were collected in 20 U.S. urban areas in 2014 and 2017"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from CDC’s National HIV Behavioral Surveillance (NHBS) were collected in 20 U.S. urban areas in 2014 and 2017"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National HIV Behavioral Surveillance (NHBS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from CDC’s National HIV Behavioral Surveillance (NHBS)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "20 Urban Areas, 2014 and 2017"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Lower PrEP use among Black and Hispanic MSM is framed in the Summary, quantified (Black vs White aPR 0.78) and interpreted; structural barriers associated with race that influence access to care are named as the explanation.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Structural barriers are cited from a reference mainly as the rationale for the THRIVE program, not analyzed, so they could be read as generic."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "PrEP use increased in almost all demographic subgroups but remains lower among black and Hispanic MSM."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Racial/Ethnic group › Black"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education",
+     "household income",
+     "health insurance"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "During 2017, PrEP use increased with education and income"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "income",
+     "health insurance"
+    ],
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Models adjusted for income, health insurance, and region."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "between young (32%) and older (38%) MSM (aPR = 0.97; 95% CI = 0.89–1.05)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "were aged ≥18 years"
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "population",
+    "basis": "behavior",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "reported having ever had oral or anal sex with another man"
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "stratifier",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Sexual identity › Bisexual"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "population",
+    "basis": "assigned or observed",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "Men who were born male and identified as male"
+     }
+    ]
+   },
+   {
+    "v": "country of birth/language/nativity",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "could complete the interview in English or Spanish"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "structural barriers associated with race that influence access to quality health care",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Because of the structural barriers associated with race that influence access to quality health care"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "White MSM are the referent for race contrasts in 2017; AI/AN, Asian, NH/PI and multiracial men are collapsed into Other; data unweighted venue-based sample."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the difference in reported PrEP use between black (26%) and white (42%) MSM remained significant after controlling for these three factors"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2017, PrEP use increased with education and income"
+    },
+    {
+     "loc": "table 2",
+     "q": "Education › High school degree or less"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2017, PrEP use increased with education and income"
+    },
+    {
+     "loc": "table 2",
+     "q": "Household income › $0–$24,999"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "The prepass weighting cue is a false hit: the article states data were not weighted. Table aPRs contrast 2017 with 2014 within each subgroup; the 2017 race and age aPRs in the text come from models not described in the methods.",
+ "view_issues": "Methods describe only year-contrast models, yet the text reports 2017 race and age aPRs (e.g. Black vs White 0.78) from unstated models. Table titles say 'United States' though data cover 20 urban areas."
+}

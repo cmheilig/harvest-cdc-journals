@@ -1,0 +1,446 @@
+{
+ "id": "mm6730a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysCLLJNVt6chzmUBu",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "the mean CWP-attributable years of potential life lost per decedent increased from 8.1 to 12.6 years"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "the mean CWP-attributable years of potential life lost per decedent increased from 8.1 to 12.6 years"
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-adjusted CWP death rates among U.S. residents aged ≥25 years declined 81%, from 2.31 per million in 1999 to 0.44 in 2016"
+    },
+    {
+     "loc": "text",
+     "q": "CWP deaths among U.S. residents aged ≥25 years significantly decreased (73%), from 409 in 1999 to 112 in 2016"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a total of 38,358 YPLL (mean per decedent = 8.8 years) and 2,707 YPLL 65"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The decline was steeper during 1999–2007 (p<0.001) than during 2007–2016 (p<0.05)."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "age-adjusted to the 2000 U.S. standard population"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "joinpoint regression",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "Joinpoint Regression program fits segmented least-squares trends to counts, YPLL and mean YPLL, and to log-transformed age-adjusted rates (APC); segmented linear model; joinpoints chosen by Monte Carlo permutation tests with Bonferroni correction; CIs model-based",
+   "role": "primary",
+   "alternative_reading": "loglinear: APC from a linear model on log-transformed rates",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "The Joinpoint Regression program fits the simplest joinpoint model that the data allow."
+    },
+    {
+     "loc": "note",
+     "q": "by performing a sequence of permutation tests using Monte Carlo sampling and the Bonferroni correction for multiple testing."
+    }
+   ]
+  },
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "death rates age-adjusted to the 2000 U.S. standard population",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "age-adjusted to the 2000 U.S. standard population"
+    }
+   ]
+  },
+  {
+   "name": "log transformation of age-adjusted rates",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "APC estimated on log-transformed age-adjusted mortality rates",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "the annual percentage change in log-transformed age-adjusted mortality rate"
+    }
+   ]
+  },
+  {
+   "name": "suppression of unreliable rates and small cells",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "rates with RSE ≥23% withheld as unreliable; cells with <10 decedents suppressed",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Relative standard error ≥23%; rate considered statistically unreliable."
+    },
+    {
+     "loc": "table 1",
+     "q": "Suppressed because of confidentiality constraints (<10 decedents reported)."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": null,
+  "across": [
+   "year of death",
+   "age group",
+   "race/ethnicity",
+   "sex",
+   "state",
+   "industry and occupation"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During 1999–2016, the mean CWP-attributable years of potential life lost per decedent increased from 8.1 to 12.6 years"
+   },
+   {
+    "loc": "text",
+    "q": "During 1999–2016, the mean YPLL per decedent increased 55.6%, from 8.1 to 12.6 years per decedent."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "(annual percent change [APC] = -9.0%; 95% confidence interval [CI] = -9.6 to -8.3; p<0.05)"
+   },
+   {
+    "loc": "note",
+    "q": "by performing a sequence of permutation tests using Monte Carlo sampling and the Bonferroni correction for multiple testing."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "YPLL",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The CWP-attributable YPLL decreased 42.8% from 3,300 in 1999 to 1,413 in 2016"
+    }
+   ]
+  },
+  {
+   "v": "YPLL 65",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, no change in the YPLL 65 from 1999 to 2016 was observed."
+    }
+   ]
+  },
+  {
+   "v": "mean YPLL per decedent",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Mean YPLL per decedent"
+    }
+   ]
+  },
+  {
+   "v": "age-adjusted rate per million",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age-adjusted ¶ rate per million"
+    }
+   ]
+  },
+  {
+   "v": "APC",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(annual percent change [APC] = -9.0%; 95% confidence interval [CI] = -9.6 to -8.3; p<0.05)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "note",
+     "q": "The Joinpoint Regression program fits the simplest joinpoint model that the data allow."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "note",
+     "q": "by performing a sequence of permutation tests using Monte Carlo sampling and the Bonferroni correction for multiple testing."
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did CWP deaths, age-adjusted death rates and CWP-attributable years of potential life lost change in the United States during 1999–2016?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess trends in premature mortality attributed to CWP"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "coal workers' pneumoconiosis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Coal Workers’ Pneumoconiosis–Attributable Years of Potential Life Lost to Life Expectancy and Potential Life Lost Before Age 65 Years"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The National Vital Statistics System’s multiple cause-of-death data during 1999–2016 were analyzed to examine CWP mortality."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "To assess trends in premature mortality attributed to CWP"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The National Vital Statistics System’s multiple cause-of-death data during 1999–2016 were analyzed"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System multiple cause-of-death data",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The National Vital Statistics System’s multiple cause-of-death data during 1999–2016 were analyzed"
+    }
+   ]
+  },
+  {
+   "v": "CDC WONDER",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Source: National Vital Statistics System; https://wonder.cdc.gov/ (for rates)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, 1999–2016"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "The Table gives age-adjusted rates and mean YPLL by race (White, Black, Other) and sex, but these are not discussed or framed as disparities; age contrasts (≥65 vs 25–64) are age only.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Race appears only in an undiscussed table and as a life-expectancy adjustment, which could be read as descriptor/covariate use only."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "only deaths of persons aged ≥25 years were considered."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "CWP deaths among U.S. residents aged ≥65 years decreased 77%, from 389 in 1999 to 88 in 2016."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race › Black"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "life expectancy for each decedent, internally adjusted by race and sex"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Women"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "life expectancy for each decedent, internally adjusted by race and sex"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race collapsed to White, Black and Other (AI/AN and Asian/Pacific Islander); many group rates unreliable or suppressed; industry/occupation treated as exposure route, not SES."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "by sex, race, state of residence, year of death, and industry and occupation"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "regression_fields",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred (no design named). YPLL uses race- and sex-specific life expectancy from life tables, treated as measure arithmetic. adjusted_results false because age standardization precedes the joinpoint model rather than being within it.",
+ "view_issues": "Opening paragraph says 1996–2016 (should be 1999). 3,300→1,413 is a 57% fall, not 42.8%. Virginia YPLL 6,013 in text vs 6,103 in table. Opening says YPLL65 per decedent peaked 8.9 in 2005; text/table give 9.6 in 2004. A p=0.06 rise is called sharp."
+}

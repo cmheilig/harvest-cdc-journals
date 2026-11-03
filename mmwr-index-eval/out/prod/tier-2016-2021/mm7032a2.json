@@ -1,0 +1,389 @@
+{
+ "id": "mm7032a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysxUpw6ys7mFGQNL5",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "method A resulted in higher cumulative COVID-19 incidences among the five racial groups"
+    },
+    {
+     "loc": "table 1",
+     "q": "No. of cases per 100,000 persons"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Full vaccination coverage also varied depending on the racial and ethnic classification method used."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "information on race, ethnicity, or both was missing from 26.7%, 35.2%, and 21.7% of reports received, respectively."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "method A resulted in case counts that were 16.6% to 37.2% higher across race groups"
+    },
+    {
+     "loc": "text",
+     "q": "Rate ratios were used to compare relative differences in COVID-19 incidence and full vaccination coverage rates between racial and ethnic groups."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Rates were adjusted to the age distribution of the 2019 U.S. Census population estimate."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "'adjusted to the age distribution of the 2019 U.S. Census population estimate' → direct standardization of Table 2 rates",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Rates were adjusted to the age distribution of the 2019 U.S. Census population estimate."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "rate ratios with 95% CIs, all excluding 1, underlie the <1 / >1 conclusion; CI method not stated",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was <1 for Asian persons and >1 for other groups across all three methods."
+    },
+    {
+     "loc": "table 2",
+     "q": "Rate ratio for COVID-19 infection (95% CI)"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "current method; White (non-Hispanic) persons",
+  "across": [
+   "race/ethnicity grouping method",
+   "race/ethnicity"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The current method was compared with two alternative methods (methods A and B) that have been used previously"
+   },
+   {
+    "loc": "text",
+    "q": "The comparator for the current method and method A was White, non-Hispanic persons and for method B was White persons."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "Rate ratio for fully vaccinated persons (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "% change compared with current method",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percentage increase compared with current method calculated as"
+    }
+   ]
+  },
+  {
+   "v": "cases per 100,000 persons",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. of cases per 100,000 persons"
+    }
+   ]
+  },
+  {
+   "v": "fully vaccinated persons per 100,000",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. of fully vaccinated persons per 100,000"
+    }
+   ]
+  },
+  {
+   "v": "age-adjusted incidence",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "age-adjusted incidence"
+    }
+   ]
+  },
+  {
+   "v": "rate ratio",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Rate ratio for COVID-19 infection (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How do alternative methods for grouping race and ethnicity when data are missing change COVID-19 case, incidence, vaccination coverage and rate-ratio estimates by race?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC used three methods for grouping persons by race and ethnicity to analyze the following six indicators"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Alternative Methods for Grouping Race and Ethnicity to Monitor COVID-19 Outcomes and Vaccination Coverage"
+    }
+   ]
+  },
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "method A resulted in higher numbers of fully vaccinated persons per 100,000 for all racial groups"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Daily confirmed COVID-19 cases in the United States during January 1, 2020–May 31, 2021, were obtained from CDC’s case-based surveillance system."
+    }
+   ]
+  },
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This analysis demonstrates that alternative methods for analyzing race and ethnicity data when data are incomplete can lead to different conclusions about disparities."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "via the CDC National Notifiable Diseases Surveillance System"
+    }
+   ]
+  },
+  {
+   "v": "vaccination registry",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "reported to CDC by multiple entities using immunization information systems, the Vaccine Administration Management System, pharmacy systems"
+    }
+   ]
+  },
+  {
+   "v": "electronic health records",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "or direct submission of electronic health records."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "CDC case-based COVID-19 surveillance system",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "CDC’s case-based COVID-19 surveillance system had a total of 26,724,149 reports"
+    }
+   ]
+  },
+  {
+   "v": "National Notifiable Diseases Surveillance System (NNDSS)",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "via the CDC National Notifiable Diseases Surveillance System"
+    }
+   ]
+  },
+  {
+   "v": "CDC vaccine administration surveillance system",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "CDC’s vaccine administration surveillance system had a total of 126,692,891 reports"
+    }
+   ]
+  },
+  {
+   "v": "Vaccine Administration Management System",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "immunization information systems, the Vaccine Administration Management System, pharmacy systems"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "U.S. states and four territories reported 26,724,149 COVID-19 cases to CDC."
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "method A resulted in higher numbers of fully vaccinated persons per 100,000 for all racial groups"
+   }
+  ]
+ },
+ "equity": {
+  "level": 3,
+  "level_reason": "Racial/ethnic disparities in COVID-19 incidence and vaccination are the explicit frame, quantified as rate ratios vs White persons ('twice as likely') and interpreted as method-dependent; no specific determinants are offered.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 2,
+   "reason": "The focus is measurement method; group contrasts are mostly reported in Table 2 rather than interpreted as disparities with substantive meaning."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Hispanic and non-Hispanic NH/PI persons were twice as likely as non-Hispanic White persons to have COVID-19"
+     },
+     {
+      "loc": "text",
+      "q": "CDC recommends that information about race and ethnicity be collected to identify disparities and ensure equitable access to protective measures such as vaccines"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Rates were adjusted to the age distribution of the 2019 U.S. Census population estimate."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referent is White non-Hispanic (current, A) or White (B); method B groups overlap; multiracial and other race excluded; Texas excluded from vaccination data; missing ethnicity treated differently by method."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The comparator for the current method and method A was White, non-Hispanic persons and for method B was White persons."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "inference",
+  "study_design",
+  "equity.level",
+  "outcome_types"
+ ],
+ "confidence": "medium",
+ "notes": "Method A's assumption of non-Hispanic ethnicity for missing values is a fixed fill-in (data handling), not imputation; grouping methods are recoding. Percent changes are arithmetic. Design inferred (no design named).",
+ "view_issues": "Text does not say whether rate ratios use crude (Table 1) or age-adjusted (Table 2) rates; Table 2 implies age-adjusted. Table 1 note ** sentence is incomplete (exclusion verb missing)."
+}

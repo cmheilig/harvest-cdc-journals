@@ -1,0 +1,392 @@
+{
+ "id": "mm6635a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyrVfbkUiJmLydSR6t",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Unadjusted weighted prevalence of health-related behaviors, by letter grades earned among high school students"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Unadjusted percentages showed a general gradient of association between self-reported letter grades and health behaviors"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "After adjusting for sex, race/ethnicity, and grade level, overall self-reported grades in school were significantly associated with each behavior (p<0.05)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "logistic regression (adjusted prevalence ratios, Wald F joint test of grades)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Logistic regression models' adjusted for sex, race/ethnicity and grade → logistic; Wald F p-values for the grade term are part of the model",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Logistic regression models were used to determine whether the categorical variable of self-reported grades in school was associated with each health-related behavior"
+    },
+    {
+     "loc": "text",
+     "q": "Wald F p-values from the logistic regressions were used to determine statistically significant associations between overall self-reported letter grades in school and each behavior"
+    }
+   ]
+  },
+  {
+   "name": "survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated weights adjusting for nonresponse and oversampling; all prevalences are weighted",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted based on sex, race/ethnicity, and school grade to adjust for nonresponse and oversampling of black and Hispanic students."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based aPR CIs from the stated logistic regression, judged against 1 for each grade group vs mostly D's/F's",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence estimates for students with mostly C’s were not significantly different from those for students with mostly D’s/F’s for two behaviors"
+    },
+    {
+     "loc": "table 2",
+     "q": "aPR (95% CI)"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "students with mostly D's/F's",
+  "across": [
+   "self-reported letter grades"
+  ],
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "by letter grades earned among high school students (using mostly D’s/F’s as the referent)"
+   },
+   {
+    "loc": "text",
+    "q": "Comparisons of students with specific self-reported grades (mostly A’s, mostly B’s, or mostly C’s) against a combined referent group"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Wald F p-values from the logistic regressions were used to determine statistically significant associations between overall self-reported letter grades in school and each behavior"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted prevalence, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Unadjusted weighted prevalence of health-related behaviors"
+    }
+   ]
+  },
+  {
+   "v": "aPR",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "aPR = adjusted prevalence ratio"
+    }
+   ]
+  },
+  {
+   "v": "Wald F p-value",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Wald F p-value"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a three-stage cluster sample design was used to produce a nationally representative sample of students in grades 9–12"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Logistic regression adjusted for sex, race/ethnicity, and grade (i.e., 9th, 10th, 11th, or 12th) in school."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "sex, race/ethnicity, and grade in school (9th–12th)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Logistic regression adjusted for sex, race/ethnicity, and grade (i.e., 9th, 10th, 11th, or 12th) in school."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Among U.S. high school students in 2015, are self-reported letter grades associated with 30 health-related protective and risk behaviors?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Analyses assessed relationships between academic achievement (i.e., self-reported letter grades in school) and 30 health-related behaviors"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "substance use",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "seven substance use behaviors"
+    }
+   ]
+  },
+  {
+   "v": "sexual risk behaviors",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "five sexual risk behaviors"
+    }
+   ]
+  },
+  {
+   "v": "violence-related behaviors (dating violence, bullying)",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "five violence-related behaviors"
+    }
+   ]
+  },
+  {
+   "v": "suicide-related behaviors",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "three suicide-related behaviors"
+    }
+   ]
+  },
+  {
+   "v": "dietary behaviors",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "five dietary behaviors"
+    }
+   ]
+  },
+  {
+   "v": "physical activity",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "three physical activity behaviors"
+    }
+   ]
+  },
+  {
+   "v": "sedentary behaviors",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "two sedentary behaviors"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a biennial, cross-sectional, school-based survey measuring health-related behaviors among U.S. students in grades 9–12"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed results from the 2015 national Youth Risk Behavior Survey (YRBS)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Youth Risk Behavior Survey (YRBS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed results from the 2015 national Youth Risk Behavior Survey (YRBS)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "a nationally representative sample of students in grades 9–12 who attended public and private schools"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Race/ethnicity appears only as a covariate and weighting variable; sex and grade in school are covariates. Academic grades, the compared variable, are treated as individual achievement rather than a social-position dimension.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "If self-reported grades are read as an education (SES) dimension, given the article's framing of education as a social determinant, the aPR contrasts vs D's/F's would be quantified and interpreted."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Logistic regression adjusted for sex, race/ethnicity, and grade (i.e., 9th, 10th, 11th, or 12th) in school."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Logistic regression adjusted for sex, race/ethnicity, and grade (i.e., 9th, 10th, 11th, or 12th) in school."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "measuring health-related behaviors among U.S. students in grades 9–12"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "while controlling for sex, race/ethnicity, and grade (9th, 10th, 11th, or 12th)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "education as a social determinant of health",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Education is commonly viewed as an important social determinant of health"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Mostly D's and F's are combined as the referent group for grades; students who dropped out are not represented."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Grades (4 groups: A, B, C, D/F) are compared with a model joint Wald F test plus per-group aPRs vs D/F; this was not entered as groupwise because grades were not read as an SPD. If grades are read as education/SES, a groupwise entry (model joint test, n_groups 4, ordered, resolves_to_finer true) would apply.",
+ "view_issues": "Table 2 reports adjusted prevalence ratios from logistic regression without saying how they were derived (presumably predicted marginals)."
+}

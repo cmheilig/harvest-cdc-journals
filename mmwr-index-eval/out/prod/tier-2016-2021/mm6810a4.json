@@ -1,0 +1,474 @@
+{
+ "id": "mm6810a4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPys5tzTnTXSq8CQTPZ",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "By the end of follow-up, 27 infants (17.4%; CI = 12.1%–24.0%) had received a diagnosis of congenital syphilis"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "By the end of follow-up, 27 infants (17.4%; CI = 12.1%–24.0%) had received a diagnosis of congenital syphilis"
+    },
+    {
+     "loc": "table 1",
+     "q": "Infants with congenital syphilis, no. (%)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "By the end of follow-up, 27 infants (17.4%; CI = 12.1%–24.0%) had received a diagnosis of congenital syphilis"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "delivery of an infant with congenital syphilis was significantly more likely among migrant women (OR = 4.9; CI = 1.7–17.7)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Every twofold increase of maternal RPR titers approximately doubled the odds of delivering an infant with congenital syphilis (aOR = 1.7; CI = 1.2–2.6)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "exact logistic regression (univariate and multivariable)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'univariate and multivariable exact logistic regression' giving ORs and aORs → logistic; CIs and p-values from the exact model",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the relative odds were assessed using univariate and multivariable exact logistic regression analyses, computing unadjusted odds ratios (ORs) and adjusted ORs (aORs)"
+    },
+    {
+     "loc": "table 1",
+     "q": "Confidence intervals and p-values from univariate exact logistic regression."
+    }
+   ]
+  },
+  {
+   "name": "Pearson chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods and Table 1 notes for categorical case-control comparisons",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Pearson’s chi-squared test or Fisher’s exact test was used to compare differences in maternal and paternal demographic and laboratory characteristics between cases and controls."
+    }
+   ]
+  },
+  {
+   "name": "Fisher exact test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods and Table 1 notes as alternative to chi-square for categorical variables",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "p<0.05 (Pearson’s chi-squared or Fisher’s exact test for categorical variables and exact test for logistic regression coefficients)."
+    }
+   ]
+  },
+  {
+   "name": "log2 transformation of RPR and TPPA titers",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "titers entered as log2, so ORs are per twofold increase",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "RPR and TPPA titers › Log 2 (titers of RPR)"
+    },
+    {
+     "loc": "text",
+     "q": "Every twofold increase of maternal RPR titers and TPPA titers increased the risk for mother-to-child transmission of syphilis"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "nonmigrant women; diagnosis at ≤12 gestational weeks",
+  "across": [
+   "migrant status",
+   "gestational age at syphilis diagnosis",
+   "maternal RPR titer",
+   "maternal TPPA titer",
+   "paternal syphilis status",
+   "age group",
+   "education",
+   "employment",
+   "marital status",
+   "treatment",
+   "mode of delivery"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "migrant women and those who received a diagnosis at >36 gestational weeks were approximately five times and 25 times more likely"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "Confidence intervals and p-values from univariate exact logistic regression."
+   },
+   {
+    "loc": "text",
+    "q": "All p-values were two-sided, with values <0.05 being considered statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "OR",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Unadjusted OR (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "aOR",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted OR (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Infants with congenital syphilis, no. (%)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "none",
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Confidence intervals and p-values from univariate exact logistic regression."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Risk factors associated with congenital syphilis among 155 women with syphilis (multivariable analysis)"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "mutual adjustment of gestational age at diagnosis, log2 RPR titer and log2 TPPA titer (forward selection at p<0.25)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The multivariable exact logistic regression model was built using a forward selection procedure (at p<0.25)"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Which maternal and paternal characteristics are risk factors for mother-to-child transmission of syphilis among pregnant women with new syphilis diagnoses in Suzhou, China?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To examine risk factors for mother-to-child transmission of syphilis, a cohort of pregnant women with a new syphilis diagnosis and their live-born infants was recruited"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "congenital syphilis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Risk Factors for Congenital Syphilis Transmitted from Mother to Infant — Suzhou, China, 2011–2014"
+    }
+   ]
+  },
+  {
+   "v": "syphilis",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a cohort of 189 pregnant women with a new diagnosis of syphilis was recruited at the Fifth People’s Hospital of Suzhou"
+    }
+   ]
+  },
+  {
+   "v": "pregnancy",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a cohort of 189 pregnant women with a new diagnosis of syphilis was recruited"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "case-control",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Within the maternal cohort, a nested case-control study was conducted to examine the risk for transmission of syphilis from mother to child."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a cohort of 189 pregnant women with a new diagnosis of syphilis was recruited at the Fifth People’s Hospital of Suzhou"
+    }
+   ]
+  },
+  {
+   "v": "record abstraction or interview",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Migrant status was determined using questionnaires during face-to-face interviews and verified by checking identification documents."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [],
+ "setting": {
+  "v": "international",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Suzhou, China, 2011–2014"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 3,
+  "level_reason": "Migrant women's higher odds of delivering an infected infant are quantified (OR 4.9, 'five times') in the Summary and interpreted as a prenatal-care gap; structural causes are only implied through access recommendations.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "Limited access to prenatal care among migrant women with temporary residence status could be read as a named structural explanation, not only a recommendation."
+  },
+  "dimensions": [
+   {
+    "v": "other",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "migrant women and those who received a diagnosis at >36 gestational weeks were approximately five times and 25 times more likely"
+     },
+     {
+      "loc": "table 1",
+      "q": "Migrant resident › Yes"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "highest level of education completed",
+     "employed"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Highest level of education completed › Primary school or less"
+     },
+     {
+      "loc": "table 1",
+      "q": "Employed › No"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group (yrs) › 25–29"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "a cohort of 189 pregnant women with a new diagnosis of syphilis was recruited"
+     }
+    ]
+   },
+   {
+    "v": "other",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Marital status › Formerly married"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "access to prenatal care for migrant women",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "highlighting opportunities to improve prenatal care received by the migrant population"
+    },
+    {
+     "loc": "summary",
+     "q": "improving access to prenatal care for migrant women are critical to preventing congenital syphilis in China"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Migrant status (internal migrants with temporary residence) recorded as 'other' SPD; referent is nonmigrant women. Education and age referents are the highest-education and youngest groups."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group (yrs) › 25–29"
+    },
+    {
+     "loc": "table 1",
+     "q": "p<0.05 (Pearson’s chi-squared or Fisher’s exact test for categorical variables"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Highest level of education completed › Middle school"
+    },
+    {
+     "loc": "text",
+     "q": "Pearson’s chi-squared test or Fisher’s exact test was used to compare differences in maternal and paternal demographic and laboratory characteristics between cases and controls."
+    }
+   ]
+  },
+  {
+   "across": [
+    "other"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Marital status › Currently married"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "comparison",
+  "groupwise",
+  "equity.level",
+  "equity.dimensions"
+ ],
+ "confidence": "medium",
+ "notes": "Forward selection is a covariate-selection rule, not a procedure. The Discussion recomputes the transmission rate excluding delivery-diagnosed cases (5.8%), a subset re-analysis of the summary rate, not of the model. The 17.4% CI method is not stated.",
+ "view_issues": "The Summary says titer doubling 'doubled the odds', but aOR is 1.7 (RPR) and 1.6 (TPPA). It also gives migrant status's univariate OR beside the multivariable aOR, though migrant status was not significant in the multivariable model."
+}

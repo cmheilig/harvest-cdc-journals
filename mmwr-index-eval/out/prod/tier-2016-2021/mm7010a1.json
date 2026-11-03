@@ -1,0 +1,399 @@
+{
+ "id": "mm7010a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPytfQ7FBbRDXEAq6Fj",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Serious adverse outcomes were more common among Medicaid-insured patients than among patients with commercial insurance or Medicare (11.5% versus 6.7%, p = 0.049)."
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "By region, most ED visits occurred in the West (495 [37.3%], SE = 67), followed by the South (372 [28%], SE = 43)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During 2016, an estimated 1,328 emergency department visits and 100 hospitalizations were associated with accidental poisonous mushroom ingestion."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Patients aged >5 years were hospitalized more often (p = 0.010)."
+    },
+    {
+     "loc": "summary",
+     "q": "Serious adverse outcomes were more common in Medicaid-insured patients than commercially insured patients."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "P-values for IBM MarketScan Commercial Claims and Encounters/Medicare, IBM MarketScan Multi-State Medicaid, and combined databases were calculated using Fisher’s exact tests"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods and Table 2 note for comparing proportions by age group and insurance type",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using chi-square or Fisher’s exact tests for proportions"
+    }
+   ]
+  },
+  {
+   "name": "Fisher's exact test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods and Table 2 note alongside chi-square",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using chi-square or Fisher’s exact tests for proportions"
+    }
+   ]
+  },
+  {
+   "name": "HCUP survey weights (weighted national estimates)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "Table 1 note states weighted national estimates from NEDS; these give the headline ED-visit estimate",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Healthcare Cost and Utilization Project (HCUP) data include weighted national estimates from HCUP Nationwide Emergency Department Sample."
+    }
+   ]
+  },
+  {
+   "name": "suppression of imprecise and small-cell estimates",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "relative SE >0.30 rule in Table 1; cells <5 suppressed in Table 2",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Dashes indicate that statistics based on estimates with a relative SE (standard error/weighted estimate) >0.30 or with SE error = 0 are suppressed."
+    },
+    {
+     "loc": "table 2",
+     "q": "Dashes indicate the number of patients was less than five, and values are suppressed."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": "patients with commercial insurance or Medicare",
+  "across": [
+   "insurance type (Medicaid vs commercial/Medicare)",
+   "age group (≤5 vs >5 years)"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Serious adverse outcomes were more common in Medicaid-insured patients than commercially insured patients."
+   },
+   {
+    "loc": "text",
+    "q": "between these age groups and between insurance types (Medicaid versus CCAE or Medicare)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "using chi-square or Fisher’s exact tests for proportions"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "No. (%)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "No. (%)"
+    }
+   ]
+  },
+  {
+   "v": "estimated number of ED visits (SE)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "an estimated 1,328 (SE = 100) ED visits associated with accidental poisonous mushroom ingestions occurred in the United States"
+    }
+   ]
+  },
+  {
+   "v": "p-value",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "p-value †"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How often do accidental poisonous mushroom ingestions lead to ED visits, hospitalizations and serious adverse outcomes in the United States, and do outcomes differ by age and insurance type?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To estimate the frequency of emergency department (ED) visits, hospitalizations, and severe adverse outcomes associated with accidental poisonous mushroom ingestion in the United States"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "accidental poisonous mushroom ingestion",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Health Care Utilization and Outcomes Associated with Accidental Poisonous Mushroom Ingestions"
+    }
+   ]
+  },
+  {
+   "v": "serious adverse outcomes (arrhythmia, renal failure, liver failure, rhabdomyolysis, seizure, respiratory failure)",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The most common serious adverse outcome was cardiac arrythmia (2.7%), followed by acute renal failure (2.2%), liver failure (1.8%)"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This study, which analyzed administrative data sets, found that 1,328 accidental poisonous mushroom ingestions were treated in EDs during 2016"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "administrative/claims",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Commercial Claims and Encounters (CCAE), Medicare Supplemental and Coordination of Benefits (Medicare), and Multi-State Medicaid databases"
+    },
+    {
+     "loc": "text",
+     "q": "the largest publicly available databases for all-payer ED visits and hospitalizations, respectively."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "HCUP Nationwide Emergency Department Sample (HCUP-NEDS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed 2016 data from HCUP-NEDS and HCUP-NIS"
+    }
+   ]
+  },
+  {
+   "v": "HCUP National Inpatient Sample (HCUP-NIS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed 2016 data from HCUP-NEDS and HCUP-NIS"
+    }
+   ]
+  },
+  {
+   "v": "IBM MarketScan Commercial Claims and Encounters, Medicare Supplemental, Multi-State Medicaid",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Commercial Claims and Encounters (CCAE), Medicare Supplemental and Coordination of Benefits (Medicare), and Multi-State Medicaid databases"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, 2016–2018"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Serious adverse outcomes by insurance type (Medicaid as SES proxy) are reported and interpreted as lower SES, but values are only set side by side with a p-value (11.5% vs 6.7%), with no computed difference or ratio, so capped at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The Medicaid contrast is a headline finding, framed as an SES difference and tested; a reader could treat the stated percentages as quantification."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "primary comparison",
+    "ses_components": [
+     "Medicaid insurance",
+     "commercial insurance",
+     "Medicare"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "suggesting that severe consequences of poisonous mushroom ingestions might be more common among patients with lower socioeconomic status"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "payer",
+     "uninsured"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Among ED visits, the most common insurance types were private (567 [42.7%], SE = 69), Medicaid (451 [34.0%], SE = 53)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "patients from MarketScan were categorized as being ≤5 years or >5 years."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "311 (55.9%) were male."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "In the Medicaid data set, 61.7% of patients were White, 16.3% of patients were Black"
+     },
+     {
+      "loc": "text",
+      "q": "outcome comparison by race and ethnicity was not possible for most patients in the analysis."
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Patient residence ¶ › Micropolitan and noncore (rural)"
+     }
+    ]
+   },
+   {
+    "v": "country of birth/language/nativity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Recent immigrants are also at risk for mushroom poisonings"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "Medicaid patients' lower use of poison control centers",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Previous studies have found that patients with Medicaid are less likely to use poison control centers in general"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Insurance type (Medicaid vs commercial/Medicare) is the SES proxy; race available only in Medicaid data; Table 1 payer and rurality are visit distributions only."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "equity.level",
+  "analytic_depth"
+ ],
+ "confidence": "medium",
+ "notes": "Design not named; cross-sectional inferred from analysis of administrative data. Age comparisons were repeated with finer age categories (limitations), a sensitivity check outside any regression. Mean length of stay and costs are single descriptive means, not compared.",
+ "view_issues": "Text says the North region; Table 1 says Northeast."
+}

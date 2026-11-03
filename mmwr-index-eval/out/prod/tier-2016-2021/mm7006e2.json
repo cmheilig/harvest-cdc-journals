@@ -1,0 +1,370 @@
+{
+ "id": "mm7006e2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPytuY6w8DPsDTpxsFF",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The outcome was the hospitalization growth rate, defined as the weekly percentage change in cumulative COVID-19 hospitalizations per 100,000 persons."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "to compare COVID-19–associated hospitalization growth rates at COVID-NET sites with mandates before and after the dates that statewide mask mandates became effective"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The study controlled for mask mandates, state, age group, and time (i.e., week of the year)."
+    },
+    {
+     "loc": "text",
+     "q": "Analyses were conducted separately for three age groups (18–39, 40–64, and ≥65 years)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "weighted least squares panel regression (event study)",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "'weighted least squares regression' with panel data → linear; percentage-point coefficients with p-values and CIs",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "The model used was a weighted least squares regression which accounted for heteroskedasticity"
+    },
+    {
+     "loc": "text",
+     "q": "This study used a regression model with panel data"
+    }
+   ]
+  },
+  {
+   "name": "population analytic weights",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "site bridged-race population estimates used as analytic weights in the regression",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "bridged-race population estimates"
+    },
+    {
+     "loc": "note",
+     "q": "for each site as analytic weights."
+    }
+   ]
+  },
+  {
+   "name": "log difference of cumulative hospitalization rates",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "outcome defined as difference of logarithms of weekly cumulative rates × 100",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The weekly percentage change was calculated as the difference of logarithms in cumulative COVID-19 hospitalization rates by week."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "absolute",
+  "referent": "<4 weeks before the implementation week, including the implementation week",
+  "across": [
+   "time relative to mask mandate implementation",
+   "age group"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "<4 weeks before the implementation week (reference); <3 weeks after the implementation week; and ≥3 weeks after the implementation week."
+   },
+   {
+    "loc": "table 2",
+    "q": "Percentage point change* (95% CI)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "P-values <0.05 were considered statistically significant."
+   },
+   {
+    "loc": "note",
+    "q": "estimating the standard errors using age cohort-state clusters."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "hospitalization growth rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The outcome was the hospitalization growth rate"
+    }
+   ]
+  },
+  {
+   "v": "percentage point change",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Percentage point change* (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "hospitalizations per 100,000 persons",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "hospitalization rates (hospitalizations per 100,000 persons)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "clustered or robust SE",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "estimating the standard errors using age cohort-state clusters."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Reported numbers are from regression models, which controlled for state, age group, time (week), and statewide closing and reopening."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "state, age group, time (week), statewide closing and reopening",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "which controlled for state, age group, time (week), and statewide closing and reopening."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "to test whether sites with mask mandates had differential trends in COVID-19–associated hospitalization rates before issuance of mask mandates"
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "Was implementation of statewide mask mandates associated with changes in COVID-19–associated hospitalization growth rates among adults by age group?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This study examined whether implementation of statewide mask mandates was associated with COVID-19–associated hospitalization growth rates among different age groups"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Decline in COVID-19 Hospitalization Growth Rates Associated with Statewide Mask Mandates"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "before and after the dates that statewide mask mandates became effective"
+    }
+   ]
+  },
+  {
+   "v": "ecologic",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A group of counties participating in COVID-NET within a state is termed a site."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were obtained from COVID-NET, a population-based surveillance system"
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "from state government websites containing executive or administrative orders, which were analyzed and coded"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "COVID-19–Associated Hospitalization Surveillance Network (COVID-NET)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "COVID-19–Associated Hospitalization Surveillance Network (COVID-NET)"
+    }
+   ]
+  },
+  {
+   "v": "CDC/University of Nevada, Las Vegas statewide mask mandate data set",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were obtained by CDC and the University of Nevada, Las Vegas, from state government websites"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "10 States, March–October 2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "The only SPD is age: the population is adults and models are run by age group, with no social-position framing.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 2,
+   "reason": "Age-specific effects are reported and discussed as differing (less decline at ≥65 years), though age carries no social-position framing."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Analyses were conducted separately for three age groups (18–39, 40–64, and ≥65 years)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Hospitalizations among children and adolescents aged <18 years were not included"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "statewide mask mandates (state policy as analyzed exposure)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "whether implementation of statewide mask mandates was associated with COVID-19–associated hospitalization growth rates"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Seven age cohorts aggregated into three age groups; children <18 years excluded."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "suggesting that there might have been less of a decline in this age group, compared with that of other adults"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "outcome_types",
+  "study_design",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Design named as an event study with panel data; mapped to before/after or trend plus ecologic (site–age cohort aggregates), inferred. Zero cumulative rates imputed to 0.1 per 100,000 is a fixed fill-in, not a procedure. P-values are for model coefficients, so no separate test is recorded.",
+ "view_issues": "Text gives CIs as positive declines (e.g. 0.3–5.5) while Table 2 reports negative coefficients (−5.5 to −0.3); sign convention differs. Article was corrected by erratum (2021-02-26)."
+}

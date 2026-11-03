@@ -1,0 +1,340 @@
+{
+ "id": "mm7015e2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPytqZpz6L9gfakA17Y",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Within each U.S. Census region, the proportion of hospitalized patients with COVID-19 was highest for Hispanic or Latino patients."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "PHD-SR identified 3,780,251 total unique hospitalized patients, including 298,066 (7.9%) unique patients with a COVID-19 diagnosis."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In every region, Hispanic patients represented the highest cumulative proportion of hospitalized patients with COVID-19 and highest cumulative aPHR relative to White patients."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "For each region, aPHRs were calculated for each racial and ethnic minority group compared with White patients using multivariable Poisson regression."
+    },
+    {
+     "loc": "table 1",
+     "q": "Adjusted for age group using Poisson regression."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "multivariable Poisson regression with GEE (age-adjusted proportionate hospitalization ratios)",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'multivariable Poisson regression' giving age-adjusted ratios of proportions → loglinear; CIs from generalized estimating equations for facility clustering",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "For each region, aPHRs were calculated for each racial and ethnic minority group compared with White patients using multivariable Poisson regression."
+    },
+    {
+     "loc": "text",
+     "q": "Confidence intervals were calculated for the cumulative aPHRs using generalized estimating equations to account for clustering within facilities."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "non-Hispanic White patients",
+  "across": [
+   "race/ethnicity",
+   "U.S. Census region",
+   "month"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Cumulative and monthly age-adjusted COVID-19 proportionate hospitalization ratios (aPHRs) were calculated for racial and ethnic minority patients relative to non-Hispanic White patients."
+   },
+   {
+    "loc": "summary",
+    "q": "Within each U.S. Census region, the proportion of hospitalized patients with COVID-19 was highest for Hispanic or Latino patients."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Confidence intervals were calculated for the cumulative aPHRs using generalized estimating equations to account for clustering within facilities."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage of hospitalized patients with COVID-19",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percentage of hospitalized patients with COVID-19"
+    }
+   ]
+  },
+  {
+   "v": "unadjusted proportionate hospitalization ratio",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Cumulative proportionate hospitalization ratios › Unadjusted"
+    }
+   ]
+  },
+  {
+   "v": "aPHR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "age-adjusted COVID-19 proportionate hospitalization ratios (aPHRs)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "GEE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using generalized estimating equations to account for clustering within facilities."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "The unadjusted proportionate hospitalization ratio is calculated as the percentage of hospitalized patients with COVID-19 among a racial/ethnic minority group"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Adjusted for age group using Poisson regression."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age group (<18, 18–39, 40–54, 55–64, 65–74, ≥75 years)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age groups were: <18, 18–39, 40–54, 55–64, 65–74, and ≥75 years."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a supplementary analysis found similar racial and ethnic distributions among persons hospitalized in 2019 and for hospitalizations in 2020"
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "How did racial and ethnic disparities in the proportion of hospitalized patients with COVID-19 vary by U.S. Census region and month during March–December 2020?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC assessed monthly trends in the proportion of hospitalized patients with COVID-19 among racial and ethnic groups"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Trends in Racial and Ethnic Disparities in COVID-19 Hospitalizations, by Region"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Using administrative discharge data, CDC assessed monthly trends in the proportion of hospitalized patients with COVID-19"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Racial and ethnic disparities were largest during May–July 2020 and became less pronounced as the pandemic spread throughout the country"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "administrative/claims",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "an all-payer, administrative database containing patient-level discharge records"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Premier Healthcare Database Special COVID-19 Release (PHD-SR)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were obtained from the Premier Healthcare Database Special COVID-19 Release (PHD-SR)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "from more than 800 nongovernmental, community, and teaching hospitals across the United States."
+   },
+   {
+    "loc": "text",
+    "q": "Proportions were stratified by patient race/ethnicity and by four U.S. Census regions"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Racial/ethnic disparities are framed, quantified as aPHRs versus White patients (Hispanic 2.7–3.9) and interpreted; occupational and housing conditions and socioeconomic status are named as likely drivers of the regional and temporal patterns.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The determinants are offered as likely explanations supported by cited studies, not measured or analyzed, and could be read as generic."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "aPHRs were calculated for each racial and ethnic minority group compared with White patients"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Adjusted for age group using Poisson regression."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "occupational and housing conditions; socioeconomic status; social determinants of health",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The regional and temporal patterns in disparities observed in this analysis are likely driven primarily by differences"
+    },
+    {
+     "loc": "text",
+     "q": "SARS-CoV-2 exposure risk associated with occupational and housing conditions and socioeconomic status"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referent is non-Hispanic White patients; denominator is all hospitalized patients, not population; AI/AN, NHPI and multiracial patients collapsed into other; unknown race/ethnicity excluded from trend analyses."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In every region, Hispanic patients represented the highest cumulative proportion of hospitalized patients with COVID-19 and highest cumulative aPHR relative to White patients."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "regression_fields",
+  "equity.level"
+ ],
+ "confidence": "high",
+ "notes": "Design not named; surveillance/descriptive inferred from analysis of administrative discharge data. Monthly aPHR changes were examined qualitatively, with no CIs or tests. The 2019 vs 2020 non-COVID distribution check is recorded as a bias-check sensitivity analysis.",
+ "view_issues": null
+}

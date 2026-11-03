@@ -1,0 +1,420 @@
+{
+ "id": "mm6911a5",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2018, an opioid prescription was filled by 19.2% of the adult U.S. population, with an average of 3.6 prescriptions per patient"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "One in five adults had an opioid prescription filled in 2018"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2018, women had approximately 1.5 times the odds of filling an opioid prescription overall than did men (21.9% versus 16.5%"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Within each age group, the odds among women were significantly higher than were those among men."
+    },
+    {
+     "loc": "table 1",
+     "q": "Percentages are age-adjusted to the 2000 U.S. census population."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Pearson chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods and table notes; each age group vs 20–24 years and women vs men within age group",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Pearson’s chi-squared test of categorical data was used to test for differences in annual percentage distributions among age groups and sex"
+    },
+    {
+     "loc": "table 1",
+     "q": "Indicates Pearson’s chi-squared test was significant (p<0.001) compared with those aged 20–24 years who had an opioid prescription filled or not."
+    }
+   ]
+  },
+  {
+   "name": "Joinpoint log-linear regression (AAPC)",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'log-linear regression models' fitted in Joinpoint software giving AAPCs → loglinear",
+   "role": "primary",
+   "alternative_reading": "linear: Joinpoint commonly fits least squares on the log of the percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Temporal trends during 2008–2018 were assessed by fitting log-linear regression models"
+    }
+   ]
+  },
+  {
+   "name": "parallelism/coincidence test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "Joinpoint pairwise comparison of trends between men and women of the same age group",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "comparing trends among groups by pairwise comparison parallel or coincidence testing using Joinpoint regression software"
+    },
+    {
+     "loc": "figure 1",
+     "q": "two trends in terms of average annual percentage change compared between men and women of the same age group were parallel"
+    }
+   ]
+  },
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "percentages age-adjusted to the 2000 U.S. census population",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percentages are age-adjusted to the 2000 U.S. census population."
+    }
+   ]
+  },
+  {
+   "name": "weighting to national estimates",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "IQVIA data weighted to provide nationwide estimates",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted to provide nationwide estimates."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "adults aged 20–24 years; men",
+  "across": [
+   "age group",
+   "sex",
+   "year"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "One in five adults had an opioid prescription filled in 2018, with higher fill rates among women than men across age groups."
+   },
+   {
+    "loc": "summary",
+    "q": "Rates among adults aged ≥65 years were highest and declined least."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Pearson’s chi-squared test of categorical data was used to test for differences in annual percentage distributions among age groups and sex"
+   },
+   {
+    "loc": "text",
+    "q": "All hypothesis testing was two-tailed, using p<0.05 to indicate statistical significance."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percentages are age-adjusted to the 2000 U.S. census population."
+    }
+   ]
+  },
+  {
+   "v": "OR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "OR = 1.45; 95% CI = 1.44–1.46; p<0.001"
+    }
+   ]
+  },
+  {
+   "v": "AAPC",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "AAPC (95% CI) from 2008 to 2018"
+    }
+   ]
+  },
+  {
+   "v": "% change",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% Change from 2008 to 2018"
+    }
+   ]
+  },
+  {
+   "v": "opioid prescriptions per patient",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Opioid prescription per patient"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Temporal trends during 2008–2018 were assessed by fitting log-linear regression models"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "comparing trends among groups by pairwise comparison parallel or coincidence testing using Joinpoint regression software"
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did the percentage of U.S. adults with a filled outpatient opioid prescription vary by age and sex, and change during 2008–2018?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "nationwide trends in opioid prescription fill rates for adult outpatients by age and sex were examined during 2008–2018."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "prescription opioid use",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Variation in Adult Outpatient Opioid Prescription Dispensing by Age and Sex — United States, 2008–2018"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "nationwide trends in opioid prescription fill rates for adult outpatients by age and sex were examined during 2008–2018."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Although fill rates declined in each age group among both sexes during 2008–2018 (31% overall), disparities persisted."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "administrative/claims",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The IQVIA administrative database Total Patient Tracker was used to identify patients aged ≥20 years"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "IQVIA Total Patient Tracker",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The IQVIA administrative database Total Patient Tracker"
+    }
+   ]
+  },
+  {
+   "v": "IQVIA SMART—Patient Insights",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A second IQVIA database (SMART—Patient Insights) was used to determine the total number of opioid prescriptions filled each year."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "representing 92% of all U.S. retail prescriptions."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Only age and sex are compared; although called 'disparities' and quantified by ORs, the explanations offered are clinical and physiological, not social position.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Sex and age differences are framed as 'disparities', quantified (OR 1.45; nearly twice the odds) and interpreted, which could be read as social-position framing."
+  },
+  "dimensions": [
+   {
+    "v": "sex",
+    "role": "primary comparison",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "For each age group, a statistically higher percentage of women than men filled at least one opioid prescription over the 11-year study period"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Compared with patients aged 20–24 years, those aged ≥65 years were approximately 2.6 times as likely to have had an opioid prescription filled"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "identify patients aged ≥20 years who had at least one opioid prescription filled"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referents are adults aged 20–24 years and men in the same age group; records with unknown age or sex (about 2% each) excluded."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Indicates Pearson’s chi-squared test was significant (p<0.001) compared with those aged 20–24 years who had an opioid prescription filled or not."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The magnitude of decline varied fourfold by age group, ranging from 1.7% each year among patients aged 55–64 and ≥65 years"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "comparison",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred (no design named). ORs are reported with CIs but their method is not stated; significance claims rest on the named chi-square tests. AAPC significance vs zero comes from the Joinpoint model.",
+ "view_issues": "Figure 2 note implies chi-square tests across all age groups and sex each year, but the table shows only per-group vs referent tests; which trends were parallel in Figure 1 is not visible in the text."
+}

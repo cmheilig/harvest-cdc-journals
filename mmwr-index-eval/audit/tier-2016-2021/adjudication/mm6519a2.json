@@ -1,0 +1,9 @@
+{"id": "mm6519a2",
+ "fields": [
+  {"field": "groupwise_any", "verdict": true, "correct": ["A"], "category": "reader error", "why": "Table 1 prevalences are compared across 8 race groups, 3 education levels and 3 age groups."},
+  {"field": "groupwise_dims", "verdict": ["SES", "age", "race/ethnicity"], "correct": ["A"], "category": "reader error", "why": "Race (8 groups), education (3 ordered levels, SES) and age (3 ordered groups) each have 3+ groups with prevalence per group; sex has 2."},
+  {"field": "groupwise_assessments", "verdict": ["per-group vs referent only", "side by side"], "correct": [], "category": "reader error", "why": "The only significance rule ('differences were considered statistically significant if the CIs of the age-standardized estimates did not overlap') covers the age-standardized race and education estimates, and the claims match it exactly (NHPI and Other, whose CIs overlap white or black, are not named), so race ('compared with white or black') and education are per-group vs referent only with resolves_to_finer true; age, reported unadjusted only, stays side by side. A's literal reading (rule scoped to states) is the next most defensible."}
+ ],
+ "justification": {"A": "good", "B": "n/a"},
+ "agreed_errors": [],
+ "brief_issues": "When an overlap rule sits in a sentence scoped to one estimate set (here states) but the same estimate type is reported for subgroups, the brief does not say whether subgroup claims rest on it; a rule such as 'the rule covers every estimate of the type it names unless the article limits it' would decide it."}

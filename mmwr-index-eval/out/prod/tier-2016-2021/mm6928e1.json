@@ -1,0 +1,341 @@
+{
+ "id": "mm6928e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPytLoZ6v8dSexd8L5C",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The percentages of Hispanic (34.9%) and nonwhite (29.5%) decedents who were aged <65 years were more than twice those of white decedents (13.2%)"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Overall, 34.9% of Hispanic and 29.5% of nonwhite decedents were aged <65 years, compared with 13.2% of white, non-Hispanic decedents."
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the median interval from illness onset to death was 10 days (IQR = 6–15 days)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, the most common underlying medical conditions were cardiovascular disease (60.9%), diabetes mellitus (39.5%), chronic kidney disease (20.8%), and chronic lung disease (19.2%)"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The percentages of Hispanic (34.9%) and nonwhite (29.5%) decedents who were aged <65 years were more than twice those of white decedents (13.2%)"
+    },
+    {
+     "loc": "text",
+     "q": "Diabetes was more common among decedents aged <65 years (49.6%) than among those aged ≥85 years (25.9%)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "small-cell suppression (<20)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "Table 2 note: cells with numbers <20 suppressed; censoring of observed values",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Cells with numbers <20 were suppressed."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "white, non-Hispanic decedents",
+  "across": [
+   "race/ethnicity",
+   "age group"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Overall, 34.9% of Hispanic and 29.5% of nonwhite decedents were aged <65 years, compared with 13.2% of white, non-Hispanic decedents."
+   },
+   {
+    "loc": "text",
+    "q": "The percentages of Hispanic (34.9%) and nonwhite (29.5%) decedents who were aged <65 years were more than twice those of white decedents (13.2%)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Among decedents aged <65 years, a total of 7.8% died in an emergency department or at home."
+    }
+   ]
+  },
+  {
+   "v": "median (IQR)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the median interval from illness onset to death was 10 days (IQR = 6–15 days)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What were the demographic and clinical characteristics, including age by race/ethnicity, underlying conditions and location of death, of U.S. persons who died with laboratory-confirmed COVID-19?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Understanding the demographic and clinical characteristics of decedents could inform medical and public health interventions focused on preventing COVID-19–associated mortality."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Characteristics of Persons Who Died with COVID-19"
+    }
+   ]
+  },
+  {
+   "v": "underlying medical conditions",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "a majority were aged ≥65 years and most had underlying medical conditions."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This report describes decedents with laboratory-confirmed infection with SARS-CoV-2"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using data from 1) the standardized CDC case-report form (case-based surveillance)"
+    }
+   ]
+  },
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "For 10 states (10,461 decedents), information was abstracted into state surveillance data structures and transmitted to CDC."
+    }
+   ]
+  },
+  {
+   "v": "record abstraction or interview",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC solicited supplementary information from medical charts and death certificates of decedents with laboratory-confirmed COVID-19"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "CDC COVID-19 case-based surveillance (standardized case-report form)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using data from 1) the standardized CDC case-report form (case-based surveillance)"
+    }
+   ]
+  },
+  {
+   "v": "supplemental surveillance (16 public health jurisdictions)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "16 public health jurisdictions (15 states and New York City)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Data on 52,166 deaths from 47 jurisdictions among persons with laboratory-confirmed COVID-19 were reported individually to CDC"
+   },
+   {
+    "loc": "text",
+    "q": "16 public health jurisdictions (15 states and New York City)"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Racial/ethnic differences in the share of decedents aged <65 are quantified ('more than twice'), framed as mortality differences and interpreted; occupations and essential activities precluding distancing are named as a contributing explanation.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The occupational explanation is speculative ('one potential contributing factor') and SES is otherwise named only as a topic for further study."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Overall, 34.9% of Hispanic and 29.5% of nonwhite decedents were aged <65 years, compared with 13.2% of white, non-Hispanic decedents."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Diabetes was more common among decedents aged <65 years (49.6%) than among those aged ≥85 years (25.9%)."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Among the 52,166 decedents, 55.4% were male, 79.6% were aged ≥65 years"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "poverty",
+     "access to health care"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "socioeconomic status (e.g., poverty and access to health care), behavioral factors"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "occupations (e.g., service industry) or essential activities that preclude physical distancing",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "higher percentages of Hispanic and nonwhite persons engaged in occupations (e.g., service industry) or essential activities that preclude physical distancing"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Contrast is the share of decedents aged <65 by race/ethnicity, with white non-Hispanic as referent; nonwhite groups collapsed into 'nonwhite'; Discussion compares with U.S. population age shares; no mortality rates computed."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The percentages of Hispanic (34.9%) and nonwhite (29.5%) decedents who were aged <65 years were more than twice those of white decedents (13.2%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the percentage who died in long-term care facilities increased with increasing age and was highest among decedents aged ≥85 years (12.6%)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "outcome_types"
+ ],
+ "confidence": "medium",
+ "notes": "No statistical tests were made; the authors state comparisons between data sets and standardized rates were not possible (prepass standardization cue is a false hit). Comparisons with general-population diabetes prevalence and U.S. age structure use cited figures.",
+ "view_issues": "Discussion gives 33.9% and 40.2% as the percentages of Hispanic and nonwhite decedents aged <65, but these are the shares of <65 decedents who were Hispanic/nonwhite (Table 2); the Summary's 34.9% and 29.5% are the within-race shares aged <65."
+}

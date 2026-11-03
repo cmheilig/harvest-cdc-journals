@@ -1,0 +1,490 @@
+{
+ "id": "mm6944e3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPyswEaqaU78TvMNH2w",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Thirty-four deaths (1.5 per 1,000 cases) were reported among 23,434 symptomatic pregnant women"
+    },
+    {
+     "loc": "table 2",
+     "q": "No. (per 1,000 cases) of symptomatic women"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among symptomatic women, 23,434 (5.7%) were reported to be pregnant."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Compared with nonpregnant women, pregnant women more frequently were admitted to an ICU (10.5 versus 3.9 per 1,000 cases"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall and stratified risk ratios were adjusted for age (in years), race/ethnicity, and presence of diabetes, cardiovascular disease (including hypertension), and chronic lung disease."
+    },
+    {
+     "loc": "text",
+     "q": "Stratifying these analyses by age and race/ethnicity highlighted disparities in risk by subgroup."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "modified Poisson regression",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'modified Poisson regression' giving crude and adjusted risk ratios → loglinear; 'modified' means robust variance",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Crude and adjusted RRs and 95% CIs were calculated using modified Poisson regression."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based CIs from the modified Poisson regression; conclusions of increased risk drawn from aRR CIs excluding 1",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "pregnant women were significantly more likely than were nonpregnant women to be admitted to an intensive care unit (ICU)"
+    },
+    {
+     "loc": "text",
+     "q": "Increased risk for ICU admission among pregnant women was observed for all strata"
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "Table 1 footnote reports significance at α <0.01 and a p-value for pregnant vs nonpregnant characteristics; test not named",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "All statistical comparisons were significant at α <0.01"
+    }
+   ]
+  },
+  {
+   "name": "small-cell suppression of risk ratios",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "risk ratios withheld for cells <5",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Crude and adjusted risk ratios were not calculated for cell sizes <5."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "nonpregnant women",
+  "across": [
+   "pregnancy status",
+   "age group",
+   "race/ethnicity",
+   "underlying health conditions"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "death were more likely in pregnant women than in nonpregnant women."
+   },
+   {
+    "loc": "text",
+    "q": "reflecting a 70% increased risk for death associated with pregnancy (aRR = 1.7; 95% CI = 1.2–2.4)."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Crude and adjusted RRs and 95% CIs were calculated using modified Poisson regression."
+   },
+   {
+    "loc": "table 1",
+    "q": "All statistical comparisons were significant at α <0.01"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "per 1,000 cases",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(10.5 versus 3.9 per 1,000 cases; adjusted risk ratio [aRR] = 3.0"
+    }
+   ]
+  },
+  {
+   "v": "aRR",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusted risk ratio [aRR] = 3.0; 95% confidence interval [CI] = 2.6–3.4"
+    }
+   ]
+  },
+  {
+   "v": "crude risk ratio",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Risk ratio (95% CI) › Crude"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Pregnant women were more frequently Hispanic/Latina (Hispanic) (29.7%) and less frequently non-Hispanic White (White) (23.5%)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "clustered or robust SE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "calculated using modified Poisson regression."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Crude and adjusted RRs and 95% CIs were calculated using modified Poisson regression."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted for age (continuous variable, in years), categorical race/ethnicity variable, and dichotomous indicators for diabetes, cardiovascular disease, and chronic lung disease."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age (in years), race/ethnicity, diabetes, cardiovascular disease (including hypertension), chronic lung disease; reduced sets in some strata",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall and stratified risk ratios were adjusted for age (in years), race/ethnicity, and presence of diabetes, cardiovascular disease (including hypertension), and chronic lung disease."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Among symptomatic women aged 15–44 years with laboratory-confirmed SARS-CoV-2 infection, is pregnancy associated with severe COVID-19 outcomes?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This report provides updated information about symptomatic women of reproductive age (15–44 years) with laboratory-confirmed infection with SARS-CoV-2"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Characteristics of Symptomatic Women of Reproductive Age with Laboratory-Confirmed SARS-CoV-2 Infection by Pregnancy Status"
+    }
+   ]
+  },
+  {
+   "v": "severe COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "pregnant women were at increased risk for severe COVID-19–associated illness."
+    }
+   ]
+  },
+  {
+   "v": "pregnancy",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "reflecting a 70% increased risk for death associated with pregnancy"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "electronically reported to CDC using a standardized case report form § or NNDSS ¶ as part of COVID-19 surveillance efforts."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC received reports through national COVID-19 case surveillance or through the National Notifiable Diseases Surveillance System (NNDSS)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Notifiable Diseases Surveillance System (NNDSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "through the National Notifiable Diseases Surveillance System (NNDSS)"
+    }
+   ]
+  },
+  {
+   "v": "Surveillance for Emerging Threats to Mothers and Babies Network (SET-NET)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "records linked to the Surveillance for Emerging Threats to Mothers and Babies Network (SET-NET) optional COVID-19 module"
+    }
+   ]
+  },
+  {
+   "v": "CDC Human Infection with 2019 Novel Coronavirus Case Report Form",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "CDC’s Human Infection with 2019 Novel Coronavirus Case Report Form"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "by Pregnancy Status — United States, January 22–October 3, 2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Race/ethnicity-specific pregnancy aRRs and Black women's share of deaths vs share of cases are described as disparities, but the racial contrasts are side by side (strata aRRs, shares) with no computed race difference or ratio, so capped at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The article explicitly frames racial/ethnic disparities and Black women's 36.6% of deaths vs 14.1% of cases could be read as a quantified excess."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "This analysis highlights racial and ethnic disparities in both risk for infection and disease severity among pregnant women"
+     },
+     {
+      "loc": "text",
+      "q": "Regardless of pregnancy status, non-Hispanic Black women experienced a disproportionate number of deaths relative to their distribution among reported cases."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "categorical race/ethnicity variable"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "symptomatic women of reproductive age (15–44 years)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Stratifying these analyses by age and race/ethnicity highlighted disparities in risk by subgroup."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Adjusted for age (continuous variable, in years)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Symptomatic Women of Reproductive Age"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity missing for 26% of women with known pregnancy status; pregnant women's racial distribution compared with 2019 births and Black share of deaths with share of cases; several race strata have RRs suppressed (NA)."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 7,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "All statistical comparisons were significant at α <0.01"
+    },
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity § › Hispanic or Latina, any race"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "All statistical comparisons were significant at α <0.01"
+    },
+    {
+     "loc": "table 1",
+     "q": "Age group, yrs › 15–24"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Increased risk for ICU admission among pregnant women was observed for all strata but was particularly notable among non-Hispanic Asian (Asian) women"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise"
+ ],
+ "confidence": "high",
+ "notes": "Missing outcomes were assumed not to have occurred (a fixed fill-in, not recorded as a procedure). Table 1 test is unnamed; its race and age margins give omnibus groupwise entries by rule 2. Stratum aRRs are pregnancy contrasts within race and age, not race or age contrasts.",
+ "view_issues": "Table 2 footnote markers §§/¶¶ describe reduced adjustment sets that differ from the main text's statement; Table 1 footnote says 52% of 783,072 symptomatic cases, while the text reports 409,462 as 88.7% of known-status women."
+}

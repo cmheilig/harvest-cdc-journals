@@ -1,0 +1,9 @@
+{"id": "mm6639e1",
+ "fields": [
+  {"field": "groupwise_any", "verdict": true, "correct": ["A"], "category": "reader error", "why": "Table 1 gives 2014 rates with CIs for 5 race/ethnicity and 5 age groups, and Figure 1 AAPCs for 4 adult age groups are compared ('trends varied substantially by age group')."},
+  {"field": "groupwise_dims", "verdict": ["age", "race/ethnicity"], "correct": ["A"], "category": "reader error", "why": "Sex has 2 levels; Census region and state are geography, not SPDs."},
+  {"field": "groupwise_assessments", "verdict": ["per-group vs referent only", "side by side"], "correct": ["A"], "category": "ambiguity", "why": "The methods' CI line for 'informal comparisons among rates' sits under 'higher' claims across race and age groups, which v5.2 maps to per-group vs referent only (side by side is the alternative if the line is not read as an overlap rule). The AAPC entry is side by side: each AAPC is tested only against zero (rule 6), and Figure 1 has no CIs, so the mechanical flag is a false alarm."}
+ ],
+ "justification": {"A": "good", "B": "n/a"},
+ "agreed_errors": [],
+ "brief_issues": "A methods line that offers CIs 'for informal comparisons ... without specifying a referent group' is not clearly an overlap significance rule; the brief could say whether it triggers per-group vs referent only."}

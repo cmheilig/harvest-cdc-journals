@@ -1,0 +1,318 @@
+{
+ "id": "mm7033a2",
+ "reader": {
+  "label": "B"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among adults aged 25–64 years, the highest total excess mortality IR was among AI/AN persons (221.1), followed by Black (133.4)"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the percentage of excess mortality directly attributed to COVID-19 during 2020 ranged from 9.8% (Black persons) to 34.3% (AI/AN persons)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Excess mortality incidence rates were higher for persons aged ≥65 years, with notable racial/ethnic disparities across all age groups."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among persons aged <65 years, Black and AI/AN populations had the highest excess mortality IRs."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "sARIMA time-series model of expected deaths (excess = observed minus expected)",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "seasonal ARIMA models of 2015–2019 weekly mortality IRs give the expected-death baseline; a time-series model not otherwise classifiable",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The weekly expected numbers of deaths were estimated using sARIMA models of the all-cause mortality IRs (deaths per 100,000 person-weeks)"
+    },
+    {
+     "loc": "text",
+     "q": "The resulting weekly expected numbers of deaths were subtracted from the observed numbers of deaths to generate estimates of excess deaths."
+    }
+   ]
+  },
+  {
+   "name": "sARIMA projection of weekly population denominators",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "Census annual estimates projected to weekly counts by sARIMA; builds denominators only",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "by age group and race/ethnicity for 2015–2019 were projected using seasonal autoregressive integrated moving average (sARIMA) models to obtain weekly estimates"
+    }
+   ]
+  },
+  {
+   "name": "weighting of observed deaths for reporting completeness",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated weights by jurisdiction based on 2019 provisional-data completeness",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Observed numbers of deaths were weighted to account for incomplete reporting of provisional death certificate data"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "both",
+  "referent": "expected number of deaths (sARIMA baseline)",
+  "across": [
+   "race/ethnicity",
+   "age group",
+   "quarter/week of 2020"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Excess mortality incidence rates were higher for persons aged ≥65 years, with notable racial/ethnic disparities across all age groups."
+   },
+   {
+    "loc": "figure 1",
+    "q": "The percentage excess corresponds to the number of excess deaths divided by the expected number of deaths."
+   }
+  ]
+ },
+ "inference": {
+  "v": "none",
+  "method_stated": false,
+  "ev": []
+ },
+ "primary_measures": [
+  {
+   "v": "excess mortality IR per 100,000 person-years",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "excess mortality IRs were higher among persons aged ≥65 years (426.4 to 1033.5 excess deaths per 100,000 person-years)"
+    }
+   ]
+  },
+  {
+   "v": "percentage excess mortality",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Weekly percentage excess mortality (excess deaths as a percentage of expected deaths)"
+    }
+   ]
+  },
+  {
+   "v": "no. of excess deaths (% directly attributed to COVID-19)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. of excess deaths (% directly attributed to COVID-19)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did excess all-cause mortality incidence rates during 2020 differ by race/ethnicity and age group in the United States?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This study assessed excess mortality incidence rates (IRs) (e.g., the number of excess deaths per 100,000 person-years) in the United States"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Disparities in Excess Mortality Associated with COVID-19 — United States, 2020"
+    }
+   ]
+  },
+  {
+   "v": "excess all-cause mortality",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Black and AI/AN persons had the highest excess all-cause mortality IRs among those aged <25 years and aged 25–64 years"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were obtained from the National Vital Statistics System (NVSS)."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were obtained from the National Vital Statistics System (NVSS)."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System (NVSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were obtained from the National Vital Statistics System (NVSS)."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "These data included all deaths occurring in the 50 U.S. states and District of Columbia (DC)"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Racial/ethnic disparities are framed and explained by named determinants, but group excess mortality IRs are only set side by side or ranked, with no computed between-group difference or ratio, so the cap at 2 applies.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "Disparities are titled, ranked with specific rates (e.g. >1,000 vs 500 per 100,000) and explained by occupational risk, housing, access and discrimination."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "assigned or observed",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Among adults aged ≥65 years, Black and Hispanic persons experienced the highest excess mortality IRs of >1,000 excess deaths per 100,000 person-years."
+     },
+     {
+      "loc": "text",
+      "q": "race/ethnicity reported on the death certificate might be misclassified"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "were estimated by age group (<25 years, 25–64 years, and ≥65 years) and race/ethnicity group"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "occupational risk; socioeconomic factors; housing conditions; reduced access to health care; discrimination; social determinants of health",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "driven, in part, by factors such as occupational risk, socioeconomic factors, housing conditions, reduced access to health care, and discrimination"
+    },
+    {
+     "loc": "text",
+     "q": "address inequities in social determinants of health that increase the risk for death from COVID-19 among racial/ethnic minority groups"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Each group's excess is measured against its own sARIMA baseline, not a common referent group (authors note this may understate inequities); multiracial and unknown race omitted."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among adults aged 25–64 years, the highest total excess mortality IR was among AI/AN persons (221.1), followed by Black (133.4)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Excess mortality incidence rates were higher for persons aged ≥65 years, with notable racial/ethnic disparities across all age groups."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "analytic_depth",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Design not named; surveillance/descriptive inferred from NVSS death data. Age-adjusted death rates are cited from another report, not computed here. Adjusting population denominators for cumulative excess deaths is arithmetic, not a procedure.",
+ "view_issues": "Table shows >100% of excess deaths attributed to COVID-19 for AI/AN and NH/PI aged ≥65, and negative excess deaths for some <25 groups; the note explains both."
+}

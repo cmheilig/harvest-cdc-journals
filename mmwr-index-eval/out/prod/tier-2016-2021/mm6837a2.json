@@ -1,0 +1,429 @@
+{
+ "id": "mm6837a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysQVHXw1jBdw6PWwh",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "only 765 (42%) white, 373 (30%) Hispanic, and 248 (26%) black MSM reported taking PrEP within the past year"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "White MSM were significantly more likely than were Hispanic and black MSM to report PrEP awareness, discussion with a health care provider, and use."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This disparity between white and black MSM persisted among those who had health insurance (aPR = 1.2, 95% CI = 1.1–1.3)"
+    },
+    {
+     "loc": "text",
+     "q": "Log-linked Poisson regression models with generalized estimating equations clustered on recruitment event and adjusted for urban area"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "log-linked Poisson regression with GEE (adjusted prevalence ratios)",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'log-linked Poisson regression models' estimating aPRs → loglinear; GEE clustered on recruitment event",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Log-linked Poisson regression models with generalized estimating equations clustered on recruitment event and adjusted for urban area"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based 95% CIs from the GEE Poisson regression; 'significantly' and 'disparities existed' claims rest on aPR CIs excluding 1; no p-values",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "White MSM were significantly more likely than were Hispanic and black MSM to report PrEP awareness, discussion with a health care provider, and use."
+    },
+    {
+     "loc": "text",
+     "q": "whereas disparities between white and Hispanic MSM existed only in the south (aPR = 1.2, 95% CI = 1.1–1.4)"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "white MSM",
+  "across": [
+   "race/ethnicity",
+   "PrEP continuum step",
+   "health insurance",
+   "usual source of health care",
+   "U.S. census region",
+   "age group",
+   "education",
+   "household income"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "a lower percentage of black and Hispanic MSM than white MSM had discussed PrEP with a health care provider or had used PrEP"
+   },
+   {
+    "loc": "text",
+    "q": "(white versus Hispanic aPR = 1.2, 95% CI = 1.1–1.3; white versus black aPR = 1.4, 95% CI = 1.2–1.6)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Log-linked Poisson regression models with generalized estimating equations clustered on recruitment event and adjusted for urban area"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "only 765 (42%) white, 373 (30%) Hispanic, and 248 (26%) black MSM reported taking PrEP within the past year"
+    }
+   ]
+  },
+  {
+   "v": "aPR",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "aPR = adjusted prevalence ratio"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "GEE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "with generalized estimating equations clustered on recruitment event"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "clustered on recruitment event and adjusted for urban area."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "urban area",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "clustered on recruitment event and adjusted for urban area."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Do PrEP awareness, discussion with a health care provider, and use differ among black, Hispanic, and white MSM with likely PrEP indications?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To understand racial/ethnic disparities in PrEP awareness, discussion with a health care provider, and use (steps in the HIV PrEP continuum of care)"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "HIV PrEP awareness, discussion and use",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Racial/Ethnic Disparities in HIV Preexposure Prophylaxis Among Men Who Have Sex with Men"
+    }
+   ]
+  },
+  {
+   "v": "HIV infection",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The analysis was limited to participants at risk for HIV infection who likely met clinical indications for PrEP."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "NHBS is cross-sectional biobehavioral surveillance system conducted in U.S. urban areas with high HIV prevalence."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed 2017 National HIV Behavioral Surveillance (NHBS) data."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National HIV Behavioral Surveillance (NHBS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed 2017 National HIV Behavioral Surveillance (NHBS) data."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "23 Urban Areas, 2017"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Racial/ethnic disparities in PrEP discussion and use are framed, quantified with aPRs and interpreted; access (insurance, usual source of care) is analyzed and provider assumptions and medical mistrust are named as explanations.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Provider bias and mistrust are offered speculatively and the general determinants statement is generic."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "White MSM were significantly more likely than were Hispanic and black MSM to report PrEP awareness, discussion with a health care provider, and use."
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "population",
+    "basis": "behavior",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "men who were born male and identified as male, reported having ever had oral or anal sex with another man"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "population",
+    "basis": "assigned or observed",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "men who were born male and identified as male"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "resided in the interview urban area, and were aged ≥18 years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group (yrs) › 35–44"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education",
+     "household income",
+     "health insurance"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Household income › <$25,000"
+     },
+     {
+      "loc": "text",
+      "q": "This disparity between white and black MSM persisted among those who had health insurance (aPR = 1.2, 95% CI = 1.1–1.3)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "access to health care (health insurance, usual source of care); provider inaccurate assumptions about minority patients; medical mistrust; social and structural factors",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This finding suggests that black MSM face additional barriers to PrEP use beyond access to health care."
+    },
+    {
+     "loc": "text",
+     "q": "Providers might make clinical decisions derived from inaccurate assumptions about racial/ethnic minority patients"
+    },
+    {
+     "loc": "text",
+     "q": "This phenomenon can coalesce with patients’ mistrust of health care providers and inhibit discussions about PrEP"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "White MSM are the referent; only black, Hispanic and white MSM are analyzed; insurance and usual source of care serve as access strata; data are unweighted venue-based samples."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(white versus Hispanic aPR = 1.2, 95% CI = 1.1–1.3; white versus black aPR = 1.4, 95% CI = 1.2–1.6)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group (yrs) › 18–24"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Household income › ≥$75,000"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Education › Less than high school diploma"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "regression_fields"
+ ],
+ "confidence": "medium",
+ "notes": "Stratum-specific aPRs (insurance, usual source of care, region) are treated as stratification, not a sensitivity analysis. Age, education and income percentages appear only in the table, side by side within race groups.",
+ "view_issues": "Awareness aPRs (1.1, 95% CI 1.0–1.1) are rounded so the CI appears to touch 1 yet are called significant. Table CSV U.S. territories row has a denominator of 0 for black MSM."
+}

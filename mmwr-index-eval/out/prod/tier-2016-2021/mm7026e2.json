@@ -1,0 +1,357 @@
+{
+ "id": "mm7026e2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggPysyiEvnWTPkQ6A4kY",
+  "batch_id": "msgbatch_01VJK5EpNeC9i6qAPW87z9WR"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "access to full-time in-person learning for non-Hispanic White students increased by 36.6 percentage points (from 38.0% to 74.6%)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "increased by 36.6 percentage points, 31.1 percentage points for non-Hispanic Black students"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Mean difference in access for students of color (95% CI)"
+    },
+    {
+     "loc": "text",
+     "q": "the difference in access to full-time in-person learning between non-Hispanic White students and students of color in grades K–5 increased by 6.9 percentage points"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "weighted linear regression of percentage with access on weeks",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "'linear regressions of percentage of students with access on number of weeks' → linear; enrollment as analytic weights",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Trends over time for each race/ethnicity group were analyzed using linear regressions of percentage of students with access on number of weeks"
+    },
+    {
+     "loc": "figure 1",
+     "q": "Access to full-time in-person learning increased significantly for all races/ethnicities (p<0.01 for all four regressions)"
+    }
+   ]
+  },
+  {
+   "name": "enrollment analytic weights",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated: total district enrollment used as analytic weights for means, CIs and regressions",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "95% confidence intervals for the entire study period were calculated using total district enrollment as analytic weights"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "absolute",
+  "referent": "non-Hispanic White students",
+  "across": [
+   "race/ethnicity",
+   "period",
+   "region",
+   "state",
+   "grade level"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "increased by 36.6 percentage points, 31.1 percentage points for non-Hispanic Black students"
+   },
+   {
+    "loc": "table 1",
+    "q": "A negative value indicates a higher percentage of non-Hispanic White students in the learning mode compared with students of color."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Full-time in-person learning access steadily increased starting January 2021 among all assessed racial/ethnic groups (p< 0.01)"
+   },
+   {
+    "loc": "table 1",
+    "q": "Mean percentage of students with access (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage of students with access",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the percentage of students with access to virtual-only learning decreased by 46.0 percentage points for non-Hispanic White students"
+    }
+   ]
+  },
+  {
+   "v": "percentage-point change",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "increased by 36.6 percentage points, 31.1 percentage points for non-Hispanic Black students"
+    }
+   ]
+  },
+  {
+   "v": "mean difference in access",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Mean difference in access for students of color (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "linear regressions of percentage of students with access on number of weeks from the start of the study period"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did access to full-time in-person, hybrid and virtual-only learning among U.S. K–12 students vary over the 2020–21 school year by race/ethnicity, geography and grade level?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Learning mode access was assessed for K–12 students during the COVID-19 pandemic, over time and by student race/ethnicity, geography, and grade level group."
+   }
+  ]
+ },
+ "conditions": [],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Information on learning mode was collected through weekly Internet searches of school district webpages, Facebook, and other public sources"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Weekly variation in school learning mode was examined over the 2020–21 school year by race/ethnicity"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Information on learning mode was collected through weekly Internet searches of school district webpages, Facebook, and other public sources"
+    },
+    {
+     "loc": "text",
+     "q": "District enrollment data from the 2019–20 NCES Common Core of Data collected by the U.S. Department of Education"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "NCES Common Core of Data",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "District enrollment data from the 2019–20 NCES Common Core of Data collected by the U.S. Department of Education"
+    }
+   ]
+  },
+  {
+   "v": "Burbio",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "https://about.burbio.com/methodology/"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Data were collected on learning modes used across 1,200 school districts from all 50 states and the District of Columbia"
+   },
+   {
+    "loc": "table 1",
+    "q": "by region and jurisdiction"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 3,
+  "level_reason": "Racial/ethnic disparities in in-person learning access are framed as disparities, quantified (percentage-point changes, mean differences White vs students of color with CIs) and interpreted; explanations offered (urban districts, COVID-19 burden in communities of color) are hedged and fairly generic.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "The Discussion names urban district location and higher COVID-19 burden in communities of color as explanations, which could be read as specific structural determinants."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Disparities in Learning Mode Access Among K–12 Students During the COVID-19 Pandemic, by Race/Ethnicity, Geography, and Grade Level"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "39% of K–5 students had access to full-time in-person learning compared with 33% of students in grades 6–8"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "urban districts might be less likely to open for full-time in-person learning, in part because of higher COVID-19 community rates"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "urban districts with higher COVID-19 community rates; higher COVID-19 hospitalization and mortality in communities of color",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "urban districts might be less likely to open for full-time in-person learning, in part because of higher COVID-19 community rates"
+    },
+    {
+     "loc": "text",
+     "q": "rates of COVID-19 hospitalization and mortality have been higher in communities of color"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Students of color (all groups other than non-Hispanic White) are compared with non-Hispanic White students as referent; race/ethnicity is district-level NCES enrollment data, not individual; AI/AN, Asian/PI and multiracial collapsed into other."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "increased by 36.6 percentage points, 31.1 percentage points for non-Hispanic Black students"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "39% of K–5 students had access to full-time in-person learning compared with 33% of students in grades 6–8"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "analytic_depth"
+ ],
+ "confidence": "medium",
+ "notes": "Design not named; inferred as descriptive trend monitoring. Per-group regression p-values test slopes against zero within each group, not differences across groups. Table CIs for White vs students-of-color differences are reported, but the 43-state 'higher' claim and the 'lowest/highest disparity' ranking rest on point estimates, so no CI-inversion test is recorded.",
+ "view_issues": "Summary gives the Hispanic increase as 22.0 and other races as 26.6 percentage points; the text gives 23.0 and 30.6. The table CSV has an empty column, and the article.txt column list duplicates a virtual-only header."
+}
