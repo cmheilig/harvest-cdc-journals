@@ -1,6 +1,6 @@
 # Light reader brief: data focus, outcome types, depth, design and methods sentences
 
-*Version 1.0 (2026-11-03). A first-pass reading for MMWR vols 48–70 (1999–2021), beside the surface rules (`reports/SURFACE_RULES_REPORT.md`). The rules carry what reports declare by name: regression, tests, CIs, weighting, standardization, groupwise candidates and an equity band. This reading covers the fields the rules cannot. Its definitions are copied from `READER_BRIEF.md` v5.2 so that the two readings compare field by field; a change there is copied here under a new version.*
+*Version 1.1 (2026-11-03): wording from the Haiku test on vols 71–73 (`reports/SURFACE_RULES_REPORT.md`): quotes and methods clauses within 25 words, `loc` as the place in the packet, every depth that applies, and what is not ecologic. Version 1.0 (2026-11-03): a first-pass reading for MMWR vols 48–70 (1999–2021), beside the surface rules (`reports/SURFACE_RULES_REPORT.md`). The rules carry what reports declare by name: regression, tests, CIs, weighting, standardization, groupwise candidates and an equity band. This reading covers the fields the rules cannot. Its definitions are copied from `READER_BRIEF.md` v5.2 so that the two readings compare field by field; a change there is copied here under a new version.*
 
 You read one MMWR article and reply with one JSON object. The index helps a public health instructor find candidate reports by **how they make claims about data**. An error is bothersome, never fatal. Every value carries evidence from the article.
 
@@ -39,6 +39,7 @@ List the types the article's **claims** rest on. A count outcome fitted with a l
 - Dollar outcomes and model-derived parameters (doubling time, growth rate): continuous.
 
 ### `analytic_depth` (list)
+**List every level that applies, not only the highest.** Most articles that compare groups also present single-group quantities as results (an overall percentage, a national rate): give `summary` beside `comparison` then.
 - **summary:** a single-group quantity **presented as a result**, e.g. an overall prevalence, a national percentage, a seroresponse range. Sample or enrollment sizes, and the reference value of a contrast, do not earn it.
 - **comparison:** two or more groups or periods compared, **or a comparison with a fixed referent** (a target, a threshold, or a population value treated as fixed). A side-by-side comparison with no computed contrast is still `comparison`.
 - **stratified/adjusted:** a comparison within levels of a third variable, or an adjusted one. Adjustment includes standardization, weighting to adjust, a model, or **matching treated as stratification** (e.g. conditional OR).
@@ -58,19 +59,19 @@ cross-sectional · retrospective cohort · prospective cohort · case-control ·
 - **non-randomized trial:** an intervention assigned by investigators without randomization, unless the report calls itself an evaluation.
 - Investigations of medication-error or adverse-event clusters: `outbreak investigation`.
 - Two time points compared count as before/after.
-- **Ecologic** means the unit of analysis is a group, e.g. counties or schools.
+- **Ecologic** means the unit of analysis is a group, e.g. counties or schools. Rates or counts set side by side by state, county or country are `surveillance/descriptive`, not ecologic, unless the places are the units of an analysis (e.g. county-level exposure related to county-level outcome).
 - Record a cohort as retrospective or prospective only when the article says so, or the data are clearly existing records.
 
 ### `methods_quotes` (list, at most 6)
-Verbatim sentences or clauses from the article that **state how its own quantities were computed, compared or tested**: tests, models, CI methods, weighting, standardization, suppression or reliability rules, trend analysis. Each is `{"loc", "q"}`. Prefer the one that names the method over one that only reports a result. Empty when the article states no method.
+Verbatim **clauses of at most 25 words** from the article that **state how its own quantities were computed, compared or tested**: tests, models, CI methods, weighting, standardization, suppression or reliability rules, trend analysis. Each is `{"loc", "q"}`. When a sentence is longer, quote the part that names the method, cut at a comma or clause boundary. Prefer the clause that names the method over one that only reports a result. Empty when the article states no method.
 
 ### `confidence` and `uncertain_fields`
 `confidence` (high · medium · low) for the record as a whole. `uncertain_fields` (list, may be empty): any of `data_focus`, `outcome_types`, `analytic_depth`, `study_design` where a rule boundary or the article leaves your value genuinely uncertain.
 
 ## 3. Evidence and output
 - Each value object is `{"v": <value>, "ev": [{"loc": "...", "q": "..."}]}`, with one or two quotes; never more than three.
-- `loc` is one of `title`, `summary`, `text`, `table N`, `figure N`, `note`, `ocr` (an Abstract is `summary`; an unnumbered table or figure is `table 1` / `figure 1`).
-- **Every `q` is copied exactly from the article and is at most 25 words.** The driver checks both: a quote it cannot find in the article, or one over 25 words, fails validation.
+- `loc` is one of `title`, `summary`, `text`, `table N`, `figure N`, `note`, `ocr` (an Abstract is `summary`; an unnumbered table or figure is `table 1` / `figure 1`). **It names where the quote sits in the packet, never a section heading:** body text under "Methods", "Discussion" or any other heading is `text`; a footnote is `note`.
+- **Every `q` is copied exactly from the article and is at most 25 words.** Count the words before replying; aim for 20 or fewer, and shorten by cutting, never by rewording. The driver checks both: a quote it cannot find in the article, or one over 25 words, fails validation.
 - Reply with one JSON object only, no text before or after it and no code fence:
 
 ```

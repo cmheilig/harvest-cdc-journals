@@ -224,6 +224,40 @@ For 1999–2021, a light read of every article plus a full read of that tier com
 
 A retest on the same 761 articles costs about $1. Adding the 120 slice articles (about $0.15) would also show how Haiku reads older volumes, against the slice's Opus records.
 
+### Light-1.1: the retest (owner adopted the edits, 2026-11-03)
+
+**The run.** Haiku 5.5, light-1.1, one batch covering vols 71–73 and the 120 slice articles: 881 requests for **$1.19**.
+- A first `collect` crashed on a record that gave a list where a single value belongs. The check now marks that invalid, and `collect` now resumes past results already in the ledger.
+- A rerun before the fix had written 175 results twice. Each duplicate was identical to the first copy (same request, status and cost), and the second copies were removed from `light_ledger.tsv`.
+- 2 replies could not be parsed.
+
+**Form improved.** On vols 71–73, 67 of 759 records fail a check (9%, from 26% under 1.0); on the slice, 20 of 120.
+- Long quotes fell from 186 to 20.
+- Section names as locations fell from 59 to 20.
+- Quotes not found rose from 35 to 60. Cutting quotes short is the likely cause; it should be checked before the full run, but the values are unaffected.
+
+**Agreement with the Opus records** (`reports/light_vs_opus_claude-haiku-5-5_light-1.1.tsv`; the 1.0 file now has the same layout, with a `set` column):
+
+| Field or value | 1.0, vols 71–73 | 1.1, vols 71–73 | 1.1, older slice (120) |
+|---|---|---|---|
+| data focus (exact) | 0.95 | 0.97 | 0.93 |
+| depth (exact list) | 0.33 | **0.76** | 0.74 |
+| depth: summary, P / R | 0.97 / 0.23 | 0.83 / **0.99** | 0.86 / 0.97 |
+| depth: stratified/adjusted | 0.90 / 0.91 | 0.91 / 0.94 | 0.94 / 0.89 |
+| count/rate | 0.87 / 0.96 | 0.88 / 0.97 | 0.90 / 0.94 |
+| continuous | 0.69 / 0.75 | 0.68 / 0.77 | 0.79 / 0.85 |
+| cross-sectional | 0.89 / 1.00 | 0.88 / 0.99 | 0.96 / 0.94 |
+| evaluation or monitoring | 0.79 / 0.92 | 0.78 / 0.89 | 0.93 / 0.93 |
+| outbreak investigation | 0.85 / 0.93 | 0.83 / 0.97 | 1.00 / 1.00 |
+| before/after or trend | 0.74 / 0.98 | 0.72 / 0.99 | 0.68 / 0.88 |
+| surveillance/descriptive | 0.84 / 0.88 | 0.77 / 0.93 | 0.72 / 0.95 |
+| ecologic | 0.39 / 1.00 | 0.47 / 0.69 | (2 of 2) |
+
+- **Depth is fixed.** Listing every level that applies brought agreement on the exact depth list from 0.33 to 0.76.
+- **Haiku reads the older slice about as well as vols 71–73.** Outcome types and depth hold or improve; the slice is 120 articles, 40 per stratum.
+- **Ecologic now departs from Opus by design.** The 1.1 sentence settles a gray zone the vol 71 report noted: rates side by side by place are surveillance. Haiku now calls 19 articles ecologic where Opus called 13; 9 agree, 10 are Haiku's alone, and 4 of Opus's became surveillance. Surveillance precision fell from 0.84 to 0.77 accordingly. Opus followed brief v5.2, which leaves the case open; if the owner keeps the 1.1 reading, these disagreements are Opus's, not Haiku's.
+- **Before/after or trend is still over-called** (precision about 0.70). The brief's own rule ("a title word such as 'Trends' alone does not name a design") is there; the full run can carry the flag, and a selected article gets the full reading anyway.
+
 ## Limits
 
 - **Vocabulary from 2022–2024 only.** Reports from 1999–2010 phrase methods differently, often lack a Summary box, and have fewer CIs. The rules are untested there; the plan's §4.4 calibration slice would test them.

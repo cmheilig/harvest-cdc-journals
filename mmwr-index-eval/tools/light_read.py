@@ -5,7 +5,8 @@
     python3 tools/light_read.py poll                 # status of open light batches
     python3 tools/light_read.py collect              # results of ended batches -> out/light/<model>/<vol>/<id>.json
     python3 tools/light_read.py status               # counts by status and spend, per model
-    python3 tools/light_read.py compare [--model M]  # light records vs the production records of vols 71-73 (no API call)
+    python3 tools/light_read.py compare [--model M] [--version light-1.0]
+                                                     # light records vs the production records (vols 71-73, older slice)
 
 The test comes first: submit 71-73 with each model to be considered, compare, and only then the full run.
 Packets: prod_packets/<vol>/ (tools/build_packets.py); the user turn is article.txt and the table CSVs (no prepass.json).
@@ -17,7 +18,7 @@ import collections, json, os, re, sys
 
 import api_read as A
 
-BRIEF, VERSION = 'LIGHT_BRIEF.md', 'light-1.0'
+BRIEF, VERSION = 'LIGHT_BRIEF.md', 'light-1.1'
 MODELS = {'haiku': 'claude-haiku-5-5', 'sonnet': 'claude-sonnet-5-5'}
 EFFORT, MAX_TOKENS = 'medium', 16000
 # $ per 1M tokens, standard (claude-api skill, cached 2026-10-06); Haiku 5.5 is dearer above 100K prompt tokens
@@ -28,7 +29,7 @@ BATCH_MB = 180                       # Message Batches accept 256 MB; stay well 
 LEDGER, BATCHES, OUT = 'light_ledger.tsv', 'light_batches.tsv', 'out/light'
 LEDGER_COLS = ['time', 'id', 'volume', 'attempt', 'model', 'effort', 'brief_version', 'batch_id', 'request_id',
                'input_tokens', 'output_tokens', 'cost_usd', 'status', 'note']
-BATCH_COLS = ['batch_id', 'model', 'volumes', 'n', 'est_usd', 'submitted', 'status']
+BATCH_COLS = ['batch_id', 'model', 'volumes', 'n', 'est_usd', 'submitted', 'status', 'brief_version']
 
 FIELDS = {'outcome_types': {'continuous', 'binary/categorical', 'count/rate', 'event-time'},
           'analytic_depth': {'summary', 'comparison', 'stratified/adjusted'},
@@ -38,6 +39,12 @@ FIELDS = {'outcome_types': {'continuous', 'binary/categorical', 'count/rate', 'e
                            'cost/economic', 'non-randomized trial', 'evaluation or monitoring', 'review or synthesis', 'mixed/other'}}
 FOCUS = {'yes', 'limited', 'none'}
 LOC = re.compile(r'^(title|summary|text|note|ocr|table \d+|figure \d+)$')
+
+
+def rec_dir(model, version=None):
+    """Records of one model and brief version; light-1.0 kept the plain model folder."""
+    version = version or VERSION
+    return f'{OUT}/{model}' if version == 'light-1.0' else f'{OUT}/{model}-{version}'
 
 
 def vols_of(spec):
@@ -94,7 +101,7 @@ def check(rec, i, text):
     if rec.get('id') != i:
         errs.append(f"record id {rec.get('id')!r} is not {i}")
     df = rec.get('data_focus')
-    if not (isinstance(df, dict) and df.get('v') in FOCUS):
+    if not (isinstance(df, dict) and isinstance(df.get('v'), str) and df['v'] in FOCUS):
         errs.append('data_focus.v must be yes, limited or none')
     quotes = list((df or {}).get('ev', []) if isinstance(df, dict) else [])
     for f, allowed in FIELDS.items():
@@ -103,8 +110,8 @@ def check(rec, i, text):
             errs.append(f'{f} must be a list')
             continue
         for x in vals:
-            if not (isinstance(x, dict) and x.get('v') in allowed):
-                errs.append(f'{f}: value {x.get("v") if isinstance(x, dict) else x!r} is not allowed')
+            if not (isinstance(x, dict) and isinstance(x.get('v'), str) and x['v'] in allowed):
+                errs.append(f'{f}: value {(x.get("v") if isinstance(x, dict) else x)!r} is not allowed'[:120])
             else:
                 quotes += x.get('ev', [])
     mq = rec.get('methods_quotes')
@@ -155,16 +162,16 @@ def estimate(model, texts):
 
 def cmd_submit(spec, model, budget, dry):
     vols = vols_of(spec)
-    done = {(r['id'], r['model']) for r in A.read_tsv(LEDGER)}
+    done = {(r['id'], r['model']) for r in A.read_tsv(LEDGER) if r['brief_version'] == VERSION}   # a new brief re-reads
     if any(b['status'] != 'collected' and b['model'] == model for b in A.read_tsv(BATCHES)):
         sys.exit(f'{model} has an open light batch: poll and collect it first')
     todo = [(i, v) for i, v in packets(vols) if (i, model) not in done]
     if not todo:
-        sys.exit(f'{model}: every packet of {spec} already has a light read')
+        sys.exit(f'{model}: every packet of {spec} already has a {VERSION} read')
     texts = {i: packet_text(v, i) for i, v in todo}
     est = estimate(model, texts.values())
     left = budget - spent() - pending()
-    print(f'{model}, vols {spec}: {len(todo)} requests; estimate ~${est:.2f} (batch)')
+    print(f'{model} ({VERSION}), vols {spec}: {len(todo)} requests; estimate ~${est:.2f} (batch)')
     print(f'budget ${budget:.2f}: spent ${spent():.2f} (both ledgers), open batches ~${pending():.2f}, remaining ~${left:.2f}')
     if est > left:
         sys.exit('refused: the estimate exceeds the remaining budget')
@@ -186,7 +193,8 @@ def cmd_submit(spec, model, budget, dry):
         batch = c.messages.batches.create(requests=reqs)
         n_est = estimate(model, [texts[r['custom_id']] for r in reqs])
         A.append_tsv(BATCHES, BATCH_COLS, {'batch_id': batch.id, 'model': model, 'volumes': spec, 'n': len(reqs),
-                                           'est_usd': f'{n_est:.2f}', 'submitted': A.now(), 'status': batch.processing_status})
+                                           'est_usd': f'{n_est:.2f}', 'submitted': A.now(), 'status': batch.processing_status,
+                                           'brief_version': VERSION})
         with open(f'{OUT}/exposure_rows.tsv', 'a') as o:   # for the owner to append to the extraction's exposure_log.tsv
             o.writelines(f"{r['custom_id']}\t{A.now()[:10]}\tClaude API batch (light read, {model})\t"
                          f"mmwr-index-eval light read, vol {vol_of[r['custom_id']]}; records public on GitHub\n" for r in reqs)
@@ -210,7 +218,7 @@ def cmd_poll():
     A.write_tsv(BATCHES, BATCH_COLS, rows)
 
 
-def handle(model, vol, i, msg, batch_id):
+def handle(model, vol, i, msg, batch_id, version):
     content = [b.to_dict() for b in msg.content]
     u = msg.usage
     us = {'input': (u.input_tokens or 0) + (u.cache_read_input_tokens or 0) + (u.cache_creation_input_tokens or 0),
@@ -227,20 +235,20 @@ def handle(model, vol, i, msg, batch_id):
             status, errs = 'unparsed', [f'{e.__class__.__name__}: {str(e)[:120]}']
         else:
             errs = check(rec, i, packet_text(vol, i))
-            rec['reader'] = {'model': msg.model, 'effort': EFFORT, 'brief_version': VERSION, 'request_id': msg.id,
+            rec['reader'] = {'model': msg.model, 'effort': EFFORT, 'brief_version': version, 'request_id': msg.id,
                              'batch_id': batch_id, **({'errors': errs} if errs else {})}
             status = 'invalid' if errs else 'ok'
-            d = f'{OUT}/{model}/{vol}'
+            d = f'{rec_dir(model, version)}/{vol}'
             os.makedirs(d, exist_ok=True)
             with open(f'{d}/{i}.json', 'w') as o:
                 json.dump(rec, o, ensure_ascii=False, indent=1)
             note = f'{len(errs)} errors' if errs else ''
-    os.makedirs(f'{OUT}/{model}/raw', exist_ok=True)
-    with open(f'{OUT}/{model}/raw/{i}.json', 'w') as o:
+    os.makedirs(f'{rec_dir(model, version)}/raw', exist_ok=True)
+    with open(f'{rec_dir(model, version)}/raw/{i}.json', 'w') as o:
         json.dump({'id': i, 'status': status, 'message_id': msg.id, 'model': msg.model, 'stop_reason': msg.stop_reason,
                    'errors': errs, 'usage': us, 'content': content}, o, ensure_ascii=False)
     A.append_tsv(LEDGER, LEDGER_COLS, {'time': A.now(), 'id': i, 'volume': vol, 'attempt': 'read', 'model': model,
-                                       'effort': EFFORT, 'brief_version': VERSION, 'batch_id': batch_id, 'request_id': msg.id,
+                                       'effort': EFFORT, 'brief_version': version, 'batch_id': batch_id, 'request_id': msg.id,
                                        'input_tokens': us['input'], 'output_tokens': us['output'],
                                        'cost_usd': f'{cost_of(model, us):.5f}', 'status': status, 'note': note})
     return status
@@ -258,15 +266,19 @@ def cmd_collect():
             print(f"{b['batch_id']}: {r.processing_status}, not collected")
             continue
         vol_of = {i: v for i, v in packets(vols_of(b['volumes']))}
-        n = collections.Counter()
+        seen = {r['id'] for r in A.read_tsv(LEDGER) if r['batch_id'] == b['batch_id']}   # an interrupted collect resumes
+        n = collections.Counter({'already collected': len(seen)} if seen else {})
         for res in c.messages.batches.results(b['batch_id']):
             i = res.custom_id
+            if i in seen:
+                continue
             if res.result.type == 'succeeded':
-                n[handle(b['model'], vol_of[i], i, res.result.message, b['batch_id'])] += 1
+                n[handle(b['model'], vol_of[i], i, res.result.message, b['batch_id'], b.get('brief_version') or 'light-1.0')] += 1
             else:
                 n[res.result.type] += 1
                 A.append_tsv(LEDGER, LEDGER_COLS, {'time': A.now(), 'id': i, 'volume': vol_of[i], 'attempt': 'read',
-                                                   'model': b['model'], 'effort': EFFORT, 'brief_version': VERSION,
+                                                   'model': b['model'], 'effort': EFFORT,
+                                                   'brief_version': b.get('brief_version') or 'light-1.0',
                                                    'batch_id': b['batch_id'], 'cost_usd': '0', 'status': res.result.type})
         b['status'] = 'collected'
         print(f"{b['batch_id']} {b['model']}: " + ', '.join(f'{k} {v}' for k, v in sorted(n.items())))
@@ -285,12 +297,12 @@ def cmd_status():
     print(f'spent ${spent():.2f} in both ledgers; open batches ~${pending():.2f}')
 
 
-def cmd_compare(model):
+def cmd_compare(model, version):
     """Field by field against out/prod/<vol>/<id>.json for vols 71-73 and the older slice: agreement, precision, recall."""
     tally = collections.defaultdict(collections.Counter)
     n = 0
     for v in (71, 72, 73, 'older-slice'):
-        d = f'{OUT}/{model}/{v}'
+        d = f'{rec_dir(model, version)}/{v}'
         if not os.path.isdir(d):
             continue
         for f in sorted(os.listdir(d)):
@@ -299,30 +311,31 @@ def cmd_compare(model):
             if not os.path.exists(prod_path):
                 continue
             prod, n = json.load(open(prod_path)), n + 1
+            g = 'older slice' if v == 'older-slice' else 'vols 71-73'
             a, b = (light.get('data_focus') or {}).get('v'), (prod.get('data_focus') or {}).get('v')
-            tally['data_focus']['agree' if a == b else 'disagree'] += 1
+            tally[(g, 'data_focus')]['agree' if a == b else 'disagree'] += 1
             for fld in FIELDS:
-                la = {x.get('v') for x in light.get(fld, []) if isinstance(x, dict)}
+                la = {x['v'] for x in light.get(fld, []) if isinstance(x, dict) and isinstance(x.get('v'), str)}
                 pb = {x['v'] for x in prod.get(fld, [])}
-                tally[fld]['agree' if la == pb else 'disagree'] += 1
+                tally[(g, fld)]['agree' if la == pb else 'disagree'] += 1
                 for val in la | pb:
                     k = 'tp' if val in la and val in pb else 'fp' if val in la else 'fn'
-                    tally[f'{fld}: {val}'][k] += 1
-    out = f'reports/light_vs_opus_{model}.tsv'
+                    tally[(g, f'{fld}: {val}')][k] += 1
+    out = f'reports/light_vs_opus_{model}.tsv' if version == 'light-1.0' else f'reports/light_vs_opus_{model}_{version}.tsv'
     with open(out, 'w') as o:
-        o.write('field\tagree\tdisagree\ttp\tfp\tfn\tprecision\trecall\n')
-        for k in sorted(tally):
-            c = tally[k]
+        o.write('set\tfield\tagree\tdisagree\ttp\tfp\tfn\tprecision\trecall\n')
+        for g, k in sorted(tally, key=lambda x: (x[0] != 'vols 71-73', x[1])):
+            c = tally[(g, k)]
             p = c['tp'] / (c['tp'] + c['fp']) if c['tp'] + c['fp'] else float('nan')
             r = c['tp'] / (c['tp'] + c['fn']) if c['tp'] + c['fn'] else float('nan')
-            o.write(f"{k}\t{c['agree']}\t{c['disagree']}\t{c['tp']}\t{c['fp']}\t{c['fn']}\t{p:.3f}\t{r:.3f}\n")
-    print(f'{model}: {n} articles compared with the production records -> {out}')
+            o.write(f"{g}\t{k}\t{c['agree']}\t{c['disagree']}\t{c['tp']}\t{c['fp']}\t{c['fn']}\t{p:.3f}\t{r:.3f}\n")
+    print(f'{model} ({version}): {n} articles compared with the production records -> {out}')
 
 
 def main(argv):
     args = list(argv)
     opt = {}
-    for k in ('--model', '--budget'):
+    for k in ('--model', '--budget', '--version'):
         if k in args:
             j = args.index(k); opt[k] = args[j + 1]; del args[j:j + 2]
     dry = '--dry-run' in args
@@ -339,7 +352,7 @@ def main(argv):
     elif cmd == 'status':
         cmd_status()
     elif cmd == 'compare':
-        cmd_compare(model)
+        cmd_compare(model, opt.get('--version', VERSION))
     else:
         sys.exit(__doc__)
 
