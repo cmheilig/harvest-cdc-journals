@@ -1,0 +1,598 @@
+{
+ "id": "mm6721a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cgg9oveo6e4muLtrndCBR",
+  "batch_id": "msgbatch_01GKCs8ucZ2a3sKaBJ8ZMocc"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During 2014, 12.7% of workers aged 18–64 years were uninsured (21% decline from 2013)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During 2014, 12.7% of workers aged 18–64 years were uninsured (21% decline from 2013); declines occurred in all demographic groups."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "By occupational group, the 2014 prevalence of not having health insurance ranged from 37.0% (building and grounds cleaning and maintenance) to 2.7%"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusted prevalences were estimated using logistic regression."
+    },
+    {
+     "loc": "text",
+     "q": "There were also statistically significant differences in adjusted prevalence of being uninsured by occupation (p<0.001) in both 2013 and 2014."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting (complex BRFSS sampling design)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated weighting and design-based analysis; all estimates are weighted",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted and analyzed to account for the complex BRFSS sampling design."
+    }
+   ]
+  },
+  {
+   "name": "logistic regression for adjusted prevalences",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'adjusted prevalences were estimated using logistic regression' → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusted prevalences were estimated using logistic regression."
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "p-values and 'statistically significant' for differences among occupations, year changes and Medicaid expansion; test not named",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "there were statistically significant differences among occupation groups in the unadjusted prevalence of being uninsured (p<0.001)"
+    },
+    {
+     "loc": "text",
+     "q": "declined more (23%) in states that expanded Medicaid than in those that did not (9%; p = 0.013)"
+    }
+   ]
+  },
+  {
+   "name": "suppression of estimates with relative standard error >50%",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "table note withholds imprecise estimates by an RSE rule",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimates have a relative standard error >50% and are not shown as they do not meet standards of reliability/precision."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "both",
+  "referent": null,
+  "across": [
+   "occupational group",
+   "year",
+   "age",
+   "sex",
+   "race/ethnicity",
+   "survey language",
+   "education",
+   "annual household income",
+   "county urbanization",
+   "state Medicaid expansion"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "By occupational group, the 2014 prevalence of not having health insurance ranged from 37.0% (building and grounds cleaning and maintenance) to 2.7%"
+   },
+   {
+    "loc": "summary",
+    "q": "During 2014, 12.7% of workers aged 18–64 years were uninsured (21% decline from 2013)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "Uninsured % (95% CI)"
+   },
+   {
+    "loc": "text",
+    "q": "there were statistically significant differences among occupation groups in the unadjusted prevalence of being uninsured (p<0.001)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "prevalence (%) of being uninsured",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Uninsured % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "adjusted prevalence",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Adjusted prevalence* of not having health insurance among currently employed workers aged 18 to 64 years by occupational group"
+    }
+   ]
+  },
+  {
+   "v": "percentage point difference",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percentage point difference % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "percent change",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percent change = [(prevalence in 2014 – prevalence in 2013)/prevalence in 2013] x 100."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted and analyzed to account for the complex BRFSS sampling design."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Unadjusted prevalences by occupational group were calculated to present the magnitude of noncoverage for each occupational group."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Weighted estimates adjusted by age group, sex, race/ethnicity, language in which the survey was administered (English, Spanish, other), education, annual household income"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age group, sex, race/ethnicity, survey language, education, annual household income, marital status, employment status, state Medicaid expansion; age×year and income×year interactions",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "marital status, employment status (currently employed for wages or self-employed), and state Medicaid expansion."
+    },
+    {
+     "loc": "text",
+     "q": "each confounder interaction term except for age by year and income by year were dropped from the final model"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The initial model included occupational group, year, the interaction between occupational group and year, confounders"
+    }
+   ]
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "there was no significant difference in insurance status in either year between those with and without occupation information."
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "How did the prevalence of being uninsured among employed adults aged 18–64 years in 17 states vary by occupation and change from 2013 to 2014?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC used data from the 2013 and 2014 Behavioral Risk Factor Surveillance System (BRFSS) to estimate the prevalence of having no health care coverage"
+   }
+  ]
+ },
+ "conditions": [],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "BRFSS is an annual, state-based, random-digit–dialed landline and cell phone survey of noninstitutionalized adults aged ≥18 years residing in the United States."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the prevalence of being uninsured declined significantly (21%) from 16.0% in 2013 to 12.7% in 2014."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Industry and occupation was first available as an optional module in BRFSS in 2013."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC used data from the 2013 and 2014 Behavioral Risk Factor Surveillance System (BRFSS)"
+    }
+   ]
+  },
+  {
+   "v": "BRFSS industry and occupation module",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Industry and occupation was first available as an optional module in BRFSS in 2013."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Health Insurance Coverage by Occupation Among Adults Aged 18–64 Years — 17 States, 2013–2014"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "The outcome (being uninsured) is a social determinant, and uninsured prevalences are reported by race/ethnicity, language, education and income, but SPD contrasts are only set side by side or against the overall average ('well above'), with no computed difference or ratio, so the cap at 2 applies.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "Occupation framed as 'health disparities among occupational groups' could be read as SES, with quantified, adjusted contrasts; Medicaid eligibility, affordability and employer provision are named as explanations."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Health Insurance Coverage by Occupation Among Adults Aged 18–64 Years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group (yrs) › 18–24"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 3",
+      "q": "Weighted estimates adjusted by age group, sex, race/ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Women"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 3",
+      "q": "Weighted estimates adjusted by age group, sex, race/ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race/Ethnicity › Hispanic"
+     },
+     {
+      "loc": "text",
+      "q": "were of Hispanic ethnicity, self-employed, and never married."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 3",
+      "q": "Weighted estimates adjusted by age group, sex, race/ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education",
+     "annual household income"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Education › Less than high school"
+     },
+     {
+      "loc": "table 1",
+      "q": "Annual household income › $0–$14,999"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "education",
+     "annual household income"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "language in which the survey was conducted, education, annual household income, marital status"
+     }
+    ]
+   },
+   {
+    "v": "country of birth/language/nativity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Survey language › Spanish"
+     },
+     {
+      "loc": "text",
+      "q": "Workers who took the survey in Spanish had a particularly high prevalence of being uninsured, even in 2014"
+     }
+    ]
+   },
+   {
+    "v": "country of birth/language/nativity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "language in which the survey was conducted, education, annual household income, marital status"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "those with household incomes ≥$50,000, and those who resided in urban and rural counties."
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "County urbanization and each confounder interaction term except for age by year and income by year were dropped"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "health insurance coverage (outcome); Medicaid eligibility; affordability of coverage; employer-provided insurance and absence of an employer mandate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "possibly because they did not qualify for Medicaid, could not afford coverage, or did not have employers who provided health insurance."
+    },
+    {
+     "loc": "text",
+     "q": "There was no employer mandate to provide health insurance to employees in 2014"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Occupation (22 SOC groups) is the main exposure and is not counted as SES here; state Medicaid expansion is a policy/geography variable, not an SPD. Race/ethnicity is collapsed to 4 groups; 'Other' survey language is suppressed."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity › Black, non-Hispanic"
+    },
+    {
+     "loc": "text",
+     "q": "The prevalence of being uninsured exceeded 20% in 2014 (well above the average of 12.7%) among workers who took the survey in Spanish"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Education › College graduate or more"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Annual household income › ≥$75,000"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group (yrs) › 55–64"
+    }
+   ]
+  },
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Metropolitan/Urban/Rural county of residence** › Urban"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "comparison",
+  "regression_fields"
+ ],
+ "confidence": "medium",
+ "notes": "Design is not named; cross-sectional inferred from the BRFSS survey, with before/after for the 2013 vs 2014 change. Table 1 tests are of year-to-year change within each SPD level, so they make no groupwise entry. If occupation were read as SES, the omnibus p<0.001 across 22 occupations would be a groupwise omnibus test; nonsignificant interaction terms were dropped by a selection rule.",
+ "view_issues": "Footnote names the 'Patient Protection and Affordability Act' (Affordable Care Act). Table 3 sample sizes are smaller than Table 2's without explanation (presumably missing covariates)."
+}

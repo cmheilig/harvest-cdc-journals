@@ -1,0 +1,421 @@
+{
+ "id": "mm5807a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cgg9oyJYSjCgeequz6s6g",
+  "batch_id": "msgbatch_01GKCs8ucZ2a3sKaBJ8ZMocc"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The overall average annual age-adjusted rate for this period was 15.4 deaths per 100,000 population"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The overall average annual age-adjusted rate for this period was 15.4 deaths per 100,000 population"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The overall average annual age-adjusted rate for this period was 15.4 deaths per 100,000 population"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The rate for men (21.7 per 100,000 population) was more than double the rate for women (9.4)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates were age adjusted to the 2000 standard U.S. population."
+    },
+    {
+     "loc": "table 2",
+     "q": "Number of motor vehicle–related deaths* and death rates,† by sex, race, and U.S. Census region"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "rates age adjusted to the 2000 standard U.S. population: direct standardization",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Rates were age adjusted to the 2000 standard U.S. population."
+    }
+   ]
+  },
+  {
+   "name": "negative binomial regression",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'Negative binomial regression' named → loglinear; used only to test 1999–2005 change in rates",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Negative binomial regression was used to determine the statistical significance (p<0.05) of changes in rates from 1999 to 2005."
+    },
+    {
+     "loc": "table 1",
+     "q": "Statistical significance determined by negative binomial regression (p<0.05)."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "Healthy People 2010 target of 9.2 deaths per 100,000 population",
+  "across": [
+   "state",
+   "census region",
+   "sex",
+   "race/ethnicity",
+   "age group",
+   "year"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "substantial differences were observed by state, U.S. Census region,* sex, race, and age group."
+   },
+   {
+    "loc": "text",
+    "q": "the average annual death rate was below the Healthy People target of 9.2 per 100,000 population"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Negative binomial regression was used to determine the statistical significance (p<0.05) of changes in rates from 1999 to 2005."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted death rate per 100,000 population",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age adjusted, per 100,000 population."
+    }
+   ]
+  },
+  {
+   "v": "change from 1999 to 2005 (%)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the annual death rate decreased by 1% from 15.3 in 1999 to 15.2 in 2005"
+    }
+   ]
+  },
+  {
+   "v": "p-value",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Statistical significance determined by negative binomial regression (p<0.05)."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Negative binomial regression was used to determine the statistical significance (p<0.05) of changes in rates from 1999 to 2005."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did U.S. motor vehicle–related death rates change during 1999–2005, relative to the Healthy People 2010 target, and how did they vary by state, region, sex, race and age?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess progress toward the Healthy People objective and to examine characteristics of motor vehicle--related death rates"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "motor vehicle–related deaths",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Motor Vehicle--Related Death Rates --- United States, 1999--2005"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the National Vital Statistics System (NVSS) for the period 1999--2005."
+    }
+   ]
+  },
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "To assess progress toward the Healthy People objective and to examine characteristics of motor vehicle--related death rates"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the annual death rate decreased by 1% from 15.3 in 1999 to 15.2 in 2005"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the National Vital Statistics System (NVSS) for the period 1999--2005."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System (NVSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the National Vital Statistics System (NVSS) for the period 1999--2005."
+    }
+   ]
+  },
+  {
+   "v": "Web-based Injury Statistics and Query System (WISQARS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NVSS data were obtained from CDC's Web-based Injury Statistics and Query System"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "by state and U.S. Census region — National Vital Statistics System, United States, 1999–2005"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 3,
+  "level_reason": "Race-specific rates are quantified as a stated multiple (AI/AN nearly twice whites and blacks) and interpreted as identifying populations at greatest risk for targeted interventions; no causes tied to race are offered.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 2,
+   "reason": "The word disparity is not used and interpretation is generic ('populations at greatest risk'), so it could read as group results described without disparity framing."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "assigned or observed",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "the rate for American Indians/Alaska Natives (27.2) was nearly twice the rate for whites (15.7) and blacks (15.2)"
+     },
+     {
+      "loc": "text",
+      "q": "death certificates and population estimates might not accurately record race"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "cross-classifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Number of motor vehicle–related deaths* and death rates,† by sex, race, and U.S. Census region"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "The rate for men (21.7 per 100,000 population) was more than double the rate for women (9.4)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "By age group, the average annual motor vehicle--related death rate was highest among persons aged 15--24 years (26.8 deaths per 100,000 population)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Rates were age adjusted to the 2000 standard U.S. population."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "descriptor",
+    "ses_components": [
+     "income",
+     "education"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "differences in population demographics (e.g., income and education), and differences in safety behaviors such as safety belt use"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "the proportion of the population living in rural versus urban locations and greater distances traveled"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race is reported regardless of Hispanic ethnicity in four groups from death certificates; possible race misclassification noted. Income, education and rurality are offered only for the regional (non-SPD) difference."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "By race, the average annual death rate was highest among American Indians/Alaska Natives (27.2 deaths per 100,000 population), followed by whites (15.7)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "By age group, the average annual motor vehicle--related death rate was highest among persons aged 15--24 years (26.8 deaths per 100,000 population)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "procedures"
+ ],
+ "confidence": "medium",
+ "notes": "Negative binomial p-values test only within-unit change 1999 to 2005 (by state, region, age group), not differences across groups; group contrasts are side by side with stated ratios. Income, education and rurality are suggested only as explanations of the South's excess, a geographic difference, so no determinant is recorded.",
+ "view_issues": "Table 3 age groups <14 and 15–24 leave age 14 unassigned. Text calls the 15–24 rate flat while Table 3 shows −2%. Some table percent changes do not match the listed 1999 and 2005 rates (e.g., Massachusetts 7.0→7.3 shown as 4%, New York −16%)."
+}

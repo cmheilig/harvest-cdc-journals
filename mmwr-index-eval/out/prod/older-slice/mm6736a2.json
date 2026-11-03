@@ -1,0 +1,500 @@
+{
+ "id": "mm6736a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cgg9p4JfJhT7XmDam6YAx",
+  "batch_id": "msgbatch_01GKCs8ucZ2a3sKaBJ8ZMocc"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In 2016, an estimated 20.4% of U.S. adults had chronic pain and 8.0% of U.S. adults had high-impact chronic pain."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In 2016, an estimated 20.4% of U.S. adults had chronic pain and 8.0% of U.S. adults had high-impact chronic pain."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Both were more prevalent among adults living in poverty, adults with less than a high school education, and adults with public health insurance."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Because pain prevalence varies by age, age-adjusted estimates were used in comparisons of chronic pain and high-impact chronic pain between subgroups."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "age-adjusted to the projected 2000 U.S. standard population with five age groups → direct standardization",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimates are age-adjusted using the projected 2000 U.S. population as the standard population"
+    },
+    {
+     "loc": "text",
+     "q": "Because pain prevalence varies by age, age-adjusted estimates were used in comparisons of chronic pain and high-impact chronic pain between subgroups."
+    }
+   ]
+  },
+  {
+   "name": "two-tailed Z-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated: two-tailed Z-tests for subgroup differences, p<0.05",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Based on two-tailed Z-tests, all reported differences between subgroups are statistically significant (unless otherwise noted; p<0.05)."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting with complex design variance",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "final sample adult weights, nonresponse-adjusted and calibrated; software accounting for stratification and clustering",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates incorporated the final sample adult weights adjusted for nonresponse and calibrated to population control totals"
+    },
+    {
+     "loc": "text",
+     "q": "Analyses were conducted using statistical software that accounts for the stratification and clustering of households in the NHIS sampling design."
+    }
+   ]
+  },
+  {
+   "name": "suppression of unreliable estimates (NCHS reliability standards)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "estimates failing NCHS reliability standards are withheld (Age ≥65 uninsured)",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimates are considered unreliable according to the National Center for Health Statistics’ standards of reliability."
+    }
+   ]
+  },
+  {
+   "name": "income imputation (NHIS imputed income files)",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "poverty status uses NHIS imputed income files; imputation method not stated",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "poverty status (calculated using NHIS imputed income files)"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "age group",
+   "sex",
+   "race/ethnicity",
+   "education",
+   "employment status",
+   "poverty status",
+   "veteran status",
+   "health insurance coverage",
+   "urbanicity"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Both were more prevalent among adults living in poverty, adults with less than a high school education, and adults with public health insurance."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Based on two-tailed Z-tests, all reported differences between subgroups are statistically significant (unless otherwise noted; p<0.05)."
+   },
+   {
+    "loc": "table 1",
+    "q": "Age-adjusted ¶ % (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "crude %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Crude % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "age-adjusted %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age-adjusted ¶ % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "estimated no.",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "The estimated numbers, rounded to 1,000s, were annualized based on the 2016 data."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What was the prevalence of chronic pain and high-impact chronic pain among U.S. adults in 2016, overall and by sociodemographic characteristics?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To estimate the prevalence of chronic pain and high-impact chronic pain in the United States, CDC analyzed 2016 National Health Interview Survey (NHIS) data."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "chronic pain",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Prevalence of Chronic Pain and High-Impact Chronic Pain Among Adults — United States, 2016"
+    }
+   ]
+  },
+  {
+   "v": "high-impact chronic pain",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Prevalence of Chronic Pain and High-Impact Chronic Pain Among Adults — United States, 2016"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NHIS is a cross-sectional, in-person, household health survey of the civilian noninstitutionalized U.S. population"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed 2016 National Health Interview Survey (NHIS) data."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Health Interview Survey (NHIS), 2016 Sample Adult Core",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the 2016 Sample Adult Core for adults aged ≥18 years (33,028; response rate = 54.3%)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Prevalence of Chronic Pain and High-Impact Chronic Pain Among Adults — United States, 2016"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Prevalence by poverty, education, insurance, employment, race/ethnicity and rurality is reported and SES is offered as a common factor, but contrasts appear only as side-by-side values with significance statements, no computed difference or ratio, so the level is capped at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "SES differences are framed and interpreted; if the tested subgroup gaps count as quantified, level 3 (and the named health-care navigation factor could argue for 4)."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "poverty status",
+     "education level",
+     "health insurance coverage"
+    ],
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Both were more prevalent among adults living in poverty, adults with less than a high school education, and adults with public health insurance."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "non-Hispanic white adults had a significantly higher age-adjusted prevalence of chronic pain than did all other racial and ethnic subgroups"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Urbanicity*** › Rural"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Data from the 2016 Sample Adult Core for adults aged ≥18 years (33,028; response rate = 54.3%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "with higher prevalence associated with advancing age"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Estimates are age-adjusted using the projected 2000 U.S. population as the standard population"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "cross-classifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "health insurance coverage type (reported separately for adults aged <65 and ≥65 years)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "socioeconomic status; success in navigating the health care system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Socioeconomic status appears to be a common factor in many of the subgroup differences in high-impact chronic pain prevalence reported here."
+    },
+    {
+     "loc": "text",
+     "q": "as well as with patients’ success in navigating the health care system"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Age-adjusted subgroup prevalences compared by Z-tests; no single referent. Non-Hispanic AI/AN, Asian, NHPI and multiracial adults collapsed into 'other'; uninsured ≥65 suppressed; veteran status also stratified."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "significantly higher among women, adults who had worked previously but were not currently employed, adults living in or near poverty, and rural residents."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "significantly lower among adults with at least a bachelor’s degree compared with all other education levels."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Employment status › Not employed; worked previously"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the age-adjusted prevalences of chronic pain and high-impact chronic pain were higher among those with Medicaid and other public health care coverage"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among adults aged ≥65 years, those with both Medicare and Medicaid had higher age-adjusted prevalences of chronic pain"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "non-Hispanic white adults had a significantly higher age-adjusted prevalence of chronic pain than did all other racial and ethnic subgroups"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "with higher prevalence associated with advancing age"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Insurance comparisons are made within age strata (<65, ≥65), each treated as its own groupwise entry. Healthy People 2020 objective is cited only in the Discussion and is not a referent. Veteran status (2 groups) is compared but not treated as an SPD.",
+ "view_issues": null
+}

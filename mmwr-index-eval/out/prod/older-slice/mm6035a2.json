@@ -1,0 +1,367 @@
+{
+ "id": "mm6035a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cgg9oycQ92438GPeWYEGh",
+  "batch_id": "msgbatch_01GKCs8ucZ2a3sKaBJ8ZMocc"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "the women who died were significantly more likely to have underlying conditions (61.5%) than those who survived (46.7%) (p=0.04)"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among women who died, 86.1% received antiviral treatment with a neuraminidase inhibitor, compared with 94.8% of women who survived (p=0.02)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Of the 307 pregnant women for whom information regarding the presence of underlying medical conditions was available, 153 (49.8%) had underlying conditions."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the women who died were significantly more likely to have underlying conditions (61.5%) than those who survived (46.7%) (p=0.04)"
+    },
+    {
+     "loc": "text",
+     "q": "25.0% of infants born after their mothers' influenza hospitalization discharge were small for gestational age, compared with 10.0% of the general population"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Fisher's exact test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods and Table 1 note for differences in proportions, died vs ICU survivors",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Demographic and clinical factors were compared using Fisher's exact tests and corresponding p values."
+    },
+    {
+     "loc": "note",
+     "q": "† Fisher's exact test used to assess differences in proportions for deaths versus ICU admissions."
+    }
+   ]
+  },
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "Table 1 note: t-test for difference in mean maternal age",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "* t-test used to assess difference in means between deaths versus ICU admissions."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "95% CIs for infant outcome percentages set against U.S. population percentages; CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Gestational age at delivery (wks) › Very preterm and preterm (<37)"
+    },
+    {
+     "loc": "summary",
+     "q": "Infants born during maternal hospitalization for influenza illness were more likely to be preterm and of lower birth weight than the general population"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": "estimated % in U.S. population (preterm, low birth weight, SGA, NICU, low Apgar)",
+  "across": [
+   "maternal outcome (died vs ICU survived)",
+   "underlying conditions",
+   "antiviral treatment and timing",
+   "delivery timing relative to hospitalization"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Women who survived received antiviral treatment sooner after symptom onset than women who died."
+   },
+   {
+    "loc": "text",
+    "q": "25.0% of infants born after their mothers' influenza hospitalization discharge were small for gestational age, compared with 10.0% of the general population"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Demographic and clinical factors were compared using Fisher's exact tests and corresponding p values."
+   },
+   {
+    "loc": "note",
+    "q": "Abbreviations: ICU = intensive-care unit; CI = 95% confidence interval."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "only four (7.0%) of the pregnant women who died received treatment with a neuraminidase inhibitor within 2 days of illness onset"
+    }
+   ]
+  },
+  {
+   "v": "p value",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "p value"
+    }
+   ]
+  },
+  {
+   "v": "95% CI",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "CI = 95% confidence interval."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What were maternal and infant outcomes among severely ill pregnant and postpartum women with 2009 H1N1 influenza, and did antiviral treatment timing differ between deaths and survivors?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess maternal and infant outcomes among severely ill pregnant and postpartum women with 2009 H1N1 during the 2009 H1N1 pandemic"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "2009 pandemic influenza A (H1N1)",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Maternal and Infant Outcomes Among Severely Ill Pregnant and Postpartum Women with 2009 Pandemic Influenza A (H1N1)"
+    }
+   ]
+  },
+  {
+   "v": "pregnancy",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Maternal and Infant Outcomes Among Severely Ill Pregnant and Postpartum Women with 2009 Pandemic Influenza A (H1N1)"
+    }
+   ]
+  },
+  {
+   "v": "maternal death",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "prompt treatment (i.e., <2 days after onset) with recommended antiviral medications was associated with fewer deaths."
+    }
+   ]
+  },
+  {
+   "v": "preterm birth",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Infants born during maternal hospitalization for influenza illness were more likely to be preterm and of lower birth weight than the general population"
+    }
+   ]
+  },
+  {
+   "v": "low birth weight",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Infants born during maternal hospitalization for influenza illness were more likely to be preterm and of lower birth weight than the general population"
+    }
+   ]
+  },
+  {
+   "v": "small for gestational age",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "infants born after their mothers had been discharged were more likely to be small for gestational age and of lower birth weight."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC has collaborated with state and local health departments to conduct enhanced surveillance for severe influenza among pregnant and postpartum women."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In October 2009, CDC established the CDC Pregnancy Flu Line as a dedicated, ongoing mechanism for reporting severely ill pregnant and postpartum women"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "CDC Pregnancy Flu Line",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In October 2009, CDC established the CDC Pregnancy Flu Line as a dedicated, ongoing mechanism for reporting severely ill pregnant and postpartum women"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, April 2009--August 2010"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Race/ethnicity appears only as a Table 1 characteristic tested between deaths and ICU survivors (no difference) and is not otherwise discussed; age and sex only define or describe the population.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 2,
+   "reason": "Race-specific distributions by maternal outcome are reported with a test and briefly described in the text."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race/Ethnicity › Black, non-Hispanic"
+     },
+     {
+      "loc": "text",
+      "q": "No statistically significant differences between the women who died and the ICU survivors were observed by age, race, or trimester of illness onset."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Maternal age (yrs) › Mean age at illness onset (range)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Severely Ill Pregnant and Postpartum Women"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity missing for 49 women; other races collapsed into 'Other race'."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "note",
+     "q": "† Fisher's exact test used to assess differences in proportions for deaths versus ICU admissions."
+    },
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity › Other race"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "procedures",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "Infant outcomes are compared with U.S. population percentages cited from NCHS reports; CIs are shown but the text never cites them, so the CI-inversion reading is a judgment. Small for gestational age is a cutpoint classification, not a procedure.",
+ "view_issues": "Table 2 SGA CI for in-hospital deliveries (4.1%; 0.0–11.5) has a lower bound of 0.0 despite 3 cases."
+}

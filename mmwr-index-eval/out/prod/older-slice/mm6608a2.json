@@ -1,0 +1,464 @@
+{
+ "id": "mm6608a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cgg9ovZbPdJuAUSrGsLHF",
+  "batch_id": "msgbatch_01GKCs8ucZ2a3sKaBJ8ZMocc"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "the prevalence of <7 hours of sleep per day (short sleep duration) ranged from 21.4% among air transportation workers to 58.2%"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, 36.5% of currently employed adults reported short sleep duration."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, 36.5% of currently employed adults reported short sleep duration."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Significant differences were found in the prevalence of short sleep duration among occupation groups."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The adjusted prevalence estimates were obtained using logistic regression."
+    },
+    {
+     "loc": "table 2",
+     "q": "Adjusted by sex, race/ethnicity, marital status, age group, and education level."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "logistic regression (adjusted prevalence)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'adjusted prevalence estimates were obtained using logistic regression' → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The adjusted prevalence estimates were obtained using logistic regression."
+    }
+   ]
+  },
+  {
+   "name": "F test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named F tests behind the 'significant differences' among occupation groups; survey-adjusted",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "F tests were used as a measure of association to determine statistical significance of the variables."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "all estimates weighted for the BRFSS survey design",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All analyses were weighted to account for the survey design unless otherwise noted."
+    }
+   ]
+  },
+  {
+   "name": "suppression of unreliable estimates (n<50 or CV>0.30)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "small-cell and relative-SE suppression rule in table note",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Estimates were suppressed because they did not meet the statistical reliability standards of BRFSS (i.e., cell size was <50 participants or CV >0.30)."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "occupation group",
+   "age group",
+   "sex",
+   "race/ethnicity",
+   "education",
+   "marital status",
+   "state"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Significant differences were found in the prevalence of short sleep duration among occupation groups."
+   },
+   {
+    "loc": "text",
+    "q": "Prevalence of short sleep duration was calculated by the 22 major and 93 detailed occupation groups"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "ci_overlap": false,
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "F tests were used as a measure of association to determine statistical significance of the variables."
+   },
+   {
+    "loc": "table 2",
+    "q": "Adjusted † % (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "prevalence %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Prevalence of short sleep % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "adjusted %",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted † % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "weighted percentage",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Weighted percentage of currently employed adults in the five major occupation groups"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All analyses were weighted to account for the survey design unless otherwise noted."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted by sex, race/ethnicity, marital status, age group, and education level."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age group, sex, race/ethnicity, marital status, education level",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted by sex, race/ethnicity, marital status, age group, and education level."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How does the prevalence of short sleep duration vary across detailed occupation groups among employed adults in 29 states?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To provide updated and more detailed information about which occupation groups have the highest prevalences of short sleep duration"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "short sleep duration",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Short Sleep Duration by Occupation Group — 29 States, 2013–2014"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "because BRFSS data are cross-sectional, it is not possible to determine temporal relationships."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from currently employed adults surveyed for the 2013 and 2014 Behavioral Risk Factor Surveillance System (BRFSS) in 29 states."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "surveyed for the 2013 and 2014 Behavioral Risk Factor Surveillance System (BRFSS) in 29 states."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Twenty-nine states administered the optional industry and occupation module in 2013 or 2014."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Prevalence is reported and described by race/ethnicity and education (highest among non-Hispanic blacks, 48.5%) without disparity framing or a computed contrast. Occupation is framed as work exposure, not social position.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Race/ethnicity and education are mainly adjustment variables; the Table 1 description is incidental to the occupational focus."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "the highest prevalences were reported by men (37.5%), non-Hispanic blacks (48.5%), persons with some college education (40.0%)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Adjusted by sex, race/ethnicity, marital status, age group, and education level."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education level"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Education › Some college"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "education level"
+    ],
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Adjusted by sex, race/ethnicity, marital status, age group, and education level."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "lower among persons in the two oldest age groups (45-64 years [33.8%] and ≥65 years [29.2%])"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Adjusted by sex, race/ethnicity, marital status, age group, and education level."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "noninstitutionalized, U.S. civilian residents aged ≥18 years."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Men"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Adjusted by sex, race/ethnicity, marital status, age group, and education level."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity collapsed to four groups (other race or multiracial combined); education four levels; no referent group or contrast computed; occupation treated as work exposure."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the highest prevalences were reported by men (37.5%), non-Hispanic blacks (48.5%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "persons with some college education (40.0%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The prevalence of short sleep duration among persons in the three youngest age groups was similar"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise",
+  "regression_fields",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "F tests are stated generically for 'the variables'; it is unclear whether they were applied to the Table 1 demographic characteristics, so those groupwise entries are recorded as side by side. Unadjusted prevalences appear beside adjusted ones in Table 2 but no crude contrast is computed.",
+ "view_issues": "Text gives '45-64 years' for the 55–64 group. Florida CI in Table 1 (38.9, 37.2–38.3) excludes its estimate. Table 1 overall n is 207,143 while the analytic sample is stated as 179,621."
+}

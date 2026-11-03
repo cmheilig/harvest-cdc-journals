@@ -1,0 +1,401 @@
+{
+ "id": "mm5526a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggDK1tUUVe1zcfyYNLwm",
+  "batch_id": "msgbatch_01MhhduP5LecjSWWtu72hMjw"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The prevalence of current cigarette use increased from 27.5% in 1991 to 36.4% in 1997 and then declined significantly to 23.0% in 2005."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The prevalence of lifetime cigarette use was stable during 1991--1999 and then declined significantly from 70.4% in 1999 to 54.3% in 2005."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "then declined significantly to 23.0% in 2005"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "No statistically significant differences in lifetime, current, or current frequent cigarette use overall were detected between 2003 and 2005."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Temporal changes were analyzed using logistic regression analyses, which controlled for sex, race/ethnicity, and grade and also simultaneously assessed linear and quadratic time effects."
+    },
+    {
+     "loc": "text",
+     "q": "significant linear and quadratic trends were detected among all sex and grade subgroups and among white and Hispanic students"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "logistic regression with linear and quadratic time terms",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'logistic regression analyses' assessing linear and quadratic time effects → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Temporal changes were analyzed using logistic regression analyses, which controlled for sex, race/ethnicity, and grade and also simultaneously assessed linear and quadratic time effects."
+    }
+   ]
+  },
+  {
+   "name": "t test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated: t tests for 2003 vs 2005 differences",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Differences in lifetime, current, and current frequent cigarette use comparing 2003 with 2005 were assessed for statistical significance using t tests."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated: data weighted to national estimates; software accounted for complex sample design",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted to provide national estimates, and the statistical software used for all data analyses accounted for the complex sample design."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": "2010 national health objective: current cigarette use <16%",
+  "across": [
+   "survey year",
+   "sex",
+   "race/ethnicity",
+   "grade"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "although lifetime, current, and current frequent cigarette use was stable or increased during the 1990s and then decreased significantly"
+   },
+   {
+    "loc": "text",
+    "q": "A national health objective for 2010 is to reduce the prevalence of current cigarette use among high school students to < 16%"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "ocr",
+    "q": "Significant linear effect (p<0.05)."
+   },
+   {
+    "loc": "text",
+    "q": "except among black males, whose current cigarette use declined from 19.3% to 14.0% (p<0.05)."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "ocr",
+     "q": "Percentage of high school students who reported current cigarette use,” by sex, race/ethnicity, and grade"
+    }
+   ]
+  },
+  {
+   "v": "prevalence",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The prevalence of current cigarette use among black students increased from 12.6% in 1991 to 22.7% in 1997"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the statistical software used for all data analyses accounted for the complex sample design."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Differences in lifetime, current, and current frequent cigarette use comparing 2003 with 2005 were assessed for statistical significance using t tests."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "logistic regression analyses, which controlled for sex, race/ethnicity, and grade"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "sex, race/ethnicity, and grade",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "logistic regression analyses, which controlled for sex, race/ethnicity, and grade"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did lifetime, current, and current frequent cigarette use among U.S. high school students change during 1991–2005?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To examine changes in cigarette use among high school students in the United States during 1991--2005"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "cigarette use",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Cigarette Use Among High School Students --- United States, 1991--2005"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "used independent, three-stage cluster samples for the 1991--2005 surveys to obtain cross-sectional data"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "For this analysis, temporal changes for three behaviors were assessed"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the national Youth Risk Behavior Survey (YRBS)."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Youth Risk Behavior Survey (YRBS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The biennial national YRBS, a component of CDC's Youth Risk Behavior Surveillance System"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "representative of public and private school students in grades 9--12 in all 50 states and the District of Columbia."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Current-use prevalence and trends are reported by race/ethnicity (and sex, grade) and described, e.g. black students' different trend pattern, but no disparity is framed or quantified.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Race/ethnicity results are subgroup trend tests within each group; no cross-group contrast is drawn, so race could be read as a mere stratifier/covariate."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Among black students, a significant quadratic but not linear trend was detected."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "logistic regression analyses, which controlled for sex, race/ethnicity, and grade"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "significant linear and quadratic trends were detected among all sex and grade subgroups"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "logistic regression analyses, which controlled for sex, race/ethnicity, and grade"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "representative of public and private school students in grades 9--12 in all 50 states and the District of Columbia."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "significant linear and quadratic trends were detected among all sex and grade subgroups"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Only non-Hispanic black, non-Hispanic white and Hispanic students are reported; other groups too small. Grade is used as an age proxy. Editorial explanations (prices, media campaigns, funding, advertising) address the overall trend, not social position."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Race/ethnicity data are presented only for non-Hispanic black, non-Hispanic white, and Hispanic students"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "significant linear and quadratic trends were detected among all sex and grade subgroups"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "regression_fields"
+ ],
+ "confidence": "medium",
+ "notes": "Trend tests and 2003 vs 2005 t tests are run within each subgroup; no test across SPD groups, so groupwise entries are side by side from Table 2. The 2010 objective (<16%) is the referent for the conclusion that the decline must resume. Unadjusted_results true rests on the 2003 vs 2005 t tests.",
+ "view_issues": "Tables are OCR only; several numbers are garbled (e.g. Table 1 current 1999 'AB'). Text renders '≥1' and '≥20' days as '> 1' and '> 20'."
+}

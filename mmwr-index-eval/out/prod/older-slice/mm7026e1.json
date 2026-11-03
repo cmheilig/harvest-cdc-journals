@@ -1,0 +1,424 @@
+{
+ "id": "mm7026e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cgg9oxvE11q1wcoqDwjTU",
+  "batch_id": "msgbatch_01GKCs8ucZ2a3sKaBJ8ZMocc"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "53.0% reported symptoms of at least one mental health condition in the past 2 weeks."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalences of symptoms of depression, anxiety, PTSD, and suicidal ideation were 32.0%, 30.3%, 36.8%, and 8.4%, respectively"
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The prevalences of all four mental health outcomes and the severity of symptoms of depression or PTSD increased as the percentage of work time"
+    },
+    {
+     "loc": "figure 1",
+     "q": "horizontal line indicates median"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, 53.0% of respondents reported symptoms of at least one adverse mental health condition in the preceding 2 weeks."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were nearly twice as likely to report symptoms of an adverse mental health condition (prevalence ratio range = 1.84–1.93)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Poisson regression with robust standard errors (univariate prevalence ratios)",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'Poisson regression' giving univariate prevalence ratios with robust SE → loglinear (modified Poisson)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Univariate prevalence ratios were calculated using Poisson regression with 95% confidence intervals estimated using a robust standard error."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based CIs from Poisson regression with robust SE; 'more likely' claims rest on PR CIs excluding 1",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Public health workers who reported being unable to take time off from work were more likely to report adverse mental health symptoms."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "referent category of each characteristic (e.g., aged ≥60 years, male, White non-Hispanic, can take time off, not experiencing the stressor)",
+  "across": [
+   "age group",
+   "sex/gender identity",
+   "race/ethnicity",
+   "education",
+   "hours worked per week",
+   "% of time on COVID-19 response",
+   "ability to take time off",
+   "traumatic events or stressors"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Symptoms were more prevalent among those who were unable to take time off or worked ≥41 hours per week."
+   },
+   {
+    "loc": "table 2",
+    "q": "Referent group for all prevalence ratio calculations was not experiencing the traumatic event/stressor (i.e., “No” category)."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Univariate prevalence ratios were calculated using Poisson regression with 95% confidence intervals estimated using a robust standard error."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "prevalence, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Prevalence, %"
+    }
+   ]
+  },
+  {
+   "v": "PR (95% CI)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "PR (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "PHQ-9 and IES-6 score distributions",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "Distribution* of 9-item Patient Health Questionnaire scores for depression and 6-item Impact of Event Scale scores"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "clustered or robust SE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "95% confidence intervals estimated using a robust standard error"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Univariate prevalence ratios were calculated using Poisson regression"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "What is the prevalence of symptoms of depression, anxiety, PTSD and suicidal ideation among state, tribal, local and territorial public health workers during the COVID-19 pandemic, and how does it vary by demographic and workplace factors?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to assess symptoms of depression, anxiety, post-traumatic stress disorder (PTSD), and suicidal ideation among public health workers"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "depression",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Symptoms of Depression, Anxiety, Post-Traumatic Stress Disorder, and Suicidal Ideation Among State, Tribal, Local, and Territorial Public Health Workers"
+    }
+   ]
+  },
+  {
+   "v": "anxiety",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Symptoms of Depression, Anxiety, Post-Traumatic Stress Disorder, and Suicidal Ideation"
+    }
+   ]
+  },
+  {
+   "v": "post-traumatic stress disorder",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Symptoms of Depression, Anxiety, Post-Traumatic Stress Disorder, and Suicidal Ideation"
+    }
+   ]
+  },
+  {
+   "v": "suicidal ideation",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Symptoms of Depression, Anxiety, Post-Traumatic Stress Disorder, and Suicidal Ideation"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a nonprobability–based online survey was conducted during March 29–April 16, 2021"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A nonprobability–based convenience sample of public health workers was invited to complete a self-administered, online, anonymous survey"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Public Health Workers During the COVID-19 Pandemic — United States, March–April 2021"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Prevalences and PRs are reported by age, gender identity, race/ethnicity and education; the text names the highest-prevalence groups (young, transgender/nonbinary, multiple races) with prevalence ranges but states no ratio or difference, and frames them only as groups at increased risk.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Table 1 PRs (e.g., transgender/nonbinary PR ≈2.2) quantify the contrasts, and the Discussion interprets these groups as at increased risk."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The highest prevalences of symptoms of a mental health condition or suicidal ideation were among respondents aged ≤29 years (range = 13.6%–47.4%)"
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "stratifier",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "transgender or nonbinary persons (i.e., those who identified as neither male nor female) of all ages"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "and those who identified as multiple races (range = 12.1%–43.4%)"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "highest educational degree attained"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "prevalence of symptoms of PTSD was higher among respondents who had a postbaccalaureate graduate education (40.7%)."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referents are aged ≥60, male, White non-Hispanic and less than bachelor's; gender identity combined with sex in one variable; convenience sample."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group, yrs › ≥60"
+    }
+   ]
+  },
+  {
+   "across": [
+    "sex",
+    "sexual orientation and gender identity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Sex › Transgender or nonbinary"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 7,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity › Multiple races, NH"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Highest educational degree attained › Graduate"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "procedures",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Workplace factors (hours, time off) are occupational exposures, not recorded as social determinants. Score severity trends rest on box plots without a test. Comparisons with the general population and health care workers are cited from other reports.",
+ "view_issues": "Article notes correction republication (2021-12-03); values may differ from the corrected version."
+}

@@ -1,0 +1,419 @@
+{
+ "id": "mm6713a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cgg9ovStvDCh3nwypsGGD",
+  "batch_id": "msgbatch_01GKCs8ucZ2a3sKaBJ8ZMocc"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During 2011–2016, among an estimated 160.7 million working adults, 6.8% had current asthma."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Among those with asthma, 44.7% experienced an asthma attack, and 9.9% had an asthma-related emergency department visit in the previous year."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During 2011–2016, among an estimated 160.7 million working adults, 6.8% had current asthma."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The current asthma prevalence was highest among workers employed in the health care and social assistance industry (8.8%)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting with design-based variance",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "sample weights and variance estimates accounting for the clustered NHIS design produce every estimate",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted to produce nationally representative estimates using sample weights, and variance estimates were calculated to account for the clustered survey design."
+    }
+   ]
+  },
+  {
+   "name": "Rao-Scott chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named test; p-values shown in Table 1 for demographic characteristics only",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The Rao-Scott chi-square test was used to determine statistically significant differences (p<0.05) between groups."
+    }
+   ]
+  },
+  {
+   "name": "suppression of estimates with RSE ≥30%",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "relative standard error rule withholds imprecise estimates",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates with a relative standard error (standard error of the estimate divided by the estimate) ≥30% were not reported."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "industry",
+   "occupation",
+   "age group",
+   "sex",
+   "race/ethnicity",
+   "education",
+   "poverty index",
+   "health insurance status",
+   "region"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "By major occupation group, current asthma prevalence was highest among workers in health care support (8.8%), followed by personal care and service (8.6%)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The Rao-Scott chi-square test was used to determine statistically significant differences (p<0.05) between groups."
+   },
+   {
+    "loc": "table 1",
+    "q": "% (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "prevalence, % (95% CI)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Current asthma › % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "proportion of persons with current asthma, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Proportion of persons with current asthma who had ≥1 asthma attack in past 12 months"
+    }
+   ]
+  },
+  {
+   "v": "number of workers (x 1,000)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Workers (x 1,000)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What are the industry- and occupation-specific prevalences of current asthma, asthma attacks, and asthma-related ED visits among U.S. working adults?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess the industry- and occupation-specific prevalence of current asthma, asthma attacks, and asthma-related emergency department (ED) visits among working adults"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "asthma",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Prevalence of Asthma, Asthma Attacks, and Emergency Department Visits for Asthma Among Working Adults"
+    }
+   ]
+  },
+  {
+   "v": "asthma",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among workers with current asthma, 44.7% (4.9 million) had at least one asthma attack"
+    }
+   ]
+  },
+  {
+   "v": "asthma attack",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Among those with asthma, 44.7% experienced an asthma attack"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed 2011–2016 National Health Interview Survey (NHIS) data for participants aged ≥18 years"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The NHIS is an annual survey that collects health information from a nationally representative sample"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Health Interview Survey (NHIS)",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "National Health Interview Survey, 2011–2016"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "a nationally representative sample of the noninstitutionalized U.S. civilian population through personal interviews."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Prevalences by race/ethnicity, poverty index, education and insurance are reported and described ('highest among'), with p-values, but no disparity is framed or quantified.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 1,
+   "reason": "SPD results are secondary demographic rows in Table 1; the report's focus is industry and occupation."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race/Ethnicity › Black, non-Hispanic"
+     },
+     {
+      "loc": "text",
+      "q": "non-Hispanic blacks (8.2%)"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education level",
+     "poverty index",
+     "health insurance status"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "those with higher than a high school education (7.2%), those categorized as “poor”** (8.7%), those having health insurance (7.1%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Current asthma prevalence was highest among workers aged 18–24 years (8.5%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "for participants aged ≥18 years"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Women"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Industry and occupation are treated as exposure routes, not social position. Race/ethnicity collapsed to four groups; unknown education, poverty and insurance categories kept as rows."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group (yrs) › 18–24"
+    },
+    {
+     "loc": "text",
+     "q": "The Rao-Scott chi-square test was used to determine statistically significant differences (p<0.05) between groups."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity › Other"
+    },
+    {
+     "loc": "text",
+     "q": "The Rao-Scott chi-square test was used to determine statistically significant differences (p<0.05) between groups."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": null,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Poverty index §§ › Near poor"
+    },
+    {
+     "loc": "text",
+     "q": "The Rao-Scott chi-square test was used to determine statistically significant differences (p<0.05) between groups."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": null,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Education level › Unknown"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": null,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Health insurance status › Not insured"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "procedures",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred as cross-sectional (survey analysis; not named). Rao-Scott p-values appear only in Table 1 (demographics); headline industry/occupation rankings rest on point estimates without tests, so the test is marked ancillary. Whether unknown categories entered the chi-square tests is unclear, so n_groups is null for SES entries.",
+ "view_issues": "Table 1 CSV repeats one p-value across all rows of each characteristic (merged cells), including the Total row. Table 2 has a malformed CI ('52.8 43.4–62.2)'); Table 3 has an extra empty column."
+}

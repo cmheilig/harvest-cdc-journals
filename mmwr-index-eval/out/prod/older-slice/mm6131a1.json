@@ -1,0 +1,389 @@
+{
+ "id": "mm6131a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cgg9oy3evVY528ha3MJH8",
+  "batch_id": "msgbatch_01GKCs8ucZ2a3sKaBJ8ZMocc"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2011, 7.1% of middle school students and 23.2% of high school students reported current use of any tobacco product"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2011, 7.1% of middle school students and 23.2% of high school students reported current use of any tobacco product"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "From 2009 to 2011, among middle school students, no statistically significant declines were observed for any of the tobacco use measures."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "by school level, controlling for grade, race/ethnicity, and sex, and simultaneously assessed for linear and quadratic trends"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting with nonresponse adjustment",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated: data adjusted for nonresponse and weighted to give national prevalence estimates",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were adjusted for nonresponse and weighted to provide national prevalence estimates for current tobacco use"
+    }
+   ]
+  },
+  {
+   "name": "two-tailed t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated t-test of 2009 vs 2011 prevalence differences; survey-design software",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "using a two-tailed t-test for statistical significance (p<0.05)"
+    },
+    {
+     "loc": "table 2",
+     "q": "P-value of the t-test for difference between 2009 and 2011 prevalences is <0.05."
+    }
+   ]
+  },
+  {
+   "name": "logistic regression for linear and quadratic trends",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'Logistic regression analysis' of current use (binary) on survey year, adjusted → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Logistic regression analysis was used to analyze temporal changes from 2000 to 2011 in current tobacco use"
+    },
+    {
+     "loc": "text",
+     "q": "by school level, controlling for grade, race/ethnicity, and sex, and simultaneously assessed for linear and quadratic trends"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": null,
+  "across": [
+   "survey year",
+   "school level",
+   "sex",
+   "race/ethnicity",
+   "tobacco product"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "From 2000 to 2011, among middle school students, significant linear downward trends were observed for current tobacco use (14.9% to 7.1%)"
+   },
+   {
+    "loc": "text",
+    "q": "Smokeless tobacco use among high school males (12.9%) is approximately eight times higher than high school females (1.6%)."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "95% confidence intervals were calculated using statistical analysis software to account for the multistage probability sample design."
+   },
+   {
+    "loc": "text",
+    "q": "using a two-tailed t-test for statistical significance (p<0.05)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "prevalence, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Prevalence of current use* of tobacco, by tobacco product, school level, sex, and race/ethnicity"
+    }
+   ]
+  },
+  {
+   "v": "95% CI",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "(95% CI ¶ )"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Statistical software was used for all calculations to account for the complex survey design."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "by school level, controlling for grade, race/ethnicity, and sex"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "grade, race/ethnicity, and sex",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "by school level, controlling for grade, race/ethnicity, and sex"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "What was the prevalence of current tobacco use among US middle and high school students in 2011, and how did it change since 2000 and 2009?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess current tobacco use among youths, CDC analyzed data from the 2011 National Youth Tobacco Survey (NYTS)."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "tobacco use",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Current Tobacco Use Among Middle and High School Students — United States, 2011"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "used a three-stage cluster sampling procedure to generate a cross-sectional, nationally representative sample of students in grades 6–12"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During 2000–2011, prevalence of current tobacco use, current combustible tobacco use, and current cigarette smoking declined for middle school and high school students."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2011 National Youth Tobacco Survey (NYTS)."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Youth Tobacco Survey (NYTS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2011 National Youth Tobacco Survey (NYTS)."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "nationally representative sample of students in grades 6–12 from all 50 states and the District of Columbia."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Race/ethnicity- and sex-specific prevalences are reported and some changes described (e.g., cigar use rose among Black high school students), but no racial/ethnic disparity is framed or quantified; sex contrasts alone do not raise the level.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Race-specific results appear mainly in the table with significance marks; the text only notes within-group changes over time, not group differences."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "among non-Hispanic blacks, an increase in current cigar use (7.1% to 11.7%) was observed."
+     },
+     {
+      "loc": "table 1",
+      "q": "Race/Ethnicity › Black, non-Hispanic"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "controlling for grade, race/ethnicity, and sex"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "cigar use among high school males (15.7%) is more than twice as high as use among high school females (7.4%)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "controlling for grade, race/ethnicity, and sex"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "middle school (grades 6–8) and high school (grades 9–12) students"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "temporal changes from 2000 to 2011 in current tobacco use, current combustible tobacco use, and current cigarette use, by school level"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Four race/ethnicity groups (White, Black, Hispanic, Asian; other groups not shown); school level stands in for age; tests compare years within groups, not groups with each other."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity › Asian, non-Hispanic"
+    },
+    {
+     "loc": "table 1",
+     "q": "Prevalence of current use* of tobacco, by tobacco product, school level, sex, and race/ethnicity"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "comparison",
+  "equity.level",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Headline trend claims rest on the adjusted logistic trend tests; 2009–2011 t-tests are run within sex and race groups (non-SPD contrast within SPD levels). Prepass 'diagnostic_accuracy' is a false hit ('sensitivity of the questions'). Cigarette consumption and funding figures in the Editorial Note are cited from other reports.",
+ "view_issues": "Table CSV: Asian middle school cigarette 2009 CI lacks a closing parenthesis; middle school male pipes 2011 CI (2.1–2.5) excludes its estimate 2.7; White middle school kreteks 2011 CI (0.4–0.6) looks wrong. Figure description has a 'sig¬nificant' artifact."
+}

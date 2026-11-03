@@ -1,0 +1,421 @@
+{
+ "id": "mm6314a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggDK1yS7S9a3MwSgwAfu",
+  "batch_id": "msgbatch_01MhhduP5LecjSWWtu72hMjw"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This study found that 16.5% of participants were overweight (BMI in the 85th–94th percentiles) and 21.4% were obese"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Only 29.9% of overweight and 40.2% of obese participants received a lipid panel test."
+    },
+    {
+     "loc": "text",
+     "q": "Hispanic participants had a significantly higher prevalence of obesity (28.1%)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "16.5% were classified as overweight (BMI in the 85th–94th percentiles), and 21.4% were classified as obese"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Diagnoses of medical conditions associated with overweight and obesity were observed to increase significantly across the three BMI groups"
+    },
+    {
+     "loc": "text",
+     "q": "was significantly elevated compared with data from the National Health and Nutrition Examination Survey"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "When stratified by race/ethnicity, the prevalence of obesity among non-Hispanic white Maryland Medicaid/MCHP children and teens was 21.0%, significantly higher than the national rate"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Fisher's exact test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods for differences between groups (e.g., obesity prevalence by race/ethnicity and sex)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Statistically significant differences (p<0.05) between groups were determined using Fisher's exact test and a two-sided Cochran-Armitage test for trend."
+    }
+   ]
+  },
+  {
+   "name": "Cochran-Armitage test for trend",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods and Table 2 footnote for p-values across the three ordered BMI groups",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Calculated using Cochran-Armitage test for trend."
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'significantly' higher than NHANES national prevalence; no method stated for comparison with the national estimate",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among Hispanic Maryland study participants, the prevalence of obesity was 28.1%, which was significantly higher than the national Hispanic prevalence of 21.2%."
+    }
+   ]
+  },
+  {
+   "name": "BMI-for-age-and-sex percentiles",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "BMI converted to age- and sex-specific percentiles with a CDC program, then categorized",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "These data were then used to compute BMI percentile for age and sex using a computer program provided by CDC"
+    }
+   ]
+  },
+  {
+   "name": "small-cell suppression",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "percentages based on fewer than six persons withheld",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Percentages based on fewer than six persons are not shown."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "fixed referent",
+  "scale": null,
+  "referent": "national (NHANES 2009–2010) obesity prevalence; Expert Committee screening recommendations",
+  "across": [
+   "Medicaid/MCHP enrollees vs national population",
+   "race/ethnicity",
+   "age group",
+   "sex",
+   "BMI percentile group",
+   "year"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "with a BMI at or above the 95th percentile is higher than in a nationally representative sample of the U.S. population."
+   },
+   {
+    "loc": "summary",
+    "q": "the rates of lipid and fasting glucose screening among Maryland Medicaid or Maryland Children's Health Program enrollees were below what is recommended."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Statistically significant differences (p<0.05) between groups were determined using Fisher's exact test and a two-sided Cochran-Armitage test for trend."
+   },
+   {
+    "loc": "table 1",
+    "q": "Abbreviation: CI = confidence interval."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "BMI at or above the 95th percentile › %"
+    }
+   ]
+  },
+  {
+   "v": "prevalence (%)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "BMI at or above the 95th percentile › Prevalence (%)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What is the prevalence of overweight and obesity among Maryland Medicaid/MCHP children aged 2–19 years, and are they screened for obesity-related conditions as recommended?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess the prevalence of overweight and obesity among children and teens enrolled in Maryland Medicaid or the Maryland Children's Health Program (MCHP)"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "obesity",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "21.4% were classified as obese (BMI at or above the 95th percentile)"
+    }
+   ]
+  },
+  {
+   "v": "overweight",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "16.5% were classified as overweight (BMI in the 85th–94th percentiles)"
+    }
+   ]
+  },
+  {
+   "v": "obesity-related conditions (asthma, depression, dyslipidemia)",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Asthma, depression, and dyslipidemia were the most common comorbid conditions diagnosed among obese study participants"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the study sample was drawn by each year selecting at random from those who had managed-care organization encounters during that year"
+    }
+   ]
+  },
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "whether or not the children were being screened for obesity-related conditions according to the Expert Committee recommendations"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "record abstraction or interview",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During these quality-assurance reviews, the nurses abstracted the child/teen's height, weight, and date of service"
+    }
+   ]
+  },
+  {
+   "v": "administrative/claims",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The data were linked to Medicaid/MCHP encounter data to gather information about obesity-related comorbidities and health-care provider screening"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Maryland Medicaid/MCHP Healthy Kids chart reviews",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "approximately 1,600 charts per year that were reviewed by Medicaid Healthy Kids nurses"
+    }
+   ]
+  },
+  {
+   "v": "Medicaid/MCHP encounter and enrollment data",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The data were combined with Medicaid/MCHP enrollment data to get each child/teen's sex, race/ethnicity, and date of birth"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Among Children and Teens Receiving Medicaid — Maryland, 2005–2010"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Obesity prevalence is reported by race/ethnicity with significance claims, and the Medicaid population is compared with the national population, but values are set side by side without computed differences and are not framed as disparities.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The Medicaid (low-income) population's higher obesity versus national children, overall and by race, could be read as a framed SES disparity, though no difference or ratio is computed."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "population",
+    "ses_components": [
+     "Medicaid",
+     "Maryland Children's Health Program"
+    ],
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Among Children and Teens Receiving Medicaid — Maryland, 2005–2010"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Hispanic participants had a significantly higher prevalence of obesity (28.1%) compared with their non-Hispanic white (21.0%), non-Hispanic black (20.8%), and non-Hispanic Asian (14.5%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "a random sample of persons aged 2–19 years enrolled in Maryland Medicaid or MCHP"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The prevalence of obesity increased progressively, from 16.3% in children aged 2–5 years, to 23.1% among children aged 6–11 years"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "No significant difference was observed in obesity prevalence by sex."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referent for the Medicaid population is NHANES national prevalence (all insurance types), overall and by race/ethnicity; recommendations serve as screening targets, not gap-closing targets. Race limited to four groups."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Hispanic participants had a significantly higher prevalence of obesity (28.1%) compared with their non-Hispanic white (21.0%), non-Hispanic black (20.8%), and non-Hispanic Asian (14.5%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The prevalence of obesity increased progressively, from 16.3% in children aged 2–5 years, to 23.1% among children aged 6–11 years"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "analytic_depth",
+  "groupwise",
+  "equity.level",
+  "study_design"
+ ],
+ "confidence": "medium",
+ "notes": "Designs are inferred (none named). The age trend may have been tested by Cochran-Armitage, but the text does not attach a test to it. Comparisons with NHANES use a cited national estimate treated as fixed; the test used is not stated.",
+ "view_issues": "Black obesity prevalence 20.8% (95% CI 19.8–21.9) excludes the national 24.3%, yet the text reports no significant difference; the method for national comparisons is unstated."
+}

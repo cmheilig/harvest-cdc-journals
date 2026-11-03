@@ -1,0 +1,365 @@
+{
+ "id": "mm6319a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cgg9oxxxJ1Dm6G3JG9vqV",
+  "batch_id": "msgbatch_01GKCs8ucZ2a3sKaBJ8ZMocc"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Death rates per 100,000 population were calculated using 1999–2010 U.S. Census bridged-race population estimates."
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Infants aged <1 year most commonly drowned in bathtubs, accounting for 62.5% (435 of 696) of drowning at this age."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Infants aged <1 year most commonly drowned in bathtubs, accounting for 62.5% (435 of 696) of drowning at this age."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Overall, American Indians/Alaska Natives were twice as likely, and blacks 1.4 times as likely, to drown as whites."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Blacks aged 5–19 years were 5.5 times more likely to drown in a swimming pool than their white peers"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "z-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'determined using z-tests' for rates based on at least 100 deaths",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Differences between rates representing at least 100 deaths were determined using z-tests"
+    }
+   ]
+  },
+  {
+   "name": "CI overlap assertion",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "rates on fewer than 100 deaths compared using 95% CIs from a gamma distribution; separate-estimate CIs compared",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "rates based on fewer than 100 deaths were compared using 95% confidence intervals from a gamma distribution."
+    }
+   ]
+  },
+  {
+   "name": "suppression of rates based on <20 deaths",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "small-count suppression rule stated in table and figure notes",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Death rates based on <20 deaths suppressed for unreliability."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "non-Hispanic whites",
+  "across": [
+   "race/ethnicity",
+   "age",
+   "drowning setting"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Overall, American Indians/Alaska Natives were twice as likely, and blacks 1.4 times as likely, to drown as whites."
+   },
+   {
+    "loc": "text",
+    "q": "The greatest disparity for blacks compared with whites and Hispanics was at age 10 years (rate ratios of 4.2 and 5.3, respectively)."
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "ci_overlap": true,
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Differences between rates representing at least 100 deaths were determined using z-tests"
+   },
+   {
+    "loc": "text",
+    "q": "rates based on fewer than 100 deaths were compared using 95% confidence intervals from a gamma distribution."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "rate per 100,000 population",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "* Per 100,000 population."
+    }
+   ]
+  },
+  {
+   "v": "rate ratio",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "rate ratios were highest at ages 11–12 years for both comparisons (10.4 and 6.4, respectively)"
+    }
+   ]
+  },
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "accounting for 51.4% (2,852 of 5,547) and 33.9% (616 of 1,818), respectively."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How do fatal unintentional drowning rates among persons aged ≤29 years differ by race/ethnicity, age and drowning setting?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To describe these differences by age of decedent and drowning setting, CDC analyzed 12 years of combined mortality data from 1999–2010"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "fatal unintentional drowning",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Racial/Ethnic Disparities in Fatal Unintentional Drowning Among Persons Aged ≤29 Years — United States, 1999–2010"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Death certificate data for persons aged ≤29 years for 1999–2010 were obtained from the National Vital Statistics System"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "CDC surveillance system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Death certificate data for persons aged ≤29 years for 1999–2010 were obtained from the National Vital Statistics System"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Vital Statistics System (NVSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "were obtained from the National Vital Statistics System"
+    }
+   ]
+  },
+  {
+   "v": "CDC WONDER",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Additional information available at http://wonder.cdc.gov/ucd-icd10.html ."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "United States, 1999–2010"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 3,
+  "level_reason": "Racial/ethnic drowning disparities are framed, quantified as rate ratios (AI/AN 2×, black 1.4×, pool 5.5× and 10× vs whites) and interpreted; the explanation offered (limited swimming skills, greater exposure to natural water) is individual or generic, not structural.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "Disparities in swimming skills and in exposure to water could be read as social determinants offered to explain the disparity."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "assigned or observed",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Race/ethnicity was coded into five mutually exclusive categories: Hispanic (of any race), and four non-Hispanic racial groups"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Fatal Unintentional Drowning Among Persons Aged ≤29 Years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Age was divided into 5-year age groups for overall and setting-specific drowning deaths among each racial/ethnic category."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The extent of exposure to recreational water settings likely varies substantially by age, sex, season, level of swimming skill, and other factors."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Non-Hispanic whites are the referent; rates are population-based with no exposure denominator; single-year and 2-year age analyses limited to black, white and Hispanic groups because other rates were unstable."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among all settings combined, AI/AN aged ≤29 years had the highest rates of drowning, with blacks having the second highest rates"
+    },
+    {
+     "loc": "text",
+     "q": "Differences between rates representing at least 100 deaths were determined using z-tests"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "drowning rates for black children were significantly higher than those for whites and Hispanics at every age from 5 years through 18 years"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 7,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among all racial/ethnic groups, rates of drowning in natural water settings increase among teens and young adults."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "inference"
+ ],
+ "confidence": "medium",
+ "notes": "Differences in rates on fewer than 100 deaths are judged by comparing gamma-based 95% CIs of separate rates, recorded as a CI overlap assertion; the CIs themselves are not reported. Race contrasts are reported within age groups and settings, hence stratified depth.",
+ "view_issues": "The Discussion says pool drowning was 'almost six times' more likely among blacks aged 5–18 years, whereas results give 5.5 times for ages 5–19 years."
+}

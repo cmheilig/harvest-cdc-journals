@@ -1,0 +1,332 @@
+{
+ "id": "mm7025a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011CggDK3sHYVRJLoKaJy5zc",
+  "batch_id": "msgbatch_01MhhduP5LecjSWWtu72hMjw"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "found that 60.7% of women aged 18–49 years had ongoing or potential need for contraceptive services"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Nearly one third (30.3%) of women with ongoing or potential need were not using any method of contraception at last sexual encounter."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "76.2% of women aged 18–49 years were considered to be at risk for unintended pregnancy"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "varied significantly by age group, race/ethnicity, and urban-rural status ( Table 2 )."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'Chi-square tests were conducted' and Table 2 note 'p<0.05 for chi-square test'; whether design-adjusted (Rao-Scott) is not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Chi-square tests were conducted to examine differences in distributions by sociodemographic characteristics."
+    },
+    {
+     "loc": "table 2",
+     "q": "p<0.05 for chi-square test comparing the distribution of the outcome by the sociodemographic characteristic."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (complex sample design, SUDAAN)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "SUDAAN used to account for complex sampling; data weighted for nonresponse; weighted numbers in tables",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "with SUDAAN to account for the complex sampling methods used in BRFSS; data were weighted for nonresponse."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "jurisdiction",
+   "age group",
+   "race/ethnicity",
+   "urban-rural status",
+   "insurance coverage",
+   "routine checkup within past year"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "estimates varied by jurisdiction, age group, race/ethnicity, and urban-rural status."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Chi-square tests were conducted to examine differences in distributions by sociodemographic characteristics."
+   },
+   {
+    "loc": "table 2",
+    "q": "% at risk for unintended pregnancy (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% at risk for unintended pregnancy (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "weighted number",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Weighted numbers are rounded to the nearest 100."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What proportion of women aged 18–49 years in 45 jurisdictions had ongoing or potential need for contraceptive services, and what methods did they use?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "were used to estimate the proportion of women aged 18–49 years who were at risk for unintended pregnancy"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "unintended pregnancy",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "76.2% were considered to be at risk for unintended pregnancy"
+    }
+   ]
+  },
+  {
+   "v": "contraceptive use",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "15.2% used a long-acting reversible method, 25.0% used a short-acting reversible method"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "BRFSS is a state-based, random-digit-dialed telephone survey that collects self-reported health information from U.S. adults."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Analysis of 2017–2019 Behavioral Risk Factor Surveillance System data from 45 jurisdictions"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS) Family Planning Module",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This report uses the most recent available data for the optional Family Planning Module"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "45 Jurisdictions, United States, 2017–2019"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Need for contraceptive services is reported by race/ethnicity, urban-rural status and insurance and described as varying significantly, shown with significance marks and no computed contrast or disparity framing.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Group differences are stated only as 'varied significantly', with no discussion of specific groups."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Race/Ethnicity › Black, non-Hispanic"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Urban-rural status › Rural"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "insurance coverage"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "among women with ongoing or potential need for contraceptive services, 16.7% did not have insurance"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Age group, yrs › 18–24"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Need for Contraceptive Services Among Women of Reproductive Age"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Need for Contraceptive Services Among Women of Reproductive Age"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity collapsed to four groups including Other; insurance is yes/no; missing module data were more common among younger and non-Hispanic Black women."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "p<0.05 for chi-square test comparing the distribution of the outcome by the sociodemographic characteristic."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "varied significantly by age group, race/ethnicity, and urban-rural status ( Table 2 )."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [],
+ "confidence": "high",
+ "notes": "Design inferred as cross-sectional from the BRFSS telephone survey; none is named. Jurisdiction estimates are set side by side with CIs and no test. Policy and program differences are offered only as explanations of jurisdiction variation, not of SPD differences.",
+ "view_issues": "Table 3 Texas long-acting CI reads '12.0 (8.6–6.5)', an apparent typo. Table 2 45–49 count CI lacks a closing parenthesis."
+}

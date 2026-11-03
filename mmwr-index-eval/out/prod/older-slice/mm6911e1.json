@@ -1,0 +1,333 @@
+{
+ "id": "mm6911e1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cgg9oy6PorDryetWRgBeK",
+  "batch_id": "msgbatch_01GKCs8ucZ2a3sKaBJ8ZMocc"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The mean interval from symptom onset to hospital isolation or quarantine was 5.6 days (median = 5 days; IQR = 2–8 days)."
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among linked cases, the largest proportion (62.7%) was detected through contact tracing"
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The epidemic curve peaked on January 30, when nine patients were identified"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "the mean interval from symptom onset to isolation was 5.6 days and declined after approximately 1 month"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A significant difference was found in the percentage of cases detected by the various surveillance methods"
+    },
+    {
+     "loc": "text",
+     "q": "from 9.0 and 18.0 days to 0.9 and 3.1 days, respectively (p<0.001)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "chi-square or Fisher's exact test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated in methods for differences in detection-method percentages, linked vs unlinked; Table p-values for age, sex, ethnic group presumably the same",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Differences in the percentages of cases detected through the different surveillance components were tested using the chi-squared or Fisher’s exact test."
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'declined significantly' with p<0.001 for the trend in the moving-average interval; no test named",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The 7-day moving average of the interval from symptom onset to isolation declined significantly across the study period for both imported and local cases"
+    }
+   ]
+  },
+  {
+   "name": "7-day moving average",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "smoothing of the daily onset-to-isolation interval",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "by calculating the 7-day moving average of the interval from symptom onset to isolation in hospital or quarantine"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "time period",
+   "importation status",
+   "linkage status",
+   "primary detection method"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "the mean interval from symptom onset to isolation was 5.6 days and declined after approximately 1 month"
+   },
+   {
+    "loc": "text",
+    "q": "from 9.0 and 18.0 days to 0.9 and 3.1 days, respectively (p<0.001)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Differences in the percentages of cases detected through the different surveillance components were tested using the chi-squared or Fisher’s exact test."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Contact tracing contributed to the primary detection of approximately half (53%) of COVID-19 patients."
+    }
+   ]
+  },
+  {
+   "v": "mean interval from symptom onset to isolation (days)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The mean interval from symptom onset to hospital isolation or quarantine was 5.6 days (median = 5 days; IQR = 2–8 days)."
+    }
+   ]
+  },
+  {
+   "v": "7-day moving average of interval",
+   "ev": [
+    {
+     "loc": "figure 2",
+     "q": "Interval from symptom onset to isolation or hospitalization (7-day moving average)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How effective were Singapore's surveillance and containment measures in detecting and isolating the first 100 COVID-19 patients?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This report analyzes the first 100 COVID-19 patients in Singapore to determine the effectiveness of the surveillance and containment measures."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Evaluation of the Effectiveness of Surveillance and Containment Measures for the First 100 Patients with COVID-19 in Singapore"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Evaluation of the Effectiveness of Surveillance and Containment Measures for the First 100 Patients with COVID-19 in Singapore"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "international surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Physicians are mandated to report all suspected and confirmed COVID-19 patients through a centralized disease notification system."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Singapore Ministry of Health centralized disease notification system",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Physicians are mandated to report all suspected and confirmed COVID-19 patients through a centralized disease notification system."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "international",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "First 100 Patients with COVID-19 in Singapore — January 2–February 29, 2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 1,
+  "level_reason": "Ethnic group appears only as a Table descriptor of case composition by linkage status (p=0.21), with no outcome measured per group and no discussion; age and sex likewise only described.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 2,
+   "reason": "The table reports tests across ethnic groups, which could be read as group-specific results reported by an SPD."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Ethnic group › Malay"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The majority (72%) of patients were aged 30–59 years, and 60% of patients were male."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Ethnic group (Chinese, Indian, Malay, Other) and age groups are tabulated only as case composition by linkage status."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group (yrs) › ≥60"
+    },
+    {
+     "loc": "table 1",
+     "q": "P-value"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Ethnic group › Malay"
+    },
+    {
+     "loc": "table 1",
+     "q": "P-value"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "study_design"
+ ],
+ "confidence": "medium",
+ "notes": "The test behind the significant decline in the moving-average interval is not named. Table p-values for age, sex and ethnic group are composition tests between linked and unlinked cases, presumably chi-square or Fisher's exact. The 2.8-times detection estimate is cited from another study.",
+ "view_issues": null
+}

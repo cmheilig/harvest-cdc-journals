@@ -1,0 +1,493 @@
+{
+ "id": "mm5939a4",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cgg9ovXbwXpWdNZjCJgqs",
+  "batch_id": "msgbatch_01GKCs8ucZ2a3sKaBJ8ZMocc"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Among U.S. adults, the prevalence of reported binge drinking was 15.2% among landline respondents."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Prevalence among high school students was 41.8% for current alcohol use, 24.2% for binge drinking"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The overall prevalence of binge drinking among adult BRFSS landline respondents was 15.2%"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Binge drinking prevalence among men (20.7%) was twice that for women (10.0%)."
+    },
+    {
+     "loc": "summary",
+     "q": "the overall prevalence of binge drinking (20.6%) was higher than among landline respondents"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Cellular telephone data were unweighted, but were age-adjusted to the 2000 U.S. Census standard population."
+    },
+    {
+     "loc": "text",
+     "q": "Binge drinking prevalence among men (26.5%) was almost twice that for women (14.5%)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting (BRFSS landline and YRBS)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weights for selection probability, population distribution and nonresponse produce the landline and YRBS estimates",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data collected by landline were weighted to the age, sex, and racial/ethnic distribution of each state's adult population"
+    },
+    {
+     "loc": "text",
+     "q": "YRBS data were weighted to adjust for school and student nonresponse and oversampling of black and Hispanic students."
+    }
+   ]
+  },
+  {
+   "name": "direct age standardization (cellular telephone sample)",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "age-adjusted to the 2000 U.S. Census standard population",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Cellular telephone data were unweighted, but were age-adjusted to the 2000 U.S. Census standard population."
+    },
+    {
+     "loc": "table 2",
+     "q": "Age-adjusted to the 2000 U.S. Census standard population."
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'significantly higher' with CIs reported; no test named; CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Hispanics (16.3%) was significantly higher than the prevalence for non-Hispanic blacks (10.3%)."
+    },
+    {
+     "loc": "text",
+     "q": "and Hispanics (17.5%) was significantly higher than the prevalence for non-Hispanic blacks (13.9%)."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": null,
+  "across": [
+   "sex",
+   "age group",
+   "race/ethnicity",
+   "education level",
+   "annual household income",
+   "grade",
+   "survey mode (landline vs cellular)",
+   "state",
+   "year (1993 vs 2009)"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Binge drinking was more common among men (20.7%), persons aged 18--24 years (25.6%) and 25−34 years (22.5%), whites (16.0%)"
+   },
+   {
+    "loc": "text",
+    "q": "prevalence among 12th grade students (33.5%) was more than twice that among 9th grade students (15.3%)."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": false,
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "Weighted binge-drinking prevalence › (95% CI § )"
+   },
+   {
+    "loc": "text",
+    "q": "was significantly higher than the prevalence for non-Hispanic blacks (10.3%)."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted prevalence (%)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Weighted binge-drinking prevalence › (%)"
+    }
+   ]
+  },
+  {
+   "v": "unweighted age-adjusted prevalence (%)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Unweighted age-adjusted † binge-drinking prevalence › %"
+    }
+   ]
+  },
+  {
+   "v": "95% CI",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Binge drinking (n = 16,009*) › (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What was the prevalence of binge drinking among U.S. adults and high school students in 2009, and how did it vary by demographic group and survey mode?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "were used to estimate the prevalence of binge drinking among adults in the United States"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "binge drinking",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Vital Signs: Binge Drinking Among High School Students and Adults --- United States, 2009"
+    }
+   ]
+  },
+  {
+   "v": "current alcohol use",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the prevalence of current alcohol use and of binge drinking among high school students was 41.8% and 24.2%"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The 2009 national survey obtained cross-sectional data representative of public- and private-school students in grades 9--12"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "CDC analyzed data from the 2009 Behavioral Risk Factor Surveillance System (BRFSS) on the prevalence of binge drinking"
+    },
+    {
+     "loc": "summary",
+     "q": "Data also were analyzed from the 2009 National Youth Risk Behavior Survey (YRBS)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS)",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "CDC analyzed data from the 2009 Behavioral Risk Factor Surveillance System (BRFSS)"
+    }
+   ]
+  },
+  {
+   "v": "National Youth Risk Behavior Survey (YRBS)",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Data also were analyzed from the 2009 National Youth Risk Behavior Survey (YRBS)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Binge Drinking Among High School Students and Adults --- United States, 2009"
+   },
+   {
+    "loc": "text",
+    "q": "By state, the prevalence of binge drinking ranged from 6.8% (Tennessee) to 23.9% (Wisconsin)"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Prevalence by race/ethnicity, education and income is reported and described (significance marks, values side by side, income gradient) without a computed contrast on an SPD other than sex/age; state alcohol laws are named for group differences but the cap holds.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "The income gradient is highlighted in the conclusions and group differences are attributed to state and local alcohol laws, which could read as an interpreted disparity with political determinants."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Non-Hispanic white (27.8%) and Hispanic (24.1%) students had a higher prevalence of reported binge drinking than non-Hispanic black students (13.7%)."
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "YRBS data were weighted to adjust for school and student nonresponse and oversampling of black and Hispanic students."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education level",
+     "annual household income"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Binge drinking prevalence also increased with household income and was most commonly reported by respondents with annual household incomes of $75,000 or more"
+     },
+     {
+      "loc": "table 1",
+      "q": "Education level › Less than high school diploma"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Binge drinking also was most common among persons aged 18--24 years (25.6%) and 25--34 years (22.5%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "among U.S. adults aged ≥18 years who responded to the BRFSS survey"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Binge drinking prevalence among men (20.7%) was twice that for women (10.0%)."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "state and local laws affecting the price, availability, and marketing of alcoholic beverages; state alcohol control policies",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The differences in binge drinking among population groups might reflect differences in state and local laws that affect the price, availability, and marketing"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "No explicit referent group except non-Hispanic blacks in significance statements; AI/AN and Asian/NHOPI collapsed into other non-Hispanic; cellular data unweighted but age-adjusted."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Hispanics (16.3%) was significantly higher than the prevalence for non-Hispanic blacks (10.3%)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "and Hispanics (17.5%) was significantly higher than the prevalence for non-Hispanic blacks (13.9%)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Non-Hispanic white (27.8%) and Hispanic (24.1%) students had a higher prevalence of reported binge drinking than non-Hispanic black students (13.7%)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "most common among persons aged 18--24 years (25.6%) and 25--34 years (22.5%), and then gradually declined with increasing age."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Binge drinking prevalence increased with grade level"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Binge drinking prevalence also increased with household income"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "whereas those who did not graduate from high school were the least likely to report binge drinking (12.1%)."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "study_design",
+  "analytic_depth"
+ ],
+ "confidence": "medium",
+ "notes": "State-level 1993 vs 2009 significance and the YRBS 1993 vs 2009 sex-specific significance are cited from unpublished data or Youth Online, not computed here. Figure 2 shows 1993–2009 trends by sex but the headline is 2009 prevalence, so before/after was not added. Grade is recorded as an age proxy.",
+ "view_issues": "Table 2 CSV has a typo in a CI '(20.5--23.2}'. Landline (weighted) and cellular (unweighted, age-adjusted) estimates are compared despite different estimation methods."
+}

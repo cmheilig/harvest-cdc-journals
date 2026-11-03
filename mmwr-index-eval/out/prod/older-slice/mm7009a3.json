@@ -1,0 +1,236 @@
+{
+ "id": "mm7009a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cgg9oyB6Hyy896KBgYjJ1",
+  "batch_id": "msgbatch_01GKCs8ucZ2a3sKaBJ8ZMocc"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "the overall infection rate was 1.7%; the rate among those involved in direct patient care was 0.9%."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "six of 336 (1.7%) soldiers received a positive SARS-CoV-2 test result"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Among 336 soldiers participating in an infection risk study, the overall infection rate was 1.7%"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was significantly younger than that of all enrolled soldiers (32 years) (p = 0.02)"
+    },
+    {
+     "loc": "text",
+     "q": "The SARS-CoV-2 infection rate among those who provided direct care to COVID-19 patients was 0.9% (two of 223)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Wilcoxon rank-sum test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named in methods: 'Medians were compared by Wilcoxon-rank sum test'",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Medians were compared by Wilcoxon-rank sum test using SPSS Statistics (version 22.0; IBM)."
+    },
+    {
+     "loc": "text",
+     "q": "was significantly younger than that of all enrolled soldiers (32 years) (p = 0.02)"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "direct patient care",
+   "age"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "the overall infection rate was 1.7%; the rate among those involved in direct patient care was 0.9%."
+   },
+   {
+    "loc": "table 1",
+    "q": "SARS-CoV-2–positive (n = 6)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Medians were compared by Wilcoxon-rank sum test using SPSS Statistics (version 22.0; IBM)."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "infection rate (%)",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "the overall infection rate was 1.7%; the rate among those involved in direct patient care was 0.9%."
+    }
+   ]
+  },
+  {
+   "v": "median (IQR)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Median age, yrs (IQR)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What was the prevalence of SARS-CoV-2 infection among active duty soldiers deployed to care for COVID-19 patients at a NYC field hospital with a rigorous infection control plan?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess the prevalence of SARS-CoV-2 infection among active duty soldiers deployed to JMS"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "SARS-CoV-2 Infection Risk Among Active Duty Military Members Deployed to a Field Hospital"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A cross-sectional study of the prevalence of SARS-CoV-2 infection among 336 active duty soldiers enrolled in a prevalence study"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All enrolled soldiers completed an anonymous study questionnaire that asked about demographic characteristics, duties at JMS"
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "nasopharyngeal swabs were collected from all enrolled participants and were tested using the TaqPathTM COVID-19 Combo Kit"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Deployed to a Field Hospital — New York City, April 2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Only age and sex appear, as Table 1 characteristics and a median-age comparison of positive vs all soldiers, with no social-position framing. Professional role is an exposure route, not SES.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 2,
+   "reason": "The tested median-age contrast between infected and all soldiers could be read as an age-group-specific result, though age is not framed as social position."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "was significantly younger than that of all enrolled soldiers (32 years) (p = 0.02)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "procedures"
+ ],
+ "confidence": "high",
+ "notes": "The prepass 'fisher' cue is Thermo Fisher Scientific, and 'sensitivity' refers to the assay, not to a diagnostic-accuracy study. PCR, ELISA and MMIA only define case status, so they are not procedures. The comparison with other health care personnel cohorts is cited from earlier studies.",
+ "view_issues": "The Wilcoxon test compares the 6 positives with all 336 enrolled, which includes those 6, so the groups are not independent. Six of 336 is 1.8%, not the 1.7% reported. The text gives 99 medical support staff (27.9%), but Table 1 gives 94."
+}

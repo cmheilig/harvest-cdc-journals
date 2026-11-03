@@ -1,0 +1,423 @@
+{
+ "id": "mm5115a3",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cgg9ovsCPpcLbJme3LLXz",
+  "batch_id": "msgbatch_01GKCs8ucZ2a3sKaBJ8ZMocc"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Substantial variations in incidence of specific diseases, defined as laboratory-diagnosed infections per 100,000 persons, were reported among the sites"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The overall incidence of infection with S. Typhimurium was 3.3"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The incidence of Campylobacter cases ranged from 7.0 in Maryland to 31.7 in California."
+    },
+    {
+     "loc": "text",
+     "q": "Crude incidence for foodborne diseases varied by age."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "To account for the increased population and variation in the incidence among sites, a log-linear Poisson regression model ( 5 ) was used"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "log-linear Poisson regression",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'log-linear Poisson regression model' with calendar year categorical (1996 reference) and site variation accounted for → loglinear",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a log-linear Poisson regression model ( 5 ) was used to estimate the effect of time on the incidence of the various pathogens"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based CIs from the Poisson regression for relative change; declines highlighted where CIs exclude no change",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Campylobacter decreased 27% (95% CI=19% to 35% decrease), and Salmonella decreased 15% (95% CI=7% to 22% decrease)."
+    },
+    {
+     "loc": "text",
+     "q": "incidence of infections caused by Yersinia , Listeria , Campylobacter , and Salmonella have shown a substantial and sustained decline."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "1996 (reference year); national health objectives for 2010",
+  "across": [
+   "calendar year",
+   "site",
+   "age group",
+   "pathogen"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "treating time (i.e., calendar year) as a categorical variable, with 1996 as the reference year."
+   },
+   {
+    "loc": "ocr",
+    "q": "by site, compared with national health objectives for 2010"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The relative change in incidence rates during 1996--2001 was estimated and confidence intervals for that change were calculated."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "incidence per 100,000 persons",
+   "ev": [
+    {
+     "loc": "ocr",
+     "q": "* Per 100,000 persons."
+    }
+   ]
+  },
+  {
+   "v": "relative change in incidence (percent decrease/increase)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the estimated incidence of Yersinia infections decreased 49% (95% confidence interval [CI]=35% to 60% decrease)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "To account for the increased population and variation in the incidence among sites, a log-linear Poisson regression model ( 5 ) was used"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "site (variation in incidence among sites)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Because of substantial variation in incidence among the sites, adding new sites influences overall crude incidence."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "What was the incidence of 10 foodborne diseases in FoodNet sites in 2001, and how has it changed since 1996 relative to the 2010 national health objectives?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This report describes preliminary surveillance data for 2001 and compares them with 1996--2000 data."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "foodborne illness",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Preliminary FoodNet Data on the Incidence of Foodborne Illnesses"
+    }
+   ]
+  },
+  {
+   "v": "Campylobacter infection",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Campylobacter decreased 27% (95% CI=19% to 35% decrease)"
+    }
+   ]
+  },
+  {
+   "v": "Salmonella infection",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Salmonella decreased 15% (95% CI=7% to 22% decrease)."
+    }
+   ]
+  },
+  {
+   "v": "Escherichia coli O157 infection",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the estimated incidence of E. coli O157 infections decreased 21%"
+    }
+   ]
+  },
+  {
+   "v": "listeriosis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Listeria decreased 35% (95% CI= 9% to 53% decrease)"
+    }
+   ]
+  },
+  {
+   "v": "shigellosis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The incidence of Shigella infections showed considerable variation by year and site."
+    }
+   ]
+  },
+  {
+   "v": "Vibrio infection",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The incidence of Vibrio infections was 91% higher in 1997 than it was in 1996"
+    }
+   ]
+  },
+  {
+   "v": "yersiniosis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the estimated incidence of Yersinia infections decreased 49%"
+    }
+   ]
+  },
+  {
+   "v": "cryptosporidiosis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 1997--2001, the incidence of Cryptosporidium cases decreased 33% (95% CI=4% to 53% decrease)."
+    }
+   ]
+  },
+  {
+   "v": "cyclosporiasis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Cyclospora cases were identified only in Connecticut and Georgia."
+    }
+   ]
+  },
+  {
+   "v": "hemolytic uremic syndrome",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Incidence of HUS was 1.5 among children aged <5 years and 0.9 among children aged <15 years."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 1996, active surveillance began for laboratory-diagnosed cases of infection"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The incidence of infection with most pathogens decreased during 1996--2001."
+    }
+   ]
+  },
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "indicating progress toward meeting the national health objectives of reducing the incidence of foodborne diseases by 2010"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "FoodNet collects data about 10 foodborne diseases in nine U.S. sites"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Emerging Infections Program Foodborne Diseases Active Surveillance Network (FoodNet)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC's Emerging Infections Program Foodborne Diseases Active Surveillance Network (FoodNet)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "nine sites and 37.8 million persons (13% of the U.S. population)."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Only age appears: incidence by age group and HUS restricted to children <15 years, with no social-position framing.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Crude incidence for foodborne diseases varied by age."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "In this report, analyses of HUS data were performed only on persons aged <15 years."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Age groups only; site is geography, not an SPD."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": null,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Infants and young children had the highest incidence of most foodborne infections."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "procedures",
+  "inference"
+ ],
+ "confidence": "medium",
+ "notes": "Combined incidence for the four objective pathogens and seven bacterial pathogens is model-based (21% and 23% lower) without CIs. Cyclospora was not modeled because of rarity. Table 1 sets 2001 incidence beside 2010 objectives without computed gaps.",
+ "view_issues": "Table 1 is OCR only; some numbers are garbled (e.g. '147', '68', 'O4'). Figures 1 and 2 are images with no description."
+}

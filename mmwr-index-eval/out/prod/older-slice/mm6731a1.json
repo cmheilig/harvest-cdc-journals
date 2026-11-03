@@ -1,0 +1,344 @@
+{
+ "id": "mm6731a1",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cgg9oxxTRX9eL3yfubyCT",
+  "batch_id": "msgbatch_01GKCs8ucZ2a3sKaBJ8ZMocc"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Nationally, the prevalence of opioid use disorder more than quadrupled during 1999–2014 (from 1.5 per 1,000 delivery hospitalizations to 6.5; p<0.05)."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "National and state-specific prevalence of opioid use disorder per 1,000 delivery hospitalizations"
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "average annual rate changes were estimated from the beta coefficient for year and the national or state-specific intercept."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2014, prevalence ranged from 0.7 in the District of Columbia (DC) to 48.6 in Vermont."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "National opioid use disorder rates at delivery more than quadrupled during 1999–2014."
+    },
+    {
+     "loc": "summary",
+     "q": "Rate increases in Maine, New Mexico, Vermont, and West Virginia exceeded 2.5 per 1,000 deliveries per year."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "logistic regression on year (linear trend test)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'linear trends were assessed using logistic regression' → logistic; p-value for the year term tests the trend",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "linear trends were assessed using logistic regression."
+    },
+    {
+     "loc": "text",
+     "q": "average annual rate changes were estimated from the beta coefficient for year and the national or state-specific intercept."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (NIS discharge and trend weights)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "NIS weighted to be nationally representative; survey-specific techniques for clustering, stratification and weighting",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Survey-specific analysis techniques were used to account for clustering, stratification, and weighting in NIS analyses"
+    },
+    {
+     "loc": "note",
+     "q": "Rates through 2011 are weighted with trend weights, and rates 2012 and after are weighted using original NIS discharge weights"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "both",
+  "referent": null,
+  "across": [
+   "year",
+   "state"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "National opioid use disorder rates at delivery more than quadrupled during 1999–2014."
+   },
+   {
+    "loc": "text",
+    "q": "an average annual increase of 0.4 per 1,000 delivery hospitalizations per year (p<0.05)."
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "linear trends were assessed using logistic regression."
+   },
+   {
+    "loc": "note",
+    "q": "all estimates were significant (p<0.05)."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "prevalence per 1,000 delivery hospitalizations",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "National and state-specific prevalence of opioid use disorder per 1,000 delivery hospitalizations"
+    }
+   ]
+  },
+  {
+   "v": "average annual rate change",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Estimated average annual change in the prevalence rate of opioid use disorder diagnoses per 1,000 delivery hospitalizations"
+    }
+   ]
+  },
+  {
+   "v": "percent increase",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the national prevalence of opioid use disorder increased 333%"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Survey-specific analysis techniques were used to account for clustering, stratification, and weighting in NIS analyses"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "average annual rate changes were estimated from the beta coefficient for year and the national or state-specific intercept."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A sensitivity analysis was performed to assess whether results differed in a resident-only sample."
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "How did the prevalence of opioid use disorder documented at delivery hospitalization change nationally and by state during 1999–2014?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to describe U.S. national and state-specific trends in opioid use disorder documented at delivery hospitalization."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "opioid use disorder",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Opioid Use Disorder Documented at Delivery Hospitalization — United States, 1999–2014"
+    }
+   ]
+  },
+  {
+   "v": "pregnancy",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Opioid use by pregnant women represents a significant public health concern"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Hospital discharge data from the 1999–2014 Healthcare Cost and Utilization Project (HCUP) were analyzed"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "National opioid use disorder rates at delivery more than quadrupled during 1999–2014."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "administrative/claims",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were analyzed from the National Inpatient Sample (NIS; 1999–2014) and the State Inpatient Databases (SID; 1999–2014) of HCUP"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Healthcare Cost and Utilization Project (HCUP)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Hospital discharge data from the 1999–2014 Healthcare Cost and Utilization Project (HCUP) were analyzed"
+    }
+   ]
+  },
+  {
+   "v": "National Inpatient Sample (NIS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were analyzed from the National Inpatient Sample (NIS; 1999–2014)"
+    }
+   ]
+  },
+  {
+   "v": "State Inpatient Databases (SID)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the State Inpatient Databases (SID; 1999–2014) of HCUP"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to describe U.S. national and state-specific trends in opioid use disorder documented at delivery hospitalization."
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "The population is women at delivery (sex defines the population); results are by year and state only, and states are geography, not an SPD.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 1,
+   "reason": "State policies (drug testing, child-abuse statutes) are offered as explanations of state variability, though geography is not an SPD."
+  },
+  "dimensions": [
+   {
+    "v": "sex",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Opioid use by pregnant women represents a significant public health concern"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Only geography (states) is compared; state policy differences are discussed as explanations of state variability, not of SPD differences."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "outcome_types",
+  "study_design"
+ ],
+ "confidence": "high",
+ "notes": "Design not named; surveillance/descriptive plus trend inferred from repeated hospital-discharge cross-sections. NIS here is the HCUP National Inpatient Sample, administrative data, not a CDC survey. Average annual rate changes are derived from logistic year coefficients and intercepts.",
+ "view_issues": "Figure 1 note says rates 'after 2012' use original weights, while the table note says '2012 and after'. California's average annual change (0.01) rests on data through 2011 only."
+}

@@ -1,0 +1,293 @@
+{
+ "id": "mm5109a2",
+ "reader": {
+  "model": "claude-opus-5-5",
+  "reader_id": "prod",
+  "role": "judgment",
+  "effort": "medium",
+  "brief_tag": "brief-v5.2",
+  "prefix_sha": "30d57882dbf0",
+  "request_id": "msg_011Cgg9oxxDEVg3DAwDntDXm",
+  "batch_id": "msgbatch_01GKCs8ucZ2a3sKaBJ8ZMocc"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "was observed in 92.1% of the stores: self-service cigarette pack placement in 36.4%, multipack discounts in 25.2%"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Some form of tobacco advertising (interior or exterior) was present in 84.1% of the stores."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Convenience/gas retailers were significantly more likely to have five of the six POP measures"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "GEE logistic regression (binomial, logit link) for unadjusted ORs",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'generalized estimating equations' with 'binomial distribution and a logit link function' giving odds ratios → logistic (GEE)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "generalized estimating equations that accounted for community clustering while specifying a binomial distribution and a logit link function"
+    }
+   ]
+  },
+  {
+   "name": "survey weighting for multistage sampling and store selection probabilities",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated: data weighted for community-level multistage sampling and store selection probabilities",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted to account for both the community-level multistage sampling procedures and the store selection probabilities."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "95% Wald CIs for ORs vs 1 underlie 'significantly more/less likely' claims; Wald CI construction stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Results were expressed as unadjusted odds ratios and 95% Wald confidence intervals."
+    },
+    {
+     "loc": "text",
+     "q": "drug stores were significantly less likely to have two of the measures"
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'No significant differences' between replacement/added stores and other stores; test not named",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "No significant differences were observed for either replacement or added stores"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "supermarkets",
+  "across": [
+   "store type"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "For all analyses, supermarkets were used as the referent category."
+   },
+   {
+    "loc": "ocr",
+    "q": "Supermarkets serve as the referent category in all odds ratios."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Results were expressed as unadjusted odds ratios and 95% Wald confidence intervals."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Tobacco-control signage was observed in 65.8% of the stores"
+    }
+   ]
+  },
+  {
+   "v": "unadjusted odds ratio",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Results were expressed as unadjusted odds ratios and 95% Wald confidence intervals."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "GEE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "generalized estimating equations that accounted for community clustering"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Results were expressed as unadjusted odds ratios and 95% Wald confidence intervals."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Replacement stores were less likely to have multipack promotions, counter signage, and FDA-sponsored signage."
+    }
+   ]
+  }
+ },
+ "public_health_question": {
+  "v": "How prevalent are point-of-purchase tobacco advertising, marketing and tobacco-control signage in US retail stores, and how do they vary by store type?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This report summarizes the extent of point-of-purchase (POP) tobacco advertising and marketing found in various types of stores."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "tobacco use",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "certain retail environments frequented by teenagers heavily promote tobacco use."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During a 4-month period in 1999, ImpacTeen researchers observed POP environments in 3,031 retail outlets in 163 communities"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "collected and analyzed store observation data in 163 communities throughout the United States."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "ImpacTeen Project store observations",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "researchers from the Robert Wood Johnson Foundation-sponsored ImpacTeen Project* collected and analyzed store observation data"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Point-of-Purchase Tobacco Environments and Variation by Store Type --- United States, 1999"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Units are stores compared by store type; adolescents appear only as the motivating audience, with no SPD-defined groups compared.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Because 75% of teenagers shop at convenience or convenience/gas stores at least once a week"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": null
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "regression_fields"
+ ],
+ "confidence": "medium",
+ "notes": "Design not named; inferred as cross-sectional store observation survey. Monitoring the Future and SIC lists only define the sampling frame. Sensitivity set true for the comparison of replacement and field-added stores with other stores as a bias check.",
+ "view_issues": "Tables are images; OCR numbers and alignment are garbled. Table 1 general merchandise ORs near 1.0 with very narrow CIs look implausible."
+}
