@@ -4,6 +4,8 @@
     python3 tools/surface_rules.py score [--split dev] [--out DIR]   # rules vs records -> DIR/surface_scores.tsv, DIR/surface_misses.tsv
     python3 tools/surface_rules.py findings [--split all] [--out DIR] # declared procedures per article (the finding aid), with a
                                                                      # check against the records' procedure names where one exists
+    python3 tools/surface_rules.py size [--out DIR]                  # every built volume in prod_packets/, no records needed:
+                                                                     # counts per volume and per period -> DIR/surface_sizing*.tsv
 
 Labels come from out/prod/<vol>/mm*.json (brief v5.1/v5.2), text from prod_packets/<vol>/<id>/article.txt.
 Splits: dev = vols 72 and 73 (rules are tuned here); test = vol 71 (scored once, not tuned on); all = both.
@@ -512,6 +514,75 @@ def findings(split, out):
     print(len(rows), 'articles;', len(names), 'findings;', len(per), 'article-finding rows ->', f'{out}/surface_findings_{split}.tsv')
 
 
+# --- sizing: rules and declared findings over volumes without records ---------------------------------------------------
+PERIODS = (('1999-2015', range(48, 65)), ('2016-2021', range(65, 71)), ('2022-2024', range(71, 74)))  # production changed in 2016
+FAMILIES = {  # method families for "useful in more than one teaching unit"; each is a rule label or a declared finding
+    'regression': lambda pr, f: pr['reg:any'],
+    'named test': lambda pr, f: any(k.startswith('test: ') for k in f),
+    'survey weighting': lambda pr, f: pr['proc:weighting'],
+    'standardization': lambda pr, f: pr['proc:standardization'],
+    'survival': lambda pr, f: 'estimation: Kaplan-Meier / life table' in f or pr['reg:event-time'],
+    'trend model (joinpoint)': lambda pr, f: any(k.startswith('joinpoint: ') for k in f),
+}
+COST_FULL, COST_LIGHT = 0.13, 0.002  # $ per article: measured all-in for vols 72 and 71; light-brief Haiku batch (an estimate)
+FULL_TIER = 'tier: full read (equity 3-4 candidate or 2+ families)'
+
+
+def load_packets(vols):
+    """[(id, vol, article_type, text)] for every packet in prod_packets/<vol>/frame.tsv (status `packet`); no records needed."""
+    out = []
+    for v in vols:
+        fr = f'prod_packets/{v}/frame.tsv'
+        if not os.path.exists(fr):
+            continue
+        for r in csv.DictReader(open(fr), delimiter='\t'):
+            p = f'prod_packets/{v}/{r["id"]}/article.txt'
+            if r['status'] == 'packet' and os.path.exists(p):
+                out.append((r['id'], v, r['article_type'], open(p).read()))
+    return out
+
+
+def size(split, out):
+    """Counts per volume, then rolled up to the periods; `split` is ignored (every built volume is sized)."""
+    rows = load_packets(range(73, 47, -1))
+    vol = collections.defaultdict(collections.Counter)
+    found = collections.defaultdict(collections.Counter)
+    for i, v, at, text in rows:
+        pr, f = predict(text, at), declared(text)
+        title, su, body, tab = sections(text)
+        fam = [k for k, g in FAMILIES.items() if g(pr, f)]
+        c = vol[v]
+        c['articles'] += 1
+        c['type: quickstats' if at == 'quickstats' else 'type: report family'] += 1
+        c['has Summary box'] += bool(su)
+        c['has a table'] += bool(tab)
+        c['no declared finding'] += not f
+        for lab in ('reg:any', 'inf:CIs', 'inf:tests', 'proc:weighting', 'proc:standardization', 'groupwise:any', 'eqband:2+', 'eqband:3+'):
+            c[lab] += pr[lab]
+        for k in fam:
+            c[f'family: {k}'] += 1
+        c['2+ families'] += len(fam) >= 2
+        c[FULL_TIER] += pr['eqband:3+'] or len(fam) >= 2
+        for k in f:
+            found[v][k] += 1
+    cols = ['articles', 'type: report family', 'type: quickstats', 'has Summary box', 'has a table', 'no declared finding',
+            'reg:any', 'inf:CIs', 'inf:tests', 'proc:weighting', 'proc:standardization', 'groupwise:any', 'eqband:2+', 'eqband:3+',
+            *[f'family: {k}' for k in FAMILIES], '2+ families', FULL_TIER]
+    groups = [(str(v), str(v + 1951), [v]) for v in sorted(vol, reverse=True)] + [(p, p, [v for v in vs if v in vol]) for p, vs in PERIODS]
+    with open(f'{out}/surface_sizing.tsv', 'w') as o:
+        o.write('volume_or_period\tyears\t' + '\t'.join(cols) + '\tcost_light_all_usd\tcost_full_tier_usd\n')
+        for name, years, vs in groups:
+            t = sum((vol[v] for v in vs), collections.Counter())
+            o.write(f'{name}\t{years}\t' + '\t'.join(str(t[k]) for k in cols)
+                    + f"\t{t['articles'] * COST_LIGHT:.2f}\t{t[FULL_TIER] * COST_FULL:.2f}\n")
+    names = sorted({k for v in found for k in found[v]})
+    with open(f'{out}/surface_sizing_findings.tsv', 'w') as o:
+        o.write('finding\t' + '\t'.join(p for p, _ in PERIODS) + '\n')
+        for k in names:
+            o.write(k + '\t' + '\t'.join(str(sum(found[v][k] for v in vs if v in found)) for _, vs in PERIODS) + '\n')
+    print(len(rows), 'articles in', len(vol), 'volumes ->', f'{out}/surface_sizing.tsv, {out}/surface_sizing_findings.tsv')
+
+
 def predict(text, atype):
     sec = sections(text)
     return {lab: bool(f(*sec, atype)) for lab, f in RULES.items()}
@@ -583,7 +654,7 @@ def truth_band(lab, L):
 
 if __name__ == '__main__':
     ap = argparse.ArgumentParser()
-    ap.add_argument('cmd', choices=('mine', 'score', 'why', 'findings'))
+    ap.add_argument('cmd', choices=('mine', 'score', 'why', 'findings', 'size'))
     ap.add_argument('--split', default='dev', choices=tuple(SPLITS))
     ap.add_argument('--out', default='reports')
     ap.add_argument('--label')
@@ -594,4 +665,4 @@ if __name__ == '__main__':
             raise SystemExit('why reads misses for tuning: dev split only')
         why(a.split, a.out, a.label)
     else:
-        {'mine': mine, 'score': score, 'findings': findings}[a.cmd](a.split, a.out)
+        {'mine': mine, 'score': score, 'findings': findings, 'size': size}[a.cmd](a.split, a.out)

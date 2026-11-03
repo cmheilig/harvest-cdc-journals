@@ -124,6 +124,36 @@ Named tests agree completely. Suppression rules agree least, and standardization
 
 The vol 71 scores above are unchanged by this layer.
 
+## Sizing run, vols 70–48 (1999–2021; added 2026-11-03)
+
+*Counts only, with no accuracy claim for these volumes. No API calls.*
+
+**Frame (owner, 11-03):** the report family plus QuickStats, as for vols 73–71. Before 2016 the extraction labels reports `report` rather than `full_report`, and also uses `update`, `dispatch` and `brief_report`. Those four are in the frame. Announcements and notices to readers are out, as before.
+- Packets: `python3 tools/build_packets.py vol V --skip-no-id --types full_report,notes_from_the_field,vital_signs,outbreak_report,grand_rounds,quickstats,report,update,dispatch,brief_report`.
+- `--skip-no-id` is new. It counts and skips corpus rows whose URL has no article id: 81 numeric pages in 1999 and 16 special pages in 2002–2011. None of these is in the extraction's views anyway. Without the flag, the builder still stops on them.
+- Then `python3 tools/surface_rules.py size` writes `reports/surface_sizing.tsv` (per volume, then per period) and `reports/surface_sizing_findings.tsv` (declared findings per period). Periods break at 2015/2016, where production changed. Every volume rolls up to contiguous years.
+
+**Articles in frame** (holdout and articles missing from the views omitted):
+
+| Period | Articles | Equity 3–4 candidates | 2+ method families | Full-read tier* | Light read, all ($0.002 each) | Full read, tier ($0.13 each) |
+|---|---|---|---|---|---|---|
+| 1999–2015 (vols 48–64) | 3,680 | 183 | 441 | 545 | ~$7 | ~$71 |
+| 2016–2021 (vols 65–70) | 1,859 | 221 | 363 | 470 | ~$4 | ~$61 |
+| *2022–2024 (vols 71–73, read)* | *761* | *113* | *144* | *199* | | |
+
+\* An equity 3–4 candidate, or two or more method families. The families are regression, a named test, survey weighting, standardization, survival, and a trend model. The tier is an illustration of the arithmetic, not a recommendation; it is the owner's to define.
+
+For 1999–2021, a light read of every article plus a full read of that tier comes to about $143. A full read of all 5,539 articles would be about $720.
+
+**Drift signs: where the rules, and any reader, see less.**
+- **No tables before 2009.** The extraction's views carry table files only from 2009, plus a few in 1999–2000. Tables from 2001–2008 were GIF images or `<pre>` text: a placeholder ("Table 1") survives, the content mostly does not (the extraction's `ACCOUNTING.md`, H4). Rules that lean on tables undercount there: equity level ≥ 2 falls from 20–26% of articles (vols 59–73) to 0–12% (vols 57–49). The same gap would limit a model reading these packets.
+- **No Summary box before 2009/2010.** It first appears in vol 58 (2009). Rules that read the Summary fall back to the body.
+- **No QuickStats in the frame before vol 54 (2005).**
+- **Fewer named tests in early volumes,** 4–7% of articles in vols 48–52 against 13–19% from 2009. That may be real practice, older wording, or both; only reference reads can say.
+- **Regression appears in about 12% of articles in 1999–2015,** 18% in 2016–2021 and 19% in 2022–2024.
+
+**A proposed older-volume slice** (the plan's §4.4, about $15–16 at $0.13). Draw about 120 articles in three strata set by the drift above: 2001–2008 (text only), 2009–2015 (tables, the old `report` type), and 2016–2021. Within each stratum, take about 20 at random and about 20 that the rules flag (regression, equity candidates, named tests), so the rarer labels can be scored. The drift signs place a break at 2008/2009 that sits inside the owner's 1999–2015 period; all strata are whole volumes, so they still roll up to contiguous years.
+
 ## Limits
 
 - **Vocabulary from 2022–2024 only.** Reports from 1999–2010 phrase methods differently, often lack a Summary box, and have fewer CIs. The rules are untested there; the plan's §4.4 calibration slice would test them.

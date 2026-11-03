@@ -11,6 +11,7 @@ Prints counts and ids only, never packet text. Holdout ids are counted, never pr
     python3 tools/build_packets.py ids LIST.tsv OUT       # packets for the `id` column of LIST.tsv
     python3 tools/build_packets.py vol VOL [--dry-run]    # production packets for one volume -> prod_packets/<VOL>/
         [--types t1,t2,...]                               # override SCOPE (required for volumes not in SCOPE)
+        [--skip-no-id]                                    # count and skip frame rows with no article id in the url
     options: --extract DIR (default $MMWR_EXTRACT or ~/cdc-corpora/_test/mmwr-extract-v2)
 
 `vol` writes prod_packets/<VOL>/frame.tsv: one row per frame article (corpus CSV, as tools/estimate_cost.py frame)
@@ -105,9 +106,12 @@ def holdout_set():
     return set(scope_ids('index_scope.txt')) - set(dev_ids())
 
 
+SKIP_NO_ID = False   # --skip-no-id: count and skip frame rows whose url has no article id (1999 numeric pages, special issues)
+
+
 def frame_ids(v):
     """Ids of English MMWR Weekly articles of volume v in the corpus CSV (as estimate_cost.py frame)."""
-    out = []
+    out, skipped = [], 0
     for r in csv.DictReader(open(CORPUS)):
         if r['series'] != 'mmwr' or r['level'] != 'article' or r['lang'] != 'en':
             continue
@@ -115,8 +119,13 @@ def frame_ids(v):
         if m and int(m.group()) == v:
             u = URL_ID.search(r['url'])
             if not u:
-                sys.exit(f'frame row without an article id in its url (vol {v})')
+                if SKIP_NO_ID:
+                    skipped += 1
+                    continue
+                sys.exit(f'frame row without an article id in its url (vol {v}); --skip-no-id to count and skip')
             out.append(u.group(1))
+    if skipped:
+        print(f'vol {v}: {skipped} frame rows without an article id in their url, skipped')
     return out
 
 
@@ -162,8 +171,10 @@ def main(argv):
     types = None
     if '--types' in args:
         k = args.index('--types'); types = tuple(args[k + 1].split(',')); del args[k:k + 2]
+    global SKIP_NO_ID
     dry = '--dry-run' in args
-    args = [a for a in args if a != '--dry-run']
+    SKIP_NO_ID = '--skip-no-id' in args
+    args = [a for a in args if a not in ('--dry-run', '--skip-no-id')]
     if args[:1] == ['check']:
         check()
     elif args[:1] == ['ids'] and len(args) == 3:
