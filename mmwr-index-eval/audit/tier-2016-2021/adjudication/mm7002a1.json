@@ -1,0 +1,9 @@
+{"id": "mm7002a1",
+ "fields": [
+  {"field": "groupwise_any", "verdict": true, "correct": ["A"], "category": "no error", "why": "Tables 1-2 give weighted up-to-date percentages for 3+ levels of age (cervical), race, education, poverty, insurance, U.S. residence and sexual orientation, each with a Wald F P-value."},
+  {"field": "groupwise_dims", "verdict": ["SES", "age", "country of birth/language/nativity", "race/ethnicity", "sexual orientation and gender identity"], "correct": ["A"], "category": "no error", "why": "Each listed SPD has 3+ compared levels (insurance counted as SES); sex and Hispanic ethnicity are pairs, and usual source of care and year are not SPDs."},
+  {"field": "groupwise_assessments", "verdict": ["omnibus test", "side by side"], "correct": ["A"], "category": "no error", "why": "Wald F tests 'for any differences across ... groups' are omnibus tests over each SPD's levels. The flag is a false alarm: the side-by-side entry is the four Hispanic subgroups, whose P-value (table note) tests only Hispanic vs non-Hispanic, so no test spans the subgroups."}
+ ],
+ "justification": {"A": "good"},
+ "agreed_errors": [],
+ "brief_issues": "The mechanical check could exempt a side-by-side entry whose groups are subgroups under a test stated to cover only the parent pair (here Hispanic subgroups under a Hispanic vs non-Hispanic P-value)."}

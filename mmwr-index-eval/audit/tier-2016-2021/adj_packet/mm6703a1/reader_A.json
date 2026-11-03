@@ -1,0 +1,341 @@
+{
+ "id": "mm6703a1",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The overall prevalence of short sleep duration among middle school students in the nine states combined was 57.8%"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "At the high school level, nationwide, the prevalence of short sleep duration was 72.7%"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The prevalence of short sleep duration among high school students in the national YRBS was 72.7%."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The prevalence of short sleep duration was higher among female students (75.6%) than among male students (69.9%)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named t-tests for pairwise subgroup differences, p<0.05, accounting for complex sampling design",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Pairwise differences in short sleep duration prevalence among sex, grade, and race/ethnicity subgroups were determined using t-tests"
+    }
+   ]
+  },
+  {
+   "name": "survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "data sets weighted to be representative; analyses accounted for weighting and complex sampling designs",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All data sets were weighted to be representative of students in the jurisdiction."
+    },
+    {
+     "loc": "text",
+     "q": "Analyses accounted for the weighting of the data and for the complex sampling designs."
+    }
+   ]
+  },
+  {
+   "name": "suppression of unreliable estimates (denominator <100)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "small-denominator estimate withheld in Table 2",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Unreliable estimate. Denominator <100 students."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "sex",
+   "grade",
+   "race/ethnicity",
+   "state",
+   "large urban school district"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Prevalences and 95% confidence intervals (CIs) of short sleep duration on an average school night were calculated overall and by sex, grade, and race/ethnicity"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "differences among estimates were considered statistically significant if the t-test p-value was <0.05."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "prevalence %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Prevalence % (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What is the prevalence of short sleep duration on school nights among US middle and high school students, nationally, by state and district, and by sex, grade and race/ethnicity?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to determine the prevalence of short sleep duration (<9 hours for children aged 6–12 years and <8 hours for teens aged 13–18 years)"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "short sleep duration",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Short Sleep Duration Among Middle School and High School Students — United States, 2015"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2015 national, state, and large urban school district Youth Risk Behavior Surveys (YRBSs)"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "It uses a three-stage cluster sample design to obtain a nationally representative sample of students"
+    }
+   ]
+  },
+  {
+   "v": "other survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "These surveys are independent of CDC’s national YRBS and, unlike the national YRBS, are representative of only public school students"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Youth Risk Behavior Surveys (YRBS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2015 national, state, and large urban school district Youth Risk Behavior Surveys (YRBSs)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "calculated separately for each state and large urban school district at both middle school and high school levels"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Prevalence is reported and described by race/ethnicity, sex and grade with significance marks, but differences are not framed as disparities or quantified as contrasts.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Race/ethnicity contrasts are mainly shown via significance marks and receive no discussion beyond one results sentence."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "higher among black (76.5%) and Asian (79.3%) students than white (72.0%) and Hispanic (70.2%) students"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "higher among female students (59.6%) than among male students (56.0%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Short Sleep Duration Among Middle School and High School Students"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "lower among students in grade 9 (65.6%) than in other grades (71.7%–77.6%)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity contrasts are pairwise t-tests marked in table notes; NHPI high school estimate suppressed (n<100); grade used as an age proxy; middle school data are a non-representative nine-state combination."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "pairwise (all pairs)",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "higher among black (61.1%) and Native Hawaiian/Pacific Islander (64.2%) students than among white (56.6%), Hispanic (57.3%), and Asian (55.5%) students"
+    },
+    {
+     "loc": "table 1",
+     "q": "Significantly different from black students (p<0.05)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "pairwise (all pairs)",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "higher among black (76.5%) and Asian (79.3%) students than white (72.0%) and Hispanic (70.2%) students"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "pairwise (all pairs)",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "also was highest among students in grade 6 (61.3%), lowest among students in grade 8 (53.1%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "pairwise (all pairs)",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "lower among students in grade 9 (65.6%) than in other grades (71.7%–77.6%)"
+    },
+    {
+     "loc": "table 2",
+     "q": "Significantly different from grade 9 (p<0.05)."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise",
+  "study_design"
+ ],
+ "confidence": "high",
+ "notes": "Design inferred as cross-sectional from the surveys; none is named. The Healthy People 2020 sleep objective and the 2009–2015 decline are cited from external data in the Discussion, so they are not a referent. State and district estimates are set side by side without tests.",
+ "view_issues": "Table 2 row label truncated: 'Native Hawaiian/Pacific Islande'."
+}

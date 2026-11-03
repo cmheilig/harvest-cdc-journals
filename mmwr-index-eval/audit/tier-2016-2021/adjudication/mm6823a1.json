@@ -1,0 +1,9 @@
+{"id": "mm6823a1",
+ "fields": [
+  {"field": "groupwise_any", "verdict": true, "correct": ["A"], "category": "reader error", "why": "Table 1 sets prevalences and average APCs across 3+ age, education and race groups side by side, and the text ranks the APCs across groups ('ranged from 0.3 ... to 0.7'), which looks groupwise under F."},
+  {"field": "groupwise_dims", "verdict": ["SES", "age", "race/ethnicity"], "correct": ["A"], "category": "reader error", "why": "Age (5 levels), education (4) and race/ethnicity (4 shown, 3 interpreted) each have 3+ groups with values shown; urban/rural and sex have 2, and Census region is not an SPD."},
+  {"field": "groupwise_assessments", "verdict": ["side by side"], "correct": ["A"], "category": "reader error", "why": "No test across SPD levels is reported: the adjusted Wald tests compare 2016-2017 with 2008-2009 within each SPD level (a non-SPD contrast, rule 6), so the mechanical flag is a false hit. APCs by group are only ranged, not compared by a test."}
+ ],
+ "justification": {"A": "adequate"},
+ "agreed_errors": [],
+ "brief_issues": "Rule 4 says joinpoint APCs 'compared by group' make a groupwise entry but does not say whether APCs merely ranged across groups with no test count; side by side is the natural reading."}

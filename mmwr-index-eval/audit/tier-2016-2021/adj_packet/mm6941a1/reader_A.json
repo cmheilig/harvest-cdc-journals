@@ -1,0 +1,515 @@
+{
+ "id": "mm6941a1",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The percentage of distant stage prostate cancer increased from 4% in 2003 to 8% in 2017."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Over this 15-year period, age-adjusted incidence decreased from 155 per 100,000 in 2003 to 105 in 2017"
+    }
+   ]
+  },
+  {
+   "v": "event-time",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Five-year survival for distant stage prostate cancer improved from 28.7% during 2001–2005 to 32.3% during 2011–2016"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "The percentage of distant stage prostate cancer increased from 4% in 2003 to 8% in 2017."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2001–2016, among 3,104,380 men with survival data, 5-year and 10-year relative survival was 97.6% and 97.2%, respectively"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Five-year survival for distant stage prostate cancer improved from 28.7% during 2001–2005 to 32.3% during 2011–2016"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Rates were adjusted to the 2000 U.S. standard population."
+    },
+    {
+     "loc": "text",
+     "q": "For unknown stage prostate cancer, 5-year survival was higher for Hispanic (84.4%) and White men (82.8%) than Black men (79.1%)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "incidence rates age-adjusted to the 2000 U.S. standard population",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Rates were adjusted to the 2000 U.S. standard population."
+    }
+   ]
+  },
+  {
+   "name": "joinpoint regression (APC, AAPC)",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "joinpoint regression giving annual percent changes in rates implies a log-linear segmented model of rates over time",
+   "role": "primary",
+   "alternative_reading": "linear (least squares on log rates)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Trends in incidence were described using annual percent change (APC) and average annual percent change (AAPC) calculated by joinpoint regression."
+    },
+    {
+     "loc": "text",
+     "q": "Statistically significant APC and AAPC were different from zero (p<0.05)."
+    }
+   ]
+  },
+  {
+   "name": "relative survival (cohort and complete methods, expected life tables)",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "relative survival computed against expected life tables; cohort or complete method",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Relative survival (cancer survival in the absence of other causes of death) was calculated"
+    },
+    {
+     "loc": "note",
+     "q": "The cohort method was used to estimate survival when all patients had a full 1, 5, and 10 years of follow-up."
+    }
+   ]
+  },
+  {
+   "name": "CI overlap assertion",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "CI method not stated; overlap rule stated as the criterion for survival differences",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Differences in relative survival were noted when CIs did not overlap."
+    },
+    {
+     "loc": "table 3",
+     "q": "Indicates nonoverlapping 95% CIs when comparing 2001–2005 with 2011–2016."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": null,
+  "across": [
+   "year of diagnosis",
+   "period",
+   "race/ethnicity",
+   "age group",
+   "stage"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Additional years of data show continued increases in the incidence of distant stage prostate cancer in the United States."
+   },
+   {
+    "loc": "summary",
+    "q": "for the period 2001–2016, 5-year survival was highest among Asian/Pacific Islanders (42.0%), followed by Hispanics (37.2%)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "ci_overlap": true,
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Differences between relative survival estimates were determined by comparing 95% confidence intervals (CIs), which allowed for an informal, conservative comparison of estimates."
+   },
+   {
+    "loc": "text",
+    "q": "Statistically significant APC and AAPC were different from zero (p<0.05)."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted rate per 100,000",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-adjusted rates were expressed per 100,000 men."
+    }
+   ]
+  },
+  {
+   "v": "APC",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the increase was observed during 2010–2017 (APC = 5.1%)"
+    }
+   ]
+  },
+  {
+   "v": "AAPC",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "increased for cases diagnosed at distant stage (AAPC = 2.2%)"
+    }
+   ]
+  },
+  {
+   "v": "relative survival %",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "5-year relative survival % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "percentage of cases",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Localized, regional, distant, and unknown stage prostate cancer accounted for 77%, 11%, 5%, and 7% of total cases"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Trends in incidence were described using annual percent change (APC) and average annual percent change (AAPC) calculated by joinpoint regression."
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How have U.S. prostate cancer incidence and relative survival changed during 2001–2017, by stage, age, and race/ethnicity?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To provide recent data on incidence and survival of prostate cancer in the United States, CDC analyzed data from population-based cancer registries"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "prostate cancer",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Prostate Cancer Incidence and Survival, by Stage and Race/Ethnicity — United States, 2001–2017"
+    }
+   ]
+  },
+  {
+   "v": "prostate cancer",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Relative survival of men with prostate cancer, 1, 5, and 10 years after diagnosis"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from population-based cancer registries that contribute to U.S. Cancer Statistics (USCS)."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Additional years of data show continued increases in the incidence of distant stage prostate cancer in the United States."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from population-based cancer registries that contribute to U.S. Cancer Statistics (USCS)."
+    },
+    {
+     "loc": "text",
+     "q": "registries that conducted active case follow-up or linkage with CDC’s National Death Index"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "U.S. Cancer Statistics (USCS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Incidence data were from USCS during the period 2003–2017 and covered 100% of the U.S. population."
+    }
+   ]
+  },
+  {
+   "v": "National Program of Cancer Registries (NPCR)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Survival data were from CDC’s National Program of Cancer Registries (NPCR)–funded registries"
+    }
+   ]
+  },
+  {
+   "v": "National Death Index",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "registries that conducted active case follow-up or linkage with CDC’s National Death Index"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Prostate Cancer Incidence and Survival, by Stage and Race/Ethnicity — United States, 2001–2017"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Survival and incidence by race/ethnicity are reported and called disparities, but values are only set side by side or judged by CI overlap; no difference or ratio is computed, so the level is capped at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The Discussion frames racial survival disparities and cites social inequities and access to care; a reader might treat the ranked values as a quantified disparity."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Prostate Cancer Incidence and Survival, by Stage and Race/Ethnicity — United States, 2001–2017"
+     },
+     {
+      "loc": "text",
+      "q": "Survival disparities by age and race/ethnicity were noted for distant stage prostate cancer during all three periods"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Incidence and survival were stratified by stage, age, year of diagnosis, and race/ethnicity."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Cases included males with malignant † prostate cancer"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "socioeconomic status"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "using expected life tables stratified by age, sex, race/ethnicity, socioeconomic status, geographic location, and calendar year of diagnosis."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "social inequities by race; social determinants of health such as access to care",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Past data suggest that social inequities by race contribute to worse outcomes for Black men than White men with prostate cancer"
+    },
+    {
+     "loc": "text",
+     "q": "social determinants of health such as access to care"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Five race/ethnicity groups (non-Hispanic White, Black, AI/AN, API; Hispanic); unknown race excluded; differences judged by non-overlapping 95% CIs; SES enters only through expected life tables."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2001–2016, 5-year survival for distant stage prostate cancer was highest among API (42.0%), followed by Hispanics (37.2%)"
+    },
+    {
+     "loc": "text",
+     "q": "Differences in relative survival were noted when CIs did not overlap."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 8,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Men aged ≤49 years and ≥80 years had the lowest 10-year relative survival (95.6% and 82.7%, respectively)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2003–2017, incidence was highest for men aged 70–74 years (764) and Black men (202)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 8,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2003–2017, incidence was highest for men aged 70–74 years (764) and Black men (202)."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Joinpoint allowed at most two joinpoints; APC/AAPC significance is the model's own p-value, not a separate test. Incidence rate CIs are reported but incidence group differences are not formally assessed.",
+ "view_issues": "Table 2 CIs often have the point estimate as one bound (e.g. 97.6 (97.5–97.6)), unlike Table 3 for the same estimates. Table 2 note gives unknown stage as 8% of cases; text gives 7%."
+}

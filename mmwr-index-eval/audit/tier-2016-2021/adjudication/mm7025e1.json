@@ -1,0 +1,9 @@
+{"id": "mm7025e1",
+ "fields": [
+  {"field": "groupwise_any", "verdict": true, "correct": ["A"], "category": "no error", "why": "Coverage is measured in each of 4 age groups, 6 urbanicity levels and 4 SVI quartiles."},
+  {"field": "groupwise_dims", "verdict": ["SES", "age", "rurality"], "correct": ["A"], "category": "no error", "why": "Age, NCHS urbanicity and SVI (SES) each have 3 or more levels compared. Sex and the dichotomized ACS measures are pairs and do not enter."},
+  {"field": "groupwise_assessments", "verdict": ["per-group vs referent only", "side by side"], "correct": ["A"], "category": "no error", "why": "Urbanicity and SVI have GEE absolute differences with CIs against a Ref level (per-group vs referent only, resolves_to_finer true). Age coverage is only ranked (highest/lowest) with no test across ages, so it is side by side. The flagged quotes are CSV-row renderings ('Large central metro,56.2,Ref'), not verbatim text; the values they support are right."}
+ ],
+ "justification": {"A": "adequate", "B": "n/a"},
+ "agreed_errors": [],
+ "brief_issues": "Table-label evidence should be quoted as 'group › level' (rule 6); A quoted raw CSV rows, which fail the quote check."}

@@ -1,0 +1,547 @@
+{
+ "id": "mm7040a2",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "An estimated 58.5 million adults aged ≥18 years (23.7%) reported arthritis"
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Between the 2013–2015 and 2016–2018 estimates, 4.1 and 2 million more adults reported arthritis and AAAL respectively"
+    },
+    {
+     "loc": "figure 1",
+     "q": "Weighted number of adults aged ≥18 years with arthritis* and arthritis-attributable activity limitation"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "58.5 million (23.7%) U.S. adults have arthritis, 25.7 million (43.9%) of whom have AAAL."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence of arthritis increased with increasing age, body mass index (BMI), aerobic physical inactivity, and worsening psychological distress and self-rated health"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Annualized unadjusted and age-standardized** prevalence estimates of arthritis and AAAL were generated overall"
+    },
+    {
+     "loc": "note",
+     "q": "Age-standardized to the 2000 projected U.S. population with three age groups (18–44, 45–64, and ≥65 years)."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting (NHIS sampling weights, complex design)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "sampling weights for complex survey design and nonresponse; SUDAAN",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Sampling weights were applied to account for the complex survey design, to generate nationally representative estimates, and to adjust for nonresponse."
+    }
+   ]
+  },
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "age-standardized to the 2000 projected US population, three age groups",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Age-standardized to the 2000 projected U.S. population with three age groups (18–44, 45–64, and ≥65 years)."
+    }
+   ]
+  },
+  {
+   "name": "pairwise t-tests",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated: subgroup differences assessed using pairwise t-tests",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Subgroup differences were assessed using pairwise t-tests; orthogonal linear contrasts were performed to conduct linear trend tests in ordinal variables."
+    }
+   ]
+  },
+  {
+   "name": "linear trend test (orthogonal linear contrasts) across ordinal categories",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated: orthogonal linear contrasts for linear trend tests in ordinal variables",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "orthogonal linear contrasts were performed to conduct linear trend tests in ordinal variables."
+    }
+   ]
+  },
+  {
+   "name": "linear model trend test over survey periods",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "'linear model trend test' on period estimates 2003–2018 → linear; footnote cites Joinpoint software",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A linear model trend test was conducted with significance set at α = 0.05."
+    },
+    {
+     "loc": "figure 1",
+     "q": "Separate linear model trend tests were conducted for both outcomes with significance set at α = 0.05."
+    }
+   ]
+  },
+  {
+   "name": "multiple imputation of income (NHIS imputed income files)",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "income-to-poverty ratio from NHIS imputed income files; imputation method not described here",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "values for the income-to-poverty ratio variable were calculated using NHIS imputed income files"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "absolute",
+  "referent": "2020 projected AAAL prevalence (10.4%)",
+  "across": [
+   "age group",
+   "sex",
+   "race/ethnicity",
+   "sexual identity",
+   "education",
+   "employment status",
+   "income-to-poverty ratio",
+   "BMI",
+   "aerobic physical activity",
+   "joint symptoms",
+   "ADL disability",
+   "IADL disability",
+   "psychological distress",
+   "self-rated health",
+   "survey period"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Both conditions are most prevalent among adults with worse physical and mental health profiles and more social disadvantage."
+   },
+   {
+    "loc": "text",
+    "q": "the percentage of the U.S. population reporting AAAL during 2016–2018 (10.4%) had already exactly met the 2020 projection (10.4%)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Subgroup differences were assessed using pairwise t-tests; orthogonal linear contrasts were performed to conduct linear trend tests in ordinal variables."
+   },
+   {
+    "loc": "figure 1",
+    "q": "The p for trend for both outcomes was <0.001."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "prevalence, % (95% CI)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Prevalence of doctor-diagnosed arthritis, % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "age-standardized prevalence",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "(23.7%; 21.5% age-standardized) are estimated to have arthritis"
+    }
+   ]
+  },
+  {
+   "v": "number of adults (millions)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. of adults with arthritis in population § (millions)"
+    }
+   ]
+  },
+  {
+   "v": "p for trend",
+   "ev": [
+    {
+     "loc": "figure 1",
+     "q": "The p for trend for both outcomes was <0.001."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Sampling weights were applied to account for the complex survey design"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a secondary analysis using identical methods was conducted to produce annualized absolute prevalence estimates of arthritis and AAAL"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "What are the national prevalence of arthritis and arthritis-attributable activity limitation among U.S. adults in 2016–2018, by subgroup, and how have they changed since 2003?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To update national prevalence estimates for arthritis and arthritis-attributable activity limitation (AAAL) among U.S. adults"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "arthritis",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Prevalence of Arthritis and Arthritis-Attributable Activity Limitation — United States, 2016–2018"
+    }
+   ]
+  },
+  {
+   "v": "arthritis-attributable activity limitation",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Prevalence of Arthritis and Arthritis-Attributable Activity Limitation — United States, 2016–2018"
+    }
+   ]
+  },
+  {
+   "v": "arthritis",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "prevalence of arthritis-attributable activity limitation among those with doctor-diagnosed arthritis"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "because of the cross-sectional design, a causal relationship between the study outcomes"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "To examine change over time, a secondary analysis using identical methods was conducted"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NHIS is an ongoing, nationally representative, in-person interview health survey of the noninstitutionalized, U.S. civilian population."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Health Interview Survey (NHIS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed combined National Health Interview Survey (NHIS) data from 2016–2018."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Prevalence of Arthritis and Arthritis-Attributable Activity Limitation — United States, 2016–2018"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Prevalence by education, income-to-poverty ratio, employment status and race is reported and framed as social disadvantage, but contrasts rest on t-tests and trend tests with values side by side; no difference or ratio is computed.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The Summary frames higher prevalence with 'more social disadvantage' and trend tests establish SES gradients, which could be read as a quantified, interpreted disparity."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "primary comparison",
+    "ses_components": [
+     "education",
+     "income-to-poverty ratio",
+     "employment status"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "decreased with increasing educational attainment and income-to-poverty ratio"
+     },
+     {
+      "loc": "text",
+      "q": "was higher in subgroups representing adults with fewer economic opportunities (i.e., lower education, unable to work or disabled, and lower income-to-poverty ratios)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "adults of other/multiple races (54.5%) or non-Hispanic American Indian or Alaska Natives (60.7%)"
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "stratifier",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sexual identity › Lesbian or gay"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Prevalence of arthritis increased with increasing age"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Analyses were limited to adults aged ≥18 years."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "SES measured by education, income-to-poverty ratio (imputed) and employment status (unable to work/disabled grouped); social determinants of health appear only as a recommended approach, not an explanation."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "trend test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence of arthritis increased with increasing age"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "trend test",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "decreased with increasing educational attainment and income-to-poverty ratio"
+    },
+    {
+     "loc": "table 2",
+     "q": "all categories of education were statistically significantly different from each other per t-test results for unadjusted prevalence of AAAL among all U.S. adults."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Arthritis prevalence was >50% among adults aged ≥65 years (50.4%), adults who were unable to work or disabled (52.3%)"
+    },
+    {
+     "loc": "text",
+     "q": "Subgroup differences were assessed using pairwise t-tests"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 6,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adults of other/multiple races (54.5%) or non-Hispanic American Indian or Alaska Natives (60.7%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "sexual orientation and gender identity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Sexual identity › Bisexual"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "procedures"
+ ],
+ "confidence": "medium",
+ "notes": "Table 2 note says t-test results correspond exactly to non-overlapping CIs; the t-tests are the stated method, so no CI overlap assertion is recorded. The SES trend entry covers both education and income-to-poverty ratio (4 ordered levels each). Functional disability (ADL/IADL) is treated as clinical, not an SPD.",
+ "view_issues": "Methods describe a 'linear model trend test' for periods, but the footnote links to Joinpoint software; the family is ambiguous. Footnotes call the K6 category 'severe' while tables label it 'Serious'."
+}

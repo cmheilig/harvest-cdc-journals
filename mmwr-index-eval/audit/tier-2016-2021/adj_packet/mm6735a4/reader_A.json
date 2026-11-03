@@ -1,0 +1,487 @@
+{
+ "id": "mm6735a4",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Compared with 2011–2012, significant improvements were observed in combustible tobacco use and physical inactivity, but the prevalence of aspirin use to prevent CVD declined."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "the prevalences of blood pressure control, combustible tobacco use, and physical inactivity were 48.5%, 22.3% and 29.1%, respectively."
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Sodium intake was higher among men (4,095 mg/day) than among women (3,013 mg/day) and decreased with increasing age"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During 2015–2016, adult sodium intake averaged 3,535 mg/day"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the prevalence of physical inactivity was 29.1%, a small but statistically significant decrease from 30.9% during 2011–2012"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Sex-, age-, and race/ethnicity-adjusted t-tests were used to examine prevalence changes comparing 2011–2012 with the most recent data cycle"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "logistic regression (adjusted p-values)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'P-values adjusted for sex, age group, and race/ethnicity using logistic regression' → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "P-values adjusted for sex, age group, and race/ethnicity using logistic regression."
+    },
+    {
+     "loc": "text",
+     "q": "examined using sex-, age-, and race/ethnicity-adjusted regression analyses."
+    }
+   ]
+  },
+  {
+   "name": "adjusted t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named t-tests, adjusted for sex, age and race/ethnicity, for period changes and group differences; p<0.05",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Sex-, age-, and race/ethnicity-adjusted t-tests were used to examine prevalence changes comparing 2011–2012 with the most recent data cycle"
+    },
+    {
+     "loc": "text",
+     "q": "Results were considered significant for p-values <0.05."
+    }
+   ]
+  },
+  {
+   "name": "suppression of unreliable estimates (RSE >40%)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "relative-SE rule withholds imprecise estimates",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Statistically unreliable estimates (relative standard error >40%) are suppressed."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": "2011–2012; White, non-Hispanic; male; age 45–64 or 40–64 years",
+  "across": [
+   "survey cycle",
+   "sex",
+   "age group",
+   "race/ethnicity"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Compared with 2011–2012, significant improvements were observed in combustible tobacco use and physical inactivity"
+   },
+   {
+    "loc": "table 2",
+    "q": "Race/Ethnicity › White, non-Hispanic"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Sex-, age-, and race/ethnicity-adjusted t-tests were used to examine prevalence changes"
+   },
+   {
+    "loc": "table 1",
+    "q": "Abbreviations: CI = confidence interval"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "prevalence, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Current prevalence of Million Hearts 2022 clinical strategies to prevent cardiovascular disease among adults"
+    }
+   ]
+  },
+  {
+   "v": "mean daily sodium intake (mg/day)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Average dietary sodium intake (mg/day) among adults aged ≥18 years"
+    }
+   ]
+  },
+  {
+   "v": "No. (millions)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "equates to an estimated 9.0 million persons not taking aspirin as recommended."
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NHANES is a complex survey of a multistage probability sample of the civilian, noninstitutionalized U.S. population"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "P-values adjusted for sex, age group, and race/ethnicity using logistic regression."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "sex, age group, race/ethnicity",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "P-values adjusted for sex, age group, and race/ethnicity using logistic regression."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "What were baseline levels and recent changes in key CVD risk factors targeted by Million Hearts 2022 among U.S. adults, overall and by sex, age and race/ethnicity?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "This report establishes a baseline for the CVD risk factors targeted for reduction by the initiative during 2017–2021 and highlights recent changes over time."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "cardiovascular disease",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Secondary prevention: includes examined adults aged ≥40 years with a history of cardiovascular disease."
+    }
+   ]
+  },
+  {
+   "v": "hypertension",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Blood pressure control §§ among adults aged ≥18 years with hypertension"
+    }
+   ]
+  },
+  {
+   "v": "combustible tobacco use",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Despite a significant decline in use of combustible tobacco products, from 25.1% of adults in 2011–2012, to 22.3% during 2015–2016"
+    }
+   ]
+  },
+  {
+   "v": "physical inactivity",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "significant improvements were observed in combustible tobacco use and physical inactivity"
+    }
+   ]
+  },
+  {
+   "v": "dietary sodium intake",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the mean daily sodium intake among adults was 3,535 mg/day, with no significant change occurring from 2011–2012"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data for this report were gathered from three national surveillance systems"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Compared with 2011–2012, significant improvements were observed in combustible tobacco use and physical inactivity"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "using data from the National Health and Nutrition Examination Survey, National Survey on Drug Use and Health, and National Health Interview Survey."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Health and Nutrition Examination Survey (NHANES)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the National Health and Nutrition Examination Survey (NHANES † )"
+    }
+   ]
+  },
+  {
+   "v": "National Survey on Drug Use and Health (NSDUH)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the National Survey on Drug Use and Health (NSDUH § )"
+    }
+   ]
+  },
+  {
+   "v": "National Health Interview Survey (NHIS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the National Health Interview Survey (NHIS ¶ )"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Prevalence of Key Cardiovascular Disease Risk Factors for Million Hearts 2022 — United States, 2011–2016"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Group-specific prevalences by race/ethnicity are reported and called disparities, but contrasts are values set side by side with p-values; no difference, ratio or multiple is computed, so the cap at 2 applies.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The Abstract and Discussion frame racial/ethnic differences as disparities with tested contrasts and interpret them for tailored interventions."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Disparities in risk factor prevalences were observed across age groups, genders, and racial/ethnic groups."
+     },
+     {
+      "loc": "text",
+      "q": "compared with whites, Hispanics were less likely to use aspirin for secondary prevention or take a statin when indicated"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "P-values adjusted for sex, age group, and race/ethnicity using logistic regression."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The prevalence of physical inactivity was higher among women (30.7%) than among men (27.3%), increased with increasing age"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "P-values adjusted for sex, age group, and race/ethnicity using logistic regression."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "estimate the prevalence of physical inactivity ¶¶¶ among adults aged ≥18 years."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "the prevalence of combustible tobacco use was higher among men (26.7%) than among women (18.1%)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "P-values adjusted for sex, age group, and race/ethnicity using logistic regression."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Non-Hispanic White is the referent for race/ethnicity; American Indians and Alaska Natives are collapsed into 'other'; several Asian and Other estimates are suppressed (RSE >40%)."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "varied by race/ethnicity. Prevalence was higher among whites (24.0%) than among Hispanics (16.0%) and non-Hispanic Asians (10.3%)"
+    },
+    {
+     "loc": "table 2",
+     "q": "Race/Ethnicity › White, non-Hispanic"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": null,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The prevalence of BP control was higher among adults aged 45–64 years (53.8%) than among those aged 18–44 years (40.0%) and ≥65 years (45.9%)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "study_design",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred as repeated cross-sectional national surveys; the report serves as a Million Hearts baseline, but its 80%/20% targets are not compared against. Survey weighting is not stated for the analysis (the prepass hit is a weighted response rate), though population counts imply weighted estimates. Age groups in the tables overlap (e.g. 18–44 and 18–24, 25–44), so n_groups for age is left null.",
+ "view_issues": "The table notes say all p-values were adjusted using logistic regression, including those for mean sodium intake, a continuous outcome; the Methods call them adjusted t-tests."
+}

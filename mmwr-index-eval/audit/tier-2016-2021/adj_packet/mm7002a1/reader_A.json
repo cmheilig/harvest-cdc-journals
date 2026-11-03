@@ -1,0 +1,574 @@
+{
+ "id": "mm7002a1",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Among women aged 50–74 years, 72.4% were up to date with mammography"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among adults aged 50–75 years, 66.9% were up to date with CRC testing"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among women aged 50–74 years, 72.4% were up to date with mammography"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "which is below the HP2020 target (81.1%)"
+    },
+    {
+     "loc": "text",
+     "q": "Lower test receipt was associated with having lower educational attainment and income, not having a usual source of care, and being uninsured"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Percentages of respondents who were up to date with screening were also age-standardized to the 2000 U.S. standard population"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Wald F test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'Wald F tests were used to test for any differences across years ... and groups'; table notes give P-values from Wald F tests",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Wald F tests were used to test for any differences across years (treated categorically) and groups."
+    },
+    {
+     "loc": "table 1",
+     "q": "P-values from Wald F tests."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (NHIS sample adult weights with complex design)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "sample adult weights adjusting for selection, nonresponse and poststratification produce every estimate",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Sample adult weights and design variables were used to account for the complex sample design."
+    },
+    {
+     "loc": "table 1",
+     "q": "Percentages are weighted using National Health Interview Survey sample adult weights"
+    }
+   ]
+  },
+  {
+   "name": "direct age standardization (2000 U.S. standard population)",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "age-standardized percentages reported beside crude ones, consistent with HP2020 measures",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Percentages of respondents who were up to date with screening were also age-standardized to the 2000 U.S. standard population"
+    }
+   ]
+  },
+  {
+   "name": "suppression of unreliable estimates (NCHS presentation standards)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "estimates failing NCHS standards for proportions withheld",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates not meeting National Center for Health Statistics data presentation standards for proportions were suppressed"
+    }
+   ]
+  },
+  {
+   "name": "NHIS multiple imputation of income",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "NHIS-imputed income files used for poverty-threshold estimates; imputation method not stated",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NHIS-imputed income files were used."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "fixed referent",
+  "scale": null,
+  "referent": "Healthy People 2020 targets (breast 81.1%, cervical 93.0%, CRC 70.5%)",
+  "across": [
+   "year",
+   "age",
+   "sex",
+   "race/ethnicity",
+   "education",
+   "federal poverty threshold",
+   "duration of U.S. residence",
+   "sexual orientation",
+   "usual source of care",
+   "insurance"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "In 2018, receipt of screening tests for breast and cervical cancers remained below Healthy People 2020 targets, with little change since 2005."
+   },
+   {
+    "loc": "text",
+    "q": "Wald F tests were used to test for any differences across years (treated categorically) and groups."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Percentages with Korn-Graubard confidence intervals ( 4 ) are presented overall and by sociodemographic and health care access factors."
+   },
+   {
+    "loc": "text",
+    "q": "Wald F tests were used to test for any differences across years (treated categorically) and groups."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage up to date",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percentage of U.S. women age-eligible for screening who were up to date with breast and cervical cancer screening"
+    }
+   ]
+  },
+  {
+   "v": "age-standardized percentage",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "82.9% were up to date with cervical cancer screening (age-standardized 83.4%)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What percentages of U.S. adults were up to date with breast, cervical and colorectal cancer screening in 2018, relative to HP2020 targets, over time and across groups?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "data from 2018 were analyzed to estimate percentages of adults up to date with U.S. Preventive Services Task Force (USPSTF) screening recommendations"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "breast cancer screening",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Cancer Screening Test Receipt — United States, 2018"
+    },
+    {
+     "loc": "text",
+     "q": "72.4% were up to date with mammography"
+    }
+   ]
+  },
+  {
+   "v": "cervical cancer screening",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "82.9% were up to date with cervical cancer screening"
+    }
+   ]
+  },
+  {
+   "v": "colorectal cancer screening",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "66.9% were up to date with CRC testing"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the 2018 NHIS, an annual survey of a nationally representative sample of the civilian, noninstitutionalized U.S. population"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NHIS data from 2005, 2008, 2010, 2013, 2015, and 2018 were used to examine differences across years"
+    }
+   ]
+  },
+  {
+   "v": "evaluation or monitoring",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Continued monitoring of screening rates can help assess whether national screening targets are achieved."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data from the 2018 NHIS, an annual survey of a nationally representative sample of the civilian, noninstitutionalized U.S. population"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Health Interview Survey (NHIS)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Source: National Center for Health Statistics, National Health Interview Survey, 2018."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Cancer Screening Test Receipt — United States, 2018"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Group-specific screening percentages by education, income, insurance, race, nativity and sexual orientation are reported with Wald F tests and called disparities, but no difference, ratio or SPD-specific target shortfall is computed; values are side by side with significance only.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Disparities are explicitly framed and interpreted, and group values (e.g. 67% public-only vs 77–78% private insurance vs 81.1% target) could be read as quantified."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "mammography within 2 years among women aged 50–74 years for breast cancer screening"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Lower test receipt was associated with younger and older age groups"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "were also age-standardized to the 2000 U.S. standard population"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Percentage of U.S. women age-eligible for screening who were up to date with breast and cervical cancer screening"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Sex › Women"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Lower test receipt was associated with age 50–64 years, American Indian/Alaska Native or Asian race, Hispanic ethnicity"
+     },
+     {
+      "loc": "table 1",
+      "q": "Hispanic subgroups are self-reported."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "educational attainment",
+     "federal poverty threshold (income)",
+     "health insurance"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Lower test receipt was associated with having lower educational attainment and income, not having a usual source of care, and being uninsured"
+     }
+    ]
+   },
+   {
+    "v": "country of birth/language/nativity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "both differed by age, race, and duration of U.S. residence."
+     }
+    ]
+   },
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "stratifier",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Cervical cancer test receipt differed by sexual orientation"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "health insurance coverage; usual source of care (access to care); barriers for underserved populations",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Screening test receipt was low among persons without health insurance coverage or a usual source of care."
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "HP2020 targets are population totals, not group targets; insurance categorized hierarchically; Hispanic test is Hispanic vs non-Hispanic only; small groups (AI/AN, bisexual, recent immigrants) partly suppressed."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Lower test receipt was associated with younger and older age groups"
+    },
+    {
+     "loc": "table 1",
+     "q": "P-values from Wald F tests."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 5,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Lower test receipt was associated with age 50–64 years, American Indian/Alaska Native or Asian race, Hispanic ethnicity"
+    },
+    {
+     "loc": "table 2",
+     "q": "P-values from Wald F tests."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "P-value testing for differences between Hispanic persons and non-Hispanic persons. Hispanic subgroups are self-reported."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "testing for all three cancers decreased with decreasing educational attainment and income"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Federal poverty threshold, % › ≤138"
+    },
+    {
+     "loc": "text",
+     "q": "testing for all three cancers decreased with decreasing educational attainment and income"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "non-military health insurance coverage or no insurance"
+    },
+    {
+     "loc": "table 2",
+     "q": "Insurance categorized hierarchically in order of categories listed."
+    }
+   ]
+  },
+  {
+   "across": [
+    "country of birth/language/nativity"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "both differed by age, race, and duration of U.S. residence."
+    }
+   ]
+  },
+  {
+   "across": [
+    "sexual orientation and gender identity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Cervical cancer test receipt differed by sexual orientation"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "analytic_depth",
+  "study_design"
+ ],
+ "confidence": "medium",
+ "notes": "Cross-sectional design inferred from NHIS survey use; no design named. Age standardization adjusts the estimates compared with HP2020 targets, read as stratified/adjusted depth. Trend across years is tested with Wald F tests treating years categorically.",
+ "view_issues": "Table 2 footnote markers are inconsistent: the Duration of U.S. residence header carries ¶ (Wald F) and the usual source of care P-value carries § (as of survey)."
+}

@@ -1,0 +1,388 @@
+{
+ "id": "mm6722a3",
+ "reader": {
+  "label": "B"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During 2011–2017, prevalence of current use of any tobacco product decreased from 24.2% to 19.6% among high school students"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Electronic cigarettes were the most commonly used tobacco product among high school (11.7%) and middle school students (3.3%) in 2017."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "National prevalence estimates with 95% confidence intervals and population estimates rounded down to the nearest 10,000 were computed."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During 2016–2017, among high school students, decreases occurred in current use of hookah (4.8% to 3.3%) and pipe tobacco (1.4% to 0.8%)."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The presence of linear and quadratic trends during 2011–2017 were assessed, adjusting for race/ethnicity, sex, and grade."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weights for complex survey design and nonresponse produce every estimate",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted to account for the complex survey design and adjusted for nonresponse."
+    }
+   ]
+  },
+  {
+   "name": "adjusted linear and quadratic trend tests",
+   "class": "regression",
+   "regression_family": "other",
+   "inferred_from": "trends 'assessed, adjusting for race/ethnicity, sex, and grade' implies a model whose type is not named; NYTS reports usually use logistic regression",
+   "role": "primary",
+   "alternative_reading": "logistic",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The presence of linear and quadratic trends during 2011–2017 were assessed, adjusting for race/ethnicity, sex, and grade."
+    },
+    {
+     "loc": "figure 1",
+     "q": "During 2011–2017, current use of cigarettes, cigars, and smokeless tobacco exhibited linear decreases (p<0.05)."
+    }
+   ]
+  },
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "t-tests named for 2016 vs 2017 differences; p<0.05",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "T-tests were performed to examine differences between 2016 and 2017."
+    }
+   ]
+  },
+  {
+   "name": "suppression of unreliable estimates (n<50 or RSE>0.3)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "small-sample and relative-SE suppression rule in table note",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Data are statistically unreliable because samples size was <50 or relative standard error was >0.3."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "survey year",
+   "school level",
+   "sex",
+   "race/ethnicity",
+   "tobacco product"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "During 2011–2017, prevalence of current use of any tobacco product decreased from 24.2% to 19.6% among high school students"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "T-tests were performed to examine differences between 2016 and 2017."
+   },
+   {
+    "loc": "text",
+    "q": "For all analyses, p-values <0.05 were considered statistically significant."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "prevalence (%)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "estimated no. users",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimated no. users §"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Data were weighted to account for the complex survey design and adjusted for nonresponse."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The presence of linear and quadratic trends during 2011–2017 were assessed, adjusting for race/ethnicity, sex, and grade."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "race/ethnicity, sex, and grade",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusting for race/ethnicity, sex, and grade."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "What were the patterns and trends in current use of tobacco products among U.S. middle and high school students during 2011–2017?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to determine patterns of current (past 30-day) use of seven tobacco product types among U.S. middle school (grades 6–8) and high school (grades 9–12) students"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "tobacco product use",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Tobacco Product Use Among Middle and High School Students — United States, 2011–2017"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NYTS is a cross-sectional, voluntary, school-based, self-administered, pencil-and-paper questionnaire survey of U.S. middle and high school students."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During 2011–2017, prevalence of current use of any tobacco product decreased from 24.2% to 19.6% among high school students"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC and the Food and Drug Administration (FDA) analyzed data from the 2011–2017 National Youth Tobacco Surveys (NYTS)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Youth Tobacco Survey (NYTS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC and the Food and Drug Administration (FDA) analyzed data from the 2011–2017 National Youth Tobacco Surveys (NYTS)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "A three-stage cluster sampling procedure is used to generate a nationally representative sample of U.S. students"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Prevalence by race/ethnicity and sex is reported in the table and described in text (e.g., most-used product by race group), but no disparity is framed or quantified.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "The text mainly ranks products within each race group rather than comparing race groups; race otherwise appears only as an adjustment covariate."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "E-cigarettes were the most commonly used tobacco product among non-Hispanic white (white) (14.2%) and Hispanic (10.1%) high school students"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "adjusting for race/ethnicity, sex, and grade."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Any tobacco product use was 6.4% among males and 4.8% among females."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "adjusting for race/ethnicity, sex, and grade."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "among U.S. middle school (grades 6–8) and high school (grades 9–12) students and estimate use nationwide"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "adjusting for race/ethnicity, sex, and grade."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity has four groups (White, Black, Hispanic, Other non-Hispanic); many middle school Other and some Black estimates are suppressed as unreliable."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity › Black † › % (95% CI)"
+    },
+    {
+     "loc": "text",
+     "q": "E-cigarettes were the most commonly used tobacco product among non-Hispanic white (white) (14.2%) and Hispanic (10.1%) high school students"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "procedures",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "The adjusted linear and quadratic trend analysis is model-based, but the model type is not named; it is recorded as a regression of family other, with logistic as the alternative reading. Population estimates of user counts derive from weighted prevalence.",
+ "view_issues": "The text states smokeless tobacco use was higher among males than among females, but no test for sex differences is described; the only stated tests are the trend tests and the 2016–2017 t-tests."
+}

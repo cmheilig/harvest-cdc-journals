@@ -1,0 +1,486 @@
+{
+ "id": "mm7025e1",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "By May 22, 2021, 57.0% of U.S. adults aged ≥18 years had received ≥1 vaccine dose"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "coverage was highest among adults aged ≥65 years (80.0%) and lowest among adults aged 18–29 years (38.3%)"
+    },
+    {
+     "loc": "text",
+     "q": "Weekly vaccine initiation was defined as the percentage of persons who received the first dose within the epidemiologic week"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During December 14, 2020–May 22, 2021, 57.0% of U.S. adults had received ≥1 vaccine dose"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "coverage was lower and increased more slowly over time among younger adults."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Men had lower coverage than women in all age groups, except those aged ≥65 years"
+    },
+    {
+     "loc": "text",
+     "q": "Persons living in counties that were less urban were less likely to be vaccinated, and differences were smaller for adults aged ≥65 years."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "GEE binomial regression with identity link",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "'binomial regression and an identity link' estimating absolute differences → identity link on the probability scale, i.e. a linear probability model fitted by GEE",
+   "role": "primary",
+   "alternative_reading": "logistic: GEE with binomial family, though the link is identity, not logit",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Generalized estimating equation models with binomial regression and an identity link were used to estimate absolute differences in coverage"
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "model-based CIs from the GEE binomial identity-link model; differences whose CIs exclude 0 (sex, urbanicity, SVI, uninsured, poverty, computer) are reported as lower coverage, while unemployment and race/ethnicity, whose CIs include 0, are not",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "people living in counties with higher social vulnerabilities or higher percentages of the population who are uninsured, living in poverty"
+    },
+    {
+     "loc": "table 1",
+     "q": "% Difference (95% CI)"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "absolute",
+  "referent": "female; large central metro; lowest SVI quartile; counties below median",
+  "across": [
+   "age group",
+   "sex",
+   "county urbanicity",
+   "SVI quartile",
+   "county social determinants of health",
+   "period"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "coverage was lower and increased more slowly over time among younger adults."
+   },
+   {
+    "loc": "text",
+    "q": "Absolute differences in coverage by age were calculated during three periods"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "were used to estimate absolute differences in coverage and associated 95% confidence intervals."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "≥1-dose coverage (%)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimate (%)"
+    }
+   ]
+  },
+  {
+   "v": "% difference",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% Difference (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "weekly initiation (%)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Weekly initiation peaked at 7.5% among adults aged 50–64 years during the week of March 21"
+    }
+   ]
+  },
+  {
+   "v": "second dose completion (%)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "89.3% had received their second dose at any point."
+    }
+   ]
+  },
+  {
+   "v": "projected coverage (%)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "coverage by the week of August 29, 2021 is projected to reach 57.5% for adults aged 18–29 years"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "GEE",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Generalized estimating equation models with binomial regression and an identity link"
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "% Difference (95% CI)"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did COVID-19 vaccination coverage among U.S. adults vary by age, sex and county-level characteristics during December 2020–May 2021?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess patterns of COVID-19 vaccination coverage among U.S. adults, CDC analyzed data submitted on vaccinations administered"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "COVID-19 Vaccination Coverage Among Adults — United States, December 14, 2020–May 22, 2021"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Vaccination data were reported to CDC via state immunization information systems"
+    }
+   ]
+  },
+  {
+   "v": "ecologic",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the ecologic findings for vaccination coverage by community-level factors do not reflect the status of individual persons."
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "coverage was lower and increased more slowly over time among younger adults."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "vaccination registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Vaccination data were reported to CDC via state immunization information systems"
+    }
+   ]
+  },
+  {
+   "v": "other",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the Vaccine Administration Management System, ¶ or direct data submission to the CDC Data Clearinghouse."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "immunization information systems",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Vaccination data were reported to CDC via state immunization information systems"
+    }
+   ]
+  },
+  {
+   "v": "Vaccine Administration Management System",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the Vaccine Administration Management System"
+    }
+   ]
+  },
+  {
+   "v": "CDC Data Clearinghouse",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "direct data submission to the CDC Data Clearinghouse."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "COVID-19 Vaccination Coverage Among Adults — United States"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "By May 22, 2021, 57.0% of U.S. adults aged ≥18 years had received ≥1 vaccine dose"
+   }
+  ]
+ },
+ "equity": {
+  "level": 4,
+  "level_reason": "Coverage differences by county social vulnerability, uninsurance, poverty, computer/Internet access and urbanicity are quantified as absolute differences with CIs and interpreted; these social determinants are the analyzed exposures, and access barriers are named.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The determinants are county-level ecologic indicators and access is raised mainly as a recommendation, so it could be read as a quantified disparity without explanatory determinants."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "coverage was lower and increased more slowly over time among younger adults."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "57.0% of U.S. adults aged ≥18 years had received ≥1 vaccine dose"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Men had lower coverage than women in all age groups, except those aged ≥65 years"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Persons living in counties that were less urban were less likely to be vaccinated"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "Social Vulnerability Index",
+     "uninsured",
+     "below the federal poverty level"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "people living in counties with higher social vulnerabilities or higher percentages of the population who are uninsured, living in poverty"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "identifying as a racial/ethnic group other than non-Hispanic White"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "social vulnerability; uninsurance; poverty; lack of computer and Internet access; barriers to access",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "higher percentages of the population who are uninsured, living in poverty, lacking access to a computer, and lacking access to a computer with Internet"
+    },
+    {
+     "loc": "text",
+     "q": "Equitable access to vaccination is critical to improve coverage for persons of all ages who live in communities that are less urban"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "County-level (ecologic) SVI quartiles, dichotomized ACS social-determinant measures and NCHS urbanicity linked to recipients' county; referents are lowest vulnerability, below median and large central metro. Individual race/ethnicity is not analyzed; 5.9% of doses lacking county data were excluded."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "coverage was highest among adults aged ≥65 years (80.0%) and lowest among adults aged 18–29 years (38.3%)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 6,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Persons living in counties that were less urban were less likely to be vaccinated"
+    },
+    {
+     "loc": "table 1",
+     "q": "Large central metro,56.2,Ref"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "people living in counties with higher social vulnerabilities"
+    },
+    {
+     "loc": "table 1",
+     "q": "<25th percentile,59.8,Ref"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "procedures",
+  "study_design"
+ ],
+ "confidence": "medium",
+ "notes": "Projected coverage through August applies the latest weekly initiation rate (arithmetic, not a procedure). Each characteristic appears to be modeled separately within age groups, so the differences are treated as unadjusted. Weekly initiation is a per-week percentage, treated as binary/categorical.",
+ "view_issues": "The text claims lower coverage with higher uninsurance 'across all age groups', but the CIs for ages 50–64 (to 0.0) and ≥65 include 0. Table overall coverage (56.3%) differs from the text (57.0%); a note explains this as model exclusions."
+}

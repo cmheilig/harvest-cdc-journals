@@ -1,0 +1,10 @@
+{"id": "mm7013e2",
+ "fields": [
+  {"field": "groupwise_dims", "verdict": ["SES", "age", "race/ethnicity"], "correct": ["B"], "category": "omission",
+   "why": "The Table gives each outcome for five race/ethnicity groups side by side, which meets 'three or more group values shown' even though the text does not rank them. A recorded age and education side by side but left out race."},
+  {"field": "equity_dimension_roles", "verdict": ["SES: covariate", "SES: stratifier", "age: population", "age: stratifier", "race/ethnicity: covariate", "race/ethnicity: stratifier", "sex: stratifier"], "correct": ["A"], "category": "omission",
+   "why": "The weights are raked to Census totals by race/ethnicity and educational attainment alike, so education gets a weighting-variable covariate role just as race does. B gave race that role but left out SES."}
+ ],
+ "justification": {"A": "good", "B": "good"},
+ "agreed_errors": [],
+ "brief_issues": "The roles list has no 'weighting' role; readers map weighting variables to 'covariate' (level-1 text). An explicit rule would stop readers applying it inconsistently."}

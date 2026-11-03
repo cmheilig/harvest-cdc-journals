@@ -1,0 +1,9 @@
+{"id": "mm6942a1",
+ "fields": [
+  {"field": "groupwise_any", "verdict": "true", "correct": ["A"], "category": "reader error", "why": "Table 2 compares four insurance groups (SES) each against private-only with t-tests; that alone makes groupwise true."},
+  {"field": "groupwise_dims", "verdict": ["SES", "race/ethnicity", "rurality"], "correct": ["A"], "category": "reader error", "why": "Insurance and poverty (SES), race/ethnicity and three MSA categories (rurality) are all reported as coverage disparities by group; geography by state is correctly left out."},
+  {"field": "groupwise_assessments", "verdict": ["per-group vs referent only"], "correct": [], "category": "brief gap", "why": "Insurance is per-group vs referent (correct). The race, poverty and MSA 'disparities' rest on supplement tables under the blanket t-test method, so per-group vs referent fits better than side by side, which needs group values shown. The mechanical flag is a false hit: the linear trend test is over birth year, not an SPD."}
+ ],
+ "justification": {"A": "adequate"},
+ "agreed_errors": [],
+ "brief_issues": "The brief does not say how to record groupwise results that the article only summarizes, with values and tests in online supplements; a rule (e.g. assess by the stated blanket method, n_groups null) would settle it."}

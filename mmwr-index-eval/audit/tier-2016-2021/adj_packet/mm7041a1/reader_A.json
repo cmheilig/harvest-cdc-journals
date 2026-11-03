@@ -1,0 +1,391 @@
+{
+ "id": "mm7041a1",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Nationally, coverage was highest for ≥3 doses of poliovirus vaccine (92.7%)"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Nationally, coverage was highest for ≥3 doses of poliovirus vaccine (92.7%)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Nationally, coverage was highest for ≥3 doses of poliovirus vaccine (92.7%)"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "percentage point differences between uninsured and privately insured children ranged from 9.2 (≥3 HepB doses) to 37.8 (≥2 influenza vaccine doses)"
+    },
+    {
+     "loc": "text",
+     "q": "Coverage among children born in 2017–2018 was 2.1–4.5 percentage points higher than it was among those born in 2015–2016"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "t-test for two independent proportions",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated: t-tests on weighted data for comparing two independent proportions, p<0.05",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All coverage differences were assessed on weighted data using t-tests for comparing two independent proportions"
+    },
+    {
+     "loc": "note",
+     "q": "Statistically significant (p<0.05) difference compared with the referent group."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weighted data; weighting adjusts for nonresponse and households without mobile phones; SUDAAN",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the weighting is designed to adjust for nonresponse and for households without mobile phones"
+    }
+   ]
+  },
+  {
+   "name": "Kaplan-Meier",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "Kaplan-Meier used to estimate coverage by age 24 months for most vaccines",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Kaplan-Meier (time to event) analysis was used to estimate coverage by age 24 months for most vaccines."
+    }
+   ]
+  },
+  {
+   "name": "suppression of imprecise estimates",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "estimates withheld by sample-size and CI half-width rules",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Estimate not available because the unweighted sample size for the denominator was <30, or 95% CI half width/estimate >0.588"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "absolute",
+  "referent": "privately insured children (private only)",
+  "across": [
+   "health insurance status",
+   "race/ethnicity",
+   "poverty status",
+   "MSA status",
+   "birth cohort",
+   "jurisdiction"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Coverage with most childhood vaccines among children born in 2017 and 2018 was lower among those who were uninsured, Black, Hispanic"
+   },
+   {
+    "loc": "table 2",
+    "q": "Private only (referent) (n = 15,686)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "All coverage differences were assessed on weighted data using t-tests for comparing two independent proportions"
+   },
+   {
+    "loc": "table 1",
+    "q": "Statistically significantly different from zero at p<0.05."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "vaccination coverage, %",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Health insurance status, % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "difference (percentage points)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Difference (2015–2016 to 2017–2018)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What was vaccination coverage by age 24 months among U.S. children born in 2017–2018, how did it compare with 2015–2016, and did it differ by sociodemographic characteristics?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC assessed vaccination coverage by age 24 months among children born in 2017 and 2018, with comparisons to children born in 2015 and 2016."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "vaccine-preventable diseases of childhood (14 diseases)",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "for children during the first 24 months of life to prevent 14 diseases."
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC conducts the NIS-Child annually as a random-digit–dialed mobile telephone survey"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Coverage estimates for children born in 2017 and 2018 were compared with estimates for children born in 2015 and 2016."
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC conducts the NIS-Child annually as a random-digit–dialed mobile telephone survey"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Immunization Survey-Child (NIS-Child)",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "National Immunization Survey-Child, United States, 2018–2020"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "National Immunization Survey-Child, United States, 2018–2020"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "coverage/uptake",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "CDC assessed vaccination coverage by age 24 months among children born in 2017 and 2018"
+   }
+  ]
+ },
+ "equity": {
+  "level": 4,
+  "level_reason": "Disparities by insurance, poverty and race/ethnicity are framed, quantified (9.2–37.8 percentage points below privately insured) and interpreted; access, transportation, time off work and financial challenges are named as explanations of lower coverage in poor and non-privately insured children.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The determinants are offered tentatively ('might be attributable') as general barriers rather than analyzed, so they could be read as generic."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "primary comparison",
+    "ses_components": [
+     "health insurance status",
+     "poverty status"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Coverage was lower among children living below the poverty level than among those living at or above the poverty level for all vaccines"
+     },
+     {
+      "loc": "table 2",
+      "q": "Private only (referent) (n = 15,686)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Coverage was lower for both Black and Hispanic children compared with White children for most vaccines"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "fewer disparities were found by Metropolitan Statistical Area (MSA)"
+     },
+     {
+      "loc": "note",
+      "q": "was grouped into three categories: MSA principal city, MSA nonprincipal city, and non-MSA."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "parents or guardians of children aged 19–35 months."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "access to vaccination services; financial challenges; difficulty identifying a provider, arranging transportation, taking time off work; unawareness of the VFC program",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Important barriers to overcome include access to vaccination services, financial challenges, missed vaccination opportunities, and vaccine hesitancy."
+    },
+    {
+     "loc": "text",
+     "q": "The lower coverage observed in children living below the federal poverty level and those without private health insurance might be attributable in part"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Insurance groups are compared with privately insured children as referent; race/ethnicity, poverty and MSA results are in supplementary tables not in the packet; small or imprecise cells are suppressed."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Private only (referent) (n = 15,686)"
+    },
+    {
+     "loc": "table 2",
+     "q": "Statistically significant (p<0.05) difference compared with the referent group."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Coverage was lower for both Black and Hispanic children compared with White children for most vaccines"
+    }
+   ]
+  },
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "fewer disparities were found by Metropolitan Statistical Area (MSA)"
+    },
+    {
+     "loc": "note",
+     "q": "was grouped into three categories: MSA principal city, MSA nonprincipal city, and non-MSA."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "outcome_types"
+ ],
+ "confidence": "medium",
+ "notes": "Kaplan-Meier is used to estimate coverage proportions, so the outcome is recorded as binary/categorical, not event-time. Race/ethnicity and MSA groupwise entries rely on the text because the supplementary tables are not in the packet; the referent and group counts are assumed. Jurisdiction variation (Figure) is geography, not an SPD.",
+ "view_issues": "Race/ethnicity, poverty and MSA results are only in online supplementary tables, not in the packet. The Discussion says non-privately insured children were 9.2–37.8 points lower, but that range is stated for uninsured children in Results."
+}

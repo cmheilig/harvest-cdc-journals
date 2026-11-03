@@ -1,0 +1,458 @@
+{
+ "id": "mm685152a1",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "nationwide unadjusted prevalence estimates of frequent mental distress and history of depression among adults with arthritis were 19.0%"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "nationwide unadjusted prevalence estimates of frequent mental distress and history of depression among adults with arthritis were 19.0%"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "age-adjusted prevalence of frequent mental distress was significantly higher among women than among men (19.9% versus 14.6%)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates were age-adjusted using logistic regression modeling to produce predicted marginal probabilities."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "logistic regression predicted marginal probabilities (age adjustment)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'logistic regression modeling to produce predicted marginal probabilities' → logistic; model-based age standardization",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates were age-adjusted using logistic regression modeling to produce predicted marginal probabilities."
+    }
+   ]
+  },
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'tested using chi-squared tests'; survey-adjusted via SUDAAN",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Differences in mental health outcomes across subgroups among adults with arthritis were tested using chi-squared tests; all differences reported were significant at α<0.05."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (complex sampling design)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "SUDAAN used to account for complex survey design; weighted population estimates in tables",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "SAS-callable SUDAAN (version 11.0.1; Research Triangle Institute) to account for the complex survey sampling design."
+    },
+    {
+     "loc": "table 1",
+     "q": "Weighted population (x1,000)"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "state",
+   "sex",
+   "sexual orientation",
+   "race/ethnicity",
+   "education level",
+   "age group"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "with clustering of high prevalence of frequent mental distress in Appalachian and southern states"
+   },
+   {
+    "loc": "text",
+    "q": "Age-adjusted prevalence of both mental health measures among adults with arthritis varied widely by state"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Differences in mental health outcomes across subgroups among adults with arthritis were tested using chi-squared tests; all differences reported were significant at α<0.05."
+   },
+   {
+    "loc": "table 1",
+    "q": "Age-adjusted prevalence, % (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "age-adjusted prevalence, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age-adjusted prevalence, % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "unadjusted prevalence, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Unadjusted prevalence, % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "median state age-adjusted prevalence",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The median state age-adjusted prevalence of frequent mental distress and history of depression among adults with arthritis"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "SAS-callable SUDAAN (version 11.0.1; Research Triangle Institute) to account for the complex survey sampling design."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Unadjusted prevalence, % (95% CI)"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimates for all characteristics except age group were age-adjusted using logistic regression modeling to produce predicted marginal probabilities."
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates were age-adjusted using logistic regression modeling to produce predicted marginal probabilities."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "What is the state-specific and sociodemographic prevalence of frequent mental distress and history of depression among US adults with arthritis in 2017?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "This analysis used 2017 Behavioral Risk Factor Surveillance System (BRFSS) data to estimate state-specific prevalence of frequent mental distress and history of depression"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "arthritis",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Frequent Mental Distress and History of Depression Diagnosis Among Adults with Arthritis"
+    }
+   ]
+  },
+  {
+   "v": "frequent mental distress",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "State-Specific Prevalence and Characteristics of Frequent Mental Distress"
+    }
+   ]
+  },
+  {
+   "v": "depression",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "History of Depression Diagnosis Among Adults with Arthritis"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "BRFSS ¶ is a landline and cellular telephone survey conducted annually in all 50 states, DC, and U.S. territories"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This analysis used 2017 Behavioral Risk Factor Surveillance System (BRFSS) data"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "This analysis used 2017 Behavioral Risk Factor Surveillance System (BRFSS) data"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Age-adjusted prevalence of both mental health measures among adults with arthritis varied widely by state"
+   },
+   {
+    "loc": "text",
+    "q": "Overall, the nationwide unadjusted prevalence estimates of frequent mental distress and history of depression"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Prevalences by sex, sexual orientation, race/ethnicity and education are reported and LGB adults' poorer mental health is noted, but values are set side by side with significance only; no difference or ratio is computed.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The Discussion frames poorer mental health among LGB adults as a subgroup disparity and interprets it (partner organizations, access)."
+  },
+  "dimensions": [
+   {
+    "v": "sexual orientation and gender identity",
+    "role": "stratifier",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "persons who were lesbian/gay/bisexual compared with those who were heterosexual (28.0% versus 16.8%); it also varied by education level"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "age-adjusted prevalence of frequent mental distress was significantly higher among women than among men (19.9% versus 14.6%)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "differed by race/ethnicity and education level, and was higher among lesbian/gay/bisexual adults (46.7%) than among heterosexual adults (30.5%)"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education level"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "differed by race/ethnicity and education level"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "among U.S. adults aged ≥18 years with arthritis"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Estimates were age-adjusted using logistic regression modeling to produce predicted marginal probabilities."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group (yrs) › 18–44"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "use technology such as telemedicine in collaboration with mental health professionals, especially in rural areas"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Subgroup prevalences are age-adjusted with no referent contrast computed; race collapsed to four groups (Other/Multiracial); state geography is not an SPD."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "persons who were lesbian/gay/bisexual compared with those who were heterosexual (28.0% versus 16.8%); it also varied by education level"
+    },
+    {
+     "loc": "text",
+     "q": "Differences in mental health outcomes across subgroups among adults with arthritis were tested using chi-squared tests"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "differed by race/ethnicity and education level"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group (yrs) › ≥65"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred as cross-sectional from the BRFSS survey; not named. Age adjustment by logistic predicted marginals is recorded as a regression rather than standardization. State variation and clustering are described without a test.",
+ "view_issues": "Text says depression 'differed by race/ethnicity' though Table 1 age-adjusted CIs largely overlap; it is unclear whether chi-square tests used adjusted or unadjusted estimates."
+}

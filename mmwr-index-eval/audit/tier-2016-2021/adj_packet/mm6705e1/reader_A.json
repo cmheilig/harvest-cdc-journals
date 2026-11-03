@@ -1,0 +1,500 @@
+{
+ "id": "mm6705e1",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "One in 12 children aged 0–17 years had asthma in 2016."
+    },
+    {
+     "loc": "text",
+     "q": "the percentage of children with asthma who experienced an asthma attack decreased significantly, from 61.7% in 2001 to 53.7% in 2016"
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Mean no. of missed school days † (95% CI)"
+    },
+    {
+     "loc": "summary",
+     "q": "children with asthma aged 5–17 years missed 13.8 million days of school per year (2.6 days per child)"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "One in 12 children aged 0–17 years had asthma in 2016."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Asthma was more prevalent among boys, non-Hispanic black children, children of Puerto Rican descent, and children from low-income households."
+    },
+    {
+     "loc": "table 3",
+     "q": "p-value (significant difference in estimates [2003 versus 2013])"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "joinpoint regression",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "Joinpoint software 'characterizes trends as joined linear segments' → segmented linear regression on annual prevalence",
+   "role": "primary",
+   "alternative_reading": "loglinear (joinpoint is often fitted to log rates; the scale is not stated)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Trends in prevalence of current asthma and asthma attack during 2001–2016 were assessed using Joinpoint software"
+    },
+    {
+     "loc": "text",
+     "q": "which characterizes trends as joined linear segments"
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "two-sided significance tests, test not named; p-values vs referent groups and 2003 vs 2013; CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "All stated comparisons between demographic groups were evaluated by using two-sided significance tests with statistical significance defined as p<0.05."
+    },
+    {
+     "loc": "table 1",
+     "q": "p-value testing for differences in current asthma prevalence between intended group and corresponding referent group."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting (NHIS sampling weights, complex design)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "sampling weights and weighted percentages stated; software accounts for complex sampling design",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "applies sampling weights to account for household nonresponse and oversampling of blacks, Hispanics, and Asians to produce national estimates"
+    },
+    {
+     "loc": "text",
+     "q": "Statistical software was used for analysis to account for the complex sampling design."
+    }
+   ]
+  },
+  {
+   "name": "relative standard error reliability rule (RSE >30% flagged)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "estimates with RSE ≥0.30 are flagged as unreliable (flagged, not suppressed)",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "an RSE <0.30 indicates a reliable estimate"
+    },
+    {
+     "loc": "table 2",
+     "q": "Relative Standard Errors are >30% indicating “unreliable” estimates."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": "referent group per characteristic (girls; aged 0–4 or 12–17 years; White, non-Hispanic; ≥450% FPL); 2003 for period comparisons",
+  "across": [
+   "sex",
+   "age group",
+   "race/ethnicity",
+   "ratio of family income to poverty threshold",
+   "U.S. Census region",
+   "year"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Asthma was more prevalent among boys, non-Hispanic black children, children of Puerto Rican descent, and children from low-income households."
+   },
+   {
+    "loc": "table 1",
+    "q": "p-value testing for differences in current asthma prevalence between intended group and corresponding referent group."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "All stated comparisons between demographic groups were evaluated by using two-sided significance tests with statistical significance defined as p<0.05."
+   },
+   {
+    "loc": "table 1",
+    "q": "† Weighted percentage and confidence interval."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "weighted percentage (prevalence)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "† Weighted percentage and confidence interval."
+    }
+   ]
+  },
+  {
+   "v": "mean no. of missed school days",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Mean no. of missed school days † (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "p-value",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "p-value (significant difference in estimates [2003 versus 2013])"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Statistical software was used for analysis to account for the complex sampling design."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Trends in prevalence of current asthma and asthma attack during 2001–2016 were assessed using Joinpoint software"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "What are the prevalence, trends and demographic differences in asthma, its health outcomes, health care use and management among U.S. children during 2001–2016?",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "CDC analyzed asthma data from the 2001–2016 National Health Interview Survey for children aged 0–17 years"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "asthma",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Vital Signs: Asthma in Children — United States, 2001–2016"
+    }
+   ]
+  },
+  {
+   "v": "asthma",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among children with asthma, demographic"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "is a cross-sectional household interview survey of the U.S. civilian noninstitutionalized population in 50 states and the District of Columbia"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the percentage of children with asthma who experienced an asthma attack decreased significantly, from 61.7% in 2001 to 53.7% in 2016"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "CDC analyzed asthma data from the 2001–2016 National Health Interview Survey for children aged 0–17 years"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Health Interview Survey (NHIS)",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "CDC analyzed asthma data from the 2001–2016 National Health Interview Survey for children aged 0–17 years"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Vital Signs: Asthma in Children — United States, 2001–2016"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Asthma prevalence and outcomes are reported by race/ethnicity and family income (and age, sex) with p-values vs referents, but contrasts are only set side by side with significance; no difference or ratio is computed. Ratios in the Introduction are cited from earlier reports.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "The Summary foregrounds higher prevalence among black, Puerto Rican and low-income children and the text says asthma 'affects some children more than others', which could be read as a framed disparity."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "black children (15.7%) and children of Puerto Rican descent (12.9%) more than white children (7.1%)"
+     },
+     {
+      "loc": "table 1",
+      "q": "Race/Ethnicity › Black, non-Hispanic"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "ratio of family income to poverty threshold"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "children living in families with income of less than 100% FPL (10.5%) more than those living in families with income of ≥250% FPL"
+     },
+     {
+      "loc": "table 1",
+      "q": "Ratio of family income to poverty threshold › <100% FPL"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Vital Signs: Asthma in Children — United States, 2001–2016"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "children aged 5–11 years (9.6%) and 12–17 years (10.5%) more than children aged 0–4 years (3.8%)"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Asthma was more prevalent among boys (9.2%) than among girls (7.4%)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Referents are White non-Hispanic and ≥450% FPL; Hispanic subgroups (Puerto Rican, Mexican, other) overlap the Hispanic total; several subgroup estimates have RSE >30%. Census region is geography, not an SPD."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group (yrs) › 0–4"
+    },
+    {
+     "loc": "table 1",
+     "q": "p-value testing for differences in current asthma prevalence between intended group and corresponding referent group."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 7,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity › White, non-Hispanic"
+    },
+    {
+     "loc": "table 1",
+     "q": "p-value testing for differences in current asthma prevalence between intended group and corresponding referent group."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Ratio of family income to poverty threshold › <100% FPL"
+    },
+    {
+     "loc": "table 1",
+     "q": "p-value testing for differences in current asthma prevalence between intended group and corresponding referent group."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "p-value <0.01 testing for differences in asthma attack prevalence between children aged 0–4 and aged 12–17."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 7,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "did not differ by sex, race/ethnicity, and U.S. census region"
+    },
+    {
+     "loc": "text",
+     "q": "Having received self-management education and use of asthma control prescription medication did not differ by race/ethnicity."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "inference",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Joinpoint trends by sex, age and race groups are described ('similar pattern') without a comparison of trends across groups, so no interaction or groupwise trend entry. Race/ethnicity n_groups counts the seven Table 1 rows, which overlap (Hispanic and its subgroups). Prior ratios (3.6 times higher hospitalizations) are cited, not computed.",
+ "view_issues": "Summary says the attack decline was 2001–2016 while the Abstract says asthma prevalence decreased after 2010; consistent. Table 1 p-values printed as '<0.0000'. Race comparisons in Table 2 other than Black vs White are asserted as 'did not differ' without shown tests."
+}

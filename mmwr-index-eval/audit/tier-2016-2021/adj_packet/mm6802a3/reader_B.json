@@ -1,0 +1,300 @@
+{
+ "id": "mm6802a3",
+ "reader": {
+  "label": "B"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "By 2017, fentanyl was involved in 57% of all drug overdose deaths in New York City."
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the rate of fentanyl-involved overdose deaths in NYC increased almost 3,000%, from 0.4 per 100,000 to 12.1."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "in 2017, 842 (57%) of 1,487 overdose deaths involved fentanyl."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the percentage of overdose deaths involving fentanyl increased from 2% (16 of 730) to 57% (842 of 1,487)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-adjusted person-time rates were calculated by year using 2000–2016 § NYC population estimates adjusted to the U.S. Census 2000 projected population."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "age-adjusted rates standardized to the U.S. Census 2000 projected population",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Age-adjusted person-time rates were calculated by year using 2000–2016 § NYC population estimates adjusted to the U.S. Census 2000 projected population."
+    }
+   ]
+  },
+  {
+   "name": "z-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "z-tests of changes in rates; CIs based on the gamma distribution",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Changes in rates were tested using z-tests and 95% confidence intervals; comparisons were based on the gamma confidence interval distribution."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": null,
+  "across": [
+   "year/period",
+   "drug type involved"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "New York City identified fentanyl in 2% of drug overdose deaths during 2000–2012. By 2017, fentanyl was involved in 57%"
+   },
+   {
+    "loc": "text",
+    "q": "which rose 81% during the same period, from 11.7 per 100,000 in 2014 to 21.2 in 2017"
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Changes in rates were tested using z-tests and 95% confidence intervals; comparisons were based on the gamma confidence interval distribution."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. of overdose deaths with fentanyl detected (%)"
+    }
+   ]
+  },
+  {
+   "v": "age-adjusted rate per 100,000",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "from 11.7 per 100,000 in 2014 to 21.2 in 2017"
+    }
+   ]
+  },
+  {
+   "v": "percent increase",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A 55% increase in the rate of fatal drug overdose in NYC was observed from 2015 to 2017"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "How did fentanyl involvement in unintentional drug overdose deaths in New York City change during 2000–2017?",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Overdose Deaths Involving Fentanyl and Fentanyl Analogs — New York City, 2000–2017"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "drug overdose death",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Unintentional drug overdose deaths were dichotomized according to whether or not any fentanyl was detected."
+    }
+   ]
+  },
+  {
+   "v": "fentanyl-involved overdose death",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Overdose Deaths Involving Fentanyl and Fentanyl Analogs — New York City, 2000–2017"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "DOHMH conducts routine overdose mortality surveillance by linking death certificates with toxicology findings"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Beginning in 2015, the percentage of fentanyl-involved overdose deaths increased sharply"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "DOHMH conducts routine overdose mortality surveillance by linking death certificates with toxicology findings"
+    }
+   ]
+  },
+  {
+   "v": "registry",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "by linking death certificates with toxicology findings from the NYC Office of the Chief Medical Examiner (OCME)"
+    }
+   ]
+  },
+  {
+   "v": "record abstraction or interview",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Toxicology findings were abstracted from OCME files"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "NYC DOHMH overdose mortality surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "conducts routine overdose mortality surveillance"
+    }
+   ]
+  },
+  {
+   "v": "NYC Office of the Chief Medical Examiner (OCME) toxicology files",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Toxicology findings were abstracted from OCME files"
+    }
+   ]
+  },
+  {
+   "v": "death certificates",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "by linking death certificates with toxicology findings"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "New York City, 2000–2017"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 0,
+  "level_reason": "Age enters only through age standardization of rates; no social-position dimension is analyzed or framed.",
+  "level_confidence": "high",
+  "level_alternative": null,
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Age-adjusted person-time rates were calculated by year"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Neighborhood-level outreach to areas with higher fentanyl death rates is geography, not an SPD."
+ },
+ "groupwise": [],
+ "uncertain_fields": [
+  "analytic_depth",
+  "inference"
+ ],
+ "confidence": "medium",
+ "notes": "z-test results and CIs are not reported; the rate-change claims are assumed to rest on the stated z-tests. Stratified/adjusted reflects age-standardized rates compared across years.",
+ "view_issues": "Fentanyl testing was suspended 2013–mid-2016, so fentanyl counts and rates for those years are incomplete. Population estimates span 2000–2016 although rates are given for 2017."
+}

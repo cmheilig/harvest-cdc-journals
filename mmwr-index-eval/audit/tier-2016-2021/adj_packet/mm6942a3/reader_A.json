@@ -1,0 +1,497 @@
+{
+ "id": "mm6942a3",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During June 1–July 25, 747 (24%) U.S. counties (representing 60% of the U.S. population) were identified as hotspots"
+    },
+    {
+     "loc": "text",
+     "q": "Counties with median percentage or higher of racial and ethnic minority residents (RR = 5.3; 95% CI = 4.4–6.4)"
+    }
+   ]
+  },
+  {
+   "v": "count/rate",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "incidence among new hotspot counties was 97 cases per 100,000 persons"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "During June 1–July 25, 747 (24%) U.S. counties (representing 60% of the U.S. population) were identified as hotspots"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "Counties with greater social vulnerability were more likely to become areas with rapidly increasing COVID-19 incidence (hotspot counties)"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "analyses were also stratified by urbanicity."
+    },
+    {
+     "loc": "text",
+     "q": "These vulnerability subcomponents were more strongly associated with hotspot identification in less urban areas."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "bivariate log-binomial regression",
+   "class": "regression",
+   "regression_family": "loglinear",
+   "inferred_from": "'bivariate log-binomial models' giving RRs with 95% CIs → loglinear; CIs model-based",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "RRs with 95% CIs were calculated using bivariate log-binomial models to assess differences in the probability of being identified as a hotspot"
+    }
+   ]
+  },
+  {
+   "name": "Fisher's exact test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated in footnote and table note as the significance test for the RRs",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "P-values for Fisher’s exact tests were used to determine statistical significance."
+    }
+   ]
+  },
+  {
+   "name": "Wilcoxon rank-sum test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated for incidence comparisons (hotspot vs non-hotspot; by SVI quartile)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "For incidence comparisons, statistically significant differences were evaluated using the Wilcoxon rank-sum test."
+    }
+   ]
+  },
+  {
+   "name": "7-day moving window smoothing of incidence",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "moving window stated as smoothing daily counts",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "note",
+     "q": "Incidence was calculated based on 7-day moving window during the 14 days after hotspot identification to smooth expected variation in daily case counts."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "relative",
+  "referent": "lowest SVI quartile (Q1) or below-median counties",
+  "across": [
+   "SVI quartile (overall and four subcomponents)",
+   "individual SVI components (above vs below median)",
+   "urbanicity",
+   "hotspot vs non-hotspot status"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "Counties with greater social vulnerability were more likely to become areas with rapidly increasing COVID-19 incidence (hotspot counties)"
+   },
+   {
+    "loc": "table 1",
+    "q": "Overall social vulnerability › Q1 (lowest vulnerability)"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "note",
+    "q": "P-values for Fisher’s exact tests were used to determine statistical significance."
+   },
+   {
+    "loc": "note",
+    "q": "For incidence comparisons, statistically significant differences were evaluated using the Wilcoxon rank-sum test."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "RR",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "RR (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "No. (row %)",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "No. (row %)"
+    }
+   ]
+  },
+  {
+   "v": "cases per 100,000 persons (median incidence)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "incidence among new hotspot counties was 97 cases per 100,000 persons"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "RRs with 95% CIs were calculated using bivariate log-binomial models"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": false,
+   "ev": []
+  },
+  "confounders": {
+   "v": null,
+   "ev": []
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "Is county-level social vulnerability associated with a county's risk of becoming a COVID-19 hotspot, and how does incidence after detection differ by social vulnerability?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "were analyzed to examine associations between social vulnerability and hotspot detection and to describe incidence after hotspot detection."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "COVID-19",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Association Between Social Vulnerability and a County’s Risk for Becoming a COVID-19 Hotspot"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "ecologic",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among all 3,142 U.S. counties, RRs with 95% CIs were calculated"
+    }
+   ]
+  },
+  {
+   "v": "surveillance/descriptive",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Daily county-level COVID-19 case counts were obtained through USAFacts"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "state or local surveillance",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "obtained through USAFacts ( https://usafacts.org/ ), which compiles data reported by state and local health departments."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "USAFacts",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Daily county-level COVID-19 case counts were obtained through USAFacts"
+    }
+   ]
+  },
+  {
+   "v": "2018 CDC social vulnerability index (SVI)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "County-level social vulnerability data were obtained from the 2018 CDC SVI"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Among all 3,142 U.S. counties"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 4,
+  "level_reason": "Area-level social vulnerability (SVI, minority share, crowded housing) is the analyzed exposure, with quantified RRs framed as disproportionate impact; structural determinants (crowded housing, essential in-person jobs) are measured and offered as explanations.",
+  "level_confidence": "high",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Determinants are area-level SVI components and explanations are partly generic; one could read them as quantified disparity without specific structural causes."
+  },
+  "dimensions": [
+   {
+    "v": "SES",
+    "role": "primary comparison",
+    "ses_components": [
+     "social vulnerability index",
+     "socioeconomic status",
+     "crowded housing units"
+    ],
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Counties with greater social vulnerability were more likely to become areas with rapidly increasing COVID-19 incidence (hotspot counties)"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Counties with median percentage or higher of racial and ethnic minority residents (RR = 5.3; 95% CI = 4.4–6.4)"
+     }
+    ]
+   },
+   {
+    "v": "country of birth/language/nativity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Percentage who speak English less than well (median = 0.7%)"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "These vulnerability subcomponents were more strongly associated with hotspot identification in less urban areas."
+     }
+    ]
+   },
+   {
+    "v": "disability",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Social vulnerability related to household composition and disability › Q4 (highest vulnerability)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "descriptor",
+    "ev": [
+     {
+      "loc": "note",
+      "q": "household composition and disability, which was based on age (pediatric and elderly populations)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "crowded and high-density housing; essential jobs requiring in-person work; socioeconomic challenges",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "who might be more likely to have essential jobs requiring in-person work and live in potentially crowded conditions"
+    },
+    {
+     "loc": "table 1",
+     "q": "Percentage of households with more persons than rooms (median = 1.9%)"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "All SPDs are county-level (ecologic) SVI percentile quartiles or median splits, referent lowest quartile or below median; no person-level race or SES data."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Overall social vulnerability › Q1 (lowest vulnerability)"
+    },
+    {
+     "loc": "table 1",
+     "q": "Social vulnerability related to socioeconomic status › Q4 (highest vulnerability)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity",
+    "country of birth/language/nativity"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Social vulnerability related to racial and ethnic minority residents and English proficiency › Q4 (highest vulnerability)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Social vulnerability related to housing type and transportation › Q4 (highest vulnerability)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "disability",
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Social vulnerability related to household composition and disability › Q4 (highest vulnerability)"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the highest quartile of social vulnerability on the day identified as a hotspot (212 cases versus 35–56 per 100,000 for other quartiles"
+    }
+   ]
+  },
+  {
+   "across": [
+    "rurality"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "These vulnerability subcomponents were more strongly associated with hotspot identification in less urban areas."
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise",
+  "outcome_types"
+ ],
+ "confidence": "medium",
+ "notes": "Ecologic design inferred (county as unit); not named. Non-hotspot comparison counties were matched 1:1 by urbanicity (design step, no conditional analysis). CIs excluding 1 are tied to Fisher significance in the table note; the named test is recorded, not a separate CI inversion.",
+ "view_issues": "Table note § says median cutoffs apply to housing components but they are also used for minority/English components. Minority-residents rows sum to 3,136, not 3,142 counties. The incidence test across SVI quartiles (highest vs others) is not fully specified."
+}

@@ -1,0 +1,364 @@
+{
+ "id": "mm6547a1",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among adults employed at any time in the 12 months preceding the interview, 7.7% had current asthma."
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among adults employed at any time in the 12 months preceding the interview, 7.7% had current asthma."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The proportion of workers with current asthma differed significantly by age, sex, race/ethnicity, household income, and state"
+    },
+    {
+     "loc": "summary",
+     "q": "The findings indicate state-specific variation in the prevalence of current asthma by industry and occupation."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Rao-Scott chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "named survey-adjusted chi-square for differences in prevalence across Table 1 characteristics",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Statistically significant differences in distribution were determined using the Rao-Scott chi-square test with statistical significance at p≤0.05."
+    },
+    {
+     "loc": "table 1",
+     "q": "For differences in current asthma prevalence: Rao-Scott chi-square test; p-value <0.05."
+    }
+   ]
+  },
+  {
+   "name": "BRFSS survey sample weights",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "stated survey weighting producing every state-representative estimate",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Landline and cellular telephone household data were weighted to produce estimates representative of the state populations using the survey sample weight"
+    }
+   ]
+  },
+  {
+   "name": "suppression of estimates with relative standard error ≥30",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "relative-SE rule withholding imprecise estimates in Tables 2 and 3",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Unreliable estimates with a relative standard error ≥30 are not reported."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "industry",
+   "occupation",
+   "state",
+   "age",
+   "sex",
+   "race/ethnicity",
+   "household income",
+   "education"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "The findings indicate state-specific variation in the prevalence of current asthma by industry and occupation."
+   },
+   {
+    "loc": "summary",
+    "q": "State-specific prevalence of current asthma was highest among workers in the information industry (18.0%) in Massachusetts"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Estimated proportions with corresponding 95% confidence intervals (CIs) were calculated."
+   },
+   {
+    "loc": "text",
+    "q": "Statistically significant differences in distribution were determined using the Rao-Scott chi-square test with statistical significance at p≤0.05."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "prevalence of current asthma, %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Current asthma % ¶ (95% CI)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What is the prevalence of current asthma among employed adults by industry and occupation in 21 states, and how does it vary by state?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To assess the industry-specific and occupation-specific proportions of adults with current asthma by state, CDC analyzed data from the 2013 BRFSS"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "asthma",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Asthma Among Employed Adults, by Industry and Occupation — 21 States, 2013"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "BRFSS is a state-based, random-digit–dialed telephone survey of the noninstitutionalized U.S. population aged ≥18 years"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2013 BRFSS industry and occupation module, collected from 21 states"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Behavioral Risk Factor Surveillance System (BRFSS) industry and occupation module",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2013 BRFSS industry and occupation module, collected from 21 states"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Asthma Among Employed Adults, by Industry and Occupation — 21 States, 2013"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Prevalence is reported by race/ethnicity, household income, education, age and sex, with differences shown only as significant by Rao-Scott tests; no disparity is framed or quantified, so the level is capped at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "SPD results appear only as Table 1 rows with a single summary sentence, so they could be read as descriptors."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Race/Ethnicity** › Black, non-Hispanic"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "household income",
+     "education"
+    ],
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Household income** › <$15,000"
+     },
+     {
+      "loc": "table 1",
+      "q": "Education › High school diploma or less"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Age group (yrs)** › ≥65"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "collected from 21 states for participants aged ≥18 years"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex** › Women"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Socioeconomic factors, insurance and state laws are offered only as explanations of state variation (geography, not SPD). Race is collapsed to four groups. Industry and occupation are treated as exposure routes, not social position."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group (yrs)** › ≥65"
+    },
+    {
+     "loc": "table 1",
+     "q": "For differences in current asthma prevalence: Rao-Scott chi-square test; p-value <0.05."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity** › Black, non-Hispanic"
+    },
+    {
+     "loc": "text",
+     "q": "The proportion of workers with current asthma differed significantly by age, sex, race/ethnicity, household income, and state"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Household income** › <$15,000"
+    },
+    {
+     "loc": "text",
+     "q": "The proportion of workers with current asthma differed significantly by age, sex, race/ethnicity, household income, and state"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Education › Some college"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "analytic_depth",
+  "equity.level"
+ ],
+ "confidence": "medium",
+ "notes": "Design is not named; cross-sectional is inferred from the BRFSS telephone survey. Table 3 ranks industries and occupations within each state side by side with CIs and no computed contrast, so it is read as comparison, not stratified/adjusted. The 2.7 million workers figure applies a cited 48% work-related fraction to this report's prevalence.",
+ "view_issues": "Education rows in Table 1 lack the ** test mark, while the other characteristics have it. Table 3 lists one occupation as 'Health care and technical' (Maryland), likely meaning health care practitioners and technical."
+}

@@ -1,0 +1,441 @@
+{
+ "id": "mm7042a4",
+ "reader": {
+  "label": "B"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "The percentage of U.S. adults with sodium intake above CDRR intake was 87.0% during 2003–2004 and 86.7% during 2015–2016."
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the percentage of U.S. adults aged ≥19 years whose sodium intake exceeded 2,300 mg/day ranged from 86.7% (2015–2016) to 89.2% (2011–2012)"
+    }
+   ]
+  },
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Mean usual sodium intake, unadjusted for energy intake, was 3,521 mg/day during 2003–2004 and 3,468 mg/day during 2015–2016"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "During 2003–2016, ≥86% of U.S. adults consumed sodium above CDRR intake."
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Among U.S. adults overall, no significant linear trend was noted from 2003 to 2016 in unadjusted or energy intake–adjusted mean sodium intake."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Findings were stratified by sex, age group (19–30, 31–50, 51–70, and ≥71 years), race and ethnicity"
+    },
+    {
+     "loc": "text",
+     "q": "after energy adjustment, only adults aged ≥71 years and Mexican American adults demonstrated significant change in usual sodium intake"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "linear regression on survey cycle (test for linear trend)",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "'linear regression models' with survey cycle as continuous variable, inverse-variance weighted; F-value p-values for linear trend",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "this report treated survey cycle as a continuous variable in linear regression models"
+    },
+    {
+     "loc": "text",
+     "q": "The inverse value of the estimated variance from post-stratified weights was used to account for the complex survey design."
+    }
+   ]
+  },
+  {
+   "name": "residual method for energy adjustment",
+   "class": "regression",
+   "regression_family": "linear",
+   "inferred_from": "residual from 'the linear regression model' of sodium on energy intake → linear",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Energy intake–adjusted sodium intake (i.e., sodium intake adjusted for total calories consumed) was estimated using the residual method"
+    },
+    {
+     "loc": "text",
+     "q": "the sum of the expected intake for a participant with mean energy intake and the residual from the linear regression model."
+    }
+   ]
+  },
+  {
+   "name": "National Cancer Institute usual intake method (measurement error model)",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "NCI method estimates usual intake distributions from up to two 24-hour recalls, removing within-person variability",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "this report used the National Cancer Institute method"
+    },
+    {
+     "loc": "text",
+     "q": "analyzed with measurement error methods to account for within-person day-to-day variability in all analyses."
+    }
+   ]
+  },
+  {
+   "name": "post-stratified balanced repeated replication survey weights",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "survey weights and BRR replicate variance stated; SUDAAN",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "post-stratified adjusted balanced repeated replication weights"
+    },
+    {
+     "loc": "table 1",
+     "q": "Based on the F-value; post-stratified balanced repeated replication weights were used to account for the complex survey design."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": "absolute",
+  "referent": "CDRR intake 2,300 mg/day",
+  "across": [
+   "survey cycle",
+   "sex",
+   "age group",
+   "race/ethnicity",
+   "obesity status",
+   "hypertension status"
+  ],
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Temporal declines in mean usual sodium intake (average decline per 2-year cycle) were statistically significant among adults aged 19–30 years (30 mg)"
+   },
+   {
+    "loc": "summary",
+    "q": "During 2003–2016, ≥86% of U.S. adults consumed sodium above CDRR intake."
+   }
+  ]
+ },
+ "inference": {
+  "v": "tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "All statistical analyses were performed using SAS-callable SUDAAN (version 11.0.3; RTI International), and p-values <0.05 were considered statistically significant."
+   },
+   {
+    "loc": "table 2",
+    "q": "Based on the F-value; post-stratified balanced repeated replication weights were used to account for the complex survey design."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "percentage with usual sodium intake >2,300 mg/day",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percentage of adults with usual sodium intake >2,300 mg/day, by survey years and selected characteristics"
+    }
+   ]
+  },
+  {
+   "v": "mean usual sodium intake, mg/day",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Mean usual sodium intake among adults, by survey years and selected characteristics"
+    }
+   ]
+  },
+  {
+   "v": "mean usual energy intake–adjusted sodium intake, mg/day",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Mean usual energy intake–adjusted sodium intake among adults, by survey years and selected characteristics"
+    }
+   ]
+  },
+  {
+   "v": "average change in sodium (mg) every 2 yrs",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Avg. change in sodium (mg) every 2 yrs"
+    }
+   ]
+  },
+  {
+   "v": "percentage point change every 2 yrs",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Percentage point change every 2 yrs"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The inverse value of the estimated variance from post-stratified weights was used to account for the complex survey design."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Mean usual sodium intake, unadjusted for energy intake, was 3,521 mg/day during 2003–2004 and 3,468 mg/day during 2015–2016"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Energy intake–adjusted sodium intake (i.e., sodium intake adjusted for total calories consumed) was estimated using the residual method"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "total energy intake",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "After energy intake adjustment, which avoids the confounding effect of energy intake"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How did usual sodium intake, and the share of U.S. adults exceeding the 2,300 mg/day CDRR intake, change during 2003–2016, unadjusted and adjusted for energy intake?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to yield temporal trends in usual sodium intake >2,300 mg/day and in mean sodium intake, unadjusted and adjusted for total energy intake"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "excess dietary sodium intake",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Temporal Trends in Dietary Sodium Intake Among Adults Aged ≥19 Years — United States, 2003–2016"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NHANES, a series of cross-sectional surveys of nationally representative samples of the noninstitutionalized U.S. civilian population"
+    }
+   ]
+  },
+  {
+   "v": "before/after or trend",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "To assess the statistical significance of temporal trends in sodium consumption above CDRR intake and in mean usual sodium intake"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "this report analyzed National Health and Nutrition Examination Survey (NHANES) data from 2003 to 2016"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Health and Nutrition Examination Survey (NHANES)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "this report analyzed National Health and Nutrition Examination Survey (NHANES) data from 2003 to 2016"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "NHANES, a series of cross-sectional surveys of nationally representative samples of the noninstitutionalized U.S. civilian population"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Trends are reported by race/ethnicity (e.g., Mexican American adults' energy-adjusted increase) and described, but no disparity is framed or quantified between groups.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "Race/ethnicity is one of several routine stratifiers with no interpretation of group differences."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "increased significantly by an average of 60 mg per survey cycle among Mexican American adults (p<0.01)."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Findings were stratified by sex, age group (19–30, 31–50, 51–70, and ≥71 years), race and ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Temporal Trends in Dietary Sodium Intake Among Adults Aged ≥19 Years — United States, 2003–2016"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "approximately 95% of men and 77% of women at increased cardiovascular disease risk because of excess intake during 2015-2016."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity limited to NH White, NH Black and Mexican American (oversampling); other or multiple races not reported."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Findings were stratified by sex, age group (19–30, 31–50, 51–70, and ≥71 years), race and ethnicity"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "race and ethnicity (non-Hispanic White, non-Hispanic Black, and Mexican American)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise",
+  "equity.level",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Trend tests are run within each subgroup; group levels are not tested against each other. The 2,300 mg/day CDRR intake serves as both outcome cutpoint and referent for headline claims. Energy-intake figures from What We Eat in America are cited, not analyzed.",
+ "view_issues": "Table captions say 'National Health and Nutrition Estimation Survey'. NH White unadjusted trend p shown as 0.05 (footnote 0.048) yet called significant. Table 2/3 race footnote refers to percentages for means."
+}

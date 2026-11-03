@@ -1,0 +1,398 @@
+{
+ "id": "mm7038a1",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Overall, 34.9% of persons aged 4 months–17 years slept less than recommended for their age"
+   }
+  ]
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Prevalence and 95% confidence interval (CI) of short sleep duration and regular bedtime were calculated"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Overall, 34.9% of persons aged 4 months–17 years slept less than recommended for their age"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "higher among non-Hispanic Black children (50.8%) than among Hispanic children (39.1%) or non-Hispanic children of any other race"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "lower among persons aged 4 months–17 years with a regular bedtime than among those without a regular bedtime (27.5% versus 38.6%). Similar patterns"
+    },
+    {
+     "loc": "text",
+     "q": "Similar patterns were observed within each age group."
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "t-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'Pairwise differences ... were determined using t-tests'; survey-design-based (SUDAAN)",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Pairwise differences by sex, race/ethnicity, special health care needs status, overall health status, and regular bedtime were determined using t-tests."
+    }
+   ]
+  },
+  {
+   "name": "test for linear trend",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "'Tests for linear trend were conducted for family income level and parent education level'",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Tests for linear trend were conducted for family income level §§ and parent education level."
+    }
+   ]
+  },
+  {
+   "name": "survey weighting",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "weighted percentages and complex sampling design accounted for in SUDAAN",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Analyses accounted for weighting ¶¶ of the data and for the complex sampling design."
+    },
+    {
+     "loc": "table 1",
+     "q": "Weighted percentages."
+    }
+   ]
+  },
+  {
+   "name": "income imputation",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "imputed income enters the FPL categories; imputation method not stated",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Imputed income was used for persons aged 4 months–17 years without reported family income."
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "race/ethnicity",
+   "family income level",
+   "parent education",
+   "special health care needs",
+   "health status",
+   "regular bedtime",
+   "sex",
+   "age group",
+   "state"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "particularly those from racial and ethnic minority groups, of low socioeconomic status, and with special health care needs."
+   },
+   {
+    "loc": "text",
+    "q": "The prevalence decreased with increasing family income level and parent educational attainment."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "Tests for linear trend were conducted for family income level §§ and parent education level. P-values <0.05 were considered statistically significant."
+   },
+   {
+    "loc": "text",
+    "q": "SAS-callable SUDAAN (version 11.0.3; RTI International) was used to conduct all analyses."
+   }
+  ]
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the prevalence of short sleep duration was lowest among non-Hispanic White children (28.8%) and higher among non-Hispanic Black children (50.8%)"
+    },
+    {
+     "loc": "text",
+     "q": "Pairwise differences by sex, race/ethnicity, special health care needs status, overall health status, and regular bedtime were determined using t-tests."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "trend test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Tests for linear trend were conducted for family income level §§ and parent education level."
+    },
+    {
+     "loc": "table 2",
+     "q": "Family income level › FPL<100%"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "trend test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The prevalence decreased with increasing family income level and parent educational attainment."
+    },
+    {
+     "loc": "table 2",
+     "q": "Parent education › Less than high school"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The prevalence of short sleep duration ranged from 31.2% among adolescents aged 13–17 years to 40.3% among infants aged 4–11 months."
+    }
+   ]
+  }
+ ],
+ "primary_measures": [
+  {
+   "v": "prevalence (weighted %, 95% CI)",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Weighted percentages. Weighted estimates generalize to state and national resident populations."
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What is the prevalence of short sleep duration among U.S. persons aged 4 months–17 years, and how does it vary by age, child and parent characteristics, and state?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "to assess the prevalence of short sleep duration among persons in the United States aged 4 months–17 years."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "short sleep duration",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Short Sleep Duration Among Infants, Children, and Adolescents Aged 4 Months–17 Years"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NSCH is a population-based, nationally representative online and paper survey of parents or primary caregivers"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2016–2018 National Survey of Children’s Health (NSCH)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Survey of Children’s Health (NSCH)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "CDC analyzed data from the 2016–2018 National Survey of Children’s Health (NSCH)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "mixed",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "State-level prevalence of short sleep duration overall ranged from 25.3% in Maine to 48.9% in Mississippi"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Prevalence by race/ethnicity, income and parent education is reported, tested and framed as disparity with determinants named, but contrasts are only values side by side with significance tests (no computed difference or ratio), so the cap holds at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 4,
+   "reason": "Discussion frames sleep disparity and names poverty, food insecurity, perceived racism, shift work and housing; 'approximately one half' of Black children could be read as quantified."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "primary comparison",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "short sleep duration was elevated among racial and ethnic minority groups, especially among Black persons aged 4 months–17 years"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "primary comparison",
+    "ses_components": [
+     "family income level (FPL)",
+     "parent education"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Short sleep duration was also more prevalent among families with lower income or lower parental educational attainment."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "by age group and selected characteristics"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Infants, Children, and Adolescents Aged 4 Months–17 Years"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 2",
+      "q": "Sex › Female"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "social determinants of health (poverty, food insecurity, perceived racism); multiple jobs or shift work; housing situation and neighborhoods",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "sleep disparity was associated with various social determinants of health (e.g., poverty, food insecurity, and perceived racism)"
+    },
+    {
+     "loc": "text",
+     "q": "a family’s housing situation could make achieving a quiet, comfortable sleep environment difficult"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity has four groups (AI/AN, NHOPI, Asian and multiracial collapsed into other); SES via FPL with imputed income and parent education; analyses by race were univariate, unadjusted."
+ },
+ "uncertain_fields": [
+  "equity.level",
+  "analytic_depth",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred as cross-sectional from the survey; not named. Table 2 flags unreliable estimates (CI-width rule) but does not suppress them, so no transformation recorded. Comparison with YRBS estimates in the Discussion is cited, not computed.",
+ "view_issues": "Sex is listed among pairwise t-test comparisons but the text reports no sex result; the Figure has no data in the packet."
+}

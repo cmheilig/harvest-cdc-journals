@@ -1,0 +1,441 @@
+{
+ "id": "mm6806a2",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "43% of those with influenza had received the 2018–19 seasonal influenza vaccine, compared with 57% of influenza-negative participants"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "a total of 465 (14%) tested positive for influenza virus by real time RT-PCR"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "43% of those with influenza had received the 2018–19 seasonal influenza vaccine, compared with 57% of influenza-negative participants"
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates were adjusted for study site, age group, sex, race/ethnicity, self-rated general health, number of days from illness onset to enrollment"
+    },
+    {
+     "loc": "text",
+     "q": "Among children aged 6 months–17 years, vaccine effectiveness against all influenza virus types was 61% (44%–73%)"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "logistic regression",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'odds ratios were estimated using logistic regression', VE = 100% x (1 – OR) → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "odds ratios were estimated using logistic regression."
+    },
+    {
+     "loc": "text",
+     "q": "Vaccine effectiveness against all influenza virus types combined and against viruses by type/subtype was estimated as 100% x (1 – odds ratio)."
+    }
+   ]
+  },
+  {
+   "name": "CI vs fixed value (inversion)",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "CI method not stated; CIs presumably model-based from the logistic regression; VE CIs including 0 read as not significant",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "vaccine effectiveness against all influenza types and influenza A(H1N1)pdm09 was 24%(-15% to 51%) and 8% (-59% to 46%), respectively; neither were significant."
+    }
+   ]
+  },
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "Table 1 note: chi-square statistic for differences in characteristics by test result and in percentage vaccinated",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "The chi-square statistic was used to assess differences between the numbers of persons with influenza-negative and influenza-positive test results"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": "relative",
+  "referent": "influenza-negative patients (odds of vaccination)",
+  "across": [
+   "vaccination status",
+   "influenza type/subtype",
+   "age group",
+   "race/ethnicity (Table 1)"
+  ],
+  "ev": [
+   {
+    "loc": "note",
+    "q": "ratio of odds of being vaccinated among outpatients with influenza-positive test results to the odds of being vaccinated among outpatients with influenza-negative test results"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 2",
+    "q": "Statistically significant at p<0.05."
+   },
+   {
+    "loc": "table 1",
+    "q": "The chi-square statistic was used to assess differences"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "vaccine effectiveness, %",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Vaccine effectiveness* › Adjusted % (95% CI) †"
+    }
+   ]
+  },
+  {
+   "v": "percentage vaccinated",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Vaccination status † › Vaccinated No. (%)"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": null,
+   "ev": []
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Vaccine effectiveness* › Unadjusted % (95% CI)"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Adjusted for study site, age group, sex, race/ethnicity, self-rated general health, number of days from illness onset to enrollment"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "study site, age group, sex, race/ethnicity, self-rated general health, days from illness onset to enrollment, month of illness (4-week intervals)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Estimates were adjusted for study site, age group, sex, race/ethnicity, self-rated general health, number of days from illness onset to enrollment"
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "What is the interim effectiveness of 2018–19 seasonal influenza vaccine against medically attended laboratory-confirmed influenza in the United States?",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Interim Estimates of 2018–19 Seasonal Influenza Vaccine Effectiveness — United States, February 2019"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "influenza",
+   "role": "vaccine target",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Interim Estimates of 2018–19 Seasonal Influenza Vaccine Effectiveness — United States, February 2019"
+    }
+   ]
+  },
+  {
+   "v": "influenza",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "effectiveness of seasonal influenza vaccine for preventing medically attended, laboratory-confirmed influenza virus infection was 47%"
+    }
+   ]
+  },
+  {
+   "v": "acute respiratory illness",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "3,254 children and adults with acute respiratory illness during November 23, 2018–February 2, 2019"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "test-negative",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the test-negative design is widely used in vaccine effectiveness studies and has been used by the U.S. Flu VE Network"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "sentinel/network",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "3,254 children and adults enrolled in the U.S. Influenza Vaccine Effectiveness Network (U.S. Flu VE Network)"
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "U.S. Influenza Vaccine Effectiveness Network (U.S. Flu VE Network)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "3,254 children and adults enrolled in the U.S. Influenza Vaccine Effectiveness Network (U.S. Flu VE Network)"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US subnational",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "At five study sites (Michigan, Pennsylvania, Texas, Washington, and Wisconsin)"
+   }
+  ]
+ },
+ "vaccine_outcome_type": {
+  "v": "effectiveness",
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "the overall estimated effectiveness of seasonal influenza vaccine for preventing medically attended, laboratory-confirmed influenza virus infection was 47%"
+   }
+  ]
+ },
+ "equity": {
+  "level": 2,
+  "level_reason": "Vaccination percentages by race/ethnicity are shown in Table 1 with chi-square p-values and described in one sentence as differing, with no disparity framing; race/ethnicity is otherwise a model covariate.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 1,
+   "reason": "The race/ethnicity difference is a Table-1 characteristic of the sample, arguably only a descriptor and covariate."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Estimates were adjusted for study site, age group, sex, race/ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "basis": "self-identified",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "differed by study site, sex, age group, race/ethnicity, and interval from illness onset to enrollment."
+     },
+     {
+      "loc": "table 1",
+      "q": "Persons identifying as Hispanic might have been of any race."
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "patients aged ≥6 months seeking outpatient medical care for an ARI with cough"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Among children aged 6 months–17 years, vaccine effectiveness against all influenza virus types was 61% (44%–73%)"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Estimates were adjusted for study site, age group, sex"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Estimates were adjusted for study site, age group, sex"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "table 1",
+      "q": "Sex › Female"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Race/ethnicity collapsed to white, black, other race and Hispanic; missing for 11 patients."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 5,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "in the distribution of enrolled patient and illness characteristics, and in differences between groups in the percentage vaccinated."
+    },
+    {
+     "loc": "table 1",
+     "q": "Age group › ≥65 yrs"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Patients were categorized into one of four mutually exclusive racial/ethnic populations: white, black, other race, and Hispanic."
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Age group › 18–49 yrs"
+    },
+    {
+     "loc": "text",
+     "q": "Among adults ≥50 years, vaccine effectiveness against all influenza types and influenza A(H1N1)pdm09 was 24%(-15% to 51%)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "groupwise"
+ ],
+ "confidence": "high",
+ "notes": "Table 1 chi-square tests compare characteristics by test result and vaccination by group (ancillary). VE by age group is estimated within strata, with no test across age groups.",
+ "view_issues": "Discussion states 47% VE against A(H1N1)pdm09, but Results and Table 2 give 46% (47% is the all-influenza estimate)."
+}

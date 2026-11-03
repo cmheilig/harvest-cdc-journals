@@ -1,0 +1,412 @@
+{
+ "id": "mm6542a3",
+ "reader": {
+  "label": "B"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2015, an estimated 1.3% (1.2% age-adjusted) of U.S. adults (3.1 million) had ever received a diagnosis of IBD"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "In 2015, an estimated 3.1 million (1.3%) of U.S. adults had ever received a diagnosis of inflammatory bowel disease"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Hispanics (1.2%) and non-Hispanic whites (1.4%) had a higher prevalence of IBD than did non-Hispanic blacks (0.5%)."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Comparisons among subgroups used age-adjusted estimates of IBD prevalence, which were calculated using the projected 2000 U.S. population as the standard population"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "survey sampling weights with complex design (SUDAAN)",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "sampling weights stated for all estimates; complex design accounted for in SUDAAN",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Sampling weights were used for all estimates"
+    },
+    {
+     "loc": "text",
+     "q": "the complex sample design of the NHIS was accounted for by using SUDAAN 11.0 software"
+    }
+   ]
+  },
+  {
+   "name": "direct age standardization",
+   "class": "standardization",
+   "regression_family": null,
+   "inferred_from": "projected 2000 U.S. standard population, four age groups",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimates are age-adjusted using the projected 2000 U.S. population as the standard population and four age groups"
+    }
+   ]
+  },
+  {
+   "name": "two-tailed Z-test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "stated Z-tests at p<0.05 for subgroup comparisons; CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "For comparisons of prevalence between subgroups, statistical significance (p<0.05) was determined by two-tailed Z-tests."
+    }
+   ]
+  },
+  {
+   "name": "suppression of imprecise estimates (RSE rule)",
+   "class": "transformation",
+   "regression_family": null,
+   "inferred_from": "estimates with RSE >50% withheld, 30–50% flagged",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimates not shown have an RSE >50.0%."
+    }
+   ]
+  },
+  {
+   "name": "income imputation (NHIS imputed income files)",
+   "class": "other",
+   "regression_family": null,
+   "inferred_from": "imputed income enters poverty status; imputation method not stated",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "poverty status (calculated using NHIS imputed income files)"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "group",
+  "scale": null,
+  "referent": null,
+  "across": [
+   "age group",
+   "race/ethnicity",
+   "education level",
+   "employment status",
+   "nativity",
+   "poverty status",
+   "urbanicity",
+   "sex",
+   "marital status",
+   "health insurance coverage type",
+   "region"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "prevalence differed significantly among a number of sociodemographic characteristics, including age, race/ethnicity, education level, employment status, nativity, poverty status, and urbanicity"
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "text",
+    "q": "For comparisons of prevalence between subgroups, statistical significance (p<0.05) was determined by two-tailed Z-tests."
+   },
+   {
+    "loc": "table 1",
+    "q": "Age-adjusted § % (95% CI)"
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "prevalence, %",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In 2015, an estimated 1.3% (1.2% age-adjusted) of U.S. adults (3.1 million) had ever received a diagnosis of IBD"
+    }
+   ]
+  },
+  {
+   "v": "age-adjusted %",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age-adjusted § % (95% CI)"
+    }
+   ]
+  },
+  {
+   "v": "estimated no.",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Estimated no. †"
+    }
+   ]
+  }
+ ],
+ "regression_fields": null,
+ "public_health_question": {
+  "v": "What was the prevalence of diagnosed inflammatory bowel disease among U.S. adults in 2015, overall and by sociodemographic characteristics?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To examine the prevalence of IBD among the civilian, noninstitutionalized U.S. adult population, data from the 2015 NHIS were analyzed."
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "inflammatory bowel disease",
+   "role": "outcome",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Prevalence of Inflammatory Bowel Disease Among Adults Aged ≥18 Years — United States, 2015"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "NHIS is a household survey that provides nationally representative estimates on a broad range of health measures"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "data from the 2015 NHIS were analyzed."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "National Health Interview Survey (NHIS), 2015 Sample Adult Core",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The 2015 NHIS Sample Adult Core consisted of 33,672 adults and had a final response rate of 55.2%."
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Prevalence of Inflammatory Bowel Disease Among Adults Aged ≥18 Years — United States, 2015"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Prevalence is reported by race/ethnicity, education, employment, poverty, nativity and urbanicity, with differences marked only as significant and values set side by side; no difference or ratio is computed, and framing is 'populations most affected', not a disparity.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Many SPD contrasts are tested and the article highlights subgroups 'most in need of resources', which could read as a framed disparity."
+  },
+  "dimensions": [
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "basis": "not stated",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Hispanics (1.2%) and non-Hispanic whites (1.4%) had a higher prevalence of IBD than did non-Hispanic blacks (0.5%)."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "education level",
+     "poverty status",
+     "current employment status"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Adults living in poverty"
+     },
+     {
+      "loc": "text",
+      "q": "Adults with less than a high school level of education had a higher prevalence of IBD (1.7%)"
+     }
+    ]
+   },
+   {
+    "v": "country of birth/language/nativity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "Adults who were born in the United States had a higher prevalence of IBD (1.4%)"
+     }
+    ]
+   },
+   {
+    "v": "rurality",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "adults living outside the central city of a metropolitan statistical area"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "A higher percentage of adults aged 45–64 (1.5%) and ≥65 (1.7%) years had IBD"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Prevalence of Inflammatory Bowel Disease Among Adults Aged ≥18 Years — United States, 2015"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The prevalence of IBD did not differ by sex, current marital status, health insurance coverage type, or region of residence."
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": null,
+   "ev": []
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "Age-adjusted prevalence compared by two-tailed Z-tests; text reports only selected significant pairs (often extremes, e.g. <100% vs ≥400% FPL). AI/AN, Asian, NHPI and multiracial collapsed into non-Hispanic other; insurance type stands in for SES within age bands."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 4,
+   "ordered": true,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "A higher percentage of adults aged 45–64 (1.5%) and ≥65 (1.7%) years had IBD"
+    },
+    {
+     "loc": "text",
+     "q": "compared with adults aged 18–24 (0.5%) and 25–44 (1.0%) years."
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "per-group vs referent only",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Hispanics (1.2%) and non-Hispanic whites (1.4%) had a higher prevalence of IBD than did non-Hispanic blacks (0.5%)."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 4,
+   "ordered": false,
+   "assessment": "pairwise (all pairs)",
+   "resolves_to_finer": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "found no significant differences in the prevalence of IBD by health insurance coverage type among adults aged <65 years"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "groupwise",
+  "equity.level",
+  "comparison"
+ ],
+ "confidence": "medium",
+ "notes": "Design inferred as cross-sectional (not named). Education, poverty and urbanicity results are reported only as two-group contrasts (extremes), so no groupwise entries per rule 1, though the Summary claims differences 'among' these characteristics. Insurance null finding is treated as all pairs tested within each age band.",
+ "view_issues": "Table column header says age-adjusted % but the first total row is labeled crude (1.3%)."
+}

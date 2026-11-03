@@ -1,0 +1,582 @@
+{
+ "id": "mm6822a2",
+ "reader": {
+  "label": "A"
+ },
+ "data_focus": {
+  "v": "yes",
+  "ev": []
+ },
+ "outcome_types": [
+  {
+   "v": "continuous",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "mean annual out-of-pocket spending was $1,000 (CI = $886–$1,113) for cancer survivors and $622 (CI = $606–$639)"
+    }
+   ]
+  },
+  {
+   "v": "binary/categorical",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "approximately one fourth (25.3%) of cancer survivors reported material hardship associated with cancer"
+    }
+   ]
+  }
+ ],
+ "analytic_depth": [
+  {
+   "v": "summary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "approximately one fourth (25.3%) of cancer survivors reported material hardship associated with cancer"
+    }
+   ]
+  },
+  {
+   "v": "comparison",
+   "ev": [
+    {
+     "loc": "summary",
+     "q": "On average, cancer survivors had significantly higher annual out-of-pocket medical expenditures than did persons without a cancer history."
+    }
+   ]
+  },
+  {
+   "v": "stratified/adjusted",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Cancer survivors also had higher annual out-of-pocket expenditures than did persons without a cancer history in each sociodemographic stratum."
+    },
+    {
+     "loc": "text",
+     "q": "adjusted for the following sociodemographic characteristics: age group, sex, race/ethnicity, health insurance status, employment status"
+    }
+   ]
+  }
+ ],
+ "procedures": [
+  {
+   "name": "gamma generalized linear regression with log link (two-part model)",
+   "class": "regression",
+   "regression_family": "other",
+   "inferred_from": "'generalized linear regression with a gamma distribution and a log link' is not in the family table → other; Table 2 note calls it a two-part model giving predicted means",
+   "role": "primary",
+   "alternative_reading": "loglinear (log link on the mean)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Multivariable generalized linear regression with a gamma distribution and a log link was used to estimate annual out-of-pocket spending"
+    },
+    {
+     "loc": "table 2",
+     "q": "Predicted mean out-of-pocket costs from a two-part model"
+    }
+   ]
+  },
+  {
+   "name": "multivariable logistic regression (predicted percentages)",
+   "class": "regression",
+   "regression_family": "logistic",
+   "inferred_from": "'multivariable logistic regression' giving predicted percentages for high burden and hardship → logistic",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Multivariable logistic regression was used to evaluate the association between cancer history and high annual out-of-pocket burden"
+    },
+    {
+     "loc": "table 3",
+     "q": "Predicted percentages from a logistic model controlling for age, sex, race/ethnicity, health insurance status, employment status, and number of conditions"
+    }
+   ]
+  },
+  {
+   "name": "survey weighting for complex design and nonresponse",
+   "class": "weighting",
+   "regression_family": null,
+   "inferred_from": "analyses stated to account for the complex survey design and nonresponse in survey software",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "to account for the complex survey design and nonresponse."
+    }
+   ]
+  },
+  {
+   "name": "unnamed test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "p-values for survivors vs non-survivors in Table 2 and text with no test named; CI method not stated",
+   "role": "primary",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Statistical tests were two-sided, and differences were considered statistically significant if p<0.05."
+    },
+    {
+     "loc": "text",
+     "q": "compared with persons without a cancer history (1.9% versus 1.0%; p<0.001)"
+    }
+   ]
+  },
+  {
+   "name": "chi-square test",
+   "class": "test",
+   "regression_family": null,
+   "inferred_from": "Table 1 column 'Chi-square p-value' comparing characteristics of survivors and non-survivors",
+   "role": "ancillary",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Chi-square p-value"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "framework": "pair",
+  "scale": null,
+  "referent": "persons without a cancer history",
+  "across": [
+   "cancer history",
+   "health insurance status",
+   "race/ethnicity",
+   "age group",
+   "employment status"
+  ],
+  "ev": [
+   {
+    "loc": "summary",
+    "q": "On average, cancer survivors had significantly higher annual out-of-pocket medical expenditures than did persons without a cancer history."
+   }
+  ]
+ },
+ "inference": {
+  "v": "CIs and tests",
+  "method_stated": true,
+  "ev": [
+   {
+    "loc": "table 1",
+    "q": "Chi-square p-value"
+   },
+   {
+    "loc": "text",
+    "q": "Statistical tests were two-sided, and differences were considered statistically significant if p<0.05."
+   }
+  ]
+ },
+ "primary_measures": [
+  {
+   "v": "mean annual out-of-pocket expenditure, 2016 $",
+   "ev": [
+    {
+     "loc": "table 2",
+     "q": "Mean out-of-pocket cost † (2016 U.S. dollars)"
+    }
+   ]
+  },
+  {
+   "v": "% with high out-of-pocket burden",
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Out-of-pocket health care expenditure › % with high out-of-pocket burden ††"
+    }
+   ]
+  },
+  {
+   "v": "predicted percentage with material or psychological financial hardship",
+   "ev": [
+    {
+     "loc": "table 3",
+     "q": "Predicted percentages from a logistic model controlling for age, sex, race/ethnicity"
+    }
+   ]
+  }
+ ],
+ "regression_fields": {
+  "nonindependence_approach": {
+   "v": "complex survey design",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "to account for the complex survey design and nonresponse."
+    }
+   ]
+  },
+  "unadjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "In unadjusted analysis, cancer survivors had higher mean annual out-of-pocket expenditures"
+    }
+   ]
+  },
+  "adjusted_results": {
+   "v": true,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "adjusted for the following sociodemographic characteristics: age group, sex, race/ethnicity, health insurance status, employment status"
+    }
+   ]
+  },
+  "confounders": {
+   "v": "age group, sex, race/ethnicity, health insurance status, employment status, number of MEPS priority conditions, marital status, educational attainment",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "number of MEPS priority conditions † (excluding cancer), marital status, and educational attainment."
+    }
+   ]
+  },
+  "interaction_modeled": {
+   "v": false,
+   "ev": []
+  },
+  "sensitivity_analysis": {
+   "v": false,
+   "ev": []
+  }
+ },
+ "public_health_question": {
+  "v": "How do annual out-of-pocket medical expenditures and financial hardship among cancer survivors aged 18–64 years compare with those of persons without a cancer history?",
+  "ev": [
+   {
+    "loc": "text",
+    "q": "To estimate annual out-of-pocket expenditures and financial hardship among cancer survivors aged 18–64 years, compared with persons without a cancer history"
+   }
+  ]
+ },
+ "conditions": [
+  {
+   "v": "cancer",
+   "role": "exposure",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Multivariable logistic regression was used to evaluate the association between cancer history and high annual out-of-pocket burden"
+    }
+   ]
+  },
+  {
+   "v": "cancer",
+   "role": "population",
+   "ev": [
+    {
+     "loc": "title",
+     "q": "Annual Out-of-Pocket Expenditures and Financial Hardship Among Cancer Survivors Aged 18–64 Years"
+    }
+   ]
+  }
+ ],
+ "study_design": [
+  {
+   "v": "cross-sectional",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "an annual, nationally representative household survey of the civilian noninstitutionalized population"
+    }
+   ]
+  }
+ ],
+ "data_source_type": [
+  {
+   "v": "national survey",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "analyzed data from the 2011–2016 Medical Expenditure Panel Survey (MEPS)."
+    }
+   ]
+  }
+ ],
+ "data_source_named": [
+  {
+   "v": "Medical Expenditure Panel Survey (MEPS)",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "analyzed data from the 2011–2016 Medical Expenditure Panel Survey (MEPS)."
+    }
+   ]
+  },
+  {
+   "v": "MEPS Experiences with Cancer self-administered questionnaire",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "the 2011 and 2016 MEPS Experiences with Cancer self-administered questionnaires completed by cancer survivors"
+    }
+   ]
+  }
+ ],
+ "setting": {
+  "v": "US national",
+  "ev": [
+   {
+    "loc": "title",
+    "q": "Cancer Survivors Aged 18–64 Years — United States, 2011–2016"
+   }
+  ]
+ },
+ "vaccine_outcome_type": null,
+ "equity": {
+  "level": 2,
+  "level_reason": "Financial hardship (an SDOH outcome) is reported by insurance, race/ethnicity, income and employment, but the SPD contrasts are values set side by side with no computed difference or ratio, so the level is capped at 2.",
+  "level_confidence": "medium",
+  "level_alternative": {
+   "level": 3,
+   "reason": "Outcomes are social determinants; the uninsured vs private contrast ($1,114 vs $959; p<0.001) and 'strongly associated' framing could be read as a quantified, interpreted contrast."
+  },
+  "dimensions": [
+   {
+    "v": "age",
+    "role": "population",
+    "ev": [
+     {
+      "loc": "title",
+      "q": "Cancer Survivors Aged 18–64 Years"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "adjusted for the following sociodemographic characteristics: age group, sex, race/ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "age",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "highest for persons aged 40–49 years."
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "adjusted for the following sociodemographic characteristics: age group, sex, race/ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "sex",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "table 3",
+      "q": "Sex › Women"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "covariate",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "adjusted for the following sociodemographic characteristics: age group, sex, race/ethnicity"
+     }
+    ]
+   },
+   {
+    "v": "race/ethnicity",
+    "role": "stratifier",
+    "ev": [
+     {
+      "loc": "text",
+      "q": "The percentage of survivors who reported experiencing material or psychological financial hardship was higher among minority racial/ethnic groups than among whites"
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "covariate",
+    "ses_components": [
+     "health insurance status",
+     "employment status",
+     "educational attainment"
+    ],
+    "ev": [
+     {
+      "loc": "text",
+      "q": "health insurance status, employment status, number of MEPS priority conditions † (excluding cancer), marital status, and educational attainment."
+     }
+    ]
+   },
+   {
+    "v": "SES",
+    "role": "stratifier",
+    "ses_components": [
+     "health insurance status",
+     "family income",
+     "employment status"
+    ],
+    "ev": [
+     {
+      "loc": "summary",
+      "q": "Financial hardship was more common among the uninsured than among those with insurance coverage."
+     },
+     {
+      "loc": "table 3",
+      "q": "Family income › Poor (<100% FPL)"
+     }
+    ]
+   }
+  ],
+  "determinants_of_health": {
+   "v": "lack of health insurance coverage; financial hardship (problems paying medical bills) as outcome",
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Lack of health insurance coverage was also strongly associated with both material and psychological financial hardship."
+    },
+    {
+     "loc": "text",
+     "q": "Access to health insurance coverage has been identified as essential to providing affordable cancer care"
+    }
+   ]
+  },
+  "equity_action": {
+   "v": false,
+   "ev": []
+  },
+  "equity_measurement": "White, non-Hispanic is the implicit referent for race; races other than White and Black are collapsed into 'all other'; Table 3 SPD rows are adjusted predicted percentages with CIs but no tests."
+ },
+ "groupwise": [
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Race/Ethnicity › Black, non-Hispanic"
+    },
+    {
+     "loc": "table 1",
+     "q": "Chi-square p-value"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Age group at interview (yrs) › 40–49"
+    },
+    {
+     "loc": "table 1",
+     "q": "Chi-square p-value"
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "omnibus test",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "table 1",
+     "q": "Health insurance › Uninsured"
+    },
+    {
+     "loc": "table 1",
+     "q": "Employment status › Not working"
+    }
+   ]
+  },
+  {
+   "across": [
+    "race/ethnicity"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "The percentage of survivors who reported experiencing material or psychological financial hardship was higher among minority racial/ethnic groups than among whites"
+    }
+   ]
+  },
+  {
+   "across": [
+    "age"
+   ],
+   "n_groups": 3,
+   "ordered": true,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "highest for persons aged 40–49 years."
+    }
+   ]
+  },
+  {
+   "across": [
+    "SES"
+   ],
+   "n_groups": 3,
+   "ordered": false,
+   "assessment": "side by side",
+   "resolves_to_finer": false,
+   "ev": [
+    {
+     "loc": "text",
+     "q": "Survivors who were uninsured were most likely to report material financial hardship (36.5%) followed by those with public (33.1%) and private (21.9%) insurance."
+    },
+    {
+     "loc": "text",
+     "q": "highest among survivors who were not working (4.3%) followed by those who were working part-time (2.9%)"
+    }
+   ]
+  }
+ ],
+ "uncertain_fields": [
+  "equity.level",
+  "procedures",
+  "groupwise"
+ ],
+ "confidence": "medium",
+ "notes": "Cross-sectional design inferred from the survey; none is named. Table 1 chi-square omnibus entries for SES cover insurance, education, income and employment (3 levels each). Survivor vs non-survivor p-values within each SPD stratum of Table 2 test a non-SPD contrast and make no groupwise entry.",
+ "view_issues": "Text names a gamma GLM; Table 2 note says two-part model, and notes omit marital status and education from covariates. Table 1 CIs for non-survivors' income and employment exclude their point estimates. Text says 'out-of-pocket spending' for burden %s by employment. Summary says 33% psychological hardship vs 34.3% in text. Table 2 White mean reads '1,10'."
+}
