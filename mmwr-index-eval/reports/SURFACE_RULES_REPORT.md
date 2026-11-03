@@ -1,6 +1,6 @@
 # Surface rules for a first-pass index (2026-11-02)
 
-*Claude's analysis, for the owner's review. No API calls were made.*
+*Claude's analysis, for the owner's review. The rules and sizing made no API calls; the slice and the light-read test (last sections) were run by the owner on the Claude API, 2026-11-03.*
 
 **Question.** Can the method judgments in the production records (vols 73–71, brief v5.1/v5.2) be turned into surface rules (regular expressions over the packet text) accurate enough for a first-pass index of earlier volumes? The richer reading would then go only to articles selected for teaching.
 
@@ -157,6 +157,72 @@ For 1999–2021, a light read of every article plus a full read of that tier com
 - **Regression appears in about 12% of articles in 1999–2015,** 18% in 2016–2021 and 19% in 2022–2024.
 
 **A proposed older-volume slice** (the plan's §4.4, about $15–16 at $0.13). Draw about 120 articles in three strata set by the drift above: 2001–2008 (text only), 2009–2015 (tables, the old `report` type), and 2016–2021. Within each stratum, take about 20 at random and about 20 that the rules flag (regression, equity candidates, named tests), so the rarer labels can be scored. The drift signs place a break at 2008/2009 that sits inside the owner's 1999–2015 period; all strata are whole volumes, so they still roll up to contiguous years.
+
+## The older-volume slice: the rules before 2022 (added 2026-11-03)
+
+**The run.** 120 articles were drawn by `surface_rules.py sample` (seed 20261103; `reports/older_slice_sample.tsv`). Each of three strata (1999–2008, 2009–2015, 2016–2021) has 20 random articles and 20 the rules flagged (7 regression, 7 equity 2+, 6 named test). They were read with brief v5.2 on Opus 5.5 at effort medium, as for production, under the volume key `older-slice`. All 120 are valid (104 on the first read, 16 after one fix-up), for **$15.03** against an estimate of $14.64.
+
+**Scoring** (`surface_rules.py score-slice` → `reports/surface_scores_slice.tsv`). The flagged draws are rule-positive by construction. So precision uses every article where a rule fired, and recall uses only the 20 random articles per stratum. Recall therefore rests on very few articles, often 1–5: read it for direction only.
+
+| Label | 1999–2008 P (n) | R (n) | 2009–2015 P (n) | R (n) | 2016–2021 P (n) | R (n) |
+|---|---|---|---|---|---|---|
+| any regression | 0.94 (17) | 1.00 (4) | 1.00 (11) | 1.00 (2) | 0.86 (14) | 1.00 (4) |
+| CIs | 1.00 (18) | 1.00 (5) | 0.94 (17) | 1.00 (4) | 0.88 (25) | 1.00 (10) |
+| tests | 1.00 (14) | 1.00 (1) | 1.00 (20) | 0.75 (4) | 1.00 (27) | 0.90 (10) |
+| weighting | 1.00 (13) | 0.75 (4) | 1.00 (10) | 1.00 (2) | 1.00 (13) | 1.00 (6) |
+| standardization | 0.92 (12) | 1.00 (2) | 0.90 (10) | 1.00 (1) | 1.00 (6) | 1.00 (2) |
+| groupwise | 1.00 (8) | 0.33 (3) | 0.95 (21) | 0.75 (4) | 0.89 (27) | 0.92 (12) |
+| equity ≥ 2 | 1.00 (8) | 0.33 (3) | 0.88 (16) | 0.00 (1) | 0.96 (24) | 0.92 (12) |
+| count/rate outcome | 0.71 (14) | 0.27 (11) | 0.52 (23) | 0.88 (8) | 0.55 (20) | 0.83 (6) |
+
+- **Named methods hold in every period.** When a rule for regression, CIs, tests, weighting or standardization fires, the reference read agrees 86–100% of the time, as on vol 71.
+- **Equity and groupwise recall fall before 2009.** In 1999–2008, the rules caught 1 of 3 random articles at level 2 or more. So the low early equity band in the sizing is at least partly the rules missing older phrasing, not only older practice. The 3 articles are too few to say how much.
+- **Reference levels in the random draws:** 3 of 20 at level 2 or more in 1999–2008, 1 of 20 in 2009–2015, and 12 of 20 in 2016–2021. Only one article in all 60 reached level 3 or more.
+- **Count/rate is the weakest rule** (recall 0.27 in 1999–2008). The light read below does much better on it.
+
+## The light-read test: Haiku 5.5 on vols 71–73 (added 2026-11-03)
+
+**The run.** `tools/light_read.py` with `LIGHT_BRIEF.md` (light-1.0) on Claude Haiku 5.5, effort medium, batch: 761 articles for **$0.95** ($0.0012 per article). 563 records passed every check. 198 failed at least one. Their values are kept and are compared below.
+
+**Why records failed.** The failures are almost all form, not content (`out/light/claude-haiku-5-5/`):
+- 186 quotes over 25 words: 57 in `data_focus` evidence, 55 in depth, 42 in methods sentences, 32 elsewhere;
+- 59 section names used as locations ("methods", "discussion", "source");
+- 35 quotes not found in the article. These are the substantive failures: paraphrase, or text stitched together.
+
+**Agreement with the Opus records** (`light_read.py compare` → `reports/light_vs_opus_claude-haiku-5-5.tsv`; precision and recall, taking Opus as the reference):
+
+| Field or value | Haiku P | Haiku R | Rules on vol 71, P / R |
+|---|---|---|---|
+| data focus (exact agreement) | 725 of 761 (95%) | | |
+| binary/categorical | 0.97 | 0.98 | |
+| count/rate | 0.87 | 0.96 | 0.61 / 0.87 |
+| continuous | 0.69 | 0.75 | 0.17 / 0.84 |
+| event-time | 0.79 | 0.92 | |
+| depth: comparison | 0.95 | 0.92 | |
+| depth: stratified/adjusted | 0.90 | 0.91 | 0.78 / 0.77 |
+| depth: summary | 0.97 | **0.24** | |
+| design: cross-sectional | 0.89 | 1.00 | 0.54 / 0.90 |
+| design: test-negative | 0.94 | 1.00 | 0.82 / 0.88 |
+| design: outbreak investigation | 0.85 | 0.93 | 0.68 / 0.82 |
+| design: evaluation or monitoring | 0.79 | 0.92 | 0.59 / 0.54 |
+| design: before/after or trend | 0.74 | 0.98 | 0.63 / 0.54 |
+| design: surveillance/descriptive | 0.84 | 0.88 | |
+| design: review or synthesis | 1.00 | 0.72 | 0.52 / 0.85 |
+| design: ecologic | **0.39** | 1.00 | |
+
+- **On the fields the rules cannot carry, Haiku is far better than the rules,** at about a tenth of a cent per article.
+- **Three systematic patterns**, each fixable in the brief:
+  1. **Depth "summary" is mostly left out (recall 0.24).** Haiku lists the highest depth only; Opus lists summary beside comparison when single-group quantities are presented as results.
+  2. **Ecologic is over-called (precision 0.39)** on reports that give rates by state or county. The brief's definition (the unit of analysis is a group) stands; Haiku needs an example of what is not ecologic.
+  3. **Before/after or trend is somewhat over-called (precision 0.74).**
+
+**Proposed light-1.1, for the owner's decision.** Wording only, with no new fields:
+- methods sentences become clauses of at most 25 words;
+- `loc` names where the quote sits (`text`, `note`, `table N`), never the section heading;
+- depth lists every level that applies, with summary beside comparison;
+- one sentence on ecologic: rates set side by side by state or county are surveillance, not ecologic, unless the places are the units of an analysis.
+
+A retest on the same 761 articles costs about $1. Adding the 120 slice articles (about $0.15) would also show how Haiku reads older volumes, against the slice's Opus records.
 
 ## Limits
 

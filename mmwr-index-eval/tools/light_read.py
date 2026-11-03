@@ -41,11 +41,15 @@ LOC = re.compile(r'^(title|summary|text|note|ocr|table \d+|figure \d+)$')
 
 
 def vols_of(spec):
+    """'71-73', '48-70', '71,73', or a named packet set such as 'older-slice' (comma-separated with the others)."""
     out = []
     for part in spec.split(','):
         a, _, b = part.partition('-')
+        if not a.isdigit():
+            out.append(part)
+            continue
         out += list(range(int(a), int(b) + 1)) if b else [int(a)]
-    return sorted(set(out), reverse=True)
+    return sorted(set(out), key=str, reverse=True)
 
 
 def packets(vols):
@@ -282,10 +286,10 @@ def cmd_status():
 
 
 def cmd_compare(model):
-    """Field by field against out/prod/<vol>/<id>.json for vols 71-73: agreement and per-value precision and recall."""
+    """Field by field against out/prod/<vol>/<id>.json for vols 71-73 and the older slice: agreement, precision, recall."""
     tally = collections.defaultdict(collections.Counter)
     n = 0
-    for v in (71, 72, 73):
+    for v in (71, 72, 73, 'older-slice'):
         d = f'{OUT}/{model}/{v}'
         if not os.path.isdir(d):
             continue

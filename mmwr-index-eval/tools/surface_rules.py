@@ -8,6 +8,7 @@
                                                                      # counts per volume and per period -> DIR/surface_sizing*.tsv
     python3 tools/surface_rules.py sample [--out DIR]                # draw the older-volume slice (seeded) and stage its
                                                                      # packets in prod_packets/older-slice/ for tools/api_read.py
+    python3 tools/surface_rules.py score-slice [--out DIR]           # rules vs the slice's reads, per stratum
 
 Labels come from out/prod/<vol>/mm*.json (brief v5.1/v5.2), text from prod_packets/<vol>/<id>/article.txt.
 Splits: dev = vols 72 and 73 (rules are tuned here); test = vol 71 (scored once, not tuned on); all = both.
@@ -15,7 +16,7 @@ Prints counts only; record and packet text stays in the output files.
 """
 import argparse, collections, csv, glob, json, os, re
 
-SPLITS = {'dev': ('72', '73'), 'test': ('71',), 'all': ('71', '72', '73')}
+SPLITS = {'dev': ('72', '73'), 'test': ('71',), 'all': ('71', '72', '73'), 'slice': ('older-slice',)}
 REG_FAMILIES = ('linear', 'logistic', 'loglinear', 'event-time', 'other')
 DESIGNS = ('cross-sectional', 'case-control', 'test-negative', 'retrospective cohort', 'prospective cohort',
            'outbreak investigation', 'before/after or trend', 'evaluation or monitoring', 'case report/series',
@@ -629,6 +630,33 @@ def sample(split, out):
           '->', f'{out}/older_slice_sample.tsv, {dest}/')
 
 
+def score_slice(split, out):
+    """Rules against the slice's reference reads, per stratum. Flagged draws are rule-positive by construction, so
+    precision uses every draw (it is conditional on a rule firing) and recall uses the random draws only."""
+    draws = {r['id']: r for r in csv.DictReader(open(f'{out}/older_slice_sample.tsv'), delimiter='\t')}
+    tally = collections.defaultdict(collections.Counter)
+    for i, vol, atype, text, L in load('slice'):
+        d = draws[i]
+        for lab, p in predict(text, atype).items():
+            truth = lab in L if not lab.startswith('eqband:') else truth_band(lab, L)
+            key = (lab, d['stratum'])
+            if p:
+                tally[key]['tp' if truth else 'fp'] += 1
+            if d['draw'] == 'random' and truth:
+                tally[key]['rand_tp' if p else 'rand_fn'] += 1
+    strata = [s for s, _ in SLICE_STRATA]
+    with open(f'{out}/surface_scores_slice.tsv', 'w') as o:
+        o.write('label\tstratum\trule_fired\tprecision\trandom_with_label\trecall_random\n')
+        for lab in RULES:
+            for s in strata:
+                c = tally[(lab, s)]
+                fired, pos = c['tp'] + c['fp'], c['rand_tp'] + c['rand_fn']
+                p = f"{c['tp'] / fired:.2f}" if fired else ''
+                r = f"{c['rand_tp'] / pos:.2f}" if pos else ''
+                o.write(f'{lab}\t{s}\t{fired}\t{p}\t{pos}\t{r}\n')
+    print(len(draws), 'slice articles ->', f'{out}/surface_scores_slice.tsv')
+
+
 def predict(text, atype):
     sec = sections(text)
     return {lab: bool(f(*sec, atype)) for lab, f in RULES.items()}
@@ -700,7 +728,7 @@ def truth_band(lab, L):
 
 if __name__ == '__main__':
     ap = argparse.ArgumentParser()
-    ap.add_argument('cmd', choices=('mine', 'score', 'why', 'findings', 'size', 'sample'))
+    ap.add_argument('cmd', choices=('mine', 'score', 'why', 'findings', 'size', 'sample', 'score-slice'))
     ap.add_argument('--split', default='dev', choices=tuple(SPLITS))
     ap.add_argument('--out', default='reports')
     ap.add_argument('--label')
@@ -711,4 +739,4 @@ if __name__ == '__main__':
             raise SystemExit('why reads misses for tuning: dev split only')
         why(a.split, a.out, a.label)
     else:
-        {'mine': mine, 'score': score, 'findings': findings, 'size': size, 'sample': sample}[a.cmd](a.split, a.out)
+        {'mine': mine, 'score': score, 'findings': findings, 'size': size, 'sample': sample, 'score-slice': score_slice}[a.cmd](a.split, a.out)
