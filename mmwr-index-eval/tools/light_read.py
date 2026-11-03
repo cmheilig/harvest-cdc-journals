@@ -3,7 +3,9 @@
     python3 tools/light_read.py submit VOLS [--model haiku|sonnet] [--budget USD] [--dry-run]
                                                      # one or more batches for the packets of VOLS (e.g. 71-73, 48-70)
     python3 tools/light_read.py poll                 # status of open light batches
-    python3 tools/light_read.py collect              # results of ended batches -> out/light/<model>/<vol>/<id>.json
+    python3 tools/light_read.py fixup [--model M] [--budget USD] [--dry-run]
+                                                     # one fix-up turn, as a batch, for invalid or unparsed reads
+    python3 tools/light_read.py collect              # results of ended batches -> out/light/<model>[-<version>]/<vol>/<id>.json
     python3 tools/light_read.py status               # counts by status and spend, per model
     python3 tools/light_read.py compare [--model M] [--version light-1.0]
                                                      # light records vs the production records (vols 71-73, older slice)
@@ -11,6 +13,9 @@
 The test comes first: submit 71-73 with each model to be considered, compare, and only then the full run.
 Packets: prod_packets/<vol>/ (tools/build_packets.py); the user turn is article.txt and the table CSVs (no prepass.json).
 The driver checks every quote against the article and its length (25 words); a failing record is kept as invalid.
+A fix-up resends the original turn, the reply as returned (thinking included: append-only) and the driver's errors, as
+tools/api_read.py does. The corrected record replaces the first only if it passes every check (`fixed`); otherwise the
+first record stays and the attempt is `failed`. Nothing in a record is changed by the driver itself.
 Spend is checked against one budget line with tools/api_read.py: both ledgers count. Prints counts and ids only.
 Credentials: ANTHROPIC_API_KEY (the project workspace key), as for tools/api_read.py.
 """
@@ -29,7 +34,8 @@ BATCH_MB = 180                       # Message Batches accept 256 MB; stay well 
 LEDGER, BATCHES, OUT = 'light_ledger.tsv', 'light_batches.tsv', 'out/light'
 LEDGER_COLS = ['time', 'id', 'volume', 'attempt', 'model', 'effort', 'brief_version', 'batch_id', 'request_id',
                'input_tokens', 'output_tokens', 'cost_usd', 'status', 'note']
-BATCH_COLS = ['batch_id', 'model', 'volumes', 'n', 'est_usd', 'submitted', 'status', 'brief_version']
+BATCH_COLS = ['batch_id', 'model', 'volumes', 'n', 'est_usd', 'submitted', 'status', 'brief_version', 'kind']
+FIXABLE = {'invalid', 'unparsed'}
 
 FIELDS = {'outcome_types': {'continuous', 'binary/categorical', 'count/rate', 'event-time'},
           'analytic_depth': {'summary', 'comparison', 'stratified/adjusted'},
@@ -160,10 +166,18 @@ def estimate(model, texts):
 
 # ---------- commands
 
+def batches():
+    """The batch log, rewritten first if its header predates a column (older rows read as kind `read`)."""
+    rows = A.read_tsv(BATCHES)
+    if os.path.exists(BATCHES) and open(BATCHES).readline().rstrip('\n').split('\t') != BATCH_COLS:
+        A.write_tsv(BATCHES, BATCH_COLS, rows)
+    return rows
+
+
 def cmd_submit(spec, model, budget, dry):
     vols = vols_of(spec)
     done = {(r['id'], r['model']) for r in A.read_tsv(LEDGER) if r['brief_version'] == VERSION}   # a new brief re-reads
-    if any(b['status'] != 'collected' and b['model'] == model for b in A.read_tsv(BATCHES)):
+    if any(b['status'] != 'collected' and b['model'] == model for b in batches()):
         sys.exit(f'{model} has an open light batch: poll and collect it first')
     todo = [(i, v) for i, v in packets(vols) if (i, model) not in done]
     if not todo:
@@ -194,15 +208,58 @@ def cmd_submit(spec, model, budget, dry):
         n_est = estimate(model, [texts[r['custom_id']] for r in reqs])
         A.append_tsv(BATCHES, BATCH_COLS, {'batch_id': batch.id, 'model': model, 'volumes': spec, 'n': len(reqs),
                                            'est_usd': f'{n_est:.2f}', 'submitted': A.now(), 'status': batch.processing_status,
-                                           'brief_version': VERSION})
+                                           'brief_version': VERSION, 'kind': 'read'})
         with open(f'{OUT}/exposure_rows.tsv', 'a') as o:   # for the owner to append to the extraction's exposure_log.tsv
             o.writelines(f"{r['custom_id']}\t{A.now()[:10]}\tClaude API batch (light read, {model})\t"
                          f"mmwr-index-eval light read, vol {vol_of[r['custom_id']]}; records public on GitHub\n" for r in reqs)
         print(f'batch {batch.id} submitted: {len(reqs)} requests')
 
 
+def feedback(raw):
+    """The user turn that answers one failed read, in the words of tools/api_read.py."""
+    if raw['status'] == 'unparsed':
+        ask = f"The driver could not parse your reply as one JSON object ({raw['errors'][0]})."
+    else:
+        ask = "The driver's checks rejected your record:\n" + '\n'.join(f'- {e}' for e in raw['errors'])
+    return (ask + '\nQuotes must be copied exactly from the article, at most 25 words, cut rather than reworded; `loc` is where '
+            'the quote sits (title, summary, text, note, ocr, table N, figure N). Reply with the corrected full JSON record only.')
+
+
+def cmd_fixup(model, budget, dry):
+    rows = batches()
+    if any(b['status'] != 'collected' and b['model'] == model and b.get('kind') == 'fixup' for b in rows):
+        sys.exit(f'{model} has an open fix-up batch: poll and collect it first')
+    s = latest(model, VERSION)
+    ids = sorted(i for i, rs in s.items() if rs[-1]['attempt'] == 'read' and rs[-1]['status'] in FIXABLE)
+    print(f'{model} ({VERSION}): {len(ids)} fix-ups')
+    if not ids:
+        return
+    msgs = {}
+    for i in ids:
+        vol = s[i][-1]['volume']
+        raw = json.load(open(f'{rec_dir(model)}/raw/{i}.json'))
+        replay = [b for b in raw['content'] if b.get('type') in ('thinking', 'redacted_thinking', 'text')]
+        msgs[i] = [{'role': 'user', 'content': packet_text(vol, i)}, {'role': 'assistant', 'content': replay},
+                   {'role': 'user', 'content': feedback(raw)}]
+    est = estimate(model, [json.dumps(m) for m in msgs.values()])
+    left = budget - spent() - pending()
+    print(f'estimate ~${est:.2f} (batch); budget ${budget:.2f}: spent ${spent():.2f}, open batches ~${pending():.2f}, '
+          f'remaining ~${left:.2f}')
+    if est > left:
+        sys.exit('refused: the estimate exceeds the remaining budget')
+    if dry:
+        return
+    c = A.client()
+    reqs = [{'custom_id': i, 'params': {**params(model, ''), 'messages': msgs[i]}} for i in ids]
+    batch = c.messages.batches.create(requests=reqs)
+    A.append_tsv(BATCHES, BATCH_COLS, {'batch_id': batch.id, 'model': model, 'volumes': 'fixup', 'n': len(ids),
+                                       'est_usd': f'{est:.2f}', 'submitted': A.now(), 'status': batch.processing_status,
+                                       'brief_version': VERSION, 'kind': 'fixup'})
+    print(f'fix-up batch {batch.id} submitted: {len(ids)} requests')
+
+
 def cmd_poll():
-    rows = A.read_tsv(BATCHES)
+    rows = batches()
     if not any(b['status'] != 'collected' for b in rows):
         print('no open light batches')
         return
@@ -218,7 +275,7 @@ def cmd_poll():
     A.write_tsv(BATCHES, BATCH_COLS, rows)
 
 
-def handle(model, vol, i, msg, batch_id, version):
+def handle(model, vol, i, msg, batch_id, version, attempt='read'):
     content = [b.to_dict() for b in msg.content]
     u = msg.usage
     us = {'input': (u.input_tokens or 0) + (u.cache_read_input_tokens or 0) + (u.cache_creation_input_tokens or 0),
@@ -237,17 +294,20 @@ def handle(model, vol, i, msg, batch_id, version):
             errs = check(rec, i, packet_text(vol, i))
             rec['reader'] = {'model': msg.model, 'effort': EFFORT, 'brief_version': version, 'request_id': msg.id,
                              'batch_id': batch_id, **({'errors': errs} if errs else {})}
-            status = 'invalid' if errs else 'ok'
-            d = f'{rec_dir(model, version)}/{vol}'
-            os.makedirs(d, exist_ok=True)
-            with open(f'{d}/{i}.json', 'w') as o:
-                json.dump(rec, o, ensure_ascii=False, indent=1)
+            status = ('invalid' if errs else 'ok') if attempt == 'read' else ('failed' if errs else 'fixed')
+            if attempt == 'read' or not errs:      # a failed fix-up leaves the first record in place
+                d = f'{rec_dir(model, version)}/{vol}'
+                os.makedirs(d, exist_ok=True)
+                with open(f'{d}/{i}.json', 'w') as o:
+                    json.dump(rec, o, ensure_ascii=False, indent=1)
             note = f'{len(errs)} errors' if errs else ''
+    if attempt != 'read' and status in FIXABLE:
+        status = 'failed'
     os.makedirs(f'{rec_dir(model, version)}/raw', exist_ok=True)
-    with open(f'{rec_dir(model, version)}/raw/{i}.json', 'w') as o:
+    with open(f'{rec_dir(model, version)}/raw/{i}{"" if attempt == "read" else "." + attempt}.json', 'w') as o:
         json.dump({'id': i, 'status': status, 'message_id': msg.id, 'model': msg.model, 'stop_reason': msg.stop_reason,
                    'errors': errs, 'usage': us, 'content': content}, o, ensure_ascii=False)
-    A.append_tsv(LEDGER, LEDGER_COLS, {'time': A.now(), 'id': i, 'volume': vol, 'attempt': 'read', 'model': model,
+    A.append_tsv(LEDGER, LEDGER_COLS, {'time': A.now(), 'id': i, 'volume': vol, 'attempt': attempt, 'model': model,
                                        'effort': EFFORT, 'brief_version': version, 'batch_id': batch_id, 'request_id': msg.id,
                                        'input_tokens': us['input'], 'output_tokens': us['output'],
                                        'cost_usd': f'{cost_of(model, us):.5f}', 'status': status, 'note': note})
@@ -255,7 +315,7 @@ def handle(model, vol, i, msg, batch_id, version):
 
 
 def cmd_collect():
-    rows = A.read_tsv(BATCHES)
+    rows = batches()
     todo = [b for b in rows if b['status'] != 'collected']
     if not todo:
         sys.exit('no open light batches')
@@ -265,7 +325,11 @@ def cmd_collect():
         if r.processing_status != 'ended':
             print(f"{b['batch_id']}: {r.processing_status}, not collected")
             continue
-        vol_of = {i: v for i, v in packets(vols_of(b['volumes']))}
+        kind, version = b.get('kind') or 'read', b.get('brief_version') or 'light-1.0'
+        if kind == 'read':
+            vol_of = {i: v for i, v in packets(vols_of(b['volumes']))}
+        else:                                       # a fix-up batch spans volumes: take each id's volume from its read
+            vol_of = {r['id']: r['volume'] for r in A.read_tsv(LEDGER) if r['model'] == b['model'] and r['brief_version'] == version}
         seen = {r['id'] for r in A.read_tsv(LEDGER) if r['batch_id'] == b['batch_id']}   # an interrupted collect resumes
         n = collections.Counter({'already collected': len(seen)} if seen else {})
         for res in c.messages.batches.results(b['batch_id']):
@@ -273,27 +337,35 @@ def cmd_collect():
             if i in seen:
                 continue
             if res.result.type == 'succeeded':
-                n[handle(b['model'], vol_of[i], i, res.result.message, b['batch_id'], b.get('brief_version') or 'light-1.0')] += 1
+                n[handle(b['model'], vol_of[i], i, res.result.message, b['batch_id'], version, kind)] += 1
             else:
                 n[res.result.type] += 1
-                A.append_tsv(LEDGER, LEDGER_COLS, {'time': A.now(), 'id': i, 'volume': vol_of[i], 'attempt': 'read',
-                                                   'model': b['model'], 'effort': EFFORT,
-                                                   'brief_version': b.get('brief_version') or 'light-1.0',
+                A.append_tsv(LEDGER, LEDGER_COLS, {'time': A.now(), 'id': i, 'volume': vol_of[i], 'attempt': kind,
+                                                   'model': b['model'], 'effort': EFFORT, 'brief_version': version,
                                                    'batch_id': b['batch_id'], 'cost_usd': '0', 'status': res.result.type})
         b['status'] = 'collected'
-        print(f"{b['batch_id']} {b['model']}: " + ', '.join(f'{k} {v}' for k, v in sorted(n.items())))
+        print(f"{b['batch_id']} {b['model']} {kind}: " + ', '.join(f'{k} {v}' for k, v in sorted(n.items())))
     A.write_tsv(BATCHES, BATCH_COLS, rows)
     cmd_status()
 
 
+def latest(model, version):
+    """{id: [ledger rows in order]} for one model and brief version."""
+    s = {}
+    for r in A.read_tsv(LEDGER):
+        if r['model'] == model and r['brief_version'] == version:
+            s.setdefault(r['id'], []).append(r)
+    return s
+
+
 def cmd_status():
     rows = A.read_tsv(LEDGER)
-    for m in sorted({r['model'] for r in rows}):
-        rs = [r for r in rows if r['model'] == m]
-        n = collections.Counter(r['status'] for r in rs)
-        cost = sum(float(r['cost_usd']) for r in rs)
-        print(f'{m}: {len(rs)} reads; ' + ', '.join(f'{k} {v}' for k, v in sorted(n.items()))
-              + f'; ${cost:.2f} (${cost / max(len(rs), 1):.4f}/article)')
+    for m, ver in sorted({(r['model'], r['brief_version']) for r in rows}):
+        s = latest(m, ver)
+        n = collections.Counter(rs[-1]['status'] for rs in s.values())
+        cost = sum(float(r['cost_usd']) for rs in s.values() for r in rs)
+        print(f'{m} {ver}: {len(s)} articles; ' + ', '.join(f'{k} {v}' for k, v in sorted(n.items()))
+              + f'; ${cost:.2f} (${cost / max(len(s), 1):.4f}/article)')
     print(f'spent ${spent():.2f} in both ledgers; open batches ~${pending():.2f}')
 
 
@@ -347,6 +419,8 @@ def main(argv):
         cmd_submit(rest[0], model, budget, dry)
     elif cmd == 'poll':
         cmd_poll()
+    elif cmd == 'fixup':
+        cmd_fixup(model, budget, dry)
     elif cmd == 'collect':
         cmd_collect()
     elif cmd == 'status':
