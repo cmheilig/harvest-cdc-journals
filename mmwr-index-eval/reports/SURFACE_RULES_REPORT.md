@@ -57,7 +57,7 @@ Predicted band against the recorded level, vol 71:
 
 ## Traps found in the records
 
-Phrases that look like a method and are not, by the brief's rules. Each is masked before the rules match:
+Phrases that look like a method and are not that method, by the brief's rules. Each is masked from the *regression* rules only. Statistical uses among them stay findings in their own right (next section), so a Poisson CI or a log-linear chi-square is reclassified rather than dropped:
 - "occupational hazard", "workplace hazards" (not event-time);
 - "logistical", "logistic issues" (not logistic);
 - "Poisson distribution", "exact Poisson method", "assuming a Poisson" (a CI method, not a regression);
@@ -71,6 +71,58 @@ Phrases that look like a method and are not, by the brief's rules. Each is maske
 The reverse also occurs: regression without the word, for example SUDAAN's `RLOGIST` procedure, or "aPR" and "aOR" alone.
 
 **Tests by CI inversion.** Vaccine-effectiveness and ratio reports often have no named test; the brief counts a CI judged against the null as one. The rule treats CIs plus a ratio or VE measure as a test, and suppresses tests in guidance reports, whose figures are cited (rule 2).
+
+## Declared procedures: the finding-aid layer (added 2026-11-03)
+
+*At the owner's request: the finding aid serves non-regression procedures too, and it records only what a report declares.*
+
+`python3 tools/surface_rules.py findings --split all` reads each article sentence by sentence, with notes and table titles included, and records every procedure, CI method or measure the text names. Output: one row per article and finding (`reports/surface_findings_all.tsv`), and counts per finding (`reports/surface_findings_summary_all.tsv`). There are 49 findings in four families:
+- **tests:** chi-square, survey chi-square, Fisher's exact, t, z, Wilcoxon, Kruskal-Wallis, trend, log-rank, and others;
+- **CI methods:** Wilson, exact binomial, Korn-Graubard, Taylor series, bootstrap, gamma, credible intervals;
+- **estimation:** Kaplan-Meier, standardization, suppression rules, smoothing, imputation, nowcasts, diagnostic accuracy, and others;
+- **measures:** OR, RR or PR, rate ratio, HR, VE, APC, percentage points.
+
+**Poisson, by sentence context.** A sentence naming Poisson is classed by what else it declares:
+
+| Poisson finding | Articles |
+|---|---|
+| regression or model | 19 |
+| confidence interval | 11 |
+| test | 5 |
+| distribution assumed (none of the above) | 0 |
+| other mention | 2 |
+
+One article can hold several. Only the "regression or model" sentences bear on the regression family. The others stay findings for the non-regression units.
+
+**Joinpoint: only the declared scale.** The rule looks for a scale declared in the joinpoint sentence or the two after it: log (log-linear, log-transformed, logarithm) or linear (linear model or regression, untransformed). "Linear segments" is not a declaration, because it describes the shape on either scale. Of the 8 joinpoint articles in vols 73–71:
+- **7 declare no scale anywhere in the text.** The records gave them loglinear (5) or linear (2) by inference.
+- **1 declares "linear regressions with zero joinpoints"** and also reports APCs and AAPCs. The finding aid shows both declarations and leaves the reading to the user.
+
+The regression-family rules never infer a family from joinpoint.
+
+**Check against the records.** For 20 findings, the records' own procedure names, `inferred_from` and inference evidence can be compared with what the text declares (all 761 articles; "both" means text and record agree):
+
+| Finding | Both | Text only | Record only |
+|---|---|---|---|
+| chi-square | 81 | 0 | 0 |
+| t-test | 43 | 0 | 0 |
+| Wilcoxon / Mann-Whitney | 27 | 0 | 0 |
+| Fisher's exact | 21 | 0 | 0 |
+| Kaplan-Meier / life table | 13 | 0 | 0 |
+| Poisson CI | 10 | 1 | 3 |
+| Taylor series | 9 | 0 | 0 |
+| joinpoint (any scale) | 8 | 0 | 0 |
+| standardization | 60 | 5 | 17 |
+| imputation | 21 | 6 | 1 |
+| suppression rule | 46 | 29 | 39 |
+
+Named tests agree completely. Suppression rules agree least, and standardization has 17 record-only cases. Neither set of disagreements has been examined yet: they may be wording the patterns miss, ancillary rules a record leaves out, or false matches. Pattern fixes found by this check:
+- the curly apostrophe in "Fisher’s";
+- "t -test" with a stray space;
+- "viral suppression";
+- "RT-PCR" read as a reproduction number.
+
+The vol 71 scores above are unchanged by this layer.
 
 ## Limits
 

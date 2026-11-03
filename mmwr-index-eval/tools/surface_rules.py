@@ -2,6 +2,8 @@
 
     python3 tools/surface_rules.py mine  [--split dev] [--out DIR]   # cue n-grams per label -> DIR/surface_cues.tsv
     python3 tools/surface_rules.py score [--split dev] [--out DIR]   # rules vs records -> DIR/surface_scores.tsv, DIR/surface_misses.tsv
+    python3 tools/surface_rules.py findings [--split all] [--out DIR] # declared procedures per article (the finding aid), with a
+                                                                     # check against the records' procedure names where one exists
 
 Labels come from out/prod/<vol>/mm*.json (brief v5.1/v5.2), text from prod_packets/<vol>/<id>/article.txt.
 Splits: dev = vols 72 and 73 (rules are tuned here); test = vol 71 (scored once, not tuned on); all = both.
@@ -366,6 +368,150 @@ def _(t, su, b, tab, at):
     return RULES['eqband:2+'](t, su, b, tab, at) and hit(FRAMING, b)
 
 
+# --- declared procedures --------------------------------------------------------------------------------------------
+# The finding-aid layer: what a report declares, sentence by sentence, whatever the brief's procedure classes make of it.
+# A phrase masked out of a regression rule above (a Poisson CI, a log-linear chi-square) is a finding here, not a discard.
+SENT = re.compile(r'(?<=[.;!?])\s+(?=[A-Z(“"])|\n')
+NAMED = {  # finding -> sentence pattern (case-insensitive unless listed in CASE_SENSITIVE)
+    'test: chi-square': r'chi-?square|χ\s*2',
+    'test: survey chi-square (Rao-Scott, Wald)': r'rao[- ]scott|wald (chi|f\b|test)',
+    'test: log-linear chi-square': r'log[- ]linear chi[- ]square',
+    "test: Fisher's exact": r"fisher[’']?s? exact",
+    'test: t-test': r'\bt\s?-?\s?tests?\b|student.s t\b',
+    'test: z-test': r'\bz[- ]tests?\b',
+    'test: Wilcoxon / Mann-Whitney': r'wilcoxon|mann[- ]whitney',
+    'test: Kruskal-Wallis': r'kruskal',
+    'test: ANOVA': r'\banova\b|analysis of variance',
+    'test: trend (Cochran-Armitage, chi-square for trend)': r'cochran[- ]armitage|(chi[- ]square|test) for (linear )?trend|trend tests?',
+    'test: Mantel-Haenszel': r'mantel[- ]haenszel',
+    'test: log-rank': r'log[- ]rank',
+    'test: McNemar': r'mcnemar',
+    'test: likelihood ratio': r'likelihood[- ]ratio tests?',
+    'test: permutation': r'permutation tests?',
+    'CI: Wilson / score': r'wilson|score (confidence )?interval',
+    'CI: exact binomial (Clopper-Pearson)': r'clopper|exact binomial',
+    'CI: Korn-Graubard': r'korn[- ]graubard',
+    'CI: Taylor series / linearization': r'taylor[- ]series|linearization',
+    'CI: bootstrap': r'bootstrap',
+    'CI: gamma (Fay-Feuer)': r'fay[- ]feuer|gamma (distribution|interval|method)',
+    'CI: credible interval (Bayesian)': r'credible intervals?|bayesian',
+    'CI: delta method': r'delta method',
+    'estimation: Kaplan-Meier / life table': r'kaplan[- ]meier|life[- ]tables?',
+    'estimation: least-squares means': r'least[- ]squares means?',
+    'estimation: weighted mean or average': r'weighted (mean|average)',
+    'estimation: standardization': r'age[- ](adjusted|standardi[sz]ed)|standard population|standardi[sz]ed (mortality|incidence|morbidity) ratio',
+    'estimation: imputation': r'imput(ed|ation)',
+    'estimation: smoothing (LOESS, moving average, spline)': r'\bloess\b|lowess|moving average|smooth(ed|ing)|splines?',
+    'estimation: suppression rule': r'(?<!viral )(?<!virally )(?<!immuno)suppress(ed|ion)(?! of)|relative standard errors?|\bRSE\b|'
+                                    r'data presentation standards|(statistically )?unreliable|reliability (criteria|standards)|small cell|cell sizes?',
+    'estimation: correlation (Pearson, Spearman)': r"(pearson|spearman)('s)? (correlation|rank|r\b|ρ)|correlation coefficients?",
+    'estimation: diagnostic accuracy': r'sensitivity and specificity|\bspecificity\b|positive predictive value|\bPPV\b',
+    'estimation: screening method (VE)': r'screening method',
+    'estimation: nowcast': r'nowcast',
+    'estimation: reproduction number or doubling time': r'reproduction number|doubling time',
+    'estimation: capture-recapture': r'capture[- ]recapture',
+    'estimation: propensity score': r'propensity scores?',
+    'estimation: excess mortality (Serfling, Farrington)': r'serfling|farrington|excess (deaths|mortality)',
+    'estimation: survey weighting': r'\bweighted (to|for|by|percent\w*|prevalence|estimates?|proportions?|data|samples?|analys\w*)|'
+                                   r'(survey|sampling|sample|nonresponse|poststratification) weights?|\bSUDAAN\b|complex (survey|sampl\w*) design|\braking\b',
+    # measures mix words (any case) with abbreviations (exact case), so these patterns are matched case-sensitively
+    'measure: odds ratio': r'(?i:odds ratios?)|\b(a)?ORs?\b',
+    'measure: risk or prevalence ratio': r'(?i:(risk|prevalence) ratios?|relative risks?)|\b(a)?(RR|PR)s?\b',
+    'measure: rate ratio': r'(?i:rate ratios?)|\b(a)?IRRs?\b',
+    'measure: hazard ratio': r'(?i:hazard ratios?)|(?<![-\w])a?HRs?\b',
+    'measure: vaccine effectiveness': r'(?i:vaccine effectiveness)|\bVE\b',
+    'measure: annual percent change': r'(?i:annual percent(age)? changes?)|\bA?APCs?\b',
+    'measure: percentage-point difference': r'percentage[- ]points?',
+}
+CASE_SENSITIVE |= {p for name, p in NAMED.items() if name.startswith('measure: ') and '(?i:' in p}
+
+LOG_SCALE = r'log[- ]?(linear|transform\w*|scale|rates?)|natural log|logarithm|\bln\b'
+LINEAR_SCALE = r'(?<![-\w])linear (model|regression|scale)|untransformed'  # not "linear segments": that is the shape, on either scale
+
+
+def declared(text):
+    """{finding: number of sentences declaring it} for one article. Notes stay in: MMWR often states methods in footnotes."""
+    body = sections(text)
+    sents = [s for s in SENT.split(body[2] + '\n' + body[3]) if s.strip()]
+    f = collections.Counter()
+    for k, s in enumerate(sents):
+        for name, p in NAMED.items():
+            if hit([p], s):
+                f[name] += 1
+        if re.search(r'poisson', s, re.I):
+            kinds = [n for n, p in (('regression or model', r'regression|model|\bglm\b|generalized linear|modified poisson|quasi-poisson'),
+                                    ('confidence interval', r'confidence|\bCIs?\b|intervals?'),
+                                    ('test', r'\btests?\b|p[- ]values?|\bp\s*[<=≤]'))
+                     if re.search(p, s, re.I)]
+            if not kinds and re.search(r'distribution', s, re.I):
+                kinds = ['distribution assumed']
+            for n in kinds or ['other mention']:
+                f[f'Poisson: {n}'] += 1
+        if re.search(r'joinpoint|segmented regression', s, re.I):
+            window = ' '.join(sents[k:k + 3])  # the scale is often declared in the next sentence or a footnote
+            scale = ('log scale declared' if re.search(LOG_SCALE, window, re.I)
+                     else 'linear scale declared' if re.search(LINEAR_SCALE, window, re.I) else 'scale not declared')
+            f[f'joinpoint: {scale}'] += 1
+    jp = [k for k in f if k.startswith('joinpoint: ')]
+    if len(jp) > 1:  # one article, one reading: a declared scale anywhere outranks "not declared"
+        keep = 'joinpoint: log scale declared' if 'joinpoint: log scale declared' in f else 'joinpoint: linear scale declared'
+        for k in jp:
+            if k != keep:
+                del f[k]
+    return f
+
+
+# Record fields that name a procedure or measure, for checking a declared finding against the record (counts only).
+REC_CHECK = {
+    'test: chi-square': r'chi-?square|χ', "test: Fisher's exact": r'fisher', 'test: t-test': r'\bt[- ]?test',
+    'test: Wilcoxon / Mann-Whitney': r'wilcoxon|mann', 'test: Kruskal-Wallis': r'kruskal', 'test: log-rank': r'log[- ]rank',
+    'test: trend (Cochran-Armitage, chi-square for trend)': r'cochran|trend test|for trend',
+    'CI: Wilson / score': r'wilson|score (method|interval|ci)', 'CI: exact binomial (Clopper-Pearson)': r'clopper|exact binomial',
+    'CI: Korn-Graubard': r'korn', 'CI: Taylor series / linearization': r'taylor|lineariz', 'CI: bootstrap': r'bootstrap',
+    'estimation: Kaplan-Meier / life table': r'kaplan|life table', 'estimation: imputation': r'imput',
+    'estimation: suppression rule': r'suppress|relative standard error|\brse\b', 'estimation: standardization': r'standardi|age-adjust',
+    'Poisson: confidence interval': r'poisson[^.;]{0,40}(\bci|confidence|interval)|(\bci|confidence|interval)[^.;]{0,60}poisson',
+    'joinpoint (any scale)': r'joinpoint',
+}
+
+
+def record_names(r):
+    """The record's own words for its procedures and CI methods: names, inferred_from, inference evidence."""
+    parts = [p['name'] + ' ' + (p.get('inferred_from') or '') for p in r['procedures']]
+    parts += [e['q'] for e in r['inference'].get('ev', [])]
+    return ' '.join(parts).lower()
+
+
+def findings(split, out):
+    rows = load(split)
+    per, tally = [], collections.defaultdict(collections.Counter)
+    for i, vol, atype, text, L in rows:
+        f = declared(text)
+        rec = record_names(json.load(open(f'out/prod/{vol}/{i}.json')))
+        for name, n in sorted(f.items()):
+            per.append((i, vol, atype, name, str(n)))
+        for name, p in REC_CHECK.items():
+            d = name in f or (name == 'joinpoint (any scale)' and any(k.startswith('joinpoint: ') for k in f))
+            r_ = bool(re.search(p, rec))
+            tally[name]['both' if d and r_ else 'declared only' if d else 'record only' if r_ else 'neither'] += 1
+            tally[name]['articles'] += d and name not in f
+        for name in f:
+            tally[name]['articles'] += 1
+    with open(f'{out}/surface_findings_{split}.tsv', 'w') as o:
+        o.write('id\tvolume\tarticle_type\tfinding\tn_sentences\n')
+        for x in per:
+            o.write('\t'.join(x) + '\n')
+    names = sorted({x[3] for x in per} | set(REC_CHECK))
+    with open(f'{out}/surface_findings_summary_{split}.tsv', 'w') as o:
+        o.write('finding\tarticles\trecord_check\tboth\tdeclared_only\trecord_only\n')
+        for name in names:
+            c = tally[name]
+            chk = name in REC_CHECK
+            o.write(f"{name}\t{c['articles']}\t{'yes' if chk else ''}\t{c['both'] if chk else ''}\t"
+                    f"{c['declared only'] if chk else ''}\t{c['record only'] if chk else ''}\n")
+    print(len(rows), 'articles;', len(names), 'findings;', len(per), 'article-finding rows ->', f'{out}/surface_findings_{split}.tsv')
+
+
 def predict(text, atype):
     sec = sections(text)
     return {lab: bool(f(*sec, atype)) for lab, f in RULES.items()}
@@ -437,7 +583,7 @@ def truth_band(lab, L):
 
 if __name__ == '__main__':
     ap = argparse.ArgumentParser()
-    ap.add_argument('cmd', choices=('mine', 'score', 'why'))
+    ap.add_argument('cmd', choices=('mine', 'score', 'why', 'findings'))
     ap.add_argument('--split', default='dev', choices=tuple(SPLITS))
     ap.add_argument('--out', default='reports')
     ap.add_argument('--label')
@@ -448,4 +594,4 @@ if __name__ == '__main__':
             raise SystemExit('why reads misses for tuning: dev split only')
         why(a.split, a.out, a.label)
     else:
-        (mine if a.cmd == 'mine' else score)(a.split, a.out)
+        {'mine': mine, 'score': score, 'findings': findings}[a.cmd](a.split, a.out)
