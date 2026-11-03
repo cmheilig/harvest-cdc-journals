@@ -1,5 +1,9 @@
 # mmwr-index-eval
 
+> **Frozen as of 2026-11-03.** Work on the MMWR index continues in the owner's private working repository. This folder is kept unchanged as public provenance: the records here (`out/`, `audit/`, `adjudication*/`, `adj_packet*/`, the ledgers and samples, and the pilot `packets/`) are final and will not be edited or overwritten. The briefs, decisions, plans, tools and reports were copied forward from commit `98a9c87c`, and later runs are read with those copies. A record made later never replaces one here. Re-reads, for example under a later brief, are separate runs with their own records.
+>
+> Everything below describes the folder as it stood at the freeze.
+
 An evaluation of LLM readers for indexing *MMWR* reports by **how they make claims about data**. It covers summaries, comparisons, tests, standardization, weighting and regression, along with design, data source, condition and a graded health-equity reading. The pilot closed on 2026-10-16 with brief v5.1; production follows `PRODUCTION_PLAN.md`, starting from `HANDOFF_LOCAL.md`. The output is not yet an index.
 
 ## Contents
