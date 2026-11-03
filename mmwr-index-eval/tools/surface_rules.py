@@ -6,6 +6,8 @@
                                                                      # check against the records' procedure names where one exists
     python3 tools/surface_rules.py size [--out DIR]                  # every built volume in prod_packets/, no records needed:
                                                                      # counts per volume and per period -> DIR/surface_sizing*.tsv
+    python3 tools/surface_rules.py sample [--out DIR]                # draw the older-volume slice (seeded) and stage its
+                                                                     # packets in prod_packets/older-slice/ for tools/api_read.py
 
 Labels come from out/prod/<vol>/mm*.json (brief v5.1/v5.2), text from prod_packets/<vol>/<id>/article.txt.
 Splits: dev = vols 72 and 73 (rules are tuned here); test = vol 71 (scored once, not tuned on); all = both.
@@ -585,6 +587,48 @@ def size(split, out):
     print(len(rows), 'articles in', len(vol), 'volumes ->', f'{out}/surface_sizing.tsv, {out}/surface_sizing_findings.tsv')
 
 
+# --- the older-volume slice (PRODUCTION_PLAN.md §4.4): reference reads to score the rules before 2022 ---------------------
+SLICE_KEY = 'older-slice'          # a volume key for tools/api_read.py: packets in prod_packets/older-slice/
+SLICE_STRATA = (('1999-2008', range(48, 58)), ('2009-2015', range(58, 65)), ('2016-2021', range(65, 71)))
+SLICE_SEED, SLICE_RANDOM = 20261103, 20
+SLICE_FLAGGED = (('regression', lambda pr, f: pr['reg:any'], 7),       # rarer labels, so each stratum can score them
+                 ('equity 2+', lambda pr, f: pr['eqband:2+'], 7),
+                 ('named test', lambda pr, f: any(k.startswith('test: ') for k in f), 6))
+
+
+def sample(split, out):
+    """Draw the slice: per stratum, SLICE_RANDOM at random, then the flagged quotas from the rest. Stage the packets."""
+    import random, shutil
+    rng = random.Random(SLICE_SEED)
+    rows, drawn = load_packets(range(70, 47, -1)), []
+    for name, vols in SLICE_STRATA:
+        pool = sorted((r for r in rows if r[1] in vols), key=lambda r: r[0])
+        info = {r[0]: (predict(r[3], r[2]), declared(r[3])) for r in pool}
+        pick = rng.sample(pool, SLICE_RANDOM)
+        for r in pick:
+            drawn.append((r, name, 'random'))
+        left = [r for r in pool if r not in pick]
+        for lab, g, k in SLICE_FLAGGED:
+            cand = [r for r in left if g(*info[r[0]])]
+            got = rng.sample(cand, min(k, len(cand)))
+            left = [r for r in left if r not in got]
+            drawn += [(r, name, f'flagged: {lab}') for r in got]
+    dest = f'prod_packets/{SLICE_KEY}'
+    os.makedirs(dest, exist_ok=True)
+    for (i, v, at, _), _, _ in drawn:
+        if not os.path.isdir(f'{dest}/{i}'):
+            shutil.copytree(f'prod_packets/{v}/{i}', f'{dest}/{i}')
+    with open(f'{dest}/frame.tsv', 'w') as o:
+        o.write('id\tstatus\tarticle_type\n')
+        o.writelines(f'{i}\tpacket\t{at}\n' for (i, v, at, _), _, _ in drawn)
+    with open(f'{out}/older_slice_sample.tsv', 'w') as o:
+        o.write('id\tvolume\tyear\tstratum\tdraw\tarticle_type\n')
+        o.writelines(f'{i}\t{v}\t{v + 1951}\t{s}\t{d}\t{at}\n' for (i, v, at, _), s, d in drawn)
+    n = collections.Counter((s, d.split(':')[0]) for _, s, d in drawn)
+    print(len(drawn), 'articles:', ', '.join(f'{s} {d} {c}' for (s, d), c in sorted(n.items())),
+          '->', f'{out}/older_slice_sample.tsv, {dest}/')
+
+
 def predict(text, atype):
     sec = sections(text)
     return {lab: bool(f(*sec, atype)) for lab, f in RULES.items()}
@@ -656,7 +700,7 @@ def truth_band(lab, L):
 
 if __name__ == '__main__':
     ap = argparse.ArgumentParser()
-    ap.add_argument('cmd', choices=('mine', 'score', 'why', 'findings', 'size'))
+    ap.add_argument('cmd', choices=('mine', 'score', 'why', 'findings', 'size', 'sample'))
     ap.add_argument('--split', default='dev', choices=tuple(SPLITS))
     ap.add_argument('--out', default='reports')
     ap.add_argument('--label')
@@ -667,4 +711,4 @@ if __name__ == '__main__':
             raise SystemExit('why reads misses for tuning: dev split only')
         why(a.split, a.out, a.label)
     else:
-        {'mine': mine, 'score': score, 'findings': findings, 'size': size}[a.cmd](a.split, a.out)
+        {'mine': mine, 'score': score, 'findings': findings, 'size': size, 'sample': sample}[a.cmd](a.split, a.out)
